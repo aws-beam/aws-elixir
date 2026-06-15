@@ -25,13 +25,277 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      get_tax_registration_document_request() :: %{
-        optional("destinationS3Location") => destination_s3_location(),
-        required("taxDocumentMetadata") => tax_document_metadata()
+      supplemental_tax_registration_entry() :: %{
+        "address" => address(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
+        "registrationType" => list(any())
       }
 
   """
-  @type get_tax_registration_document_request() :: %{(String.t() | atom()) => any()}
+  @type supplemental_tax_registration_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tax_inheritance_response() :: %{}
+
+  """
+  @type put_tax_inheritance_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      israel_additional_info() :: %{
+        "customerType" => list(any()),
+        "dealerType" => list(any())
+      }
+
+  """
+  @type israel_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spain_additional_info() :: %{
+        "registrationType" => list(any())
+      }
+
+  """
+  @type spain_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tax_registration_with_jurisdiction() :: %{
+        "additionalTaxInformation" => additional_info_response(),
+        "certifiedEmailId" => String.t() | atom(),
+        "jurisdiction" => jurisdiction(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
+        "registrationType" => list(any()),
+        "sector" => list(any()),
+        "status" => list(any()),
+        "taxDocumentMetadatas" => list(tax_document_metadata())
+      }
+
+  """
+  @type tax_registration_with_jurisdiction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tax_exemption_types_response() :: %{
+        "taxExemptionTypes" => list(tax_exemption_type())
+      }
+
+  """
+  @type get_tax_exemption_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_tax_registration_request() :: %{
+        required("accountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_tax_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jurisdiction() :: %{
+        "countryCode" => String.t() | atom(),
+        "stateOrRegion" => String.t() | atom()
+      }
+
+  """
+  @type jurisdiction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malaysia_additional_info() :: %{
+        "businessRegistrationNumber" => String.t() | atom(),
+        "serviceTaxCodes" => list(list(any())()),
+        "taxInformationNumber" => String.t() | atom()
+      }
+
+  """
+  @type malaysia_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authority() :: %{
+        "country" => String.t() | atom(),
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type authority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_supplemental_tax_registration_response() :: %{
+        "authorityId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type put_supplemental_tax_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_supplemental_tax_registrations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_supplemental_tax_registrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_meta_data() :: %{
+        "accountName" => String.t() | atom(),
+        "address" => address(),
+        "addressRoleMap" => map(),
+        "addressType" => list(any()),
+        "seller" => String.t() | atom()
+      }
+
+  """
+  @type account_meta_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tax_exemption_response() :: %{
+        "caseId" => String.t() | atom()
+      }
+
+  """
+  @type put_tax_exemption_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_details() :: %{
+        "accountId" => String.t() | atom(),
+        "accountMetaData" => account_meta_data(),
+        "taxInheritanceDetails" => tax_inheritance_details(),
+        "taxRegistration" => tax_registration_with_jurisdiction()
+      }
+
+  """
+  @type account_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uzbekistan_additional_info() :: %{
+        "taxRegistrationNumberType" => list(any()),
+        "vatRegistrationNumber" => String.t() | atom()
+      }
+
+  """
+  @type uzbekistan_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_tax_registration_error() :: %{
+        "accountId" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_tax_registration_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_tax_registration_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type put_tax_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment_upload_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type attachment_upload_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tax_registrations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_tax_registrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      address() :: %{
+        "addressLine1" => String.t() | atom(),
+        "addressLine2" => String.t() | atom(),
+        "addressLine3" => String.t() | atom(),
+        "city" => String.t() | atom(),
+        "countryCode" => String.t() | atom(),
+        "districtOrCounty" => String.t() | atom(),
+        "postalCode" => String.t() | atom(),
+        "stateOrRegion" => String.t() | atom()
+      }
+
+  """
+  @type address() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,6 +314,30 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      validation_exception() :: %{
+        "errorCode" => list(any()),
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ukraine_additional_info() :: %{
+        "ukraineTrnType" => list(any())
+      }
+
+  """
+  @type ukraine_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       source_s3_location() :: %{
         "bucket" => String.t() | atom(),
         "key" => String.t() | atom()
@@ -62,24 +350,87 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      batch_delete_tax_registration_response() :: %{
-        "errors" => list(batch_delete_tax_registration_error())
+      supplemental_tax_registration() :: %{
+        "address" => address(),
+        "authorityId" => String.t() | atom(),
+        "legalName" => String.t() | atom(),
+        "registrationId" => String.t() | atom(),
+        "registrationType" => list(any()),
+        "status" => list(any())
       }
 
   """
-  @type batch_delete_tax_registration_response() :: %{(String.t() | atom()) => any()}
+  @type supplemental_tax_registration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tax_exemptions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      additional_info_request() :: %{
+        "belgiumAdditionalInfo" => belgium_additional_info(),
+        "canadaAdditionalInfo" => canada_additional_info(),
+        "chileAdditionalInfo" => chile_additional_info(),
+        "egyptAdditionalInfo" => egypt_additional_info(),
+        "estoniaAdditionalInfo" => estonia_additional_info(),
+        "franceAdditionalInfo" => france_additional_info(),
+        "georgiaAdditionalInfo" => georgia_additional_info(),
+        "greeceAdditionalInfo" => greece_additional_info(),
+        "indonesiaAdditionalInfo" => indonesia_additional_info(),
+        "israelAdditionalInfo" => israel_additional_info(),
+        "italyAdditionalInfo" => italy_additional_info(),
+        "kenyaAdditionalInfo" => kenya_additional_info(),
+        "malaysiaAdditionalInfo" => malaysia_additional_info(),
+        "philippinesAdditionalInfo" => philippines_additional_info(),
+        "polandAdditionalInfo" => poland_additional_info(),
+        "romaniaAdditionalInfo" => romania_additional_info(),
+        "saudiArabiaAdditionalInfo" => saudi_arabia_additional_info(),
+        "southKoreaAdditionalInfo" => south_korea_additional_info(),
+        "spainAdditionalInfo" => spain_additional_info(),
+        "turkeyAdditionalInfo" => turkey_additional_info(),
+        "ukraineAdditionalInfo" => ukraine_additional_info(),
+        "uzbekistanAdditionalInfo" => uzbekistan_additional_info(),
+        "vietnamAdditionalInfo" => vietnam_additional_info()
       }
 
   """
-  @type list_tax_exemptions_request() :: %{(String.t() | atom()) => any()}
+  @type additional_info_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tax_exemption_type() :: %{
+        "applicableJurisdictions" => list(authority()),
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom()
+      }
+
+  """
+  @type tax_exemption_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_supplemental_tax_registration_response() :: %{}
+
+  """
+  @type delete_supplemental_tax_registration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      italy_additional_info() :: %{
+        "cigNumber" => String.t() | atom(),
+        "cupNumber" => String.t() | atom(),
+        "customerType" => list(any()),
+        "sdiAccountId" => String.t() | atom(),
+        "taxCode" => String.t() | atom()
+      }
+
+  """
+  @type italy_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,50 +471,35 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      chile_additional_info() :: %{
-        "businessActivity" => String.t() | atom(),
-        "documentType" => list(any())
+      get_tax_registration_request() :: %{
+        optional("accountId") => String.t() | atom()
       }
 
   """
-  @type chile_additional_info() :: %{(String.t() | atom()) => any()}
+  @type get_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ukraine_additional_info() :: %{
-        "ukraineTrnType" => list(any())
+      put_tax_inheritance_request() :: %{
+        optional("heritageStatus") => list(any())
       }
 
   """
-  @type ukraine_additional_info() :: %{(String.t() | atom()) => any()}
+  @type put_tax_inheritance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      italy_additional_info() :: %{
-        "cigNumber" => String.t() | atom(),
-        "cupNumber" => String.t() | atom(),
-        "customerType" => list(any()),
-        "sdiAccountId" => String.t() | atom(),
-        "taxCode" => String.t() | atom()
-      }
-
-  """
-  @type italy_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attachment_upload_exception() :: %{
+      internal_server_exception() :: %{
+        "errorCode" => String.t() | atom(),
         "message" => String.t() | atom()
       }
 
   """
-  @type attachment_upload_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -176,6 +512,30 @@ defmodule AWS.TaxSettings do
 
   """
   @type tax_inheritance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chile_additional_info() :: %{
+        "businessActivity" => String.t() | atom(),
+        "documentType" => list(any())
+      }
+
+  """
+  @type chile_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verification_details() :: %{
+        "dateOfBirth" => String.t() | atom(),
+        "taxRegistrationDocuments" => list(tax_registration_document())
+      }
+
+  """
+  @type verification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -197,14 +557,47 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      malaysia_additional_info() :: %{
-        "businessRegistrationNumber" => String.t() | atom(),
-        "serviceTaxCodes" => list(list(any())()),
-        "taxInformationNumber" => String.t() | atom()
+      delete_supplemental_tax_registration_request() :: %{
+        required("authorityId") => String.t() | atom()
       }
 
   """
-  @type malaysia_additional_info() :: %{(String.t() | atom()) => any()}
+  @type delete_supplemental_tax_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_tax_exemptions_request() :: %{
+        required("accountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_tax_exemptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tax_registration_document() :: %{
+        "file" => tax_registration_doc_file(),
+        "s3Location" => source_s3_location()
+      }
+
+  """
+  @type tax_registration_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -221,59 +614,25 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      greece_additional_info() :: %{
-        "contractingAuthorityCode" => String.t() | atom()
+      batch_put_tax_registration_response() :: %{
+        "errors" => list(batch_put_tax_registration_error()),
+        "status" => list(any())
       }
 
   """
-  @type greece_additional_info() :: %{(String.t() | atom()) => any()}
+  @type batch_put_tax_registration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_tax_registration_response() :: %{
-        "taxRegistration" => tax_registration()
+      list_tax_exemptions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_tax_registration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tax_registration_doc_file() :: %{
-        "fileContent" => binary(),
-        "fileName" => String.t() | atom()
-      }
-
-  """
-  @type tax_registration_doc_file() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      india_additional_info() :: %{
-        "pan" => String.t() | atom()
-      }
-
-  """
-  @type india_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      poland_additional_info() :: %{
-        "individualRegistrationNumber" => String.t() | atom(),
-        "isGroupVatEnabled" => [boolean()],
-        "taxRegistrationNumberType" => list(any())
-      }
-
-  """
-  @type poland_additional_info() :: %{(String.t() | atom()) => any()}
+  @type list_tax_exemptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,112 +650,13 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      batch_get_tax_exemptions_response() :: %{
-        "failedAccounts" => list(String.t() | atom()),
-        "taxExemptionDetailsMap" => map()
+      destination_s3_location() :: %{
+        "bucket" => String.t() | atom(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type batch_get_tax_exemptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_supplemental_tax_registration_request() :: %{
-        required("taxRegistrationEntry") => supplemental_tax_registration_entry()
-      }
-
-  """
-  @type put_supplemental_tax_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_tax_registration_request() :: %{
-        required("accountIds") => list(String.t() | atom()),
-        required("taxRegistrationEntry") => tax_registration_entry()
-      }
-
-  """
-  @type batch_put_tax_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      egypt_additional_info() :: %{
-        "uniqueIdentificationNumber" => String.t() | atom(),
-        "uniqueIdentificationNumberExpirationDate" => String.t() | atom()
-      }
-
-  """
-  @type egypt_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      case_creation_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type case_creation_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_supplemental_tax_registration_request() :: %{
-        required("authorityId") => String.t() | atom()
-      }
-
-  """
-  @type delete_supplemental_tax_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tax_exemption_types_request() :: %{}
-
-  """
-  @type get_tax_exemption_types_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tax_registration_request() :: %{
-        optional("accountId") => String.t() | atom()
-      }
-
-  """
-  @type get_tax_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tax_inheritance_response() :: %{
-        "heritageStatus" => list(any())
-      }
-
-  """
-  @type get_tax_inheritance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      romania_additional_info() :: %{
-        "taxRegistrationNumberType" => list(any())
-      }
-
-  """
-  @type romania_additional_info() :: %{(String.t() | atom()) => any()}
+  @type destination_s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,48 +674,81 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      additional_info_request() :: %{
-        "belgiumAdditionalInfo" => belgium_additional_info(),
-        "canadaAdditionalInfo" => canada_additional_info(),
-        "chileAdditionalInfo" => chile_additional_info(),
-        "egyptAdditionalInfo" => egypt_additional_info(),
-        "estoniaAdditionalInfo" => estonia_additional_info(),
-        "franceAdditionalInfo" => france_additional_info(),
-        "georgiaAdditionalInfo" => georgia_additional_info(),
-        "greeceAdditionalInfo" => greece_additional_info(),
-        "indonesiaAdditionalInfo" => indonesia_additional_info(),
-        "israelAdditionalInfo" => israel_additional_info(),
-        "italyAdditionalInfo" => italy_additional_info(),
-        "kenyaAdditionalInfo" => kenya_additional_info(),
-        "malaysiaAdditionalInfo" => malaysia_additional_info(),
-        "philippinesAdditionalInfo" => philippines_additional_info(),
-        "polandAdditionalInfo" => poland_additional_info(),
-        "romaniaAdditionalInfo" => romania_additional_info(),
-        "saudiArabiaAdditionalInfo" => saudi_arabia_additional_info(),
-        "southKoreaAdditionalInfo" => south_korea_additional_info(),
-        "spainAdditionalInfo" => spain_additional_info(),
-        "turkeyAdditionalInfo" => turkey_additional_info(),
-        "ukraineAdditionalInfo" => ukraine_additional_info(),
-        "uzbekistanAdditionalInfo" => uzbekistan_additional_info(),
-        "vietnamAdditionalInfo" => vietnam_additional_info()
+      get_tax_inheritance_response() :: %{
+        "heritageStatus" => list(any())
       }
 
   """
-  @type additional_info_request() :: %{(String.t() | atom()) => any()}
+  @type get_tax_inheritance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      supplemental_tax_registration_entry() :: %{
-        "address" => address(),
-        "legalName" => String.t() | atom(),
-        "registrationId" => String.t() | atom(),
-        "registrationType" => list(any())
+      georgia_additional_info() :: %{
+        "personType" => list(any())
       }
 
   """
-  @type supplemental_tax_registration_entry() :: %{(String.t() | atom()) => any()}
+  @type georgia_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "errorCode" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      turkey_additional_info() :: %{
+        "industries" => list(any()),
+        "kepEmailId" => String.t() | atom(),
+        "secondaryTaxId" => String.t() | atom(),
+        "taxOffice" => String.t() | atom()
+      }
+
+  """
+  @type turkey_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tax_inheritance_request() :: %{}
+
+  """
+  @type get_tax_inheritance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_tax_registration_request() :: %{
+        required("accountIds") => list(String.t() | atom()),
+        required("taxRegistrationEntry") => tax_registration_entry()
+      }
+
+  """
+  @type batch_put_tax_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_creation_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type case_creation_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -470,14 +763,35 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      tax_exemption_type() :: %{
-        "applicableJurisdictions" => list(authority()),
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom()
+      validation_exception_field() :: %{
+        "name" => String.t() | atom()
       }
 
   """
-  @type tax_exemption_type() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tax_document_metadata() :: %{
+        "taxDocumentAccessToken" => String.t() | atom(),
+        "taxDocumentName" => String.t() | atom()
+      }
+
+  """
+  @type tax_document_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      saudi_arabia_additional_info() :: %{
+        "taxRegistrationNumberType" => list(any())
+      }
+
+  """
+  @type saudi_arabia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -496,166 +810,6 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      authority() :: %{
-        "country" => String.t() | atom(),
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type authority() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tax_exemption_types_response() :: %{
-        "taxExemptionTypes" => list(tax_exemption_type())
-      }
-
-  """
-  @type get_tax_exemption_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_tax_registration_response() :: %{
-        "errors" => list(batch_put_tax_registration_error()),
-        "status" => list(any())
-      }
-
-  """
-  @type batch_put_tax_registration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tax_document_metadata() :: %{
-        "taxDocumentAccessToken" => String.t() | atom(),
-        "taxDocumentName" => String.t() | atom()
-      }
-
-  """
-  @type tax_document_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "errorCode" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "errorCode" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      estonia_additional_info() :: %{
-        "registryCommercialCode" => String.t() | atom()
-      }
-
-  """
-  @type estonia_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tax_registrations_response() :: %{
-        "accountDetails" => list(account_details()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_tax_registrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tax_registrations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_tax_registrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      spain_additional_info() :: %{
-        "registrationType" => list(any())
-      }
-
-  """
-  @type spain_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_supplemental_tax_registration_response() :: %{
-        "authorityId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type put_supplemental_tax_registration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      georgia_additional_info() :: %{
-        "personType" => list(any())
-      }
-
-  """
-  @type georgia_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_tax_inheritance_response() :: %{}
-
-  """
-  @type put_tax_inheritance_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      france_additional_info() :: %{
-        "sirenNumber" => String.t() | atom()
-      }
-
-  """
-  @type france_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_tax_exemptions_response() :: %{
         "nextToken" => String.t() | atom(),
         "taxExemptionDetailsMap" => map()
@@ -663,140 +817,6 @@ defmodule AWS.TaxSettings do
 
   """
   @type list_tax_exemptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_details() :: %{
-        "accountId" => String.t() | atom(),
-        "accountMetaData" => account_meta_data(),
-        "taxInheritanceDetails" => tax_inheritance_details(),
-        "taxRegistration" => tax_registration_with_jurisdiction()
-      }
-
-  """
-  @type account_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_tax_exemption_response() :: %{
-        "caseId" => String.t() | atom()
-      }
-
-  """
-  @type put_tax_exemption_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tax_registration_document() :: %{
-        "file" => tax_registration_doc_file(),
-        "s3Location" => source_s3_location()
-      }
-
-  """
-  @type tax_registration_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_s3_location() :: %{
-        "bucket" => String.t() | atom(),
-        "prefix" => String.t() | atom()
-      }
-
-  """
-  @type destination_s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_tax_registration_error() :: %{
-        "accountId" => String.t() | atom(),
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type batch_delete_tax_registration_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      saudi_arabia_additional_info() :: %{
-        "taxRegistrationNumberType" => list(any())
-      }
-
-  """
-  @type saudi_arabia_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canada_additional_info() :: %{
-        "canadaQuebecSalesTaxNumber" => String.t() | atom(),
-        "canadaRetailSalesTaxNumber" => String.t() | atom(),
-        "isResellerAccount" => [boolean()],
-        "provincialSalesTaxId" => String.t() | atom()
-      }
-
-  """
-  @type canada_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      uzbekistan_additional_info() :: %{
-        "taxRegistrationNumberType" => list(any()),
-        "vatRegistrationNumber" => String.t() | atom()
-      }
-
-  """
-  @type uzbekistan_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_tax_registration_request() :: %{
-        optional("accountId") => String.t() | atom(),
-        required("taxRegistrationEntry") => tax_registration_entry()
-      }
-
-  """
-  @type put_tax_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verification_details() :: %{
-        "dateOfBirth" => String.t() | atom(),
-        "taxRegistrationDocuments" => list(tax_registration_document())
-      }
-
-  """
-  @type verification_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,13 +833,62 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "errorCode" => String.t() | atom(),
-        "message" => String.t() | atom()
+      get_tax_registration_document_request() :: %{
+        optional("destinationS3Location") => destination_s3_location(),
+        required("taxDocumentMetadata") => tax_document_metadata()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type get_tax_registration_document_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vietnam_additional_info() :: %{
+        "electronicTransactionCodeNumber" => String.t() | atom(),
+        "enterpriseIdentificationNumber" => String.t() | atom(),
+        "paymentVoucherNumber" => String.t() | atom(),
+        "paymentVoucherNumberDate" => String.t() | atom()
+      }
+
+  """
+  @type vietnam_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      philippines_additional_info() :: %{
+        "isVatRegistered" => [boolean()]
+      }
+
+  """
+  @type philippines_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tax_registration_document_response() :: %{
+        "destinationFilePath" => String.t() | atom(),
+        "presignedS3Url" => String.t() | atom()
+      }
+
+  """
+  @type get_tax_registration_document_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tax_registrations_response() :: %{
+        "accountDetails" => list(account_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_tax_registrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -844,29 +913,51 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      turkey_additional_info() :: %{
-        "industries" => list(any()),
-        "kepEmailId" => String.t() | atom(),
-        "secondaryTaxId" => String.t() | atom(),
-        "taxOffice" => String.t() | atom()
+      canada_additional_info() :: %{
+        "canadaQuebecSalesTaxNumber" => String.t() | atom(),
+        "canadaRetailSalesTaxNumber" => String.t() | atom(),
+        "isResellerAccount" => [boolean()],
+        "provincialSalesTaxId" => String.t() | atom()
       }
 
   """
-  @type turkey_additional_info() :: %{(String.t() | atom()) => any()}
+  @type canada_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vietnam_additional_info() :: %{
-        "electronicTransactionCodeNumber" => String.t() | atom(),
-        "enterpriseIdentificationNumber" => String.t() | atom(),
-        "paymentVoucherNumber" => String.t() | atom(),
-        "paymentVoucherNumberDate" => String.t() | atom()
+      put_tax_exemption_request() :: %{
+        required("accountIds") => list(String.t() | atom()),
+        required("authority") => authority(),
+        required("exemptionCertificate") => exemption_certificate(),
+        required("exemptionType") => String.t() | atom()
       }
 
   """
-  @type vietnam_additional_info() :: %{(String.t() | atom()) => any()}
+  @type put_tax_exemption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      france_additional_info() :: %{
+        "sirenNumber" => String.t() | atom()
+      }
+
+  """
+  @type france_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      romania_additional_info() :: %{
+        "taxRegistrationNumberType" => list(any())
+      }
+
+  """
+  @type romania_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,77 +981,105 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      philippines_additional_info() :: %{
-        "isVatRegistered" => [boolean()]
+      exemption_certificate() :: %{
+        "documentFile" => binary(),
+        "documentName" => String.t() | atom()
       }
 
   """
-  @type philippines_additional_info() :: %{(String.t() | atom()) => any()}
+  @type exemption_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_tax_exemption_request() :: %{
-        required("accountIds") => list(String.t() | atom()),
-        required("authority") => authority(),
-        required("exemptionCertificate") => exemption_certificate(),
-        required("exemptionType") => String.t() | atom()
+      egypt_additional_info() :: %{
+        "uniqueIdentificationNumber" => String.t() | atom(),
+        "uniqueIdentificationNumberExpirationDate" => String.t() | atom()
       }
 
   """
-  @type put_tax_exemption_request() :: %{(String.t() | atom()) => any()}
+  @type egypt_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
+      batch_delete_tax_registration_response() :: %{
+        "errors" => list(batch_delete_tax_registration_error())
+      }
+
+  """
+  @type batch_delete_tax_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      poland_additional_info() :: %{
+        "individualRegistrationNumber" => String.t() | atom(),
+        "isGroupVatEnabled" => [boolean()],
+        "taxRegistrationNumberType" => list(any())
+      }
+
+  """
+  @type poland_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tax_exemption_types_request() :: %{}
+
+  """
+  @type get_tax_exemption_types_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tax_registration_response() :: %{
+        "taxRegistration" => tax_registration()
+      }
+
+  """
+  @type get_tax_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      india_additional_info() :: %{
+        "pan" => String.t() | atom()
+      }
+
+  """
+  @type india_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_tax_registration_error() :: %{
+        "accountId" => String.t() | atom(),
+        "code" => String.t() | atom(),
         "message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type batch_put_tax_registration_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_supplemental_tax_registrations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      list_supplemental_tax_registrations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "taxRegistrations" => list(supplemental_tax_registration())
       }
 
   """
-  @type list_supplemental_tax_registrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tax_registration_with_jurisdiction() :: %{
-        "additionalTaxInformation" => additional_info_response(),
-        "certifiedEmailId" => String.t() | atom(),
-        "jurisdiction" => jurisdiction(),
-        "legalName" => String.t() | atom(),
-        "registrationId" => String.t() | atom(),
-        "registrationType" => list(any()),
-        "sector" => list(any()),
-        "status" => list(any()),
-        "taxDocumentMetadatas" => list(tax_document_metadata())
-      }
-
-  """
-  @type tax_registration_with_jurisdiction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_supplemental_tax_registration_response() :: %{}
-
-  """
-  @type delete_supplemental_tax_registration_response() :: %{}
+  @type list_supplemental_tax_registrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -980,251 +1099,132 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
-      validation_exception() :: %{
-        "errorCode" => list(any()),
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom()
+      put_tax_registration_request() :: %{
+        optional("accountId") => String.t() | atom(),
+        required("taxRegistrationEntry") => tax_registration_entry()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type put_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_supplemental_tax_registrations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "taxRegistrations" => list(supplemental_tax_registration())
+      put_supplemental_tax_registration_request() :: %{
+        required("taxRegistrationEntry") => supplemental_tax_registration_entry()
       }
 
   """
-  @type list_supplemental_tax_registrations_response() :: %{(String.t() | atom()) => any()}
+  @type put_supplemental_tax_registration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_tax_inheritance_request() :: %{}
+      greece_additional_info() :: %{
+        "contractingAuthorityCode" => String.t() | atom()
+      }
 
   """
-  @type get_tax_inheritance_request() :: %{}
+  @type greece_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_put_tax_registration_error() :: %{
-        "accountId" => String.t() | atom(),
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
+      estonia_additional_info() :: %{
+        "registryCommercialCode" => String.t() | atom()
       }
 
   """
-  @type batch_put_tax_registration_error() :: %{(String.t() | atom()) => any()}
+  @type estonia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_tax_inheritance_request() :: %{
-        optional("heritageStatus") => list(any())
+      tax_registration_doc_file() :: %{
+        "fileContent" => binary(),
+        "fileName" => String.t() | atom()
       }
 
   """
-  @type put_tax_inheritance_request() :: %{(String.t() | atom()) => any()}
+  @type tax_registration_doc_file() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      exemption_certificate() :: %{
-        "documentFile" => binary(),
-        "documentName" => String.t() | atom()
+      batch_get_tax_exemptions_response() :: %{
+        "failedAccounts" => list(String.t() | atom()),
+        "taxExemptionDetailsMap" => map()
       }
 
   """
-  @type exemption_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      address() :: %{
-        "addressLine1" => String.t() | atom(),
-        "addressLine2" => String.t() | atom(),
-        "addressLine3" => String.t() | atom(),
-        "city" => String.t() | atom(),
-        "countryCode" => String.t() | atom(),
-        "districtOrCounty" => String.t() | atom(),
-        "postalCode" => String.t() | atom(),
-        "stateOrRegion" => String.t() | atom()
-      }
-
-  """
-  @type address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      israel_additional_info() :: %{
-        "customerType" => list(any()),
-        "dealerType" => list(any())
-      }
-
-  """
-  @type israel_additional_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      supplemental_tax_registration() :: %{
-        "address" => address(),
-        "authorityId" => String.t() | atom(),
-        "legalName" => String.t() | atom(),
-        "registrationId" => String.t() | atom(),
-        "registrationType" => list(any()),
-        "status" => list(any())
-      }
-
-  """
-  @type supplemental_tax_registration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      jurisdiction() :: %{
-        "countryCode" => String.t() | atom(),
-        "stateOrRegion" => String.t() | atom()
-      }
-
-  """
-  @type jurisdiction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_tax_exemptions_request() :: %{
-        required("accountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_tax_exemptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_meta_data() :: %{
-        "accountName" => String.t() | atom(),
-        "address" => address(),
-        "addressRoleMap" => map(),
-        "addressType" => list(any()),
-        "seller" => String.t() | atom()
-      }
-
-  """
-  @type account_meta_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_tax_registration_request() :: %{
-        required("accountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_tax_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_tax_registration_response() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type put_tax_registration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tax_registration_document_response() :: %{
-        "destinationFilePath" => String.t() | atom(),
-        "presignedS3Url" => String.t() | atom()
-      }
-
-  """
-  @type get_tax_registration_document_response() :: %{(String.t() | atom()) => any()}
+  @type batch_get_tax_exemptions_response() :: %{(String.t() | atom()) => any()}
 
   @type batch_delete_tax_registration_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   @type batch_get_tax_exemptions_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type batch_put_tax_registration_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   @type delete_supplemental_tax_registration_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_tax_registration_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_tax_exemption_types_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type get_tax_inheritance_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type get_tax_registration_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type get_tax_registration_document_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
   @type list_supplemental_tax_registrations_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_tax_exemptions_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_tax_registrations_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type put_supplemental_tax_registration_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   @type put_tax_exemption_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          case_creation_limit_exceeded_exception()
           | resource_not_found_exception()
-          | case_creation_limit_exceeded_exception()
+          | internal_server_exception()
+          | validation_exception()
           | attachment_upload_exception()
+          | access_denied_exception()
 
   @type put_tax_inheritance_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type put_tax_registration_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   def metadata do
     %{

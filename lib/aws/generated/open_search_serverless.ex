@@ -22,49 +22,63 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      collection_filters() :: %{
-        "collectionGroupName" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
+      ocu_limit_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type collection_filters() :: %{(String.t() | atom()) => any()}
+  @type ocu_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_access_policies_response() :: %{
-        optional("accessPolicySummaries") => list(access_policy_summary()),
-        optional("nextToken") => [String.t() | atom()]
+      delete_security_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
+  @type delete_security_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_lifecycle_policy_request() :: %{
-        required("identifiers") => list(lifecycle_policy_identifier())
+      delete_vpc_endpoint_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
       }
       
   """
-  @type batch_get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+  @type delete_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_collection_groups_response() :: %{
-        "collectionGroupSummaries" => list(collection_group_summary()),
-        "nextToken" => [String.t() | atom()]
+      update_security_policy_response() :: %{
+        optional("securityPolicyDetail") => security_policy_detail()
       }
       
   """
-  @type list_collection_groups_response() :: %{(String.t() | atom()) => any()}
+  @type update_security_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_collection_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("deletionProtection") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("vectorOptions") => vector_options(),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type update_collection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,47 +97,301 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
+      security_config_stats() :: %{
+        "SamlConfigCount" => [float()]
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type security_config_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      iam_identity_center_config_options() :: %{
-        "applicationArn" => String.t() | atom(),
-        "applicationDescription" => [String.t() | atom()],
-        "applicationName" => [String.t() | atom()],
+      update_collection_group_response() :: %{
+        "updateCollectionGroupDetail" => update_collection_group_detail()
+      }
+      
+  """
+  @type update_collection_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_endpoint_response() :: %{
+        optional("createVpcEndpointDetail") => create_vpc_endpoint_detail()
+      }
+      
+  """
+  @type create_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_filters() :: %{
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_endpoint_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_collection_request() :: %{
+        optional("ids") => list(String.t() | atom()),
+        optional("names") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_collection_groups_response() :: %{
+        "collectionGroupSummaries" => list(collection_group_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_collection_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_collection_detail() :: %{
+        "arn" => [String.t() | atom()],
+        "createdDate" => [float()],
+        "deletionProtection" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "vectorOptions" => vector_options()
+      }
+      
+  """
+  @type update_collection_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_access_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policy") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type create_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_collections_request() :: %{
+        optional("collectionFilters") => collection_filters(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_collections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lifecycle_policy_response() :: %{
+        "lifecyclePolicyDetail" => lifecycle_policy_detail()
+      }
+      
+  """
+  @type update_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_endpoint_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        required("name") => String.t() | atom(),
+        required("subnetIds") => list(String.t() | atom()),
+        required("vpcId") => String.t() | atom()
+      }
+      
+  """
+  @type create_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_security_config_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("iamFederationOptions") => iam_federation_config_options(),
+        optional("iamIdentityCenterOptions") => create_iam_identity_center_config_options(),
+        optional("samlOptions") => saml_config_options(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type create_security_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_index_response() :: %{}
+      
+  """
+  @type update_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_policy_detail() :: %{
+        "createdDate" => [float()],
+        "description" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom(),
+        "policy" => [any()],
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type access_policy_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iam_federation_config_options() :: %{
         "groupAttribute" => String.t() | atom(),
-        "instanceArn" => String.t() | atom(),
         "userAttribute" => String.t() | atom()
       }
       
   """
-  @type iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
+  @type iam_federation_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      encryption_config() :: %{
-        "aWSOwnedKey" => [boolean()],
-        "kmsKeyArn" => [String.t() | atom()]
+      saml_config_options() :: %{
+        "groupAttribute" => String.t() | atom(),
+        "metadata" => String.t() | atom(),
+        "openSearchServerlessEntityId" => String.t() | atom(),
+        "sessionTimeout" => [integer()],
+        "userAttribute" => String.t() | atom()
       }
       
   """
-  @type encryption_config() :: %{(String.t() | atom()) => any()}
+  @type saml_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      collection_error_detail() :: %{
+      create_vpc_endpoint_detail() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type create_vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_details() :: %{
+        "autoscalingStatus" => String.t() | atom(),
+        "capacityInOcu" => [float()]
+      }
+      
+  """
+  @type capacity_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_config_request() :: %{
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type get_security_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_endpoint_response() :: %{
+        optional("deleteVpcEndpointDetail") => delete_vpc_endpoint_detail()
+      }
+      
+  """
+  @type delete_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_account_settings_request() :: %{
+        optional("capacityLimits") => capacity_limits()
+      }
+      
+  """
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_group_error_detail() :: %{
         "errorCode" => [String.t() | atom()],
         "errorMessage" => [String.t() | atom()],
         "id" => String.t() | atom(),
@@ -131,61 +399,76 @@ defmodule AWS.OpenSearchServerless do
       }
       
   """
-  @type collection_error_detail() :: %{(String.t() | atom()) => any()}
+  @type collection_group_error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      security_policy_summary() :: %{
-        "createdDate" => [float()],
-        "description" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "name" => String.t() | atom(),
-        "policyVersion" => String.t() | atom(),
+      create_collection_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("collectionGroupName") => String.t() | atom(),
+        optional("deletionProtection") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("encryptionConfig") => encryption_config(),
+        optional("standbyReplicas") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("type") => String.t() | atom(),
+        optional("vectorOptions") => vector_options(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_resource_identifier() :: %{
+        "resource" => String.t() | atom(),
         "type" => String.t() | atom()
       }
       
   """
-  @type security_policy_summary() :: %{(String.t() | atom()) => any()}
+  @type lifecycle_policy_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_security_config_response() :: %{}
-      
-  """
-  @type delete_security_config_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_security_configs_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("type") => String.t() | atom()
+      effective_lifecycle_policy_error_detail() :: %{
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "resource" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type list_security_configs_request() :: %{(String.t() | atom()) => any()}
+  @type effective_lifecycle_policy_error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_lifecycle_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("policy") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("policyVersion") => String.t() | atom(),
-        required("type") => String.t() | atom()
+      get_index_response() :: %{
+        "indexSchema" => any()
       }
       
   """
-  @type update_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+  @type get_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_collections_response() :: %{
+        optional("collectionSummaries") => list(collection_summary()),
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_collections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -203,236 +486,23 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_lifecycle_policy_response() :: %{
-        "lifecyclePolicyDetails" => list(lifecycle_policy_detail()),
-        "lifecyclePolicyErrorDetails" => list(lifecycle_policy_error_detail())
+      update_security_config_response() :: %{
+        optional("securityConfigDetail") => security_config_detail()
       }
       
   """
-  @type batch_get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+  @type update_security_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_account_settings_request() :: %{}
-      
-  """
-  @type get_account_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_config_stats() :: %{
-        "SamlConfigCount" => [float()]
+      create_collection_group_response() :: %{
+        "createCollectionGroupDetail" => create_collection_group_detail()
       }
       
   """
-  @type security_config_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_access_policy_response() :: %{}
-      
-  """
-  @type delete_access_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      fips_endpoints() :: %{
-        "collectionEndpoint" => [String.t() | atom()],
-        "dashboardEndpoint" => [String.t() | atom()]
-      }
-      
-  """
-  @type fips_endpoints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      collection_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "collectionGroupName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "kmsKeyArn" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type collection_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_index_request() :: %{
-        required("id") => String.t() | atom(),
-        required("indexName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_settings_response() :: %{
-        optional("accountSettingsDetail") => account_settings_detail()
-      }
-      
-  """
-  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vpc_endpoints_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("vpcEndpointFilters") => vpc_endpoint_filters()
-      }
-      
-  """
-  @type list_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_lifecycle_policy_response() :: %{
-        "lifecyclePolicyDetail" => lifecycle_policy_detail()
-      }
-      
-  """
-  @type update_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_endpoint_summary() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_endpoint_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_vpc_endpoints_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        optional("vpcEndpointSummaries") => list(vpc_endpoint_summary())
-      }
-      
-  """
-  @type list_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_security_policy_request() :: %{
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type get_security_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      collection_detail() :: %{
-        "arn" => [String.t() | atom()],
-        "collectionEndpoint" => [String.t() | atom()],
-        "collectionGroupName" => String.t() | atom(),
-        "createdDate" => [float()],
-        "dashboardEndpoint" => [String.t() | atom()],
-        "deletionProtection" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "failureCode" => [String.t() | atom()],
-        "failureMessage" => [String.t() | atom()],
-        "fipsEndpoints" => fips_endpoints(),
-        "id" => String.t() | atom(),
-        "kmsKeyArn" => [String.t() | atom()],
-        "lastModifiedDate" => [float()],
-        "name" => String.t() | atom(),
-        "standbyReplicas" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "vectorOptions" => vector_options()
-      }
-      
-  """
-  @type collection_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_account_settings_response() :: %{
-        optional("accountSettingsDetail") => account_settings_detail()
-      }
-      
-  """
-  @type update_account_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_access_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type delete_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_collection_group_response() :: %{}
-      
-  """
-  @type delete_collection_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      current_capacity() :: %{
-        "indexing" => capacity_details(),
-        "search" => capacity_details()
-      }
-      
-  """
-  @type current_capacity() :: %{(String.t() | atom()) => any()}
+  @type create_collection_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -452,26 +522,79 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      list_access_policies_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("resource") => list(String.t() | atom()),
-        required("type") => String.t() | atom()
-      }
+      get_account_settings_request() :: %{}
       
   """
-  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
+  @type get_account_settings_request() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      create_access_policy_response() :: %{
-        optional("accessPolicyDetail") => access_policy_detail()
+      list_access_policies_response() :: %{
+        optional("accessPolicySummaries") => list(access_policy_summary()),
+        optional("nextToken") => [String.t() | atom()]
       }
       
   """
-  @type create_access_policy_response() :: %{(String.t() | atom()) => any()}
+  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_settings_response() :: %{
+        optional("accountSettingsDetail") => account_settings_detail()
+      }
+      
+  """
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_access_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type delete_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_lifecycle_policy_request() :: %{
+        required("identifiers") => list(lifecycle_policy_identifier())
+      }
+      
+  """
+  @type batch_get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_collection_response() :: %{
+        optional("createCollectionDetail") => create_collection_detail()
+      }
+      
+  """
+  @type create_collection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -493,23 +616,329 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      vpc_endpoint_filters() :: %{
-        "status" => String.t() | atom()
+      collection_group_capacity_limits() :: %{
+        "maxIndexingCapacityInOCU" => float(),
+        "maxSearchCapacityInOCU" => float(),
+        "minIndexingCapacityInOCU" => float(),
+        "minSearchCapacityInOCU" => float()
       }
       
   """
-  @type vpc_endpoint_filters() :: %{(String.t() | atom()) => any()}
+  @type collection_group_capacity_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_vpc_endpoint_response() :: %{
-        optional("deleteVpcEndpointDetail") => delete_vpc_endpoint_detail()
+      update_vpc_endpoint_detail() :: %{
+        "id" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom())
       }
       
   """
-  @type delete_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type update_vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_lifecycle_policy_response() :: %{
+        "lifecyclePolicyDetails" => list(lifecycle_policy_detail()),
+        "lifecyclePolicyErrorDetails" => list(lifecycle_policy_error_detail())
+      }
+      
+  """
+  @type batch_get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_response() :: %{}
+      
+  """
+  @type delete_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_detail() :: %{
+        "createdDate" => [float()],
+        "description" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom(),
+        "policy" => [any()],
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type lifecycle_policy_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_index_request() :: %{
+        optional("indexSchema") => any(),
+        required("id") => String.t() | atom(),
+        required("indexName") => String.t() | atom()
+      }
+      
+  """
+  @type create_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_security_configs_response() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        optional("securityConfigSummaries") => list(security_config_summary())
+      }
+      
+  """
+  @type list_security_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_request() :: %{
+        required("id") => String.t() | atom(),
+        required("indexName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_security_policy_response() :: %{
+        optional("securityPolicyDetail") => security_policy_detail()
+      }
+      
+  """
+  @type create_security_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_collection_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("policy") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policyVersion") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type update_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_effective_lifecycle_policy_request() :: %{
+        required("resourceIdentifiers") => list(lifecycle_policy_resource_identifier())
+      }
+      
+  """
+  @type batch_get_effective_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_summary() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_endpoint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_lifecycle_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policy") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type create_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_index_request() :: %{
+        required("id") => String.t() | atom(),
+        required("indexName") => String.t() | atom()
+      }
+      
+  """
+  @type get_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_policy_stats() :: %{
+        "DataPolicyCount" => [float()]
+      }
+      
+  """
+  @type access_policy_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policies_stats_response() :: %{
+        optional("AccessPolicyStats") => access_policy_stats(),
+        optional("LifecyclePolicyStats") => lifecycle_policy_stats(),
+        optional("SecurityConfigStats") => security_config_stats(),
+        optional("SecurityPolicyStats") => security_policy_stats(),
+        optional("TotalPolicyCount") => [float()]
+      }
+      
+  """
+  @type get_policies_stats_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_identifier() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type lifecycle_policy_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      current_capacity() :: %{
+        "indexing" => capacity_details(),
+        "search" => capacity_details()
+      }
+      
+  """
+  @type current_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_response() :: %{
+        optional("deleteCollectionDetail") => delete_collection_detail()
+      }
+      
+  """
+  @type delete_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_policy_request() :: %{
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type get_security_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_security_config_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("iamFederationOptions") => iam_federation_config_options(),
+        optional("iamIdentityCenterOptionsUpdates") => update_iam_identity_center_config_options(),
+        optional("samlOptions") => saml_config_options(),
+        required("configVersion") => String.t() | atom(),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type update_security_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -534,27 +963,202 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      collection_group_error_detail() :: %{
-        "errorCode" => [String.t() | atom()],
-        "errorMessage" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
+      security_policy_detail() :: %{
+        "createdDate" => [float()],
+        "description" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom(),
+        "policy" => [any()],
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type collection_group_error_detail() :: %{(String.t() | atom()) => any()}
+  @type security_policy_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
+      list_security_policies_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("resource") => list(String.t() | atom()),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_security_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_access_policy_request() :: %{
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type get_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_effective_lifecycle_policy_response() :: %{
+        "effectiveLifecyclePolicyDetails" => list(effective_lifecycle_policy_detail()),
+        "effectiveLifecyclePolicyErrorDetails" => list(effective_lifecycle_policy_error_detail())
+      }
+      
+  """
+  @type batch_get_effective_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "collectionGroupName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "kmsKeyArn" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type collection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_lifecycle_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("policy") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policyVersion") => String.t() | atom(),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type update_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_collection_response() :: %{
+        optional("updateCollectionDetail") => update_collection_detail()
+      }
+      
+  """
+  @type update_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_vpc_endpoint_response() :: %{
+        optional("UpdateVpcEndpointDetail") => update_vpc_endpoint_detail()
+      }
+      
+  """
+  @type update_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_access_policy_response() :: %{
+        optional("accessPolicyDetail") => access_policy_detail()
+      }
+      
+  """
+  @type get_access_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_stats() :: %{
+        "RetentionPolicyCount" => [float()]
+      }
+      
+  """
+  @type lifecycle_policy_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_collection_group_response() :: %{}
+      
+  """
+  @type delete_collection_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_account_settings_response() :: %{
+        optional("accountSettingsDetail") => account_settings_detail()
+      }
+      
+  """
+  @type update_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_policies_stats_request() :: %{}
+      
+  """
+  @type get_policies_stats_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_group_detail() :: %{
+        "arn" => [String.t() | atom()],
+        "capacityLimits" => collection_group_capacity_limits(),
+        "createdDate" => [float()],
+        "currentCapacity" => current_capacity(),
+        "description" => [String.t() | atom()],
+        "generation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "numberOfCollections" => [integer()],
+        "standbyReplicas" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type collection_group_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -588,126 +1192,25 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      list_collections_response() :: %{
-        optional("collectionSummaries") => list(collection_summary()),
-        optional("nextToken") => [String.t() | atom()]
+      list_vpc_endpoints_response() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        optional("vpcEndpointSummaries") => list(vpc_endpoint_summary())
       }
       
   """
-  @type list_collections_response() :: %{(String.t() | atom()) => any()}
+  @type list_vpc_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      collection_group_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "capacityLimits" => collection_group_capacity_limits(),
-        "createdDate" => [float()],
-        "generation" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "numberOfCollections" => [integer()]
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
       
   """
-  @type collection_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_security_policy_response() :: %{
-        optional("securityPolicyDetail") => security_policy_detail()
-      }
-      
-  """
-  @type get_security_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_index_response() :: %{}
-      
-  """
-  @type delete_index_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_endpoint_error_detail() :: %{
-        "errorCode" => [String.t() | atom()],
-        "errorMessage" => [String.t() | atom()],
-        "id" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_endpoint_error_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vector_options() :: %{
-        "ServerlessVectorAcceleration" => String.t() | atom()
-      }
-      
-  """
-  @type vector_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_resource_identifier() :: %{
-        "resource" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type lifecycle_policy_resource_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_access_policy_response() :: %{
-        optional("accessPolicyDetail") => access_policy_detail()
-      }
-      
-  """
-  @type update_access_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      iam_federation_config_options() :: %{
-        "groupAttribute" => String.t() | atom(),
-        "userAttribute" => String.t() | atom()
-      }
-      
-  """
-  @type iam_federation_config_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_security_config_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("iamFederationOptions") => iam_federation_config_options(),
-        optional("iamIdentityCenterOptionsUpdates") => update_iam_identity_center_config_options(),
-        optional("samlOptions") => saml_config_options(),
-        required("configVersion") => String.t() | atom(),
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type update_security_config_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -727,311 +1230,6 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      delete_lifecycle_policy_response() :: %{}
-      
-  """
-  @type delete_lifecycle_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_endpoint_detail() :: %{
-        "createdDate" => [float()],
-        "failureCode" => [String.t() | atom()],
-        "failureMessage" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "status" => String.t() | atom(),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_policy_detail() :: %{
-        "createdDate" => [float()],
-        "description" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "name" => String.t() | atom(),
-        "policy" => [any()],
-        "policyVersion" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type security_policy_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_security_policy_response() :: %{
-        optional("securityPolicyDetail") => security_policy_detail()
-      }
-      
-  """
-  @type create_security_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_detail() :: %{
-        "createdDate" => [float()],
-        "description" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "name" => String.t() | atom(),
-        "policy" => [any()],
-        "policyVersion" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type lifecycle_policy_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_access_policy_request() :: %{
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type get_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_effective_lifecycle_policy_request() :: %{
-        required("resourceIdentifiers") => list(lifecycle_policy_resource_identifier())
-      }
-      
-  """
-  @type batch_get_effective_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_summary() :: %{
-        "createdDate" => [float()],
-        "description" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "name" => String.t() | atom(),
-        "policyVersion" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type lifecycle_policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_collections_request() :: %{
-        optional("collectionFilters") => collection_filters(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_collections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      collection_group_detail() :: %{
-        "arn" => [String.t() | atom()],
-        "capacityLimits" => collection_group_capacity_limits(),
-        "createdDate" => [float()],
-        "currentCapacity" => current_capacity(),
-        "description" => [String.t() | atom()],
-        "generation" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "numberOfCollections" => [integer()],
-        "standbyReplicas" => String.t() | atom(),
-        "tags" => list(tag())
-      }
-      
-  """
-  @type collection_group_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_collection_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_access_policy_response() :: %{
-        optional("accessPolicyDetail") => access_policy_detail()
-      }
-      
-  """
-  @type get_access_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_config_summary() :: %{
-        "configVersion" => String.t() | atom(),
-        "createdDate" => [float()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type security_config_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_security_config_response() :: %{
-        optional("securityConfigDetail") => security_config_detail()
-      }
-      
-  """
-  @type create_security_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_lifecycle_policies_response() :: %{
-        "lifecyclePolicySummaries" => list(lifecycle_policy_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_lifecycle_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_security_config_response() :: %{
-        optional("securityConfigDetail") => security_config_detail()
-      }
-      
-  """
-  @type get_security_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_security_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type delete_security_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_iam_identity_center_config_options() :: %{
-        "groupAttribute" => String.t() | atom(),
-        "userAttribute" => String.t() | atom()
-      }
-      
-  """
-  @type update_iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_policy_stats() :: %{
-        "EncryptionPolicyCount" => [float()],
-        "NetworkPolicyCount" => [float()]
-      }
-      
-  """
-  @type security_policy_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       account_settings_detail() :: %{
         "capacityLimits" => capacity_limits()
       }
@@ -1043,397 +1241,51 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      delete_collection_detail() :: %{
+      collection_detail() :: %{
+        "arn" => [String.t() | atom()],
+        "collectionEndpoint" => [String.t() | atom()],
+        "collectionGroupName" => String.t() | atom(),
+        "createdDate" => [float()],
+        "dashboardEndpoint" => [String.t() | atom()],
         "deletionProtection" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "failureCode" => [String.t() | atom()],
+        "failureMessage" => [String.t() | atom()],
+        "fipsEndpoints" => fips_endpoints(),
         "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type delete_collection_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_collection_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("collectionGroupName") => String.t() | atom(),
-        optional("deletionProtection") => String.t() | atom(),
-        optional("description") => [String.t() | atom()],
-        optional("encryptionConfig") => encryption_config(),
-        optional("standbyReplicas") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("type") => String.t() | atom(),
-        optional("vectorOptions") => vector_options(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_vpc_endpoint_response() :: %{
-        optional("UpdateVpcEndpointDetail") => update_vpc_endpoint_detail()
-      }
-      
-  """
-  @type update_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_collection_group_request() :: %{
-        optional("ids") => list(String.t() | atom()),
-        optional("names") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_collection_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        optional("tags") => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_account_settings_request() :: %{
-        optional("capacityLimits") => capacity_limits()
-      }
-      
-  """
-  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_collection_response() :: %{
-        optional("updateCollectionDetail") => update_collection_detail()
-      }
-      
-  """
-  @type update_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_lifecycle_policy_response() :: %{
-        "lifecyclePolicyDetail" => lifecycle_policy_detail()
-      }
-      
-  """
-  @type create_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      collection_group_capacity_limits() :: %{
-        "maxIndexingCapacityInOCU" => float(),
-        "maxSearchCapacityInOCU" => float(),
-        "minIndexingCapacityInOCU" => float(),
-        "minSearchCapacityInOCU" => float()
-      }
-      
-  """
-  @type collection_group_capacity_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_config_detail() :: %{
-        "configVersion" => String.t() | atom(),
-        "createdDate" => [float()],
-        "description" => String.t() | atom(),
-        "iamFederationOptions" => iam_federation_config_options(),
-        "iamIdentityCenterOptions" => iam_identity_center_config_options(),
-        "id" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "samlOptions" => saml_config_options(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type security_config_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_collection_response() :: %{
-        optional("createCollectionDetail") => create_collection_detail()
-      }
-      
-  """
-  @type create_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_security_config_response() :: %{
-        optional("securityConfigDetail") => security_config_detail()
-      }
-      
-  """
-  @type update_security_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_collection_request() :: %{
-        optional("ids") => list(String.t() | atom()),
-        optional("names") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_endpoint_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        required("name") => String.t() | atom(),
-        required("subnetIds") => list(String.t() | atom()),
-        required("vpcId") => String.t() | atom()
-      }
-      
-  """
-  @type create_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_lifecycle_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type delete_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_policies_stats_response() :: %{
-        optional("AccessPolicyStats") => access_policy_stats(),
-        optional("LifecyclePolicyStats") => lifecycle_policy_stats(),
-        optional("SecurityConfigStats") => security_config_stats(),
-        optional("SecurityPolicyStats") => security_policy_stats(),
-        optional("TotalPolicyCount") => [float()]
-      }
-      
-  """
-  @type get_policies_stats_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_security_configs_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        optional("securityConfigSummaries") => list(security_config_summary())
-      }
-      
-  """
-  @type list_security_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_index_request() :: %{
-        optional("indexSchema") => any(),
-        required("id") => String.t() | atom(),
-        required("indexName") => String.t() | atom()
-      }
-      
-  """
-  @type create_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_index_request() :: %{
-        optional("indexSchema") => any(),
-        required("id") => String.t() | atom(),
-        required("indexName") => String.t() | atom()
-      }
-      
-  """
-  @type update_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_collection_groups_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-      
-  """
-  @type list_collection_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_policy_detail() :: %{
-        "createdDate" => [float()],
-        "description" => String.t() | atom(),
+        "kmsKeyArn" => [String.t() | atom()],
         "lastModifiedDate" => [float()],
         "name" => String.t() | atom(),
-        "policy" => [any()],
-        "policyVersion" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "standbyReplicas" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "vectorOptions" => vector_options()
       }
       
   """
-  @type access_policy_detail() :: %{(String.t() | atom()) => any()}
+  @type collection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_security_policies_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("resource") => list(String.t() | atom()),
-        required("type") => String.t() | atom()
+      create_iam_identity_center_config_options() :: %{
+        "groupAttribute" => String.t() | atom(),
+        "instanceArn" => String.t() | atom(),
+        "userAttribute" => String.t() | atom()
       }
       
   """
-  @type list_security_policies_request() :: %{(String.t() | atom()) => any()}
+  @type create_iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_security_policies_response() :: %{
-        optional("nextToken") => [String.t() | atom()],
-        optional("securityPolicySummaries") => list(security_policy_summary())
-      }
+      delete_security_config_response() :: %{}
       
   """
-  @type list_security_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_access_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("policy") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("policyVersion") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type update_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_collection_group_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_collection_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lifecycle_policy_stats() :: %{
-        "RetentionPolicyCount" => [float()]
-      }
-      
-  """
-  @type lifecycle_policy_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_security_policy_response() :: %{
-        optional("securityPolicyDetail") => security_policy_detail()
-      }
-      
-  """
-  @type update_security_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_security_config_response() :: %{}
 
   @typedoc """
 
@@ -1451,113 +1303,14 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      create_lifecycle_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("policy") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type create_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_limits() :: %{
-        "maxIndexingCapacityInOCU" => integer(),
-        "maxSearchCapacityInOCU" => integer()
-      }
-      
-  """
-  @type capacity_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_collection_group_response() :: %{
-        "collectionGroupDetails" => list(collection_group_detail()),
-        "collectionGroupErrorDetails" => list(collection_group_error_detail())
-      }
-      
-  """
-  @type batch_get_collection_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_effective_lifecycle_policy_response() :: %{
-        "effectiveLifecyclePolicyDetails" => list(effective_lifecycle_policy_detail()),
-        "effectiveLifecyclePolicyErrorDetails" => list(effective_lifecycle_policy_error_detail())
-      }
-      
-  """
-  @type batch_get_effective_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_vpc_endpoint_detail() :: %{
-        "id" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "name" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "status" => String.t() | atom(),
-        "subnetIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type update_vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_endpoint_detail() :: %{
-        "id" => String.t() | atom(),
+      collection_filters() :: %{
+        "collectionGroupName" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => String.t() | atom()
       }
       
   """
-  @type create_vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_endpoint_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_policies_stats_request() :: %{}
-      
-  """
-  @type get_policies_stats_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_policy_stats() :: %{
-        "DataPolicyCount" => [float()]
-      }
-      
-  """
-  @type access_policy_stats() :: %{(String.t() | atom()) => any()}
+  @type collection_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1581,96 +1334,85 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      update_collection_group_response() :: %{
-        "updateCollectionGroupDetail" => update_collection_group_detail()
+      capacity_limits() :: %{
+        "maxIndexingCapacityInOCU" => integer(),
+        "maxSearchCapacityInOCU" => integer()
       }
       
   """
-  @type update_collection_group_response() :: %{(String.t() | atom()) => any()}
+  @type capacity_limits() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ocu_limit_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
+      delete_lifecycle_policy_response() :: %{}
       
   """
-  @type ocu_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_lifecycle_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      update_collection_request() :: %{
+      security_policy_stats() :: %{
+        "EncryptionPolicyCount" => [float()],
+        "NetworkPolicyCount" => [float()]
+      }
+      
+  """
+  @type security_policy_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_config_response() :: %{
+        optional("securityConfigDetail") => security_config_detail()
+      }
+      
+  """
+  @type get_security_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        optional("tags") => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_security_policy_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("deletionProtection") => String.t() | atom(),
-        optional("description") => [String.t() | atom()],
-        optional("vectorOptions") => vector_options(),
-        required("id") => String.t() | atom()
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policy") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type update_collection_request() :: %{(String.t() | atom()) => any()}
+  @type create_security_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_collection_group_request() :: %{
-        optional("capacityLimits") => collection_group_capacity_limits(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => [String.t() | atom()],
-        required("id") => String.t() | atom()
+      delete_collection_detail() :: %{
+        "deletionProtection" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type update_collection_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_endpoint_response() :: %{
-        optional("createVpcEndpointDetail") => create_vpc_endpoint_detail()
-      }
-      
-  """
-  @type create_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_details() :: %{
-        "autoscalingStatus" => String.t() | atom(),
-        "capacityInOcu" => [float()]
-      }
-      
-  """
-  @type capacity_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_vpc_endpoint_response() :: %{
-        optional("vpcEndpointDetails") => list(vpc_endpoint_detail()),
-        optional("vpcEndpointErrorDetails") => list(vpc_endpoint_error_detail())
-      }
-      
-  """
-  @type batch_get_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_index_response() :: %{}
-      
-  """
-  @type create_index_response() :: %{}
+  @type delete_collection_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,174 +1434,87 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      create_collection_group_response() :: %{
-        "createCollectionGroupDetail" => create_collection_group_detail()
+      batch_get_collection_group_request() :: %{
+        optional("ids") => list(String.t() | atom()),
+        optional("names") => list(String.t() | atom())
       }
       
   """
-  @type create_collection_group_response() :: %{(String.t() | atom()) => any()}
+  @type batch_get_collection_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_collection_detail() :: %{
-        "arn" => [String.t() | atom()],
-        "createdDate" => [float()],
-        "deletionProtection" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "lastModifiedDate" => [float()],
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "vectorOptions" => vector_options()
+      fips_endpoints() :: %{
+        "collectionEndpoint" => [String.t() | atom()],
+        "dashboardEndpoint" => [String.t() | atom()]
       }
       
   """
-  @type update_collection_detail() :: %{(String.t() | atom()) => any()}
+  @type fips_endpoints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      effective_lifecycle_policy_error_detail() :: %{
-        "errorCode" => [String.t() | atom()],
-        "errorMessage" => [String.t() | atom()],
-        "resource" => String.t() | atom(),
-        "type" => String.t() | atom()
+      create_access_policy_response() :: %{
+        optional("accessPolicyDetail") => access_policy_detail()
       }
       
   """
-  @type effective_lifecycle_policy_error_detail() :: %{(String.t() | atom()) => any()}
+  @type create_access_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_vpc_endpoint_request() :: %{
-        optional("addSecurityGroupIds") => list(String.t() | atom()),
-        optional("addSubnetIds") => list(String.t() | atom()),
-        optional("clientToken") => String.t() | atom(),
-        optional("removeSecurityGroupIds") => list(String.t() | atom()),
-        optional("removeSubnetIds") => list(String.t() | atom()),
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type update_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_iam_identity_center_config_options() :: %{
-        "groupAttribute" => String.t() | atom(),
-        "instanceArn" => String.t() | atom(),
-        "userAttribute" => String.t() | atom()
-      }
-      
-  """
-  @type create_iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_index_response() :: %{}
-      
-  """
-  @type update_index_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_security_config_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("iamFederationOptions") => iam_federation_config_options(),
-        optional("iamIdentityCenterOptions") => create_iam_identity_center_config_options(),
-        optional("samlOptions") => saml_config_options(),
-        required("name") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type create_security_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_security_config_request() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type get_security_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_collection_response() :: %{
-        optional("deleteCollectionDetail") => delete_collection_detail()
-      }
-      
-  """
-  @type delete_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_access_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("policy") => String.t() | atom(),
-        required("type") => String.t() | atom()
-      }
-      
-  """
-  @type create_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_index_request() :: %{
+      update_index_request() :: %{
+        optional("indexSchema") => any(),
         required("id") => String.t() | atom(),
         required("indexName") => String.t() | atom()
       }
       
   """
-  @type get_index_request() :: %{(String.t() | atom()) => any()}
+  @type update_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_security_policy_response() :: %{}
-      
-  """
-  @type delete_security_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      saml_config_options() :: %{
-        "groupAttribute" => String.t() | atom(),
-        "metadata" => String.t() | atom(),
-        "openSearchServerlessEntityId" => String.t() | atom(),
-        "sessionTimeout" => [integer()],
-        "userAttribute" => String.t() | atom()
+      delete_lifecycle_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("type") => String.t() | atom()
       }
       
   """
-  @type saml_config_options() :: %{(String.t() | atom()) => any()}
+  @type delete_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lifecycle_policy_summary() :: %{
+        "createdDate" => [float()],
+        "description" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom(),
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type lifecycle_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_index_response() :: %{}
+      
+  """
+  @type create_index_response() :: %{}
 
   @typedoc """
 
@@ -1888,6 +1543,331 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      list_access_policies_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("resource") => list(String.t() | atom()),
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_vpc_endpoint_request() :: %{
+        optional("addSecurityGroupIds") => list(String.t() | atom()),
+        optional("addSubnetIds") => list(String.t() | atom()),
+        optional("clientToken") => String.t() | atom(),
+        optional("removeSecurityGroupIds") => list(String.t() | atom()),
+        optional("removeSubnetIds") => list(String.t() | atom()),
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type update_vpc_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_security_configs_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("type") => String.t() | atom()
+      }
+      
+  """
+  @type list_security_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_vpc_endpoint_response() :: %{
+        optional("vpcEndpointDetails") => list(vpc_endpoint_detail()),
+        optional("vpcEndpointErrorDetails") => list(vpc_endpoint_error_detail())
+      }
+      
+  """
+  @type batch_get_vpc_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_collection_groups_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_collection_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_security_config_response() :: %{
+        optional("securityConfigDetail") => security_config_detail()
+      }
+      
+  """
+  @type create_security_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_config() :: %{
+        "aWSOwnedKey" => [boolean()],
+        "kmsKeyArn" => [String.t() | atom()]
+      }
+      
+  """
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vector_options() :: %{
+        "ServerlessVectorAcceleration" => String.t() | atom()
+      }
+      
+  """
+  @type vector_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      security_config_detail() :: %{
+        "configVersion" => String.t() | atom(),
+        "createdDate" => [float()],
+        "description" => String.t() | atom(),
+        "iamFederationOptions" => iam_federation_config_options(),
+        "iamIdentityCenterOptions" => iam_identity_center_config_options(),
+        "id" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "samlOptions" => saml_config_options(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type security_config_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iam_identity_center_config_options() :: %{
+        "applicationArn" => String.t() | atom(),
+        "applicationDescription" => [String.t() | atom()],
+        "applicationName" => [String.t() | atom()],
+        "groupAttribute" => String.t() | atom(),
+        "instanceArn" => String.t() | atom(),
+        "userAttribute" => String.t() | atom()
+      }
+      
+  """
+  @type iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      security_config_summary() :: %{
+        "configVersion" => String.t() | atom(),
+        "createdDate" => [float()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type security_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_security_policy_response() :: %{
+        optional("securityPolicyDetail") => security_policy_detail()
+      }
+      
+  """
+  @type get_security_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_lifecycle_policies_response() :: %{
+        "lifecyclePolicySummaries" => list(lifecycle_policy_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_lifecycle_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_error_detail() :: %{
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type collection_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_iam_identity_center_config_options() :: %{
+        "groupAttribute" => String.t() | atom(),
+        "userAttribute" => String.t() | atom()
+      }
+      
+  """
+  @type update_iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vpc_endpoints_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("vpcEndpointFilters") => vpc_endpoint_filters()
+      }
+      
+  """
+  @type list_vpc_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_policy_response() :: %{
+        optional("accessPolicyDetail") => access_policy_detail()
+      }
+      
+  """
+  @type update_access_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_collection_group_response() :: %{
+        "collectionGroupDetails" => list(collection_group_detail()),
+        "collectionGroupErrorDetails" => list(collection_group_error_detail())
+      }
+      
+  """
+  @type batch_get_collection_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_error_detail() :: %{
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "id" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_endpoint_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_security_policies_response() :: %{
+        optional("nextToken") => [String.t() | atom()],
+        optional("securityPolicySummaries") => list(security_policy_summary())
+      }
+      
+  """
+  @type list_security_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_lifecycle_policy_response() :: %{
+        "lifecyclePolicyDetail" => lifecycle_policy_detail()
+      }
+      
+  """
+  @type create_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      security_policy_summary() :: %{
+        "createdDate" => [float()],
+        "description" => String.t() | atom(),
+        "lastModifiedDate" => [float()],
+        "name" => String.t() | atom(),
+        "policyVersion" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type security_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_detail() :: %{
+        "createdDate" => [float()],
+        "failureCode" => [String.t() | atom()],
+        "failureMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_endpoint_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collection_group_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "capacityLimits" => collection_group_capacity_limits(),
+        "createdDate" => [float()],
+        "generation" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "numberOfCollections" => [integer()]
+      }
+      
+  """
+  @type collection_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       effective_lifecycle_policy_detail() :: %{
         "noMinRetentionPeriod" => [boolean()],
         "policyName" => String.t() | atom(),
@@ -1904,238 +1884,258 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
-      lifecycle_policy_identifier() :: %{
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
       }
       
   """
-  @type lifecycle_policy_identifier() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_security_policy_request() :: %{
+      delete_access_policy_response() :: %{}
+      
+  """
+  @type delete_access_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_collection_group_request() :: %{
+        optional("capacityLimits") => collection_group_capacity_limits(),
         optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("policy") => String.t() | atom(),
-        required("type") => String.t() | atom()
+        optional("description") => [String.t() | atom()],
+        required("id") => String.t() | atom()
       }
       
   """
-  @type create_security_policy_request() :: %{(String.t() | atom()) => any()}
+  @type update_collection_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_index_response() :: %{
-        "indexSchema" => any()
+      delete_security_policy_response() :: %{}
+      
+  """
+  @type delete_security_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
       
   """
-  @type get_index_response() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
-  @type batch_get_collection_errors() :: validation_exception() | internal_server_exception()
+  @type batch_get_collection_errors() :: internal_server_exception() | validation_exception()
 
   @type batch_get_collection_group_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
   @type batch_get_effective_lifecycle_policy_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
   @type batch_get_lifecycle_policy_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
-  @type batch_get_vpc_endpoint_errors() :: validation_exception() | internal_server_exception()
+  @type batch_get_vpc_endpoint_errors() :: internal_server_exception() | validation_exception()
 
   @type create_access_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_collection_errors() ::
-          ocu_limit_exceeded_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | ocu_limit_exceeded_exception()
 
   @type create_collection_group_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_index_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_lifecycle_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_security_config_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_security_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_vpc_endpoint_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_access_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_collection_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_collection_group_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_index_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type delete_lifecycle_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_security_config_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_security_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_vpc_endpoint_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_access_policy_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
-  @type get_account_settings_errors() :: validation_exception() | internal_server_exception()
+  @type get_account_settings_errors() :: internal_server_exception() | validation_exception()
 
   @type get_index_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type get_policies_stats_errors() :: internal_server_exception()
 
   @type get_security_config_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type get_security_policy_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
-  @type list_access_policies_errors() :: validation_exception() | internal_server_exception()
+  @type list_access_policies_errors() :: internal_server_exception() | validation_exception()
 
-  @type list_collection_groups_errors() :: validation_exception() | internal_server_exception()
+  @type list_collection_groups_errors() :: internal_server_exception() | validation_exception()
 
-  @type list_collections_errors() :: validation_exception() | internal_server_exception()
+  @type list_collections_errors() :: internal_server_exception() | validation_exception()
 
-  @type list_lifecycle_policies_errors() :: validation_exception() | internal_server_exception()
+  @type list_lifecycle_policies_errors() :: internal_server_exception() | validation_exception()
 
-  @type list_security_configs_errors() :: validation_exception() | internal_server_exception()
+  @type list_security_configs_errors() :: internal_server_exception() | validation_exception()
 
-  @type list_security_policies_errors() :: validation_exception() | internal_server_exception()
+  @type list_security_policies_errors() :: internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
-  @type list_vpc_endpoints_errors() :: validation_exception() | internal_server_exception()
+  @type list_vpc_endpoints_errors() :: internal_server_exception() | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type update_access_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type update_account_settings_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | validation_exception()
 
   @type update_collection_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   @type update_collection_group_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type update_index_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type update_lifecycle_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type update_security_config_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type update_security_policy_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type update_vpc_endpoint_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   def metadata do
     %{
@@ -2165,7 +2165,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_collection_errors()}
   def batch_get_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCollection", input, options)
   end
@@ -2182,7 +2183,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_collection_group_errors()}
   def batch_get_collection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCollectionGroup", input, options)
   end
@@ -2203,7 +2205,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_effective_lifecycle_policy_errors()}
   def batch_get_effective_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetEffectiveLifecyclePolicy", input, options)
   end
@@ -2219,7 +2222,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_lifecycle_policy_errors()}
   def batch_get_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetLifecyclePolicy", input, options)
   end
@@ -2237,7 +2241,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, batch_get_vpc_endpoint_errors()}
   def batch_get_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetVpcEndpoint", input, options)
   end
@@ -2255,7 +2260,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_access_policy_errors()}
   def create_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccessPolicy", input, options)
   end
@@ -2271,7 +2277,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_collection_errors()}
   def create_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCollection", input, options)
   end
@@ -2290,7 +2297,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_collection_group_errors()}
   def create_collection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCollectionGroup", input, options)
   end
@@ -2309,7 +2317,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIndex", input, options)
   end
@@ -2326,7 +2335,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_lifecycle_policy_errors()}
   def create_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLifecyclePolicy", input, options)
   end
@@ -2342,7 +2352,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_security_config_errors()}
   def create_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfig", input, options)
   end
@@ -2363,7 +2374,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_security_policy_errors()}
   def create_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityPolicy", input, options)
   end
@@ -2380,7 +2392,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, create_vpc_endpoint_errors()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpoint", input, options)
   end
@@ -2396,7 +2409,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_access_policy_errors()}
   def delete_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccessPolicy", input, options)
   end
@@ -2412,7 +2426,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_collection_errors()}
   def delete_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCollection", input, options)
   end
@@ -2429,7 +2444,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_collection_group_errors()}
   def delete_collection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCollectionGroup", input, options)
   end
@@ -2447,7 +2463,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIndex", input, options)
   end
@@ -2463,7 +2480,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
@@ -2479,7 +2497,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_security_config_errors()}
   def delete_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfig", input, options)
   end
@@ -2493,7 +2512,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_security_policy_errors()}
   def delete_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityPolicy", input, options)
   end
@@ -2510,7 +2530,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, delete_vpc_endpoint_errors()}
   def delete_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpoint", input, options)
   end
@@ -2526,7 +2547,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_access_policy_errors()}
   def get_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessPolicy", input, options)
   end
@@ -2540,7 +2562,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
@@ -2558,7 +2581,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_index_errors()}
   def get_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIndex", input, options)
   end
@@ -2573,7 +2597,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_policies_stats_errors()}
   def get_policies_stats(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPoliciesStats", input, options)
   end
@@ -2589,7 +2614,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_security_config_errors()}
   def get_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfig", input, options)
   end
@@ -2606,7 +2632,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, get_security_policy_errors()}
   def get_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityPolicy", input, options)
   end
@@ -2620,7 +2647,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_access_policies_errors()}
   def list_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccessPolicies", input, options)
   end
@@ -2636,7 +2664,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_collection_groups_errors()}
   def list_collection_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCollectionGroups", input, options)
   end
@@ -2655,7 +2684,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_collections_errors()}
   def list_collections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCollections", input, options)
   end
@@ -2671,7 +2701,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_lifecycle_policies_errors()}
   def list_lifecycle_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLifecyclePolicies", input, options)
   end
@@ -2688,7 +2719,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_security_configs_errors()}
   def list_security_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSecurityConfigs", input, options)
   end
@@ -2702,7 +2734,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_security_policies_errors()}
   def list_security_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSecurityPolicies", input, options)
   end
@@ -2718,7 +2751,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2736,7 +2770,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, list_vpc_endpoints_errors()}
   def list_vpc_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcEndpoints", input, options)
   end
@@ -2752,7 +2787,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2768,7 +2804,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2784,7 +2821,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_access_policy_errors()}
   def update_access_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccessPolicy", input, options)
   end
@@ -2801,7 +2839,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
@@ -2815,7 +2854,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_collection_errors()}
   def update_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCollection", input, options)
   end
@@ -2829,7 +2869,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_collection_group_errors()}
   def update_collection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCollectionGroup", input, options)
   end
@@ -2848,7 +2889,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_index_errors()}
   def update_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIndex", input, options)
   end
@@ -2864,7 +2906,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_lifecycle_policy_errors()}
   def update_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLifecyclePolicy", input, options)
   end
@@ -2880,7 +2923,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_security_config_errors()}
   def update_security_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSecurityConfig", input, options)
   end
@@ -2897,7 +2941,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_security_policy_errors()}
   def update_security_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSecurityPolicy", input, options)
   end
@@ -2914,7 +2959,8 @@ defmodule AWS.OpenSearchServerless do
           | {:error, term()}
           | {:error, update_vpc_endpoint_errors()}
   def update_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVpcEndpoint", input, options)
   end

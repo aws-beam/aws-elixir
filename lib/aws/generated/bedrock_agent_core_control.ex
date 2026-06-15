@@ -16,45 +16,848 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      custom_claim_validation_type() :: %{
-        "authorizingClaimMatchValue" => authorizing_claim_match_value_type(),
-        "inboundTokenClaimName" => String.t() | atom(),
-        "inboundTokenClaimValueType" => list(any())
+      list_configuration_bundle_versions_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "versions" => list(configuration_bundle_version_summary())
       }
 
   """
-  @type custom_claim_validation_type() :: %{(String.t() | atom()) => any()}
+  @type list_configuration_bundle_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      browser_enterprise_policy() :: %{
-        "location" => list(),
+      workload_identity_type() :: %{
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
+      }
+
+  """
+  @type workload_identity_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_resource_details() :: %{
+        "domain" => String.t() | atom(),
+        "resourceAssociationArn" => String.t() | atom(),
+        "resourceGatewayArn" => String.t() | atom()
+      }
+
+  """
+  @type managed_resource_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_key_credential_provider_response() :: %{
+        "apiKeySecretArn" => secret(),
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type update_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_interpreters_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_code_interpreters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_configuration() :: %{
+        "level" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type browser_enterprise_policy() :: %{(String.t() | atom()) => any()}
+  @type content_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_remote_mcp_config() :: %{
-        "headers" => map(),
+      policy() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browser_profiles_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "profileSummaries" => list(browser_profile_summary())
+      }
+
+  """
+  @type list_browser_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_self_managed_configuration() :: %{
+        "historicalContextWindowSize" => [integer()],
+        "invocationConfiguration" => modify_invocation_configuration_input(),
+        "triggerConditions" => list(list())
+      }
+
+  """
+  @type modify_self_managed_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_preference_memory_strategy_input() :: %{
+        "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
+        "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type user_preference_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_version_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type create_dataset_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_oauth2_credential_provider_response() :: %{
+        "callbackUrl" => [String.t() | atom()],
+        "clientSecretArn" => secret(),
+        "clientSecretJsonKey" => String.t() | atom(),
+        "clientSecretSource" => list(any()),
+        "credentialProviderArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "oauth2ProviderConfigOutput" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_runtime_environment_request() :: %{
+        "filesystemConfigurations" => list(list()),
+        "lifecycleConfiguration" => lifecycle_configuration(),
+        "networkConfiguration" => network_configuration()
+      }
+
+  """
+  @type harness_agent_core_runtime_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_bundle_versions_request() :: %{
+        optional("filter") => version_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_configuration_bundle_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_manager_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slack_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type slack_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_tool_override() :: %{
+        "description" => [String.t() | atom()],
+        "method" => list(any()),
+        "name" => [String.t() | atom()],
+        "path" => [String.t() | atom()]
+      }
+
+  """
+  @type api_gateway_tool_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      approval_configuration() :: %{
+        "autoApproval" => [boolean()]
+      }
+
+  """
+  @type approval_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_bedrock_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_bedrock_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_oauth2_provider_config_input() :: %{
+        "clientAuthenticationMethod" => list(any()),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any()),
+        "oauthDiscovery" => list(),
+        "onBehalfOfTokenExchangeConfig" => on_behalf_of_token_exchange_config_type(),
+        "privateEndpoint" => list(),
+        "privateEndpointOverrides" => list(private_endpoint_override())
+      }
+
+  """
+  @type custom_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_harness_response() :: %{
+        "harness" => harness()
+      }
+
+  """
+  @type delete_harness_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("targetResourceScope") => String.t() | atom()
+      }
+
+  """
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_memory_retrieval_config() :: %{
+        "relevanceScore" => [float()],
+        "strategyId" => [String.t() | atom()],
+        "topK" => [integer()]
+      }
+
+  """
+  @type harness_agent_core_memory_retrieval_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_oauth2_provider_config_output() :: %{
+        "clientAuthenticationMethod" => list(any()),
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list(),
+        "onBehalfOfTokenExchangeConfig" => on_behalf_of_token_exchange_config_type(),
+        "privateEndpoint" => list(),
+        "privateEndpointOverrides" => list(private_endpoint_override())
+      }
+
+  """
+  @type custom_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_config() :: %{
+        "cloudWatchConfig" => cloud_watch_output_config()
+      }
+
+  """
+  @type output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_extraction_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_extraction_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_limit_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_evaluator_response() :: %{
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evaluator_request() :: %{
+        optional("includedData") => list(any())
+      }
+
+  """
+  @type get_evaluator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_engine_request() :: %{}
+
+  """
+  @type delete_policy_engine_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_oauth2_credential_provider_request() :: %{
+        required("credentialProviderVendor") => list(any()),
+        required("name") => String.t() | atom(),
+        required("oauth2ProviderConfigInput") => list()
+      }
+
+  """
+  @type update_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_record_status_response() :: %{
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_registry_record_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recording_config() :: %{
+        "enabled" => [boolean()],
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type recording_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workload_identity_request() :: %{
+        optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
+      }
+
+  """
+  @type salesforce_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_reflection_configuration_input() :: %{
+        "memoryRecordSchema" => memory_record_schema(),
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type episodic_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_profile_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_browser_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("credentialProviderConfigurations") => list(list()),
+        required("name") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_payment_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_input_config() :: %{
+        "logGroupNames" => list(String.t() | atom()),
+        "serviceNames" => list(String.t() | atom())
+      }
+
+  """
+  @type cloud_watch_logs_input_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule() :: %{
+        "filters" => list(filter()),
+        "samplingConfig" => sampling_config(),
+        "sessionConfig" => session_config()
+      }
+
+  """
+  @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registry_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type delete_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_summarization_configuration() :: %{
+        "preserveRecentMessages" => [integer()],
+        "summarizationSystemPrompt" => [String.t() | atom()],
+        "summaryRatio" => [float()]
+      }
+
+  """
+  @type harness_summarization_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generation_summaries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_generation_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_request() :: %{
+        optional("browserSigning") => browser_signing_config_input(),
+        optional("certificates") => list(certificate()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("enterprisePolicies") => list(browser_enterprise_policy()),
+        optional("executionRoleArn") => String.t() | atom(),
+        optional("recording") => recording_config(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("networkConfiguration") => browser_network_configuration()
+      }
+
+  """
+  @type create_browser_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      from_url_synchronization_configuration() :: %{
+        "credentialProviderConfigurations" => list(registry_record_credential_provider_configuration()),
         "url" => String.t() | atom()
       }
 
   """
-  @type harness_remote_mcp_config() :: %{(String.t() | atom()) => any()}
+  @type from_url_synchronization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_gateway_request() :: %{
+      list_workload_identities_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "workloadIdentities" => list(workload_identity_type())
+      }
+
+  """
+  @type list_workload_identities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      numerical_scale_definition() :: %{
+        "definition" => [String.t() | atom()],
+        "label" => [String.t() | atom()],
+        "value" => [float()]
+      }
+
+  """
+  @type numerical_scale_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browsers_response() :: %{
+        "browserSummaries" => list(browser_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_browsers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_harnesses_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_harnesses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      llm_as_a_judge_evaluator_config() :: %{
+        "instructions" => String.t() | atom(),
+        "modelConfig" => list(),
+        "ratingScale" => list()
+      }
+
+  """
+  @type llm_as_a_judge_evaluator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_policy_engine_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "mode" => list(any())
+      }
+
+  """
+  @type gateway_policy_engine_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      semantic_extraction_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type semantic_extraction_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_engine_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_engine_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_registry_record_response() :: %{
+        "recordArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_registry_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_oauth2_credential_providers_response() :: %{
+        "credentialProviders" => list(oauth2_credential_provider_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_oauth2_credential_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_configuration() :: %{
+        "containerUri" => String.t() | atom()
+      }
+
+  """
+  @type container_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrent_modification_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_harness_request() :: %{
+        optional("allowedTools") => list(String.t() | atom()),
         optional("authorizerConfiguration") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("environment") => list(),
+        optional("environmentArtifact") => list(),
+        optional("environmentVariables") => map(),
+        optional("maxIterations") => [integer()],
+        optional("maxTokens") => [integer()],
+        optional("memory") => list(),
+        optional("model") => list(),
+        optional("skills") => list(list()),
+        optional("systemPrompt") => list(list()),
+        optional("tags") => map(),
+        optional("timeoutSeconds") => [integer()],
+        optional("tools") => list(harness_tool()),
+        optional("truncation") => harness_truncation_configuration(),
+        required("executionRoleArn") => String.t() | atom(),
+        required("harnessName") => String.t() | atom()
+      }
+
+  """
+  @type create_harness_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_git_auth() :: %{
+        "credentialArn" => String.t() | atom(),
+        "username" => [String.t() | atom()]
+      }
+
+  """
+  @type harness_skill_git_auth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_runtime_endpoint_request() :: %{}
+
+  """
+  @type get_agent_runtime_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      insight() :: %{
+        "insightId" => String.t() | atom()
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
         optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
@@ -62,109 +865,6 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("policyEngineConfiguration") => gateway_policy_engine_configuration(),
         optional("protocolConfiguration") => list(),
         optional("protocolType") => list(any()),
-        required("authorizerType") => list(any()),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_payment_manager_request() :: %{
-        optional("authorizerConfiguration") => list(),
-        optional("authorizerType") => list(any()),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_payment_manager_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      streaming_configuration() :: %{
-        "enableResponseStreaming" => [boolean()]
-      }
-
-  """
-  @type streaming_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_interceptor_configuration() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_interceptor_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_principal() :: %{
-        "arn" => String.t() | atom(),
-        "operator" => list(any())
-      }
-
-  """
-  @type iam_principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      modify_strategy_configuration() :: %{
-        "consolidation" => list(),
-        "extraction" => list(),
-        "reflection" => list(),
-        "selfManagedConfiguration" => modify_self_managed_configuration()
-      }
-
-  """
-  @type modify_strategy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_gateway_tool_configuration() :: %{
-        "toolFilters" => list(api_gateway_tool_filter()),
-        "toolOverrides" => list(api_gateway_tool_override())
-      }
-
-  """
-  @type api_gateway_tool_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateway_targets_response() :: %{
-        "items" => list(target_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_gateway_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_payment_manager_request() :: %{
-        optional("authorizerConfiguration") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
         optional("tags") => map(),
         required("authorizerType") => list(any()),
         required("name") => String.t() | atom(),
@@ -172,98 +872,351 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type create_payment_manager_request() :: %{(String.t() | atom()) => any()}
+  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_agent_runtime_endpoint_request() :: %{
-        optional("agentRuntimeVersion") => String.t() | atom(),
+      create_gateway_rule_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("conditions") => list(list()),
         optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
+        required("actions") => list(list()),
+        required("priority") => integer()
       }
 
   """
-  @type create_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
+  @type create_gateway_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_gateway_target_request() :: %{}
+      update_dataset_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
 
   """
-  @type delete_gateway_target_request() :: %{}
+  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_registry_record_request() :: %{
+      update_online_evaluation_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("clusteringConfig") => clustering_config(),
+        optional("dataSourceConfig") => list(),
         optional("description") => String.t() | atom(),
-        optional("descriptors") => descriptors(),
-        optional("recordVersion") => String.t() | atom(),
-        optional("synchronizationConfiguration") => synchronization_configuration(),
-        optional("synchronizationType") => list(any()),
-        required("descriptorType") => list(any()),
-        required("name") => String.t() | atom()
+        optional("evaluationExecutionRoleArn") => String.t() | atom(),
+        optional("evaluators") => list(list()),
+        optional("executionStatus") => list(any()),
+        optional("insights") => list(insight()),
+        optional("rule") => rule()
       }
 
   """
-  @type create_registry_record_request() :: %{(String.t() | atom()) => any()}
+  @type update_online_evaluation_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      time_based_trigger_input() :: %{
-        "idleSessionTimeout" => [integer()]
-      }
-
-  """
-  @type time_based_trigger_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payment_credential_provider_item() :: %{
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "credentialProviderVendor" => list(any()),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type payment_credential_provider_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_registry_records_response() :: %{
+      list_policy_engines_response() :: %{
         "nextToken" => String.t() | atom(),
-        "registryRecords" => list(registry_record_summary())
+        "policyEngines" => list(policy_engine())
       }
 
   """
-  @type list_registry_records_response() :: %{(String.t() | atom()) => any()}
+  @type list_policy_engines_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      updated_mcp_descriptor() :: %{
-        "optionalValue" => updated_mcp_descriptor_fields()
+      delete_harness_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type updated_mcp_descriptor() :: %{(String.t() | atom()) => any()}
+  @type delete_harness_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_override_extraction_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_override_extraction_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      descriptors() :: %{
+        "a2a" => a2a_descriptor(),
+        "agentSkills" => agent_skills_descriptor(),
+        "custom" => custom_descriptor(),
+        "mcp" => mcp_descriptor()
+      }
+
+  """
+  @type descriptors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_synchronization_configuration() :: %{
+        "optionalValue" => synchronization_configuration()
+      }
+
+  """
+  @type updated_synchronization_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gateway_target_request() :: %{}
+
+  """
+  @type get_gateway_target_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_runtime_endpoint_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_response() :: %{
+        "browserArn" => String.t() | atom(),
+        "browserId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_bundle_request() :: %{}
+
+  """
+  @type delete_configuration_bundle_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      summary_override_configuration_input() :: %{
+        "consolidation" => summary_override_consolidation_configuration_input()
+      }
+
+  """
+  @type summary_override_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_versions_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "versions" => list(dataset_version_summary())
+      }
+
+  """
+  @type list_dataset_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tools_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom()
+      }
+
+  """
+  @type tools_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()]
+      }
+
+  """
+  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_generation_asset() :: %{
+        "definition" => list(),
+        "findings" => list(finding()),
+        "policyGenerationAssetId" => String.t() | atom(),
+        "rawTextFragment" => String.t() | atom()
+      }
+
+  """
+  @type policy_generation_asset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_runtime_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_agent_runtime_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_generations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluator_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "evaluatorName" => String.t() | atom(),
+        "evaluatorType" => list(any()),
+        "kmsKeyArn" => String.t() | atom(),
+        "level" => list(any()),
+        "lockedForModification" => [boolean()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type evaluator_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_generation_summary_request() :: %{}
+
+  """
+  @type get_policy_generation_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      network_configuration() :: %{
+        "networkMode" => list(any()),
+        "networkModeConfig" => vpc_config()
+      }
+
+  """
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_lite_llm_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiBase" => String.t() | atom(),
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_lite_llm_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_evaluator_model_config() :: %{
+        "additionalModelRequestFields" => any(),
+        "inferenceConfig" => inference_configuration(),
+        "modelId" => String.t() | atom()
+      }
+
+  """
+  @type bedrock_evaluator_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_managers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "paymentManagers" => list(payment_manager_summary())
+      }
+
+  """
+  @type list_payment_managers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_split_entry() :: %{
+        "configurationBundle" => configuration_bundle_reference(),
+        "description" => [String.t() | atom()],
+        "metadata" => map(),
+        "name" => [String.t() | atom()],
+        "weight" => [integer()]
+      }
+
+  """
+  @type traffic_split_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,66 +1240,317 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      harness_agent_core_memory_configuration() :: %{
-        "actorId" => [String.t() | atom()],
-        "arn" => String.t() | atom(),
-        "messagesCount" => [integer()],
-        "retrievalConfig" => map()
+      delete_gateway_response() :: %{
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom())
       }
 
   """
-  @type harness_agent_core_memory_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_policy_generation_summaries_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      semantic_override_configuration_input() :: %{
+        "consolidation" => semantic_override_consolidation_configuration_input(),
+        "extraction" => semantic_override_extraction_configuration_input()
       }
 
   """
-  @type list_policy_generation_summaries_request() :: %{(String.t() | atom()) => any()}
+  @type semantic_override_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_configuration_bundle_request() :: %{}
-
-  """
-  @type delete_configuration_bundle_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_payment_connectors_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      create_agent_runtime_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("environmentVariables") => map(),
+        optional("filesystemConfigurations") => list(list()),
+        optional("lifecycleConfiguration") => lifecycle_configuration(),
+        optional("protocolConfiguration") => protocol_configuration(),
+        optional("requestHeaderConfiguration") => list(),
+        optional("tags") => map(),
+        required("agentRuntimeArtifact") => list(),
+        required("agentRuntimeName") => String.t() | atom(),
+        required("networkConfiguration") => network_configuration(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type list_payment_connectors_request() :: %{(String.t() | atom()) => any()}
+  @type create_agent_runtime_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_oauth2_credential_provider_response() :: %{
-        "callbackUrl" => [String.t() | atom()],
-        "clientSecretArn" => secret(),
-        "clientSecretJsonKey" => String.t() | atom(),
-        "clientSecretSource" => list(any()),
-        "credentialProviderArn" => String.t() | atom(),
+      create_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("validationMode") => list(any()),
+        required("definition") => list(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_oauth2_credential_provider_request() :: %{
+        optional("tags") => map(),
+        required("credentialProviderVendor") => list(any()),
+        required("name") => String.t() | atom(),
+        required("oauth2ProviderConfigInput") => list()
+      }
+
+  """
+  @type create_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_harnesses_response() :: %{
+        "harnesses" => list(harness_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_harnesses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      semantic_override_extraction_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type semantic_override_extraction_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_workload_identity_request() :: %{
+        optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type update_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_profile_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastSavedAt" => non_neg_integer(),
+        "lastSavedBrowserId" => String.t() | atom(),
+        "lastSavedBrowserSessionId" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
-        "oauth2ProviderConfigOutput" => list(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type create_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
+  @type get_browser_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_harness_environment_artifact() :: %{
+        "optionalValue" => list()
+      }
+
+  """
+  @type updated_harness_environment_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_manager_response() :: %{
+        "paymentManagerId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_manager_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gateway_response() :: %{
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "exceptionLevel" => list(any()),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "gatewayUrl" => String.t() | atom(),
+        "interceptorConfigurations" => list(gateway_interceptor_configuration()),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineConfiguration" => gateway_policy_engine_configuration(),
+        "protocolConfiguration" => list(),
+        "protocolType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer(),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type get_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_evaluator_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("evaluatorConfig") => list(),
+        required("evaluatorName") => String.t() | atom(),
+        required("level") => list(any())
+      }
+
+  """
+  @type create_evaluator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_target_configuration() :: %{
+        "apiGatewayToolConfiguration" => api_gateway_tool_configuration(),
+        "restApiId" => [String.t() | atom()],
+        "stage" => [String.t() | atom()]
+      }
+
+  """
+  @type api_gateway_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_summary() :: %{
+        "browserArn" => String.t() | atom(),
+        "browserId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type browser_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protocol_configuration() :: %{
+        "serverProtocol" => list(any())
+      }
+
+  """
+  @type protocol_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_online_evaluation_config_response() :: %{
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      skill_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type skill_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generation_assets_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyGenerationAssets" => list(policy_generation_asset())
+      }
+
+  """
+  @type list_policy_generation_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_memory_strategies() :: %{
+        "addMemoryStrategies" => list(list()),
+        "deleteMemoryStrategies" => list(delete_memory_strategy_input()),
+        "modifyMemoryStrategies" => list(modify_memory_strategy_input())
+      }
+
+  """
+  @type modify_memory_strategies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -373,536 +1577,50 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      a2a_descriptor() :: %{
-        "agentCard" => agent_card_definition()
+      inference_configuration() :: %{
+        "maxTokens" => [integer()],
+        "stopSequences" => list(String.t() | atom()),
+        "temperature" => [float()],
+        "topP" => [float()]
       }
 
   """
-  @type a2a_descriptor() :: %{(String.t() | atom()) => any()}
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      list_datasets_response() :: %{
+        "datasets" => list(dataset_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_payment_manager_response() :: %{
-        "authorizerType" => list(any()),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "paymentManagerArn" => String.t() | atom(),
-        "paymentManagerId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "workloadIdentityDetails" => workload_identity_details()
-      }
-
-  """
-  @type update_payment_manager_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_harness_request() :: %{}
-
-  """
-  @type get_harness_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_sliding_window_configuration() :: %{
-        "messagesCount" => [integer()]
-      }
-
-  """
-  @type harness_sliding_window_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_key_credential_provider_response() :: %{
-        "apiKeySecretArn" => secret(),
-        "apiKeySecretJsonKey" => String.t() | atom(),
-        "apiKeySecretSource" => list(any()),
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type get_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      included_oauth2_provider_config_input() :: %{
-        "authorizationEndpoint" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any()),
-        "issuer" => String.t() | atom(),
-        "tokenEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type included_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_registry_record_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "descriptorType" => list(any()),
-        "descriptors" => descriptors(),
-        "name" => String.t() | atom(),
-        "recordArn" => String.t() | atom(),
-        "recordId" => String.t() | atom(),
-        "recordVersion" => String.t() | atom(),
-        "registryArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "synchronizationConfiguration" => synchronization_configuration(),
-        "synchronizationType" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_registry_record_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      submit_registry_record_for_approval_request() :: %{}
-
-  """
-  @type submit_registry_record_for_approval_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_response() :: %{}
-
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth2_authorization_data() :: %{
-        "authorizationUrl" => [String.t() | atom()],
-        "userId" => [String.t() | atom()]
-      }
-
-  """
-  @type o_auth2_authorization_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_bundle_reference() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleVersion" => [String.t() | atom()]
-      }
-
-  """
-  @type configuration_bundle_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_summary() :: %{
-        "browserArn" => String.t() | atom(),
-        "browserId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type browser_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      summary_override_consolidation_configuration_input() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
-      }
-
-  """
-  @type summary_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_source() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      memory_summary() :: %{
+      iam_principal() :: %{
         "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
+        "operator" => list(any())
       }
 
   """
-  @type memory_summary() :: %{(String.t() | atom()) => any()}
+  @type iam_principal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      gateway_rule_detail() :: %{
-        "actions" => list(list()),
-        "conditions" => list(list()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "gatewayArn" => String.t() | atom(),
-        "priority" => integer(),
-        "ruleId" => String.t() | atom(),
-        "status" => list(any()),
-        "system" => system_managed_block(),
-        "updatedAt" => non_neg_integer()
+      match_principals() :: %{
+        "anyOf" => list(list())
       }
 
   """
-  @type gateway_rule_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_configuration() :: %{
-        "code" => list(),
-        "entryPoint" => list(String.t() | atom()),
-        "runtime" => list(any())
-      }
-
-  """
-  @type code_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_harness_response() :: %{
-        "harness" => harness()
-      }
-
-  """
-  @type get_harness_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_response() :: %{
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetVersion" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      numerical_scale_definition() :: %{
-        "definition" => [String.t() | atom()],
-        "label" => [String.t() | atom()],
-        "value" => [float()]
-      }
-
-  """
-  @type numerical_scale_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_policy_engine_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_policy_engine_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      secret_reference() :: %{
-        "jsonKey" => String.t() | atom(),
-        "secretId" => String.t() | atom()
-      }
-
-  """
-  @type secret_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_interpreters_response() :: %{
-        "codeInterpreterSummaries" => list(code_interpreter_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_code_interpreters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_memory_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("encryptionKeyArn") => String.t() | atom(),
-        optional("indexedKeys") => list(indexed_key()),
-        optional("memoryExecutionRoleArn") => String.t() | atom(),
-        optional("memoryStrategies") => list(list()),
-        optional("streamDeliveryResources") => stream_delivery_resources(),
-        optional("tags") => map(),
-        required("eventExpiryDuration") => [integer()],
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_memory_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_summary_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_policy_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      summary_memory_strategy_input() :: %{
-        "description" => String.t() | atom(),
-        "memoryRecordSchema" => memory_record_schema(),
-        "name" => String.t() | atom(),
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type summary_memory_strategy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dataset_response() :: %{
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_payment_credential_provider_request() :: %{
-        required("credentialProviderVendor") => list(any()),
-        required("name") => String.t() | atom(),
-        required("providerConfigurationInput") => list()
-      }
-
-  """
-  @type update_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kms_configuration() :: %{
-        "keyType" => list(any()),
-        "kmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type kms_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evaluator_request() :: %{
-        optional("includedData") => list(any())
-      }
-
-  """
-  @type get_evaluator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policies_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policies" => list(policy())
-      }
-
-  """
-  @type list_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_descriptors() :: %{
-        "optionalValue" => updated_descriptors_union()
-      }
-
-  """
-  @type updated_descriptors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_descriptor() :: %{
-        "inlineContent" => String.t() | atom()
-      }
-
-  """
-  @type custom_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_payment_credential_provider_response() :: %{}
-
-  """
-  @type delete_payment_credential_provider_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_browser_profiles_request() :: %{
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_browser_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_manager_response() :: %{
-        "authorizerConfiguration" => list(),
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "paymentManagerArn" => String.t() | atom(),
-        "paymentManagerId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map(),
-        "workloadIdentityDetails" => workload_identity_details()
-      }
-
-  """
-  @type get_payment_manager_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_definition() :: %{
-        "description" => [String.t() | atom()],
-        "items" => schema_definition(),
-        "properties" => map(),
-        "required" => list([String.t() | atom()]()),
-        "type" => list(any())
-      }
-
-  """
-  @type schema_definition() :: %{(String.t() | atom()) => any()}
+  @type match_principals() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -919,188 +1637,56 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_runtime_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      update_gateway_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("description") => String.t() | atom(),
+        optional("exceptionLevel") => list(any()),
+        optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("policyEngineConfiguration") => gateway_policy_engine_configuration(),
+        optional("protocolConfiguration") => list(),
+        optional("protocolType") => list(any()),
+        required("authorizerType") => list(any()),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type list_agent_runtime_versions_request() :: %{(String.t() | atom()) => any()}
+  @type update_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_gateway_response() :: %{
-        "authorizerConfiguration" => list(),
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "exceptionLevel" => list(any()),
-        "gatewayArn" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "gatewayUrl" => String.t() | atom(),
-        "interceptorConfigurations" => list(gateway_interceptor_configuration()),
-        "kmsKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineConfiguration" => gateway_policy_engine_configuration(),
-        "protocolConfiguration" => list(),
-        "protocolType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer(),
-        "workloadIdentityDetails" => workload_identity_details()
+      a2a_descriptor() :: %{
+        "agentCard" => agent_card_definition()
       }
 
   """
-  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+  @type a2a_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      registry_record_iam_credential_provider() :: %{
-        "region" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "service" => String.t() | atom()
+      get_policy_engine_request() :: %{}
+
+  """
+  @type get_policy_engine_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_credential_provider_request() :: %{
+        optional("tags") => map(),
+        required("credentialProviderVendor") => list(any()),
+        required("name") => String.t() | atom(),
+        required("providerConfigurationInput") => list()
       }
 
   """
-  @type registry_record_iam_credential_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_delivery_resources() :: %{
-        "resources" => list(list())
-      }
-
-  """
-  @type stream_delivery_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_gateway_tool_override() :: %{
-        "description" => [String.t() | atom()],
-        "method" => list(any()),
-        "name" => [String.t() | atom()],
-        "path" => [String.t() | atom()]
-      }
-
-  """
-  @type api_gateway_tool_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      salesforce_oauth2_provider_config_input() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any())
-      }
-
-  """
-  @type salesforce_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_configuration() :: %{
-        "maxTokens" => [integer()],
-        "stopSequences" => list(String.t() | atom()),
-        "temperature" => [float()],
-        "topP" => [float()]
-      }
-
-  """
-  @type inference_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateways_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_output_config() :: %{
-        "logGroupName" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_oauth2_credential_provider_request() :: %{
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type get_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      indexed_key() :: %{
-        "key" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type indexed_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_registry_request() :: %{}
-
-  """
-  @type delete_registry_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_online_evaluation_config_response() :: %{
-        "executionStatus" => list(any()),
-        "failureReason" => [String.t() | atom()],
-        "onlineEvaluationConfigArn" => String.t() | atom(),
-        "onlineEvaluationConfigId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type update_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+  @type create_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1118,131 +1704,262 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      get_workload_identity_request() :: %{
-        required("name") => String.t() | atom()
+      list_online_evaluation_configs_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "onlineEvaluationConfigs" => list(online_evaluation_config_summary())
       }
 
   """
-  @type get_workload_identity_request() :: %{(String.t() | atom()) => any()}
+  @type list_online_evaluation_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      string_list_validation() :: %{
-        "allowedValues" => list(String.t() | atom()),
-        "maxItems" => [integer()]
+      self_managed_configuration_input() :: %{
+        "historicalContextWindowSize" => [integer()],
+        "invocationConfiguration" => invocation_configuration_input(),
+        "triggerConditions" => list(list())
       }
 
   """
-  @type string_list_validation() :: %{(String.t() | atom()) => any()}
+  @type self_managed_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_registry_record_request() :: %{}
+      get_gateway_rule_request() :: %{}
 
   """
-  @type get_registry_record_request() :: %{}
+  @type get_gateway_rule_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_evaluator_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("evaluatorConfig") => list(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("level") => list(any())
+      updated_agent_skills_descriptor_fields() :: %{
+        "skillDefinition" => updated_skill_definition(),
+        "skillMd" => updated_skill_md_definition()
       }
 
   """
-  @type update_evaluator_request() :: %{(String.t() | atom()) => any()}
+  @type updated_agent_skills_descriptor_fields() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_policies_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("targetResourceScope") => String.t() | atom()
+      delete_payment_credential_provider_response() :: %{}
+
+  """
+  @type delete_payment_credential_provider_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_connector_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialProviderConfigurations" => list(list()),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentConnectorId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
       }
 
   """
-  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+  @type get_payment_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      message_based_trigger_input() :: %{
-        "messageCount" => [integer()]
+      atlassian_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
-  @type message_based_trigger_input() :: %{(String.t() | atom()) => any()}
+  @type atlassian_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_policy_request() :: %{}
-
-  """
-  @type get_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      api_gateway_target_configuration() :: %{
-        "apiGatewayToolConfiguration" => api_gateway_tool_configuration(),
-        "restApiId" => [String.t() | atom()],
-        "stage" => [String.t() | atom()]
+      payment_credential_provider_item() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom()
       }
 
   """
-  @type api_gateway_target_configuration() :: %{(String.t() | atom()) => any()}
+  @type payment_credential_provider_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      string_validation() :: %{
-        "allowedValues" => list(String.t() | atom())
+      update_workload_identity_response() :: %{
+        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
+        "createdTime" => [non_neg_integer()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
       }
 
   """
-  @type string_validation() :: %{(String.t() | atom()) => any()}
+  @type update_workload_identity_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_policy_generation_assets_request() :: %{
+      updated_custom_descriptor() :: %{
+        "optionalValue" => custom_descriptor()
+      }
+
+  """
+  @type updated_custom_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_connectors_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_policy_generation_assets_request() :: %{(String.t() | atom()) => any()}
+  @type list_payment_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_gateway_target_response() :: %{
-        "gatewayArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "targetId" => String.t() | atom()
+      update_configuration_bundle_request() :: %{
+        optional("branchName") => String.t() | atom(),
+        optional("bundleName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("commitMessage") => [String.t() | atom()],
+        optional("components") => map(),
+        optional("createdBy") => version_created_by_source(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("parentVersionIds") => list(String.t() | atom())
       }
 
   """
-  @type delete_gateway_target_response() :: %{(String.t() | atom()) => any()}
+  @type update_configuration_bundle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synchronize_gateway_targets_response() :: %{
+        "targets" => list(gateway_target())
+      }
+
+  """
+  @type synchronize_gateway_targets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_j_w_t_authorizer_configuration() :: %{
+        "allowedAudience" => list(String.t() | atom()),
+        "allowedClients" => list(String.t() | atom()),
+        "allowedScopes" => list(String.t() | atom()),
+        "customClaims" => list(custom_claim_validation_type()),
+        "discoveryUrl" => String.t() | atom(),
+        "privateEndpoint" => list(),
+        "privateEndpointOverrides" => list(private_endpoint_override())
+      }
+
+  """
+  @type custom_j_w_t_authorizer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_examples_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom(),
+        "examples" => list(any()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateways_response() :: %{
+        "items" => list(gateway_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_gateways_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      streaming_configuration() :: %{
+        "enableResponseStreaming" => [boolean()]
+      }
+
+  """
+  @type streaming_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_version_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetVersion" => String.t() | atom(),
+        "exampleCount" => [float()]
+      }
+
+  """
+  @type dataset_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_evaluator_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_connector_request() :: %{}
+
+  """
+  @type get_payment_connector_request() :: %{}
 
   @typedoc """
 
@@ -1261,122 +1978,32 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      api_gateway_tool_filter() :: %{
-        "filterPath" => [String.t() | atom()],
-        "methods" => list(list(any())())
-      }
-
-  """
-  @type api_gateway_tool_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_harness_response() :: %{
-        "harness" => harness()
-      }
-
-  """
-  @type create_harness_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_payment_credential_provider_request() :: %{
+      delete_workload_identity_request() :: %{
         required("name") => String.t() | atom()
       }
 
   """
-  @type delete_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+  @type delete_workload_identity_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      weighted_route() :: %{
-        "trafficSplit" => list(target_traffic_split_entry())
+      get_configuration_bundle_version_response() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
+        "bundleName" => String.t() | atom(),
+        "components" => map(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "lineageMetadata" => version_lineage_metadata(),
+        "versionCreatedAt" => [non_neg_integer()],
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type weighted_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_configuration() :: %{
-        "idleRuntimeSessionTimeout" => [integer()],
-        "maxLifetime" => [integer()]
-      }
-
-  """
-  @type lifecycle_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_definition() :: %{
-        "description" => [String.t() | atom()],
-        "inputSchema" => schema_definition(),
-        "name" => [String.t() | atom()],
-        "outputSchema" => schema_definition()
-      }
-
-  """
-  @type tool_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_registry_record_status_response() :: %{
-        "recordArn" => String.t() | atom(),
-        "recordId" => String.t() | atom(),
-        "registryArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_registry_record_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_credential_provider() :: %{
-        "region" => [String.t() | atom()],
-        "service" => [String.t() | atom()]
-      }
-
-  """
-  @type iam_credential_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_registry_response() :: %{
-        "registryArn" => String.t() | atom()
-      }
-
-  """
-  @type create_registry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      decryption_failure() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type decryption_failure() :: %{(String.t() | atom()) => any()}
+  @type get_configuration_bundle_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1399,307 +2026,41 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      get_registry_request() :: %{}
-
-  """
-  @type get_registry_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_rule_request() :: %{
-        optional("actions") => list(list()),
-        optional("conditions") => list(list()),
-        optional("description") => String.t() | atom(),
-        optional("priority") => integer()
-      }
-
-  """
-  @type update_gateway_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_engine_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_policy_engine_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_browser_response() :: %{
-        "browserArn" => String.t() | atom(),
-        "browserId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_browser_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      modify_self_managed_configuration() :: %{
-        "historicalContextWindowSize" => [integer()],
-        "invocationConfiguration" => modify_invocation_configuration_input(),
-        "triggerConditions" => list(list())
-      }
-
-  """
-  @type modify_self_managed_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_skill_s3_source() :: %{
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type harness_skill_s3_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_failure() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type encryption_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_payment_connector_request() :: %{
+      update_evaluator_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
-        required("credentialProviderConfigurations") => list(list()),
-        required("name") => String.t() | atom(),
-        required("type") => list(any())
+        optional("evaluatorConfig") => list(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("level") => list(any())
       }
 
   """
-  @type create_payment_connector_request() :: %{(String.t() | atom()) => any()}
+  @type update_evaluator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      policy_generation_asset() :: %{
-        "definition" => list(),
-        "findings" => list(finding()),
-        "policyGenerationAssetId" => String.t() | atom(),
-        "rawTextFragment" => String.t() | atom()
-      }
-
-  """
-  @type policy_generation_asset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_browser_response() :: %{
-        "browserId" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_browser_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_online_evaluation_config_request() :: %{}
-
-  """
-  @type get_online_evaluation_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_tools_definition() :: %{
-        "optionalValue" => tools_definition()
-      }
-
-  """
-  @type updated_tools_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("validationMode") => list(any()),
-        required("definition") => list(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_runtime_request() :: %{
-        optional("agentRuntimeVersion") => String.t() | atom()
-      }
-
-  """
-  @type get_agent_runtime_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_memory_input() :: %{
-        optional("view") => list(any())
-      }
-
-  """
-  @type get_memory_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      semantic_memory_strategy_input() :: %{
-        "description" => String.t() | atom(),
-        "memoryRecordSchema" => memory_record_schema(),
-        "name" => String.t() | atom(),
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type semantic_memory_strategy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_truncation_configuration() :: %{
-        "config" => list(),
-        "strategy" => list(any())
-      }
-
-  """
-  @type harness_truncation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_memory_input() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_memory_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_datasets_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_response() :: %{
-        "gatewayId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom())
-      }
-
-  """
-  @type delete_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_dataset_examples_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("source") => list()
-      }
-
-  """
-  @type add_dataset_examples_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registry_record_o_auth_credential_provider() :: %{
-        "customParameters" => map(),
+      on_behalf_of_token_exchange_config_type() :: %{
         "grantType" => list(any()),
-        "providerArn" => String.t() | atom(),
-        "scopes" => list([String.t() | atom()]())
+        "tokenExchangeGrantTypeConfig" => token_exchange_grant_type_config_type()
       }
 
   """
-  @type registry_record_o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
+  @type on_behalf_of_token_exchange_config_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      summary_consolidation_override() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
+      get_token_vault_response() :: %{
+        "kmsConfiguration" => kms_configuration(),
+        "lastModifiedDate" => [non_neg_integer()],
+        "tokenVaultId" => String.t() | atom()
       }
 
   """
-  @type summary_consolidation_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_key_credential_provider_response() :: %{
-        "apiKeySecretArn" => secret(),
-        "apiKeySecretJsonKey" => String.t() | atom(),
-        "apiKeySecretSource" => list(any()),
-        "credentialProviderArn" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type create_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
+  @type get_token_vault_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1721,111 +2082,352 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      updated_skill_md_definition() :: %{
-        "optionalValue" => skill_md_definition()
+      create_registry_request() :: %{
+        optional("approvalConfiguration") => approval_configuration(),
+        optional("authorizerConfiguration") => list(),
+        optional("authorizerType") => list(any()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type updated_skill_md_definition() :: %{(String.t() | atom()) => any()}
+  @type create_registry_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      episodic_override_reflection_configuration_input() :: %{
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registry_record_request() :: %{}
+
+  """
+  @type delete_registry_record_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration() :: %{
+        "allowedQueryParameters" => list(String.t() | atom()),
+        "allowedRequestHeaders" => list(String.t() | atom()),
+        "allowedResponseHeaders" => list(String.t() | atom())
+      }
+
+  """
+  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_engine_summary_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_engine_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_oauth2_credential_provider_response() :: %{
+        "callbackUrl" => [String.t() | atom()],
+        "clientSecretArn" => secret(),
+        "clientSecretJsonKey" => String.t() | atom(),
+        "clientSecretSource" => list(any()),
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "oauth2ProviderConfigOutput" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_generation_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_generation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registry_record_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "descriptorType" => list(any()),
+        "name" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "recordVersion" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type registry_record_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_sliding_window_configuration() :: %{
+        "messagesCount" => [integer()]
+      }
+
+  """
+  @type harness_sliding_window_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_bundle_response() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type update_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_card_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type agent_card_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_manager_summary() :: %{
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type payment_manager_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_online_evaluation_configs_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_online_evaluation_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_managed_configuration() :: %{
+        "historicalContextWindowSize" => [integer()],
+        "invocationConfiguration" => invocation_configuration(),
+        "triggerConditions" => list(list())
+      }
+
+  """
+  @type self_managed_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_preference_consolidation_override() :: %{
         "appendToPrompt" => String.t() | atom(),
-        "memoryRecordSchema" => memory_record_schema(),
-        "modelId" => [String.t() | atom()],
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
+        "modelId" => [String.t() | atom()]
       }
 
   """
-  @type episodic_override_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type user_preference_consolidation_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lambda_evaluator_config() :: %{
-        "lambdaArn" => String.t() | atom(),
-        "lambdaTimeoutInSeconds" => [integer()]
+      create_api_key_credential_provider_response() :: %{
+        "apiKeySecretArn" => secret(),
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
+        "credentialProviderArn" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type lambda_evaluator_config() :: %{(String.t() | atom()) => any()}
+  @type create_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      updated_a2a_descriptor() :: %{
-        "optionalValue" => a2a_descriptor()
+      get_api_key_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
       }
 
   """
-  @type updated_a2a_descriptor() :: %{(String.t() | atom()) => any()}
+  @type get_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_policy_response() :: %{
-        "policy" => String.t() | atom()
+      slack_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type slack_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      user_preference_override_configuration_input() :: %{
-        "consolidation" => user_preference_override_consolidation_configuration_input(),
-        "extraction" => user_preference_override_extraction_configuration_input()
+      policy_generation_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type user_preference_override_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type policy_generation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_agent_core_gateway_config() :: %{
-        "gatewayArn" => String.t() | atom(),
-        "outboundAuth" => list()
+      system_managed_block() :: %{
+        "managedBy" => [String.t() | atom()]
       }
 
   """
-  @type harness_agent_core_gateway_config() :: %{(String.t() | atom()) => any()}
+  @type system_managed_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_skill_git_source() :: %{
-        "auth" => harness_skill_git_auth(),
-        "path" => [String.t() | atom()],
-        "url" => String.t() | atom()
+      registry_record_credential_provider_configuration() :: %{
+        "credentialProvider" => list(),
+        "credentialProviderType" => list(any())
       }
 
   """
-  @type harness_skill_git_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_reflection_configuration() :: %{
-        "memoryRecordSchema" => memory_record_schema(),
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type episodic_reflection_configuration() :: %{(String.t() | atom()) => any()}
+  @type registry_record_credential_provider_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1857,6 +2459,96 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      harness_agent_core_gateway_config() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "outboundAuth" => list()
+      }
+
+  """
+  @type harness_agent_core_gateway_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_definition() :: %{
+        "description" => [String.t() | atom()],
+        "items" => schema_definition(),
+        "properties" => map(),
+        "required" => list([String.t() | atom()]()),
+        "type" => list(any())
+      }
+
+  """
+  @type schema_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool() :: %{
+        "config" => list(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_bundle_reference() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type configuration_bundle_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_based_trigger_input() :: %{
+        "idleSessionTimeout" => [integer()]
+      }
+
+  """
+  @type time_based_trigger_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_connectors_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "paymentConnectors" => list(payment_connector_summary())
+      }
+
+  """
+  @type list_payment_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_traffic_split_entry() :: %{
+        "description" => [String.t() | atom()],
+        "metadata" => map(),
+        "name" => [String.t() | atom()],
+        "targetName" => String.t() | atom(),
+        "weight" => [integer()]
+      }
+
+  """
+  @type target_traffic_split_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       submit_registry_record_for_approval_response() :: %{
         "recordArn" => String.t() | atom(),
         "recordId" => String.t() | atom(),
@@ -1872,306 +2564,268 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      episodic_override_configuration_input() :: %{
-        "consolidation" => episodic_override_consolidation_configuration_input(),
-        "extraction" => episodic_override_extraction_configuration_input(),
-        "reflection" => episodic_override_reflection_configuration_input()
-      }
-
-  """
-  @type episodic_override_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stripe_privy_configuration_output() :: %{
-        "appId" => String.t() | atom(),
-        "appSecretArn" => secret(),
-        "appSecretJsonKey" => String.t() | atom(),
-        "appSecretSource" => list(any()),
-        "authorizationId" => String.t() | atom(),
-        "authorizationPrivateKeyArn" => secret(),
-        "authorizationPrivateKeyJsonKey" => String.t() | atom(),
-        "authorizationPrivateKeySource" => list(any())
-      }
-
-  """
-  @type stripe_privy_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_online_evaluation_config_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("clusteringConfig") => clustering_config(),
-        optional("dataSourceConfig") => list(),
-        optional("description") => String.t() | atom(),
-        optional("evaluationExecutionRoleArn") => String.t() | atom(),
-        optional("evaluators") => list(list()),
-        optional("executionStatus") => list(any()),
-        optional("insights") => list(insight()),
-        optional("rule") => rule()
-      }
-
-  """
-  @type update_online_evaluation_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_generation_summary_request() :: %{}
-
-  """
-  @type get_policy_generation_summary_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_evaluator_response() :: %{
-        "evaluatorArn" => String.t() | atom(),
-        "evaluatorId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_evaluator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      online_evaluation_config_summary() :: %{
-        "clusteringConfig" => clustering_config(),
+      memory_summary() :: %{
+        "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "executionStatus" => list(any()),
-        "failureReason" => [String.t() | atom()],
-        "insights" => list(insight()),
-        "onlineEvaluationConfigArn" => String.t() | atom(),
-        "onlineEvaluationConfigId" => String.t() | atom(),
-        "onlineEvaluationConfigName" => String.t() | atom(),
+        "id" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type online_evaluation_config_summary() :: %{(String.t() | atom()) => any()}
+  @type memory_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_registry_request() :: %{
-        optional("approvalConfiguration") => updated_approval_configuration(),
-        optional("authorizerConfiguration") => updated_authorizer_configuration(),
-        optional("description") => updated_description(),
-        optional("name") => String.t() | atom()
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_engine_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyEngines" => list(policy_engine_summary())
       }
 
   """
-  @type update_registry_request() :: %{(String.t() | atom()) => any()}
+  @type list_policy_engine_summaries_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_agent_core_memory_retrieval_config() :: %{
-        "relevanceScore" => [float()],
-        "strategyId" => [String.t() | atom()],
-        "topK" => [integer()]
+      s3_location() :: %{
+        "bucket" => [String.t() | atom()],
+        "prefix" => [String.t() | atom()],
+        "versionId" => [String.t() | atom()]
       }
 
   """
-  @type harness_agent_core_memory_retrieval_config() :: %{(String.t() | atom()) => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_registry_record_request() :: %{
-        optional("description") => updated_description(),
-        optional("descriptorType") => list(any()),
-        optional("descriptors") => updated_descriptors(),
-        optional("name") => String.t() | atom(),
-        optional("recordVersion") => String.t() | atom(),
-        optional("synchronizationConfiguration") => updated_synchronization_configuration(),
-        optional("synchronizationType") => updated_synchronization_type(),
-        optional("triggerSynchronization") => [boolean()]
+      mcp_descriptor() :: %{
+        "server" => server_definition(),
+        "tools" => tools_definition()
       }
 
   """
-  @type update_registry_record_request() :: %{(String.t() | atom()) => any()}
+  @type mcp_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_workload_identity_response() :: %{}
-
-  """
-  @type delete_workload_identity_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      semantic_extraction_override() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
+      linkedin_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
       }
 
   """
-  @type semantic_extraction_override() :: %{(String.t() | atom()) => any()}
+  @type linkedin_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      linkedin_oauth2_provider_config_output() :: %{
+      list_code_interpreters_response() :: %{
+        "codeInterpreterSummaries" => list(code_interpreter_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_code_interpreters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_git_source() :: %{
+        "auth" => harness_skill_git_auth(),
+        "path" => [String.t() | atom()],
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type harness_skill_git_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_request() :: %{}
+
+  """
+  @type get_browser_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_summary_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      microsoft_oauth2_provider_config_output() :: %{
         "clientId" => String.t() | atom(),
         "oauthDiscovery" => list()
       }
 
   """
-  @type linkedin_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+  @type microsoft_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      gateway_policy_engine_configuration() :: %{
-        "arn" => String.t() | atom(),
-        "mode" => list(any())
+      harness_gemini_model_config() :: %{
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topK" => integer(),
+        "topP" => float()
       }
 
   """
-  @type gateway_policy_engine_configuration() :: %{(String.t() | atom()) => any()}
+  @type harness_gemini_model_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kinesis_resource() :: %{
-        "contentConfigurations" => list(content_configuration()),
-        "dataStreamArn" => String.t() | atom()
+      o_auth_credential_provider() :: %{
+        "customParameters" => map(),
+        "defaultReturnUrl" => String.t() | atom(),
+        "grantType" => list(any()),
+        "providerArn" => String.t() | atom(),
+        "scopes" => list(String.t() | atom())
       }
 
   """
-  @type kinesis_resource() :: %{(String.t() | atom()) => any()}
+  @type o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      semantic_override_consolidation_configuration_input() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
+      list_workload_identities_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type semantic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type list_workload_identities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_policy_summaries_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("targetResourceScope") => String.t() | atom()
+      create_api_key_credential_provider_request() :: %{
+        optional("apiKey") => String.t() | atom(),
+        optional("apiKeySecretConfig") => secret_reference(),
+        optional("apiKeySecretSource") => list(any()),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type list_policy_summaries_request() :: %{(String.t() | atom()) => any()}
+  @type create_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_policy_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "definition" => list(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
+      workload_identity_details() :: %{
+        "workloadIdentityArn" => String.t() | atom()
       }
 
   """
-  @type delete_policy_response() :: %{(String.t() | atom()) => any()}
+  @type workload_identity_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_gateway_rule_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("conditions") => list(list()),
-        optional("description") => String.t() | atom(),
-        required("actions") => list(list()),
-        required("priority") => integer()
+      updated_descriptors() :: %{
+        "optionalValue" => updated_descriptors_union()
       }
 
   """
-  @type create_gateway_rule_request() :: %{(String.t() | atom()) => any()}
+  @type updated_descriptors() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_agent_runtime_endpoint_response() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeEndpointArn" => String.t() | atom(),
-        "agentRuntimeId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "endpointName" => String.t() | atom(),
-        "status" => list(any()),
-        "targetVersion" => String.t() | atom()
+      harness_truncation_configuration() :: %{
+        "config" => list(),
+        "strategy" => list(any())
       }
 
   """
-  @type create_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type harness_truncation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      self_managed_configuration_input() :: %{
-        "historicalContextWindowSize" => [integer()],
-        "invocationConfiguration" => invocation_configuration_input(),
-        "triggerConditions" => list(list())
+      tool_definition() :: %{
+        "description" => [String.t() | atom()],
+        "inputSchema" => schema_definition(),
+        "name" => [String.t() | atom()],
+        "outputSchema" => schema_definition()
       }
 
   """
-  @type self_managed_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type tool_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_policy_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "definition" => list(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
+      get_workload_identity_request() :: %{
+        required("name") => String.t() | atom()
       }
 
   """
-  @type update_policy_response() :: %{(String.t() | atom()) => any()}
+  @type get_workload_identity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      version_created_by_source() :: %{
+        "arn" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type version_created_by_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2209,182 +2863,970 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      create_api_key_credential_provider_request() :: %{
-        optional("apiKey") => String.t() | atom(),
-        optional("apiKeySecretConfig") => secret_reference(),
-        optional("apiKeySecretSource") => list(any()),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
+      updated_harness_memory_configuration() :: %{
+        "optionalValue" => list()
       }
 
   """
-  @type create_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
+  @type updated_harness_memory_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_browser_response() :: %{
-        "browserArn" => String.t() | atom(),
-        "browserId" => String.t() | atom(),
-        "browserSigning" => browser_signing_config_output(),
-        "certificates" => list(certificate()),
+      update_agent_runtime_response() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type update_agent_runtime_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_response() :: %{
+        "approvalConfiguration" => approval_configuration(),
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "enterprisePolicies" => list(browser_enterprise_policy()),
-        "executionRoleArn" => String.t() | atom(),
-        "failureReason" => [String.t() | atom()],
-        "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
-        "networkConfiguration" => browser_network_configuration(),
-        "recording" => recording_config(),
-        "status" => list(any())
+        "registryArn" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_browser_response() :: %{(String.t() | atom()) => any()}
+  @type update_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      workload_identity_details() :: %{
-        "workloadIdentityArn" => String.t() | atom()
-      }
-
-  """
-  @type workload_identity_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      synchronize_gateway_targets_request() :: %{
-        required("targetIdList") => list(String.t() | atom())
-      }
-
-  """
-  @type synchronize_gateway_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_gateway_target_request() :: %{
+      create_online_evaluation_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
+        optional("clusteringConfig") => clustering_config(),
         optional("description") => String.t() | atom(),
-        optional("metadataConfiguration") => metadata_configuration(),
-        optional("privateEndpoint") => list(),
-        required("name") => String.t() | atom(),
-        required("targetConfiguration") => list()
+        optional("evaluators") => list(list()),
+        optional("insights") => list(insight()),
+        optional("tags") => map(),
+        required("dataSourceConfig") => list(),
+        required("enableOnCreate") => [boolean()],
+        required("evaluationExecutionRoleArn") => String.t() | atom(),
+        required("onlineEvaluationConfigName") => String.t() | atom(),
+        required("rule") => rule()
       }
 
   """
-  @type create_gateway_target_request() :: %{(String.t() | atom()) => any()}
+  @type create_online_evaluation_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      semantic_consolidation_override() :: %{
+      harness_remote_mcp_config() :: %{
+        "headers" => map(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type harness_remote_mcp_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_files_access_point_configuration() :: %{
+        "accessPointArn" => String.t() | atom(),
+        "mountPath" => String.t() | atom()
+      }
+
+  """
+  @type s3_files_access_point_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_engines_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_engines_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      skill_md_definition() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type skill_md_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_storage_configuration() :: %{
+        "mountPath" => String.t() | atom()
+      }
+
+  """
+  @type session_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      private_endpoint_override() :: %{
+        "domain" => String.t() | atom(),
+        "privateEndpoint" => list()
+      }
+
+  """
+  @type private_endpoint_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_override_configuration_input() :: %{
+        "consolidation" => episodic_override_consolidation_configuration_input(),
+        "extraction" => episodic_override_extraction_configuration_input(),
+        "reflection" => episodic_override_reflection_configuration_input()
+      }
+
+  """
+  @type episodic_override_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_preference_override_consolidation_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
       }
 
   """
-  @type semantic_consolidation_override() :: %{(String.t() | atom()) => any()}
+  @type user_preference_override_consolidation_configuration_input() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      create_harness_request() :: %{
-        optional("allowedTools") => list(String.t() | atom()),
-        optional("authorizerConfiguration") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("environment") => list(),
-        optional("environmentArtifact") => list(),
-        optional("environmentVariables") => map(),
-        optional("maxIterations") => [integer()],
-        optional("maxTokens") => [integer()],
-        optional("memory") => list(),
-        optional("model") => list(),
-        optional("skills") => list(list()),
-        optional("systemPrompt") => list(list()),
-        optional("tags") => map(),
-        optional("timeoutSeconds") => [integer()],
-        optional("tools") => list(harness_tool()),
-        optional("truncation") => harness_truncation_configuration(),
-        required("executionRoleArn") => String.t() | atom(),
-        required("harnessName") => String.t() | atom()
-      }
-
-  """
-  @type create_harness_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_manager_request() :: %{}
-
-  """
-  @type get_payment_manager_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_memory_input() :: %{
-        optional("addIndexedKeys") => list(indexed_key()),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("eventExpiryDuration") => [integer()],
-        optional("memoryExecutionRoleArn") => String.t() | atom(),
-        optional("memoryStrategies") => modify_memory_strategies(),
-        optional("streamDeliveryResources") => stream_delivery_resources()
-      }
-
-  """
-  @type update_memory_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_oauth2_credential_provider_request() :: %{
+      update_api_key_credential_provider_request() :: %{
+        optional("apiKey") => String.t() | atom(),
+        optional("apiKeySecretConfig") => secret_reference(),
+        optional("apiKeySecretSource") => list(any()),
         required("name") => String.t() | atom()
       }
 
   """
-  @type delete_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+  @type update_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      payment_connector_summary() :: %{
+      gateway_summary() :: %{
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "protocolType" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type gateway_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      version_filter() :: %{
+        "branchName" => String.t() | atom(),
+        "createdByName" => [String.t() | atom()],
+        "latestPerBranch" => [boolean()]
+      }
+
+  """
+  @type version_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      semantic_memory_strategy_input() :: %{
+        "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
+        "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type semantic_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_rules_response() :: %{
+        "gatewayRules" => list(gateway_rule_detail()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_gateway_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_preference_override_extraction_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type user_preference_override_extraction_configuration_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      summary_memory_strategy_input() :: %{
+        "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
+        "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type summary_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_runtime_environment() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeId" => [String.t() | atom()],
+        "agentRuntimeName" => [String.t() | atom()],
+        "filesystemConfigurations" => list(list()),
+        "lifecycleConfiguration" => lifecycle_configuration(),
+        "networkConfiguration" => network_configuration()
+      }
+
+  """
+  @type harness_agent_core_runtime_environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_interceptor_configuration() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_interceptor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_request() :: %{}
+
+  """
+  @type get_registry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_memory_input() :: %{
+        optional("view") => list(any())
+      }
+
+  """
+  @type get_memory_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_token_vault_cm_k_request() :: %{
+        optional("tokenVaultId") => String.t() | atom(),
+        required("kmsConfiguration") => kms_configuration()
+      }
+
+  """
+  @type set_token_vault_cm_k_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_engine_summary_request() :: %{}
+
+  """
+  @type get_policy_engine_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_request() :: %{}
+
+  """
+  @type get_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_runtimes_response() :: %{
+        "agentRuntimes" => list(agent_runtime()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_runtimes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_location() :: %{
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interceptor_input_configuration() :: %{
+        "passRequestHeaders" => [boolean()]
+      }
+
+  """
+  @type interceptor_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_metadata_configuration() :: %{
+        "requireMMDSV2" => [boolean()]
+      }
+
+  """
+  @type runtime_metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_policy_generation_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type start_policy_generation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_source() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_version_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_dataset_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_authorization_data() :: %{
+        "authorizationUrl" => [String.t() | atom()],
+        "userId" => [String.t() | atom()]
+      }
+
+  """
+  @type o_auth2_authorization_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_registry_record_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("descriptors") => descriptors(),
+        optional("recordVersion") => String.t() | atom(),
+        optional("synchronizationConfiguration") => synchronization_configuration(),
+        optional("synchronizationType") => list(any()),
+        required("descriptorType") => list(any()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_registry_record_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_bundle_request() :: %{
+        optional("branchName") => String.t() | atom()
+      }
+
+  """
+  @type get_configuration_bundle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_strategy_configuration() :: %{
+        "consolidation" => list(),
+        "extraction" => list(),
+        "reflection" => list(),
+        "selfManagedConfiguration" => modify_self_managed_configuration()
+      }
+
+  """
+  @type modify_strategy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      atlassian_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type atlassian_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_payment_connector_response() :: %{
+        "credentialProviderConfigurations" => list(list()),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
         "paymentConnectorId" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
         "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type payment_connector_summary() :: %{(String.t() | atom()) => any()}
+  @type update_payment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_connector_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "credentialProviderConfigurations" => list(list()),
+        "name" => String.t() | atom(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type create_payment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      version_lineage_metadata() :: %{
+        "branchName" => String.t() | atom(),
+        "commitMessage" => [String.t() | atom()],
+        "createdBy" => version_created_by_source(),
+        "parentVersionIds" => list(String.t() | atom())
+      }
+
+  """
+  @type version_lineage_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_configuration() :: %{
+        "payloadDeliveryBucketName" => [String.t() | atom()],
+        "topicArn" => String.t() | atom()
+      }
+
+  """
+  @type invocation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_memory_output() :: %{
+        "memoryId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_memory_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_record_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "descriptorType" => list(any()),
+        "descriptors" => descriptors(),
+        "name" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "recordVersion" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "synchronizationConfiguration" => synchronization_configuration(),
+        "synchronizationType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_registry_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_rules_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_gateway_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_bundles_response() :: %{
+        "bundles" => list(configuration_bundle_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_configuration_bundles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_record_request() :: %{}
+
+  """
+  @type get_registry_record_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_runtime_endpoint_request() :: %{
+        optional("agentRuntimeVersion") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_request() :: %{
+        optional("approvalConfiguration") => updated_approval_configuration(),
+        optional("authorizerConfiguration") => updated_authorizer_configuration(),
+        optional("description") => updated_description(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_registry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_evaluators_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_evaluators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_memory_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("encryptionKeyArn") => String.t() | atom(),
+        optional("indexedKeys") => list(indexed_key()),
+        optional("memoryExecutionRoleArn") => String.t() | atom(),
+        optional("memoryStrategies") => list(list()),
+        optional("streamDeliveryResources") => stream_delivery_resources(),
+        optional("tags") => map(),
+        required("eventExpiryDuration") => [integer()],
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_memory_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_consolidation_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_consolidation_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_vpc_resource() :: %{
+        "endpointIpAddressType" => list(any()),
+        "routingDomain" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "tags" => map(),
+        "vpcIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type managed_vpc_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      modify_invocation_configuration_input() :: %{
+        "payloadDeliveryBucketName" => [String.t() | atom()],
+        "topicArn" => String.t() | atom()
+      }
+
+  """
+  @type modify_invocation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_tool_filter() :: %{
+        "filterPath" => [String.t() | atom()],
+        "methods" => list(list(any())())
+      }
+
+  """
+  @type api_gateway_tool_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_payment_credential_provider_request() :: %{
+        required("credentialProviderVendor") => list(any()),
+        required("name") => String.t() | atom(),
+        required("providerConfigurationInput") => list()
+      }
+
+  """
+  @type update_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_rule_response() :: %{
+        "actions" => list(list()),
+        "conditions" => list(list()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "priority" => integer(),
+        "ruleId" => String.t() | atom(),
+        "status" => list(any()),
+        "system" => system_managed_block(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_gateway_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      number_validation() :: %{
+        "maxValue" => [float()],
+        "minValue" => [float()]
+      }
+
+  """
+  @type number_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_oauth2_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type get_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      static_override() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type static_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_bundle_request() :: %{
+        optional("branchName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("commitMessage") => [String.t() | atom()],
+        optional("createdBy") => version_created_by_source(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("bundleName") => String.t() | atom(),
+        required("components") => map()
+      }
+
+  """
+  @type create_configuration_bundle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_policy_engine_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_policy_engine_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_memory_input() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_memory_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registry_request() :: %{}
+
+  """
+  @type delete_registry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_runtime_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("environmentVariables") => map(),
+        optional("filesystemConfigurations") => list(list()),
+        optional("lifecycleConfiguration") => lifecycle_configuration(),
+        optional("metadataConfiguration") => runtime_metadata_configuration(),
+        optional("protocolConfiguration") => protocol_configuration(),
+        optional("requestHeaderConfiguration") => list(),
+        required("agentRuntimeArtifact") => list(),
+        required("networkConfiguration") => network_configuration(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_agent_runtime_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_request() :: %{}
+
+  """
+  @type delete_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_descriptor() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type custom_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type salesforce_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      weighted_override() :: %{
+        "trafficSplit" => list(traffic_split_entry())
+      }
+
+  """
+  @type weighted_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2401,7 +3843,410 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      policy_generation_summary() :: %{
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_targets_response() :: %{
+        "items" => list(target_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_gateway_targets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_reflection_configuration() :: %{
+        "memoryRecordSchema" => memory_record_schema(),
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type episodic_reflection_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_key_credential_provider_response() :: %{
+        "apiKeySecretArn" => secret(),
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type get_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_gateway_tool_configuration() :: %{
+        "toolFilters" => list(api_gateway_tool_filter()),
+        "toolOverrides" => list(api_gateway_tool_override())
+      }
+
+  """
+  @type api_gateway_tool_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_memory_strategy_input() :: %{
+        "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
+        "name" => String.t() | atom(),
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom()),
+        "reflectionConfiguration" => episodic_reflection_configuration_input()
+      }
+
+  """
+  @type episodic_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_evaluator_request() :: %{}
+
+  """
+  @type delete_evaluator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("datasetName") => String.t() | atom(),
+        required("schemaType") => list(any()),
+        required("source") => list()
+      }
+
+  """
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_credential_provider_configuration() :: %{
+        "credentialProviderArn" => String.t() | atom()
+      }
+
+  """
+  @type payment_credential_provider_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coinbase_cdp_configuration_input() :: %{
+        "apiKeyId" => String.t() | atom(),
+        "apiKeySecret" => String.t() | atom(),
+        "apiKeySecretConfig" => secret_reference(),
+        "apiKeySecretSource" => list(any()),
+        "walletSecret" => String.t() | atom(),
+        "walletSecretConfig" => secret_reference(),
+        "walletSecretSource" => list(any())
+      }
+
+  """
+  @type coinbase_cdp_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_exchange_grant_type_config_type() :: %{
+        "actorTokenContent" => list(any()),
+        "actorTokenScopes" => list(String.t() | atom())
+      }
+
+  """
+  @type token_exchange_grant_type_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_s3_source() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type harness_skill_s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_runtime_endpoint() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "liveVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "targetVersion" => String.t() | atom()
+      }
+
+  """
+  @type agent_runtime_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_credential_provider() :: %{
+        "region" => [String.t() | atom()],
+        "service" => [String.t() | atom()]
+      }
+
+  """
+  @type iam_credential_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_runtime_endpoint_response() :: %{
+        "agentRuntimeId" => String.t() | atom(),
+        "endpointName" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clustering_config() :: %{
+        "frequencies" => list(list(any())())
+      }
+
+  """
+  @type clustering_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_key_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type delete_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_record_schema() :: %{
+        "metadataSchema" => list(metadata_schema_entry())
+      }
+
+  """
+  @type memory_record_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_generation_details() :: %{
+        "policyGenerationAssetId" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom()
+      }
+
+  """
+  @type policy_generation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_credential_provider_item() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type api_key_credential_provider_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_configuration() :: %{
+        "idleRuntimeSessionTimeout" => [integer()],
+        "maxLifetime" => [integer()]
+      }
+
+  """
+  @type lifecycle_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_request() :: %{
+        optional("datasetVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type get_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_payment_manager_response() :: %{
+        "authorizerType" => list(any()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type update_payment_manager_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      oauth2_credential_provider_item() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type oauth2_credential_provider_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_memory_strategy_input() :: %{
+        "memoryStrategyId" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_evaluator_config() :: %{
+        "lambdaArn" => String.t() | atom(),
+        "lambdaTimeoutInSeconds" => [integer()]
+      }
+
+  """
+  @type lambda_evaluator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_interpreter_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_code_interpreter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synchronize_gateway_targets_request() :: %{
+        required("targetIdList") => list(String.t() | atom())
+      }
+
+  """
+  @type synchronize_gateway_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gateway_rule_response() :: %{
+        "actions" => list(list()),
+        "conditions" => list(list()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "priority" => integer(),
+        "ruleId" => String.t() | atom(),
+        "status" => list(any()),
+        "system" => system_managed_block(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_gateway_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_generation_summary_response() :: %{
         "createdAt" => non_neg_integer(),
         "findings" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -2414,35 +4259,659 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type policy_generation_summary() :: %{(String.t() | atom()) => any()}
+  @type get_policy_generation_summary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_harness_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      create_code_interpreter_request() :: %{
+        optional("certificates") => list(certificate()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("executionRoleArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("networkConfiguration") => code_interpreter_network_configuration()
       }
 
   """
-  @type delete_harness_request() :: %{(String.t() | atom()) => any()}
+  @type create_code_interpreter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      approval_configuration() :: %{
-        "autoApproval" => [boolean()]
+      weighted_route() :: %{
+        "trafficSplit" => list(target_traffic_split_entry())
       }
 
   """
-  @type approval_configuration() :: %{(String.t() | atom()) => any()}
+  @type weighted_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_gateway_target_response() :: %{
+      update_payment_credential_provider_response() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "providerConfigurationOutput" => list()
+      }
+
+  """
+  @type update_payment_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_examples_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "deletedCount" => [float()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type delete_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policies" => list(policy_summary())
+      }
+
+  """
+  @type list_policy_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_network_configuration() :: %{
+        "networkMode" => list(any()),
+        "vpcConfig" => vpc_config()
+      }
+
+  """
+  @type browser_network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_bundle_version_request() :: %{}
+
+  """
+  @type get_configuration_bundle_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      included_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type included_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_runtimes_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_agent_runtimes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_harness_response() :: %{
+        "harness" => harness()
+      }
+
+  """
+  @type get_harness_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_rule_detail() :: %{
+        "actions" => list(list()),
+        "conditions" => list(list()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "priority" => integer(),
+        "ruleId" => String.t() | atom(),
+        "status" => list(any()),
+        "system" => system_managed_block(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type gateway_rule_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_runtime_endpoints_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "runtimeEndpoints" => list(agent_runtime_endpoint())
+      }
+
+  """
+  @type list_agent_runtime_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_oauth2_credential_provider_response() :: %{
+        "callbackUrl" => [String.t() | atom()],
+        "clientSecretArn" => secret(),
+        "clientSecretJsonKey" => String.t() | atom(),
+        "clientSecretSource" => list(any()),
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "oauth2ProviderConfigOutput" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_policy_generation_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("content") => list(),
+        required("name") => String.t() | atom(),
+        required("resource") => list()
+      }
+
+  """
+  @type start_policy_generation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_manager_response() :: %{
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type create_payment_manager_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_response() :: %{
+        "policy" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_based_trigger() :: %{
+        "tokenCount" => [integer()]
+      }
+
+  """
+  @type token_based_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_summaries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("targetResourceScope") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_configuration() :: %{
+        "keyType" => list(any()),
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type kms_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_schema_entry() :: %{
+        "extractionConfig" => list(),
+        "extractionType" => list(any()),
+        "key" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_schema_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_registry_response() :: %{
+        "approvalConfiguration" => approval_configuration(),
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_runtime_endpoint_response() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "endpointName" => String.t() | atom(),
+        "status" => list(any()),
+        "targetVersion" => String.t() | atom()
+      }
+
+  """
+  @type create_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_skills_descriptor() :: %{
+        "skillDefinition" => skill_definition(),
+        "skillMd" => skill_md_definition()
+      }
+
+  """
+  @type agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_response() :: %{
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "exceptionLevel" => list(any()),
+        "gatewayArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "gatewayUrl" => String.t() | atom(),
+        "interceptorConfigurations" => list(gateway_interceptor_configuration()),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineConfiguration" => gateway_policy_engine_configuration(),
+        "protocolConfiguration" => list(),
+        "protocolType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer(),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type create_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_authorizer_configuration() :: %{
+        "optionalValue" => list()
+      }
+
+  """
+  @type updated_authorizer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_open_ai_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_open_ai_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_connector_response() :: %{
+        "paymentConnectorId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_harness_request() :: %{
+        optional("allowedTools") => list(String.t() | atom()),
+        optional("authorizerConfiguration") => updated_authorizer_configuration(),
+        optional("clientToken") => String.t() | atom(),
+        optional("environment") => list(),
+        optional("environmentArtifact") => updated_harness_environment_artifact(),
+        optional("environmentVariables") => map(),
+        optional("executionRoleArn") => String.t() | atom(),
+        optional("maxIterations") => [integer()],
+        optional("maxTokens") => [integer()],
+        optional("memory") => updated_harness_memory_configuration(),
+        optional("model") => list(),
+        optional("skills") => list(list()),
+        optional("systemPrompt") => list(list()),
+        optional("timeoutSeconds") => [integer()],
+        optional("tools") => list(harness_tool()),
+        optional("truncation") => harness_truncation_configuration()
+      }
+
+  """
+  @type update_harness_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_examples_response() :: %{
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()],
+        "updatedCount" => [float()]
+      }
+
+  """
+  @type update_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_engine_summaries_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_engine_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_bundle_summary() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
+        "bundleName" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom()
+      }
+
+  """
+  @type configuration_bundle_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_override_reflection_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
+        "modelId" => [String.t() | atom()],
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
+      }
+
+  """
+  @type episodic_override_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_target_response() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "targetId" => String.t() | atom()
+      }
+
+  """
+  @type delete_gateway_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generation_assets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_generation_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{}
+
+  """
+  @type delete_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_memory_configuration() :: %{
+        "actorId" => [String.t() | atom()],
+        "arn" => String.t() | atom(),
+        "messagesCount" => [integer()],
+        "retrievalConfig" => map()
+      }
+
+  """
+  @type harness_agent_core_memory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_request() :: %{}
+
+  """
+  @type delete_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      credential_provider_configuration() :: %{
+        "credentialProvider" => list(),
+        "credentialProviderType" => list(any())
+      }
+
+  """
+  @type credential_provider_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      efs_access_point_configuration() :: %{
+        "accessPointArn" => String.t() | atom(),
+        "mountPath" => String.t() | atom()
+      }
+
+  """
+  @type efs_access_point_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summary_consolidation_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type summary_consolidation_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateways_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_target_response() :: %{
         "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
         "credentialProviderConfigurations" => list(credential_provider_configuration()),
@@ -2462,144 +4931,73 @@ defmodule AWS.BedrockAgentCoreControl do
       }
 
   """
-  @type create_gateway_target_response() :: %{(String.t() | atom()) => any()}
+  @type update_gateway_target_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      github_oauth2_provider_config_input() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any())
+      message_based_trigger() :: %{
+        "messageCount" => [integer()]
       }
 
   """
-  @type github_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+  @type message_based_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_browser_profile_request() :: %{}
-
-  """
-  @type get_browser_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_engines_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policyEngines" => list(policy_engine())
+      code_interpreter_network_configuration() :: %{
+        "networkMode" => list(any()),
+        "vpcConfig" => vpc_config()
       }
 
   """
-  @type list_policy_engines_response() :: %{(String.t() | atom()) => any()}
+  @type code_interpreter_network_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_policy_engine_request() :: %{}
-
-  """
-  @type get_policy_engine_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_bundle_response() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleId" => String.t() | atom(),
-        "bundleName" => String.t() | atom(),
-        "components" => map(),
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "lineageMetadata" => version_lineage_metadata(),
-        "updatedAt" => [non_neg_integer()],
-        "versionId" => String.t() | atom()
+      updated_mcp_descriptor() :: %{
+        "optionalValue" => updated_mcp_descriptor_fields()
       }
 
   """
-  @type get_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
+  @type updated_mcp_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      updated_agent_skills_descriptor_fields() :: %{
-        "skillDefinition" => updated_skill_definition(),
-        "skillMd" => updated_skill_md_definition()
+      policy_generation() :: %{
+        "createdAt" => non_neg_integer(),
+        "findings" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyGenerationArn" => String.t() | atom(),
+        "policyGenerationId" => String.t() | atom(),
+        "resource" => list(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type updated_agent_skills_descriptor_fields() :: %{(String.t() | atom()) => any()}
+  @type policy_generation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_payment_credential_provider_request() :: %{
-        optional("tags") => map(),
-        required("credentialProviderVendor") => list(any()),
-        required("name") => String.t() | atom(),
-        required("providerConfigurationInput") => list()
+      kinesis_resource() :: %{
+        "contentConfigurations" => list(content_configuration()),
+        "dataStreamArn" => String.t() | atom()
       }
 
   """
-  @type create_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_online_evaluation_configs_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "onlineEvaluationConfigs" => list(online_evaluation_config_summary())
-      }
-
-  """
-  @type list_online_evaluation_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      oauth2_authorization_server_metadata() :: %{
-        "authorizationEndpoint" => String.t() | atom(),
-        "issuer" => String.t() | atom(),
-        "responseTypes" => list(String.t() | atom()),
-        "tokenEndpoint" => String.t() | atom(),
-        "tokenEndpointAuthMethods" => list(String.t() | atom())
-      }
-
-  """
-  @type oauth2_authorization_server_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_gateway_target_request() :: %{}
-
-  """
-  @type get_gateway_target_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_payment_connector_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_payment_connector_request() :: %{(String.t() | atom()) => any()}
+  @type kinesis_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2632,1180 +5030,6 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      delete_evaluator_request() :: %{}
-
-  """
-  @type delete_evaluator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_bundle_request() :: %{
-        optional("branchName") => String.t() | atom(),
-        optional("bundleName") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("commitMessage") => [String.t() | atom()],
-        optional("components") => map(),
-        optional("createdBy") => version_created_by_source(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("parentVersionIds") => list(String.t() | atom())
-      }
-
-  """
-  @type update_configuration_bundle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_created_by_source() :: %{
-        "arn" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type version_created_by_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_harness_memory_configuration() :: %{
-        "optionalValue" => list()
-      }
-
-  """
-  @type updated_harness_memory_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_key_credential_provider_request() :: %{
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type get_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_agent_runtime_request() :: %{
-        optional("authorizerConfiguration") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("environmentVariables") => map(),
-        optional("filesystemConfigurations") => list(list()),
-        optional("lifecycleConfiguration") => lifecycle_configuration(),
-        optional("protocolConfiguration") => protocol_configuration(),
-        optional("requestHeaderConfiguration") => list(),
-        optional("tags") => map(),
-        required("agentRuntimeArtifact") => list(),
-        required("agentRuntimeName") => String.t() | atom(),
-        required("networkConfiguration") => network_configuration(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_agent_runtime_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_payment_connector_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "credentialProviderConfigurations" => list(list()),
-        "name" => String.t() | atom(),
-        "paymentConnectorId" => String.t() | atom(),
-        "paymentManagerId" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type create_payment_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_summary() :: %{
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "protocolType" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type gateway_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dataset_examples_response() :: %{
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetVersion" => String.t() | atom(),
-        "examples" => list(any()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_dataset_examples_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_version_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type create_dataset_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_memory_strategy_input() :: %{
-        "description" => String.t() | atom(),
-        "memoryRecordSchema" => memory_record_schema(),
-        "name" => String.t() | atom(),
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom()),
-        "reflectionConfiguration" => episodic_reflection_configuration_input()
-      }
-
-  """
-  @type episodic_memory_strategy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "harnessId" => String.t() | atom(),
-        "harnessName" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type harness_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_response() :: %{
-        "createdAt" => [non_neg_integer()],
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_gateway_rule_response() :: %{
-        "actions" => list(list()),
-        "conditions" => list(list()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "gatewayArn" => String.t() | atom(),
-        "priority" => integer(),
-        "ruleId" => String.t() | atom(),
-        "status" => list(any()),
-        "system" => system_managed_block()
-      }
-
-  """
-  @type create_gateway_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_metadata_configuration() :: %{
-        "requireMMDSV2" => [boolean()]
-      }
-
-  """
-  @type runtime_metadata_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_runtime_endpoint_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_runtime_endpoint_response() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeEndpointArn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "failureReason" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "liveVersion" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "targetVersion" => String.t() | atom()
-      }
-
-  """
-  @type get_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_runtime_request() :: %{
-        optional("authorizerConfiguration") => list(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("environmentVariables") => map(),
-        optional("filesystemConfigurations") => list(list()),
-        optional("lifecycleConfiguration") => lifecycle_configuration(),
-        optional("metadataConfiguration") => runtime_metadata_configuration(),
-        optional("protocolConfiguration") => protocol_configuration(),
-        optional("requestHeaderConfiguration") => list(),
-        required("agentRuntimeArtifact") => list(),
-        required("networkConfiguration") => network_configuration(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_agent_runtime_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_inline_function_config() :: %{
-        "description" => String.t() | atom(),
-        "inputSchema" => any()
-      }
-
-  """
-  @type harness_inline_function_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_runtime_response() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeId" => String.t() | atom(),
-        "agentRuntimeVersion" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "workloadIdentityDetails" => workload_identity_details()
-      }
-
-  """
-  @type update_agent_runtime_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_key_credential_provider_request() :: %{
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type delete_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_lineage_metadata() :: %{
-        "branchName" => String.t() | atom(),
-        "commitMessage" => [String.t() | atom()],
-        "createdBy" => version_created_by_source(),
-        "parentVersionIds" => list(String.t() | atom())
-      }
-
-  """
-  @type version_lineage_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttled_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_registry_record_response() :: %{
-        "recordArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_registry_record_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      llm_extraction_config() :: %{
-        "definition" => String.t() | atom(),
-        "llmExtractionInstruction" => String.t() | atom(),
-        "validation" => list()
-      }
-
-  """
-  @type llm_extraction_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_rule_response() :: %{
-        "ruleId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_gateway_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_online_evaluation_config_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("clusteringConfig") => clustering_config(),
-        optional("description") => String.t() | atom(),
-        optional("evaluators") => list(list()),
-        optional("insights") => list(insight()),
-        optional("tags") => map(),
-        required("dataSourceConfig") => list(),
-        required("enableOnCreate") => [boolean()],
-        required("evaluationExecutionRoleArn") => String.t() | atom(),
-        required("onlineEvaluationConfigName") => String.t() | atom(),
-        required("rule") => rule()
-      }
-
-  """
-  @type create_online_evaluation_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_browser_request() :: %{
-        optional("browserSigning") => browser_signing_config_input(),
-        optional("certificates") => list(certificate()),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("enterprisePolicies") => list(browser_enterprise_policy()),
-        optional("executionRoleArn") => String.t() | atom(),
-        optional("recording") => recording_config(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("networkConfiguration") => browser_network_configuration()
-      }
-
-  """
-  @type create_browser_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_workload_identity_request() :: %{
-        optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_workload_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_target_response() :: %{
-        "authorizationData" => list(),
-        "createdAt" => non_neg_integer(),
-        "credentialProviderConfigurations" => list(credential_provider_configuration()),
-        "description" => String.t() | atom(),
-        "gatewayArn" => String.t() | atom(),
-        "lastSynchronizedAt" => non_neg_integer(),
-        "metadataConfiguration" => metadata_configuration(),
-        "name" => String.t() | atom(),
-        "privateEndpoint" => list(),
-        "privateEndpointManagedResources" => list(managed_resource_details()),
-        "protocolType" => list(any()),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "targetConfiguration" => list(),
-        "targetId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_gateway_target_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_browser_profiles_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "profileSummaries" => list(browser_profile_summary())
-      }
-
-  """
-  @type list_browser_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_engine_summary_request() :: %{}
-
-  """
-  @type get_policy_engine_summary_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_online_evaluation_config_response() :: %{
-        "createdAt" => [non_neg_integer()],
-        "executionStatus" => list(any()),
-        "failureReason" => [String.t() | atom()],
-        "onlineEvaluationConfigArn" => String.t() | atom(),
-        "onlineEvaluationConfigId" => String.t() | atom(),
-        "outputConfig" => output_config(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_payment_connector_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("credentialProviderConfigurations") => list(list()),
-        optional("description") => String.t() | atom(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type update_payment_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      on_behalf_of_token_exchange_config_type() :: %{
-        "grantType" => list(any()),
-        "tokenExchangeGrantTypeConfig" => token_exchange_grant_type_config_type()
-      }
-
-  """
-  @type on_behalf_of_token_exchange_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workload_identity_request() :: %{
-        optional("allowedResourceOauth2ReturnUrls") => list(String.t() | atom()),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_workload_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_generation_details() :: %{
-        "policyGenerationAssetId" => String.t() | atom(),
-        "policyGenerationId" => String.t() | atom()
-      }
-
-  """
-  @type policy_generation_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      coinbase_cdp_configuration_input() :: %{
-        "apiKeyId" => String.t() | atom(),
-        "apiKeySecret" => String.t() | atom(),
-        "apiKeySecretConfig" => secret_reference(),
-        "apiKeySecretSource" => list(any()),
-        "walletSecret" => String.t() | atom(),
-        "walletSecretConfig" => secret_reference(),
-        "walletSecretSource" => list(any())
-      }
-
-  """
-  @type coinbase_cdp_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_gateway_response() :: %{
-        "authorizerConfiguration" => list(),
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "exceptionLevel" => list(any()),
-        "gatewayArn" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "gatewayUrl" => String.t() | atom(),
-        "interceptorConfigurations" => list(gateway_interceptor_configuration()),
-        "kmsKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineConfiguration" => gateway_policy_engine_configuration(),
-        "protocolConfiguration" => list(),
-        "protocolType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer(),
-        "workloadIdentityDetails" => workload_identity_details()
-      }
-
-  """
-  @type get_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_reflection_configuration_input() :: %{
-        "memoryRecordSchema" => memory_record_schema(),
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type episodic_reflection_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetName" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "draftStatus" => list(any()),
-        "exampleCount" => [float()],
-        "schemaType" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type dataset_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_browser_profile_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_browser_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_traffic_split_entry() :: %{
-        "description" => [String.t() | atom()],
-        "metadata" => map(),
-        "name" => [String.t() | atom()],
-        "targetName" => String.t() | atom(),
-        "weight" => [integer()]
-      }
-
-  """
-  @type target_traffic_split_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registry_record_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "descriptorType" => list(any()),
-        "name" => String.t() | atom(),
-        "recordArn" => String.t() | atom(),
-        "recordId" => String.t() | atom(),
-        "recordVersion" => String.t() | atom(),
-        "registryArn" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type registry_record_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      included_oauth2_provider_config_output() :: %{
-        "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list()
-      }
-
-  """
-  @type included_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      llm_as_a_judge_evaluator_config() :: %{
-        "instructions" => String.t() | atom(),
-        "modelConfig" => list(),
-        "ratingScale" => list()
-      }
-
-  """
-  @type llm_as_a_judge_evaluator_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_memory_output() :: %{
-        "memory" => memory()
-      }
-
-  """
-  @type create_memory_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorizing_claim_match_value_type() :: %{
-        "claimMatchOperator" => list(any()),
-        "claimMatchValue" => list()
-      }
-
-  """
-  @type authorizing_claim_match_value_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_reflection_override() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "memoryRecordSchema" => memory_record_schema(),
-        "modelId" => [String.t() | atom()],
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type episodic_reflection_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_target_configuration() :: %{
-        "arn" => String.t() | atom(),
-        "qualifier" => String.t() | atom()
-      }
-
-  """
-  @type runtime_target_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_override_consolidation_configuration_input() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
-      }
-
-  """
-  @type episodic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_code_interpreter_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_code_interpreter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_registry_records_request() :: %{
-        optional("descriptorType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_registry_records_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourcePriority" => integer(),
-        "status" => list(any()),
-        "targetId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type target_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_harness_response() :: %{
-        "harness" => harness()
-      }
-
-  """
-  @type update_harness_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_configuration() :: %{
-        "level" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type content_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_token_vault_cm_k_response() :: %{
-        "kmsConfiguration" => kms_configuration(),
-        "lastModifiedDate" => [non_neg_integer()],
-        "tokenVaultId" => String.t() | atom()
-      }
-
-  """
-  @type set_token_vault_cm_k_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrock_evaluator_model_config() :: %{
-        "additionalModelRequestFields" => any(),
-        "inferenceConfig" => inference_configuration(),
-        "modelId" => String.t() | atom()
-      }
-
-  """
-  @type bedrock_evaluator_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_payment_manager_response() :: %{
-        "paymentManagerId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_payment_manager_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      oauth2_credential_provider_item() :: %{
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "credentialProviderVendor" => list(any()),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type oauth2_credential_provider_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_limit_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payment_credential_provider_configuration() :: %{
-        "credentialProviderArn" => String.t() | atom()
-      }
-
-  """
-  @type payment_credential_provider_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_agent_core_browser_config() :: %{
-        "browserArn" => String.t() | atom()
-      }
-
-  """
-  @type harness_agent_core_browser_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      traffic_split_entry() :: %{
-        "configurationBundle" => configuration_bundle_reference(),
-        "description" => [String.t() | atom()],
-        "metadata" => map(),
-        "name" => [String.t() | atom()],
-        "weight" => [integer()]
-      }
-
-  """
-  @type traffic_split_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workload_identity_type() :: %{
-        "name" => String.t() | atom(),
-        "workloadIdentityArn" => String.t() | atom()
-      }
-
-  """
-  @type workload_identity_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_oauth2_provider_config_input() :: %{
-        "clientAuthenticationMethod" => list(any()),
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any()),
-        "oauthDiscovery" => list(),
-        "onBehalfOfTokenExchangeConfig" => on_behalf_of_token_exchange_config_type(),
-        "privateEndpoint" => list(),
-        "privateEndpointOverrides" => list(private_endpoint_override())
-      }
-
-  """
-  @type custom_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_oauth2_credential_provider_request() :: %{
-        optional("tags") => map(),
-        required("credentialProviderVendor") => list(any()),
-        required("name") => String.t() | atom(),
-        required("oauth2ProviderConfigInput") => list()
-      }
-
-  """
-  @type create_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_api_key_credential_provider() :: %{
-        "credentialLocation" => list(any()),
-        "credentialParameterName" => String.t() | atom(),
-        "credentialPrefix" => String.t() | atom(),
-        "providerArn" => String.t() | atom()
-      }
-
-  """
-  @type gateway_api_key_credential_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workload_identity_response() :: %{
-        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
-        "createdTime" => [non_neg_integer()],
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "workloadIdentityArn" => String.t() | atom()
-      }
-
-  """
-  @type get_workload_identity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_credential_provider_response() :: %{
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "credentialProviderVendor" => list(any()),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "providerConfigurationOutput" => list(),
-        "tags" => map()
-      }
-
-  """
-  @type get_payment_credential_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_runtime_endpoint_request() :: %{}
-
-  """
-  @type get_agent_runtime_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_files_access_point_configuration() :: %{
-        "accessPointArn" => String.t() | atom(),
-        "mountPath" => String.t() | atom()
-      }
-
-  """
-  @type s3_files_access_point_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_bundle_summary() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleId" => String.t() | atom(),
-        "bundleName" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom()
-      }
-
-  """
-  @type configuration_bundle_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_oauth2_provider_config_output() :: %{
-        "clientAuthenticationMethod" => list(any()),
-        "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list(),
-        "onBehalfOfTokenExchangeConfig" => on_behalf_of_token_exchange_config_type(),
-        "privateEndpoint" => list(),
-        "privateEndpointOverrides" => list(private_endpoint_override())
-      }
-
-  """
-  @type custom_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_examples_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("exampleIds") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_dataset_examples_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_interpreter_response() :: %{
-        "certificates" => list(certificate()),
-        "codeInterpreterArn" => String.t() | atom(),
-        "codeInterpreterId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "executionRoleArn" => String.t() | atom(),
-        "failureReason" => [String.t() | atom()],
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "networkConfiguration" => code_interpreter_network_configuration(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_code_interpreter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_online_evaluation_config_response() :: %{
-        "clusteringConfig" => clustering_config(),
-        "createdAt" => [non_neg_integer()],
-        "dataSourceConfig" => list(),
-        "description" => String.t() | atom(),
-        "evaluationExecutionRoleArn" => String.t() | atom(),
-        "evaluators" => list(list()),
-        "executionStatus" => list(any()),
-        "failureReason" => [String.t() | atom()],
-        "insights" => list(insight()),
-        "onlineEvaluationConfigArn" => String.t() | atom(),
-        "onlineEvaluationConfigId" => String.t() | atom(),
-        "onlineEvaluationConfigName" => String.t() | atom(),
-        "outputConfig" => output_config(),
-        "rule" => rule(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_payment_manager_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_payment_manager_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       vpc_config() :: %{
         "requireServiceS3Endpoint" => [boolean()],
         "securityGroups" => list(String.t() | atom()),
@@ -3819,515 +5043,13 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      list_payment_credential_providers_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      authorizing_claim_match_value_type() :: %{
+        "claimMatchOperator" => list(any()),
+        "claimMatchValue" => list()
       }
 
   """
-  @type list_payment_credential_providers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      modify_memory_strategies() :: %{
-        "addMemoryStrategies" => list(list()),
-        "deleteMemoryStrategies" => list(delete_memory_strategy_input()),
-        "modifyMemoryStrategies" => list(modify_memory_strategy_input())
-      }
-
-  """
-  @type modify_memory_strategies() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding() :: %{
-        "description" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      self_managed_configuration() :: %{
-        "historicalContextWindowSize" => [integer()],
-        "invocationConfiguration" => invocation_configuration(),
-        "triggerConditions" => list(list())
-      }
-
-  """
-  @type self_managed_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invocation_configuration_input() :: %{
-        "payloadDeliveryBucketName" => [String.t() | atom()],
-        "topicArn" => String.t() | atom()
-      }
-
-  """
-  @type invocation_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_harnesses_response() :: %{
-        "harnesses" => list(harness_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_harnesses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      clustering_config() :: %{
-        "frequencies" => list(list(any())())
-      }
-
-  """
-  @type clustering_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      secret() :: %{
-        "secretArn" => String.t() | atom()
-      }
-
-  """
-  @type secret() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_override_extraction_configuration_input() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
-      }
-
-  """
-  @type episodic_override_extraction_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_resource_details() :: %{
-        "domain" => String.t() | atom(),
-        "resourceAssociationArn" => String.t() | atom(),
-        "resourceGatewayArn" => String.t() | atom()
-      }
-
-  """
-  @type managed_resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_oauth2_credential_provider_request() :: %{
-        required("credentialProviderVendor") => list(any()),
-        required("name") => String.t() | atom(),
-        required("oauth2ProviderConfigInput") => list()
-      }
-
-  """
-  @type update_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_config() :: %{
-        "sessionTimeoutMinutes" => [integer()]
-      }
-
-  """
-  @type session_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_runtimes_response() :: %{
-        "agentRuntimes" => list(agent_runtime()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_agent_runtimes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_policy_request() :: %{
-        optional("definition") => list(),
-        optional("description") => updated_description(),
-        optional("validationMode") => list(any())
-      }
-
-  """
-  @type update_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_server_definition() :: %{
-        "optionalValue" => server_definition()
-      }
-
-  """
-  @type updated_server_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_generations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_policy_generations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workload_identities_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "workloadIdentities" => list(workload_identity_type())
-      }
-
-  """
-  @type list_workload_identities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_interpreter_request() :: %{}
-
-  """
-  @type get_code_interpreter_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_evaluator_response() :: %{
-        "createdAt" => [non_neg_integer()],
-        "evaluatorArn" => String.t() | atom(),
-        "evaluatorId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_evaluator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_preference_extraction_override() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
-      }
-
-  """
-  @type user_preference_extraction_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateway_rules_response() :: %{
-        "gatewayRules" => list(gateway_rule_detail()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_gateway_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      token_based_trigger() :: %{
-        "tokenCount" => [integer()]
-      }
-
-  """
-  @type token_based_trigger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_registry_record_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "descriptorType" => list(any()),
-        "descriptors" => descriptors(),
-        "name" => String.t() | atom(),
-        "recordArn" => String.t() | atom(),
-        "recordId" => String.t() | atom(),
-        "recordVersion" => String.t() | atom(),
-        "registryArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "synchronizationConfiguration" => synchronization_configuration(),
-        "synchronizationType" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_registry_record_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_gateway_rule_request() :: %{}
-
-  """
-  @type get_gateway_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_gemini_model_config() :: %{
-        "apiKeyArn" => String.t() | atom(),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topK" => integer(),
-        "topP" => float()
-      }
-
-  """
-  @type harness_gemini_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_online_evaluation_config_response() :: %{
-        "onlineEvaluationConfigArn" => String.t() | atom(),
-        "onlineEvaluationConfigId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cedar_policy() :: %{
-        "statement" => String.t() | atom()
-      }
-
-  """
-  @type cedar_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      private_endpoint_override() :: %{
-        "domain" => String.t() | atom(),
-        "privateEndpoint" => list()
-      }
-
-  """
-  @type private_endpoint_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_generation_assets_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policyGenerationAssets" => list(policy_generation_asset())
-      }
-
-  """
-  @type list_policy_generation_assets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_generation() :: %{
-        "createdAt" => non_neg_integer(),
-        "findings" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyGenerationArn" => String.t() | atom(),
-        "policyGenerationId" => String.t() | atom(),
-        "resource" => list(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type policy_generation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_skill_git_auth() :: %{
-        "credentialArn" => String.t() | atom(),
-        "username" => [String.t() | atom()]
-      }
-
-  """
-  @type harness_skill_git_auth() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "bucket" => [String.t() | atom()],
-        "prefix" => [String.t() | atom()],
-        "versionId" => [String.t() | atom()]
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dataset_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => [String.t() | atom()]
-      }
-
-  """
-  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_configuration() :: %{
-        "containerUri" => String.t() | atom()
-      }
-
-  """
-  @type container_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_generations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policyGenerations" => list(policy_generation())
-      }
-
-  """
-  @type list_policy_generations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_bundle_response() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "versionId" => String.t() | atom()
-      }
-
-  """
-  @type update_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_version_response() :: %{
-        "createdAt" => [non_neg_integer()],
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetVersion" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_dataset_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_memory_strategy_input() :: %{
-        "memoryStrategyId" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+  @type authorizing_claim_match_value_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4362,21 +5084,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      delete_workload_identity_request() :: %{
-        required("name") => String.t() | atom()
+      get_configuration_bundle_response() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
+        "bundleName" => String.t() | atom(),
+        "components" => map(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "lineageMetadata" => version_lineage_metadata(),
+        "updatedAt" => [non_neg_integer()],
+        "versionId" => String.t() | atom()
       }
 
   """
-  @type delete_workload_identity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_request() :: %{}
-
-  """
-  @type get_resource_policy_request() :: %{}
+  @type get_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4393,371 +5115,180 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      salesforce_oauth2_provider_config_output() :: %{
-        "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list()
+      registry_record_o_auth_credential_provider() :: %{
+        "customParameters" => map(),
+        "grantType" => list(any()),
+        "providerArn" => String.t() | atom(),
+        "scopes" => list([String.t() | atom()]())
       }
 
   """
-  @type salesforce_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+  @type registry_record_o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_oauth2_credential_provider_response() :: %{
-        "callbackUrl" => [String.t() | atom()],
-        "clientSecretArn" => secret(),
-        "clientSecretJsonKey" => String.t() | atom(),
-        "clientSecretSource" => list(any()),
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "credentialProviderVendor" => list(any()),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "oauth2ProviderConfigOutput" => list(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_harness_response() :: %{
-        "harness" => harness()
-      }
-
-  """
-  @type delete_harness_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_generation_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "findings" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyGenerationArn" => String.t() | atom(),
-        "policyGenerationId" => String.t() | atom(),
-        "resource" => list(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_policy_generation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "key" => [String.t() | atom()],
-        "operator" => list(any()),
-        "value" => list()
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule() :: %{
-        "filters" => list(filter()),
-        "samplingConfig" => sampling_config(),
-        "sessionConfig" => session_config()
-      }
-
-  """
-  @type rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_policy_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "definition" => list(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logs_input_config() :: %{
-        "logGroupNames" => list(String.t() | atom()),
-        "serviceNames" => list(String.t() | atom())
-      }
-
-  """
-  @type cloud_watch_logs_input_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_preference_override_extraction_configuration_input() :: %{
+      user_preference_extraction_override() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
       }
 
   """
-  @type user_preference_override_extraction_configuration_input() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type user_preference_extraction_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      microsoft_oauth2_provider_config_output() :: %{
-        "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list()
+      get_payment_manager_request() :: %{}
+
+  """
+  @type get_payment_manager_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_reflection_override() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
+        "modelId" => [String.t() | atom()],
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type microsoft_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+  @type episodic_reflection_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tools_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "protocolVersion" => String.t() | atom()
+      delete_payment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type tools_definition() :: %{(String.t() | atom()) => any()}
+  @type delete_payment_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      o_auth_credential_provider() :: %{
-        "customParameters" => map(),
-        "defaultReturnUrl" => String.t() | atom(),
-        "grantType" => list(any()),
-        "providerArn" => String.t() | atom(),
-        "scopes" => list(String.t() | atom())
+      registry_record_iam_credential_provider() :: %{
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "service" => String.t() | atom()
       }
 
   """
-  @type o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
+  @type registry_record_iam_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_payment_credential_provider_response() :: %{
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "credentialProviderVendor" => list(any()),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "providerConfigurationOutput" => list()
+      delete_gateway_rule_request() :: %{}
+
+  """
+  @type delete_gateway_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stripe_privy_configuration_output() :: %{
+        "appId" => String.t() | atom(),
+        "appSecretArn" => secret(),
+        "appSecretJsonKey" => String.t() | atom(),
+        "appSecretSource" => list(any()),
+        "authorizationId" => String.t() | atom(),
+        "authorizationPrivateKeyArn" => secret(),
+        "authorizationPrivateKeyJsonKey" => String.t() | atom(),
+        "authorizationPrivateKeySource" => list(any())
       }
 
   """
-  @type update_payment_credential_provider_response() :: %{(String.t() | atom()) => any()}
+  @type stripe_privy_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      slack_oauth2_provider_config_input() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any())
+      list_registry_records_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "registryRecords" => list(registry_record_summary())
       }
 
   """
-  @type slack_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+  @type list_registry_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_gateway_rule_response() :: %{
-        "actions" => list(list()),
-        "conditions" => list(list()),
+      list_oauth2_credential_providers_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_oauth2_credential_providers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_skill_definition() :: %{
+        "optionalValue" => skill_definition()
+      }
+
+  """
+  @type updated_skill_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_runtime_endpoint_response() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "gatewayArn" => String.t() | atom(),
-        "priority" => integer(),
-        "ruleId" => String.t() | atom(),
-        "status" => list(any()),
-        "system" => system_managed_block(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_gateway_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_memory_output() :: %{
-        "memory" => memory()
-      }
-
-  """
-  @type update_memory_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_bundle_version_summary() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleId" => String.t() | atom(),
-        "lineageMetadata" => version_lineage_metadata(),
-        "versionCreatedAt" => [non_neg_integer()],
-        "versionId" => String.t() | atom()
-      }
-
-  """
-  @type configuration_bundle_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_interpreter_response() :: %{
-        "codeInterpreterArn" => String.t() | atom(),
-        "codeInterpreterId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_code_interpreter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_runtime_versions_response() :: %{
-        "agentRuntimes" => list(agent_runtime()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_agent_runtime_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "definition" => list(),
-        "description" => String.t() | atom(),
+        "failureReason" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "liveVersion" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
         "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
+        "targetVersion" => String.t() | atom()
       }
 
   """
-  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+  @type get_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      server_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom()
+      get_token_vault_request() :: %{
+        optional("tokenVaultId") => String.t() | atom()
       }
 
   """
-  @type server_definition() :: %{(String.t() | atom()) => any()}
+  @type get_token_vault_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_registry_response() :: %{
-        "approvalConfiguration" => approval_configuration(),
-        "authorizerConfiguration" => list(),
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "registryArn" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
+      put_resource_policy_response() :: %{
+        "policy" => String.t() | atom()
       }
 
   """
-  @type update_registry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_browser_profile_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "profileArn" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_browser_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_harness_request() :: %{
-        optional("allowedTools") => list(String.t() | atom()),
-        optional("authorizerConfiguration") => updated_authorizer_configuration(),
-        optional("clientToken") => String.t() | atom(),
-        optional("environment") => list(),
-        optional("environmentArtifact") => updated_harness_environment_artifact(),
-        optional("environmentVariables") => map(),
-        optional("executionRoleArn") => String.t() | atom(),
-        optional("maxIterations") => [integer()],
-        optional("maxTokens") => [integer()],
-        optional("memory") => updated_harness_memory_configuration(),
-        optional("model") => list(),
-        optional("skills") => list(list()),
-        optional("systemPrompt") => list(list()),
-        optional("timeoutSeconds") => [integer()],
-        optional("tools") => list(harness_tool()),
-        optional("truncation") => harness_truncation_configuration()
-      }
-
-  """
-  @type update_harness_request() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4774,22 +5305,285 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      delete_memory_output() :: %{
-        "memoryId" => String.t() | atom(),
-        "status" => list(any())
+      get_payment_credential_provider_response() :: %{
+        "createdTime" => [non_neg_integer()],
+        "credentialProviderArn" => String.t() | atom(),
+        "credentialProviderVendor" => list(any()),
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "providerConfigurationOutput" => list(),
+        "tags" => map()
       }
 
   """
-  @type delete_memory_output() :: %{(String.t() | atom()) => any()}
+  @type get_payment_credential_provider_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_online_evaluation_config_request() :: %{}
+      list_browser_profiles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
 
   """
-  @type delete_online_evaluation_config_request() :: %{}
+  @type list_browser_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_profile_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_browser_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_runtime_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_agent_runtime_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_summary_request() :: %{}
+
+  """
+  @type get_policy_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_examples_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("examples") => list(any())
+      }
+
+  """
+  @type update_dataset_examples_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_harness_response() :: %{
+        "harness" => harness()
+      }
+
+  """
+  @type update_harness_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cedar_policy() :: %{
+        "statement" => String.t() | atom()
+      }
+
+  """
+  @type cedar_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      llm_extraction_config() :: %{
+        "definition" => String.t() | atom(),
+        "llmExtractionInstruction" => String.t() | atom(),
+        "validation" => list()
+      }
+
+  """
+  @type llm_extraction_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linkedin_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type linkedin_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      github_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
+      }
+
+  """
+  @type github_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secret_reference() :: %{
+        "jsonKey" => String.t() | atom(),
+        "secretId" => String.t() | atom()
+      }
+
+  """
+  @type secret_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_memory_output() :: %{
+        "memory" => memory()
+      }
+
+  """
+  @type create_memory_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_runtime_response() :: %{
+        "agentRuntimeId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_agent_runtime_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_dataset_examples_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("source") => list()
+      }
+
+  """
+  @type add_dataset_examples_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_runtime_response() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "status" => list(any()),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type create_agent_runtime_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      static_route() :: %{
+        "targetName" => String.t() | atom()
+      }
+
+  """
+  @type static_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "harnessId" => String.t() | atom(),
+        "harnessName" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type harness_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generation_summaries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyGenerations" => list(policy_generation_summary())
+      }
+
+  """
+  @type list_policy_generation_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_response() :: %{}
+
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_delivery_resources() :: %{
+        "resources" => list(list())
+      }
+
+  """
+  @type stream_delivery_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_configuration_input() :: %{
+        "payloadDeliveryBucketName" => [String.t() | atom()],
+        "topicArn" => String.t() | atom()
+      }
+
+  """
+  @type invocation_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4807,89 +5601,56 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      mcp_descriptor() :: %{
-        "server" => server_definition(),
-        "tools" => tools_definition()
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
       }
 
   """
-  @type mcp_descriptor() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      user_preference_memory_strategy_input() :: %{
+      gateway_interceptor_configuration() :: %{
+        "inputConfiguration" => interceptor_input_configuration(),
+        "interceptionPoints" => list(list(any())()),
+        "interceptor" => list()
+      }
+
+  """
+  @type gateway_interceptor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type server_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_engine_response() :: %{
+        "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "memoryRecordSchema" => memory_record_schema(),
+        "encryptionKeyArn" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type user_preference_memory_strategy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      memory_record_schema() :: %{
-        "metadataSchema" => list(metadata_schema_entry())
-      }
-
-  """
-  @type memory_record_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_tool() :: %{
-        "config" => list(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type harness_tool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_summary_request() :: %{}
-
-  """
-  @type get_policy_summary_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_payment_connector_response() :: %{
-        "credentialProviderConfigurations" => list(list()),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "paymentConnectorId" => String.t() | atom(),
-        "paymentManagerId" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
         "status" => list(any()),
-        "type" => list(any())
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type update_payment_connector_response() :: %{(String.t() | atom()) => any()}
+  @type delete_policy_engine_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4910,44 +5671,218 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      list_browsers_response() :: %{
-        "browserSummaries" => list(browser_summary()),
-        "nextToken" => String.t() | atom()
-      }
+      get_policy_generation_request() :: %{}
 
   """
-  @type list_browsers_response() :: %{(String.t() | atom()) => any()}
+  @type get_policy_generation_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_configuration_bundle_version_response() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleId" => String.t() | atom(),
-        "bundleName" => String.t() | atom(),
-        "components" => map(),
-        "createdAt" => [non_neg_integer()],
+      get_online_evaluation_config_request() :: %{}
+
+  """
+  @type get_online_evaluation_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_api_key_credential_provider() :: %{
+        "credentialLocation" => list(any()),
+        "credentialParameterName" => String.t() | atom(),
+        "credentialPrefix" => String.t() | atom(),
+        "providerArn" => String.t() | atom()
+      }
+
+  """
+  @type gateway_api_key_credential_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_registry_record_response() :: %{}
+
+  """
+  @type delete_registry_record_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_profile_summary() :: %{
+        "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "lineageMetadata" => version_lineage_metadata(),
-        "versionCreatedAt" => [non_neg_integer()],
-        "versionId" => String.t() | atom()
+        "lastSavedAt" => non_neg_integer(),
+        "lastSavedBrowserId" => String.t() | atom(),
+        "lastSavedBrowserSessionId" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type get_configuration_bundle_version_response() :: %{(String.t() | atom()) => any()}
+  @type browser_profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inline_examples_source() :: %{
-        "examples" => list(any())
+      indexed_key() :: %{
+        "key" => String.t() | atom(),
+        "type" => list(any())
       }
 
   """
-  @type inline_examples_source() :: %{(String.t() | atom()) => any()}
+  @type indexed_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_payment_manager_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("authorizerType") => list(any()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_payment_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_output_config() :: %{
+        "logGroupName" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_key_credential_provider_response() :: %{}
+
+  """
+  @type delete_api_key_credential_provider_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_online_evaluation_config_request() :: %{}
+
+  """
+  @type delete_online_evaluation_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_workload_identity_response() :: %{
+        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
+      }
+
+  """
+  @type create_workload_identity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mcp_server_target_configuration() :: %{
+        "endpoint" => [String.t() | atom()],
+        "listingMode" => list(any()),
+        "mcpToolSchema" => list(),
+        "resourcePriority" => integer()
+      }
+
+  """
+  @type mcp_server_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "location" => list()
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_a2a_descriptor() :: %{
+        "optionalValue" => a2a_descriptor()
+      }
+
+  """
+  @type updated_a2a_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      google_oauth2_provider_config_output() :: %{
+        "clientId" => String.t() | atom(),
+        "oauthDiscovery" => list()
+      }
+
+  """
+  @type google_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_preference_override_configuration_input() :: %{
+        "consolidation" => user_preference_override_consolidation_configuration_input(),
+        "extraction" => user_preference_override_extraction_configuration_input()
+      }
+
+  """
+  @type user_preference_override_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_configuration() :: %{
+        "code" => list(),
+        "entryPoint" => list(String.t() | atom()),
+        "runtime" => list(any())
+      }
+
+  """
+  @type code_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4965,64 +5900,51 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      delete_policy_request() :: %{}
-
-  """
-  @type delete_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_summaries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policies" => list(policy_summary())
+      string_list_validation() :: %{
+        "allowedValues" => list(String.t() | atom()),
+        "maxItems" => [integer()]
       }
 
   """
-  @type list_policy_summaries_response() :: %{(String.t() | atom()) => any()}
+  @type string_list_validation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      updated_synchronization_configuration() :: %{
-        "optionalValue" => synchronization_configuration()
+      list_agent_runtime_endpoints_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type updated_synchronization_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_agent_runtime_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_policy_generation_request() :: %{}
-
-  """
-  @type get_policy_generation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_browser_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      create_registry_response() :: %{
+        "registryArn" => String.t() | atom()
       }
 
   """
-  @type delete_browser_request() :: %{(String.t() | atom()) => any()}
+  @type create_registry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      certificate() :: %{
-        "location" => list()
+      strategy_configuration() :: %{
+        "consolidation" => list(),
+        "extraction" => list(),
+        "reflection" => list(),
+        "selfManagedConfiguration" => self_managed_configuration(),
+        "type" => list(any())
       }
 
   """
-  @type certificate() :: %{(String.t() | atom()) => any()}
+  @type strategy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5040,118 +5962,422 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      sampling_config() :: %{
-        "samplingPercentage" => float()
+      delete_configuration_bundle_response() :: %{
+        "bundleId" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type sampling_config() :: %{(String.t() | atom()) => any()}
+  @type delete_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_agent_core_runtime_environment_request() :: %{
-        "filesystemConfigurations" => list(list()),
-        "lifecycleConfiguration" => lifecycle_configuration(),
-        "networkConfiguration" => network_configuration()
+      list_registry_records_request() :: %{
+        optional("descriptorType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
       }
 
   """
-  @type harness_agent_core_runtime_environment_request() :: %{(String.t() | atom()) => any()}
+  @type list_registry_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_code_interpreter_request() :: %{
-        optional("certificates") => list(certificate()),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("executionRoleArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("networkConfiguration") => code_interpreter_network_configuration()
+      session_config() :: %{
+        "sessionTimeoutMinutes" => [integer()]
       }
 
   """
-  @type create_code_interpreter_request() :: %{(String.t() | atom()) => any()}
+  @type session_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_memories_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      updated_tools_definition() :: %{
+        "optionalValue" => tools_definition()
       }
 
   """
-  @type list_memories_input() :: %{(String.t() | atom()) => any()}
+  @type updated_tools_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metadata_configuration() :: %{
-        "allowedQueryParameters" => list(String.t() | atom()),
-        "allowedRequestHeaders" => list(String.t() | atom()),
-        "allowedResponseHeaders" => list(String.t() | atom())
+      component_configuration() :: %{
+        "configuration" => [any()]
       }
 
   """
-  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+  @type component_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      modify_memory_strategy_input() :: %{
-        "configuration" => modify_strategy_configuration(),
+      token_based_trigger_input() :: %{
+        "tokenCount" => [integer()]
+      }
+
+  """
+  @type token_based_trigger_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secret() :: %{
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type secret() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workload_identity_response() :: %{}
+
+  """
+  @type delete_workload_identity_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_response() :: %{
+        "browserId" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_identity_response() :: %{
+        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
+        "createdTime" => [non_neg_integer()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "workloadIdentityArn" => String.t() | atom()
+      }
+
+  """
+  @type get_workload_identity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inline_examples_source() :: %{
+        "examples" => list(any())
+      }
+
+  """
+  @type inline_examples_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_server_definition() :: %{
+        "optionalValue" => server_definition()
+      }
+
+  """
+  @type updated_server_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_claim_validation_type() :: %{
+        "authorizingClaimMatchValue" => authorizing_claim_match_value_type(),
+        "inboundTokenClaimName" => String.t() | atom(),
+        "inboundTokenClaimValueType" => list(any())
+      }
+
+  """
+  @type custom_claim_validation_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coinbase_cdp_configuration_output() :: %{
+        "apiKeyId" => String.t() | atom(),
+        "apiKeySecretArn" => secret(),
+        "apiKeySecretJsonKey" => String.t() | atom(),
+        "apiKeySecretSource" => list(any()),
+        "walletSecretArn" => secret(),
+        "walletSecretJsonKey" => String.t() | atom(),
+        "walletSecretSource" => list(any())
+      }
+
+  """
+  @type coinbase_cdp_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evaluator_response() :: %{
+        "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
-        "memoryRecordSchema" => memory_record_schema(),
-        "memoryStrategyId" => [String.t() | atom()],
-        "namespaceTemplates" => list(String.t() | atom()),
-        "namespaces" => list(String.t() | atom())
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorConfig" => list(),
+        "evaluatorId" => String.t() | atom(),
+        "evaluatorName" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "level" => list(any()),
+        "lockedForModification" => [boolean()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type modify_memory_strategy_input() :: %{(String.t() | atom()) => any()}
+  @type get_evaluator_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_gateway_request() :: %{
-        optional("authorizerConfiguration") => list(),
-        optional("clientToken") => String.t() | atom(),
+      submit_registry_record_for_approval_request() :: %{}
+
+  """
+  @type submit_registry_record_for_approval_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_skill_md_definition() :: %{
+        "optionalValue" => skill_md_definition()
+      }
+
+  """
+  @type updated_skill_md_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_bundle_version_summary() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
+        "lineageMetadata" => version_lineage_metadata(),
+        "versionCreatedAt" => [non_neg_integer()],
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type configuration_bundle_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourcePriority" => integer(),
+        "status" => list(any()),
+        "targetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type target_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_approval_configuration() :: %{
+        "optionalValue" => approval_configuration()
+      }
+
+  """
+  @type updated_approval_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_target_request() :: %{
+        optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
-        optional("exceptionLevel") => list(any()),
-        optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("policyEngineConfiguration") => gateway_policy_engine_configuration(),
-        optional("protocolConfiguration") => list(),
-        optional("protocolType") => list(any()),
-        optional("tags") => map(),
-        required("authorizerType") => list(any()),
+        optional("metadataConfiguration") => metadata_configuration(),
+        optional("privateEndpoint") => list(),
         required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
+        required("targetConfiguration") => list()
       }
 
   """
-  @type create_gateway_request() :: %{(String.t() | atom()) => any()}
+  @type update_gateway_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      atlassian_oauth2_provider_config_output() :: %{
-        "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list()
+      updated_mcp_descriptor_fields() :: %{
+        "server" => updated_server_definition(),
+        "tools" => updated_tools_definition()
       }
 
   """
-  @type atlassian_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
+  @type updated_mcp_descriptor_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_dataset_examples_response() :: %{
+        "addedCount" => [float()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "exampleIds" => list(String.t() | atom()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type add_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_profile_request() :: %{}
+
+  """
+  @type get_browser_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_runtime_endpoint_request() :: %{
+        optional("agentRuntimeVersion") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_based_trigger() :: %{
+        "idleSessionTimeout" => [integer()]
+      }
+
+  """
+  @type time_based_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding() :: %{
+        "description" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_rule_response() :: %{
+        "actions" => list(list()),
+        "conditions" => list(list()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "priority" => integer(),
+        "ruleId" => String.t() | atom(),
+        "status" => list(any()),
+        "system" => system_managed_block()
+      }
+
+  """
+  @type create_gateway_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_engine_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_policy_engine_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_target_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
+        optional("description") => String.t() | atom(),
+        optional("metadataConfiguration") => metadata_configuration(),
+        optional("privateEndpoint") => list(),
+        required("name") => String.t() | atom(),
+        required("targetConfiguration") => list()
+      }
+
+  """
+  @type create_gateway_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_based_trigger_input() :: %{
+        "messageCount" => [integer()]
+      }
+
+  """
+  @type message_based_trigger_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5178,6 +6404,102 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type gateway_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_registries_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "registries" => list(registry_summary())
+      }
+
+  """
+  @type list_registries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_memory_input() :: %{
+        optional("addIndexedKeys") => list(indexed_key()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("eventExpiryDuration") => [integer()],
+        optional("memoryExecutionRoleArn") => String.t() | atom(),
+        optional("memoryStrategies") => modify_memory_strategies(),
+        optional("streamDeliveryResources") => stream_delivery_resources()
+      }
+
+  """
+  @type update_memory_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_runtime_versions_response() :: %{
+        "agentRuntimes" => list(agent_runtime()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_runtime_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      online_evaluation_config_summary() :: %{
+        "clusteringConfig" => clustering_config(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "insights" => list(insight()),
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "onlineEvaluationConfigName" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type online_evaluation_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_rule_response() :: %{
+        "ruleId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_gateway_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_manager_response() :: %{
+        "authorizerConfiguration" => list(),
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentManagerId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "workloadIdentityDetails" => workload_identity_details()
+      }
+
+  """
+  @type get_payment_manager_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5213,267 +6535,34 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      updated_custom_descriptor() :: %{
-        "optionalValue" => custom_descriptor()
+      list_browsers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("type") => list(any())
       }
 
   """
-  @type updated_custom_descriptor() :: %{(String.t() | atom()) => any()}
+  @type list_browsers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_api_key_credential_provider_request() :: %{
-        optional("apiKey") => String.t() | atom(),
-        optional("apiKeySecretConfig") => secret_reference(),
-        optional("apiKeySecretSource") => list(any()),
-        required("name") => String.t() | atom()
-      }
+      get_harness_request() :: %{}
 
   """
-  @type update_api_key_credential_provider_request() :: %{(String.t() | atom()) => any()}
+  @type get_harness_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_payment_manager_response() :: %{
-        "authorizerConfiguration" => list(),
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "paymentManagerArn" => String.t() | atom(),
-        "paymentManagerId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map(),
-        "workloadIdentityDetails" => workload_identity_details()
+      sampling_config() :: %{
+        "samplingPercentage" => float()
       }
 
   """
-  @type create_payment_manager_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_agent_skills_descriptor() :: %{
-        "optionalValue" => updated_agent_skills_descriptor_fields()
-      }
-
-  """
-  @type updated_agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workload_identities_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_workload_identities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_bundles_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_configuration_bundles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_browser_profile_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_browser_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_configuration() :: %{
-        "networkMode" => list(any()),
-        "networkModeConfig" => vpc_config()
-      }
-
-  """
-  @type network_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      skill_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom()
-      }
-
-  """
-  @type skill_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_based_trigger() :: %{
-        "messageCount" => [integer()]
-      }
-
-  """
-  @type message_based_trigger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_bundle_versions_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "versions" => list(configuration_bundle_version_summary())
-      }
-
-  """
-  @type list_configuration_bundle_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slack_oauth2_provider_config_output() :: %{
-        "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list()
-      }
-
-  """
-  @type slack_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy() :: %{
-        "createdAt" => non_neg_integer(),
-        "definition" => list(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_registries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "registries" => list(registry_summary())
-      }
-
-  """
-  @type list_registries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_consolidation_override() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
-      }
-
-  """
-  @type episodic_consolidation_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_request() :: %{
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_policy_generation_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("content") => list(),
-        required("name") => String.t() | atom(),
-        required("resource") => list()
-      }
-
-  """
-  @type start_policy_generation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_token_vault_cm_k_request() :: %{
-        optional("tokenVaultId") => String.t() | atom(),
-        required("kmsConfiguration") => kms_configuration()
-      }
-
-  """
-  @type set_token_vault_cm_k_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_agent_runtime_endpoint_response() :: %{
-        "agentRuntimeId" => String.t() | atom(),
-        "endpointName" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_oauth2_credential_provider_response() :: %{
-        "callbackUrl" => [String.t() | atom()],
-        "clientSecretArn" => secret(),
-        "clientSecretJsonKey" => String.t() | atom(),
-        "clientSecretSource" => list(any()),
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "credentialProviderVendor" => list(any()),
-        "failureReason" => [String.t() | atom()],
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "oauth2ProviderConfigOutput" => list(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_oauth2_credential_provider_response() :: %{(String.t() | atom()) => any()}
+  @type sampling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5498,56 +6587,80 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      get_token_vault_response() :: %{
-        "kmsConfiguration" => kms_configuration(),
-        "lastModifiedDate" => [non_neg_integer()],
-        "tokenVaultId" => String.t() | atom()
-      }
+      delete_oauth2_credential_provider_response() :: %{}
 
   """
-  @type get_token_vault_response() :: %{(String.t() | atom()) => any()}
+  @type delete_oauth2_credential_provider_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      categorical_scale_definition() :: %{
-        "definition" => [String.t() | atom()],
-        "label" => [String.t() | atom()]
+      runtime_target_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "qualifier" => String.t() | atom()
       }
 
   """
-  @type categorical_scale_definition() :: %{(String.t() | atom()) => any()}
+  @type runtime_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      summary_override_configuration_input() :: %{
-        "consolidation" => summary_override_consolidation_configuration_input()
-      }
-
-  """
-  @type summary_override_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_generation_summary_response() :: %{
+      get_code_interpreter_response() :: %{
+        "certificates" => list(certificate()),
+        "codeInterpreterArn" => String.t() | atom(),
+        "codeInterpreterId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
-        "findings" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "executionRoleArn" => String.t() | atom(),
+        "failureReason" => [String.t() | atom()],
+        "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyGenerationArn" => String.t() | atom(),
-        "policyGenerationId" => String.t() | atom(),
-        "resource" => list(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
+        "networkConfiguration" => code_interpreter_network_configuration(),
+        "status" => list(any())
       }
 
   """
-  @type get_policy_generation_summary_response() :: %{(String.t() | atom()) => any()}
+  @type get_code_interpreter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_runtime_request() :: %{
+        optional("agentRuntimeVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_agent_runtime_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_policy_request() :: %{
+        optional("definition") => list(),
+        optional("description") => updated_description(),
+        optional("validationMode") => list(any())
+      }
+
+  """
+  @type update_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_online_evaluation_config_response() :: %{
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5565,76 +6678,284 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      get_evaluator_response() :: %{
-        "createdAt" => [non_neg_integer()],
+      synchronization_configuration() :: %{
+        "fromUrl" => from_url_synchronization_configuration()
+      }
+
+  """
+  @type synchronization_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memories_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_memories_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_bundles_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_configuration_bundles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_response() :: %{
+        "browserArn" => String.t() | atom(),
+        "browserId" => String.t() | atom(),
+        "browserSigning" => browser_signing_config_output(),
+        "certificates" => list(certificate()),
+        "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "evaluatorArn" => String.t() | atom(),
-        "evaluatorConfig" => list(),
-        "evaluatorId" => String.t() | atom(),
-        "evaluatorName" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "level" => list(any()),
-        "lockedForModification" => [boolean()],
+        "enterprisePolicies" => list(browser_enterprise_policy()),
+        "executionRoleArn" => String.t() | atom(),
+        "failureReason" => [String.t() | atom()],
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "networkConfiguration" => browser_network_configuration(),
+        "recording" => recording_config(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_manager_request() :: %{
+        optional("authorizerConfiguration") => list(),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("authorizerType") => list(any()),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_payment_manager_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_harness_response() :: %{
+        "harness" => harness()
+      }
+
+  """
+  @type create_harness_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_configuration() :: %{
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_gateway_target_response() :: %{
+        "authorizationData" => list(),
+        "createdAt" => non_neg_integer(),
+        "credentialProviderConfigurations" => list(credential_provider_configuration()),
+        "description" => String.t() | atom(),
+        "gatewayArn" => String.t() | atom(),
+        "lastSynchronizedAt" => non_neg_integer(),
+        "metadataConfiguration" => metadata_configuration(),
+        "name" => String.t() | atom(),
+        "privateEndpoint" => list(),
+        "privateEndpointManagedResources" => list(managed_resource_details()),
+        "protocolType" => list(any()),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "targetConfiguration" => list(),
+        "targetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_gateway_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_target_request() :: %{}
+
+  """
+  @type delete_gateway_target_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      semantic_override_consolidation_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type semantic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_examples_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("exampleIds") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_dataset_examples_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetArn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetName" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "draftStatus" => list(any()),
+        "exampleCount" => [float()],
+        "schemaType" => list(any()),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_evaluator_response() :: %{(String.t() | atom()) => any()}
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_agent_runtime_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      list_payment_credential_providers_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type delete_agent_runtime_request() :: %{(String.t() | atom()) => any()}
+  @type list_payment_credential_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      strategy_configuration() :: %{
-        "consolidation" => list(),
-        "extraction" => list(),
-        "reflection" => list(),
-        "selfManagedConfiguration" => self_managed_configuration(),
-        "type" => list(any())
+      update_registry_record_request() :: %{
+        optional("description") => updated_description(),
+        optional("descriptorType") => list(any()),
+        optional("descriptors") => updated_descriptors(),
+        optional("name") => String.t() | atom(),
+        optional("recordVersion") => String.t() | atom(),
+        optional("synchronizationConfiguration") => updated_synchronization_configuration(),
+        optional("synchronizationType") => updated_synchronization_type(),
+        optional("triggerSynchronization") => [boolean()]
       }
 
   """
-  @type strategy_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_registry_record_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      get_gateway_request() :: %{}
+
+  """
+  @type get_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      m_c_p_gateway_configuration() :: %{
+        "instructions" => String.t() | atom(),
+        "searchType" => list(any()),
+        "sessionConfiguration" => session_configuration(),
+        "streamingConfiguration" => streaming_configuration(),
+        "supportedVersions" => list(String.t() | atom())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type m_c_p_gateway_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      policy_engine_summary() :: %{
+      list_registries_request() :: %{
+        optional("authorizerType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_registries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_api_key_credential_providers_response() :: %{
+        "credentialProviders" => list(api_key_credential_provider_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_api_key_credential_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_browser_profile_response() :: %{
         "createdAt" => non_neg_integer(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
+        "profileArn" => String.t() | atom(),
+        "profileId" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type policy_engine_summary() :: %{(String.t() | atom()) => any()}
+  @type create_browser_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_description() :: %{
+        "optionalValue" => String.t() | atom()
+      }
+
+  """
+  @type updated_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5651,13 +6972,271 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      semantic_override_extraction_configuration_input() :: %{
+      update_evaluator_response() :: %{
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_evaluator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_rule_request() :: %{
+        optional("actions") => list(list()),
+        optional("conditions") => list(list()),
+        optional("description") => String.t() | atom(),
+        optional("priority") => integer()
+      }
+
+  """
+  @type update_gateway_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summary_override_consolidation_configuration_input() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
       }
 
   """
-  @type semantic_override_extraction_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type summary_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_browser_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_browser_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_online_evaluation_config_response() :: %{
+        "clusteringConfig" => clustering_config(),
+        "createdAt" => [non_neg_integer()],
+        "dataSourceConfig" => list(),
+        "description" => String.t() | atom(),
+        "evaluationExecutionRoleArn" => String.t() | atom(),
+        "evaluators" => list(list()),
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "insights" => list(insight()),
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "onlineEvaluationConfigName" => String.t() | atom(),
+        "outputConfig" => output_config(),
+        "rule" => rule(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_gateway_targets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_gateway_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "eventExpiryDuration" => [integer()],
+        "failureReason" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "indexedKeys" => list(indexed_key()),
+        "memoryExecutionRoleArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "strategies" => list(memory_strategy()),
+        "streamDeliveryResources" => stream_delivery_resources(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type memory() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      oauth2_authorization_server_metadata() :: %{
+        "authorizationEndpoint" => String.t() | atom(),
+        "issuer" => String.t() | atom(),
+        "responseTypes" => list(String.t() | atom()),
+        "tokenEndpoint" => String.t() | atom(),
+        "tokenEndpointAuthMethods" => list(String.t() | atom())
+      }
+
+  """
+  @type oauth2_authorization_server_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policies" => list(policy())
+      }
+
+  """
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_payment_connector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("credentialProviderConfigurations") => list(list()),
+        optional("description") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type update_payment_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_bundle_response() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type create_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{
+        optional("datasetVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_online_evaluation_config_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "executionStatus" => list(any()),
+        "failureReason" => [String.t() | atom()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "onlineEvaluationConfigId" => String.t() | atom(),
+        "outputConfig" => output_config(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_online_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definition" => list(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_code_interpreter_config() :: %{
+        "codeInterpreterArn" => String.t() | atom()
+      }
+
+  """
+  @type harness_agent_core_code_interpreter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_browser_config() :: %{
+        "browserArn" => String.t() | atom()
+      }
+
+  """
+  @type harness_agent_core_browser_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registry_summary() :: %{
+        "authorizerType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "registryId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type registry_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_token_vault_cm_k_response() :: %{
+        "kmsConfiguration" => kms_configuration(),
+        "lastModifiedDate" => [non_neg_integer()],
+        "tokenVaultId" => String.t() | atom()
+      }
+
+  """
+  @type set_token_vault_cm_k_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5678,240 +7257,6 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      list_registries_request() :: %{
-        optional("authorizerType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_registries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_payment_connector_response() :: %{
-        "paymentConnectorId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_payment_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_j_w_t_authorizer_configuration() :: %{
-        "allowedAudience" => list(String.t() | atom()),
-        "allowedClients" => list(String.t() | atom()),
-        "allowedScopes" => list(String.t() | atom()),
-        "customClaims" => list(custom_claim_validation_type()),
-        "discoveryUrl" => String.t() | atom(),
-        "privateEndpoint" => list(),
-        "privateEndpointOverrides" => list(private_endpoint_override())
-      }
-
-  """
-  @type custom_j_w_t_authorizer_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_engines_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_policy_engines_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_network_configuration() :: %{
-        "networkMode" => list(any()),
-        "vpcConfig" => vpc_config()
-      }
-
-  """
-  @type browser_network_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_key_credential_provider_response() :: %{}
-
-  """
-  @type delete_api_key_credential_provider_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_runtime_endpoints_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "runtimeEndpoints" => list(agent_runtime_endpoint())
-      }
-
-  """
-  @type list_agent_runtime_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_registry_record_request() :: %{}
-
-  """
-  @type delete_registry_record_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      secrets_manager_location() :: %{
-        "secretArn" => String.t() | atom()
-      }
-
-  """
-  @type secrets_manager_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_skill_definition() :: %{
-        "optionalValue" => skill_definition()
-      }
-
-  """
-  @type updated_skill_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dataset_request() :: %{
-        optional("datasetVersion") => String.t() | atom()
-      }
-
-  """
-  @type get_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_config() :: %{
-        "cloudWatchConfig" => cloud_watch_output_config()
-      }
-
-  """
-  @type output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_mcp_descriptor_fields() :: %{
-        "server" => updated_server_definition(),
-        "tools" => updated_tools_definition()
-      }
-
-  """
-  @type updated_mcp_descriptor_fields() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_runtime_endpoint() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeEndpointArn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "liveVersion" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "targetVersion" => String.t() | atom()
-      }
-
-  """
-  @type agent_runtime_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registry_record_credential_provider_configuration() :: %{
-        "credentialProvider" => list(),
-        "credentialProviderType" => list(any())
-      }
-
-  """
-  @type registry_record_credential_provider_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_browser_profile_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastSavedAt" => non_neg_integer(),
-        "lastSavedBrowserId" => String.t() | atom(),
-        "lastSavedBrowserSessionId" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "profileArn" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_browser_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_request() :: %{}
-
-  """
-  @type delete_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_modification_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       delete_code_interpreter_response() :: %{
         "codeInterpreterId" => String.t() | atom(),
         "lastUpdatedAt" => non_neg_integer(),
@@ -5925,50 +7270,119 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      list_online_evaluation_configs_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      modify_memory_strategy_input() :: %{
+        "configuration" => modify_strategy_configuration(),
+        "description" => String.t() | atom(),
+        "memoryRecordSchema" => memory_record_schema(),
+        "memoryStrategyId" => [String.t() | atom()],
+        "namespaceTemplates" => list(String.t() | atom()),
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type list_online_evaluation_configs_request() :: %{(String.t() | atom()) => any()}
+  @type modify_memory_strategy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      efs_access_point_configuration() :: %{
-        "accessPointArn" => String.t() | atom(),
-        "mountPath" => String.t() | atom()
+      updated_agent_skills_descriptor() :: %{
+        "optionalValue" => updated_agent_skills_descriptor_fields()
       }
 
   """
-  @type efs_access_point_configuration() :: %{(String.t() | atom()) => any()}
+  @type updated_agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      component_configuration() :: %{
-        "configuration" => [any()]
+      categorical_scale_definition() :: %{
+        "definition" => [String.t() | atom()],
+        "label" => [String.t() | atom()]
       }
 
   """
-  @type component_configuration() :: %{(String.t() | atom()) => any()}
+  @type categorical_scale_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_evaluator_response() :: %{
-        "evaluatorArn" => String.t() | atom(),
-        "evaluatorId" => String.t() | atom(),
+      included_oauth2_provider_config_input() :: %{
+        "authorizationEndpoint" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any()),
+        "issuer" => String.t() | atom(),
+        "tokenEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type included_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_failure() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type encryption_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_enterprise_policy() :: %{
+        "location" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type browser_enterprise_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_engine() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyEngineArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
         "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
+        "statusReasons" => list(String.t() | atom()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type update_evaluator_response() :: %{(String.t() | atom()) => any()}
+  @type policy_engine() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_oauth2_credential_provider_request() :: %{
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type delete_oauth2_credential_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_interpreter_request() :: %{}
+
+  """
+  @type get_code_interpreter_request() :: %{}
 
   @typedoc """
 
@@ -5988,64 +7402,217 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      coinbase_cdp_configuration_output() :: %{
-        "apiKeyId" => String.t() | atom(),
-        "apiKeySecretArn" => secret(),
-        "apiKeySecretJsonKey" => String.t() | atom(),
-        "apiKeySecretSource" => list(any()),
-        "walletSecretArn" => secret(),
-        "walletSecretJsonKey" => String.t() | atom(),
-        "walletSecretSource" => list(any())
+      list_memories_output() :: %{
+        "memories" => list(memory_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type coinbase_cdp_configuration_output() :: %{(String.t() | atom()) => any()}
+  @type list_memories_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_agent_runtime_response() :: %{
+      policy_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyEngineId" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_interpreter_response() :: %{
+        "codeInterpreterArn" => String.t() | atom(),
+        "codeInterpreterId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_code_interpreter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "key" => [String.t() | atom()],
+        "operator" => list(any()),
+        "value" => list()
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_registry_record_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "descriptorType" => list(any()),
+        "descriptors" => descriptors(),
+        "name" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "recordId" => String.t() | atom(),
+        "recordVersion" => String.t() | atom(),
+        "registryArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "synchronizationConfiguration" => synchronization_configuration(),
+        "synchronizationType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_registry_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_memory_output() :: %{
+        "memory" => memory()
+      }
+
+  """
+  @type update_memory_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_runtime() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
         "agentRuntimeId" => String.t() | atom(),
+        "agentRuntimeName" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type delete_agent_runtime_response() :: %{(String.t() | atom()) => any()}
+  @type agent_runtime() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_evaluators_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type list_evaluators_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_registry_response() :: %{
-        "status" => list(any())
+      update_agent_runtime_endpoint_response() :: %{
+        "agentRuntimeArn" => String.t() | atom(),
+        "agentRuntimeEndpointArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "liveVersion" => String.t() | atom(),
+        "status" => list(any()),
+        "targetVersion" => String.t() | atom()
       }
 
   """
-  @type delete_registry_response() :: %{(String.t() | atom()) => any()}
+  @type update_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      time_based_trigger() :: %{
-        "idleSessionTimeout" => [integer()]
+      string_validation() :: %{
+        "allowedValues" => list(String.t() | atom())
       }
 
   """
-  @type time_based_trigger() :: %{(String.t() | atom()) => any()}
+  @type string_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      google_oauth2_provider_config_input() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "clientSecretConfig" => secret_reference(),
+        "clientSecretSource" => list(any())
+      }
+
+  """
+  @type google_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policyGenerations" => list(policy_generation())
+      }
+
+  """
+  @type list_policy_generations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_policy_engine_request() :: %{
+        optional("description") => updated_description()
+      }
+
+  """
+  @type update_policy_engine_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      episodic_override_consolidation_configuration_input() :: %{
+        "appendToPrompt" => String.t() | atom(),
+        "modelId" => [String.t() | atom()]
+      }
+
+  """
+  @type episodic_override_consolidation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      decryption_failure() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type decryption_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6077,833 +7644,6 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      delete_policy_engine_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type delete_policy_engine_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_oauth2_credential_provider_response() :: %{}
-
-  """
-  @type delete_oauth2_credential_provider_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_lite_llm_model_config() :: %{
-        "additionalParams" => [any()],
-        "apiBase" => String.t() | atom(),
-        "apiKeyArn" => String.t() | atom(),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topP" => float()
-      }
-
-  """
-  @type harness_lite_llm_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_engine_summaries_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_policy_engine_summaries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => [String.t() | atom()],
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("datasetName") => String.t() | atom(),
-        required("schemaType") => list(any()),
-        required("source") => list()
-      }
-
-  """
-  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dataset_examples_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("examples") => list(any())
-      }
-
-  """
-  @type update_dataset_examples_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_gateway_rule_response() :: %{
-        "actions" => list(list()),
-        "conditions" => list(list()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "gatewayArn" => String.t() | atom(),
-        "priority" => integer(),
-        "ruleId" => String.t() | atom(),
-        "status" => list(any()),
-        "system" => system_managed_block(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_gateway_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      episodic_extraction_override() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
-      }
-
-  """
-  @type episodic_extraction_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_bedrock_model_config() :: %{
-        "additionalParams" => [any()],
-        "apiFormat" => list(any()),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topP" => float()
-      }
-
-  """
-  @type harness_bedrock_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      atlassian_oauth2_provider_config_input() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any())
-      }
-
-  """
-  @type atlassian_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      m_c_p_gateway_configuration() :: %{
-        "instructions" => String.t() | atom(),
-        "searchType" => list(any()),
-        "sessionConfiguration" => session_configuration(),
-        "streamingConfiguration" => streaming_configuration(),
-        "supportedVersions" => list(String.t() | atom())
-      }
-
-  """
-  @type m_c_p_gateway_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_open_ai_model_config() :: %{
-        "additionalParams" => [any()],
-        "apiFormat" => list(any()),
-        "apiKeyArn" => String.t() | atom(),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topP" => float()
-      }
-
-  """
-  @type harness_open_ai_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_workload_identity_response() :: %{
-        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
-        "createdTime" => [non_neg_integer()],
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "workloadIdentityArn" => String.t() | atom()
-      }
-
-  """
-  @type update_workload_identity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key_credential_provider_item() :: %{
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type api_key_credential_provider_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_rule_request() :: %{}
-
-  """
-  @type delete_gateway_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_oauth2_credential_providers_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_oauth2_credential_providers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      weighted_override() :: %{
-        "trafficSplit" => list(traffic_split_entry())
-      }
-
-  """
-  @type weighted_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_bundle_response() :: %{
-        "bundleId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interceptor_input_configuration() :: %{
-        "passRequestHeaders" => [boolean()]
-      }
-
-  """
-  @type interceptor_input_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_configuration() :: %{
-        "bucketOwnerAccountId" => String.t() | atom(),
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_version_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "datasetVersion" => String.t() | atom(),
-        "exampleCount" => [float()]
-      }
-
-  """
-  @type dataset_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_bundle_version_request() :: %{}
-
-  """
-  @type get_configuration_bundle_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_summarization_configuration() :: %{
-        "preserveRecentMessages" => [integer()],
-        "summarizationSystemPrompt" => [String.t() | atom()],
-        "summaryRatio" => [float()]
-      }
-
-  """
-  @type harness_summarization_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_bundle_versions_request() :: %{
-        optional("filter") => version_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_configuration_bundle_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_interpreters_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type list_code_interpreters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_credential_provider_request() :: %{
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type get_payment_credential_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_registry_request() :: %{
-        optional("approvalConfiguration") => approval_configuration(),
-        optional("authorizerConfiguration") => list(),
-        optional("authorizerType") => list(any()),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_registry_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_registry_record_response() :: %{}
-
-  """
-  @type delete_registry_record_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_registry_response() :: %{
-        "approvalConfiguration" => approval_configuration(),
-        "authorizerConfiguration" => list(),
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "registryArn" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_registry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_response() :: %{
-        "policy" => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      match_principals() :: %{
-        "anyOf" => list(list())
-      }
-
-  """
-  @type match_principals() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_runtime() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeId" => String.t() | atom(),
-        "agentRuntimeName" => String.t() | atom(),
-        "agentRuntimeVersion" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type agent_runtime() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_engine_summary_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_policy_engine_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_connector_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "credentialProviderConfigurations" => list(list()),
-        "description" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "paymentConnectorId" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type get_payment_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invocation_configuration() :: %{
-        "payloadDeliveryBucketName" => [String.t() | atom()],
-        "topicArn" => String.t() | atom()
-      }
-
-  """
-  @type invocation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateway_rules_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_gateway_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protocol_configuration() :: %{
-        "serverProtocol" => list(any())
-      }
-
-  """
-  @type protocol_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_card_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom()
-      }
-
-  """
-  @type agent_card_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_filter() :: %{
-        "branchName" => String.t() | atom(),
-        "createdByName" => [String.t() | atom()],
-        "latestPerBranch" => [boolean()]
-      }
-
-  """
-  @type version_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mcp_server_target_configuration() :: %{
-        "endpoint" => [String.t() | atom()],
-        "listingMode" => list(any()),
-        "mcpToolSchema" => list(),
-        "resourcePriority" => integer()
-      }
-
-  """
-  @type mcp_server_target_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      google_oauth2_provider_config_output() :: %{
-        "clientId" => String.t() | atom(),
-        "oauthDiscovery" => list()
-      }
-
-  """
-  @type google_oauth2_provider_config_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_payment_connectors_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "paymentConnectors" => list(payment_connector_summary())
-      }
-
-  """
-  @type list_payment_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_request() :: %{}
-
-  """
-  @type delete_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      semantic_override_configuration_input() :: %{
-        "consolidation" => semantic_override_consolidation_configuration_input(),
-        "extraction" => semantic_override_extraction_configuration_input()
-      }
-
-  """
-  @type semantic_override_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_schema_entry() :: %{
-        "extractionConfig" => list(),
-        "extractionType" => list(any()),
-        "key" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type metadata_schema_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      token_exchange_grant_type_config_type() :: %{
-        "actorTokenContent" => list(any()),
-        "actorTokenScopes" => list(String.t() | atom())
-      }
-
-  """
-  @type token_exchange_grant_type_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_preference_consolidation_override() :: %{
-        "appendToPrompt" => String.t() | atom(),
-        "modelId" => [String.t() | atom()]
-      }
-
-  """
-  @type user_preference_consolidation_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      synchronize_gateway_targets_response() :: %{
-        "targets" => list(gateway_target())
-      }
-
-  """
-  @type synchronize_gateway_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_interpreter_network_configuration() :: %{
-        "networkMode" => list(any()),
-        "vpcConfig" => vpc_config()
-      }
-
-  """
-  @type code_interpreter_network_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_storage_configuration() :: %{
-        "mountPath" => String.t() | atom()
-      }
-
-  """
-  @type session_storage_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_request() :: %{
-        optional("datasetVersion") => String.t() | atom()
-      }
-
-  """
-  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_datasets_response() :: %{
-        "datasets" => list(dataset_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_authorizer_configuration() :: %{
-        "optionalValue" => list()
-      }
-
-  """
-  @type updated_authorizer_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_browser_request() :: %{}
-
-  """
-  @type get_browser_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_signing_config_input() :: %{
-        "enabled" => [boolean()]
-      }
-
-  """
-  @type browser_signing_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_managed_block() :: %{
-        "managedBy" => [String.t() | atom()]
-      }
-
-  """
-  @type system_managed_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_engine() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineArn" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type policy_engine() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_generation_summaries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policyGenerations" => list(policy_generation_summary())
-      }
-
-  """
-  @type list_policy_generation_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      skill_md_definition() :: %{
-        "inlineContent" => String.t() | atom()
-      }
-
-  """
-  @type skill_md_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      static_route() :: %{
-        "targetName" => String.t() | atom()
-      }
-
-  """
-  @type static_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       mcp_lambda_target_configuration() :: %{
         "lambdaArn" => String.t() | atom(),
         "toolSchema" => list()
@@ -6916,612 +7656,25 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      insight() :: %{
-        "insightId" => String.t() | atom()
-      }
-
-  """
-  @type insight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      memory() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
+      harness_inline_function_config() :: %{
         "description" => String.t() | atom(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "eventExpiryDuration" => [integer()],
-        "failureReason" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "indexedKeys" => list(indexed_key()),
-        "memoryExecutionRoleArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "strategies" => list(memory_strategy()),
-        "streamDeliveryResources" => stream_delivery_resources(),
-        "updatedAt" => [non_neg_integer()]
+        "inputSchema" => any()
       }
 
   """
-  @type memory() :: %{(String.t() | atom()) => any()}
+  @type harness_inline_function_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      number_validation() :: %{
-        "maxValue" => [float()],
-        "minValue" => [float()]
-      }
-
-  """
-  @type number_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_agent_runtime_response() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeId" => String.t() | atom(),
-        "agentRuntimeVersion" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "status" => list(any()),
-        "workloadIdentityDetails" => workload_identity_details()
-      }
-
-  """
-  @type create_agent_runtime_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      credential_provider_configuration() :: %{
-        "credentialProvider" => list(),
-        "credentialProviderType" => list(any())
-      }
-
-  """
-  @type credential_provider_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_runtime_endpoint_response() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeEndpointArn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "liveVersion" => String.t() | atom(),
-        "status" => list(any()),
-        "targetVersion" => String.t() | atom()
-      }
-
-  """
-  @type update_agent_runtime_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_bundle_response() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleId" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "versionId" => String.t() | atom()
-      }
-
-  """
-  @type create_configuration_bundle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_runtime_endpoints_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_agent_runtime_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_connector_request() :: %{}
-
-  """
-  @type get_payment_connector_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_runtimes_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_agent_runtimes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      descriptors() :: %{
-        "a2a" => a2a_descriptor(),
-        "agentSkills" => agent_skills_descriptor(),
-        "custom" => custom_descriptor(),
-        "mcp" => mcp_descriptor()
-      }
-
-  """
-  @type descriptors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_token_vault_request() :: %{
-        optional("tokenVaultId") => String.t() | atom()
-      }
-
-  """
-  @type get_token_vault_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_profile_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastSavedAt" => non_neg_integer(),
-        "lastSavedBrowserId" => String.t() | atom(),
-        "lastSavedBrowserSessionId" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "profileArn" => String.t() | atom(),
-        "profileId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type browser_profile_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_evaluator_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("evaluatorConfig") => list(),
-        required("evaluatorName") => String.t() | atom(),
-        required("level") => list(any())
-      }
-
-  """
-  @type create_evaluator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_runtime_endpoint_request() :: %{
-        optional("agentRuntimeVersion") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_agent_runtime_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_approval_configuration() :: %{
-        "optionalValue" => approval_configuration()
-      }
-
-  """
-  @type updated_approval_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_target_request() :: %{
-        optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
-        optional("description") => String.t() | atom(),
-        optional("metadataConfiguration") => metadata_configuration(),
-        optional("privateEndpoint") => list(),
-        required("name") => String.t() | atom(),
-        required("targetConfiguration") => list()
-      }
-
-  """
-  @type update_gateway_target_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workload_identity_response() :: %{
-        "allowedResourceOauth2ReturnUrls" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "workloadIdentityArn" => String.t() | atom()
-      }
-
-  """
-  @type create_workload_identity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_policy_generation_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "findings" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyEngineId" => String.t() | atom(),
-        "policyGenerationArn" => String.t() | atom(),
-        "policyGenerationId" => String.t() | atom(),
-        "resource" => list(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type start_policy_generation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_oauth2_credential_providers_response() :: %{
-        "credentialProviders" => list(oauth2_credential_provider_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_oauth2_credential_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      from_url_synchronization_configuration() :: %{
-        "credentialProviderConfigurations" => list(registry_record_credential_provider_configuration()),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type from_url_synchronization_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_harnesses_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_harnesses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_vpc_resource() :: %{
-        "endpointIpAddressType" => list(any()),
-        "routingDomain" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom()),
-        "tags" => map(),
-        "vpcIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type managed_vpc_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_gateways_response() :: %{
-        "items" => list(gateway_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_gateways_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_agent_core_runtime_environment() :: %{
-        "agentRuntimeArn" => String.t() | atom(),
-        "agentRuntimeId" => [String.t() | atom()],
-        "agentRuntimeName" => [String.t() | atom()],
-        "filesystemConfigurations" => list(list()),
-        "lifecycleConfiguration" => lifecycle_configuration(),
-        "networkConfiguration" => network_configuration()
-      }
-
-  """
-  @type harness_agent_core_runtime_environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recording_config() :: %{
-        "enabled" => [boolean()],
-        "s3Location" => s3_location()
-      }
-
-  """
-  @type recording_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_engine_summaries_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policyEngines" => list(policy_engine_summary())
-      }
-
-  """
-  @type list_policy_engine_summaries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_skills_descriptor() :: %{
-        "skillDefinition" => skill_definition(),
-        "skillMd" => skill_md_definition()
-      }
-
-  """
-  @type agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registry_summary() :: %{
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "registryArn" => String.t() | atom(),
-        "registryId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type registry_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_key_credential_provider_response() :: %{
-        "apiKeySecretArn" => secret(),
-        "apiKeySecretJsonKey" => String.t() | atom(),
-        "apiKeySecretSource" => list(any()),
-        "createdTime" => [non_neg_integer()],
-        "credentialProviderArn" => String.t() | atom(),
-        "lastUpdatedTime" => [non_neg_integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type update_api_key_credential_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_harness_environment_artifact() :: %{
-        "optionalValue" => list()
-      }
-
-  """
-  @type updated_harness_environment_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_bundle_request() :: %{
-        optional("branchName") => String.t() | atom()
-      }
-
-  """
-  @type get_configuration_bundle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dataset_versions_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "versions" => list(dataset_version_summary())
-      }
-
-  """
-  @type list_dataset_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_bundle_request() :: %{
-        optional("branchName") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("commitMessage") => [String.t() | atom()],
-        optional("createdBy") => version_created_by_source(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("bundleName") => String.t() | atom(),
-        required("components") => map()
-      }
-
-  """
-  @type create_configuration_bundle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_agent_core_code_interpreter_config() :: %{
-        "codeInterpreterArn" => String.t() | atom()
-      }
-
-  """
-  @type harness_agent_core_code_interpreter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payment_manager_summary() :: %{
-        "authorizerType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "paymentManagerArn" => String.t() | atom(),
-        "paymentManagerId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type payment_manager_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluator_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "evaluatorArn" => String.t() | atom(),
-        "evaluatorId" => String.t() | atom(),
-        "evaluatorName" => String.t() | atom(),
-        "evaluatorType" => list(any()),
-        "kmsKeyArn" => String.t() | atom(),
-        "level" => list(any()),
-        "lockedForModification" => [boolean()],
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type evaluator_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_examples_response() :: %{
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "deletedCount" => [float()],
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type delete_dataset_examples_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_preference_override_consolidation_configuration_input() :: %{
+      semantic_consolidation_override() :: %{
         "appendToPrompt" => String.t() | atom(),
         "modelId" => [String.t() | atom()]
       }
 
   """
-  @type user_preference_override_consolidation_configuration_input() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_api_key_credential_providers_response() :: %{
-        "credentialProviders" => list(api_key_credential_provider_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_api_key_credential_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_bundles_response() :: %{
-        "bundles" => list(configuration_bundle_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_configuration_bundles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_payment_managers_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "paymentManagers" => list(payment_manager_summary())
-      }
-
-  """
-  @type list_payment_managers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_dataset_examples_response() :: %{
-        "addedCount" => [float()],
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "exampleIds" => list(String.t() | atom()),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type add_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+  @type semantic_consolidation_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7539,50 +7692,27 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      token_based_trigger_input() :: %{
-        "tokenCount" => [integer()]
+      browser_signing_config_input() :: %{
+        "enabled" => [boolean()]
       }
 
   """
-  @type token_based_trigger_input() :: %{(String.t() | atom()) => any()}
+  @type browser_signing_config_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      google_oauth2_provider_config_input() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any())
-      }
-
-  """
-  @type google_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_policy_engine_request() :: %{}
-
-  """
-  @type delete_policy_engine_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dataset_examples_response() :: %{
-        "datasetArn" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
+      payment_connector_summary() :: %{
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "paymentConnectorId" => String.t() | atom(),
         "status" => list(any()),
-        "updatedAt" => [non_neg_integer()],
-        "updatedCount" => [float()]
+        "type" => list(any())
       }
 
   """
-  @type update_dataset_examples_response() :: %{(String.t() | atom()) => any()}
+  @type payment_connector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7598,1291 +7728,1161 @@ defmodule AWS.BedrockAgentCoreControl do
   """
   @type updated_descriptors_union() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      list_gateway_targets_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_gateway_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      modify_invocation_configuration_input() :: %{
-        "payloadDeliveryBucketName" => [String.t() | atom()],
-        "topicArn" => String.t() | atom()
-      }
-
-  """
-  @type modify_invocation_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      linkedin_oauth2_provider_config_input() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "clientSecretConfig" => secret_reference(),
-        "clientSecretSource" => list(any())
-      }
-
-  """
-  @type linkedin_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_policy_engine_request() :: %{
-        optional("description") => updated_description()
-      }
-
-  """
-  @type update_policy_engine_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_gateway_request() :: %{}
-
-  """
-  @type get_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      updated_description() :: %{
-        "optionalValue" => String.t() | atom()
-      }
-
-  """
-  @type updated_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      static_override() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleVersion" => [String.t() | atom()]
-      }
-
-  """
-  @type static_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_interceptor_configuration() :: %{
-        "inputConfiguration" => interceptor_input_configuration(),
-        "interceptionPoints" => list(list(any())()),
-        "interceptor" => list()
-      }
-
-  """
-  @type gateway_interceptor_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memories_output() :: %{
-        "memories" => list(memory_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_memories_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      synchronization_configuration() :: %{
-        "fromUrl" => from_url_synchronization_configuration()
-      }
-
-  """
-  @type synchronization_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_browsers_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type list_browsers_request() :: %{(String.t() | atom()) => any()}
-
   @type add_dataset_examples_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_agent_runtime_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_agent_runtime_endpoint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_api_key_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_limit_exceeded_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | encryption_failure()
+          service_quota_exceeded_exception()
           | decryption_failure()
+          | encryption_failure()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_browser_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_browser_profile_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_code_interpreter_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_configuration_bundle_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_dataset_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_dataset_version_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_evaluator_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_gateway_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_gateway_rule_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_gateway_target_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_harness_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_memory_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | conflict_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_oauth2_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_limit_exceeded_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | encryption_failure()
+          service_quota_exceeded_exception()
           | decryption_failure()
+          | encryption_failure()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_online_evaluation_config_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_payment_connector_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_payment_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | resource_limit_exceeded_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | encryption_failure()
+          service_quota_exceeded_exception()
           | decryption_failure()
+          | encryption_failure()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_payment_manager_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_policy_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_policy_engine_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_registry_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_registry_record_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_workload_identity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_agent_runtime_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_agent_runtime_endpoint_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_api_key_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_browser_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_browser_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_code_interpreter_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_configuration_bundle_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_dataset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_dataset_examples_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_evaluator_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_gateway_rule_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_gateway_target_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_harness_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_memory_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          throttled_exception()
+          | conflict_exception()
           | service_exception()
           | resource_not_found_exception()
-          | conflict_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_oauth2_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_online_evaluation_config_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_payment_connector_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_payment_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_payment_manager_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_policy_engine_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_registry_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_registry_record_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_workload_identity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_agent_runtime_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_agent_runtime_endpoint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_api_key_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          decryption_failure()
           | resource_not_found_exception()
-          | decryption_failure()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_browser_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_browser_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_code_interpreter_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_configuration_bundle_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_configuration_bundle_version_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_dataset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_evaluator_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_gateway_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_gateway_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_gateway_target_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_harness_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_memory_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          throttled_exception()
           | service_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_oauth2_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          decryption_failure()
           | resource_not_found_exception()
-          | decryption_failure()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_online_evaluation_config_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_payment_connector_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_payment_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          decryption_failure()
           | resource_not_found_exception()
-          | decryption_failure()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_payment_manager_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_policy_engine_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_policy_engine_summary_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_policy_generation_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_policy_generation_summary_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_policy_summary_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_registry_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_registry_record_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_resource_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_token_vault_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_workload_identity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_agent_runtime_endpoints_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_agent_runtime_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_agent_runtimes_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_api_key_credential_providers_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_browser_profiles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_browsers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_code_interpreters_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_configuration_bundle_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_configuration_bundles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_dataset_examples_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_dataset_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_datasets_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_evaluators_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_gateway_rules_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_gateway_targets_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_gateways_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_harnesses_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_memories_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          throttled_exception()
           | service_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_oauth2_credential_providers_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_online_evaluation_configs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_payment_connectors_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_payment_credential_providers_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_payment_managers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_policies_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_policy_engine_summaries_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_policy_engines_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_policy_generation_assets_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_policy_generation_summaries_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_policy_generations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_policy_summaries_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_registries_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_registry_records_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_workload_identities_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type put_resource_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type set_token_vault_cm_k_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
 
   @type start_policy_generation_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type submit_registry_record_for_approval_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type synchronize_gateway_targets_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_agent_runtime_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_agent_runtime_endpoint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_api_key_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | encryption_failure()
+          service_quota_exceeded_exception()
           | decryption_failure()
+          | encryption_failure()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_configuration_bundle_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_dataset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_dataset_examples_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_evaluator_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_gateway_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_gateway_rule_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_gateway_target_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_harness_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_memory_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | conflict_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type update_oauth2_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | encryption_failure()
+          service_quota_exceeded_exception()
           | decryption_failure()
+          | encryption_failure()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_online_evaluation_config_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_payment_connector_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_payment_credential_provider_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | encryption_failure()
+          service_quota_exceeded_exception()
           | decryption_failure()
+          | encryption_failure()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_payment_manager_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_policy_engine_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_registry_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_registry_record_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_registry_record_status_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_workload_identity_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   def metadata do
     %{

@@ -13,168 +13,539 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      describe_job_log_items_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("jobID") => String.t() | atom()
-      }
-
-  """
-  @type describe_job_log_items_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_failback_replication_configuration_request() :: %{
-        optional("bandwidthThrottling") => float(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("usePrivateIP") => [boolean()],
-        required("recoveryInstanceID") => String.t() | atom()
-      }
-
-  """
-  @type update_failback_replication_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recovery_instances_request_filters() :: %{
-        "recoveryInstanceIDs" => list(String.t() | atom()),
-        "sourceServerIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type describe_recovery_instances_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_servers_request() :: %{
-        optional("filters") => describe_source_servers_request_filters(),
-        optional("maxResults") => integer(),
+      list_extensible_source_servers_response() :: %{
+        optional("items") => list(staging_source_server()),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type describe_source_servers_request() :: %{(String.t() | atom()) => any()}
+  @type list_extensible_source_servers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_staging_accounts_response() :: %{
-        optional("accounts") => list(account()),
-        optional("nextToken") => String.t() | atom()
+      describe_source_servers_request_filters() :: %{
+        "hardwareId" => String.t() | atom(),
+        "sourceServerIDs" => list(String.t() | atom()),
+        "stagingAccountIDs" => list(String.t() | atom())
       }
 
   """
-  @type list_staging_accounts_response() :: %{(String.t() | atom()) => any()}
+  @type describe_source_servers_request_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_recovery_request_source_server() :: %{
-        "recoverySnapshotID" => String.t() | atom(),
-        "sourceServerID" => String.t() | atom()
-      }
-
-  """
-  @type start_recovery_request_source_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle() :: %{
-        "addedToServiceDateTime" => String.t() | atom(),
-        "elapsedReplicationDuration" => String.t() | atom(),
-        "firstByteDateTime" => String.t() | atom(),
-        "lastLaunch" => life_cycle_last_launch(),
-        "lastSeenByServiceDateTime" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_life_cycle() :: %{
-        "apiCallDateTime" => [non_neg_integer()],
-        "jobID" => String.t() | atom(),
-        "lastRecoveryResult" => String.t() | atom()
-      }
-
-  """
-  @type recovery_life_cycle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_source_network_cfn_template_request() :: %{
+      associate_source_network_stack_request() :: %{
+        required("cfnStackName") => String.t() | atom(),
         required("sourceNetworkID") => String.t() | atom()
       }
 
   """
-  @type export_source_network_cfn_template_request() :: %{(String.t() | atom()) => any()}
+  @type associate_source_network_stack_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      source_cloud_properties() :: %{
-        "originAccountID" => String.t() | atom(),
-        "originAvailabilityZone" => String.t() | atom(),
-        "originRegion" => String.t() | atom(),
-        "sourceOutpostArn" => String.t() | atom()
+      initialize_service_response() :: %{}
+
+  """
+  @type initialize_service_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_launch_initiated() :: %{
+        "apiCallDateTime" => String.t() | atom(),
+        "jobID" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type source_cloud_properties() :: %{(String.t() | atom()) => any()}
+  @type life_cycle_last_launch_initiated() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_extensible_source_servers_request() :: %{
+      get_launch_configuration_request() :: %{
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type get_launch_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_template_request() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("exportBucketArn") => String.t() | atom(),
+        optional("launchDisposition") => String.t() | atom(),
+        optional("launchIntoSourceInstance") => [boolean()],
+        optional("licensing") => licensing(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom(),
+        required("launchConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type update_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_log() :: %{
+        "event" => String.t() | atom(),
+        "eventData" => job_log_event_data(),
+        "logDateTime" => String.t() | atom()
+      }
+
+  """
+  @type job_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_source_network_cfn_template_response() :: %{
+        "s3DestinationUrl" => String.t() | atom()
+      }
+
+  """
+  @type export_source_network_cfn_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_replication_response() :: %{
+        optional("sourceServer") => source_server()
+      }
+
+  """
+  @type stop_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_launch_actions_response() :: %{
+        "items" => list(launch_action()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_launch_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_error() :: %{
+        "error" => String.t() | atom(),
+        "rawError" => String.t() | atom()
+      }
+
+  """
+  @type recovery_instance_data_replication_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_replication_request() :: %{
+        required("sourceNetworkID") => String.t() | atom()
+      }
+
+  """
+  @type start_source_network_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_info() :: %{
+        "dataReplicationError" => data_replication_error(),
+        "dataReplicationInitiation" => data_replication_initiation(),
+        "dataReplicationState" => String.t() | atom(),
+        "etaDateTime" => String.t() | atom(),
+        "lagDuration" => String.t() | atom(),
+        "replicatedDisks" => list(data_replication_info_replicated_disk()),
+        "stagingAvailabilityZone" => String.t() | atom(),
+        "stagingOutpostArn" => String.t() | atom()
+      }
+
+  """
+  @type data_replication_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration_replicated_disk() :: %{
+        "deviceName" => String.t() | atom(),
+        "iops" => float(),
+        "isBootDisk" => [boolean()],
+        "optimizedStagingDiskType" => String.t() | atom(),
+        "stagingDiskType" => String.t() | atom(),
+        "throughput" => float()
+      }
+
+  """
+  @type replication_configuration_replicated_disk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_failback_request() :: %{
+        required("recoveryInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type stop_failback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_extended_source_server_request() :: %{
+        optional("tags") => map(),
+        required("sourceServerArn") => String.t() | atom()
+      }
+
+  """
+  @type create_extended_source_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_into_instance_properties() :: %{
+        "launchIntoEC2InstanceID" => String.t() | atom()
+      }
+
+  """
+  @type launch_into_instance_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_response() :: %{
+        optional("items") => list(source_server()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_source_servers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      p_i_t_policy_rule() :: %{
+        "enabled" => [boolean()],
+        "interval" => integer(),
+        "retentionDuration" => integer(),
+        "ruleID" => float(),
+        "units" => String.t() | atom()
+      }
+
+  """
+  @type p_i_t_policy_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configuration_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        required("stagingAccountID") => String.t() | atom()
+        optional("replicationConfigurationTemplateIDs") => list(String.t() | atom())
       }
 
   """
-  @type list_extensible_source_servers_request() :: %{(String.t() | atom()) => any()}
+  @type describe_replication_configuration_templates_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      describe_launch_configuration_templates_request() :: %{
-        optional("launchConfigurationTemplateIDs") => list(String.t() | atom()),
+      delete_launch_configuration_template_response() :: %{}
+
+  """
+  @type delete_launch_configuration_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      staging_area() :: %{
+        "errorMessage" => String.t() | atom(),
+        "stagingAccountID" => String.t() | atom(),
+        "stagingSourceServerArn" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type staging_area() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      c_p_u() :: %{
+        "cores" => float(),
+        "modelName" => String.t() | atom()
+      }
+
+  """
+  @type c_p_u() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_info() :: %{
+        "dataReplicationError" => recovery_instance_data_replication_error(),
+        "dataReplicationInitiation" => recovery_instance_data_replication_initiation(),
+        "dataReplicationState" => String.t() | atom(),
+        "etaDateTime" => String.t() | atom(),
+        "lagDuration" => String.t() | atom(),
+        "replicatedDisks" => list(recovery_instance_data_replication_info_replicated_disk()),
+        "stagingAvailabilityZone" => String.t() | atom(),
+        "stagingOutpostArn" => String.t() | atom()
+      }
+
+  """
+  @type recovery_instance_data_replication_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_recovery_response() :: %{
+        "job" => job()
+      }
+
+  """
+  @type start_source_network_recovery_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_networks_request() :: %{
+        optional("filters") => describe_source_networks_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type describe_launch_configuration_templates_request() :: %{(String.t() | atom()) => any()}
+  @type describe_source_networks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_source_server_request() :: %{
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type disconnect_source_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_action_run() :: %{
+        "action" => launch_action(),
+        "failureReason" => String.t() | atom(),
+        "runId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type launch_action_run() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_jobs_request() :: %{
+        optional("filters") => describe_jobs_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_network_response() :: %{}
+
+  """
+  @type delete_source_network_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_source_network_request() :: %{
+        optional("tags") => map(),
+        required("originAccountID") => String.t() | atom(),
+        required("originRegion") => String.t() | atom(),
+        required("vpcID") => String.t() | atom()
+      }
+
+  """
+  @type create_source_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      licensing() :: %{
+        "osByol" => [boolean()]
+      }
+
+  """
+  @type licensing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_source_network_replication_response() :: %{
+        "sourceNetwork" => source_network()
+      }
+
+  """
+  @type stop_source_network_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type start_recovery_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_template_response() :: %{
+        optional("launchConfigurationTemplate") => launch_configuration_template()
+      }
+
+  """
+  @type update_launch_configuration_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_launch_configuration_template_request() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("exportBucketArn") => String.t() | atom(),
+        optional("launchDisposition") => String.t() | atom(),
+        optional("launchIntoSourceInstance") => [boolean()],
+        optional("licensing") => licensing(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("tags") => map(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
+      }
+
+  """
+  @type create_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_recovery_request_network_entry() :: %{
+        "cfnStackName" => String.t() | atom(),
+        "sourceNetworkID" => String.t() | atom()
+      }
+
+  """
+  @type start_source_network_recovery_request_network_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_source_network_stack_response() :: %{
+        "job" => job()
+      }
+
+  """
+  @type associate_source_network_stack_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_properties() :: %{
+        "cpus" => list(c_p_u()),
+        "disks" => list(disk()),
+        "identificationHints" => identification_hints(),
+        "lastUpdatedDateTime" => String.t() | atom(),
+        "networkInterfaces" => list(network_interface()),
+        "os" => o_s(),
+        "ramBytes" => float(),
+        "recommendedInstanceType" => String.t() | atom(),
+        "supportsNitroInstances" => [boolean()]
+      }
+
+  """
+  @type source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -189,82 +560,164 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      delete_source_server_request() :: %{
+      recovery_instance_data_replication_initiation() :: %{
+        "startDateTime" => String.t() | atom(),
+        "steps" => list(recovery_instance_data_replication_initiation_step())
+      }
+
+  """
+  @type recovery_instance_data_replication_initiation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_jobs_request_filters() :: %{
+        "fromDate" => String.t() | atom(),
+        "jobIDs" => list(String.t() | atom()),
+        "toDate" => String.t() | atom()
+      }
+
+  """
+  @type describe_jobs_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_networks_response() :: %{
+        "items" => list(source_network()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_source_networks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_request() :: %{
+        required("jobID") => String.t() | atom()
+      }
+
+  """
+  @type delete_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_configuration_template() :: %{
+        "arn" => String.t() | atom(),
+        "copyPrivateIp" => [boolean()],
+        "copyTags" => [boolean()],
+        "exportBucketArn" => String.t() | atom(),
+        "launchConfigurationTemplateID" => String.t() | atom(),
+        "launchDisposition" => String.t() | atom(),
+        "launchIntoSourceInstance" => [boolean()],
+        "licensing" => licensing(),
+        "postLaunchEnabled" => [boolean()],
+        "tags" => map(),
+        "targetInstanceTypeRightSizingMethod" => String.t() | atom()
+      }
+
+  """
+  @type launch_configuration_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_data_replication_initiation_step() :: %{
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type recovery_instance_data_replication_initiation_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "code" => String.t() | atom(),
+        "fieldList" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_source_network_replication_request() :: %{
+        required("sourceNetworkID") => String.t() | atom()
+      }
+
+  """
+  @type stop_source_network_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_replication_configuration_template_request() :: %{
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t() | atom(),
+        optional("defaultLargeStagingDiskType") => String.t() | atom(),
+        optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("replicationServerInstanceType") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        required("bandwidthThrottling") => float(),
+        required("ebsEncryption") => String.t() | atom(),
+        required("pitPolicy") => list(p_i_t_policy_rule()),
+        required("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
+        required("stagingAreaSubnetId") => String.t() | atom(),
+        required("stagingAreaTags") => map()
+      }
+
+  """
+  @type create_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_launch() :: %{
+        "initiated" => life_cycle_last_launch_initiated(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type life_cycle_last_launch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_request() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("launchDisposition") => String.t() | atom(),
+        optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
+        optional("licensing") => licensing(),
+        optional("name") => String.t() | atom(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom(),
         required("sourceServerID") => String.t() | atom()
       }
 
   """
-  @type delete_source_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recovery_instances_response() :: %{
-        optional("items") => list(recovery_instance()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_recovery_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_configuration_template() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("associateDefaultSecurityGroup") => [boolean()],
-        optional("autoReplicateNewDisks") => [boolean()],
-        optional("bandwidthThrottling") => float(),
-        optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t() | atom(),
-        optional("defaultLargeStagingDiskType") => String.t() | atom(),
-        optional("ebsEncryption") => String.t() | atom(),
-        optional("ebsEncryptionKeyArn") => String.t() | atom(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("pitPolicy") => list(p_i_t_policy_rule()),
-        optional("replicationServerInstanceType") => String.t() | atom(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
-        optional("stagingAreaSubnetId") => String.t() | atom(),
-        optional("stagingAreaTags") => map(),
-        optional("tags") => map(),
-        optional("useDedicatedReplicationServer") => [boolean()],
-        required("replicationConfigurationTemplateID") => String.t() | atom()
-      }
-
-  """
-  @type replication_configuration_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance_properties() :: %{
-        "cpus" => list(c_p_u()),
-        "disks" => list(recovery_instance_disk()),
-        "identificationHints" => identification_hints(),
-        "lastUpdatedDateTime" => String.t() | atom(),
-        "networkInterfaces" => list(network_interface()),
-        "os" => o_s(),
-        "ramBytes" => float()
-      }
-
-  """
-  @type recovery_instance_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance_disk() :: %{
-        "bytes" => float(),
-        "ebsVolumeID" => String.t() | atom(),
-        "internalDeviceName" => String.t() | atom()
-      }
-
-  """
-  @type recovery_instance_disk() :: %{(String.t() | atom()) => any()}
+  @type update_launch_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -297,83 +750,173 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      replication_configuration_replicated_disk() :: %{
-        "deviceName" => String.t() | atom(),
-        "iops" => float(),
-        "isBootDisk" => [boolean()],
-        "optimizedStagingDiskType" => String.t() | atom(),
-        "stagingDiskType" => String.t() | atom(),
-        "throughput" => float()
+      launch_action_parameter() :: %{
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type replication_configuration_replicated_disk() :: %{(String.t() | atom()) => any()}
+  @type launch_action_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      terminate_recovery_instances_response() :: %{
-        optional("job") => job()
+      describe_recovery_instances_response() :: %{
+        optional("items") => list(recovery_instance()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type terminate_recovery_instances_response() :: %{(String.t() | atom()) => any()}
+  @type describe_recovery_instances_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      participating_resource() :: %{
-        "launchStatus" => String.t() | atom(),
-        "participatingResourceID" => list()
+      recovery_instance_failback() :: %{
+        "agentLastSeenByServiceDateTime" => String.t() | atom(),
+        "elapsedReplicationDuration" => String.t() | atom(),
+        "failbackClientID" => String.t() | atom(),
+        "failbackClientLastSeenByServiceDateTime" => String.t() | atom(),
+        "failbackInitiationTime" => String.t() | atom(),
+        "failbackJobID" => String.t() | atom(),
+        "failbackLaunchType" => String.t() | atom(),
+        "failbackToOriginalServer" => [boolean()],
+        "firstByteDateTime" => String.t() | atom(),
+        "state" => String.t() | atom()
       }
 
   """
-  @type participating_resource() :: %{(String.t() | atom()) => any()}
+  @type recovery_instance_failback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_launch_action_request() :: %{
-        optional("parameters") => map(),
-        required("actionCode") => String.t() | atom(),
-        required("actionId") => String.t() | atom(),
-        required("actionVersion") => String.t() | atom(),
-        required("active") => [boolean()],
-        required("category") => String.t() | atom(),
-        required("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("optional") => [boolean()],
-        required("order") => integer(),
-        required("resourceId") => String.t() | atom()
+      describe_recovery_snapshots_request() :: %{
+        optional("filters") => describe_recovery_snapshots_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("order") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
       }
 
   """
-  @type put_launch_action_request() :: %{(String.t() | atom()) => any()}
+  @type describe_recovery_snapshots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_failback_request() :: %{
-        required("recoveryInstanceID") => String.t() | atom()
+      describe_launch_configuration_templates_request() :: %{
+        optional("launchConfigurationTemplateIDs") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type stop_failback_request() :: %{(String.t() | atom()) => any()}
+  @type describe_launch_configuration_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_source_network_request() :: %{
-        required("sourceNetworkID") => String.t() | atom()
+      delete_source_server_request() :: %{
+        required("sourceServerID") => String.t() | atom()
       }
 
   """
-  @type delete_source_network_request() :: %{(String.t() | atom()) => any()}
+  @type delete_source_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => float()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_s() :: %{
+        "fullString" => String.t() | atom()
+      }
+
+  """
+  @type o_s() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_network_data() :: %{
+        "sourceNetworkID" => String.t() | atom(),
+        "sourceVpc" => String.t() | atom(),
+        "stackName" => String.t() | atom(),
+        "targetVpc" => String.t() | atom()
+      }
+
+  """
+  @type source_network_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance() :: %{
+        "agentVersion" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "dataReplicationInfo" => recovery_instance_data_replication_info(),
+        "ec2InstanceID" => String.t() | atom(),
+        "ec2InstanceState" => String.t() | atom(),
+        "failback" => recovery_instance_failback(),
+        "isDrill" => [boolean()],
+        "jobID" => String.t() | atom(),
+        "originAvailabilityZone" => String.t() | atom(),
+        "originEnvironment" => String.t() | atom(),
+        "pointInTimeSnapshotDateTime" => String.t() | atom(),
+        "recoveryInstanceID" => String.t() | atom(),
+        "recoveryInstanceProperties" => recovery_instance_properties(),
+        "sourceOutpostArn" => String.t() | atom(),
+        "sourceServerID" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type recovery_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_staging_accounts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_staging_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -392,39 +935,53 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      describe_source_networks_response() :: %{
-        "items" => list(source_network()),
-        "nextToken" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("tags") => map()
       }
 
   """
-  @type describe_source_networks_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_replication_configuration_template_request() :: %{
-        optional("associateDefaultSecurityGroup") => [boolean()],
-        optional("autoReplicateNewDisks") => [boolean()],
-        optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t() | atom(),
-        optional("defaultLargeStagingDiskType") => String.t() | atom(),
-        optional("ebsEncryptionKeyArn") => String.t() | atom(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("replicationServerInstanceType") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("useDedicatedReplicationServer") => [boolean()],
-        required("bandwidthThrottling") => float(),
-        required("ebsEncryption") => String.t() | atom(),
-        required("pitPolicy") => list(p_i_t_policy_rule()),
-        required("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
-        required("stagingAreaSubnetId") => String.t() | atom(),
-        required("stagingAreaTags") => map()
+      source_network() :: %{
+        "arn" => String.t() | atom(),
+        "cfnStackName" => String.t() | atom(),
+        "lastRecovery" => recovery_life_cycle(),
+        "launchedVpcID" => String.t() | atom(),
+        "replicationStatus" => String.t() | atom(),
+        "replicationStatusDetails" => String.t() | atom(),
+        "sourceAccountID" => String.t() | atom(),
+        "sourceNetworkID" => String.t() | atom(),
+        "sourceRegion" => String.t() | atom(),
+        "sourceVpcID" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type create_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
+  @type source_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_template_response() :: %{}
+
+  """
+  @type delete_replication_configuration_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_source_network_response() :: %{
+        "sourceNetworkID" => String.t() | atom()
+      }
+
+  """
+  @type create_source_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -465,1325 +1022,12 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      launch_action_parameter() :: %{
-        "type" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type launch_action_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retry_data_replication_request() :: %{
-        "sourceServerID" => String.t() | atom()
-      }
-
-  """
-  @type retry_data_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_replication_configuration_request() :: %{
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type get_replication_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_replication_request() :: %{
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type start_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_launch_action_response() :: %{}
-
-  """
-  @type delete_launch_action_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_source_network_replication_request() :: %{
-        required("sourceNetworkID") => String.t() | atom()
-      }
-
-  """
-  @type start_source_network_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_replication_request() :: %{
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type stop_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       start_failback_launch_response() :: %{
         optional("job") => job()
       }
 
   """
   @type start_failback_launch_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_configuration_template() :: %{
-        "arn" => String.t() | atom(),
-        "copyPrivateIp" => [boolean()],
-        "copyTags" => [boolean()],
-        "exportBucketArn" => String.t() | atom(),
-        "launchConfigurationTemplateID" => String.t() | atom(),
-        "launchDisposition" => String.t() | atom(),
-        "launchIntoSourceInstance" => [boolean()],
-        "licensing" => licensing(),
-        "postLaunchEnabled" => [boolean()],
-        "tags" => map(),
-        "targetInstanceTypeRightSizingMethod" => String.t() | atom()
-      }
-
-  """
-  @type launch_configuration_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recovery_snapshots_request() :: %{
-        optional("filters") => describe_recovery_snapshots_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("order") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type describe_recovery_snapshots_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_actions_request_filters() :: %{
-        "actionIds" => list(String.t() | atom())
-      }
-
-  """
-  @type launch_actions_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      licensing() :: %{
-        "osByol" => [boolean()]
-      }
-
-  """
-  @type licensing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      p_i_t_policy_rule() :: %{
-        "enabled" => [boolean()],
-        "interval" => integer(),
-        "retentionDuration" => integer(),
-        "ruleID" => float(),
-        "units" => String.t() | atom()
-      }
-
-  """
-  @type p_i_t_policy_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance_failback() :: %{
-        "agentLastSeenByServiceDateTime" => String.t() | atom(),
-        "elapsedReplicationDuration" => String.t() | atom(),
-        "failbackClientID" => String.t() | atom(),
-        "failbackClientLastSeenByServiceDateTime" => String.t() | atom(),
-        "failbackInitiationTime" => String.t() | atom(),
-        "failbackJobID" => String.t() | atom(),
-        "failbackLaunchType" => String.t() | atom(),
-        "failbackToOriginalServer" => [boolean()],
-        "firstByteDateTime" => String.t() | atom(),
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type recovery_instance_failback() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_recovery_request() :: %{
-        optional("isDrill") => [boolean()],
-        optional("tags") => map(),
-        required("sourceServers") => list(start_recovery_request_source_server())
-      }
-
-  """
-  @type start_recovery_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identification_hints() :: %{
-        "awsInstanceID" => String.t() | atom(),
-        "fqdn" => String.t() | atom(),
-        "hostname" => String.t() | atom(),
-        "vmWareUuid" => String.t() | atom()
-      }
-
-  """
-  @type identification_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_action() :: %{
-        "actionCode" => String.t() | atom(),
-        "actionId" => String.t() | atom(),
-        "actionVersion" => String.t() | atom(),
-        "active" => [boolean()],
-        "category" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "optional" => [boolean()],
-        "order" => integer(),
-        "parameters" => map(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type launch_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_properties() :: %{
-        "cpus" => list(c_p_u()),
-        "disks" => list(disk()),
-        "identificationHints" => identification_hints(),
-        "lastUpdatedDateTime" => String.t() | atom(),
-        "networkInterfaces" => list(network_interface()),
-        "os" => o_s(),
-        "ramBytes" => float(),
-        "recommendedInstanceType" => String.t() | atom(),
-        "supportsNitroInstances" => [boolean()]
-      }
-
-  """
-  @type source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_servers_response() :: %{
-        optional("items") => list(source_server()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_source_servers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reverse_replication_request() :: %{
-        required("recoveryInstanceID") => String.t() | atom()
-      }
-
-  """
-  @type reverse_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_replication_configuration_templates_response() :: %{
-        optional("items") => list(replication_configuration_template()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_replication_configuration_templates_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance_data_replication_info_replicated_disk() :: %{
-        "backloggedStorageBytes" => float(),
-        "deviceName" => String.t() | atom(),
-        "replicatedStorageBytes" => float(),
-        "rescannedStorageBytes" => float(),
-        "totalStorageBytes" => float()
-      }
-
-  """
-  @type recovery_instance_data_replication_info_replicated_disk() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_replication_configuration_template_response() :: %{}
-
-  """
-  @type delete_replication_configuration_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_configuration() :: %{
-        optional("associateDefaultSecurityGroup") => [boolean()],
-        optional("autoReplicateNewDisks") => [boolean()],
-        optional("bandwidthThrottling") => float(),
-        optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t() | atom(),
-        optional("defaultLargeStagingDiskType") => String.t() | atom(),
-        optional("ebsEncryption") => String.t() | atom(),
-        optional("ebsEncryptionKeyArn") => String.t() | atom(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("pitPolicy") => list(p_i_t_policy_rule()),
-        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
-        optional("replicationServerInstanceType") => String.t() | atom(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
-        optional("sourceServerID") => String.t() | atom(),
-        optional("stagingAreaSubnetId") => String.t() | atom(),
-        optional("stagingAreaTags") => map(),
-        optional("useDedicatedReplicationServer") => [boolean()]
-      }
-
-  """
-  @type replication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_networks_request() :: %{
-        optional("filters") => describe_source_networks_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_source_networks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_error() :: %{
-        "error" => String.t() | atom(),
-        "rawError" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disconnect_recovery_instance_request() :: %{
-        required("recoveryInstanceID") => String.t() | atom()
-      }
-
-  """
-  @type disconnect_recovery_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_launch_actions_request() :: %{
-        optional("filters") => launch_actions_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceId") => String.t() | atom()
-      }
-
-  """
-  @type list_launch_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_source_network_recovery_request_network_entry() :: %{
-        "cfnStackName" => String.t() | atom(),
-        "sourceNetworkID" => String.t() | atom()
-      }
-
-  """
-  @type start_source_network_recovery_request_network_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      c_p_u() :: %{
-        "cores" => float(),
-        "modelName" => String.t() | atom()
-      }
-
-  """
-  @type c_p_u() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      uninitialized_account_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type uninitialized_account_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_action_run() :: %{
-        "action" => launch_action(),
-        "failureReason" => String.t() | atom(),
-        "runId" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type launch_action_run() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recovery_instance_request() :: %{
-        required("recoveryInstanceID") => String.t() | atom()
-      }
-
-  """
-  @type delete_recovery_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account() :: %{
-        "accountID" => String.t() | atom()
-      }
-
-  """
-  @type account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance_data_replication_initiation() :: %{
-        "startDateTime" => String.t() | atom(),
-        "steps" => list(recovery_instance_data_replication_initiation_step())
-      }
-
-  """
-  @type recovery_instance_data_replication_initiation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initialize_service_request() :: %{}
-
-  """
-  @type initialize_service_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_launch_configuration_template_request() :: %{
-        optional("copyPrivateIp") => [boolean()],
-        optional("copyTags") => [boolean()],
-        optional("exportBucketArn") => String.t() | atom(),
-        optional("launchDisposition") => String.t() | atom(),
-        optional("launchIntoSourceInstance") => [boolean()],
-        optional("licensing") => licensing(),
-        optional("postLaunchEnabled") => [boolean()],
-        optional("tags") => map(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
-      }
-
-  """
-  @type create_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance_data_replication_info() :: %{
-        "dataReplicationError" => recovery_instance_data_replication_error(),
-        "dataReplicationInitiation" => recovery_instance_data_replication_initiation(),
-        "dataReplicationState" => String.t() | atom(),
-        "etaDateTime" => String.t() | atom(),
-        "lagDuration" => String.t() | atom(),
-        "replicatedDisks" => list(recovery_instance_data_replication_info_replicated_disk()),
-        "stagingAvailabilityZone" => String.t() | atom(),
-        "stagingOutpostArn" => String.t() | atom()
-      }
-
-  """
-  @type recovery_instance_data_replication_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_source_network_request() :: %{
-        optional("tags") => map(),
-        required("originAccountID") => String.t() | atom(),
-        required("originRegion") => String.t() | atom(),
-        required("vpcID") => String.t() | atom()
-      }
-
-  """
-  @type create_source_network_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_launch_configuration_template_response() :: %{
-        optional("launchConfigurationTemplate") => launch_configuration_template()
-      }
-
-  """
-  @type update_launch_configuration_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_network() :: %{
-        "arn" => String.t() | atom(),
-        "cfnStackName" => String.t() | atom(),
-        "lastRecovery" => recovery_life_cycle(),
-        "launchedVpcID" => String.t() | atom(),
-        "replicationStatus" => String.t() | atom(),
-        "replicationStatusDetails" => String.t() | atom(),
-        "sourceAccountID" => String.t() | atom(),
-        "sourceNetworkID" => String.t() | atom(),
-        "sourceRegion" => String.t() | atom(),
-        "sourceVpcID" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type source_network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_info() :: %{
-        "dataReplicationError" => data_replication_error(),
-        "dataReplicationInitiation" => data_replication_initiation(),
-        "dataReplicationState" => String.t() | atom(),
-        "etaDateTime" => String.t() | atom(),
-        "lagDuration" => String.t() | atom(),
-        "replicatedDisks" => list(data_replication_info_replicated_disk()),
-        "stagingAvailabilityZone" => String.t() | atom(),
-        "stagingOutpostArn" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_servers_request_filters() :: %{
-        "hardwareId" => String.t() | atom(),
-        "sourceServerIDs" => list(String.t() | atom()),
-        "stagingAccountIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type describe_source_servers_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reverse_replication_response() :: %{
-        optional("reversedDirectionSourceServerArn") => String.t() | atom()
-      }
-
-  """
-  @type reverse_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_recovery_instances_request() :: %{
-        required("recoveryInstanceIDs") => list(String.t() | atom())
-      }
-
-  """
-  @type terminate_recovery_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_info_replicated_disk() :: %{
-        "backloggedStorageBytes" => float(),
-        "deviceName" => String.t() | atom(),
-        "replicatedStorageBytes" => float(),
-        "rescannedStorageBytes" => float(),
-        "totalStorageBytes" => float(),
-        "volumeStatus" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_info_replicated_disk() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disconnect_source_server_request() :: %{
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type disconnect_source_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initialize_service_response() :: %{}
-
-  """
-  @type initialize_service_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_actions_status() :: %{
-        "runs" => list(launch_action_run()),
-        "ssmAgentDiscoveryDatetime" => String.t() | atom()
-      }
-
-  """
-  @type launch_actions_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conversion_properties() :: %{
-        "dataTimestamp" => String.t() | atom(),
-        "forceUefi" => [boolean()],
-        "rootVolumeName" => String.t() | atom(),
-        "volumeToConversionMap" => map(),
-        "volumeToProductCodes" => map(),
-        "volumeToVolumeSize" => map()
-      }
-
-  """
-  @type conversion_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      product_code() :: %{
-        "productCodeId" => String.t() | atom(),
-        "productCodeMode" => String.t() | atom()
-      }
-
-  """
-  @type product_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_source_network_cfn_template_response() :: %{
-        "s3DestinationUrl" => String.t() | atom()
-      }
-
-  """
-  @type export_source_network_cfn_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_jobs_request_filters() :: %{
-        "fromDate" => String.t() | atom(),
-        "jobIDs" => list(String.t() | atom()),
-        "toDate" => String.t() | atom()
-      }
-
-  """
-  @type describe_jobs_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_initiation() :: %{
-        "nextAttemptDateTime" => String.t() | atom(),
-        "startDateTime" => String.t() | atom(),
-        "steps" => list(data_replication_initiation_step())
-      }
-
-  """
-  @type data_replication_initiation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_launch_configuration_templates_response() :: %{
-        optional("items") => list(launch_configuration_template()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_launch_configuration_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_launch_action_request() :: %{
-        required("actionId") => String.t() | atom(),
-        required("resourceId") => String.t() | atom()
-      }
-
-  """
-  @type delete_launch_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_launch_configuration_request() :: %{
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type get_launch_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => float()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_networks_request_filters() :: %{
-        "originAccountID" => String.t() | atom(),
-        "originRegion" => String.t() | atom(),
-        "sourceNetworkIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type describe_source_networks_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_source_network_stack_request() :: %{
-        required("cfnStackName") => String.t() | atom(),
-        required("sourceNetworkID") => String.t() | atom()
-      }
-
-  """
-  @type associate_source_network_stack_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      participating_server() :: %{
-        "launchActionsStatus" => launch_actions_status(),
-        "launchStatus" => String.t() | atom(),
-        "recoveryInstanceID" => String.t() | atom(),
-        "sourceServerID" => String.t() | atom()
-      }
-
-  """
-  @type participating_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_initiation_step() :: %{
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_initiation_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_source_network_recovery_request() :: %{
-        optional("deployAsNew") => [boolean()],
-        optional("tags") => map(),
-        required("sourceNetworks") => list(start_source_network_recovery_request_network_entry())
-      }
-
-  """
-  @type start_source_network_recovery_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_source_network_replication_response() :: %{
-        "sourceNetwork" => source_network()
-      }
-
-  """
-  @type stop_source_network_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      staging_area() :: %{
-        "errorMessage" => String.t() | atom(),
-        "stagingAccountID" => String.t() | atom(),
-        "stagingSourceServerArn" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type staging_area() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance_data_replication_initiation_step() :: %{
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type recovery_instance_data_replication_initiation_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_launch_initiated() :: %{
-        "apiCallDateTime" => String.t() | atom(),
-        "jobID" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_launch_initiated() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_launch_actions_response() :: %{
-        "items" => list(launch_action()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_launch_actions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_replication_response() :: %{
-        optional("sourceServer") => source_server()
-      }
-
-  """
-  @type stop_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_replication_response() :: %{
-        optional("sourceServer") => source_server()
-      }
-
-  """
-  @type start_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_request() :: %{
-        required("jobID") => String.t() | atom()
-      }
-
-  """
-  @type delete_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_source_network_replication_response() :: %{
-        "sourceNetwork" => source_network()
-      }
-
-  """
-  @type start_source_network_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_failback_replication_configuration_response() :: %{
-        optional("bandwidthThrottling") => float(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("usePrivateIP") => [boolean()],
-        required("recoveryInstanceID") => String.t() | atom()
-      }
-
-  """
-  @type get_failback_replication_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_jobs_response() :: %{
-        optional("items") => list(job()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disk() :: %{
-        "bytes" => float(),
-        "deviceName" => String.t() | atom()
-      }
-
-  """
-  @type disk() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_launch_configuration_request() :: %{
-        optional("copyPrivateIp") => [boolean()],
-        optional("copyTags") => [boolean()],
-        optional("launchDisposition") => String.t() | atom(),
-        optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
-        optional("licensing") => licensing(),
-        optional("name") => String.t() | atom(),
-        optional("postLaunchEnabled") => [boolean()],
-        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type update_launch_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "code" => String.t() | atom(),
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_replication_configuration_template_request() :: %{
-        required("replicationConfigurationTemplateID") => String.t() | atom()
-      }
-
-  """
-  @type delete_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => String.t() | atom(),
-        "endDateTime" => String.t() | atom(),
-        "initiatedBy" => String.t() | atom(),
-        "jobID" => String.t() | atom(),
-        "participatingResources" => list(participating_resource()),
-        "participatingServers" => list(participating_server()),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_failback_replication_configuration_request() :: %{
-        required("recoveryInstanceID") => String.t() | atom()
-      }
-
-  """
-  @type get_failback_replication_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_instance() :: %{
-        "agentVersion" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "dataReplicationInfo" => recovery_instance_data_replication_info(),
-        "ec2InstanceID" => String.t() | atom(),
-        "ec2InstanceState" => String.t() | atom(),
-        "failback" => recovery_instance_failback(),
-        "isDrill" => [boolean()],
-        "jobID" => String.t() | atom(),
-        "originAvailabilityZone" => String.t() | atom(),
-        "originEnvironment" => String.t() | atom(),
-        "pointInTimeSnapshotDateTime" => String.t() | atom(),
-        "recoveryInstanceID" => String.t() | atom(),
-        "recoveryInstanceProperties" => recovery_instance_properties(),
-        "sourceOutpostArn" => String.t() | atom(),
-        "sourceServerID" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type recovery_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_into_instance_properties() :: %{
-        "launchIntoEC2InstanceID" => String.t() | atom()
-      }
-
-  """
-  @type launch_into_instance_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_failback_launch_request() :: %{
-        optional("tags") => map(),
-        required("recoveryInstanceIDs") => list(String.t() | atom())
-      }
-
-  """
-  @type start_failback_launch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_recovery_response() :: %{
-        optional("job") => job()
-      }
-
-  """
-  @type start_recovery_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_staging_accounts_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_staging_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_log_event_data() :: %{
-        "attemptCount" => float(),
-        "conversionProperties" => conversion_properties(),
-        "conversionServerID" => String.t() | atom(),
-        "eventResourceData" => list(),
-        "maxAttemptsCount" => float(),
-        "rawError" => String.t() | atom(),
-        "sourceServerID" => String.t() | atom(),
-        "targetInstanceID" => String.t() | atom()
-      }
-
-  """
-  @type job_log_event_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_jobs_request() :: %{
-        optional("filters") => describe_jobs_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_configuration() :: %{
-        optional("copyPrivateIp") => [boolean()],
-        optional("copyTags") => [boolean()],
-        optional("ec2LaunchTemplateID") => String.t() | atom(),
-        optional("launchDisposition") => String.t() | atom(),
-        optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
-        optional("licensing") => licensing(),
-        optional("name") => String.t() | atom(),
-        optional("postLaunchEnabled") => [boolean()],
-        optional("sourceServerID") => String.t() | atom(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
-      }
-
-  """
-  @type launch_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_extensible_source_servers_response() :: %{
-        optional("items") => list(staging_source_server()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_extensible_source_servers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recovery_snapshot() :: %{
-        "ebsSnapshots" => list(String.t() | atom()),
-        "expectedTimestamp" => String.t() | atom(),
-        "snapshotID" => String.t() | atom(),
-        "sourceServerID" => String.t() | atom(),
-        "timestamp" => String.t() | atom()
-      }
-
-  """
-  @type recovery_snapshot() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1817,15 +1061,847 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      source_network_data() :: %{
-        "sourceNetworkID" => String.t() | atom(),
-        "sourceVpc" => String.t() | atom(),
-        "stackName" => String.t() | atom(),
-        "targetVpc" => String.t() | atom()
+      start_source_network_recovery_request() :: %{
+        optional("deployAsNew") => [boolean()],
+        optional("tags") => map(),
+        required("sourceNetworks") => list(start_source_network_recovery_request_network_entry())
       }
 
   """
-  @type source_network_data() :: %{(String.t() | atom()) => any()}
+  @type start_source_network_recovery_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_launch_configuration_templates_response() :: %{
+        optional("items") => list(launch_configuration_template()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_launch_configuration_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_staging_accounts_response() :: %{
+        optional("accounts") => list(account()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_staging_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_replication_configuration_request() :: %{
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type get_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_action_response() :: %{}
+
+  """
+  @type delete_launch_action_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_log_items_response() :: %{
+        optional("items") => list(job_log()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_job_log_items_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_request_source_server() :: %{
+        "recoverySnapshotID" => String.t() | atom(),
+        "sourceServerID" => String.t() | atom()
+      }
+
+  """
+  @type start_recovery_request_source_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_jobs_response() :: %{
+        optional("items") => list(job()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_network_request() :: %{
+        required("sourceNetworkID") => String.t() | atom()
+      }
+
+  """
+  @type delete_source_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_launch_actions_request() :: %{
+        optional("filters") => launch_actions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceId") => String.t() | atom()
+      }
+
+  """
+  @type list_launch_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_configuration() :: %{
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("ec2LaunchTemplateID") => String.t() | atom(),
+        optional("launchDisposition") => String.t() | atom(),
+        optional("launchIntoInstanceProperties") => launch_into_instance_properties(),
+        optional("licensing") => licensing(),
+        optional("name") => String.t() | atom(),
+        optional("postLaunchEnabled") => [boolean()],
+        optional("sourceServerID") => String.t() | atom(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
+      }
+
+  """
+  @type launch_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_action() :: %{
+        "actionCode" => String.t() | atom(),
+        "actionId" => String.t() | atom(),
+        "actionVersion" => String.t() | atom(),
+        "active" => [boolean()],
+        "category" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "optional" => [boolean()],
+        "order" => integer(),
+        "parameters" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type launch_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_response() :: %{}
+
+  """
+  @type delete_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_recovery_instances_request() :: %{
+        required("recoveryInstanceIDs") => list(String.t() | atom())
+      }
+
+  """
+  @type terminate_recovery_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration_template() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t() | atom(),
+        optional("defaultLargeStagingDiskType") => String.t() | atom(),
+        optional("ebsEncryption") => String.t() | atom(),
+        optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("pitPolicy") => list(p_i_t_policy_rule()),
+        optional("replicationServerInstanceType") => String.t() | atom(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
+        optional("stagingAreaSubnetId") => String.t() | atom(),
+        optional("stagingAreaTags") => map(),
+        optional("tags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        required("replicationConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type replication_configuration_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_failback_replication_configuration_request() :: %{
+        optional("bandwidthThrottling") => float(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("usePrivateIP") => [boolean()],
+        required("recoveryInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type update_failback_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_disk() :: %{
+        "bytes" => float(),
+        "ebsVolumeID" => String.t() | atom(),
+        "internalDeviceName" => String.t() | atom()
+      }
+
+  """
+  @type recovery_instance_disk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failback_replication_configuration_response() :: %{
+        optional("bandwidthThrottling") => float(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("usePrivateIP") => [boolean()],
+        required("recoveryInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type get_failback_replication_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_actions_status() :: %{
+        "runs" => list(launch_action_run()),
+        "ssmAgentDiscoveryDatetime" => String.t() | atom()
+      }
+
+  """
+  @type launch_actions_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      participating_resource() :: %{
+        "launchStatus" => String.t() | atom(),
+        "participatingResourceID" => list()
+      }
+
+  """
+  @type participating_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversion_properties() :: %{
+        "dataTimestamp" => String.t() | atom(),
+        "forceUefi" => [boolean()],
+        "rootVolumeName" => String.t() | atom(),
+        "volumeToConversionMap" => map(),
+        "volumeToProductCodes" => map(),
+        "volumeToVolumeSize" => map()
+      }
+
+  """
+  @type conversion_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_info_replicated_disk() :: %{
+        "backloggedStorageBytes" => float(),
+        "deviceName" => String.t() | atom(),
+        "replicatedStorageBytes" => float(),
+        "rescannedStorageBytes" => float(),
+        "totalStorageBytes" => float(),
+        "volumeStatus" => String.t() | atom()
+      }
+
+  """
+  @type data_replication_info_replicated_disk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_actions_request_filters() :: %{
+        "actionIds" => list(String.t() | atom())
+      }
+
+  """
+  @type launch_actions_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_extensible_source_servers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("stagingAccountID") => String.t() | atom()
+      }
+
+  """
+  @type list_extensible_source_servers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recovery_request() :: %{
+        optional("isDrill") => [boolean()],
+        optional("tags") => map(),
+        required("sourceServers") => list(start_recovery_request_source_server())
+      }
+
+  """
+  @type start_recovery_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reverse_replication_response() :: %{
+        optional("reversedDirectionSourceServerArn") => String.t() | atom()
+      }
+
+  """
+  @type reverse_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_configuration_template_request() :: %{
+        required("launchConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type delete_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_life_cycle() :: %{
+        "apiCallDateTime" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "lastRecoveryResult" => String.t() | atom()
+      }
+
+  """
+  @type recovery_life_cycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recovery_instance_request() :: %{
+        required("recoveryInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type delete_recovery_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_data_replication_request() :: %{
+        "sourceServerID" => String.t() | atom()
+      }
+
+  """
+  @type retry_data_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration() :: %{
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("autoReplicateNewDisks") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t() | atom(),
+        optional("defaultLargeStagingDiskType") => String.t() | atom(),
+        optional("ebsEncryption") => String.t() | atom(),
+        optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("pitPolicy") => list(p_i_t_policy_rule()),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
+        optional("replicationServerInstanceType") => String.t() | atom(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
+        optional("sourceServerID") => String.t() | atom(),
+        optional("stagingAreaSubnetId") => String.t() | atom(),
+        optional("stagingAreaTags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()]
+      }
+
+  """
+  @type replication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle() :: %{
+        "addedToServiceDateTime" => String.t() | atom(),
+        "elapsedReplicationDuration" => String.t() | atom(),
+        "firstByteDateTime" => String.t() | atom(),
+        "lastLaunch" => life_cycle_last_launch(),
+        "lastSeenByServiceDateTime" => String.t() | atom()
+      }
+
+  """
+  @type life_cycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_recovery_instances_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type terminate_recovery_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product_code() :: %{
+        "productCodeId" => String.t() | atom(),
+        "productCodeMode" => String.t() | atom()
+      }
+
+  """
+  @type product_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_log_event_data() :: %{
+        "attemptCount" => float(),
+        "conversionProperties" => conversion_properties(),
+        "conversionServerID" => String.t() | atom(),
+        "eventResourceData" => list(),
+        "maxAttemptsCount" => float(),
+        "rawError" => String.t() | atom(),
+        "sourceServerID" => String.t() | atom(),
+        "targetInstanceID" => String.t() | atom()
+      }
+
+  """
+  @type job_log_event_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_launch_action_request() :: %{
+        optional("parameters") => map(),
+        required("actionCode") => String.t() | atom(),
+        required("actionId") => String.t() | atom(),
+        required("actionVersion") => String.t() | atom(),
+        required("active") => [boolean()],
+        required("category") => String.t() | atom(),
+        required("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("optional") => [boolean()],
+        required("order") => integer(),
+        required("resourceId") => String.t() | atom()
+      }
+
+  """
+  @type put_launch_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_initiation() :: %{
+        "nextAttemptDateTime" => String.t() | atom(),
+        "startDateTime" => String.t() | atom(),
+        "steps" => list(data_replication_initiation_step())
+      }
+
+  """
+  @type data_replication_initiation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_replication_request() :: %{
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type stop_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account() :: %{
+        "accountID" => String.t() | atom()
+      }
+
+  """
+  @type account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_replication_request() :: %{
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type start_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_snapshots_response() :: %{
+        optional("items") => list(recovery_snapshot()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_recovery_snapshots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => String.t() | atom(),
+        "endDateTime" => String.t() | atom(),
+        "initiatedBy" => String.t() | atom(),
+        "jobID" => String.t() | atom(),
+        "participatingResources" => list(participating_resource()),
+        "participatingServers" => list(participating_server()),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initialize_service_request() :: %{}
+
+  """
+  @type initialize_service_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_networks_request_filters() :: %{
+        "originAccountID" => String.t() | atom(),
+        "originRegion" => String.t() | atom(),
+        "sourceNetworkIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type describe_source_networks_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configuration_templates_response() :: %{
+        optional("items") => list(replication_configuration_template()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_replication_configuration_templates_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_failback_launch_request() :: %{
+        optional("tags") => map(),
+        required("recoveryInstanceIDs") => list(String.t() | atom())
+      }
+
+  """
+  @type start_failback_launch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disk() :: %{
+        "bytes" => float(),
+        "deviceName" => String.t() | atom()
+      }
+
+  """
+  @type disk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_recovery_instance_request() :: %{
+        required("recoveryInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type disconnect_recovery_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failback_replication_configuration_request() :: %{
+        required("recoveryInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type get_failback_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_launch_configuration_template_response() :: %{
+        optional("launchConfigurationTemplate") => launch_configuration_template()
+      }
+
+  """
+  @type create_launch_configuration_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_initiation_step() :: %{
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type data_replication_initiation_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uninitialized_account_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type uninitialized_account_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_replication_response() :: %{
+        optional("sourceServer") => source_server()
+      }
+
+  """
+  @type start_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_source_network_replication_response() :: %{
+        "sourceNetwork" => source_network()
+      }
+
+  """
+  @type start_source_network_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_instances_request_filters() :: %{
+        "recoveryInstanceIDs" => list(String.t() | atom()),
+        "sourceServerIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type describe_recovery_instances_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_action_request() :: %{
+        required("actionId") => String.t() | atom(),
+        required("resourceId") => String.t() | atom()
+      }
+
+  """
+  @type delete_launch_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_instance_properties() :: %{
+        "cpus" => list(c_p_u()),
+        "disks" => list(recovery_instance_disk()),
+        "identificationHints" => identification_hints(),
+        "lastUpdatedDateTime" => String.t() | atom(),
+        "networkInterfaces" => list(network_interface()),
+        "os" => o_s(),
+        "ramBytes" => float()
+      }
+
+  """
+  @type recovery_instance_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_source_network_cfn_template_request() :: %{
+        required("sourceNetworkID") => String.t() | atom()
+      }
+
+  """
+  @type export_source_network_cfn_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_log_items_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("jobID") => String.t() | atom()
+      }
+
+  """
+  @type describe_job_log_items_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_template_request() :: %{
+        required("replicationConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type delete_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1855,112 +1931,27 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      delete_source_network_response() :: %{}
-
-  """
-  @type delete_source_network_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_source_network_replication_request() :: %{
-        required("sourceNetworkID") => String.t() | atom()
+      source_cloud_properties() :: %{
+        "originAccountID" => String.t() | atom(),
+        "originAvailabilityZone" => String.t() | atom(),
+        "originRegion" => String.t() | atom(),
+        "sourceOutpostArn" => String.t() | atom()
       }
 
   """
-  @type stop_source_network_replication_request() :: %{(String.t() | atom()) => any()}
+  @type source_cloud_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_source_network_recovery_response() :: %{
-        "job" => job()
+      data_replication_error() :: %{
+        "error" => String.t() | atom(),
+        "rawError" => String.t() | atom()
       }
 
   """
-  @type start_source_network_recovery_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_launch() :: %{
-        "initiated" => life_cycle_last_launch_initiated(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_launch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recovery_instances_request() :: %{
-        optional("filters") => describe_recovery_instances_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_recovery_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_source_network_stack_response() :: %{
-        "job" => job()
-      }
-
-  """
-  @type associate_source_network_stack_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_launch_configuration_template_response() :: %{}
-
-  """
-  @type delete_launch_configuration_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_response() :: %{}
-
-  """
-  @type delete_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_replication_configuration_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("replicationConfigurationTemplateIDs") => list(String.t() | atom())
-      }
-
-  """
-  @type describe_replication_configuration_templates_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      o_s() :: %{
-        "fullString" => String.t() | atom()
-      }
-
-  """
-  @type o_s() :: %{(String.t() | atom()) => any()}
+  @type data_replication_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1977,92 +1968,85 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      describe_job_log_items_response() :: %{
-        optional("items") => list(job_log()),
+      participating_server() :: %{
+        "launchActionsStatus" => launch_actions_status(),
+        "launchStatus" => String.t() | atom(),
+        "recoveryInstanceID" => String.t() | atom(),
+        "sourceServerID" => String.t() | atom()
+      }
+
+  """
+  @type participating_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identification_hints() :: %{
+        "awsInstanceID" => String.t() | atom(),
+        "fqdn" => String.t() | atom(),
+        "hostname" => String.t() | atom(),
+        "vmWareUuid" => String.t() | atom()
+      }
+
+  """
+  @type identification_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recovery_snapshot() :: %{
+        "ebsSnapshots" => list(String.t() | atom()),
+        "expectedTimestamp" => String.t() | atom(),
+        "snapshotID" => String.t() | atom(),
+        "sourceServerID" => String.t() | atom(),
+        "timestamp" => String.t() | atom()
+      }
+
+  """
+  @type recovery_snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reverse_replication_request() :: %{
+        required("recoveryInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type reverse_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_request() :: %{
+        optional("filters") => describe_source_servers_request_filters(),
+        optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type describe_job_log_items_response() :: %{(String.t() | atom()) => any()}
+  @type describe_source_servers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recovery_instance_data_replication_error() :: %{
-        "error" => String.t() | atom(),
-        "rawError" => String.t() | atom()
+      recovery_instance_data_replication_info_replicated_disk() :: %{
+        "backloggedStorageBytes" => float(),
+        "deviceName" => String.t() | atom(),
+        "replicatedStorageBytes" => float(),
+        "rescannedStorageBytes" => float(),
+        "totalStorageBytes" => float()
       }
 
   """
-  @type recovery_instance_data_replication_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_launch_configuration_template_request() :: %{
-        optional("copyPrivateIp") => [boolean()],
-        optional("copyTags") => [boolean()],
-        optional("exportBucketArn") => String.t() | atom(),
-        optional("launchDisposition") => String.t() | atom(),
-        optional("launchIntoSourceInstance") => [boolean()],
-        optional("licensing") => licensing(),
-        optional("postLaunchEnabled") => [boolean()],
-        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom(),
-        required("launchConfigurationTemplateID") => String.t() | atom()
-      }
-
-  """
-  @type update_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_launch_configuration_template_response() :: %{
-        optional("launchConfigurationTemplate") => launch_configuration_template()
-      }
-
-  """
-  @type create_launch_configuration_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_extended_source_server_request() :: %{
-        optional("tags") => map(),
-        required("sourceServerArn") => String.t() | atom()
-      }
-
-  """
-  @type create_extended_source_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recovery_snapshots_response() :: %{
-        optional("items") => list(recovery_snapshot()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_recovery_snapshots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_log() :: %{
-        "event" => String.t() | atom(),
-        "eventData" => job_log_event_data(),
-        "logDateTime" => String.t() | atom()
-      }
-
-  """
-  @type job_log() :: %{(String.t() | atom()) => any()}
+  @type recovery_instance_data_replication_info_replicated_disk() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2080,385 +2064,401 @@ defmodule AWS.Drs do
 
   ## Example:
 
-      create_source_network_response() :: %{
-        "sourceNetworkID" => String.t() | atom()
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type create_source_network_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_launch_configuration_template_request() :: %{
-        required("launchConfigurationTemplateID") => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
       }
 
   """
-  @type delete_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recovery_instances_request() :: %{
+        optional("filters") => describe_recovery_instances_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_recovery_instances_request() :: %{(String.t() | atom()) => any()}
 
   @type associate_source_network_stack_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_extended_source_server_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_launch_configuration_template_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type create_replication_configuration_template_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type create_source_network_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_job_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type delete_launch_action_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_launch_configuration_template_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type delete_recovery_instance_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_replication_configuration_template_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type delete_source_network_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type delete_source_server_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_job_log_items_errors() ::
-          throttling_exception()
-          | validation_exception()
+          uninitialized_account_exception()
           | internal_server_exception()
-          | uninitialized_account_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type describe_jobs_errors() ::
-          throttling_exception()
-          | validation_exception()
+          uninitialized_account_exception()
           | internal_server_exception()
-          | uninitialized_account_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type describe_launch_configuration_templates_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type describe_recovery_instances_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          uninitialized_account_exception()
           | internal_server_exception()
-          | uninitialized_account_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type describe_recovery_snapshots_errors() ::
-          throttling_exception()
+          uninitialized_account_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          | throttling_exception()
 
   @type describe_replication_configuration_templates_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type describe_source_networks_errors() ::
-          throttling_exception()
-          | validation_exception()
+          uninitialized_account_exception()
           | internal_server_exception()
-          | uninitialized_account_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type describe_source_servers_errors() ::
-          throttling_exception()
-          | validation_exception()
+          uninitialized_account_exception()
           | internal_server_exception()
-          | uninitialized_account_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type disconnect_recovery_instance_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type disconnect_source_server_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type export_source_network_cfn_template_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_failback_replication_configuration_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type get_launch_configuration_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type get_replication_configuration_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type initialize_service_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_extensible_source_servers_errors() ::
-          throttling_exception()
+          uninitialized_account_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          | throttling_exception()
 
   @type list_launch_actions_errors() ::
-          throttling_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type list_staging_accounts_errors() ::
-          throttling_exception()
+          uninitialized_account_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type put_launch_action_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type retry_data_replication_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type reverse_replication_errors() ::
-          throttling_exception()
+          uninitialized_account_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_failback_launch_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_recovery_errors() ::
-          throttling_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type start_replication_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type start_source_network_recovery_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_source_network_replication_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type stop_failback_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type stop_replication_errors() ::
-          throttling_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type stop_source_network_replication_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type terminate_recovery_instances_errors() ::
-          throttling_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_failback_replication_configuration_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_launch_configuration_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_launch_configuration_template_errors() ::
-          throttling_exception()
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_replication_configuration_errors() ::
-          throttling_exception()
+          uninitialized_account_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_replication_configuration_template_errors() ::
-          throttling_exception()
+          uninitialized_account_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{

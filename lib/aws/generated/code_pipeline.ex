@@ -222,434 +222,145 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      get_action_type_output() :: %{
-        "actionType" => action_type_declaration()
+      condition_state() :: %{
+        "latestExecution" => condition_execution(),
+        "ruleStates" => list(rule_state())
       }
       
   """
-  @type get_action_type_output() :: %{(String.t() | atom()) => any()}
+  @type condition_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unable_to_rollback_stage_exception() :: %{
-        "message" => String.t() | atom()
+      execution_trigger() :: %{
+        "triggerDetail" => String.t() | atom(),
+        "triggerType" => list(any())
       }
       
   """
-  @type unable_to_rollback_stage_exception() :: %{(String.t() | atom()) => any()}
+  @type execution_trigger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_blocker_declaration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_blocker_declaration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      latest_in_pipeline_execution_filter() :: %{
-        "pipelineExecutionId" => String.t() | atom(),
-        "startTimeRange" => list(any())
-      }
-      
-  """
-  @type latest_in_pipeline_execution_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_context() :: %{
+      action_execution() :: %{
         "actionExecutionId" => String.t() | atom(),
-        "name" => String.t() | atom()
+        "errorDetails" => error_details(),
+        "externalExecutionId" => String.t() | atom(),
+        "externalExecutionUrl" => String.t() | atom(),
+        "lastStatusChange" => non_neg_integer(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "logStreamARN" => String.t() | atom(),
+        "percentComplete" => integer(),
+        "status" => list(any()),
+        "summary" => String.t() | atom(),
+        "token" => String.t() | atom()
       }
       
   """
-  @type action_context() :: %{(String.t() | atom()) => any()}
+  @type action_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      git_branch_filter_criteria() :: %{
-        "excludes" => list(String.t() | atom()),
-        "includes" => list(String.t() | atom())
+      encryption_key() :: %{
+        "id" => String.t() | atom(),
+        "type" => list(any())
       }
       
   """
-  @type git_branch_filter_criteria() :: %{(String.t() | atom()) => any()}
+  @type encryption_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      override_stage_condition_input() :: %{
-        required("conditionType") => list(any()),
-        required("pipelineExecutionId") => String.t() | atom(),
-        required("pipelineName") => String.t() | atom(),
-        required("stageName") => String.t() | atom()
-      }
-      
-  """
-  @type override_stage_condition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_failed_exception() :: %{
+      concurrent_pipeline_executions_limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type request_failed_exception() :: %{(String.t() | atom()) => any()}
+  @type concurrent_pipeline_executions_limit_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      list_action_executions_output() :: %{
-        "actionExecutionDetails" => list(action_execution_detail()),
-        "nextToken" => String.t() | atom()
+      git_configuration() :: %{
+        "pullRequest" => list(git_pull_request_filter()),
+        "push" => list(git_push_filter()),
+        "sourceActionName" => String.t() | atom()
       }
       
   """
-  @type list_action_executions_output() :: %{(String.t() | atom()) => any()}
+  @type git_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      aws_session_credentials() :: %{
-        "accessKeyId" => String.t() | atom(),
-        "secretAccessKey" => String.t() | atom(),
-        "sessionToken" => String.t() | atom()
+      artifact_location() :: %{
+        "s3Location" => s3_artifact_location(),
+        "type" => list(any())
       }
       
   """
-  @type aws_session_credentials() :: %{(String.t() | atom()) => any()}
+  @type artifact_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      webhook_auth_configuration() :: %{
-        "AllowedIPRange" => String.t() | atom(),
-        "SecretToken" => String.t() | atom()
+      retry_configuration() :: %{
+        "retryMode" => list(any())
       }
       
   """
-  @type webhook_auth_configuration() :: %{(String.t() | atom()) => any()}
+  @type retry_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stage_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type stage_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      poll_for_third_party_jobs_input() :: %{
+      poll_for_jobs_input() :: %{
         optional("maxBatchSize") => integer(),
+        optional("queryParam") => map(),
         required("actionTypeId") => action_type_id()
       }
       
   """
-  @type poll_for_third_party_jobs_input() :: %{(String.t() | atom()) => any()}
+  @type poll_for_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_pipeline_execution_output() :: %{
-        "pipelineExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type stop_pipeline_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_webhook_item() :: %{
-        "arn" => String.t() | atom(),
-        "definition" => webhook_definition(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "lastTriggered" => non_neg_integer(),
-        "tags" => list(tag()),
-        "url" => String.t() | atom()
-      }
-      
-  """
-  @type list_webhook_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_declaration() :: %{
-        "artifactStore" => artifact_store(),
-        "artifactStores" => map(),
-        "executionMode" => list(any()),
-        "name" => String.t() | atom(),
-        "pipelineType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "stages" => list(stage_declaration()),
-        "triggers" => list(pipeline_trigger_declaration()),
-        "variables" => list(pipeline_variable_declaration()),
-        "version" => integer()
-      }
-      
-  """
-  @type pipeline_declaration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_artifact() :: %{
-        "files" => list(String.t() | atom()),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type output_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_permissions() :: %{
-        "allowedAccounts" => list(String.t() | atom())
-      }
-      
-  """
-  @type action_type_permissions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolved_pipeline_variable() :: %{
-        "name" => String.t() | atom(),
-        "resolvedValue" => String.t() | atom()
-      }
-      
-  """
-  @type resolved_pipeline_variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_approval_result_output() :: %{
-        "approvedAt" => non_neg_integer()
-      }
-      
-  """
-  @type put_approval_result_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_pipeline_output() :: %{
-        "pipeline" => pipeline_declaration(),
-        "tags" => list(tag())
-      }
-      
-  """
-  @type create_pipeline_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_webhook_output() :: %{}
-      
-  """
-  @type delete_webhook_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_state() :: %{
-        "actionName" => String.t() | atom(),
-        "currentRevision" => action_revision(),
-        "entityUrl" => String.t() | atom(),
-        "latestExecution" => action_execution(),
-        "revisionUrl" => String.t() | atom()
-      }
-      
-  """
-  @type action_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_webhook_output() :: %{
-        "webhook" => list_webhook_item()
-      }
-      
-  """
-  @type put_webhook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      artifact_revision() :: %{
-        "created" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "revisionChangeIdentifier" => String.t() | atom(),
-        "revisionId" => String.t() | atom(),
-        "revisionSummary" => String.t() | atom(),
-        "revisionUrl" => String.t() | atom()
-      }
-      
-  """
-  @type artifact_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_trigger_declaration() :: %{
-        "gitConfiguration" => git_configuration(),
-        "providerType" => list(any())
-      }
-      
-  """
-  @type pipeline_trigger_declaration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_state() :: %{
-        "currentRevision" => rule_revision(),
-        "entityUrl" => String.t() | atom(),
-        "latestExecution" => rule_execution(),
-        "revisionUrl" => String.t() | atom(),
-        "ruleName" => String.t() | atom()
-      }
-      
-  """
-  @type rule_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_details() :: %{
-        "externalExecutionId" => String.t() | atom(),
-        "percentComplete" => integer(),
-        "summary" => String.t() | atom()
-      }
-      
-  """
-  @type execution_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_type_settings() :: %{
-        "entityUrlTemplate" => String.t() | atom(),
-        "executionUrlTemplate" => String.t() | atom(),
-        "revisionUrlTemplate" => String.t() | atom(),
-        "thirdPartyConfigurationUrl" => String.t() | atom()
-      }
-      
-  """
-  @type rule_type_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_latest_pipeline_execution_exception() :: %{
+      invalid_webhook_authentication_parameters_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type not_latest_pipeline_execution_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_webhook_authentication_parameters_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rule_execution_detail() :: %{
-        "input" => rule_execution_input(),
-        "lastUpdateTime" => non_neg_integer(),
-        "output" => rule_execution_output(),
-        "pipelineExecutionId" => String.t() | atom(),
-        "pipelineVersion" => integer(),
-        "ruleExecutionId" => String.t() | atom(),
-        "ruleName" => String.t() | atom(),
-        "stageName" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "updatedBy" => String.t() | atom()
+      retry_stage_execution_input() :: %{
+        required("pipelineExecutionId") => String.t() | atom(),
+        required("pipelineName") => String.t() | atom(),
+        required("retryMode") => list(any()),
+        required("stageName") => String.t() | atom()
       }
       
   """
-  @type rule_execution_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      executor_configuration() :: %{
-        "jobWorkerExecutorConfiguration" => job_worker_executor_configuration(),
-        "lambdaExecutorConfiguration" => lambda_executor_configuration()
-      }
-      
-  """
-  @type executor_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_action_declaration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_action_declaration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_third_party_job_failure_result_input() :: %{
-        required("clientToken") => String.t() | atom(),
-        required("failureDetails") => failure_details(),
-        required("jobId") => String.t() | atom()
-      }
-      
-  """
-  @type put_third_party_job_failure_result_input() :: %{(String.t() | atom()) => any()}
+  @type retry_stage_execution_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -676,12 +387,1199 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
+      rule_type_id() :: %{
+        "category" => list(any()),
+        "owner" => list(any()),
+        "provider" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type rule_type_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      webhook_definition() :: %{
+        "authentication" => list(any()),
+        "authenticationConfiguration" => webhook_auth_configuration(),
+        "filters" => list(webhook_filter_rule()),
+        "name" => String.t() | atom(),
+        "targetAction" => String.t() | atom(),
+        "targetPipeline" => String.t() | atom()
+      }
+      
+  """
+  @type webhook_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_pipeline_state_input() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type get_pipeline_state_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_target_event_context() :: %{
+        "message" => String.t() | atom(),
+        "ssmCommandId" => String.t() | atom()
+      }
+      
+  """
+  @type deploy_target_event_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_execution_outdated_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pipeline_execution_outdated_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_declaration() :: %{
+        "actions" => list(action_declaration()),
+        "beforeEntry" => before_entry_conditions(),
+        "blockers" => list(blocker_declaration()),
+        "name" => String.t() | atom(),
+        "onFailure" => failure_conditions(),
+        "onSuccess" => success_conditions()
+      }
+      
+  """
+  @type stage_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_pipeline_execution_output() :: %{
+        "pipelineExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type stop_pipeline_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_blocker_declaration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_blocker_declaration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type job_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_pipeline_execution_output() :: %{
+        "pipelineExecution" => pipeline_execution()
+      }
+      
+  """
+  @type get_pipeline_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_deploy_action_execution_targets_input() :: %{
+        optional("filters") => list(target_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("pipelineName") => String.t() | atom(),
+        required("actionExecutionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_deploy_action_execution_targets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_pipeline_input() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_stage_input() :: %{
+        required("pipelineName") => String.t() | atom(),
+        required("stageName") => String.t() | atom(),
+        required("targetPipelineExecutionId") => String.t() | atom()
+      }
+      
+  """
+  @type rollback_stage_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_webhook_with_third_party_input() :: %{
+        optional("webhookName") => String.t() | atom()
+      }
+      
+  """
+  @type deregister_webhook_with_third_party_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_metadata() :: %{
+        "created" => non_neg_integer(),
+        "pipelineArn" => String.t() | atom(),
+        "pollingDisabledAt" => non_neg_integer(),
+        "updated" => non_neg_integer()
+      }
+      
+  """
+  @type pipeline_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_stage_transition_input() :: %{
+        required("pipelineName") => String.t() | atom(),
+        required("stageName") => String.t() | atom(),
+        required("transitionType") => list(any())
+      }
+      
+  """
+  @type enable_stage_transition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_output() :: %{}
+      
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_failed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type request_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_executor_configuration() :: %{
+        "lambdaFunctionArn" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_executor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      success_conditions() :: %{
+        "conditions" => list(condition())
+      }
+      
+  """
+  @type success_conditions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_declaration() :: %{
+        "description" => String.t() | atom(),
+        "executor" => action_type_executor(),
+        "id" => action_type_identifier(),
+        "inputArtifactDetails" => action_type_artifact_details(),
+        "outputArtifactDetails" => action_type_artifact_details(),
+        "permissions" => action_type_permissions(),
+        "properties" => list(action_type_property()),
+        "urls" => action_type_urls()
+      }
+      
+  """
+  @type action_type_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      git_pull_request_filter() :: %{
+        "branches" => git_branch_filter_criteria(),
+        "events" => list(list(any())()),
+        "filePaths" => git_file_path_filter_criteria()
+      }
+      
+  """
+  @type git_pull_request_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_pipeline_output() :: %{
+        "pipeline" => pipeline_declaration(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type create_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicated_stop_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicated_stop_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_declaration() :: %{
+        "commands" => list(String.t() | atom()),
+        "configuration" => map(),
+        "inputArtifacts" => list(input_artifact()),
+        "name" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "ruleTypeId" => rule_type_id(),
+        "timeoutInMinutes" => integer()
+      }
+      
+  """
+  @type rule_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_stage_metadata() :: %{
+        "autoStageRetryAttempt" => integer(),
+        "latestRetryTrigger" => list(any()),
+        "manualStageRetryAttempt" => integer()
+      }
+      
+  """
+  @type retry_stage_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_state() :: %{
+        "actionStates" => list(action_state()),
+        "beforeEntryConditionState" => stage_condition_state(),
+        "inboundExecution" => stage_execution(),
+        "inboundExecutions" => list(stage_execution()),
+        "inboundTransitionState" => transition_state(),
+        "latestExecution" => stage_execution(),
+        "onFailureConditionState" => stage_condition_state(),
+        "onSuccessConditionState" => stage_condition_state(),
+        "retryStageMetadata" => retry_stage_metadata(),
+        "stageName" => String.t() | atom()
+      }
+      
+  """
+  @type stage_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      current_revision() :: %{
+        "changeIdentifier" => String.t() | atom(),
+        "created" => non_neg_integer(),
+        "revision" => String.t() | atom(),
+        "revisionSummary" => String.t() | atom()
+      }
+      
+  """
+  @type current_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      artifact_revision() :: %{
+        "created" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "revisionChangeIdentifier" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "revisionSummary" => String.t() | atom(),
+        "revisionUrl" => String.t() | atom()
+      }
+      
+  """
+  @type artifact_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_execution_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pipeline_execution_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      webhook_filter_rule() :: %{
+        "jsonPath" => String.t() | atom(),
+        "matchEquals" => String.t() | atom()
+      }
+      
+  """
+  @type webhook_filter_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_pipeline_execution_output() :: %{
+        "pipelineExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type start_pipeline_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_execution_result() :: %{
+        "errorDetails" => error_details(),
+        "externalExecutionId" => String.t() | atom(),
+        "externalExecutionSummary" => String.t() | atom(),
+        "externalExecutionUrl" => String.t() | atom(),
+        "logStreamARN" => String.t() | atom()
+      }
+      
+  """
+  @type action_execution_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      artifact_detail() :: %{
+        "name" => String.t() | atom(),
+        "s3location" => s3_location()
+      }
+      
+  """
+  @type artifact_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      latest_in_pipeline_execution_filter() :: %{
+        "pipelineExecutionId" => String.t() | atom(),
+        "startTimeRange" => list(any())
+      }
+      
+  """
+  @type latest_in_pipeline_execution_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_variable() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type pipeline_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      git_file_path_filter_criteria() :: %{
+        "excludes" => list(String.t() | atom()),
+        "includes" => list(String.t() | atom())
+      }
+      
+  """
+  @type git_file_path_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_approval_result_output() :: %{
+        "approvedAt" => non_neg_integer()
+      }
+      
+  """
+  @type put_approval_result_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type stage_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_deploy_action_execution_targets_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "targets" => list(deploy_action_execution_target())
+      }
+      
+  """
+  @type list_deploy_action_execution_targets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_artifact() :: %{
+        "files" => list(String.t() | atom()),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type output_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_webhooks_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "webhooks" => list(list_webhook_item())
+      }
+      
+  """
+  @type list_webhooks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_artifact() :: %{
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type input_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_revision() :: %{
+        "actionName" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "revisionSummary" => String.t() | atom(),
+        "revisionUrl" => String.t() | atom()
+      }
+      
+  """
+  @type source_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_job_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_job_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_target_event() :: %{
+        "context" => deploy_target_event_context(),
+        "endTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type deploy_target_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_types_input() :: %{
+        optional("regionFilter") => String.t() | atom(),
+        optional("ruleOwnerFilter") => list(any())
+      }
+      
+  """
+  @type list_rule_types_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_webhook_with_third_party_output() :: %{}
+      
+  """
+  @type deregister_webhook_with_third_party_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_execution_detail() :: %{
+        "actionExecutionId" => String.t() | atom(),
+        "actionName" => String.t() | atom(),
+        "input" => action_execution_input(),
+        "lastUpdateTime" => non_neg_integer(),
+        "output" => action_execution_output(),
+        "pipelineExecutionId" => String.t() | atom(),
+        "pipelineVersion" => integer(),
+        "stageName" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+      
+  """
+  @type action_execution_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_pipeline_output() :: %{
+        "metadata" => pipeline_metadata(),
+        "pipeline" => pipeline_declaration()
+      }
+      
+  """
+  @type get_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transition_state() :: %{
+        "disabledReason" => String.t() | atom(),
+        "enabled" => boolean(),
+        "lastChangedAt" => non_neg_integer(),
+        "lastChangedBy" => String.t() | atom()
+      }
+      
+  """
+  @type transition_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_approval_result_input() :: %{
+        required("actionName") => String.t() | atom(),
+        required("pipelineName") => String.t() | atom(),
+        required("result") => approval_result(),
+        required("stageName") => String.t() | atom(),
+        required("token") => String.t() | atom()
+      }
+      
+  """
+  @type put_approval_result_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_stage_declaration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_stage_declaration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_job_output() :: %{
+        "status" => list(any())
+      }
+      
+  """
+  @type acknowledge_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_location() :: %{
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom()
+      }
+      
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_input() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_worker_executor_configuration() :: %{
+        "pollingAccounts" => list(String.t() | atom()),
+        "pollingServicePrincipals" => list(String.t() | atom())
+      }
+      
+  """
+  @type job_worker_executor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_job_input() :: %{
+        required("jobId") => String.t() | atom(),
+        required("nonce") => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pipelines_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "pipelines" => list(pipeline_summary())
+      }
+      
+  """
+  @type list_pipelines_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type action_type_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      webhook_auth_configuration() :: %{
+        "AllowedIPRange" => String.t() | atom(),
+        "SecretToken" => String.t() | atom()
+      }
+      
+  """
+  @type webhook_auth_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_data() :: %{
+        "actionConfiguration" => action_configuration(),
+        "actionTypeId" => action_type_id(),
+        "artifactCredentials" => aws_session_credentials(),
+        "continuationToken" => String.t() | atom(),
+        "encryptionKey" => encryption_key(),
+        "inputArtifacts" => list(artifact()),
+        "outputArtifacts" => list(artifact()),
+        "pipelineContext" => pipeline_context()
+      }
+      
+  """
+  @type job_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_conditions_execution() :: %{
+        "status" => list(any()),
+        "summary" => String.t() | atom()
+      }
+      
+  """
+  @type stage_conditions_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_settings() :: %{
+        "entityUrlTemplate" => String.t() | atom(),
+        "executionUrlTemplate" => String.t() | atom(),
+        "revisionUrlTemplate" => String.t() | atom(),
+        "thirdPartyConfigurationUrl" => String.t() | atom()
+      }
+      
+  """
+  @type action_type_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_webhook_output() :: %{
+        "webhook" => list_webhook_item()
+      }
+      
+  """
+  @type put_webhook_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_declaration() :: %{
+        "actionTypeId" => action_type_id(),
+        "commands" => list(String.t() | atom()),
+        "configuration" => map(),
+        "environmentVariables" => list(environment_variable()),
+        "inputArtifacts" => list(input_artifact()),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "outputArtifacts" => list(output_artifact()),
+        "outputVariables" => list(String.t() | atom()),
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "runOrder" => integer(),
+        "timeoutInMinutes" => integer()
+      }
+      
+  """
+  @type action_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_execution() :: %{
+        "pipelineExecutionId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+      
+  """
+  @type stage_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_details_output() :: %{
+        "jobDetails" => job_details()
+      }
+      
+  """
+  @type get_job_details_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      artifact() :: %{
+        "location" => artifact_location(),
+        "name" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+      
+  """
+  @type artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_type() :: %{
+        "id" => rule_type_id(),
+        "inputArtifactDetails" => artifact_details(),
+        "ruleConfigurationProperties" => list(rule_configuration_property()),
+        "settings" => rule_type_settings()
+      }
+      
+  """
+  @type rule_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_client_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_client_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_action_types_output() :: %{
+        "actionTypes" => list(action_type()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_action_types_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_output() :: %{
+        "executionResult" => rule_execution_result()
+      }
+      
+  """
+  @type rule_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_executions_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "ruleExecutionDetails" => list(rule_execution_detail())
+      }
+      
+  """
+  @type list_rule_executions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_action_executions_output() :: %{
+        "actionExecutionDetails" => list(action_execution_detail()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_action_executions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failure_details() :: %{
+        "externalExecutionId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_not_retryable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type stage_not_retryable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_input() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_action_type_input() :: %{
+        required("actionType") => action_type_declaration()
+      }
+      
+  """
+  @type update_action_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      git_tag_filter_criteria() :: %{
+        "excludes" => list(String.t() | atom()),
+        "includes" => list(String.t() | atom())
+      }
+      
+  """
+  @type git_tag_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_action_declaration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_action_declaration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_permissions() :: %{
+        "allowedAccounts" => list(String.t() | atom())
+      }
+      
+  """
+  @type action_type_permissions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_pipeline_input() :: %{
+        optional("version") => integer(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type get_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_type_settings() :: %{
+        "entityUrlTemplate" => String.t() | atom(),
+        "executionUrlTemplate" => String.t() | atom(),
+        "revisionUrlTemplate" => String.t() | atom(),
+        "thirdPartyConfigurationUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rule_type_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_third_party_job_details_output() :: %{
         "jobDetails" => third_party_job_details()
       }
       
   """
   @type get_third_party_job_details_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_executor() :: %{
+        "configuration" => executor_configuration(),
+        "jobTimeout" => integer(),
+        "policyStatementsTemplate" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type action_type_executor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_session_credentials() :: %{
+        "accessKeyId" => String.t() | atom(),
+        "secretAccessKey" => String.t() | atom(),
+        "sessionToken" => String.t() | atom()
+      }
+      
+  """
+  @type aws_session_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_stage_transition_input() :: %{
+        required("pipelineName") => String.t() | atom(),
+        required("reason") => String.t() | atom(),
+        required("stageName") => String.t() | atom(),
+        required("transitionType") => list(any())
+      }
+      
+  """
+  @type disable_stage_transition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_webhooks_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_webhooks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -700,13 +1598,235 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      third_party_job() :: %{
-        "clientId" => String.t() | atom(),
-        "jobId" => String.t() | atom()
+      invalid_nonce_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type third_party_job() :: %{(String.t() | atom()) => any()}
+  @type invalid_nonce_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_execution_trigger() :: %{
+        "reason" => String.t() | atom()
+      }
+      
+  """
+  @type stop_execution_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_approval_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_approval_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_pipeline_execution_input() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("sourceRevisions") => list(source_revision_override()),
+        optional("variables") => list(pipeline_variable()),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type start_pipeline_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_action_type_input() :: %{
+        required("category") => list(any()),
+        required("provider") => String.t() | atom(),
+        required("version") => String.t() | atom()
+      }
+      
+  """
+  @type delete_custom_action_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_variables_size_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type output_variables_size_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unable_to_rollback_stage_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unable_to_rollback_stage_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_pipeline_input() :: %{
+        required("pipeline") => pipeline_declaration()
+      }
+      
+  """
+  @type update_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failure_conditions() :: %{
+        "conditions" => list(condition()),
+        "result" => list(any()),
+        "retryConfiguration" => retry_configuration()
+      }
+      
+  """
+  @type failure_conditions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_pipeline_output() :: %{
+        "pipeline" => pipeline_declaration()
+      }
+      
+  """
+  @type update_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_configuration() :: %{
+        "configuration" => map()
+      }
+      
+  """
+  @type action_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      before_entry_conditions() :: %{
+        "conditions" => list(condition())
+      }
+      
+  """
+  @type before_entry_conditions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_webhook_with_third_party_input() :: %{
+        optional("webhookName") => String.t() | atom()
+      }
+      
+  """
+  @type register_webhook_with_third_party_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pipelines_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_pipelines_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_artifact_details() :: %{
+        "maximumCount" => integer(),
+        "minimumCount" => integer()
+      }
+      
+  """
+  @type action_type_artifact_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      poll_for_third_party_jobs_output() :: %{
+        "jobs" => list(third_party_job())
+      }
+      
+  """
+  @type poll_for_third_party_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_state() :: %{
+        "actionName" => String.t() | atom(),
+        "currentRevision" => action_revision(),
+        "entityUrl" => String.t() | atom(),
+        "latestExecution" => action_execution(),
+        "revisionUrl" => String.t() | atom()
+      }
+      
+  """
+  @type action_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pipeline_executions_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "pipelineExecutionSummaries" => list(pipeline_execution_summary())
+      }
+      
+  """
+  @type list_pipeline_executions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      succeeded_in_stage_filter() :: %{
+        "stageName" => String.t() | atom()
+      }
+      
+  """
+  @type succeeded_in_stage_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,33 +1843,191 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      pipeline_execution() :: %{
-        "artifactRevisions" => list(artifact_revision()),
-        "executionMode" => list(any()),
-        "executionType" => list(any()),
-        "pipelineExecutionId" => String.t() | atom(),
-        "pipelineName" => String.t() | atom(),
-        "pipelineVersion" => integer(),
-        "rollbackMetadata" => pipeline_rollback_metadata(),
-        "status" => list(any()),
-        "statusSummary" => String.t() | atom(),
-        "trigger" => execution_trigger(),
-        "variables" => list(resolved_pipeline_variable())
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type pipeline_execution() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      acknowledge_job_output() :: %{
-        "status" => list(any())
+      put_third_party_job_success_result_input() :: %{
+        optional("continuationToken") => String.t() | atom(),
+        optional("currentRevision") => current_revision(),
+        optional("executionDetails") => execution_details(),
+        required("clientToken") => String.t() | atom(),
+        required("jobId") => String.t() | atom()
       }
       
   """
-  @type acknowledge_job_output() :: %{(String.t() | atom()) => any()}
+  @type put_third_party_job_success_result_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      override_stage_condition_input() :: %{
+        required("conditionType") => list(any()),
+        required("pipelineExecutionId") => String.t() | atom(),
+        required("pipelineName") => String.t() | atom(),
+        required("stageName") => String.t() | atom()
+      }
+      
+  """
+  @type override_stage_condition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution() :: %{
+        "errorDetails" => error_details(),
+        "externalExecutionId" => String.t() | atom(),
+        "externalExecutionUrl" => String.t() | atom(),
+        "lastStatusChange" => non_neg_integer(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "ruleExecutionId" => String.t() | atom(),
+        "status" => list(any()),
+        "summary" => String.t() | atom(),
+        "token" => String.t() | atom()
+      }
+      
+  """
+  @type rule_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      condition() :: %{
+        "result" => list(any()),
+        "rules" => list(rule_declaration())
+      }
+      
+  """
+  @type condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_revision() :: %{
+        "created" => non_neg_integer(),
+        "revisionChangeId" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+      
+  """
+  @type rule_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_id() :: %{
+        "category" => list(any()),
+        "owner" => list(any()),
+        "provider" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type action_type_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_third_party_job_failure_result_input() :: %{
+        required("clientToken") => String.t() | atom(),
+        required("failureDetails") => failure_details(),
+        required("jobId") => String.t() | atom()
+      }
+      
+  """
+  @type put_third_party_job_failure_result_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_execution_output() :: %{
+        "executionResult" => action_execution_result(),
+        "outputArtifacts" => list(artifact_detail()),
+        "outputVariables" => map()
+      }
+      
+  """
+  @type action_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_result() :: %{
+        "errorDetails" => error_details(),
+        "externalExecutionId" => String.t() | atom(),
+        "externalExecutionSummary" => String.t() | atom(),
+        "externalExecutionUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rule_execution_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_action_executions_input() :: %{
+        optional("filter") => action_execution_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("pipelineName") => String.t() | atom()
+      }
+      
+  """
+  @type list_action_executions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rollback_stage_output() :: %{
+        "pipelineExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type rollback_stage_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_executions_input() :: %{
+        optional("filter") => rule_execution_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("pipelineName") => String.t() | atom()
+      }
+      
+  """
+  @type list_rule_executions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_details() :: %{
+        "accountId" => String.t() | atom(),
+        "data" => job_data(),
+        "id" => String.t() | atom()
+      }
+      
+  """
+  @type job_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -763,29 +2041,6 @@ defmodule AWS.CodePipeline do
       
   """
   @type acknowledge_third_party_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_execution_filter() :: %{
-        "latestInPipelineExecution" => latest_in_pipeline_execution_filter(),
-        "pipelineExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type rule_execution_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rule_types_output() :: %{
-        "ruleTypes" => list(rule_type())
-      }
-      
-  """
-  @type list_rule_types_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,146 +2070,331 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      get_pipeline_output() :: %{
-        "metadata" => pipeline_metadata(),
-        "pipeline" => pipeline_declaration()
+      pipeline_execution() :: %{
+        "artifactRevisions" => list(artifact_revision()),
+        "executionMode" => list(any()),
+        "executionType" => list(any()),
+        "pipelineExecutionId" => String.t() | atom(),
+        "pipelineName" => String.t() | atom(),
+        "pipelineVersion" => integer(),
+        "rollbackMetadata" => pipeline_rollback_metadata(),
+        "status" => list(any()),
+        "statusSummary" => String.t() | atom(),
+        "trigger" => execution_trigger(),
+        "variables" => list(resolved_pipeline_variable())
       }
       
   """
-  @type get_pipeline_output() :: %{(String.t() | atom()) => any()}
+  @type pipeline_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      failure_conditions() :: %{
-        "conditions" => list(condition()),
-        "result" => list(any()),
-        "retryConfiguration" => retry_configuration()
-      }
-      
-  """
-  @type failure_conditions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_revision() :: %{
-        "created" => non_neg_integer(),
-        "revisionChangeId" => String.t() | atom(),
-        "revisionId" => String.t() | atom()
-      }
-      
-  """
-  @type action_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_execution_result() :: %{
-        "errorDetails" => error_details(),
-        "externalExecutionId" => String.t() | atom(),
-        "externalExecutionSummary" => String.t() | atom(),
-        "externalExecutionUrl" => String.t() | atom()
-      }
-      
-  """
-  @type rule_execution_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stage_context() :: %{
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type stage_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_stage_metadata() :: %{
-        "autoStageRetryAttempt" => integer(),
-        "latestRetryTrigger" => list(any()),
-        "manualStageRetryAttempt" => integer()
-      }
-      
-  """
-  @type retry_stage_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_stage_transition_input() :: %{
-        required("pipelineName") => String.t() | atom(),
-        required("stageName") => String.t() | atom(),
-        required("transitionType") => list(any())
-      }
-      
-  """
-  @type enable_stage_transition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      third_party_job_data() :: %{
-        "actionConfiguration" => action_configuration(),
-        "actionTypeId" => action_type_id(),
-        "artifactCredentials" => aws_session_credentials(),
-        "continuationToken" => String.t() | atom(),
-        "encryptionKey" => encryption_key(),
-        "inputArtifacts" => list(artifact()),
-        "outputArtifacts" => list(artifact()),
-        "pipelineContext" => pipeline_context()
-      }
-      
-  """
-  @type third_party_job_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_webhooks_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "webhooks" => list(list_webhook_item())
-      }
-      
-  """
-  @type list_webhooks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_job_success_result_input() :: %{
-        optional("continuationToken") => String.t() | atom(),
-        optional("currentRevision") => current_revision(),
-        optional("executionDetails") => execution_details(),
-        optional("outputVariables") => map(),
+      get_job_details_input() :: %{
         required("jobId") => String.t() | atom()
       }
       
   """
-  @type put_job_success_result_input() :: %{(String.t() | atom()) => any()}
+  @type get_job_details_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      action_execution_not_found_exception() :: %{
+      invalid_next_token_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type action_execution_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_action_type_output() :: %{
+        "actionType" => action_type(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type create_custom_action_type_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_artifact_location() :: %{
+        "bucketName" => String.t() | atom(),
+        "objectKey" => String.t() | atom()
+      }
+      
+  """
+  @type s3_artifact_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_action_types_input() :: %{
+        optional("actionOwnerFilter") => list(any()),
+        optional("nextToken") => String.t() | atom(),
+        optional("regionFilter") => String.t() | atom()
+      }
+      
+  """
+  @type list_action_types_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_version_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pipeline_version_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_context() :: %{
+        "action" => action_context(),
+        "pipelineArn" => String.t() | atom(),
+        "pipelineExecutionId" => String.t() | atom(),
+        "pipelineName" => String.t() | atom(),
+        "stage" => stage_context()
+      }
+      
+  """
+  @type pipeline_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      webhook_not_found_exception() :: %{}
+      
+  """
+  @type webhook_not_found_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_input() :: %{
+        "configuration" => map(),
+        "inputArtifacts" => list(artifact_detail()),
+        "region" => String.t() | atom(),
+        "resolvedConfiguration" => map(),
+        "roleArn" => String.t() | atom(),
+        "ruleTypeId" => rule_type_id()
+      }
+      
+  """
+  @type rule_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_action_type_input() :: %{
+        required("category") => list(any()),
+        required("owner") => String.t() | atom(),
+        required("provider") => String.t() | atom(),
+        required("version") => String.t() | atom()
+      }
+      
+  """
+  @type get_action_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_third_party_job_details_input() :: %{
+        required("clientToken") => String.t() | atom(),
+        required("jobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_third_party_job_details_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_pipeline_state_output() :: %{
+        "created" => non_neg_integer(),
+        "pipelineName" => String.t() | atom(),
+        "pipelineVersion" => integer(),
+        "stageStates" => list(stage_state()),
+        "updated" => non_neg_integer()
+      }
+      
+  """
+  @type get_pipeline_state_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_latest_pipeline_execution_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type not_latest_pipeline_execution_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      poll_for_third_party_jobs_input() :: %{
+        optional("maxBatchSize") => integer(),
+        required("actionTypeId") => action_type_id()
+      }
+      
+  """
+  @type poll_for_third_party_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      executor_configuration() :: %{
+        "jobWorkerExecutorConfiguration" => job_worker_executor_configuration(),
+        "lambdaExecutorConfiguration" => lambda_executor_configuration()
+      }
+      
+  """
+  @type executor_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_job_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_job_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_action_type_input() :: %{
+        optional("configurationProperties") => list(action_configuration_property()),
+        optional("settings") => action_type_settings(),
+        optional("tags") => list(tag()),
+        required("category") => list(any()),
+        required("inputArtifactDetails") => artifact_details(),
+        required("outputArtifactDetails") => artifact_details(),
+        required("provider") => String.t() | atom(),
+        required("version") => String.t() | atom()
+      }
+      
+  """
+  @type create_custom_action_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_declaration() :: %{
+        "artifactStore" => artifact_store(),
+        "artifactStores" => map(),
+        "executionMode" => list(any()),
+        "name" => String.t() | atom(),
+        "pipelineType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "stages" => list(stage_declaration()),
+        "triggers" => list(pipeline_trigger_declaration()),
+        "variables" => list(pipeline_variable_declaration()),
+        "version" => integer()
+      }
+      
+  """
+  @type pipeline_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_webhook_input() :: %{
+        optional("tags") => list(tag()),
+        required("webhook") => webhook_definition()
+      }
+      
+  """
+  @type put_webhook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_state() :: %{
+        "currentRevision" => rule_revision(),
+        "entityUrl" => String.t() | atom(),
+        "latestExecution" => rule_execution(),
+        "revisionUrl" => String.t() | atom(),
+        "ruleName" => String.t() | atom()
+      }
+      
+  """
+  @type rule_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_context() :: %{
+        "actionExecutionId" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type action_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_webhook_input() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_webhook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,38 +2412,140 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      list_tags_for_resource_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "tags" => list(tag())
+      job() :: %{
+        "accountId" => String.t() | atom(),
+        "data" => job_data(),
+        "id" => String.t() | atom(),
+        "nonce" => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_deploy_action_execution_targets_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "targets" => list(deploy_action_execution_target())
+      condition_execution() :: %{
+        "lastStatusChange" => non_neg_integer(),
+        "status" => list(any()),
+        "summary" => String.t() | atom()
       }
       
   """
-  @type list_deploy_action_execution_targets_output() :: %{(String.t() | atom()) => any()}
+  @type condition_execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      failure_details() :: %{
-        "externalExecutionId" => String.t() | atom(),
-        "message" => String.t() | atom(),
+      put_action_revision_input() :: %{
+        required("actionName") => String.t() | atom(),
+        required("actionRevision") => action_revision(),
+        required("pipelineName") => String.t() | atom(),
+        required("stageName") => String.t() | atom()
+      }
+      
+  """
+  @type put_action_revision_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type() :: %{
+        "actionConfigurationProperties" => list(action_configuration_property()),
+        "id" => action_type_id(),
+        "inputArtifactDetails" => artifact_details(),
+        "outputArtifactDetails" => artifact_details(),
+        "settings" => action_type_settings()
+      }
+      
+  """
+  @type action_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_execution_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type action_execution_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_webhook_filter_pattern_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_webhook_filter_pattern_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_summary() :: %{
+        "created" => non_neg_integer(),
+        "executionMode" => list(any()),
+        "name" => String.t() | atom(),
+        "pipelineType" => list(any()),
+        "updated" => non_neg_integer(),
+        "version" => integer()
+      }
+      
+  """
+  @type pipeline_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_pipeline_executions_input() :: %{
+        optional("filter") => pipeline_execution_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("pipelineName") => String.t() | atom()
+      }
+      
+  """
+  @type list_pipeline_executions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_pipeline_execution_input() :: %{
+        optional("abandon") => boolean(),
+        optional("reason") => String.t() | atom(),
+        required("pipelineExecutionId") => String.t() | atom(),
+        required("pipelineName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_pipeline_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_configuration_property() :: %{
+        "description" => String.t() | atom(),
+        "key" => boolean(),
+        "name" => String.t() | atom(),
+        "queryable" => boolean(),
+        "required" => boolean(),
+        "secret" => boolean(),
         "type" => list(any())
       }
       
   """
-  @type failure_details() :: %{(String.t() | atom()) => any()}
+  @type action_configuration_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1020,13 +2562,237 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      list_webhooks_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      poll_for_jobs_output() :: %{
+        "jobs" => list(job())
       }
       
   """
-  @type list_webhooks_input() :: %{(String.t() | atom()) => any()}
+  @type poll_for_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type action_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_trigger_declaration() :: %{
+        "gitConfiguration" => git_configuration(),
+        "providerType" => list(any())
+      }
+      
+  """
+  @type pipeline_trigger_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      artifact_store() :: %{
+        "encryptionKey" => encryption_key(),
+        "location" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type artifact_store() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_job_failure_result_input() :: %{
+        required("failureDetails") => failure_details(),
+        required("jobId") => String.t() | atom()
+      }
+      
+  """
+  @type put_job_failure_result_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_webhook_output() :: %{}
+      
+  """
+  @type delete_webhook_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_identifier() :: %{
+        "category" => list(any()),
+        "owner" => String.t() | atom(),
+        "provider" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type action_type_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_property() :: %{
+        "description" => String.t() | atom(),
+        "key" => boolean(),
+        "name" => String.t() | atom(),
+        "noEcho" => boolean(),
+        "optional" => boolean(),
+        "queryable" => boolean()
+      }
+      
+  """
+  @type action_type_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      blocker_declaration() :: %{
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type blocker_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      approval_already_completed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type approval_already_completed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolved_pipeline_variable() :: %{
+        "name" => String.t() | atom(),
+        "resolvedValue" => String.t() | atom()
+      }
+      
+  """
+  @type resolved_pipeline_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      third_party_job_details() :: %{
+        "data" => third_party_job_data(),
+        "id" => String.t() | atom(),
+        "nonce" => String.t() | atom()
+      }
+      
+  """
+  @type third_party_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_condition_state() :: %{
+        "conditionStates" => list(condition_state()),
+        "latestExecution" => stage_conditions_execution()
+      }
+      
+  """
+  @type stage_condition_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_structure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_structure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      error_details() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      git_branch_filter_criteria() :: %{
+        "excludes" => list(String.t() | atom()),
+        "includes" => list(String.t() | atom())
+      }
+      
+  """
+  @type git_branch_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type pipeline_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_stage_execution_output() :: %{
+        "pipelineExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type retry_stage_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_detail() :: %{
+        "input" => rule_execution_input(),
+        "lastUpdateTime" => non_neg_integer(),
+        "output" => rule_execution_output(),
+        "pipelineExecutionId" => String.t() | atom(),
+        "pipelineVersion" => integer(),
+        "ruleExecutionId" => String.t() | atom(),
+        "ruleName" => String.t() | atom(),
+        "stageName" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+      
+  """
+  @type rule_execution_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1054,1086 +2820,6 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      update_pipeline_input() :: %{
-        required("pipeline") => pipeline_declaration()
-      }
-      
-  """
-  @type update_pipeline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_type() :: %{
-        "id" => rule_type_id(),
-        "inputArtifactDetails" => artifact_details(),
-        "ruleConfigurationProperties" => list(rule_configuration_property()),
-        "settings" => rule_type_settings()
-      }
-      
-  """
-  @type rule_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_execution_filter() :: %{
-        "succeededInStage" => succeeded_in_stage_filter()
-      }
-      
-  """
-  @type pipeline_execution_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_trigger() :: %{
-        "triggerDetail" => String.t() | atom(),
-        "triggerType" => list(any())
-      }
-      
-  """
-  @type execution_trigger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rule_types_input() :: %{
-        optional("regionFilter") => String.t() | atom(),
-        optional("ruleOwnerFilter") => list(any())
-      }
-      
-  """
-  @type list_rule_types_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_pipeline_input() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_pipeline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      artifact_store() :: %{
-        "encryptionKey" => encryption_key(),
-        "location" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type artifact_store() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      artifact_location() :: %{
-        "s3Location" => s3_artifact_location(),
-        "type" => list(any())
-      }
-      
-  """
-  @type artifact_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job_data() :: %{
-        "actionConfiguration" => action_configuration(),
-        "actionTypeId" => action_type_id(),
-        "artifactCredentials" => aws_session_credentials(),
-        "continuationToken" => String.t() | atom(),
-        "encryptionKey" => encryption_key(),
-        "inputArtifacts" => list(artifact()),
-        "outputArtifacts" => list(artifact()),
-        "pipelineContext" => pipeline_context()
-      }
-      
-  """
-  @type job_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      condition_state() :: %{
-        "latestExecution" => condition_execution(),
-        "ruleStates" => list(rule_state())
-      }
-      
-  """
-  @type condition_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tags_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_webhook_filter_pattern_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_webhook_filter_pattern_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_execution_output() :: %{
-        "executionResult" => rule_execution_result()
-      }
-      
-  """
-  @type rule_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      git_file_path_filter_criteria() :: %{
-        "excludes" => list(String.t() | atom()),
-        "includes" => list(String.t() | atom())
-      }
-      
-  """
-  @type git_file_path_filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job_worker_executor_configuration() :: %{
-        "pollingAccounts" => list(String.t() | atom()),
-        "pollingServicePrincipals" => list(String.t() | atom())
-      }
-      
-  """
-  @type job_worker_executor_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      approval_already_completed_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type approval_already_completed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      current_revision() :: %{
-        "changeIdentifier" => String.t() | atom(),
-        "created" => non_neg_integer(),
-        "revision" => String.t() | atom(),
-        "revisionSummary" => String.t() | atom()
-      }
-      
-  """
-  @type current_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_execution_filter() :: %{
-        "latestInPipelineExecution" => latest_in_pipeline_execution_filter(),
-        "pipelineExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type action_execution_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_pipeline_input() :: %{
-        optional("tags") => list(tag()),
-        required("pipeline") => pipeline_declaration()
-      }
-      
-  """
-  @type create_pipeline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deploy_target_event_context() :: %{
-        "message" => String.t() | atom(),
-        "ssmCommandId" => String.t() | atom()
-      }
-      
-  """
-  @type deploy_target_event_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_declaration() :: %{
-        "actionTypeId" => action_type_id(),
-        "commands" => list(String.t() | atom()),
-        "configuration" => map(),
-        "environmentVariables" => list(environment_variable()),
-        "inputArtifacts" => list(input_artifact()),
-        "name" => String.t() | atom(),
-        "namespace" => String.t() | atom(),
-        "outputArtifacts" => list(output_artifact()),
-        "outputVariables" => list(String.t() | atom()),
-        "region" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "runOrder" => integer(),
-        "timeoutInMinutes" => integer()
-      }
-      
-  """
-  @type action_declaration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_configuration() :: %{
-        "retryMode" => list(any())
-      }
-      
-  """
-  @type retry_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_artifact() :: %{
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type input_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_webhook_input() :: %{
-        optional("tags") => list(tag()),
-        required("webhook") => webhook_definition()
-      }
-      
-  """
-  @type put_webhook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stage_conditions_execution() :: %{
-        "status" => list(any()),
-        "summary" => String.t() | atom()
-      }
-      
-  """
-  @type stage_conditions_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_execution() :: %{
-        "actionExecutionId" => String.t() | atom(),
-        "errorDetails" => error_details(),
-        "externalExecutionId" => String.t() | atom(),
-        "externalExecutionUrl" => String.t() | atom(),
-        "lastStatusChange" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "logStreamARN" => String.t() | atom(),
-        "percentComplete" => integer(),
-        "status" => list(any()),
-        "summary" => String.t() | atom(),
-        "token" => String.t() | atom()
-      }
-      
-  """
-  @type action_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pipelines_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_pipelines_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_action_type_input() :: %{
-        required("category") => list(any()),
-        required("owner") => String.t() | atom(),
-        required("provider") => String.t() | atom(),
-        required("version") => String.t() | atom()
-      }
-      
-  """
-  @type get_action_type_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      artifact_detail() :: %{
-        "name" => String.t() | atom(),
-        "s3location" => s3_location()
-      }
-      
-  """
-  @type artifact_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_action_type_input() :: %{
-        required("actionType") => action_type_declaration()
-      }
-      
-  """
-  @type update_action_type_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_artifact_details() :: %{
-        "maximumCount" => integer(),
-        "minimumCount" => integer()
-      }
-      
-  """
-  @type action_type_artifact_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rollback_stage_output() :: %{
-        "pipelineExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type rollback_stage_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_approval_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_approval_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_job_failure_result_input() :: %{
-        required("failureDetails") => failure_details(),
-        required("jobId") => String.t() | atom()
-      }
-      
-  """
-  @type put_job_failure_result_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_execution_output() :: %{
-        "executionResult" => action_execution_result(),
-        "outputArtifacts" => list(artifact_detail()),
-        "outputVariables" => map()
-      }
-      
-  """
-  @type action_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_stage_declaration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_stage_declaration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_action_executions_input() :: %{
-        optional("filter") => action_execution_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("pipelineName") => String.t() | atom()
-      }
-      
-  """
-  @type list_action_executions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_artifact_location() :: %{
-        "bucketName" => String.t() | atom(),
-        "objectKey" => String.t() | atom()
-      }
-      
-  """
-  @type s3_artifact_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pipeline_executions_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "pipelineExecutionSummaries" => list(pipeline_execution_summary())
-      }
-      
-  """
-  @type list_pipeline_executions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_urls() :: %{
-        "configurationUrl" => String.t() | atom(),
-        "entityUrlTemplate" => String.t() | atom(),
-        "executionUrlTemplate" => String.t() | atom(),
-        "revisionUrlTemplate" => String.t() | atom()
-      }
-      
-  """
-  @type action_type_urls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_execution_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type pipeline_execution_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_pipeline_execution_output() :: %{
-        "pipelineExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type start_pipeline_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      transition_state() :: %{
-        "disabledReason" => String.t() | atom(),
-        "enabled" => boolean(),
-        "lastChangedAt" => non_neg_integer(),
-        "lastChangedBy" => String.t() | atom()
-      }
-      
-  """
-  @type transition_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_summary() :: %{
-        "created" => non_neg_integer(),
-        "executionMode" => list(any()),
-        "name" => String.t() | atom(),
-        "pipelineType" => list(any()),
-        "updated" => non_neg_integer(),
-        "version" => integer()
-      }
-      
-  """
-  @type pipeline_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      error_details() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      git_configuration() :: %{
-        "pullRequest" => list(git_pull_request_filter()),
-        "push" => list(git_push_filter()),
-        "sourceActionName" => String.t() | atom()
-      }
-      
-  """
-  @type git_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_action_types_output() :: %{
-        "actionTypes" => list(action_type()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_action_types_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_id() :: %{
-        "category" => list(any()),
-        "owner" => list(any()),
-        "provider" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-      
-  """
-  @type action_type_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      webhook_definition() :: %{
-        "authentication" => list(any()),
-        "authenticationConfiguration" => webhook_auth_configuration(),
-        "filters" => list(webhook_filter_rule()),
-        "name" => String.t() | atom(),
-        "targetAction" => String.t() | atom(),
-        "targetPipeline" => String.t() | atom()
-      }
-      
-  """
-  @type webhook_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      condition() :: %{
-        "result" => list(any()),
-        "rules" => list(rule_declaration())
-      }
-      
-  """
-  @type condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_location() :: %{
-        "bucket" => String.t() | atom(),
-        "key" => String.t() | atom()
-      }
-      
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_job_details_input() :: %{
-        required("jobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_job_details_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      condition_not_overridable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type condition_not_overridable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_pipeline_state_output() :: %{
-        "created" => non_neg_integer(),
-        "pipelineName" => String.t() | atom(),
-        "pipelineVersion" => integer(),
-        "stageStates" => list(stage_state()),
-        "updated" => non_neg_integer()
-      }
-      
-  """
-  @type get_pipeline_state_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_executor() :: %{
-        "configuration" => executor_configuration(),
-        "jobTimeout" => integer(),
-        "policyStatementsTemplate" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type action_type_executor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_input() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      approval_result() :: %{
-        "status" => list(any()),
-        "summary" => String.t() | atom()
-      }
-      
-  """
-  @type approval_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stage_not_retryable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type stage_not_retryable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      git_pull_request_filter() :: %{
-        "branches" => git_branch_filter_criteria(),
-        "events" => list(list(any())()),
-        "filePaths" => git_file_path_filter_criteria()
-      }
-      
-  """
-  @type git_pull_request_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deploy_action_execution_target() :: %{
-        "endTime" => non_neg_integer(),
-        "events" => list(deploy_target_event()),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "targetId" => String.t() | atom(),
-        "targetType" => String.t() | atom()
-      }
-      
-  """
-  @type deploy_action_execution_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job_details() :: %{
-        "accountId" => String.t() | atom(),
-        "data" => job_data(),
-        "id" => String.t() | atom()
-      }
-      
-  """
-  @type job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      git_tag_filter_criteria() :: %{
-        "excludes" => list(String.t() | atom()),
-        "includes" => list(String.t() | atom())
-      }
-      
-  """
-  @type git_tag_filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      condition_execution() :: %{
-        "lastStatusChange" => non_neg_integer(),
-        "status" => list(any()),
-        "summary" => String.t() | atom()
-      }
-      
-  """
-  @type condition_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_output() :: %{}
-      
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_declaration() :: %{
-        "commands" => list(String.t() | atom()),
-        "configuration" => map(),
-        "inputArtifacts" => list(input_artifact()),
-        "name" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "ruleTypeId" => rule_type_id(),
-        "timeoutInMinutes" => integer()
-      }
-      
-  """
-  @type rule_declaration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      poll_for_jobs_output() :: %{
-        "jobs" => list(job())
-      }
-      
-  """
-  @type poll_for_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rule_executions_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "ruleExecutionDetails" => list(rule_execution_detail())
-      }
-      
-  """
-  @type list_rule_executions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      output_variables_size_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type output_variables_size_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_structure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_structure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_execution_trigger() :: %{
-        "reason" => String.t() | atom()
-      }
-      
-  """
-  @type stop_execution_trigger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      webhook_filter_rule() :: %{
-        "jsonPath" => String.t() | atom(),
-        "matchEquals" => String.t() | atom()
-      }
-      
-  """
-  @type webhook_filter_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_third_party_job_details_input() :: %{
-        required("clientToken") => String.t() | atom(),
-        required("jobId") => String.t() | atom()
-      }
-      
-  """
-  @type get_third_party_job_details_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_input() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      succeeded_in_stage_filter() :: %{
-        "stageName" => String.t() | atom()
-      }
-      
-  """
-  @type succeeded_in_stage_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_metadata() :: %{
-        "created" => non_neg_integer(),
-        "pipelineArn" => String.t() | atom(),
-        "pollingDisabledAt" => non_neg_integer(),
-        "updated" => non_neg_integer()
-      }
-      
-  """
-  @type pipeline_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_action_revision_input() :: %{
-        required("actionName") => String.t() | atom(),
-        required("actionRevision") => action_revision(),
-        required("pipelineName") => String.t() | atom(),
-        required("stageName") => String.t() | atom()
-      }
-      
-  """
-  @type put_action_revision_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_type_id() :: %{
-        "category" => list(any()),
-        "owner" => list(any()),
-        "provider" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-      
-  """
-  @type rule_type_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_pipeline_execution_input() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("sourceRevisions") => list(source_revision_override()),
-        optional("variables") => list(pipeline_variable()),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type start_pipeline_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_context() :: %{
-        "action" => action_context(),
-        "pipelineArn" => String.t() | atom(),
-        "pipelineExecutionId" => String.t() | atom(),
-        "pipelineName" => String.t() | atom(),
-        "stage" => stage_context()
-      }
-      
-  """
-  @type pipeline_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_pipeline_output() :: %{
-        "pipeline" => pipeline_declaration()
-      }
-      
-  """
-  @type update_pipeline_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type action_type_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       target_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t() | atom())
@@ -2146,170 +2832,19 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      blocker_declaration() :: %{
-        "name" => String.t() | atom(),
-        "type" => list(any())
+      third_party_job_data() :: %{
+        "actionConfiguration" => action_configuration(),
+        "actionTypeId" => action_type_id(),
+        "artifactCredentials" => aws_session_credentials(),
+        "continuationToken" => String.t() | atom(),
+        "encryptionKey" => encryption_key(),
+        "inputArtifacts" => list(artifact()),
+        "outputArtifacts" => list(artifact()),
+        "pipelineContext" => pipeline_context()
       }
       
   """
-  @type blocker_declaration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      artifact_details() :: %{
-        "maximumCount" => integer(),
-        "minimumCount" => integer()
-      }
-      
-  """
-  @type artifact_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type action_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_webhook_with_third_party_input() :: %{
-        optional("webhookName") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_webhook_with_third_party_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job() :: %{
-        "accountId" => String.t() | atom(),
-        "data" => job_data(),
-        "id" => String.t() | atom(),
-        "nonce" => String.t() | atom()
-      }
-      
-  """
-  @type job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_pipeline_executions_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_pipeline_executions_limit_exceeded_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_action_type_output() :: %{
-        "actionType" => action_type(),
-        "tags" => list(tag())
-      }
-      
-  """
-  @type create_custom_action_type_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_third_party_job_success_result_input() :: %{
-        optional("continuationToken") => String.t() | atom(),
-        optional("currentRevision") => current_revision(),
-        optional("executionDetails") => execution_details(),
-        required("clientToken") => String.t() | atom(),
-        required("jobId") => String.t() | atom()
-      }
-      
-  """
-  @type put_third_party_job_success_result_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_output() :: %{}
-      
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_execution_outdated_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type pipeline_execution_outdated_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      poll_for_third_party_jobs_output() :: %{
-        "jobs" => list(third_party_job())
-      }
-      
-  """
-  @type poll_for_third_party_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rule_executions_input() :: %{
-        optional("filter") => rule_execution_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("pipelineName") => String.t() | atom()
-      }
-      
-  """
-  @type list_rule_executions_input() :: %{(String.t() | atom()) => any()}
+  @type third_party_job_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2332,272 +2867,85 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      invalid_nonce_exception() :: %{
-        "message" => String.t() | atom()
+      list_rule_types_output() :: %{
+        "ruleTypes" => list(rule_type())
       }
       
   """
-  @type invalid_nonce_exception() :: %{(String.t() | atom()) => any()}
+  @type list_rule_types_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_client_token_exception() :: %{
-        "message" => String.t() | atom()
+      third_party_job() :: %{
+        "clientId" => String.t() | atom(),
+        "jobId" => String.t() | atom()
       }
       
   """
-  @type invalid_client_token_exception() :: %{(String.t() | atom()) => any()}
+  @type third_party_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      action_type_identifier() :: %{
-        "category" => list(any()),
-        "owner" => String.t() | atom(),
-        "provider" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-      
-  """
-  @type action_type_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type pipeline_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rollback_stage_input() :: %{
-        required("pipelineName") => String.t() | atom(),
-        required("stageName") => String.t() | atom(),
-        required("targetPipelineExecutionId") => String.t() | atom()
-      }
-      
-  """
-  @type rollback_stage_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_webhook_with_third_party_output() :: %{}
-      
-  """
-  @type deregister_webhook_with_third_party_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_webhook_input() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_webhook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_variable() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type pipeline_variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_execution_detail() :: %{
-        "actionExecutionId" => String.t() | atom(),
-        "actionName" => String.t() | atom(),
-        "input" => action_execution_input(),
-        "lastUpdateTime" => non_neg_integer(),
-        "output" => action_execution_output(),
-        "pipelineExecutionId" => String.t() | atom(),
-        "pipelineVersion" => integer(),
-        "stageName" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any()),
-        "updatedBy" => String.t() | atom()
-      }
-      
-  """
-  @type action_execution_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_revision_override() :: %{
-        "actionName" => String.t() | atom(),
-        "revisionType" => list(any()),
-        "revisionValue" => String.t() | atom()
-      }
-      
-  """
-  @type source_revision_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pipelines_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "pipelines" => list(pipeline_summary())
-      }
-      
-  """
-  @type list_pipelines_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_webhook_with_third_party_input() :: %{
-        optional("webhookName") => String.t() | atom()
-      }
-      
-  """
-  @type register_webhook_with_third_party_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_action_types_input() :: %{
-        optional("actionOwnerFilter") => list(any()),
-        optional("nextToken") => String.t() | atom(),
-        optional("regionFilter") => String.t() | atom()
-      }
-      
-  """
-  @type list_action_types_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_revision() :: %{
-        "created" => non_neg_integer(),
-        "revisionChangeId" => String.t() | atom(),
-        "revisionId" => String.t() | atom()
-      }
-      
-  """
-  @type rule_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stage_declaration() :: %{
-        "actions" => list(action_declaration()),
-        "beforeEntry" => before_entry_conditions(),
-        "blockers" => list(blocker_declaration()),
-        "name" => String.t() | atom(),
-        "onFailure" => failure_conditions(),
-        "onSuccess" => success_conditions()
-      }
-      
-  """
-  @type stage_declaration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_action_type_input() :: %{
-        optional("configurationProperties") => list(action_configuration_property()),
-        optional("settings") => action_type_settings(),
-        optional("tags") => list(tag()),
-        required("category") => list(any()),
-        required("inputArtifactDetails") => artifact_details(),
-        required("outputArtifactDetails") => artifact_details(),
-        required("provider") => String.t() | atom(),
-        required("version") => String.t() | atom()
-      }
-      
-  """
-  @type create_custom_action_type_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_configuration() :: %{
-        "configuration" => map()
-      }
-      
-  """
-  @type action_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stage_condition_state() :: %{
-        "conditionStates" => list(condition_state()),
-        "latestExecution" => stage_conditions_execution()
-      }
-      
-  """
-  @type stage_condition_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stage_execution() :: %{
-        "pipelineExecutionId" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-      
-  """
-  @type stage_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_execution_result() :: %{
-        "errorDetails" => error_details(),
+      execution_details() :: %{
         "externalExecutionId" => String.t() | atom(),
-        "externalExecutionSummary" => String.t() | atom(),
-        "externalExecutionUrl" => String.t() | atom(),
-        "logStreamARN" => String.t() | atom()
+        "percentComplete" => integer(),
+        "summary" => String.t() | atom()
       }
       
   """
-  @type action_execution_result() :: %{(String.t() | atom()) => any()}
+  @type execution_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      git_push_filter() :: %{
+        "branches" => git_branch_filter_criteria(),
+        "filePaths" => git_file_path_filter_criteria(),
+        "tags" => git_tag_filter_criteria()
+      }
+      
+  """
+  @type git_push_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_execution_filter() :: %{
+        "latestInPipelineExecution" => latest_in_pipeline_execution_filter(),
+        "pipelineExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type action_execution_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pipeline_execution_filter() :: %{
+        "succeededInStage" => succeeded_in_stage_filter()
+      }
+      
+  """
+  @type pipeline_execution_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      approval_result() :: %{
+        "status" => list(any()),
+        "summary" => String.t() | atom()
+      }
+      
+  """
+  @type approval_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2620,251 +2968,19 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      list_deploy_action_execution_targets_input() :: %{
-        optional("filters") => list(target_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("pipelineName") => String.t() | atom(),
-        required("actionExecutionId") => String.t() | atom()
-      }
+      untag_resource_output() :: %{}
       
   """
-  @type list_deploy_action_execution_targets_input() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      before_entry_conditions() :: %{
-        "conditions" => list(condition())
-      }
+      register_webhook_with_third_party_output() :: %{}
       
   """
-  @type before_entry_conditions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_pipeline_input() :: %{
-        optional("version") => integer(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type get_pipeline_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stage_state() :: %{
-        "actionStates" => list(action_state()),
-        "beforeEntryConditionState" => stage_condition_state(),
-        "inboundExecution" => stage_execution(),
-        "inboundExecutions" => list(stage_execution()),
-        "inboundTransitionState" => transition_state(),
-        "latestExecution" => stage_execution(),
-        "onFailureConditionState" => stage_condition_state(),
-        "onSuccessConditionState" => stage_condition_state(),
-        "retryStageMetadata" => retry_stage_metadata(),
-        "stageName" => String.t() | atom()
-      }
-      
-  """
-  @type stage_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      job_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type job_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      third_party_job_details() :: %{
-        "data" => third_party_job_data(),
-        "id" => String.t() | atom(),
-        "nonce" => String.t() | atom()
-      }
-      
-  """
-  @type third_party_job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pipeline_version_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type pipeline_version_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deploy_target_event() :: %{
-        "context" => deploy_target_event_context(),
-        "endTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type deploy_target_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      artifact() :: %{
-        "location" => artifact_location(),
-        "name" => String.t() | atom(),
-        "revision" => String.t() | atom()
-      }
-      
-  """
-  @type artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_stage_execution_input() :: %{
-        required("pipelineExecutionId") => String.t() | atom(),
-        required("pipelineName") => String.t() | atom(),
-        required("retryMode") => list(any()),
-        required("stageName") => String.t() | atom()
-      }
-      
-  """
-  @type retry_stage_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_job_details_output() :: %{
-        "jobDetails" => job_details()
-      }
-      
-  """
-  @type get_job_details_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_pipeline_execution_input() :: %{
-        optional("abandon") => boolean(),
-        optional("reason") => String.t() | atom(),
-        required("pipelineExecutionId") => String.t() | atom(),
-        required("pipelineName") => String.t() | atom()
-      }
-      
-  """
-  @type stop_pipeline_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicated_stop_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicated_stop_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_revision() :: %{
-        "actionName" => String.t() | atom(),
-        "revisionId" => String.t() | atom(),
-        "revisionSummary" => String.t() | atom(),
-        "revisionUrl" => String.t() | atom()
-      }
-      
-  """
-  @type source_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_property() :: %{
-        "description" => String.t() | atom(),
-        "key" => boolean(),
-        "name" => String.t() | atom(),
-        "noEcho" => boolean(),
-        "optional" => boolean(),
-        "queryable" => boolean()
-      }
-      
-  """
-  @type action_type_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acknowledge_job_input() :: %{
-        required("jobId") => String.t() | atom(),
-        required("nonce") => String.t() | atom()
-      }
-      
-  """
-  @type acknowledge_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_pipeline_state_input() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type get_pipeline_state_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      poll_for_jobs_input() :: %{
-        optional("maxBatchSize") => integer(),
-        optional("queryParam") => map(),
-        required("actionTypeId") => action_type_id()
-      }
-      
-  """
-  @type poll_for_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_custom_action_type_input() :: %{
-        required("category") => list(any()),
-        required("provider") => String.t() | atom(),
-        required("version") => String.t() | atom()
-      }
-      
-  """
-  @type delete_custom_action_type_input() :: %{(String.t() | atom()) => any()}
+  @type register_webhook_with_third_party_output() :: %{}
 
   @typedoc """
 
@@ -2882,301 +2998,185 @@ defmodule AWS.CodePipeline do
 
   ## Example:
       
-      disable_stage_transition_input() :: %{
-        required("pipelineName") => String.t() | atom(),
-        required("reason") => String.t() | atom(),
-        required("stageName") => String.t() | atom(),
-        required("transitionType") => list(any())
+      list_webhook_item() :: %{
+        "arn" => String.t() | atom(),
+        "definition" => webhook_definition(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "lastTriggered" => non_neg_integer(),
+        "tags" => list(tag()),
+        "url" => String.t() | atom()
       }
       
   """
-  @type disable_stage_transition_input() :: %{(String.t() | atom()) => any()}
+  @type list_webhook_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      retry_stage_execution_output() :: %{
+      condition_not_overridable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type condition_not_overridable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stage_context() :: %{
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type stage_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      artifact_details() :: %{
+        "maximumCount" => integer(),
+        "minimumCount" => integer()
+      }
+      
+  """
+  @type artifact_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_type_urls() :: %{
+        "configurationUrl" => String.t() | atom(),
+        "entityUrlTemplate" => String.t() | atom(),
+        "executionUrlTemplate" => String.t() | atom(),
+        "revisionUrlTemplate" => String.t() | atom()
+      }
+      
+  """
+  @type action_type_urls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_job_success_result_input() :: %{
+        optional("continuationToken") => String.t() | atom(),
+        optional("currentRevision") => current_revision(),
+        optional("executionDetails") => execution_details(),
+        optional("outputVariables") => map(),
+        required("jobId") => String.t() | atom()
+      }
+      
+  """
+  @type put_job_success_result_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deploy_action_execution_target() :: %{
+        "endTime" => non_neg_integer(),
+        "events" => list(deploy_target_event()),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "targetId" => String.t() | atom(),
+        "targetType" => String.t() | atom()
+      }
+      
+  """
+  @type deploy_action_execution_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_revision() :: %{
+        "created" => non_neg_integer(),
+        "revisionChangeId" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+      
+  """
+  @type action_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_pipeline_input() :: %{
+        optional("tags") => list(tag()),
+        required("pipeline") => pipeline_declaration()
+      }
+      
+  """
+  @type create_pipeline_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_revision_override() :: %{
+        "actionName" => String.t() | atom(),
+        "revisionType" => list(any()),
+        "revisionValue" => String.t() | atom()
+      }
+      
+  """
+  @type source_revision_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_execution_filter() :: %{
+        "latestInPipelineExecution" => latest_in_pipeline_execution_filter(),
         "pipelineExecutionId" => String.t() | atom()
       }
       
   """
-  @type retry_stage_execution_output() :: %{(String.t() | atom()) => any()}
+  @type rule_execution_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      encryption_key() :: %{
-        "id" => String.t() | atom(),
-        "type" => list(any())
+      get_action_type_output() :: %{
+        "actionType" => action_type_declaration()
       }
       
   """
-  @type encryption_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_execution() :: %{
-        "errorDetails" => error_details(),
-        "externalExecutionId" => String.t() | atom(),
-        "externalExecutionUrl" => String.t() | atom(),
-        "lastStatusChange" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "ruleExecutionId" => String.t() | atom(),
-        "status" => list(any()),
-        "summary" => String.t() | atom(),
-        "token" => String.t() | atom()
-      }
-      
-  """
-  @type rule_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_approval_result_input() :: %{
-        required("actionName") => String.t() | atom(),
-        required("pipelineName") => String.t() | atom(),
-        required("result") => approval_result(),
-        required("stageName") => String.t() | atom(),
-        required("token") => String.t() | atom()
-      }
-      
-  """
-  @type put_approval_result_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_executor_configuration() :: %{
-        "lambdaFunctionArn" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_executor_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_execution_input() :: %{
-        "configuration" => map(),
-        "inputArtifacts" => list(artifact_detail()),
-        "region" => String.t() | atom(),
-        "resolvedConfiguration" => map(),
-        "roleArn" => String.t() | atom(),
-        "ruleTypeId" => rule_type_id()
-      }
-      
-  """
-  @type rule_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      git_push_filter() :: %{
-        "branches" => git_branch_filter_criteria(),
-        "filePaths" => git_file_path_filter_criteria(),
-        "tags" => git_tag_filter_criteria()
-      }
-      
-  """
-  @type git_push_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_declaration() :: %{
-        "description" => String.t() | atom(),
-        "executor" => action_type_executor(),
-        "id" => action_type_identifier(),
-        "inputArtifactDetails" => action_type_artifact_details(),
-        "outputArtifactDetails" => action_type_artifact_details(),
-        "permissions" => action_type_permissions(),
-        "properties" => list(action_type_property()),
-        "urls" => action_type_urls()
-      }
-      
-  """
-  @type action_type_declaration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_job_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_job_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type() :: %{
-        "actionConfigurationProperties" => list(action_configuration_property()),
-        "id" => action_type_id(),
-        "inputArtifactDetails" => artifact_details(),
-        "outputArtifactDetails" => artifact_details(),
-        "settings" => action_type_settings()
-      }
-      
-  """
-  @type action_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      webhook_not_found_exception() :: %{}
-      
-  """
-  @type webhook_not_found_exception() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_webhook_with_third_party_output() :: %{}
-      
-  """
-  @type register_webhook_with_third_party_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_pipeline_execution_output() :: %{
-        "pipelineExecution" => pipeline_execution()
-      }
-      
-  """
-  @type get_pipeline_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_configuration_property() :: %{
-        "description" => String.t() | atom(),
-        "key" => boolean(),
-        "name" => String.t() | atom(),
-        "queryable" => boolean(),
-        "required" => boolean(),
-        "secret" => boolean(),
-        "type" => list(any())
-      }
-      
-  """
-  @type action_configuration_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      success_conditions() :: %{
-        "conditions" => list(condition())
-      }
-      
-  """
-  @type success_conditions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_webhook_authentication_parameters_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_webhook_authentication_parameters_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_pipeline_executions_input() :: %{
-        optional("filter") => pipeline_execution_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("pipelineName") => String.t() | atom()
-      }
-      
-  """
-  @type list_pipeline_executions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action_type_settings() :: %{
-        "entityUrlTemplate" => String.t() | atom(),
-        "executionUrlTemplate" => String.t() | atom(),
-        "revisionUrlTemplate" => String.t() | atom(),
-        "thirdPartyConfigurationUrl" => String.t() | atom()
-      }
-      
-  """
-  @type action_type_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_job_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_job_state_exception() :: %{(String.t() | atom()) => any()}
+  @type get_action_type_output() :: %{(String.t() | atom()) => any()}
 
   @type acknowledge_job_errors() ::
-          job_not_found_exception() | invalid_nonce_exception() | validation_exception()
+          invalid_nonce_exception() | validation_exception() | job_not_found_exception()
 
   @type acknowledge_third_party_job_errors() ::
-          job_not_found_exception()
+          invalid_nonce_exception()
           | invalid_client_token_exception()
-          | invalid_nonce_exception()
           | validation_exception()
+          | job_not_found_exception()
 
   @type create_custom_action_type_errors() ::
           too_many_tags_exception()
-          | limit_exceeded_exception()
-          | validation_exception()
-          | concurrent_modification_exception()
           | invalid_tags_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
 
   @type create_pipeline_errors() ::
-          too_many_tags_exception()
-          | limit_exceeded_exception()
-          | validation_exception()
-          | concurrent_modification_exception()
-          | invalid_structure_exception()
-          | invalid_stage_declaration_exception()
-          | invalid_tags_exception()
+          invalid_structure_exception()
+          | too_many_tags_exception()
           | pipeline_name_in_use_exception()
+          | invalid_tags_exception()
           | invalid_action_declaration_exception()
+          | invalid_stage_declaration_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
           | invalid_blocker_declaration_exception()
 
   @type delete_custom_action_type_errors() ::
@@ -3195,13 +3195,13 @@ defmodule AWS.CodePipeline do
   @type enable_stage_transition_errors() ::
           pipeline_not_found_exception() | validation_exception() | stage_not_found_exception()
 
-  @type get_action_type_errors() :: validation_exception() | action_type_not_found_exception()
+  @type get_action_type_errors() :: action_type_not_found_exception() | validation_exception()
 
-  @type get_job_details_errors() :: job_not_found_exception() | validation_exception()
+  @type get_job_details_errors() :: validation_exception() | job_not_found_exception()
 
   @type get_pipeline_errors() ::
-          pipeline_version_not_found_exception()
-          | pipeline_not_found_exception()
+          pipeline_not_found_exception()
+          | pipeline_version_not_found_exception()
           | validation_exception()
 
   @type get_pipeline_execution_errors() ::
@@ -3213,163 +3213,163 @@ defmodule AWS.CodePipeline do
 
   @type get_third_party_job_details_errors() ::
           invalid_job_exception()
-          | job_not_found_exception()
           | invalid_client_token_exception()
           | validation_exception()
+          | job_not_found_exception()
 
   @type list_action_executions_errors() ::
           pipeline_not_found_exception()
+          | invalid_next_token_exception()
           | validation_exception()
           | pipeline_execution_not_found_exception()
-          | invalid_next_token_exception()
 
-  @type list_action_types_errors() :: validation_exception() | invalid_next_token_exception()
+  @type list_action_types_errors() :: invalid_next_token_exception() | validation_exception()
 
   @type list_deploy_action_execution_targets_errors() ::
           pipeline_not_found_exception()
-          | validation_exception()
-          | invalid_next_token_exception()
           | action_execution_not_found_exception()
+          | invalid_next_token_exception()
+          | validation_exception()
 
   @type list_pipeline_executions_errors() ::
-          pipeline_not_found_exception() | validation_exception() | invalid_next_token_exception()
+          pipeline_not_found_exception() | invalid_next_token_exception() | validation_exception()
 
-  @type list_pipelines_errors() :: validation_exception() | invalid_next_token_exception()
+  @type list_pipelines_errors() :: invalid_next_token_exception() | validation_exception()
 
   @type list_rule_executions_errors() ::
           pipeline_not_found_exception()
+          | invalid_next_token_exception()
           | validation_exception()
           | pipeline_execution_not_found_exception()
-          | invalid_next_token_exception()
 
-  @type list_rule_types_errors() :: validation_exception() | invalid_next_token_exception()
+  @type list_rule_types_errors() :: invalid_next_token_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception()
+          invalid_arn_exception()
           | invalid_next_token_exception()
           | resource_not_found_exception()
-          | invalid_arn_exception()
+          | validation_exception()
 
-  @type list_webhooks_errors() :: validation_exception() | invalid_next_token_exception()
+  @type list_webhooks_errors() :: invalid_next_token_exception() | validation_exception()
 
   @type override_stage_condition_errors() ::
-          pipeline_not_found_exception()
-          | concurrent_pipeline_executions_limit_exceeded_exception()
-          | validation_exception()
-          | condition_not_overridable_exception()
-          | conflict_exception()
+          condition_not_overridable_exception()
+          | pipeline_not_found_exception()
           | not_latest_pipeline_execution_exception()
+          | conflict_exception()
+          | validation_exception()
           | stage_not_found_exception()
+          | concurrent_pipeline_executions_limit_exceeded_exception()
 
-  @type poll_for_jobs_errors() :: validation_exception() | action_type_not_found_exception()
+  @type poll_for_jobs_errors() :: action_type_not_found_exception() | validation_exception()
 
   @type poll_for_third_party_jobs_errors() ::
-          validation_exception() | action_type_not_found_exception()
+          action_type_not_found_exception() | validation_exception()
 
   @type put_action_revision_errors() ::
           pipeline_not_found_exception()
-          | concurrent_pipeline_executions_limit_exceeded_exception()
           | action_not_found_exception()
           | validation_exception()
           | stage_not_found_exception()
+          | concurrent_pipeline_executions_limit_exceeded_exception()
 
   @type put_approval_result_errors() ::
           pipeline_not_found_exception()
-          | action_not_found_exception()
-          | validation_exception()
-          | invalid_approval_token_exception()
           | approval_already_completed_exception()
+          | action_not_found_exception()
+          | invalid_approval_token_exception()
+          | validation_exception()
           | stage_not_found_exception()
 
   @type put_job_failure_result_errors() ::
-          invalid_job_state_exception() | job_not_found_exception() | validation_exception()
+          validation_exception() | invalid_job_state_exception() | job_not_found_exception()
 
   @type put_job_success_result_errors() ::
-          invalid_job_state_exception()
-          | job_not_found_exception()
+          output_variables_size_exceeded_exception()
           | validation_exception()
-          | output_variables_size_exceeded_exception()
+          | invalid_job_state_exception()
+          | job_not_found_exception()
 
   @type put_third_party_job_failure_result_errors() ::
-          invalid_job_state_exception()
-          | job_not_found_exception()
-          | invalid_client_token_exception()
+          invalid_client_token_exception()
           | validation_exception()
+          | invalid_job_state_exception()
+          | job_not_found_exception()
 
   @type put_third_party_job_success_result_errors() ::
-          invalid_job_state_exception()
-          | job_not_found_exception()
-          | invalid_client_token_exception()
+          invalid_client_token_exception()
           | validation_exception()
+          | invalid_job_state_exception()
+          | job_not_found_exception()
 
   @type put_webhook_errors() ::
-          invalid_webhook_authentication_parameters_exception()
-          | too_many_tags_exception()
-          | limit_exceeded_exception()
-          | pipeline_not_found_exception()
-          | validation_exception()
-          | concurrent_modification_exception()
+          pipeline_not_found_exception()
           | invalid_webhook_filter_pattern_exception()
+          | too_many_tags_exception()
           | invalid_tags_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | invalid_webhook_authentication_parameters_exception()
 
   @type register_webhook_with_third_party_errors() ::
           webhook_not_found_exception() | validation_exception()
 
   @type retry_stage_execution_errors() ::
           pipeline_not_found_exception()
-          | concurrent_pipeline_executions_limit_exceeded_exception()
-          | validation_exception()
-          | stage_not_retryable_exception()
-          | conflict_exception()
           | not_latest_pipeline_execution_exception()
+          | conflict_exception()
+          | stage_not_retryable_exception()
+          | validation_exception()
           | stage_not_found_exception()
+          | concurrent_pipeline_executions_limit_exceeded_exception()
 
   @type rollback_stage_errors() ::
           pipeline_not_found_exception()
-          | pipeline_execution_outdated_exception()
-          | validation_exception()
-          | pipeline_execution_not_found_exception()
           | conflict_exception()
-          | stage_not_found_exception()
           | unable_to_rollback_stage_exception()
+          | validation_exception()
+          | stage_not_found_exception()
+          | pipeline_execution_not_found_exception()
+          | pipeline_execution_outdated_exception()
 
   @type start_pipeline_execution_errors() ::
           pipeline_not_found_exception()
-          | concurrent_pipeline_executions_limit_exceeded_exception()
-          | validation_exception()
           | conflict_exception()
+          | validation_exception()
+          | concurrent_pipeline_executions_limit_exceeded_exception()
 
   @type stop_pipeline_execution_errors() ::
-          duplicated_stop_request_exception()
-          | pipeline_not_found_exception()
-          | validation_exception()
-          | conflict_exception()
+          pipeline_not_found_exception()
           | pipeline_execution_not_stoppable_exception()
+          | conflict_exception()
+          | validation_exception()
+          | duplicated_stop_request_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception()
+          invalid_arn_exception()
+          | too_many_tags_exception()
+          | invalid_tags_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | concurrent_modification_exception()
-          | resource_not_found_exception()
-          | invalid_tags_exception()
-          | invalid_arn_exception()
 
   @type untag_resource_errors() ::
-          validation_exception()
-          | concurrent_modification_exception()
-          | resource_not_found_exception()
+          invalid_arn_exception()
           | invalid_tags_exception()
-          | invalid_arn_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | concurrent_modification_exception()
 
   @type update_action_type_errors() ::
-          validation_exception() | action_type_not_found_exception() | request_failed_exception()
+          action_type_not_found_exception() | validation_exception() | request_failed_exception()
 
   @type update_pipeline_errors() ::
-          limit_exceeded_exception()
-          | validation_exception()
-          | invalid_structure_exception()
-          | invalid_stage_declaration_exception()
+          invalid_structure_exception()
           | invalid_action_declaration_exception()
+          | invalid_stage_declaration_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
           | invalid_blocker_declaration_exception()
 
   def metadata do
@@ -3401,7 +3401,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, acknowledge_job_errors()}
   def acknowledge_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcknowledgeJob", input, options)
   end
@@ -3418,7 +3419,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, acknowledge_third_party_job_errors()}
   def acknowledge_third_party_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcknowledgeThirdPartyJob", input, options)
   end
@@ -3436,7 +3438,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, create_custom_action_type_errors()}
   def create_custom_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomActionType", input, options)
   end
@@ -3455,7 +3458,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -3479,7 +3483,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_custom_action_type_errors()}
   def delete_custom_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomActionType", input, options)
   end
@@ -3493,7 +3498,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -3515,7 +3521,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebhook", input, options)
   end
@@ -3537,7 +3544,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, deregister_webhook_with_third_party_errors()}
   def deregister_webhook_with_third_party(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterWebhookWithThirdParty", input, options)
   end
@@ -3552,7 +3560,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, disable_stage_transition_errors()}
   def disable_stage_transition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableStageTransition", input, options)
   end
@@ -3566,7 +3575,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, enable_stage_transition_errors()}
   def enable_stage_transition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableStageTransition", input, options)
   end
@@ -3585,7 +3595,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_action_type_errors()}
   def get_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetActionType", input, options)
   end
@@ -3607,7 +3618,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_job_details_errors()}
   def get_job_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobDetails", input, options)
   end
@@ -3626,7 +3638,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_errors()}
   def get_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipeline", input, options)
   end
@@ -3642,7 +3655,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_execution_errors()}
   def get_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipelineExecution", input, options)
   end
@@ -3661,7 +3675,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_state_errors()}
   def get_pipeline_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipelineState", input, options)
   end
@@ -3684,7 +3699,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_third_party_job_details_errors()}
   def get_third_party_job_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetThirdPartyJobDetails", input, options)
   end
@@ -3698,7 +3714,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_action_executions_errors()}
   def list_action_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActionExecutions", input, options)
   end
@@ -3713,7 +3730,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_action_types_errors()}
   def list_action_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActionTypes", input, options)
   end
@@ -3731,7 +3749,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_deploy_action_execution_targets_errors()}
   def list_deploy_action_execution_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeployActionExecutionTargets", input, options)
   end
@@ -3751,7 +3770,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutions", input, options)
   end
@@ -3765,7 +3785,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -3781,7 +3802,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_rule_executions_errors()}
   def list_rule_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleExecutions", input, options)
   end
@@ -3800,7 +3822,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_rule_types_errors()}
   def list_rule_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleTypes", input, options)
   end
@@ -3815,7 +3838,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3835,7 +3859,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_webhooks_errors()}
   def list_webhooks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebhooks", input, options)
   end
@@ -3853,7 +3878,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, override_stage_condition_errors()}
   def override_stage_condition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OverrideStageCondition", input, options)
   end
@@ -3877,7 +3903,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, poll_for_jobs_errors()}
   def poll_for_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForJobs", input, options)
   end
@@ -3898,7 +3925,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, poll_for_third_party_jobs_errors()}
   def poll_for_third_party_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForThirdPartyJobs", input, options)
   end
@@ -3913,7 +3941,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_action_revision_errors()}
   def put_action_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutActionRevision", input, options)
   end
@@ -3930,7 +3959,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_approval_result_errors()}
   def put_approval_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutApprovalResult", input, options)
   end
@@ -3947,7 +3977,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_job_failure_result_errors()}
   def put_job_failure_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutJobFailureResult", input, options)
   end
@@ -3964,7 +3995,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_job_success_result_errors()}
   def put_job_success_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutJobSuccessResult", input, options)
   end
@@ -3985,7 +4017,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_third_party_job_failure_result_errors()}
   def put_third_party_job_failure_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutThirdPartyJobFailureResult", input, options)
   end
@@ -4006,7 +4039,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_third_party_job_success_result_errors()}
   def put_third_party_job_success_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutThirdPartyJobSuccessResult", input, options)
   end
@@ -4045,7 +4079,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_webhook_errors()}
   def put_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWebhook", input, options)
   end
@@ -4065,7 +4100,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, register_webhook_with_third_party_errors()}
   def register_webhook_with_third_party(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterWebhookWithThirdParty", input, options)
   end
@@ -4094,7 +4130,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, retry_stage_execution_errors()}
   def retry_stage_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryStageExecution", input, options)
   end
@@ -4108,7 +4145,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, rollback_stage_errors()}
   def rollback_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RollbackStage", input, options)
   end
@@ -4125,7 +4163,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPipelineExecution", input, options)
   end
@@ -4148,7 +4187,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopPipelineExecution", input, options)
   end
@@ -4165,7 +4205,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4179,7 +4220,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4199,7 +4241,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, update_action_type_errors()}
   def update_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateActionType", input, options)
   end
@@ -4219,7 +4262,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipeline", input, options)
   end

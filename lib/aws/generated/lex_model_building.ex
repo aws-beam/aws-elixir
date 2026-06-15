@@ -19,129 +19,67 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      builtin_slot_type_metadata() :: %{
-        "signature" => String.t() | atom(),
-        "supportedLocales" => list(list(any())())
+      get_export_response() :: %{
+        "exportStatus" => list(any()),
+        "exportType" => list(any()),
+        "failureReason" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourceType" => list(any()),
+        "url" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type builtin_slot_type_metadata() :: %{(String.t() | atom()) => any()}
+  @type get_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_slot_types_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "slotTypes" => list(slot_type_metadata())
-      }
+      get_slot_type_request() :: %{}
 
   """
-  @type get_slot_types_response() :: %{(String.t() | atom()) => any()}
+  @type get_slot_type_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      put_bot_request() :: %{
-        optional("abortStatement") => statement(),
-        optional("checksum") => String.t() | atom(),
-        optional("clarificationPrompt") => prompt(),
-        optional("createVersion") => boolean(),
-        optional("description") => String.t() | atom(),
-        optional("detectSentiment") => boolean(),
-        optional("enableModelImprovements") => boolean(),
-        optional("idleSessionTTLInSeconds") => integer(),
-        optional("intents") => list(intent()),
-        optional("nluIntentConfidenceThreshold") => float(),
-        optional("processBehavior") => list(any()),
-        optional("tags") => list(tag()),
-        optional("voiceId") => String.t() | atom(),
-        required("childDirected") => boolean(),
-        required("locale") => list(any())
+      conversation_logs_response() :: %{
+        "iamRoleArn" => String.t() | atom(),
+        "logSettings" => list(log_settings_response())
       }
 
   """
-  @type put_bot_request() :: %{(String.t() | atom()) => any()}
+  @type conversation_logs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_channel_associations_response() :: %{
-        "botChannelAssociations" => list(bot_channel_association()),
+      get_bot_aliases_response() :: %{
+        "BotAliases" => list(bot_alias_metadata()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_bot_channel_associations_response() :: %{(String.t() | atom()) => any()}
+  @type get_bot_aliases_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_builtin_intents_request() :: %{
-        optional("locale") => list(any()),
+      get_migrations_request() :: %{
         optional("maxResults") => integer(),
+        optional("migrationStatusEquals") => list(any()),
         optional("nextToken") => String.t() | atom(),
-        optional("signatureContains") => String.t() | atom()
+        optional("sortByAttribute") => list(any()),
+        optional("sortByOrder") => list(any()),
+        optional("v1BotNameContains") => String.t() | atom()
       }
 
   """
-  @type get_builtin_intents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fulfillment_activity() :: %{
-        "codeHook" => code_hook(),
-        "type" => list(any())
-      }
-
-  """
-  @type fulfillment_activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      migration_summary() :: %{
-        "migrationId" => String.t() | atom(),
-        "migrationStatus" => list(any()),
-        "migrationStrategy" => list(any()),
-        "migrationTimestamp" => non_neg_integer(),
-        "v1BotLocale" => list(any()),
-        "v1BotName" => String.t() | atom(),
-        "v1BotVersion" => String.t() | atom(),
-        "v2BotId" => String.t() | atom(),
-        "v2BotRole" => String.t() | atom()
-      }
-
-  """
-  @type migration_summary() :: %{(String.t() | atom()) => any()}
+  @type get_migrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -167,373 +105,64 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      resource_reference() :: %{
-        "name" => String.t() | atom(),
-        "version" => String.t() | atom()
+      get_slot_types_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type resource_reference() :: %{(String.t() | atom()) => any()}
+  @type get_slot_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_builtin_slot_types_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "slotTypes" => list(builtin_slot_type_metadata())
-      }
+      delete_utterances_request() :: %{}
 
   """
-  @type get_builtin_slot_types_response() :: %{(String.t() | atom()) => any()}
+  @type delete_utterances_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_slot_type_response() :: %{
-        "checksum" => String.t() | atom(),
-        "createVersion" => boolean(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "enumerationValues" => list(enumeration_value()),
-        "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "parentSlotTypeSignature" => String.t() | atom(),
-        "slotTypeConfigurations" => list(slot_type_configuration()),
-        "valueSelectionStrategy" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type put_slot_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_response() :: %{
-        "createdDate" => non_neg_integer(),
-        "failureReason" => list(String.t() | atom()),
-        "importId" => String.t() | atom(),
-        "importStatus" => list(any()),
-        "mergeStrategy" => list(any()),
-        "name" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-
-  """
-  @type get_import_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_request() :: %{}
-
-  """
-  @type get_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_in_use_exception() :: %{
-        "exampleReference" => resource_reference(),
-        "referenceType" => list(any())
-      }
-
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_migration_request() :: %{
-        required("migrationStrategy") => list(any()),
-        required("v1BotName") => String.t() | atom(),
-        required("v1BotVersion") => String.t() | atom(),
-        required("v2BotName") => String.t() | atom(),
-        required("v2BotRole") => String.t() | atom()
-      }
-
-  """
-  @type start_migration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_slot_type_version_response() :: %{
-        "checksum" => String.t() | atom(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "enumerationValues" => list(enumeration_value()),
-        "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "parentSlotTypeSignature" => String.t() | atom(),
-        "slotTypeConfigurations" => list(slot_type_configuration()),
-        "valueSelectionStrategy" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type create_slot_type_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_settings_request() :: %{
+      log_settings_response() :: %{
         "destination" => list(any()),
         "kmsKeyArn" => String.t() | atom(),
         "logType" => list(any()),
-        "resourceArn" => String.t() | atom()
+        "resourceArn" => String.t() | atom(),
+        "resourcePrefix" => String.t() | atom()
       }
 
   """
-  @type log_settings_request() :: %{(String.t() | atom()) => any()}
+  @type log_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_bot_request() :: %{}
-
-  """
-  @type delete_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_response() :: %{
-        "abortStatement" => statement(),
-        "checksum" => String.t() | atom(),
-        "childDirected" => boolean(),
-        "clarificationPrompt" => prompt(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "detectSentiment" => boolean(),
-        "enableModelImprovements" => boolean(),
-        "failureReason" => String.t() | atom(),
-        "idleSessionTTLInSeconds" => integer(),
-        "intents" => list(intent()),
-        "lastUpdatedDate" => non_neg_integer(),
-        "locale" => list(any()),
-        "name" => String.t() | atom(),
-        "nluIntentConfidenceThreshold" => float(),
-        "status" => list(any()),
-        "version" => String.t() | atom(),
-        "voiceId" => String.t() | atom()
-      }
-
-  """
-  @type get_bot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      follow_up_prompt() :: %{
-        "prompt" => prompt(),
-        "rejectionStatement" => statement()
-      }
-
-  """
-  @type follow_up_prompt() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_context() :: %{
-        "name" => String.t() | atom(),
-        "timeToLiveInSeconds" => integer(),
-        "turnsToLive" => integer()
-      }
-
-  """
-  @type output_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slot() :: %{
-        "defaultValueSpec" => slot_default_value_spec(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "obfuscationSetting" => list(any()),
-        "priority" => integer(),
-        "responseCard" => String.t() | atom(),
-        "sampleUtterances" => list(String.t() | atom()),
-        "slotConstraint" => list(any()),
-        "slotType" => String.t() | atom(),
-        "slotTypeVersion" => String.t() | atom(),
-        "valueElicitationPrompt" => prompt()
-      }
-
-  """
-  @type slot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_builtin_slot_types_request() :: %{
-        optional("locale") => list(any()),
+      get_intents_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("signatureContains") => String.t() | atom()
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_builtin_slot_types_request() :: %{(String.t() | atom()) => any()}
+  @type get_intents_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_bot_version_request() :: %{
-        optional("checksum") => String.t() | atom()
+      get_bot_aliases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type create_bot_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_channel_association_response() :: %{
-        "botAlias" => String.t() | atom(),
-        "botConfiguration" => map(),
-        "botName" => String.t() | atom(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "failureReason" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type get_bot_channel_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_builtin_intent_response() :: %{
-        "signature" => String.t() | atom(),
-        "slots" => list(builtin_intent_slot()),
-        "supportedLocales" => list(list(any())())
-      }
-
-  """
-  @type get_builtin_intent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_slot_type_version_request() :: %{
-        optional("checksum") => String.t() | atom()
-      }
-
-  """
-  @type create_slot_type_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_slot_type_versions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "slotTypes" => list(slot_type_metadata())
-      }
-
-  """
-  @type get_slot_type_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_slot_type_version_request() :: %{}
-
-  """
-  @type delete_slot_type_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      statement() :: %{
-        "messages" => list(message()),
-        "responseCard" => String.t() | atom()
-      }
-
-  """
-  @type statement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bots_response() :: %{
-        "bots" => list(bot_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_bots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      builtin_intent_metadata() :: %{
-        "signature" => String.t() | atom(),
-        "supportedLocales" => list(list(any())())
-      }
-
-  """
-  @type builtin_intent_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_migrations_response() :: %{
-        "migrationSummaries" => list(migration_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_migrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type get_bot_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,85 +186,29 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      bot_channel_association() :: %{
-        "botAlias" => String.t() | atom(),
-        "botConfiguration" => map(),
-        "botName" => String.t() | atom(),
+      get_import_response() :: %{
         "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "failureReason" => String.t() | atom(),
+        "failureReason" => list(String.t() | atom()),
+        "importId" => String.t() | atom(),
+        "importStatus" => list(any()),
+        "mergeStrategy" => list(any()),
         "name" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
+        "resourceType" => list(any())
       }
 
   """
-  @type bot_channel_association() :: %{(String.t() | atom()) => any()}
+  @type get_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_migrations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("migrationStatusEquals") => list(any()),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortByAttribute") => list(any()),
-        optional("sortByOrder") => list(any()),
-        optional("v1BotNameContains") => String.t() | atom()
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type get_migrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      intent() :: %{
-        "intentName" => String.t() | atom(),
-        "intentVersion" => String.t() | atom()
-      }
-
-  """
-  @type intent() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_intents_response() :: %{
-        "intents" => list(intent_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_intents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_intent_versions_response() :: %{
-        "intents" => list(intent_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_intent_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kendra_configuration() :: %{
-        "kendraIndex" => String.t() | atom(),
-        "queryFilterString" => String.t() | atom(),
-        "role" => String.t() | atom()
-      }
-
-  """
-  @type kendra_configuration() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,104 +223,49 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      slot_type_regex_configuration() :: %{
-        "pattern" => String.t() | atom()
-      }
+      delete_bot_alias_request() :: %{}
 
   """
-  @type slot_type_regex_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_bot_alias_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_intent_response() :: %{
+      statement() :: %{
+        "messages" => list(message()),
+        "responseCard" => String.t() | atom()
+      }
+
+  """
+  @type statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bot_version_response() :: %{
+        "abortStatement" => statement(),
         "checksum" => String.t() | atom(),
-        "conclusionStatement" => statement(),
-        "confirmationPrompt" => prompt(),
+        "childDirected" => boolean(),
+        "clarificationPrompt" => prompt(),
         "createdDate" => non_neg_integer(),
         "description" => String.t() | atom(),
-        "dialogCodeHook" => code_hook(),
-        "followUpPrompt" => follow_up_prompt(),
-        "fulfillmentActivity" => fulfillment_activity(),
-        "inputContexts" => list(input_context()),
-        "kendraConfiguration" => kendra_configuration(),
+        "detectSentiment" => boolean(),
+        "enableModelImprovements" => boolean(),
+        "failureReason" => String.t() | atom(),
+        "idleSessionTTLInSeconds" => integer(),
+        "intents" => list(intent()),
         "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "outputContexts" => list(output_context()),
-        "parentIntentSignature" => String.t() | atom(),
-        "rejectionStatement" => statement(),
-        "sampleUtterances" => list(String.t() | atom()),
-        "slots" => list(slot()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type get_intent_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bots_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_bots_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_hook() :: %{
-        "messageVersion" => String.t() | atom(),
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type code_hook() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bot_metadata() :: %{
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedDate" => non_neg_integer(),
+        "locale" => list(any()),
         "name" => String.t() | atom(),
         "status" => list(any()),
-        "version" => String.t() | atom()
+        "version" => String.t() | atom(),
+        "voiceId" => String.t() | atom()
       }
 
   """
-  @type bot_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conversation_logs_response() :: %{
-        "iamRoleArn" => String.t() | atom(),
-        "logSettings" => list(log_settings_response())
-      }
-
-  """
-  @type conversation_logs_response() :: %{(String.t() | atom()) => any()}
+  @type create_bot_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -765,79 +283,94 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      delete_bot_version_request() :: %{}
-
-  """
-  @type delete_bot_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bot_alias_request() :: %{
+      put_slot_type_request() :: %{
         optional("checksum") => String.t() | atom(),
-        optional("conversationLogs") => conversation_logs_request(),
+        optional("createVersion") => boolean(),
         optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("botVersion") => String.t() | atom()
+        optional("enumerationValues") => list(enumeration_value()),
+        optional("parentSlotTypeSignature") => String.t() | atom(),
+        optional("slotTypeConfigurations") => list(slot_type_configuration()),
+        optional("valueSelectionStrategy") => list(any())
       }
 
   """
-  @type put_bot_alias_request() :: %{(String.t() | atom()) => any()}
+  @type put_slot_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      not_found_exception() :: %{
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_failure_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      slot_default_value_spec() :: %{
-        "defaultValueList" => list(slot_default_value())
-      }
-
-  """
-  @type slot_default_value_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_request() :: %{}
-
-  """
-  @type get_import_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
+      start_import_response() :: %{
+        "createdDate" => non_neg_integer(),
+        "importId" => String.t() | atom(),
+        "importStatus" => list(any()),
+        "mergeStrategy" => list(any()),
+        "name" => String.t() | atom(),
+        "resourceType" => list(any()),
         "tags" => list(tag())
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type start_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_utterances_view_response() :: %{
-        "botName" => String.t() | atom(),
-        "utterances" => list(utterance_list())
+      code_hook() :: %{
+        "messageVersion" => String.t() | atom(),
+        "uri" => String.t() | atom()
       }
 
   """
-  @type get_utterances_view_response() :: %{(String.t() | atom()) => any()}
+  @type code_hook() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      follow_up_prompt() :: %{
+        "prompt" => prompt(),
+        "rejectionStatement" => statement()
+      }
+
+  """
+  @type follow_up_prompt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fulfillment_activity() :: %{
+        "codeHook" => code_hook(),
+        "type" => list(any())
+      }
+
+  """
+  @type fulfillment_activity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -873,67 +406,13 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      get_intent_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      enumeration_value() :: %{
+        "synonyms" => list(String.t() | atom()),
+        "value" => String.t() | atom()
       }
 
   """
-  @type get_intent_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_bot_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_slot_type_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_slot_type_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_alias_request() :: %{}
-
-  """
-  @type get_bot_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_intent_request() :: %{}
-
-  """
-  @type get_intent_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_aliases_response() :: %{
-        "BotAliases" => list(bot_alias_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_bot_aliases_response() :: %{(String.t() | atom()) => any()}
+  @type enumeration_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -959,13 +438,163 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      utterance_list() :: %{
-        "botVersion" => String.t() | atom(),
-        "utterances" => list(utterance_data())
+      utterance_data() :: %{
+        "count" => integer(),
+        "distinctUsers" => integer(),
+        "firstUtteredDate" => non_neg_integer(),
+        "lastUtteredDate" => non_neg_integer(),
+        "utteranceString" => String.t() | atom()
       }
 
   """
-  @type utterance_list() :: %{(String.t() | atom()) => any()}
+  @type utterance_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bot_alias_response() :: %{
+        "botName" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
+        "conversationLogs" => conversation_logs_response(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+
+  """
+  @type put_bot_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_utterances_view_request() :: %{
+        required("botVersions") => list(String.t() | atom()),
+        required("statusType") => list(any())
+      }
+
+  """
+  @type get_utterances_view_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bot_alias_request() :: %{
+        optional("checksum") => String.t() | atom(),
+        optional("conversationLogs") => conversation_logs_request(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("botVersion") => String.t() | atom()
+      }
+
+  """
+  @type put_bot_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_default_value() :: %{
+        "defaultValue" => String.t() | atom()
+      }
+
+  """
+  @type slot_default_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_bot_request() :: %{
+        optional("abortStatement") => statement(),
+        optional("checksum") => String.t() | atom(),
+        optional("clarificationPrompt") => prompt(),
+        optional("createVersion") => boolean(),
+        optional("description") => String.t() | atom(),
+        optional("detectSentiment") => boolean(),
+        optional("enableModelImprovements") => boolean(),
+        optional("idleSessionTTLInSeconds") => integer(),
+        optional("intents") => list(intent()),
+        optional("nluIntentConfidenceThreshold") => float(),
+        optional("processBehavior") => list(any()),
+        optional("tags") => list(tag()),
+        optional("voiceId") => String.t() | atom(),
+        required("childDirected") => boolean(),
+        required("locale") => list(any())
+      }
+
+  """
+  @type put_bot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intents_response() :: %{
+        "intents" => list(intent_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_intents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_request() :: %{}
+
+  """
+  @type get_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_type_configuration() :: %{
+        "regexConfiguration" => slot_type_regex_configuration()
+      }
+
+  """
+  @type slot_type_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bots_response() :: %{
+        "bots" => list(bot_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_bots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slot_type_version_request() :: %{}
+
+  """
+  @type delete_slot_type_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_bot_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -975,36 +604,6 @@ defmodule AWS.LexModelBuilding do
 
   """
   @type get_builtin_intent_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bot_alias_request() :: %{}
-
-  """
-  @type delete_bot_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_bot_channel_association_request() :: %{}
-
-  """
-  @type delete_bot_channel_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_versions_response() :: %{
-        "bots" => list(bot_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_bot_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,14 +634,271 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      get_intents_request() :: %{
+      migration_summary() :: %{
+        "migrationId" => String.t() | atom(),
+        "migrationStatus" => list(any()),
+        "migrationStrategy" => list(any()),
+        "migrationTimestamp" => non_neg_integer(),
+        "v1BotLocale" => list(any()),
+        "v1BotName" => String.t() | atom(),
+        "v1BotVersion" => String.t() | atom(),
+        "v2BotId" => String.t() | atom(),
+        "v2BotRole" => String.t() | atom()
+      }
+
+  """
+  @type migration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_default_value_spec() :: %{
+        "defaultValueList" => list(slot_default_value())
+      }
+
+  """
+  @type slot_default_value_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_intents_response() :: %{
+        "intents" => list(builtin_intent_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_builtin_intents_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversation_logs_request() :: %{
+        "iamRoleArn" => String.t() | atom(),
+        "logSettings" => list(log_settings_request())
+      }
+
+  """
+  @type conversation_logs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_request() :: %{}
+
+  """
+  @type get_import_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      builtin_intent_slot() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type builtin_intent_slot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_alias_request() :: %{}
+
+  """
+  @type get_bot_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_intents_request() :: %{
+        optional("locale") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("signatureContains") => String.t() | atom()
+      }
+
+  """
+  @type get_builtin_intents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_slot_type_version_request() :: %{
+        optional("checksum") => String.t() | atom()
+      }
+
+  """
+  @type create_slot_type_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intent_metadata() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type intent_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_type_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_slot_type_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot() :: %{
+        "defaultValueSpec" => slot_default_value_spec(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "obfuscationSetting" => list(any()),
+        "priority" => integer(),
+        "responseCard" => String.t() | atom(),
+        "sampleUtterances" => list(String.t() | atom()),
+        "slotConstraint" => list(any()),
+        "slotType" => String.t() | atom(),
+        "slotTypeVersion" => String.t() | atom(),
+        "valueElicitationPrompt" => prompt()
+      }
+
+  """
+  @type slot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_reference() :: %{
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type resource_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_slot_type_version_response() :: %{
+        "checksum" => String.t() | atom(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "enumerationValues" => list(enumeration_value()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "parentSlotTypeSignature" => String.t() | atom(),
+        "slotTypeConfigurations" => list(slot_type_configuration()),
+        "valueSelectionStrategy" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type create_slot_type_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_slot_type_request() :: %{}
+
+  """
+  @type delete_slot_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      log_settings_request() :: %{
+        "destination" => list(any()),
+        "kmsKeyArn" => String.t() | atom(),
+        "logType" => list(any()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type log_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      precondition_failed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bots_request() :: %{
         optional("maxResults") => integer(),
         optional("nameContains") => String.t() | atom(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type get_intents_request() :: %{(String.t() | atom()) => any()}
+  @type get_bots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_migration_request() :: %{
+        required("migrationStrategy") => list(any()),
+        required("v1BotName") => String.t() | atom(),
+        required("v1BotVersion") => String.t() | atom(),
+        required("v2BotName") => String.t() | atom(),
+        required("v2BotRole") => String.t() | atom()
+      }
+
+  """
+  @type start_migration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1062,71 +918,498 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      put_slot_type_request() :: %{
-        optional("checksum") => String.t() | atom(),
-        optional("createVersion") => boolean(),
-        optional("description") => String.t() | atom(),
-        optional("enumerationValues") => list(enumeration_value()),
-        optional("parentSlotTypeSignature") => String.t() | atom(),
-        optional("slotTypeConfigurations") => list(slot_type_configuration()),
-        optional("valueSelectionStrategy") => list(any())
+      utterance_list() :: %{
+        "botVersion" => String.t() | atom(),
+        "utterances" => list(utterance_data())
       }
 
   """
-  @type put_slot_type_request() :: %{(String.t() | atom()) => any()}
+  @type utterance_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_migration_response() :: %{
-        "migrationId" => String.t() | atom(),
-        "migrationStrategy" => list(any()),
-        "migrationTimestamp" => non_neg_integer(),
-        "v1BotLocale" => list(any()),
-        "v1BotName" => String.t() | atom(),
-        "v1BotVersion" => String.t() | atom(),
-        "v2BotId" => String.t() | atom(),
-        "v2BotRole" => String.t() | atom()
+      get_builtin_intent_response() :: %{
+        "signature" => String.t() | atom(),
+        "slots" => list(builtin_intent_slot()),
+        "supportedLocales" => list(list(any())())
       }
 
   """
-  @type start_migration_response() :: %{(String.t() | atom()) => any()}
+  @type get_builtin_intent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conversation_logs_request() :: %{
-        "iamRoleArn" => String.t() | atom(),
-        "logSettings" => list(log_settings_request())
+      resource_in_use_exception() :: %{
+        "exampleReference" => resource_reference(),
+        "referenceType" => list(any())
       }
 
   """
-  @type conversation_logs_request() :: %{(String.t() | atom()) => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      slot_type_configuration() :: %{
-        "regexConfiguration" => slot_type_regex_configuration()
+      get_slot_type_versions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "slotTypes" => list(slot_type_metadata())
       }
 
   """
-  @type slot_type_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_slot_type_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_builtin_intents_response() :: %{
-        "intents" => list(builtin_intent_metadata()),
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_context() :: %{
+        "name" => String.t() | atom(),
+        "timeToLiveInSeconds" => integer(),
+        "turnsToLive" => integer()
+      }
+
+  """
+  @type output_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      builtin_intent_metadata() :: %{
+        "signature" => String.t() | atom(),
+        "supportedLocales" => list(list(any())())
+      }
+
+  """
+  @type builtin_intent_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intent_version_request() :: %{
+        optional("checksum") => String.t() | atom()
+      }
+
+  """
+  @type create_intent_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bot_version_request() :: %{
+        optional("checksum") => String.t() | atom()
+      }
+
+  """
+  @type create_bot_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_alias_response() :: %{
+        "botName" => String.t() | atom(),
+        "botVersion" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
+        "conversationLogs" => conversation_logs_response(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type get_bot_alias_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_slot_types_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "slotTypes" => list(slot_type_metadata())
+      }
+
+  """
+  @type get_slot_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      builtin_slot_type_metadata() :: %{
+        "signature" => String.t() | atom(),
+        "supportedLocales" => list(list(any())())
+      }
+
+  """
+  @type builtin_slot_type_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_type_regex_configuration() :: %{
+        "pattern" => String.t() | atom()
+      }
+
+  """
+  @type slot_type_regex_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intent_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_intent_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_channel_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_bot_channel_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot_channel_association() :: %{
+        "botAlias" => String.t() | atom(),
+        "botConfiguration" => map(),
+        "botName" => String.t() | atom(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "failureReason" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type bot_channel_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_channel_associations_response() :: %{
+        "botChannelAssociations" => list(bot_channel_association()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_builtin_intents_response() :: %{(String.t() | atom()) => any()}
+  @type get_bot_channel_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_response() :: %{
+        "abortStatement" => statement(),
+        "checksum" => String.t() | atom(),
+        "childDirected" => boolean(),
+        "clarificationPrompt" => prompt(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "detectSentiment" => boolean(),
+        "enableModelImprovements" => boolean(),
+        "failureReason" => String.t() | atom(),
+        "idleSessionTTLInSeconds" => integer(),
+        "intents" => list(intent()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "locale" => list(any()),
+        "name" => String.t() | atom(),
+        "nluIntentConfidenceThreshold" => float(),
+        "status" => list(any()),
+        "version" => String.t() | atom(),
+        "voiceId" => String.t() | atom()
+      }
+
+  """
+  @type get_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_slot_types_request() :: %{
+        optional("locale") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("signatureContains") => String.t() | atom()
+      }
+
+  """
+  @type get_builtin_slot_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intent_versions_response() :: %{
+        "intents" => list(intent_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_intent_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_channel_association_request() :: %{}
+
+  """
+  @type get_bot_channel_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_versions_response() :: %{
+        "bots" => list(bot_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_bot_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bot_metadata() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type bot_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt() :: %{
+        "maxAttempts" => integer(),
+        "messages" => list(message()),
+        "responseCard" => String.t() | atom()
+      }
+
+  """
+  @type prompt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_slot_type_response() :: %{
+        "checksum" => String.t() | atom(),
+        "createVersion" => boolean(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "enumerationValues" => list(enumeration_value()),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "parentSlotTypeSignature" => String.t() | atom(),
+        "slotTypeConfigurations" => list(slot_type_configuration()),
+        "valueSelectionStrategy" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type put_slot_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_alert() :: %{
+        "details" => list(String.t() | atom()),
+        "message" => String.t() | atom(),
+        "referenceURLs" => list(String.t() | atom()),
+        "type" => list(any())
+      }
+
+  """
+  @type migration_alert() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intent_request() :: %{}
+
+  """
+  @type delete_intent_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migrations_response() :: %{
+        "migrationSummaries" => list(migration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_migrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_migration_request() :: %{}
+
+  """
+  @type get_migration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bot_request() :: %{}
+
+  """
+  @type delete_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bot_version_request() :: %{}
+
+  """
+  @type delete_bot_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kendra_configuration() :: %{
+        "kendraIndex" => String.t() | atom(),
+        "queryFilterString" => String.t() | atom(),
+        "role" => String.t() | atom()
+      }
+
+  """
+  @type kendra_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intent_response() :: %{
+        "checksum" => String.t() | atom(),
+        "conclusionStatement" => statement(),
+        "confirmationPrompt" => prompt(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "dialogCodeHook" => code_hook(),
+        "followUpPrompt" => follow_up_prompt(),
+        "fulfillmentActivity" => fulfillment_activity(),
+        "inputContexts" => list(input_context()),
+        "kendraConfiguration" => kendra_configuration(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "outputContexts" => list(output_context()),
+        "parentIntentSignature" => String.t() | atom(),
+        "rejectionStatement" => statement(),
+        "sampleUtterances" => list(String.t() | atom()),
+        "slots" => list(slot()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type get_intent_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1161,65 +1444,34 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      create_intent_version_request() :: %{
-        optional("checksum") => String.t() | atom()
+      get_bot_channel_association_response() :: %{
+        "botAlias" => String.t() | atom(),
+        "botConfiguration" => map(),
+        "botName" => String.t() | atom(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "failureReason" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
       }
 
   """
-  @type create_intent_version_request() :: %{(String.t() | atom()) => any()}
+  @type get_bot_channel_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      start_import_request() :: %{
+        optional("tags") => list(tag()),
+        required("mergeStrategy") => list(any()),
+        required("payload") => binary(),
+        required("resourceType") => list(any())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_channel_association_request() :: %{}
-
-  """
-  @type get_bot_channel_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      builtin_intent_slot() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type builtin_intent_slot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_slot_types_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_slot_types_request() :: %{(String.t() | atom()) => any()}
+  @type start_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1236,94 +1488,10 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      delete_slot_type_request() :: %{}
+      delete_bot_channel_association_request() :: %{}
 
   """
-  @type delete_slot_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      log_settings_response() :: %{
-        "destination" => list(any()),
-        "kmsKeyArn" => String.t() | atom(),
-        "logType" => list(any()),
-        "resourceArn" => String.t() | atom(),
-        "resourcePrefix" => String.t() | atom()
-      }
-
-  """
-  @type log_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_migration_request() :: %{}
-
-  """
-  @type get_migration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_response() :: %{
-        "exportStatus" => list(any()),
-        "exportType" => list(any()),
-        "failureReason" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourceType" => list(any()),
-        "url" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type get_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slot_default_value() :: %{
-        "defaultValue" => String.t() | atom()
-      }
-
-  """
-  @type slot_default_value() :: %{(String.t() | atom()) => any()}
+  @type delete_bot_channel_association_request() :: %{}
 
   @typedoc """
 
@@ -1357,243 +1525,34 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      get_slot_type_request() :: %{}
-
-  """
-  @type get_slot_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      intent_metadata() :: %{
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "version" => String.t() | atom()
+      intent() :: %{
+        "intentName" => String.t() | atom(),
+        "intentVersion" => String.t() | atom()
       }
 
   """
-  @type intent_metadata() :: %{(String.t() | atom()) => any()}
+  @type intent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      utterance_data() :: %{
-        "count" => integer(),
-        "distinctUsers" => integer(),
-        "firstUtteredDate" => non_neg_integer(),
-        "lastUtteredDate" => non_neg_integer(),
-        "utteranceString" => String.t() | atom()
-      }
-
-  """
-  @type utterance_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_utterances_request() :: %{}
-
-  """
-  @type delete_utterances_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      enumeration_value() :: %{
-        "synonyms" => list(String.t() | atom()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type enumeration_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_utterances_view_request() :: %{
-        required("botVersions") => list(String.t() | atom()),
-        required("statusType") => list(any())
-      }
-
-  """
-  @type get_utterances_view_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_bot_alias_response() :: %{
+      get_utterances_view_response() :: %{
         "botName" => String.t() | atom(),
-        "botVersion" => String.t() | atom(),
-        "checksum" => String.t() | atom(),
-        "conversationLogs" => conversation_logs_response(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "tags" => list(tag())
+        "utterances" => list(utterance_list())
       }
 
   """
-  @type put_bot_alias_response() :: %{(String.t() | atom()) => any()}
+  @type get_utterances_view_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      precondition_failed_exception() :: %{
-        "message" => String.t() | atom()
-      }
+      get_intent_request() :: %{}
 
   """
-  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      migration_alert() :: %{
-        "details" => list(String.t() | atom()),
-        "message" => String.t() | atom(),
-        "referenceURLs" => list(String.t() | atom()),
-        "type" => list(any())
-      }
-
-  """
-  @type migration_alert() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_intent_request() :: %{}
-
-  """
-  @type delete_intent_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_aliases_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_bot_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_alias_response() :: %{
-        "botName" => String.t() | atom(),
-        "botVersion" => String.t() | atom(),
-        "checksum" => String.t() | atom(),
-        "conversationLogs" => conversation_logs_response(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type get_bot_alias_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_request() :: %{
-        optional("tags") => list(tag()),
-        required("mergeStrategy") => list(any()),
-        required("payload") => binary(),
-        required("resourceType") => list(any())
-      }
-
-  """
-  @type start_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slot_type_metadata() :: %{
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type slot_type_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_response() :: %{
-        "createdDate" => non_neg_integer(),
-        "importId" => String.t() | atom(),
-        "importStatus" => list(any()),
-        "mergeStrategy" => list(any()),
-        "name" => String.t() | atom(),
-        "resourceType" => list(any()),
-        "tags" => list(tag())
-      }
-
-  """
-  @type start_import_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt() :: %{
-        "maxAttempts" => integer(),
-        "messages" => list(message()),
-        "responseCard" => String.t() | atom()
-      }
-
-  """
-  @type prompt() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bot_version_response() :: %{
-        "abortStatement" => statement(),
-        "checksum" => String.t() | atom(),
-        "childDirected" => boolean(),
-        "clarificationPrompt" => prompt(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "detectSentiment" => boolean(),
-        "enableModelImprovements" => boolean(),
-        "failureReason" => String.t() | atom(),
-        "idleSessionTTLInSeconds" => integer(),
-        "intents" => list(intent()),
-        "lastUpdatedDate" => non_neg_integer(),
-        "locale" => list(any()),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "version" => String.t() | atom(),
-        "voiceId" => String.t() | atom()
-      }
-
-  """
-  @type create_bot_version_response() :: %{(String.t() | atom()) => any()}
+  @type get_intent_request() :: %{}
 
   @typedoc """
 
@@ -1612,273 +1571,314 @@ defmodule AWS.LexModelBuilding do
 
   ## Example:
 
-      get_bot_channel_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
+      start_migration_response() :: %{
+        "migrationId" => String.t() | atom(),
+        "migrationStrategy" => list(any()),
+        "migrationTimestamp" => non_neg_integer(),
+        "v1BotLocale" => list(any()),
+        "v1BotName" => String.t() | atom(),
+        "v1BotVersion" => String.t() | atom(),
+        "v2BotId" => String.t() | atom(),
+        "v2BotRole" => String.t() | atom()
       }
 
   """
-  @type get_bot_channel_associations_request() :: %{(String.t() | atom()) => any()}
+  @type start_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_builtin_slot_types_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "slotTypes" => list(builtin_slot_type_metadata())
+      }
+
+  """
+  @type get_builtin_slot_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slot_type_metadata() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type slot_type_metadata() :: %{(String.t() | atom()) => any()}
 
   @type create_bot_version_errors() ::
-          precondition_failed_exception()
-          | bad_request_exception()
-          | limit_exceeded_exception()
+          bad_request_exception()
           | not_found_exception()
           | conflict_exception()
+          | precondition_failed_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type create_intent_version_errors() ::
-          precondition_failed_exception()
-          | bad_request_exception()
-          | limit_exceeded_exception()
+          bad_request_exception()
           | not_found_exception()
           | conflict_exception()
+          | precondition_failed_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type create_slot_type_version_errors() ::
-          precondition_failed_exception()
-          | bad_request_exception()
-          | limit_exceeded_exception()
+          bad_request_exception()
           | not_found_exception()
           | conflict_exception()
+          | precondition_failed_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_bot_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_bot_alias_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_bot_channel_association_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_bot_version_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_intent_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_intent_version_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_slot_type_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_slot_type_version_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | resource_in_use_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type delete_utterances_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_bot_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_bot_alias_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_bot_aliases_errors() ::
-          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | limit_exceeded_exception()
 
   @type get_bot_channel_association_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_bot_channel_associations_errors() ::
-          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | limit_exceeded_exception()
 
   @type get_bot_versions_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_bots_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_builtin_intent_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_builtin_intents_errors() ::
-          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | limit_exceeded_exception()
 
   @type get_builtin_slot_types_errors() ::
-          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | limit_exceeded_exception()
 
   @type get_export_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_import_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_intent_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_intent_versions_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_intents_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_migration_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_migrations_errors() ::
-          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | limit_exceeded_exception()
 
   @type get_slot_type_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_slot_type_versions_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_slot_types_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type get_utterances_view_errors() ::
-          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | limit_exceeded_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type put_bot_errors() ::
-          precondition_failed_exception()
-          | bad_request_exception()
-          | limit_exceeded_exception()
+          bad_request_exception()
           | conflict_exception()
+          | precondition_failed_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type put_bot_alias_errors() ::
-          precondition_failed_exception()
-          | bad_request_exception()
-          | limit_exceeded_exception()
+          bad_request_exception()
           | conflict_exception()
+          | precondition_failed_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type put_intent_errors() ::
-          precondition_failed_exception()
-          | bad_request_exception()
-          | limit_exceeded_exception()
+          bad_request_exception()
           | conflict_exception()
+          | precondition_failed_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type put_slot_type_errors() ::
-          precondition_failed_exception()
-          | bad_request_exception()
-          | limit_exceeded_exception()
+          bad_request_exception()
           | conflict_exception()
+          | precondition_failed_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type start_import_errors() ::
-          bad_request_exception() | limit_exceeded_exception() | internal_failure_exception()
+          bad_request_exception() | internal_failure_exception() | limit_exceeded_exception()
 
   @type start_migration_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
           | not_found_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
           | internal_failure_exception()
+          | limit_exceeded_exception()
 
   def metadata do
     %{

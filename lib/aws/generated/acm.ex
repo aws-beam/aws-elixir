@@ -18,133 +18,75 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      update_certificate_options_request() :: %{
+      timestamp_range() :: %{
+        "End" => non_neg_integer(),
+        "Start" => non_neg_integer()
+      }
+      
+  """
+  @type timestamp_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      distinguished_name() :: %{
+        "CommonName" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CustomAttributes" => list(custom_attribute()),
+        "DistinguishedNameQualifier" => String.t() | atom(),
+        "DomainComponents" => list(String.t() | atom()),
+        "GenerationQualifier" => String.t() | atom(),
+        "GivenName" => String.t() | atom(),
+        "Initials" => String.t() | atom(),
+        "Locality" => String.t() | atom(),
+        "Organization" => String.t() | atom(),
+        "OrganizationalUnit" => String.t() | atom(),
+        "Pseudonym" => String.t() | atom(),
+        "SerialNumber" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "Surname" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type distinguished_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resend_validation_email_request() :: %{
         required("CertificateArn") => String.t() | atom(),
-        required("Options") => certificate_options()
+        required("Domain") => String.t() | atom(),
+        required("ValidationDomain") => String.t() | atom()
       }
       
   """
-  @type update_certificate_options_request() :: %{(String.t() | atom()) => any()}
+  @type resend_validation_email_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      domain_validation_option() :: %{
-        "DomainName" => String.t() | atom(),
-        "ValidationDomain" => String.t() | atom()
-      }
-      
-  """
-  @type domain_validation_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_in_progress_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type request_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dns_name_filter() :: %{
-        "ComparisonOperator" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type dns_name_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("RevocationReason") => list(any())
-      }
-      
-  """
-  @type revoke_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_certificates_request() :: %{
-        optional("FilterStatement") => list(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
-      }
-      
-  """
-  @type search_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_certificate_response() :: %{
+      get_certificate_response() :: %{
         "Certificate" => String.t() | atom(),
-        "CertificateChain" => String.t() | atom(),
-        "PrivateKey" => String.t() | atom()
+        "CertificateChain" => String.t() | atom()
       }
       
   """
-  @type export_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_certificate_response() :: %{
-        "CertificateArn" => String.t() | atom()
-      }
-      
-  """
-  @type import_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      export_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Passphrase") => binary()
-      }
-      
-  """
-  @type export_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
+  @type get_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -164,6 +106,125 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      request_certificate_response() :: %{
+        "CertificateArn" => String.t() | atom()
+      }
+      
+  """
+  @type request_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "throttlingReasons" => list(throttling_reason())
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expiry_events_configuration() :: %{
+        "DaysBeforeExpiry" => integer()
+      }
+      
+  """
+  @type expiry_events_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_options() :: %{
+        "CertificateTransparencyLoggingPreference" => list(any()),
+        "Export" => list(any())
+      }
+      
+  """
+  @type certificate_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_search_result() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "CertificateMetadata" => list(),
+        "X509Attributes" => x509_attributes()
+      }
+      
+  """
+  @type certificate_search_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filters() :: %{
+        "exportOption" => list(any()),
+        "extendedKeyUsage" => list(list(any())()),
+        "keyTypes" => list(list(any())()),
+        "keyUsage" => list(list(any())()),
+        "managedBy" => list(any())
+      }
+      
+  """
+  @type filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_args_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_args_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       http_redirect() :: %{
         "RedirectFrom" => String.t() | atom(),
         "RedirectTo" => String.t() | atom()
@@ -176,12 +237,67 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      invalid_state_exception() :: %{
+      limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dns_name_filter() :: %{
+        "ComparisonOperator" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type dns_name_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_validation() :: %{
+        "DomainName" => String.t() | atom(),
+        "HttpRedirect" => http_redirect(),
+        "ResourceRecord" => resource_record(),
+        "ValidationDomain" => String.t() | atom(),
+        "ValidationEmails" => list(String.t() | atom()),
+        "ValidationMethod" => list(any()),
+        "ValidationStatus" => list(any())
+      }
+      
+  """
+  @type domain_validation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_certificate_request() :: %{
+        optional("CertificateArn") => String.t() | atom(),
+        optional("CertificateChain") => binary(),
+        optional("Tags") => list(tag()),
+        required("Certificate") => binary(),
+        required("PrivateKey") => binary()
+      }
+      
+  """
+  @type import_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,60 +314,6 @@ defmodule AWS.ACM do
       
   """
   @type list_certificates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_certificate_request() :: %{
-        optional("CertificateAuthorityArn") => String.t() | atom(),
-        optional("DomainValidationOptions") => list(domain_validation_option()),
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("KeyAlgorithm") => list(any()),
-        optional("ManagedBy") => list(any()),
-        optional("Options") => certificate_options(),
-        optional("SubjectAlternativeNames") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        optional("ValidationMethod") => list(any()),
-        required("DomainName") => String.t() | atom()
-      }
-      
-  """
-  @type request_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_from_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type remove_tags_from_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_arn_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_args_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_args_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,542 +349,12 @@ defmodule AWS.ACM do
 
   ## Example:
       
-      renew_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type renew_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_options() :: %{
-        "CertificateTransparencyLoggingPreference" => list(any()),
-        "Export" => list(any())
-      }
-      
-  """
-  @type certificate_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expiry_events_configuration() :: %{
-        "DaysBeforeExpiry" => integer()
-      }
-      
-  """
-  @type expiry_events_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_account_configuration_request() :: %{
-        optional("ExpiryEvents") => expiry_events_configuration(),
-        required("IdempotencyToken") => String.t() | atom()
-      }
-      
-  """
-  @type put_account_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      other_name() :: %{
-        "ObjectIdentifier" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type other_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      distinguished_name() :: %{
-        "CommonName" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "CustomAttributes" => list(custom_attribute()),
-        "DistinguishedNameQualifier" => String.t() | atom(),
-        "DomainComponents" => list(String.t() | atom()),
-        "GenerationQualifier" => String.t() | atom(),
-        "GivenName" => String.t() | atom(),
-        "Initials" => String.t() | atom(),
-        "Locality" => String.t() | atom(),
-        "Organization" => String.t() | atom(),
-        "OrganizationalUnit" => String.t() | atom(),
-        "Pseudonym" => String.t() | atom(),
-        "SerialNumber" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "Surname" => String.t() | atom(),
-        "Title" => String.t() | atom()
-      }
-      
-  """
-  @type distinguished_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_certificate_response() :: %{
-        "CertificateArn" => String.t() | atom()
-      }
-      
-  """
-  @type request_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      common_name_filter() :: %{
-        "ComparisonOperator" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type common_name_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_account_configuration_response() :: %{
-        "ExpiryEvents" => expiry_events_configuration()
-      }
-      
-  """
-  @type get_account_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resend_validation_email_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Domain") => String.t() | atom(),
-        required("ValidationDomain") => String.t() | atom()
-      }
-      
-  """
-  @type resend_validation_email_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_certificate_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_domain_validation_options_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_domain_validation_options_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_to_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type add_tags_to_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acm_certificate_metadata() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "ExportOption" => list(any()),
-        "Exported" => boolean(),
-        "ImportedAt" => non_neg_integer(),
-        "InUse" => boolean(),
-        "IssuedAt" => non_neg_integer(),
-        "ManagedBy" => list(any()),
-        "RenewalEligibility" => list(any()),
-        "RenewalStatus" => list(any()),
-        "RevokedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "ValidationMethod" => list(any())
-      }
-      
-  """
-  @type acm_certificate_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      timestamp_range() :: %{
-        "End" => non_neg_integer(),
-        "Start" => non_neg_integer()
-      }
-      
-  """
-  @type timestamp_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_certificate_request() :: %{
-        optional("CertificateArn") => String.t() | atom(),
-        optional("CertificateChain") => binary(),
-        optional("Tags") => list(tag()),
-        required("Certificate") => binary(),
-        required("PrivateKey") => binary()
-      }
-      
-  """
-  @type import_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_certificate_request() :: %{
-        required("CertificateArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_certificate_response() :: %{
-        "Certificate" => certificate_detail()
-      }
-      
-  """
-  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "throttlingReasons" => list(throttling_reason())
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      x509_attributes() :: %{
-        "ExtendedKeyUsages" => list(list(any())()),
-        "Issuer" => distinguished_name(),
-        "KeyAlgorithm" => list(any()),
-        "KeyUsages" => list(list(any())()),
-        "NotAfter" => non_neg_integer(),
-        "NotBefore" => non_neg_integer(),
-        "SerialNumber" => String.t() | atom(),
-        "Subject" => distinguished_name(),
-        "SubjectAlternativeNames" => list(list())
-      }
-      
-  """
-  @type x509_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filters() :: %{
-        "exportOption" => list(any()),
-        "extendedKeyUsage" => list(list(any())()),
-        "keyTypes" => list(list(any())()),
-        "keyUsage" => list(list(any())()),
-        "managedBy" => list(any())
-      }
-      
-  """
-  @type filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      extended_key_usage() :: %{
-        "Name" => list(any()),
-        "OID" => String.t() | atom()
-      }
-      
-  """
-  @type extended_key_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      domain_validation() :: %{
-        "DomainName" => String.t() | atom(),
-        "HttpRedirect" => http_redirect(),
-        "ResourceRecord" => resource_record(),
-        "ValidationDomain" => String.t() | atom(),
-        "ValidationEmails" => list(String.t() | atom()),
-        "ValidationMethod" => list(any()),
-        "ValidationStatus" => list(any())
-      }
-      
-  """
-  @type domain_validation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_record() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type resource_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_certificate_response() :: %{
-        "CertificateArn" => String.t() | atom()
-      }
-      
-  """
-  @type revoke_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_reason() :: %{
-        "reason" => String.t() | atom(),
-        "resource" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_attribute() :: %{
-        "ObjectIdentifier" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type custom_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tag_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_certificate_response() :: %{
-        "Certificate" => String.t() | atom(),
-        "CertificateChain" => String.t() | atom()
-      }
-      
-  """
-  @type get_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_search_result() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "CertificateMetadata" => list(),
-        "X509Attributes" => x509_attributes()
-      }
-      
-  """
-  @type certificate_search_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_usage() :: %{
-        "Name" => list(any())
-      }
-      
-  """
-  @type key_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_certificates_response() :: %{
-        "CertificateSummaryList" => list(certificate_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -865,6 +397,85 @@ defmodule AWS.ACM do
 
   ## Example:
       
+      revoke_certificate_response() :: %{
+        "CertificateArn" => String.t() | atom()
+      }
+      
+  """
+  @type revoke_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_response() :: %{
+        "Certificate" => certificate_detail()
+      }
+      
+  """
+  @type describe_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_reason() :: %{
+        "reason" => String.t() | atom(),
+        "resource" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tag_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tag_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_certificate_options_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("Options") => certificate_options()
+      }
+      
+  """
+  @type update_certificate_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       search_certificates_response() :: %{
         "NextToken" => String.t() | atom(),
         "Results" => list(certificate_search_result())
@@ -873,103 +484,492 @@ defmodule AWS.ACM do
   """
   @type search_certificates_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      invalid_domain_validation_options_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_domain_validation_options_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_certificate_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_certificates_request() :: %{
+        optional("FilterStatement") => list(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type search_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_certificate_response() :: %{
+        "Certificate" => String.t() | atom(),
+        "CertificateChain" => String.t() | atom(),
+        "PrivateKey" => String.t() | atom()
+      }
+      
+  """
+  @type export_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_certificate_request() :: %{
+        optional("CertificateAuthorityArn") => String.t() | atom(),
+        optional("DomainValidationOptions") => list(domain_validation_option()),
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("KeyAlgorithm") => list(any()),
+        optional("ManagedBy") => list(any()),
+        optional("Options") => certificate_options(),
+        optional("SubjectAlternativeNames") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        optional("ValidationMethod") => list(any()),
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type request_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_to_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type add_tags_to_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("Passphrase") => binary()
+      }
+      
+  """
+  @type export_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_in_progress_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type request_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_account_configuration_request() :: %{
+        optional("ExpiryEvents") => expiry_events_configuration(),
+        required("IdempotencyToken") => String.t() | atom()
+      }
+      
+  """
+  @type put_account_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extended_key_usage() :: %{
+        "Name" => list(any()),
+        "OID" => String.t() | atom()
+      }
+      
+  """
+  @type extended_key_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      renew_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom()
+      }
+      
+  """
+  @type renew_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("RevocationReason") => list(any())
+      }
+      
+  """
+  @type revoke_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acm_certificate_metadata() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExportOption" => list(any()),
+        "Exported" => boolean(),
+        "ImportedAt" => non_neg_integer(),
+        "InUse" => boolean(),
+        "IssuedAt" => non_neg_integer(),
+        "ManagedBy" => list(any()),
+        "RenewalEligibility" => list(any()),
+        "RenewalStatus" => list(any()),
+        "RevokedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "ValidationMethod" => list(any())
+      }
+      
+  """
+  @type acm_certificate_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_record() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type resource_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      common_name_filter() :: %{
+        "ComparisonOperator" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type common_name_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_certificate_response() :: %{
+        "CertificateArn" => String.t() | atom()
+      }
+      
+  """
+  @type import_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type tag_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      other_name() :: %{
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type other_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_account_configuration_response() :: %{
+        "ExpiryEvents" => expiry_events_configuration()
+      }
+      
+  """
+  @type get_account_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_certificates_response() :: %{
+        "CertificateSummaryList" => list(certificate_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_certificates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_usage() :: %{
+        "Name" => list(any())
+      }
+      
+  """
+  @type key_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      x509_attributes() :: %{
+        "ExtendedKeyUsages" => list(list(any())()),
+        "Issuer" => distinguished_name(),
+        "KeyAlgorithm" => list(any()),
+        "KeyUsages" => list(list(any())()),
+        "NotAfter" => non_neg_integer(),
+        "NotBefore" => non_neg_integer(),
+        "SerialNumber" => String.t() | atom(),
+        "Subject" => distinguished_name(),
+        "SubjectAlternativeNames" => list(list())
+      }
+      
+  """
+  @type x509_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_attribute() :: %{
+        "ObjectIdentifier" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type custom_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_from_certificate_request() :: %{
+        required("CertificateArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type remove_tags_from_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      domain_validation_option() :: %{
+        "DomainName" => String.t() | atom(),
+        "ValidationDomain" => String.t() | atom()
+      }
+      
+  """
+  @type domain_validation_option() :: %{(String.t() | atom()) => any()}
+
   @type add_tags_to_certificate_errors() ::
-          too_many_tags_exception()
-          | invalid_tag_exception()
-          | throttling_exception()
+          invalid_arn_exception()
           | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | invalid_arn_exception()
           | tag_policy_exception()
+          | too_many_tags_exception()
+          | invalid_tag_exception()
+          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_certificate_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          invalid_arn_exception()
           | conflict_exception()
-          | invalid_arn_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
-  @type describe_certificate_errors() :: resource_not_found_exception() | invalid_arn_exception()
+  @type describe_certificate_errors() :: invalid_arn_exception() | resource_not_found_exception()
 
   @type export_certificate_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_arn_exception()
+          invalid_arn_exception()
           | request_in_progress_exception()
+          | resource_not_found_exception()
+          | throttling_exception()
 
-  @type get_account_configuration_errors() :: throttling_exception() | access_denied_exception()
+  @type get_account_configuration_errors() :: access_denied_exception() | throttling_exception()
 
   @type get_certificate_errors() ::
-          resource_not_found_exception()
-          | invalid_arn_exception()
+          invalid_arn_exception()
           | request_in_progress_exception()
+          | resource_not_found_exception()
 
   @type import_certificate_errors() ::
-          too_many_tags_exception()
-          | invalid_tag_exception()
-          | limit_exceeded_exception()
+          invalid_arn_exception()
           | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | invalid_arn_exception()
           | tag_policy_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | invalid_tag_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type list_certificates_errors() :: validation_exception() | invalid_args_exception()
 
   @type list_tags_for_certificate_errors() ::
-          resource_not_found_exception() | invalid_arn_exception()
+          invalid_arn_exception() | resource_not_found_exception()
 
   @type put_account_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type remove_tags_from_certificate_errors() ::
-          invalid_tag_exception()
-          | throttling_exception()
+          invalid_arn_exception()
           | invalid_parameter_exception()
-          | resource_not_found_exception()
-          | invalid_arn_exception()
           | tag_policy_exception()
+          | invalid_tag_exception()
+          | resource_not_found_exception()
+          | throttling_exception()
 
   @type renew_certificate_errors() ::
-          resource_not_found_exception()
-          | invalid_arn_exception()
+          invalid_arn_exception()
           | request_in_progress_exception()
+          | resource_not_found_exception()
 
   @type request_certificate_errors() ::
-          too_many_tags_exception()
+          invalid_arn_exception()
+          | invalid_parameter_exception()
+          | tag_policy_exception()
+          | too_many_tags_exception()
+          | invalid_domain_validation_options_exception()
           | invalid_tag_exception()
           | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | invalid_domain_validation_options_exception()
-          | invalid_arn_exception()
-          | tag_policy_exception()
 
   @type resend_validation_email_errors() ::
-          invalid_domain_validation_options_exception()
-          | resource_not_found_exception()
-          | invalid_arn_exception()
+          invalid_arn_exception()
           | invalid_state_exception()
+          | invalid_domain_validation_options_exception()
+          | resource_not_found_exception()
 
   @type revoke_certificate_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          invalid_arn_exception()
           | conflict_exception()
-          | invalid_arn_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type search_certificates_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type update_certificate_options_errors() ::
-          limit_exceeded_exception()
-          | resource_not_found_exception()
-          | invalid_arn_exception()
+          invalid_arn_exception()
           | invalid_state_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   def metadata do
     %{
@@ -1014,7 +1014,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, add_tags_to_certificate_errors()}
   def add_tags_to_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToCertificate", input, options)
   end
@@ -1049,7 +1050,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
@@ -1067,7 +1069,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
@@ -1093,7 +1096,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, export_certificate_errors()}
   def export_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportCertificate", input, options)
   end
@@ -1108,7 +1112,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, get_account_configuration_errors()}
   def get_account_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountConfiguration", input, options)
   end
@@ -1130,7 +1135,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, get_certificate_errors()}
   def get_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCertificate", input, options)
   end
@@ -1198,7 +1204,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportCertificate", input, options)
   end
@@ -1216,7 +1223,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCertificates", input, options)
   end
@@ -1234,7 +1242,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, list_tags_for_certificate_errors()}
   def list_tags_for_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForCertificate", input, options)
   end
@@ -1254,7 +1263,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, put_account_configuration_errors()}
   def put_account_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAccountConfiguration", input, options)
   end
@@ -1277,7 +1287,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, remove_tags_from_certificate_errors()}
   def remove_tags_from_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromCertificate", input, options)
   end
@@ -1296,7 +1307,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, renew_certificate_errors()}
   def renew_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RenewCertificate", input, options)
   end
@@ -1328,7 +1340,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, request_certificate_errors()}
   def request_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestCertificate", input, options)
   end
@@ -1353,7 +1366,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, resend_validation_email_errors()}
   def resend_validation_email(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResendValidationEmail", input, options)
   end
@@ -1372,7 +1386,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, revoke_certificate_errors()}
   def revoke_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeCertificate", input, options)
   end
@@ -1391,7 +1406,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, search_certificates_errors()}
   def search_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchCertificates", input, options)
   end
@@ -1410,7 +1426,8 @@ defmodule AWS.ACM do
           | {:error, term()}
           | {:error, update_certificate_options_errors()}
   def update_certificate_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCertificateOptions", input, options)
   end

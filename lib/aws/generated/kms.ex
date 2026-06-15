@@ -138,107 +138,24 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      invalid_grant_id_exception() :: %{
+      expired_import_token_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_grant_id_exception() :: %{(String.t() | atom()) => any()}
+  @type expired_import_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_aliases_response() :: %{
-        "Aliases" => list(alias_list_entry()),
-        "NextMarker" => String.t() | atom(),
-        "Truncated" => boolean()
-      }
-      
-  """
-  @type list_aliases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      incorrect_key_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type incorrect_key_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_aliases_request() :: %{
-        optional("KeyId") => String.t() | atom(),
+      list_keys_request() :: %{
         optional("Limit") => integer(),
         optional("Marker") => String.t() | atom()
       }
       
   """
-  @type list_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_grant_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_grant_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("KeyId") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_proxy_vpc_endpoint_service_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type xks_proxy_vpc_endpoint_service_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      grant_constraints() :: %{
-        "EncryptionContextEquals" => map(),
-        "EncryptionContextSubset" => map(),
-        "SourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type grant_constraints() :: %{(String.t() | atom()) => any()}
+  @type list_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,71 +172,357 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      list_retirable_grants_request() :: %{
+      re_encrypt_response() :: %{
+        "CiphertextBlob" => binary(),
+        "DestinationEncryptionAlgorithm" => list(any()),
+        "DestinationKeyMaterialId" => String.t() | atom(),
+        "KeyId" => String.t() | atom(),
+        "SourceEncryptionAlgorithm" => list(any()),
+        "SourceKeyId" => String.t() | atom(),
+        "SourceKeyMaterialId" => String.t() | atom()
+      }
+      
+  """
+  @type re_encrypt_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_key_rotations_request() :: %{
+        optional("IncludeKeyMaterial") => list(any()),
         optional("Limit") => integer(),
         optional("Marker") => String.t() | atom(),
-        optional("RetiringPrincipal") => String.t() | atom(),
-        optional("RetiringServicePrincipal") => String.t() | atom()
+        required("KeyId") => String.t() | atom()
       }
       
   """
-  @type list_retirable_grants_request() :: %{(String.t() | atom()) => any()}
+  @type list_key_rotations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unsupported_operation_exception() :: %{
+      invalid_grant_id_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_grant_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dry_run_operation_exception() :: %{
+      generate_data_key_pair_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("EncryptionContext") => map(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        optional("Recipient") => recipient_info(),
+        required("KeyId") => String.t() | atom(),
+        required("KeyPairSpec") => list(any())
+      }
+      
+  """
+  @type generate_data_key_pair_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decrypt_request() :: %{
+        optional("CiphertextBlob") => binary(),
+        optional("DryRun") => boolean(),
+        optional("DryRunModifiers") => list(list(any())()),
+        optional("EncryptionAlgorithm") => list(any()),
+        optional("EncryptionContext") => map(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        optional("KeyId") => String.t() | atom(),
+        optional("Recipient") => recipient_info()
+      }
+      
+  """
+  @type decrypt_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_proxy_invalid_configuration_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
+  @type xks_proxy_invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      custom_key_store_name_in_use_exception() :: %{
+      enable_key_rotation_request() :: %{
+        optional("RotationPeriodInDays") => integer(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type enable_key_rotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_proxy_vpc_endpoint_service_invalid_configuration_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type custom_key_store_name_in_use_exception() :: %{(String.t() | atom()) => any()}
+  @type xks_proxy_vpc_endpoint_service_invalid_configuration_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      xks_key_configuration_type() :: %{
-        "Id" => String.t() | atom()
+      list_keys_response() :: %{
+        "Keys" => list(key_list_entry()),
+        "NextMarker" => String.t() | atom(),
+        "Truncated" => boolean()
       }
       
   """
-  @type xks_key_configuration_type() :: %{(String.t() | atom()) => any()}
+  @type list_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_alias_request() :: %{
-        required("AliasName") => String.t() | atom(),
-        required("TargetKeyId") => String.t() | atom()
+      generate_data_key_response() :: %{
+        "CiphertextBlob" => binary(),
+        "CiphertextForRecipient" => binary(),
+        "KeyId" => String.t() | atom(),
+        "KeyMaterialId" => String.t() | atom(),
+        "Plaintext" => binary()
       }
       
   """
-  @type update_alias_request() :: %{(String.t() | atom()) => any()}
+  @type generate_data_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_imported_key_material_response() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyMaterialId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_imported_key_material_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type key_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_region_key() :: %{
+        "Arn" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+      
+  """
+  @type multi_region_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_ciphertext_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_ciphertext_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_key_deletion_request() :: %{
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_key_deletion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_mac_response() :: %{
+        "KeyId" => String.t() | atom(),
+        "Mac" => binary(),
+        "MacAlgorithm" => list(any())
+      }
+      
+  """
+  @type generate_mac_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connect_custom_key_store_request() :: %{
+        required("CustomKeyStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type connect_custom_key_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_key_policies_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "PolicyNames" => list(String.t() | atom()),
+        "Truncated" => boolean()
+      }
+      
+  """
+  @type list_key_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sign_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        optional("MessageType") => list(any()),
+        required("KeyId") => String.t() | atom(),
+        required("Message") => binary(),
+        required("SigningAlgorithm") => list(any())
+      }
+      
+  """
+  @type sign_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_invalid_mac_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_invalid_mac_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_grant_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_grant_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_key_material_request() :: %{
+        optional("ExpirationModel") => list(any()),
+        optional("ImportType") => list(any()),
+        optional("KeyMaterialDescription") => String.t() | atom(),
+        optional("KeyMaterialId") => String.t() | atom(),
+        optional("ValidTo") => non_neg_integer(),
+        required("EncryptedKeyMaterial") => binary(),
+        required("ImportToken") => binary(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type import_key_material_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decrypt_response() :: %{
+        "CiphertextForRecipient" => binary(),
+        "EncryptionAlgorithm" => list(any()),
+        "KeyId" => String.t() | atom(),
+        "KeyMaterialId" => String.t() | atom(),
+        "Plaintext" => binary()
+      }
+      
+  """
+  @type decrypt_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_rotation_status_response() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyRotationEnabled" => boolean(),
+        "NextRotationDate" => non_neg_integer(),
+        "OnDemandRotationStartDate" => non_neg_integer(),
+        "RotationPeriodInDays" => integer()
+      }
+      
+  """
+  @type get_key_rotation_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_proxy_incorrect_authentication_credential_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type xks_proxy_incorrect_authentication_credential_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,63 +549,43 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      describe_custom_key_stores_response() :: %{
-        "CustomKeyStores" => list(custom_key_stores_list_entry()),
-        "NextMarker" => String.t() | atom(),
-        "Truncated" => boolean()
-      }
-      
-  """
-  @type describe_custom_key_stores_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_proxy_uri_endpoint_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type xks_proxy_uri_endpoint_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotate_key_on_demand_response() :: %{
-        "KeyId" => String.t() | atom()
-      }
-      
-  """
-  @type rotate_key_on_demand_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_alias_name_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_alias_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_data_key_without_plaintext_request() :: %{
+      generate_mac_request() :: %{
         optional("DryRun") => boolean(),
-        optional("EncryptionContext") => map(),
         optional("GrantTokens") => list(String.t() | atom()),
-        optional("KeySpec") => list(any()),
-        optional("NumberOfBytes") => integer(),
-        required("KeyId") => String.t() | atom()
+        required("KeyId") => String.t() | atom(),
+        required("MacAlgorithm") => list(any()),
+        required("Message") => binary()
       }
       
   """
-  @type generate_data_key_without_plaintext_request() :: %{(String.t() | atom()) => any()}
+  @type generate_mac_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_proxy_configuration_type() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Connectivity" => list(any()),
+        "UriEndpoint" => String.t() | atom(),
+        "UriPath" => String.t() | atom(),
+        "VpcEndpointServiceName" => String.t() | atom(),
+        "VpcEndpointServiceOwner" => String.t() | atom()
+      }
+      
+  """
+  @type xks_proxy_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_hsm_cluster_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_cluster_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -420,134 +603,155 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      schedule_key_deletion_response() :: %{
-        "DeletionDate" => non_neg_integer(),
-        "KeyId" => String.t() | atom(),
-        "KeyState" => list(any()),
-        "PendingWindowInDays" => integer()
+      list_aliases_request() :: %{
+        optional("KeyId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom()
       }
       
   """
-  @type schedule_key_deletion_response() :: %{(String.t() | atom()) => any()}
+  @type list_aliases_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      schedule_key_deletion_request() :: %{
-        optional("PendingWindowInDays") => integer(),
+      cloud_hsm_cluster_invalid_configuration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_cluster_invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_random_request() :: %{
+        optional("CustomKeyStoreId") => String.t() | atom(),
+        optional("NumberOfBytes") => integer(),
+        optional("Recipient") => recipient_info()
+      }
+      
+  """
+  @type generate_random_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_grants_response() :: %{
+        optional("Grants") => list(grant_list_entry()),
+        optional("NextMarker") => String.t() | atom(),
+        optional("Truncated") => boolean()
+      }
+      
+  """
+  @type list_grants_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_key_rotations_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Rotations" => list(rotations_list_entry()),
+        "Truncated" => boolean()
+      }
+      
+  """
+  @type list_key_rotations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connect_custom_key_store_response() :: %{}
+      
+  """
+  @type connect_custom_key_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_key_rotation_request() :: %{
         required("KeyId") => String.t() | atom()
       }
       
   """
-  @type schedule_key_deletion_request() :: %{(String.t() | atom()) => any()}
+  @type disable_key_rotation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      encrypt_response() :: %{
-        "CiphertextBlob" => binary(),
-        "EncryptionAlgorithm" => list(any()),
-        "KeyId" => String.t() | atom()
+      update_alias_request() :: %{
+        required("AliasName") => String.t() | atom(),
+        required("TargetKeyId") => String.t() | atom()
       }
       
   """
-  @type encrypt_response() :: %{(String.t() | atom()) => any()}
+  @type update_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_keys_response() :: %{
-        "Keys" => list(key_list_entry()),
+      describe_custom_key_stores_response() :: %{
+        "CustomKeyStores" => list(custom_key_stores_list_entry()),
         "NextMarker" => String.t() | atom(),
         "Truncated" => boolean()
       }
       
   """
-  @type list_keys_response() :: %{(String.t() | atom()) => any()}
+  @type describe_custom_key_stores_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      already_exists_exception() :: %{
-        "message" => String.t() | atom()
+      generate_data_key_pair_without_plaintext_response() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyMaterialId" => String.t() | atom(),
+        "KeyPairSpec" => list(any()),
+        "PrivateKeyCiphertextBlob" => binary(),
+        "PublicKey" => binary()
       }
       
   """
-  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type generate_data_key_pair_without_plaintext_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      xks_key_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type xks_key_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decrypt_request() :: %{
-        optional("CiphertextBlob") => binary(),
+      create_grant_request() :: %{
+        optional("Constraints") => grant_constraints(),
         optional("DryRun") => boolean(),
-        optional("DryRunModifiers") => list(list(any())()),
-        optional("EncryptionAlgorithm") => list(any()),
-        optional("EncryptionContext") => map(),
         optional("GrantTokens") => list(String.t() | atom()),
-        optional("KeyId") => String.t() | atom(),
-        optional("Recipient") => recipient_info()
+        optional("GranteePrincipal") => String.t() | atom(),
+        optional("GranteeServicePrincipal") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RetiringPrincipal") => String.t() | atom(),
+        optional("RetiringServicePrincipal") => String.t() | atom(),
+        required("KeyId") => String.t() | atom(),
+        required("Operations") => list(list(any())())
       }
       
   """
-  @type decrypt_request() :: %{(String.t() | atom()) => any()}
+  @type create_grant_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      revoke_grant_request() :: %{
-        optional("DryRun") => boolean(),
-        required("GrantId") => String.t() | atom(),
+      get_key_rotation_status_request() :: %{
         required("KeyId") => String.t() | atom()
       }
       
   """
-  @type revoke_grant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_imported_key_material_response() :: %{
-        "KeyId" => String.t() | atom(),
-        "KeyMaterialId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_imported_key_material_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encrypt_request() :: %{
-        optional("DryRun") => boolean(),
-        optional("EncryptionAlgorithm") => list(any()),
-        optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t() | atom()),
-        required("KeyId") => String.t() | atom(),
-        required("Plaintext") => binary()
-      }
-      
-  """
-  @type encrypt_request() :: %{(String.t() | atom()) => any()}
+  @type get_key_rotation_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -585,6 +789,123 @@ defmodule AWS.KMS do
 
   ## Example:
       
+      put_key_policy_request() :: %{
+        optional("BypassPolicyLockoutSafetyCheck") => boolean(),
+        optional("PolicyName") => String.t() | atom(),
+        required("KeyId") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
+      }
+      
+  """
+  @type put_key_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sign_response() :: %{
+        "KeyId" => String.t() | atom(),
+        "Signature" => binary(),
+        "SigningAlgorithm" => list(any())
+      }
+      
+  """
+  @type sign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_proxy_authentication_credential_type() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "RawSecretAccessKey" => String.t() | atom()
+      }
+      
+  """
+  @type xks_proxy_authentication_credential_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_key_stores_request() :: %{
+        optional("CustomKeyStoreId") => String.t() | atom(),
+        optional("CustomKeyStoreName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom()
+      }
+      
+  """
+  @type describe_custom_key_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_data_key_without_plaintext_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("EncryptionContext") => map(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        optional("KeySpec") => list(any()),
+        optional("NumberOfBytes") => integer(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type generate_data_key_without_plaintext_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_region_configuration() :: %{
+        "MultiRegionKeyType" => list(any()),
+        "PrimaryKey" => multi_region_key(),
+        "ReplicaKeys" => list(multi_region_key())
+      }
+      
+  """
+  @type multi_region_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recipient_info() :: %{
+        "AttestationDocument" => binary(),
+        "KeyEncryptionAlgorithm" => list(any())
+      }
+      
+  """
+  @type recipient_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_key_description_request() :: %{
+        required("Description") => String.t() | atom(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type update_key_description_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disconnect_custom_key_store_request() :: %{
         required("CustomKeyStoreId") => String.t() | atom()
       }
@@ -596,35 +917,37 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      cancel_key_deletion_request() :: %{
-        required("KeyId") => String.t() | atom()
+      invalid_import_token_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type cancel_key_deletion_request() :: %{(String.t() | atom()) => any()}
+  @type invalid_import_token_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      generate_random_response() :: %{
-        "CiphertextForRecipient" => binary(),
-        "Plaintext" => binary()
+      get_parameters_for_import_request() :: %{
+        required("KeyId") => String.t() | atom(),
+        required("WrappingAlgorithm") => list(any()),
+        required("WrappingKeySpec") => list(any())
       }
       
   """
-  @type generate_random_response() :: %{(String.t() | atom()) => any()}
+  @type get_parameters_for_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      enable_key_request() :: %{
+      get_public_key_request() :: %{
+        optional("GrantTokens") => list(String.t() | atom()),
         required("KeyId") => String.t() | atom()
       }
       
   """
-  @type enable_key_request() :: %{(String.t() | atom()) => any()}
+  @type get_public_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,95 +968,38 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("KeyId") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
+      update_custom_key_store_response() :: %{}
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_custom_key_store_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_key_policies_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "PolicyNames" => list(String.t() | atom()),
-        "Truncated" => boolean()
+      get_key_last_usage_response() :: %{
+        "KeyCreationDate" => non_neg_integer(),
+        "KeyId" => String.t() | atom(),
+        "KeyLastUsage" => key_last_usage_data(),
+        "TrackingStartDate" => non_neg_integer()
       }
       
   """
-  @type list_key_policies_response() :: %{(String.t() | atom()) => any()}
+  @type get_key_last_usage_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_resource_tags_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "Truncated" => boolean()
+      key_last_usage_data() :: %{
+        "CloudTrailEventId" => String.t() | atom(),
+        "KmsRequestId" => String.t() | atom(),
+        "Operation" => list(any()),
+        "Timestamp" => non_neg_integer()
       }
       
   """
-  @type list_resource_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_key_description_request() :: %{
-        required("Description") => String.t() | atom(),
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type update_key_description_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dependency_timeout_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type dependency_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_key_store_has_cm_ks_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type custom_key_store_has_cm_ks_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_arn_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_key_store_response() :: %{
-        "CustomKeyStoreId" => String.t() | atom()
-      }
-      
-  """
-  @type create_custom_key_store_response() :: %{(String.t() | atom()) => any()}
+  @type key_last_usage_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -758,117 +1024,6 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      key_last_usage_data() :: %{
-        "CloudTrailEventId" => String.t() | atom(),
-        "KmsRequestId" => String.t() | atom(),
-        "Operation" => list(any()),
-        "Timestamp" => non_neg_integer()
-      }
-      
-  """
-  @type key_last_usage_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      multi_region_configuration() :: %{
-        "MultiRegionKeyType" => list(any()),
-        "PrimaryKey" => multi_region_key(),
-        "ReplicaKeys" => list(multi_region_key())
-      }
-      
-  """
-  @type multi_region_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_key_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "PolicyName" => String.t() | atom()
-      }
-      
-  """
-  @type get_key_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_key_store_request() :: %{
-        optional("CloudHsmClusterId") => String.t() | atom(),
-        optional("CustomKeyStoreType") => list(any()),
-        optional("KeyStorePassword") => String.t() | atom(),
-        optional("TrustAnchorCertificate") => String.t() | atom(),
-        optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
-        optional("XksProxyConnectivity") => list(any()),
-        optional("XksProxyUriEndpoint") => String.t() | atom(),
-        optional("XksProxyUriPath") => String.t() | atom(),
-        optional("XksProxyVpcEndpointServiceName") => String.t() | atom(),
-        optional("XksProxyVpcEndpointServiceOwner") => String.t() | atom(),
-        required("CustomKeyStoreName") => String.t() | atom()
-      }
-      
-  """
-  @type create_custom_key_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expired_import_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type expired_import_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retire_grant_request() :: %{
-        optional("DryRun") => boolean(),
-        optional("GrantId") => String.t() | atom(),
-        optional("GrantToken") => String.t() | atom(),
-        optional("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type retire_grant_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_key_stores_request() :: %{
-        optional("CustomKeyStoreId") => String.t() | atom(),
-        optional("CustomKeyStoreName") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom()
-      }
-      
-  """
-  @type describe_custom_key_stores_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_keys_request() :: %{
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom()
-      }
-      
-  """
-  @type list_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_parameters_for_import_response() :: %{
         "ImportToken" => binary(),
         "KeyId" => String.t() | atom(),
@@ -883,90 +1038,118 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      generate_data_key_pair_response() :: %{
-        "CiphertextForRecipient" => binary(),
-        "KeyId" => String.t() | atom(),
-        "KeyMaterialId" => String.t() | atom(),
-        "KeyPairSpec" => list(any()),
-        "PrivateKeyCiphertextBlob" => binary(),
-        "PrivateKeyPlaintext" => binary(),
-        "PublicKey" => binary()
-      }
-      
-  """
-  @type generate_data_key_pair_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_key_request() :: %{
-        optional("GrantTokens") => list(String.t() | atom()),
+      enable_key_request() :: %{
         required("KeyId") => String.t() | atom()
       }
       
   """
-  @type describe_key_request() :: %{(String.t() | atom()) => any()}
+  @type enable_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_ciphertext_exception() :: %{
+      tag_resource_request() :: %{
+        required("KeyId") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_key_policies_request() :: %{
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type list_key_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disconnect_custom_key_store_response() :: %{}
+      
+  """
+  @type disconnect_custom_key_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_invalid_signature_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_ciphertext_exception() :: %{(String.t() | atom()) => any()}
+  @type kms_invalid_signature_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      xks_proxy_uri_unreachable_exception() :: %{
+      schedule_key_deletion_request() :: %{
+        optional("PendingWindowInDays") => integer(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type schedule_key_deletion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type xks_proxy_uri_unreachable_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      conflict_exception() :: %{
+      unsupported_operation_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_key_last_usage_response() :: %{
-        "KeyCreationDate" => non_neg_integer(),
-        "KeyId" => String.t() | atom(),
-        "KeyLastUsage" => key_last_usage_data(),
-        "TrackingStartDate" => non_neg_integer()
+      xks_proxy_uri_endpoint_in_use_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type get_key_last_usage_response() :: %{(String.t() | atom()) => any()}
+  @type xks_proxy_uri_endpoint_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_grants_response() :: %{
-        optional("Grants") => list(grant_list_entry()),
-        optional("NextMarker") => String.t() | atom(),
-        optional("Truncated") => boolean()
+      encrypt_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("EncryptionAlgorithm") => list(any()),
+        optional("EncryptionContext") => map(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        required("KeyId") => String.t() | atom(),
+        required("Plaintext") => binary()
       }
       
   """
-  @type list_grants_response() :: %{(String.t() | atom()) => any()}
+  @type encrypt_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -983,6 +1166,210 @@ defmodule AWS.KMS do
       
   """
   @type verify_mac_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_hsm_cluster_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_cluster_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_grant_request() :: %{
+        optional("DryRun") => boolean(),
+        required("GrantId") => String.t() | atom(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type revoke_grant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_grant_response() :: %{
+        "GrantId" => String.t() | atom(),
+        "GrantToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_grant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dependency_timeout_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type dependency_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_key_material_response() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyMaterialId" => String.t() | atom()
+      }
+      
+  """
+  @type import_key_material_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        optional("MessageType") => list(any()),
+        required("KeyId") => String.t() | atom(),
+        required("Message") => binary(),
+        required("Signature") => binary(),
+        required("SigningAlgorithm") => list(any())
+      }
+      
+  """
+  @type verify_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_data_key_without_plaintext_response() :: %{
+        "CiphertextBlob" => binary(),
+        "KeyId" => String.t() | atom(),
+        "KeyMaterialId" => String.t() | atom()
+      }
+      
+  """
+  @type generate_data_key_without_plaintext_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_hsm_cluster_not_related_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_cluster_not_related_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_key_store_name_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type custom_key_store_name_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_key_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type xks_key_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replicate_key_request() :: %{
+        optional("BypassPolicyLockoutSafetyCheck") => boolean(),
+        optional("Description") => String.t() | atom(),
+        optional("Policy") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("KeyId") => String.t() | atom(),
+        required("ReplicaRegion") => String.t() | atom()
+      }
+      
+  """
+  @type replicate_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_policy_document_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      incorrect_trust_anchor_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type incorrect_trust_anchor_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_key_request() :: %{
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type disable_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alias_request() :: %{
+        required("AliasName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_alias_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1008,263 +1395,36 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      tag() :: %{
-        "TagKey" => String.t() | atom(),
-        "TagValue" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_proxy_uri_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type xks_proxy_uri_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_custom_key_store_request() :: %{
-        required("CustomKeyStoreId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_custom_key_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_key_policy_request() :: %{
-        optional("PolicyName") => String.t() | atom(),
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type get_key_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_key_rotation_status_request() :: %{
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type get_key_rotation_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_key_last_usage_request() :: %{
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type get_key_last_usage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_grant_request() :: %{
-        optional("Constraints") => grant_constraints(),
-        optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t() | atom()),
-        optional("GranteePrincipal") => String.t() | atom(),
-        optional("GranteeServicePrincipal") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("RetiringPrincipal") => String.t() | atom(),
-        optional("RetiringServicePrincipal") => String.t() | atom(),
+      untag_resource_request() :: %{
         required("KeyId") => String.t() | atom(),
-        required("Operations") => list(list(any())())
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type create_grant_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      import_key_material_request() :: %{
-        optional("ExpirationModel") => list(any()),
-        optional("ImportType") => list(any()),
-        optional("KeyMaterialDescription") => String.t() | atom(),
-        optional("KeyMaterialId") => String.t() | atom(),
-        optional("ValidTo") => non_neg_integer(),
-        required("EncryptedKeyMaterial") => binary(),
-        required("ImportToken") => binary(),
-        required("KeyId") => String.t() | atom()
+      get_key_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
       }
       
   """
-  @type import_key_material_request() :: %{(String.t() | atom()) => any()}
+  @type get_key_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cloud_hsm_cluster_not_found_exception() :: %{
+      incorrect_key_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_cluster_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_data_key_without_plaintext_response() :: %{
-        "CiphertextBlob" => binary(),
-        "KeyId" => String.t() | atom(),
-        "KeyMaterialId" => String.t() | atom()
-      }
-      
-  """
-  @type generate_data_key_without_plaintext_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disconnect_custom_key_store_response() :: %{}
-      
-  """
-  @type disconnect_custom_key_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_key_store_request() :: %{
-        optional("CloudHsmClusterId") => String.t() | atom(),
-        optional("KeyStorePassword") => String.t() | atom(),
-        optional("NewCustomKeyStoreName") => String.t() | atom(),
-        optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
-        optional("XksProxyConnectivity") => list(any()),
-        optional("XksProxyUriEndpoint") => String.t() | atom(),
-        optional("XksProxyUriPath") => String.t() | atom(),
-        optional("XksProxyVpcEndpointServiceName") => String.t() | atom(),
-        optional("XksProxyVpcEndpointServiceOwner") => String.t() | atom(),
-        required("CustomKeyStoreId") => String.t() | atom()
-      }
-      
-  """
-  @type update_custom_key_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_data_key_pair_without_plaintext_response() :: %{
-        "KeyId" => String.t() | atom(),
-        "KeyMaterialId" => String.t() | atom(),
-        "KeyPairSpec" => list(any()),
-        "PrivateKeyCiphertextBlob" => binary(),
-        "PublicKey" => binary()
-      }
-      
-  """
-  @type generate_data_key_pair_without_plaintext_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_cluster_not_related_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_cluster_not_related_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_key_rotations_request() :: %{
-        optional("IncludeKeyMaterial") => list(any()),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type list_key_rotations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_key_rotation_status_response() :: %{
-        "KeyId" => String.t() | atom(),
-        "KeyRotationEnabled" => boolean(),
-        "NextRotationDate" => non_neg_integer(),
-        "OnDemandRotationStartDate" => non_neg_integer(),
-        "RotationPeriodInDays" => integer()
-      }
-      
-  """
-  @type get_key_rotation_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_key_already_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type xks_key_already_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_cluster_invalid_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_cluster_invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_data_key_response() :: %{
-        "CiphertextBlob" => binary(),
-        "CiphertextForRecipient" => binary(),
-        "KeyId" => String.t() | atom(),
-        "KeyMaterialId" => String.t() | atom(),
-        "Plaintext" => binary()
-      }
-      
-  """
-  @type generate_data_key_response() :: %{(String.t() | atom()) => any()}
+  @type incorrect_key_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1281,135 +1441,19 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      import_key_material_response() :: %{
+      get_public_key_response() :: %{
+        "CustomerMasterKeySpec" => list(any()),
+        "EncryptionAlgorithms" => list(list(any())()),
+        "KeyAgreementAlgorithms" => list(list(any())()),
         "KeyId" => String.t() | atom(),
-        "KeyMaterialId" => String.t() | atom()
+        "KeySpec" => list(any()),
+        "KeyUsage" => list(any()),
+        "PublicKey" => binary(),
+        "SigningAlgorithms" => list(list(any())())
       }
       
   """
-  @type import_key_material_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_import_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_import_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_mac_response() :: %{
-        "KeyId" => String.t() | atom(),
-        "MacAlgorithm" => list(any()),
-        "MacValid" => boolean()
-      }
-      
-  """
-  @type verify_mac_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_list_entry() :: %{
-        "KeyArn" => String.t() | atom(),
-        "KeyId" => String.t() | atom()
-      }
-      
-  """
-  @type key_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recipient_info() :: %{
-        "AttestationDocument" => binary(),
-        "KeyEncryptionAlgorithm" => list(any())
-      }
-      
-  """
-  @type recipient_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type key_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_key_invalid_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type xks_key_invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_cluster_not_active_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_cluster_not_active_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_parameters_for_import_request() :: %{
-        required("KeyId") => String.t() | atom(),
-        required("WrappingAlgorithm") => list(any()),
-        required("WrappingKeySpec") => list(any())
-      }
-      
-  """
-  @type get_parameters_for_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_marker_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_marker_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_request() :: %{
-        optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t() | atom()),
-        optional("MessageType") => list(any()),
-        required("KeyId") => String.t() | atom(),
-        required("Message") => binary(),
-        required("Signature") => binary(),
-        required("SigningAlgorithm") => list(any())
-      }
-      
-  """
-  @type verify_request() :: %{(String.t() | atom()) => any()}
+  @type get_public_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1451,46 +1495,163 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      connect_custom_key_store_response() :: %{}
-      
-  """
-  @type connect_custom_key_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      replicate_key_request() :: %{
-        optional("BypassPolicyLockoutSafetyCheck") => boolean(),
-        optional("Description") => String.t() | atom(),
-        optional("Policy") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("KeyId") => String.t() | atom(),
-        required("ReplicaRegion") => String.t() | atom()
-      }
-      
-  """
-  @type replicate_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_key_rotation_request() :: %{
+      get_key_policy_request() :: %{
+        optional("PolicyName") => String.t() | atom(),
         required("KeyId") => String.t() | atom()
       }
       
   """
-  @type disable_key_rotation_request() :: %{(String.t() | atom()) => any()}
+  @type get_key_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_custom_key_store_response() :: %{}
+      custom_key_store_has_cm_ks_exception() :: %{
+        "message" => String.t() | atom()
+      }
       
   """
-  @type delete_custom_key_store_response() :: %{}
+  @type custom_key_store_has_cm_ks_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_key_last_usage_request() :: %{
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type get_key_last_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_hsm_cluster_not_active_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_cluster_not_active_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_key_already_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type xks_key_already_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rotate_key_on_demand_request() :: %{
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type rotate_key_on_demand_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_retirable_grants_request() :: %{
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        optional("RetiringPrincipal") => String.t() | atom(),
+        optional("RetiringServicePrincipal") => String.t() | atom()
+      }
+      
+  """
+  @type list_retirable_grants_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dry_run_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      grant_constraints() :: %{
+        "EncryptionContextEquals" => map(),
+        "EncryptionContextSubset" => map(),
+        "SourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type grant_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_key_response() :: %{
+        "KeyMetadata" => key_metadata()
+      }
+      
+  """
+  @type create_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_proxy_uri_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type xks_proxy_uri_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_mac_response() :: %{
+        "KeyId" => String.t() | atom(),
+        "MacAlgorithm" => list(any()),
+        "MacValid" => boolean()
+      }
+      
+  """
+  @type verify_mac_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_key_store_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type custom_key_store_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_key_store_invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type custom_key_store_invalid_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1507,13 +1668,25 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      get_public_key_request() :: %{
-        optional("GrantTokens") => list(String.t() | atom()),
-        required("KeyId") => String.t() | atom()
+      encrypt_response() :: %{
+        "CiphertextBlob" => binary(),
+        "EncryptionAlgorithm" => list(any()),
+        "KeyId" => String.t() | atom()
       }
       
   """
-  @type get_public_key_request() :: %{(String.t() | atom()) => any()}
+  @type encrypt_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rotate_key_on_demand_response() :: %{
+        "KeyId" => String.t() | atom()
+      }
+      
+  """
+  @type rotate_key_on_demand_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1540,39 +1713,6 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      generate_mac_request() :: %{
-        optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t() | atom()),
-        required("KeyId") => String.t() | atom(),
-        required("MacAlgorithm") => list(any()),
-        required("Message") => binary()
-      }
-      
-  """
-  @type generate_mac_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_public_key_response() :: %{
-        "CustomerMasterKeySpec" => list(any()),
-        "EncryptionAlgorithms" => list(list(any())()),
-        "KeyAgreementAlgorithms" => list(list(any())()),
-        "KeyId" => String.t() | atom(),
-        "KeySpec" => list(any()),
-        "KeyUsage" => list(any()),
-        "PublicKey" => binary(),
-        "SigningAlgorithms" => list(list(any())())
-      }
-      
-  """
-  @type get_public_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       invalid_key_usage_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1584,63 +1724,13 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      sign_response() :: %{
-        "KeyId" => String.t() | atom(),
-        "Signature" => binary(),
-        "SigningAlgorithm" => list(any())
-      }
-      
-  """
-  @type sign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_key_store_invalid_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type custom_key_store_invalid_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_key_deletion_response() :: %{
-        "KeyId" => String.t() | atom()
-      }
-      
-  """
-  @type cancel_key_deletion_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      derive_shared_secret_response() :: %{
+      generate_random_response() :: %{
         "CiphertextForRecipient" => binary(),
-        "KeyAgreementAlgorithm" => list(any()),
-        "KeyId" => String.t() | atom(),
-        "KeyOrigin" => list(any()),
-        "SharedSecret" => binary()
+        "Plaintext" => binary()
       }
       
   """
-  @type derive_shared_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_proxy_authentication_credential_type() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "RawSecretAccessKey" => String.t() | atom()
-      }
-      
-  """
-  @type xks_proxy_authentication_credential_type() :: %{(String.t() | atom()) => any()}
+  @type generate_random_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1661,232 +1751,140 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      connect_custom_key_store_request() :: %{
+      update_custom_key_store_request() :: %{
+        optional("CloudHsmClusterId") => String.t() | atom(),
+        optional("KeyStorePassword") => String.t() | atom(),
+        optional("NewCustomKeyStoreName") => String.t() | atom(),
+        optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
+        optional("XksProxyConnectivity") => list(any()),
+        optional("XksProxyUriEndpoint") => String.t() | atom(),
+        optional("XksProxyUriPath") => String.t() | atom(),
+        optional("XksProxyVpcEndpointServiceName") => String.t() | atom(),
+        optional("XksProxyVpcEndpointServiceOwner") => String.t() | atom(),
         required("CustomKeyStoreId") => String.t() | atom()
       }
       
   """
-  @type connect_custom_key_store_request() :: %{(String.t() | atom()) => any()}
+  @type update_custom_key_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cloud_hsm_cluster_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_cluster_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_key_store_response() :: %{}
-      
-  """
-  @type update_custom_key_store_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_key_policy_request() :: %{
-        optional("BypassPolicyLockoutSafetyCheck") => boolean(),
-        optional("PolicyName") => String.t() | atom(),
-        required("KeyId") => String.t() | atom(),
-        required("Policy") => String.t() | atom()
-      }
-      
-  """
-  @type put_key_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replicate_key_response() :: %{
-        "ReplicaKeyMetadata" => key_metadata(),
-        "ReplicaPolicy" => String.t() | atom(),
-        "ReplicaTags" => list(tag())
-      }
-      
-  """
-  @type replicate_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      re_encrypt_response() :: %{
-        "CiphertextBlob" => binary(),
-        "DestinationEncryptionAlgorithm" => list(any()),
-        "DestinationKeyMaterialId" => String.t() | atom(),
-        "KeyId" => String.t() | atom(),
-        "SourceEncryptionAlgorithm" => list(any()),
-        "SourceKeyId" => String.t() | atom(),
-        "SourceKeyMaterialId" => String.t() | atom()
-      }
-      
-  """
-  @type re_encrypt_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_key_request() :: %{
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type disable_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_policy_document_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_key_response() :: %{
-        "KeyMetadata" => key_metadata()
-      }
-      
-  """
-  @type describe_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_key_rotation_request() :: %{
-        optional("RotationPeriodInDays") => integer(),
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type enable_key_rotation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      multi_region_key() :: %{
-        "Arn" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-      
-  """
-  @type multi_region_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_key_policies_request() :: %{
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type list_key_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_imported_key_material_request() :: %{
-        optional("KeyMaterialId") => String.t() | atom(),
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_imported_key_material_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_proxy_vpc_endpoint_service_invalid_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type xks_proxy_vpc_endpoint_service_invalid_configuration_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_invalid_mac_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_invalid_mac_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_primary_region_request() :: %{
-        required("KeyId") => String.t() | atom(),
-        required("PrimaryRegion") => String.t() | atom()
-      }
-      
-  """
-  @type update_primary_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sign_request() :: %{
+      retire_grant_request() :: %{
         optional("DryRun") => boolean(),
-        optional("GrantTokens") => list(String.t() | atom()),
-        optional("MessageType") => list(any()),
-        required("KeyId") => String.t() | atom(),
-        required("Message") => binary(),
-        required("SigningAlgorithm") => list(any())
+        optional("GrantId") => String.t() | atom(),
+        optional("GrantToken") => String.t() | atom(),
+        optional("KeyId") => String.t() | atom()
       }
       
   """
-  @type sign_request() :: %{(String.t() | atom()) => any()}
+  @type retire_grant_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_marker_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_marker_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_key_request() :: %{
+        optional("GrantTokens") => list(String.t() | atom()),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aliases_response() :: %{
+        "Aliases" => list(alias_list_entry()),
+        "NextMarker" => String.t() | atom(),
+        "Truncated" => boolean()
+      }
+      
+  """
+  @type list_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_key_store_request() :: %{
+        optional("CloudHsmClusterId") => String.t() | atom(),
+        optional("CustomKeyStoreType") => list(any()),
+        optional("KeyStorePassword") => String.t() | atom(),
+        optional("TrustAnchorCertificate") => String.t() | atom(),
+        optional("XksProxyAuthenticationCredential") => xks_proxy_authentication_credential_type(),
+        optional("XksProxyConnectivity") => list(any()),
+        optional("XksProxyUriEndpoint") => String.t() | atom(),
+        optional("XksProxyUriPath") => String.t() | atom(),
+        optional("XksProxyVpcEndpointServiceName") => String.t() | atom(),
+        optional("XksProxyVpcEndpointServiceOwner") => String.t() | atom(),
+        required("CustomKeyStoreName") => String.t() | atom()
+      }
+      
+  """
+  @type create_custom_key_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generate_data_key_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("EncryptionContext") => map(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        optional("KeySpec") => list(any()),
+        optional("NumberOfBytes") => integer(),
+        optional("Recipient") => recipient_info(),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type generate_data_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_key_store_response() :: %{}
+      
+  """
+  @type delete_custom_key_store_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_key_deletion_response() :: %{
+        "KeyId" => String.t() | atom()
+      }
+      
+  """
+  @type cancel_key_deletion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_key_store_request() :: %{
+        required("CustomKeyStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_custom_key_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1905,78 +1903,96 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      generate_data_key_pair_request() :: %{
-        optional("DryRun") => boolean(),
-        optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t() | atom()),
-        optional("Recipient") => recipient_info(),
+      invalid_alias_name_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_alias_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_primary_region_request() :: %{
         required("KeyId") => String.t() | atom(),
-        required("KeyPairSpec") => list(any())
+        required("PrimaryRegion") => String.t() | atom()
       }
       
   """
-  @type generate_data_key_pair_request() :: %{(String.t() | atom()) => any()}
+  @type update_primary_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      kms_invalid_signature_exception() :: %{
+      list_resource_tags_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "Truncated" => boolean()
+      }
+      
+  """
+  @type list_resource_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type kms_invalid_signature_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_arn_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      decrypt_response() :: %{
+      create_custom_key_store_response() :: %{
+        "CustomKeyStoreId" => String.t() | atom()
+      }
+      
+  """
+  @type create_custom_key_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      derive_shared_secret_response() :: %{
         "CiphertextForRecipient" => binary(),
-        "EncryptionAlgorithm" => list(any()),
+        "KeyAgreementAlgorithm" => list(any()),
         "KeyId" => String.t() | atom(),
-        "KeyMaterialId" => String.t() | atom(),
-        "Plaintext" => binary()
+        "KeyOrigin" => list(any()),
+        "SharedSecret" => binary()
       }
       
   """
-  @type decrypt_response() :: %{(String.t() | atom()) => any()}
+  @type derive_shared_secret_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      xks_proxy_invalid_configuration_exception() :: %{
+      xks_key_invalid_configuration_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type xks_proxy_invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
+  @type xks_key_invalid_configuration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      xks_proxy_incorrect_authentication_credential_exception() :: %{
+      xks_proxy_vpc_endpoint_service_in_use_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type xks_proxy_incorrect_authentication_credential_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_invalid_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
+  @type xks_proxy_vpc_endpoint_service_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2001,18 +2017,94 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      generate_data_key_request() :: %{
-        optional("DryRun") => boolean(),
-        optional("EncryptionContext") => map(),
-        optional("GrantTokens") => list(String.t() | atom()),
-        optional("KeySpec") => list(any()),
-        optional("NumberOfBytes") => integer(),
-        optional("Recipient") => recipient_info(),
+      key_list_entry() :: %{
+        "KeyArn" => String.t() | atom(),
+        "KeyId" => String.t() | atom()
+      }
+      
+  """
+  @type key_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_key_configuration_type() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type xks_key_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_invalid_state_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_key_response() :: %{
+        "KeyMetadata" => key_metadata()
+      }
+      
+  """
+  @type describe_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_imported_key_material_request() :: %{
+        optional("KeyMaterialId") => String.t() | atom(),
         required("KeyId") => String.t() | atom()
       }
       
   """
-  @type generate_data_key_request() :: %{(String.t() | atom()) => any()}
+  @type delete_imported_key_material_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xks_proxy_uri_unreachable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type xks_proxy_uri_unreachable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule_key_deletion_response() :: %{
+        "DeletionDate" => non_neg_integer(),
+        "KeyId" => String.t() | atom(),
+        "KeyState" => list(any()),
+        "PendingWindowInDays" => integer()
+      }
+      
+  """
+  @type schedule_key_deletion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2031,24 +2123,18 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      incorrect_trust_anchor_exception() :: %{
-        "message" => String.t() | atom()
+      generate_data_key_pair_response() :: %{
+        "CiphertextForRecipient" => binary(),
+        "KeyId" => String.t() | atom(),
+        "KeyMaterialId" => String.t() | atom(),
+        "KeyPairSpec" => list(any()),
+        "PrivateKeyCiphertextBlob" => binary(),
+        "PrivateKeyPlaintext" => binary(),
+        "PublicKey" => binary()
       }
       
   """
-  @type incorrect_trust_anchor_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_grant_response() :: %{
-        "GrantId" => String.t() | atom(),
-        "GrantToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_grant_response() :: %{(String.t() | atom()) => any()}
+  @type generate_data_key_pair_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2065,181 +2151,95 @@ defmodule AWS.KMS do
 
   ## Example:
       
-      create_key_response() :: %{
-        "KeyMetadata" => key_metadata()
+      replicate_key_response() :: %{
+        "ReplicaKeyMetadata" => key_metadata(),
+        "ReplicaPolicy" => String.t() | atom(),
+        "ReplicaTags" => list(tag())
       }
       
   """
-  @type create_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_alias_request() :: %{
-        required("AliasName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_mac_response() :: %{
-        "KeyId" => String.t() | atom(),
-        "Mac" => binary(),
-        "MacAlgorithm" => list(any())
-      }
-      
-  """
-  @type generate_mac_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_key_store_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type custom_key_store_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      generate_random_request() :: %{
-        optional("CustomKeyStoreId") => String.t() | atom(),
-        optional("NumberOfBytes") => integer(),
-        optional("Recipient") => recipient_info()
-      }
-      
-  """
-  @type generate_random_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_key_rotations_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "Rotations" => list(rotations_list_entry()),
-        "Truncated" => boolean()
-      }
-      
-  """
-  @type list_key_rotations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotate_key_on_demand_request() :: %{
-        required("KeyId") => String.t() | atom()
-      }
-      
-  """
-  @type rotate_key_on_demand_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xks_proxy_configuration_type() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "Connectivity" => list(any()),
-        "UriEndpoint" => String.t() | atom(),
-        "UriPath" => String.t() | atom(),
-        "VpcEndpointServiceName" => String.t() | atom(),
-        "VpcEndpointServiceOwner" => String.t() | atom()
-      }
-      
-  """
-  @type xks_proxy_configuration_type() :: %{(String.t() | atom()) => any()}
+  @type replicate_key_response() :: %{(String.t() | atom()) => any()}
 
   @type cancel_key_deletion_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type connect_custom_key_store_errors() ::
-          custom_key_store_not_found_exception()
+          kms_internal_exception()
           | custom_key_store_invalid_state_exception()
-          | kms_internal_exception()
+          | custom_key_store_not_found_exception()
           | cloud_hsm_cluster_not_active_exception()
           | cloud_hsm_cluster_invalid_configuration_exception()
 
   @type create_alias_errors() ::
           kms_invalid_state_exception()
-          | limit_exceeded_exception()
+          | invalid_alias_name_exception()
           | kms_internal_exception()
           | not_found_exception()
           | dependency_timeout_exception()
           | already_exists_exception()
-          | invalid_alias_name_exception()
+          | limit_exceeded_exception()
 
   @type create_custom_key_store_errors() ::
-          incorrect_trust_anchor_exception()
-          | xks_proxy_incorrect_authentication_credential_exception()
-          | xks_proxy_invalid_configuration_exception()
-          | xks_proxy_vpc_endpoint_service_invalid_configuration_exception()
-          | limit_exceeded_exception()
-          | cloud_hsm_cluster_in_use_exception()
+          xks_proxy_uri_unreachable_exception()
+          | xks_proxy_vpc_endpoint_service_in_use_exception()
           | kms_internal_exception()
+          | xks_proxy_uri_in_use_exception()
           | cloud_hsm_cluster_not_active_exception()
           | xks_proxy_invalid_response_exception()
-          | cloud_hsm_cluster_invalid_configuration_exception()
-          | cloud_hsm_cluster_not_found_exception()
-          | xks_proxy_uri_in_use_exception()
-          | xks_proxy_uri_unreachable_exception()
-          | xks_proxy_uri_endpoint_in_use_exception()
+          | incorrect_trust_anchor_exception()
           | custom_key_store_name_in_use_exception()
+          | cloud_hsm_cluster_not_found_exception()
+          | xks_proxy_uri_endpoint_in_use_exception()
+          | cloud_hsm_cluster_invalid_configuration_exception()
+          | cloud_hsm_cluster_in_use_exception()
+          | limit_exceeded_exception()
+          | xks_proxy_incorrect_authentication_credential_exception()
+          | xks_proxy_vpc_endpoint_service_invalid_configuration_exception()
+          | xks_proxy_invalid_configuration_exception()
           | xks_proxy_vpc_endpoint_service_not_found_exception()
-          | xks_proxy_vpc_endpoint_service_in_use_exception()
 
   @type create_grant_errors() ::
-          kms_invalid_state_exception()
-          | limit_exceeded_exception()
-          | disabled_exception()
-          | kms_internal_exception()
-          | not_found_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_arn_exception()
-          | dependency_timeout_exception()
+          | kms_internal_exception()
           | dry_run_operation_exception()
+          | not_found_exception()
+          | dependency_timeout_exception()
+          | limit_exceeded_exception()
           | invalid_grant_token_exception()
 
   @type create_key_errors() ::
-          custom_key_store_not_found_exception()
-          | limit_exceeded_exception()
-          | malformed_policy_document_exception()
-          | custom_key_store_invalid_state_exception()
-          | kms_internal_exception()
-          | xks_key_invalid_configuration_exception()
-          | cloud_hsm_cluster_invalid_configuration_exception()
-          | xks_key_already_in_use_exception()
+          xks_key_invalid_configuration_exception()
           | invalid_arn_exception()
-          | dependency_timeout_exception()
+          | kms_internal_exception()
+          | custom_key_store_invalid_state_exception()
+          | custom_key_store_not_found_exception()
+          | xks_key_already_in_use_exception()
+          | malformed_policy_document_exception()
           | xks_key_not_found_exception()
+          | dependency_timeout_exception()
           | unsupported_operation_exception()
           | tag_exception()
+          | cloud_hsm_cluster_invalid_configuration_exception()
+          | limit_exceeded_exception()
 
   @type decrypt_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
-          | not_found_exception()
-          | invalid_ciphertext_exception()
-          | dependency_timeout_exception()
           | dry_run_operation_exception()
-          | invalid_grant_token_exception()
           | incorrect_key_exception()
+          | not_found_exception()
+          | dependency_timeout_exception()
+          | invalid_grant_token_exception()
+          | invalid_ciphertext_exception()
+          | key_unavailable_exception()
 
   @type delete_alias_errors() ::
           kms_invalid_state_exception()
@@ -2248,414 +2248,414 @@ defmodule AWS.KMS do
           | dependency_timeout_exception()
 
   @type delete_custom_key_store_errors() ::
-          custom_key_store_not_found_exception()
+          kms_internal_exception()
           | custom_key_store_invalid_state_exception()
-          | kms_internal_exception()
+          | custom_key_store_not_found_exception()
           | custom_key_store_has_cm_ks_exception()
 
   @type delete_imported_key_material_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
 
   @type derive_shared_secret_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type describe_custom_key_stores_errors() ::
-          custom_key_store_not_found_exception()
+          invalid_marker_exception()
           | kms_internal_exception()
-          | invalid_marker_exception()
+          | custom_key_store_not_found_exception()
 
   @type describe_key_errors() ::
-          kms_internal_exception()
+          invalid_arn_exception()
+          | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type disable_key_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type disable_key_rotation_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
 
   @type disconnect_custom_key_store_errors() ::
-          custom_key_store_not_found_exception()
+          kms_internal_exception()
           | custom_key_store_invalid_state_exception()
-          | kms_internal_exception()
+          | custom_key_store_not_found_exception()
 
   @type enable_key_errors() ::
           kms_invalid_state_exception()
-          | limit_exceeded_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
+          | limit_exceeded_exception()
 
   @type enable_key_rotation_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
 
   @type encrypt_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type generate_data_key_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type generate_data_key_pair_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
           | unsupported_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type generate_data_key_pair_without_plaintext_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
           | unsupported_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type generate_data_key_without_plaintext_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type generate_mac_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
-          | not_found_exception()
           | dry_run_operation_exception()
+          | not_found_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type generate_random_errors() ::
-          custom_key_store_not_found_exception()
+          kms_internal_exception()
           | custom_key_store_invalid_state_exception()
-          | kms_internal_exception()
+          | custom_key_store_not_found_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
 
   @type get_key_last_usage_errors() ::
-          kms_internal_exception()
+          invalid_arn_exception()
+          | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type get_key_policy_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type get_key_rotation_status_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
 
   @type get_parameters_for_import_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
 
   @type get_public_key_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
+          | invalid_arn_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type import_key_material_errors() ::
           incorrect_key_material_exception()
           | kms_invalid_state_exception()
-          | kms_internal_exception()
-          | invalid_import_token_exception()
-          | not_found_exception()
-          | invalid_ciphertext_exception()
-          | expired_import_token_exception()
           | invalid_arn_exception()
+          | kms_internal_exception()
+          | not_found_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
+          | invalid_import_token_exception()
+          | invalid_ciphertext_exception()
+          | expired_import_token_exception()
 
   @type list_aliases_errors() ::
-          kms_internal_exception()
+          invalid_arn_exception()
           | invalid_marker_exception()
+          | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type list_grants_errors() ::
           kms_invalid_state_exception()
-          | kms_internal_exception()
-          | invalid_marker_exception()
-          | not_found_exception()
           | invalid_arn_exception()
+          | invalid_marker_exception()
+          | kms_internal_exception()
+          | not_found_exception()
           | dependency_timeout_exception()
           | invalid_grant_id_exception()
 
   @type list_key_policies_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type list_key_rotations_errors() ::
           kms_invalid_state_exception()
-          | kms_internal_exception()
-          | invalid_marker_exception()
-          | not_found_exception()
           | invalid_arn_exception()
+          | invalid_marker_exception()
+          | kms_internal_exception()
+          | not_found_exception()
           | unsupported_operation_exception()
 
   @type list_keys_errors() ::
-          kms_internal_exception() | invalid_marker_exception() | dependency_timeout_exception()
+          invalid_marker_exception() | kms_internal_exception() | dependency_timeout_exception()
 
   @type list_resource_tags_errors() ::
-          kms_internal_exception()
+          invalid_arn_exception()
           | invalid_marker_exception()
+          | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
 
   @type list_retirable_grants_errors() ::
-          kms_internal_exception()
+          invalid_arn_exception()
           | invalid_marker_exception()
+          | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type put_key_policy_errors() ::
           kms_invalid_state_exception()
-          | limit_exceeded_exception()
-          | malformed_policy_document_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
+          | malformed_policy_document_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
+          | limit_exceeded_exception()
 
   @type re_encrypt_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
-          | not_found_exception()
-          | invalid_ciphertext_exception()
-          | dependency_timeout_exception()
           | dry_run_operation_exception()
-          | invalid_grant_token_exception()
           | incorrect_key_exception()
+          | not_found_exception()
+          | dependency_timeout_exception()
+          | invalid_grant_token_exception()
+          | invalid_ciphertext_exception()
+          | key_unavailable_exception()
 
   @type replicate_key_errors() ::
-          kms_invalid_state_exception()
-          | limit_exceeded_exception()
-          | disabled_exception()
-          | malformed_policy_document_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
-          | already_exists_exception()
+          | malformed_policy_document_exception()
           | unsupported_operation_exception()
           | tag_exception()
+          | already_exists_exception()
+          | limit_exceeded_exception()
 
   @type retire_grant_errors() ::
           kms_invalid_state_exception()
-          | kms_internal_exception()
-          | not_found_exception()
           | invalid_arn_exception()
-          | dependency_timeout_exception()
+          | kms_internal_exception()
           | dry_run_operation_exception()
+          | not_found_exception()
+          | dependency_timeout_exception()
           | invalid_grant_token_exception()
           | invalid_grant_id_exception()
 
   @type revoke_grant_errors() ::
           kms_invalid_state_exception()
-          | kms_internal_exception()
-          | not_found_exception()
           | invalid_arn_exception()
-          | dependency_timeout_exception()
+          | kms_internal_exception()
           | dry_run_operation_exception()
+          | not_found_exception()
+          | dependency_timeout_exception()
           | invalid_grant_id_exception()
 
   @type rotate_key_on_demand_errors() ::
-          kms_invalid_state_exception()
-          | limit_exceeded_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
           | conflict_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
           | unsupported_operation_exception()
+          | limit_exceeded_exception()
 
   @type schedule_key_deletion_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type sign_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type tag_resource_errors() ::
           kms_invalid_state_exception()
-          | limit_exceeded_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | tag_exception()
+          | limit_exceeded_exception()
 
   @type untag_resource_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | tag_exception()
 
   @type update_alias_errors() ::
           kms_invalid_state_exception()
-          | limit_exceeded_exception()
           | kms_internal_exception()
           | not_found_exception()
           | dependency_timeout_exception()
+          | limit_exceeded_exception()
 
   @type update_custom_key_store_errors() ::
-          custom_key_store_not_found_exception()
-          | xks_proxy_incorrect_authentication_credential_exception()
-          | xks_proxy_invalid_configuration_exception()
-          | xks_proxy_vpc_endpoint_service_invalid_configuration_exception()
-          | custom_key_store_invalid_state_exception()
+          xks_proxy_uri_unreachable_exception()
+          | xks_proxy_vpc_endpoint_service_in_use_exception()
           | kms_internal_exception()
+          | custom_key_store_invalid_state_exception()
+          | custom_key_store_not_found_exception()
+          | xks_proxy_uri_in_use_exception()
           | cloud_hsm_cluster_not_active_exception()
           | xks_proxy_invalid_response_exception()
-          | cloud_hsm_cluster_invalid_configuration_exception()
+          | custom_key_store_name_in_use_exception()
           | cloud_hsm_cluster_not_related_exception()
           | cloud_hsm_cluster_not_found_exception()
-          | xks_proxy_uri_in_use_exception()
-          | xks_proxy_uri_unreachable_exception()
           | xks_proxy_uri_endpoint_in_use_exception()
-          | custom_key_store_name_in_use_exception()
+          | cloud_hsm_cluster_invalid_configuration_exception()
+          | xks_proxy_incorrect_authentication_credential_exception()
+          | xks_proxy_vpc_endpoint_service_invalid_configuration_exception()
+          | xks_proxy_invalid_configuration_exception()
           | xks_proxy_vpc_endpoint_service_not_found_exception()
-          | xks_proxy_vpc_endpoint_service_in_use_exception()
 
   @type update_key_description_errors() ::
           kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | dependency_timeout_exception()
 
   @type update_primary_region_errors() ::
-          kms_invalid_state_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
+          | invalid_arn_exception()
           | kms_internal_exception()
           | not_found_exception()
-          | invalid_arn_exception()
           | unsupported_operation_exception()
 
   @type verify_errors() ::
-          kms_invalid_state_exception()
-          | kms_invalid_signature_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
+          | dry_run_operation_exception()
           | not_found_exception()
           | dependency_timeout_exception()
-          | dry_run_operation_exception()
+          | kms_invalid_signature_exception()
           | invalid_grant_token_exception()
+          | key_unavailable_exception()
 
   @type verify_mac_errors() ::
-          kms_invalid_state_exception()
-          | kms_invalid_mac_exception()
-          | disabled_exception()
+          disabled_exception()
+          | kms_invalid_state_exception()
           | invalid_key_usage_exception()
           | kms_internal_exception()
-          | key_unavailable_exception()
-          | not_found_exception()
           | dry_run_operation_exception()
+          | not_found_exception()
           | invalid_grant_token_exception()
+          | kms_invalid_mac_exception()
+          | key_unavailable_exception()
 
   def metadata do
     %{
@@ -2707,7 +2707,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, cancel_key_deletion_errors()}
   def cancel_key_deletion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelKeyDeletion", input, options)
   end
@@ -2848,7 +2849,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, connect_custom_key_store_errors()}
   def connect_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConnectCustomKeyStore", input, options)
   end
@@ -2930,7 +2932,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -3054,7 +3057,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_custom_key_store_errors()}
   def create_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomKeyStore", input, options)
   end
@@ -3150,7 +3154,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_grant_errors()}
   def create_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGrant", input, options)
   end
@@ -3395,7 +3400,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateKey", input, options)
   end
@@ -3529,7 +3535,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, decrypt_errors()}
   def decrypt(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Decrypt", input, options)
   end
@@ -3596,7 +3603,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -3685,7 +3693,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, delete_custom_key_store_errors()}
   def delete_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomKeyStore", input, options)
   end
@@ -3752,7 +3761,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, delete_imported_key_material_errors()}
   def delete_imported_key_material(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImportedKeyMaterial", input, options)
   end
@@ -3876,7 +3886,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, derive_shared_secret_errors()}
   def derive_shared_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeriveSharedSecret", input, options)
   end
@@ -3963,7 +3974,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, describe_custom_key_stores_errors()}
   def describe_custom_key_stores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomKeyStores", input, options)
   end
@@ -4067,7 +4079,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, describe_key_errors()}
   def describe_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeKey", input, options)
   end
@@ -4104,7 +4117,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, disable_key_errors()}
   def disable_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableKey", input, options)
   end
@@ -4173,7 +4187,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, disable_key_rotation_errors()}
   def disable_key_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableKeyRotation", input, options)
   end
@@ -4249,7 +4264,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, disconnect_custom_key_store_errors()}
   def disconnect_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisconnectCustomKeyStore", input, options)
   end
@@ -4283,7 +4299,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, enable_key_errors()}
   def enable_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableKey", input, options)
   end
@@ -4383,7 +4400,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, enable_key_rotation_errors()}
   def enable_key_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableKeyRotation", input, options)
   end
@@ -4515,7 +4533,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, encrypt_errors()}
   def encrypt(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Encrypt", input, options)
   end
@@ -4662,7 +4681,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_errors()}
   def generate_data_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateDataKey", input, options)
   end
@@ -4796,7 +4816,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_pair_errors()}
   def generate_data_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateDataKeyPair", input, options)
   end
@@ -4899,7 +4920,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_pair_without_plaintext_errors()}
   def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateDataKeyPairWithoutPlaintext", input, options)
   end
@@ -5018,7 +5040,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_without_plaintext_errors()}
   def generate_data_key_without_plaintext(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateDataKeyWithoutPlaintext", input, options)
   end
@@ -5077,7 +5100,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_mac_errors()}
   def generate_mac(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateMac", input, options)
   end
@@ -5130,7 +5154,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_random_errors()}
   def generate_random(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateRandom", input, options)
   end
@@ -5214,7 +5239,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_key_last_usage_errors()}
   def get_key_last_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKeyLastUsage", input, options)
   end
@@ -5240,7 +5266,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_key_policy_errors()}
   def get_key_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKeyPolicy", input, options)
   end
@@ -5340,7 +5367,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_key_rotation_status_errors()}
   def get_key_rotation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKeyRotationStatus", input, options)
   end
@@ -5444,7 +5472,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_parameters_for_import_errors()}
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetParametersForImport", input, options)
   end
@@ -5534,7 +5563,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_public_key_errors()}
   def get_public_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPublicKey", input, options)
   end
@@ -5719,7 +5749,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, import_key_material_errors()}
   def import_key_material(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportKeyMaterial", input, options)
   end
@@ -5782,7 +5813,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -5851,7 +5883,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_grants_errors()}
   def list_grants(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGrants", input, options)
   end
@@ -5888,7 +5921,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_key_policies_errors()}
   def list_key_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListKeyPolicies", input, options)
   end
@@ -5953,7 +5987,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_key_rotations_errors()}
   def list_key_rotations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListKeyRotations", input, options)
   end
@@ -5996,7 +6031,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListKeys", input, options)
   end
@@ -6043,7 +6079,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_resource_tags_errors()}
   def list_resource_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceTags", input, options)
   end
@@ -6120,7 +6157,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_retirable_grants_errors()}
   def list_retirable_grants(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRetirableGrants", input, options)
   end
@@ -6156,7 +6194,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, put_key_policy_errors()}
   def put_key_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutKeyPolicy", input, options)
   end
@@ -6297,7 +6336,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, re_encrypt_errors()}
   def re_encrypt(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReEncrypt", input, options)
   end
@@ -6416,7 +6456,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, replicate_key_errors()}
   def replicate_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplicateKey", input, options)
   end
@@ -6478,7 +6519,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, retire_grant_errors()}
   def retire_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetireGrant", input, options)
   end
@@ -6543,7 +6585,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, revoke_grant_errors()}
   def revoke_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeGrant", input, options)
   end
@@ -6642,7 +6685,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, rotate_key_on_demand_errors()}
   def rotate_key_on_demand(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RotateKeyOnDemand", input, options)
   end
@@ -6738,7 +6782,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, schedule_key_deletion_errors()}
   def schedule_key_deletion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ScheduleKeyDeletion", input, options)
   end
@@ -6824,7 +6869,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, sign_errors()}
   def sign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Sign", input, options)
   end
@@ -6897,7 +6943,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -6963,7 +7010,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -7053,7 +7101,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAlias", input, options)
   end
@@ -7185,7 +7234,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_custom_key_store_errors()}
   def update_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomKeyStore", input, options)
   end
@@ -7226,7 +7276,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_key_description_errors()}
   def update_key_description(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateKeyDescription", input, options)
   end
@@ -7336,7 +7387,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_primary_region_errors()}
   def update_primary_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePrimaryRegion", input, options)
   end
@@ -7408,7 +7460,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, verify_errors()}
   def verify(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Verify", input, options)
   end
@@ -7458,7 +7511,8 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, verify_mac_errors()}
   def verify_mac(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyMac", input, options)
   end

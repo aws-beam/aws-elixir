@@ -16,707 +16,6 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      update_ec2_deep_inspection_configuration_request() :: %{
-        optional("activateDeepInspection") => [boolean()],
-        optional("packagePaths") => list(String.t() | atom())
-      }
-
-  """
-  @type update_ec2_deep_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disassociate_code_security_scan_configuration_request() :: %{
-        required("disassociateConfigurationRequests") => list(disassociate_configuration_request())
-      }
-
-  """
-  @type batch_disassociate_code_security_scan_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_encryption_key_response() :: %{
-        "kmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type get_encryption_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_vulnerability_details() :: %{
-        "cwes" => list(String.t() | atom()),
-        "detectorId" => String.t() | atom(),
-        "detectorName" => String.t() | atom(),
-        "detectorTags" => list(String.t() | atom()),
-        "filePath" => code_file_path(),
-        "referenceUrls" => list(String.t() | atom()),
-        "ruleId" => String.t() | atom(),
-        "sourceLambdaLayerArn" => String.t() | atom()
-      }
-
-  """
-  @type code_vulnerability_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("resourceTypes") => list(String.t() | atom())
-      }
-
-  """
-  @type disable_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_file_path() :: %{
-        "endLine" => [integer()],
-        "fileName" => String.t() | atom(),
-        "filePath" => String.t() | atom(),
-        "startLine" => [integer()]
-      }
-
-  """
-  @type code_file_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_git_lab_self_managed_integration_detail() :: %{
-        "accessToken" => String.t() | atom(),
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type create_git_lab_self_managed_integration_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_path() :: %{
-        "steps" => list(step())
-      }
-
-  """
-  @type network_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      state() :: %{
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss4() :: %{
-        "baseScore" => float(),
-        "scoringVector" => String.t() | atom()
-      }
-
-  """
-  @type cvss4() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      v_m_scanner_state() :: %{
-        "activated" => [boolean()],
-        "activatedAt" => non_neg_integer(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type v_m_scanner_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_delegated_admin_account_response() :: %{
-        optional("delegatedAdmin") => delegated_admin()
-      }
-
-  """
-  @type get_delegated_admin_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      repository_aggregation() :: %{
-        "repositories" => list(string_filter()),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type repository_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_code_security_scan_configuration() :: %{
-        "continuousIntegrationScanConfigurations" => list(project_continuous_integration_scan_configuration()),
-        "periodicScanConfigurations" => list(project_periodic_scan_configuration())
-      }
-
-  """
-  @type project_code_security_scan_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      suggested_fix() :: %{
-        "code" => [String.t() | atom()],
-        "description" => [String.t() | atom()]
-      }
-
-  """
-  @type suggested_fix() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_finding_status_filter() :: %{
-        "comparison" => list(any()),
-        "value" => list(any())
-      }
-
-  """
-  @type cis_finding_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_request() :: %{
-        optional("accountIds") => list(String.t() | atom()),
-        optional("clientToken") => String.t() | atom(),
-        required("resourceTypes") => list(String.t() | atom())
-      }
-
-  """
-  @type enable_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vulnerability() :: %{
-        "atigData" => atig_data(),
-        "cisaData" => cisa_data(),
-        "cvss2" => cvss2(),
-        "cvss3" => cvss3(),
-        "cvss4" => cvss4(),
-        "cwes" => list(String.t() | atom()),
-        "description" => String.t() | atom(),
-        "detectionPlatforms" => list(String.t() | atom()),
-        "epss" => epss(),
-        "exploitObserved" => exploit_observed(),
-        "id" => String.t() | atom(),
-        "referenceUrls" => list(String.t() | atom()),
-        "relatedVulnerabilities" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "sourceUrl" => String.t() | atom(),
-        "vendorCreatedAt" => non_neg_integer(),
-        "vendorSeverity" => String.t() | atom(),
-        "vendorUpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type vulnerability() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sbom_export_request() :: %{
-        optional("resourceFilterCriteria") => resource_filter_criteria(),
-        required("reportFormat") => String.t() | atom(),
-        required("s3Destination") => destination()
-      }
-
-  """
-  @type create_sbom_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_security_integration_request() :: %{
-        optional("tags") => map(),
-        required("integrationArn") => String.t() | atom()
-      }
-
-  """
-  @type get_code_security_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_security_scan_request() :: %{
-        required("resource") => list(),
-        required("scanId") => String.t() | atom()
-      }
-
-  """
-  @type get_code_security_scan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_configuration_request() :: %{}
-
-  """
-  @type describe_organization_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_git_lab_self_managed_integration_detail() :: %{
-        "authCode" => String.t() | atom()
-      }
-
-  """
-  @type update_git_lab_self_managed_integration_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      usage_total() :: %{
-        "accountId" => String.t() | atom(),
-        "usage" => list(usage())
-      }
-
-  """
-  @type usage_total() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_targets() :: %{
-        "accountIds" => list(String.t() | atom()),
-        "targetResourceTags" => map()
-      }
-
-  """
-  @type cis_targets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remediation() :: %{
-        "recommendation" => recommendation()
-      }
-
-  """
-  @type remediation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_request() :: %{
-        optional("ec2Configuration") => ec2_configuration(),
-        optional("ecrConfiguration") => ecr_configuration()
-      }
-
-  """
-  @type update_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_security_integration_summary() :: %{
-        "createdOn" => [non_neg_integer()],
-        "integrationArn" => String.t() | atom(),
-        "lastUpdateOn" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "tags" => map(),
-        "type" => list(any())
-      }
-
-  """
-  @type code_security_integration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_findings_report_response() :: %{
-        optional("reportId") => String.t() | atom()
-      }
-
-  """
-  @type create_findings_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      continuous_integration_scan_configuration() :: %{
-        "supportedEvents" => list(list(any())())
-      }
-
-  """
-  @type continuous_integration_scan_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      counts() :: %{
-        "count" => float(),
-        "groupKey" => String.t() | atom()
-      }
-
-  """
-  @type counts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      coverage_map_filter() :: %{
-        "comparison" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type coverage_map_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_criteria() :: %{
-        "ecrImageLastInUseAt" => list(date_filter()),
-        "severity" => list(string_filter()),
-        "codeVulnerabilityFilePath" => list(string_filter()),
-        "ecrImageHash" => list(string_filter()),
-        "findingType" => list(string_filter()),
-        "ec2InstanceVpcId" => list(string_filter()),
-        "resourceId" => list(string_filter()),
-        "lambdaFunctionExecutionRoleArn" => list(string_filter()),
-        "networkProtocol" => list(string_filter()),
-        "updatedAt" => list(date_filter()),
-        "title" => list(string_filter()),
-        "ec2InstanceImageId" => list(string_filter()),
-        "findingStatus" => list(string_filter()),
-        "inspectorScore" => list(number_filter()),
-        "vendorSeverity" => list(string_filter()),
-        "resourceTags" => list(map_filter()),
-        "lambdaFunctionName" => list(string_filter()),
-        "fixAvailable" => list(string_filter()),
-        "ecrImageRepositoryName" => list(string_filter()),
-        "awsAccountId" => list(string_filter()),
-        "codeVulnerabilityDetectorName" => list(string_filter()),
-        "epssScore" => list(number_filter()),
-        "ecrImageRegistry" => list(string_filter()),
-        "componentType" => list(string_filter()),
-        "codeRepositoryProviderType" => list(string_filter()),
-        "lastObservedAt" => list(date_filter()),
-        "exploitAvailable" => list(string_filter()),
-        "ecrImageTags" => list(string_filter()),
-        "codeVulnerabilityDetectorTags" => list(string_filter()),
-        "vulnerabilitySource" => list(string_filter()),
-        "relatedVulnerabilities" => list(string_filter()),
-        "lambdaFunctionRuntime" => list(string_filter()),
-        "ecrImageInUseCount" => list(number_filter()),
-        "ec2InstanceSubnetId" => list(string_filter()),
-        "portRange" => list(port_range_filter()),
-        "ecrImagePushedAt" => list(date_filter()),
-        "codeRepositoryProjectName" => list(string_filter()),
-        "lambdaFunctionLastModifiedAt" => list(date_filter()),
-        "ecrImageArchitecture" => list(string_filter()),
-        "vulnerabilityId" => list(string_filter()),
-        "resourceType" => list(string_filter()),
-        "findingArn" => list(string_filter()),
-        "componentId" => list(string_filter()),
-        "vulnerablePackages" => list(package_filter()),
-        "firstObservedAt" => list(date_filter()),
-        "lambdaFunctionLayers" => list(string_filter())
-      }
-
-  """
-  @type filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sbom_export_response() :: %{
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "filterCriteria" => resource_filter_criteria(),
-        "format" => String.t() | atom(),
-        "reportId" => String.t() | atom(),
-        "s3Destination" => destination(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type get_sbom_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time() :: %{
-        "timeOfDay" => String.t() | atom(),
-        "timezone" => String.t() | atom()
-      }
-
-  """
-  @type time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cis_scan_configuration_request() :: %{
-        required("scanConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_cis_scan_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_delegated_admin_account_response() :: %{
-        required("delegatedAdminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type disable_delegated_admin_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_request() :: %{}
-
-  """
-  @type get_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss3() :: %{
-        "baseScore" => float(),
-        "scoringVector" => String.t() | atom()
-      }
-
-  """
-  @type cvss3() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_cis_session_request() :: %{
-        required("message") => start_cis_session_message(),
-        required("scanJobId") => String.t() | atom()
-      }
-
-  """
-  @type start_cis_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_vulnerabilities_filter_criteria() :: %{
-        "vulnerabilityIds" => list(String.t() | atom())
-      }
-
-  """
-  @type search_vulnerabilities_filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_account_ec2_deep_inspection_status() :: %{
-        "accountId" => String.t() | atom(),
-        "activateDeepInspection" => [boolean()]
-      }
-
-  """
-  @type member_account_ec2_deep_inspection_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_member_ec2_deep_inspection_status_response() :: %{
-        "accountIds" => list(member_account_ec2_deep_inspection_status_state()),
-        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state())
-      }
-
-  """
-  @type batch_get_member_ec2_deep_inspection_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_metadata() :: %{
-        "amiId" => String.t() | atom(),
-        "platform" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type ec2_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_security_scan_configurations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_code_security_scan_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_account_ec2_deep_inspection_status_state() :: %{
-        "accountId" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type member_account_ec2_deep_inspection_status_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_report_status_response() :: %{
-        optional("destination") => destination(),
-        optional("errorCode") => String.t() | atom(),
-        optional("errorMessage") => String.t() | atom(),
-        optional("filterCriteria") => filter_criteria(),
-        optional("reportId") => String.t() | atom(),
-        optional("status") => String.t() | atom()
-      }
-
-  """
-  @type get_findings_report_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_configuration() :: %{
-        "activateVMScanner" => [boolean()],
-        "scanMode" => String.t() | atom()
-      }
-
-  """
-  @type ec2_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_state() :: %{
-        "codeRepository" => state(),
-        "ec2" => state(),
-        "ecr" => state(),
-        "lambda" => state(),
-        "lambdaCode" => state()
-      }
-
-  """
-  @type resource_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_configuration_state() :: %{
-        "scanModeState" => ec2_scan_mode_state(),
-        "vmScannerState" => v_m_scanner_state()
-      }
-
-  """
-  @type ec2_configuration_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_usage_totals_request() :: %{
         optional("accountIds") => list(String.t() | atom()),
         optional("maxResults") => integer(),
@@ -725,566 +24,6 @@ defmodule AWS.Inspector2 do
 
   """
   @type list_usage_totals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delegated_admin() :: %{
-        "accountId" => String.t() | atom(),
-        "relationshipStatus" => String.t() | atom()
-      }
-
-  """
-  @type delegated_admin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_scan_status_filter() :: %{
-        "comparison" => list(any()),
-        "value" => list(any())
-      }
-
-  """
-  @type cis_scan_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_permissions_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("permissions") => list(permission())
-      }
-
-  """
-  @type list_account_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_report_status_request() :: %{
-        optional("reportId") => String.t() | atom()
-      }
-
-  """
-  @type get_findings_report_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_findings_report_response() :: %{
-        required("reportId") => String.t() | atom()
-      }
-
-  """
-  @type cancel_findings_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cis_targets() :: %{
-        "accountIds" => list(String.t() | atom()),
-        "targetResourceTags" => map()
-      }
-
-  """
-  @type update_cis_targets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      coverage_string_filter() :: %{
-        "comparison" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type coverage_string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_configuration_request() :: %{
-        "resource" => list(),
-        "scanConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_response() :: %{
-        optional("findings") => list(finding()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_response() :: %{
-        optional("failedAccounts") => list(failed_account()),
-        required("accounts") => list(account())
-      }
-
-  """
-  @type disable_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecr_configuration() :: %{
-        "pullDateRescanDuration" => String.t() | atom(),
-        "pullDateRescanMode" => String.t() | atom(),
-        "rescanDuration" => String.t() | atom()
-      }
-
-  """
-  @type ecr_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_metadata_details() :: %{
-        "detailsGroup" => [String.t() | atom()],
-        "taskDefinitionArn" => [String.t() | atom()]
-      }
-
-  """
-  @type aws_ecs_metadata_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_target_resource_aggregation() :: %{
-        "accountId" => String.t() | atom(),
-        "platform" => [String.t() | atom()],
-        "scanArn" => String.t() | atom(),
-        "statusCounts" => status_counts(),
-        "targetResourceId" => String.t() | atom(),
-        "targetResourceTags" => map(),
-        "targetStatus" => list(any()),
-        "targetStatusReason" => list(any())
-      }
-
-  """
-  @type cis_target_resource_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_filter_response() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type create_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_member_response() :: %{
-        required("accountId") => String.t() | atom()
-      }
-
-  """
-  @type associate_member_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_scan_results_aggregated_by_target_resource_filter_criteria() :: %{
-        "accountIdFilters" => list(cis_string_filter()),
-        "checkIdFilters" => list(cis_string_filter()),
-        "failedChecksFilters" => list(cis_number_filter()),
-        "platformFilters" => list(cis_string_filter()),
-        "statusFilters" => list(cis_result_status_filter()),
-        "targetResourceIdFilters" => list(cis_string_filter()),
-        "targetResourceTagFilters" => list(tag_filter()),
-        "targetStatusFilters" => list(cis_target_status_filter()),
-        "targetStatusReasonFilters" => list(cis_target_status_reason_filter())
-      }
-
-  """
-  @type cis_scan_results_aggregated_by_target_resource_filter_criteria() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      resource_status() :: %{
-        "codeRepository" => String.t() | atom(),
-        "ec2" => String.t() | atom(),
-        "ecr" => String.t() | atom(),
-        "lambda" => String.t() | atom(),
-        "lambdaCode" => String.t() | atom()
-      }
-
-  """
-  @type resource_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delegated_admin_account() :: %{
-        "accountId" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type delegated_admin_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_scan_metadata() :: %{
-        "codeRepository" => code_repository_metadata(),
-        "ec2" => ec2_metadata(),
-        "ecrImage" => ecr_container_image_metadata(),
-        "ecrRepository" => ecr_repository_metadata(),
-        "lambdaFunction" => lambda_function_metadata()
-      }
-
-  """
-  @type resource_scan_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      monthly_schedule() :: %{
-        "day" => list(any()),
-        "startTime" => time()
-      }
-
-  """
-  @type monthly_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_member_request() :: %{
-        required("accountId") => String.t() | atom()
-      }
-
-  """
-  @type associate_member_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_git_hub_integration_detail() :: %{
-        "code" => String.t() | atom(),
-        "installationId" => String.t() | atom()
-      }
-
-  """
-  @type update_git_hub_integration_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cis_scan_configuration_request() :: %{
-        optional("scanName") => String.t() | atom(),
-        optional("schedule") => list(),
-        optional("securityLevel") => list(any()),
-        optional("targets") => update_cis_targets(),
-        required("scanConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type update_cis_scan_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_encryption_key_request() :: %{
-        required("resourceType") => String.t() | atom(),
-        required("scanType") => String.t() | atom()
-      }
-
-  """
-  @type reset_encryption_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_code_security_integration_response() :: %{
-        "integrationArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_code_security_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_scan_configuration() :: %{
-        "ownerId" => String.t() | atom(),
-        "scanConfigurationArn" => String.t() | atom(),
-        "scanName" => String.t() | atom(),
-        "schedule" => list(),
-        "securityLevel" => list(any()),
-        "tags" => map(),
-        "targets" => cis_targets()
-      }
-
-  """
-  @type cis_scan_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_security_integration_request() :: %{
-        optional("details") => list(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("type") => list(any())
-      }
-
-  """
-  @type create_code_security_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_code_security_scan_configuration_response() :: %{
-        "scanConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cis_scan_configurations_request() :: %{
-        optional("filterCriteria") => list_cis_scan_configurations_filter_criteria(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_cis_scan_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_free_trial_info_response() :: %{
-        required("accounts") => list(free_trial_account_info()),
-        required("failedAccounts") => list(free_trial_info_error())
-      }
-
-  """
-  @type batch_get_free_trial_info_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      coverage_number_filter() :: %{
-        "lowerInclusive" => [float()],
-        "upperInclusive" => [float()]
-      }
-
-  """
-  @type coverage_number_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ec2_deep_inspection_configuration_response() :: %{
-        "errorMessage" => String.t() | atom(),
-        "orgPackagePaths" => list(String.t() | atom()),
-        "packagePaths" => list(String.t() | atom()),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type update_ec2_deep_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failed_member_account_ec2_deep_inspection_status_state() :: %{
-        "accountId" => String.t() | atom(),
-        "ec2ScanStatus" => String.t() | atom(),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type failed_member_account_ec2_deep_inspection_status_state() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      code_security_scan_configuration_association_summary() :: %{
-        "resource" => list()
-      }
-
-  """
-  @type code_security_scan_configuration_association_summary() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      title_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "severityCounts" => severity_counts(),
-        "title" => String.t() | atom(),
-        "vulnerabilityId" => [String.t() | atom()]
-      }
-
-  """
-  @type title_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      severity_counts() :: %{
-        "all" => [float()],
-        "critical" => [float()],
-        "high" => [float()],
-        "medium" => [float()]
-      }
-
-  """
-  @type severity_counts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cis_scans_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scans" => list(cis_scan())
-      }
-
-  """
-  @type list_cis_scans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_type_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "exploitAvailableCount" => [float()],
-        "fixAvailableCount" => [float()],
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type finding_type_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_findings_report_request() :: %{
-        required("reportId") => String.t() | atom()
-      }
-
-  """
-  @type cancel_findings_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      usage() :: %{
-        "currency" => String.t() | atom(),
-        "estimatedMonthlyCost" => float(),
-        "total" => float(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_cis_session_request() :: %{
-        required("message") => stop_cis_session_message(),
-        required("scanJobId") => String.t() | atom(),
-        required("sessionToken") => String.t() | atom()
-      }
-
-  """
-  @type stop_cis_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failed_account() :: %{
-        "accountId" => String.t() | atom(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "resourceStatus" => resource_status(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type failed_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1306,12 +45,664 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      cluster_for_image_filter_criteria() :: %{
-        "resourceId" => [String.t() | atom()]
+      map_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type cluster_for_image_filter_criteria() :: %{(String.t() | atom()) => any()}
+  @type map_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sbom_export_request() :: %{
+        optional("resourceFilterCriteria") => resource_filter_criteria(),
+        required("reportFormat") => String.t() | atom(),
+        required("s3Destination") => destination()
+      }
+
+  """
+  @type create_sbom_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_scan_result_details() :: %{
+        "accountId" => String.t() | atom(),
+        "checkDescription" => [String.t() | atom()],
+        "checkId" => [String.t() | atom()],
+        "findingArn" => String.t() | atom(),
+        "level" => list(any()),
+        "platform" => [String.t() | atom()],
+        "remediation" => [String.t() | atom()],
+        "scanArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "targetResourceId" => String.t() | atom(),
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type cis_scan_result_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      free_trial_info() :: %{
+        "end" => [non_neg_integer()],
+        "start" => [non_neg_integer()],
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type free_trial_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "packageName" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type package_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_association_result() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t() | atom(),
+        "statusCode" => list(any()),
+        "statusMessage" => String.t() | atom()
+      }
+
+  """
+  @type failed_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_delegated_admin_accounts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_delegated_admin_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_filter_request() :: %{
+        optional("action") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("filterCriteria") => filter_criteria(),
+        optional("name") => String.t() | atom(),
+        optional("reason") => String.t() | atom(),
+        required("filterArn") => String.t() | atom()
+      }
+
+  """
+  @type update_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "functionName" => [String.t() | atom()],
+        "lambdaTags" => map(),
+        "lastModifiedAt" => non_neg_integer(),
+        "resourceId" => String.t() | atom(),
+        "runtime" => [String.t() | atom()],
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type lambda_function_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_configuration_request() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_member_response() :: %{
+        required("accountId") => String.t() | atom()
+      }
+
+  """
+  @type associate_member_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cis_scan_result_details_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scanResultDetails" => list(cis_scan_result_details())
+      }
+
+  """
+  @type get_cis_scan_result_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_filters_request() :: %{
+        optional("action") => String.t() | atom(),
+        optional("arns") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_filters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member() :: %{
+        "accountId" => String.t() | atom(),
+        "delegatedAdminAccountId" => String.t() | atom(),
+        "relationshipStatus" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_path() :: %{
+        "steps" => list(step())
+      }
+
+  """
+  @type network_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ami_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "affectedInstances" => [float()],
+        "ami" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type ami_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss_score_adjustment() :: %{
+        "metric" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type cvss_score_adjustment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      covered_resource() :: %{
+        "accountId" => String.t() | atom(),
+        "lastScannedAt" => non_neg_integer(),
+        "resourceId" => String.t() | atom(),
+        "resourceMetadata" => resource_scan_metadata(),
+        "resourceType" => String.t() | atom(),
+        "scanMode" => String.t() | atom(),
+        "scanStatus" => scan_status(),
+        "scanType" => String.t() | atom()
+      }
+
+  """
+  @type covered_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_security_integration_response() :: %{
+        "integrationArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_code_security_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_layer_aggregation() :: %{
+        "layerHashes" => list(string_filter()),
+        "repositories" => list(string_filter()),
+        "resourceIds" => list(string_filter()),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type image_layer_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_map_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type resource_map_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_cis_session_response() :: %{}
+
+  """
+  @type start_cis_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss2() :: %{
+        "baseScore" => float(),
+        "scoringVector" => String.t() | atom()
+      }
+
+  """
+  @type cvss2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_encryption_key_response() :: %{}
+
+  """
+  @type reset_encryption_key_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cis_scan_configurations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "scanConfigurations" => list(cis_scan_configuration())
+      }
+
+  """
+  @type list_cis_scan_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cis_targets() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "targetResourceTags" => map()
+      }
+
+  """
+  @type create_cis_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_free_trial_info_response() :: %{
+        required("accounts") => list(free_trial_account_info()),
+        required("failedAccounts") => list(free_trial_info_error())
+      }
+
+  """
+  @type batch_get_free_trial_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ami_aggregation() :: %{
+        "amis" => list(string_filter()),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type ami_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_code_security_scan_configuration_request() :: %{
+        required("disassociateConfigurationRequests") => list(disassociate_configuration_request())
+      }
+
+  """
+  @type batch_disassociate_code_security_scan_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      epss_details() :: %{
+        "score" => float()
+      }
+
+  """
+  @type epss_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_account_status_response() :: %{
+        optional("failedAccounts") => list(failed_account()),
+        required("accounts") => list(account_state())
+      }
+
+  """
+  @type batch_get_account_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_delegated_admin_account_response() :: %{
+        required("delegatedAdminAccountId") => String.t() | atom()
+      }
+
+  """
+  @type enable_delegated_admin_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_scan_status_filter() :: %{
+        "comparison" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type cis_scan_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      title_aggregation() :: %{
+        "findingType" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom(),
+        "titles" => list(string_filter()),
+        "vulnerabilityIds" => list(string_filter())
+      }
+
+  """
+  @type title_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_delegated_admin_account_request() :: %{
+        required("delegatedAdminAccountId") => String.t() | atom()
+      }
+
+  """
+  @type disable_delegated_admin_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_organization_configuration_request() :: %{
+        required("autoEnable") => auto_enable()
+      }
+
+  """
+  @type update_organization_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss4() :: %{
+        "baseScore" => float(),
+        "scoringVector" => String.t() | atom()
+      }
+
+  """
+  @type cvss4() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_code_security_integration_request() :: %{
+        required("details") => list(),
+        required("integrationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_code_security_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_vulnerabilities_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("filterCriteria") => search_vulnerabilities_filter_criteria()
+      }
+
+  """
+  @type search_vulnerabilities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cis_scan_results_aggregated_by_target_resource_request() :: %{
+        optional("filterCriteria") => cis_scan_results_aggregated_by_target_resource_filter_criteria(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        required("scanArn") => String.t() | atom()
+      }
+
+  """
+  @type list_cis_scan_results_aggregated_by_target_resource_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cis_scan_configuration_request() :: %{
+        required("scanConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_cis_scan_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_cis_session_health_request() :: %{
+        required("scanJobId") => String.t() | atom(),
+        required("sessionToken") => String.t() | atom()
+      }
+
+  """
+  @type send_cis_session_health_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      free_trial_account_info() :: %{
+        "accountId" => String.t() | atom(),
+        "freeTrialInfo" => list(free_trial_info())
+      }
+
+  """
+  @type free_trial_account_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_security_scan_configuration() :: %{
+        "continuousIntegrationScanConfiguration" => continuous_integration_scan_configuration(),
+        "periodicScanConfiguration" => periodic_scan_configuration(),
+        "ruleSetCategories" => list(list(any())())
+      }
+
+  """
+  @type code_security_scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_vulnerabilities_filter_criteria() :: %{
+        "vulnerabilityIds" => list(String.t() | atom())
+      }
+
+  """
+  @type search_vulnerabilities_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_request() :: %{
+        optional("ec2Configuration") => ec2_configuration(),
+        optional("ecrConfiguration") => ecr_configuration()
+      }
+
+  """
+  @type update_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_code_security_scan_configuration_response() :: %{
+        "failedAssociations" => list(failed_association_result()),
+        "successfulAssociations" => list(successful_association_result())
+      }
+
+  """
+  @type batch_associate_code_security_scan_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_filter_response() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type update_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_member_response() :: %{
+        required("accountId") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_member_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_delegated_admin_account_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("delegatedAdminAccountId") => String.t() | atom()
+      }
+
+  """
+  @type enable_delegated_admin_account_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,156 +723,266 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      cancel_sbom_export_request() :: %{
-        required("reportId") => String.t() | atom()
+      get_member_request() :: %{
+        required("accountId") => String.t() | atom()
       }
 
   """
-  @type cancel_sbom_export_request() :: %{(String.t() | atom()) => any()}
+  @type get_member_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_code_security_scan_configuration_associations_response() :: %{
-        "associations" => list(code_security_scan_configuration_association_summary()),
-        "nextToken" => String.t() | atom()
+      list_findings_request() :: %{
+        optional("filterCriteria") => filter_criteria(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortCriteria") => sort_criteria()
       }
 
   """
-  @type list_code_security_scan_configuration_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cis_scan_results_aggregated_by_checks_response() :: %{
-        "checkAggregations" => list(cis_check_aggregation()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_cis_scan_results_aggregated_by_checks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_code_security_integration_request() :: %{
-        required("integrationArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_code_security_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_target_status_reason_filter() :: %{
-        "comparison" => list(any()),
-        "value" => list(any())
-      }
-
-  """
-  @type cis_target_status_reason_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      periodic_scan_configuration() :: %{
-        "frequency" => list(any()),
-        "frequencyExpression" => String.t() | atom()
-      }
-
-  """
-  @type periodic_scan_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_filter_response() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type update_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_configuration_response() :: %{
-        optional("autoEnable") => auto_enable(),
-        optional("maxAccountLimitReached") => [boolean()]
-      }
-
-  """
-  @type describe_organization_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_encryption_key_request() :: %{
-        required("kmsKeyId") => String.t() | atom(),
-        required("resourceType") => String.t() | atom(),
-        required("scanType") => String.t() | atom()
-      }
-
-  """
-  @type update_encryption_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_encryption_key_response() :: %{}
-
-  """
-  @type update_encryption_key_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cis_scan_configuration_response() :: %{
+      delete_cis_scan_configuration_response() :: %{
         "scanConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type create_cis_scan_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type delete_cis_scan_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_finding_aggregations_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("responses") => list(list()),
-        required("aggregationType") => String.t() | atom()
+      start_cis_session_message() :: %{
+        "sessionToken" => String.t() | atom()
       }
 
   """
-  @type list_finding_aggregations_response() :: %{(String.t() | atom()) => any()}
+  @type start_cis_session_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cis_scan_results_aggregated_by_target_resource_response() :: %{
+      project_continuous_integration_scan_configuration() :: %{
+        "ruleSetCategories" => list(list(any())()),
+        "supportedEvent" => list(any())
+      }
+
+  """
+  @type project_continuous_integration_scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cis_scans_response() :: %{
         "nextToken" => String.t() | atom(),
-        "targetResourceAggregations" => list(cis_target_resource_aggregation())
+        "scans" => list(cis_scan())
       }
 
   """
-  @type list_cis_scan_results_aggregated_by_target_resource_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_cis_scans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      state() :: %{
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_vulnerability_details() :: %{
+        "cvss" => list(cvss_score()),
+        "referenceUrls" => list(String.t() | atom()),
+        "relatedVulnerabilities" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "sourceUrl" => String.t() | atom(),
+        "vendorCreatedAt" => non_neg_integer(),
+        "vendorSeverity" => String.t() | atom(),
+        "vendorUpdatedAt" => non_neg_integer(),
+        "vulnerabilityId" => String.t() | atom(),
+        "vulnerablePackages" => list(vulnerable_package())
+      }
+
+  """
+  @type package_vulnerability_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecr_configuration() :: %{
+        "pullDateRescanDuration" => String.t() | atom(),
+        "pullDateRescanMode" => String.t() | atom(),
+        "rescanDuration" => String.t() | atom()
+      }
+
+  """
+  @type ecr_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_scan_configuration_request() :: %{
+        required("scanConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type get_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_cis_session_request() :: %{
+        required("message") => stop_cis_session_message(),
+        required("scanJobId") => String.t() | atom(),
+        required("sessionToken") => String.t() | atom()
+      }
+
+  """
+  @type stop_cis_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_git_lab_self_managed_integration_detail() :: %{
+        "authCode" => String.t() | atom()
+      }
+
+  """
+  @type update_git_lab_self_managed_integration_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_coverage_request() :: %{
+        optional("filterCriteria") => coverage_filter_criteria(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_coverage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ec2_deep_inspection_configuration_request() :: %{
+        optional("activateDeepInspection") => [boolean()],
+        optional("packagePaths") => list(String.t() | atom())
+      }
+
+  """
+  @type update_ec2_deep_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_file_path() :: %{
+        "endLine" => [integer()],
+        "fileName" => String.t() | atom(),
+        "filePath" => String.t() | atom(),
+        "startLine" => [integer()]
+      }
+
+  """
+  @type code_file_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evidence() :: %{
+        "evidenceDetail" => String.t() | atom(),
+        "evidenceRule" => String.t() | atom(),
+        "severity" => String.t() | atom()
+      }
+
+  """
+  @type evidence() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_type_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "exploitAvailableCount" => [float()],
+        "fixAvailableCount" => [float()],
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type finding_type_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_reachability_details() :: %{
+        "networkPath" => network_path(),
+        "openPortRange" => port_range(),
+        "protocol" => String.t() | atom()
+      }
+
+  """
+  @type network_reachability_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_scan() :: %{
+        "failedChecks" => [integer()],
+        "scanArn" => String.t() | atom(),
+        "scanConfigurationArn" => String.t() | atom(),
+        "scanDate" => [non_neg_integer()],
+        "scanName" => String.t() | atom(),
+        "scheduledBy" => [String.t() | atom()],
+        "securityLevel" => list(any()),
+        "status" => list(any()),
+        "targets" => cis_targets(),
+        "totalChecks" => [integer()]
+      }
+
+  """
+  @type cis_scan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      title_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "severityCounts" => severity_counts(),
+        "title" => String.t() | atom(),
+        "vulnerabilityId" => [String.t() | atom()]
+      }
+
+  """
+  @type title_aggregation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1499,57 +1000,142 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      lambda_function_aggregation() :: %{
-        "functionNames" => list(string_filter()),
-        "functionTags" => list(map_filter()),
-        "resourceIds" => list(string_filter()),
-        "runtimes" => list(string_filter()),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
+      reset_encryption_key_request() :: %{
+        required("resourceType") => String.t() | atom(),
+        required("scanType") => String.t() | atom()
       }
 
   """
-  @type lambda_function_aggregation() :: %{(String.t() | atom()) => any()}
+  @type reset_encryption_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      enable_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("clientToken") => String.t() | atom(),
+        required("resourceTypes") => list(String.t() | atom())
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type enable_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
+      delete_code_security_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_filter_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("reason") => String.t() | atom(),
-        optional("tags") => map(),
-        required("action") => String.t() | atom(),
-        required("filterCriteria") => filter_criteria(),
-        required("name") => String.t() | atom()
+      ec2_metadata() :: %{
+        "amiId" => String.t() | atom(),
+        "platform" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type create_filter_request() :: %{(String.t() | atom()) => any()}
+  @type ec2_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_detail() :: %{
+        "cisaData" => cisa_data(),
+        "cwes" => list(String.t() | atom()),
+        "epssScore" => [float()],
+        "evidences" => list(evidence()),
+        "exploitObserved" => exploit_observed(),
+        "findingArn" => String.t() | atom(),
+        "referenceUrls" => list(String.t() | atom()),
+        "riskScore" => integer(),
+        "tools" => list(String.t() | atom()),
+        "ttps" => list(String.t() | atom())
+      }
+
+  """
+  @type finding_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_details() :: %{
+        "integrationArn" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "providerType" => String.t() | atom()
+      }
+
+  """
+  @type code_repository_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_target_status_filter() :: %{
+        "comparison" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type cis_target_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_security_level_filter() :: %{
+        "comparison" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type cis_security_level_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_filter_response() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type create_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_configuration() :: %{
+        "activateVMScanner" => [boolean()],
+        "scanMode" => String.t() | atom()
+      }
+
+  """
+  @type ec2_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_members_response() :: %{
+        optional("members") => list(member()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_members_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1567,285 +1153,13 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      list_code_security_scan_configurations_response() :: %{
-        "configurations" => list(code_security_scan_configuration_summary()),
-        "nextToken" => String.t() | atom()
+      cis_number_filter() :: %{
+        "lowerInclusive" => [integer()],
+        "upperInclusive" => [integer()]
       }
 
   """
-  @type list_code_security_scan_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_security_scan_response() :: %{
-        "accountId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "lastCommitId" => [String.t() | atom()],
-        "resource" => list(),
-        "scanId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_code_security_scan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compute_platform() :: %{
-        "product" => String.t() | atom(),
-        "vendor" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type compute_platform() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_cis_session_health_request() :: %{
-        required("scanJobId") => String.t() | atom(),
-        required("sessionToken") => String.t() | atom()
-      }
-
-  """
-  @type send_cis_session_health_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecr_repository_metadata() :: %{
-        "name" => [String.t() | atom()],
-        "scanFrequency" => String.t() | atom()
-      }
-
-  """
-  @type ecr_repository_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sbom_export_request() :: %{
-        required("reportId") => String.t() | atom()
-      }
-
-  """
-  @type get_sbom_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_delegated_admin_accounts_response() :: %{
-        optional("delegatedAdminAccounts") => list(delegated_admin_account()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_delegated_admin_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_security_integrations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_code_security_integrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecr_configuration_state() :: %{
-        "rescanDurationState" => ecr_rescan_duration_state()
-      }
-
-  """
-  @type ecr_configuration_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_filter_criteria() :: %{
-        "accountId" => list(resource_string_filter()),
-        "ec2InstanceTags" => list(resource_map_filter()),
-        "ecrImageTags" => list(resource_string_filter()),
-        "ecrRepositoryName" => list(resource_string_filter()),
-        "lambdaFunctionName" => list(resource_string_filter()),
-        "lambdaFunctionTags" => list(resource_map_filter()),
-        "resourceId" => list(resource_string_filter()),
-        "resourceType" => list(resource_string_filter())
-      }
-
-  """
-  @type resource_filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cis_targets() :: %{
-        "accountIds" => list(String.t() | atom()),
-        "targetResourceTags" => map()
-      }
-
-  """
-  @type create_cis_targets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_delegated_admin_account_response() :: %{
-        required("delegatedAdminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type enable_delegated_admin_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cis_scan_configuration_response() :: %{
-        "scanConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_cis_scan_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_line() :: %{
-        "content" => [String.t() | atom()],
-        "lineNumber" => [integer()]
-      }
-
-  """
-  @type code_line() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation() :: %{
-        "Url" => String.t() | atom(),
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_cis_message_progress() :: %{
-        "errorChecks" => integer(),
-        "failedChecks" => integer(),
-        "informationalChecks" => integer(),
-        "notApplicableChecks" => integer(),
-        "notEvaluatedChecks" => integer(),
-        "successfulChecks" => integer(),
-        "totalChecks" => integer(),
-        "unknownChecks" => integer()
-      }
-
-  """
-  @type stop_cis_message_progress() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss2() :: %{
-        "baseScore" => float(),
-        "scoringVector" => String.t() | atom()
-      }
-
-  """
-  @type cvss2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_check_aggregation() :: %{
-        "accountId" => String.t() | atom(),
-        "checkDescription" => [String.t() | atom()],
-        "checkId" => [String.t() | atom()],
-        "level" => list(any()),
-        "platform" => [String.t() | atom()],
-        "scanArn" => String.t() | atom(),
-        "statusCounts" => status_counts(),
-        "title" => [String.t() | atom()]
-      }
-
-  """
-  @type cis_check_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_cis_session_message() :: %{
-        "sessionToken" => String.t() | atom()
-      }
-
-  """
-  @type start_cis_session_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_finding_details_request() :: %{
-        required("findingArns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_finding_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_snippet_error() :: %{
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "findingArn" => String.t() | atom()
-      }
-
-  """
-  @type code_snippet_error() :: %{(String.t() | atom()) => any()}
+  @type cis_number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1859,33 +1173,6 @@ defmodule AWS.Inspector2 do
 
   """
   @type lambda_vpc_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account() :: %{
-        "accountId" => String.t() | atom(),
-        "resourceStatus" => resource_status(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      atig_data() :: %{
-        "firstSeen" => non_neg_integer(),
-        "lastSeen" => non_neg_integer(),
-        "targets" => list(String.t() | atom()),
-        "ttps" => list(String.t() | atom())
-      }
-
-  """
-  @type atig_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1910,108 +1197,1015 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      cluster_details() :: %{
-        "clusterMetadata" => list(),
-        "lastInUse" => [non_neg_integer()],
-        "runningUnitCount" => [float()],
-        "stoppedUnitCount" => [float()]
+      create_cis_scan_configuration_request() :: %{
+        optional("tags") => map(),
+        required("scanName") => String.t() | atom(),
+        required("schedule") => list(),
+        required("securityLevel") => list(any()),
+        required("targets") => create_cis_targets()
       }
 
   """
-  @type cluster_details() :: %{(String.t() | atom()) => any()}
+  @type create_cis_scan_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cvss_score_details() :: %{
-        "adjustments" => list(cvss_score_adjustment()),
-        "cvssSource" => String.t() | atom(),
-        "score" => [float()],
-        "scoreSource" => String.t() | atom(),
+      lambda_function_metadata() :: %{
+        "functionName" => [String.t() | atom()],
+        "functionTags" => map(),
+        "layers" => list([String.t() | atom()]()),
+        "runtime" => String.t() | atom()
+      }
+
+  """
+  @type lambda_function_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_security_scan_configurations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_code_security_scan_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_findings_report_request() :: %{
+        required("reportId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_findings_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_string_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type resource_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_code_security_scan_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("resource") => list()
+      }
+
+  """
+  @type start_code_security_scan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_layer_aggregation() :: %{
+        "functionNames" => list(string_filter()),
+        "layerArns" => list(string_filter()),
+        "resourceIds" => list(string_filter()),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type lambda_layer_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scope_settings() :: %{
+        "projectSelectionScope" => list(any())
+      }
+
+  """
+  @type scope_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_scan_configuration_request() :: %{
+        optional("scopeSettings") => scope_settings(),
+        optional("tags") => map(),
+        required("configuration") => code_security_scan_configuration(),
+        required("level") => list(any()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_git_lab_self_managed_integration_detail() :: %{
+        "accessToken" => String.t() | atom(),
+        "instanceUrl" => String.t() | atom()
+      }
+
+  """
+  @type create_git_lab_self_managed_integration_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cis_scan_configuration_request() :: %{
+        optional("scanName") => String.t() | atom(),
+        optional("schedule") => list(),
+        optional("securityLevel") => list(any()),
+        optional("targets") => update_cis_targets(),
+        required("scanConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_cis_scan_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_encryption_key_request() :: %{
+        required("kmsKeyId") => String.t() | atom(),
+        required("resourceType") => String.t() | atom(),
+        required("scanType") => String.t() | atom()
+      }
+
+  """
+  @type update_encryption_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_aggregation_response() :: %{
+        "accountId" => [String.t() | atom()],
+        "exploitAvailableActiveFindingsCount" => [float()],
+        "fixAvailableActiveFindingsCount" => [float()],
+        "projectNames" => [String.t() | atom()],
+        "providerType" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type code_repository_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cis_targets() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "targetResourceTags" => map()
+      }
+
+  """
+  @type update_cis_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      daily_schedule() :: %{
+        "startTime" => time()
+      }
+
+  """
+  @type daily_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_target_resource_aggregation() :: %{
+        "accountId" => String.t() | atom(),
+        "platform" => [String.t() | atom()],
+        "scanArn" => String.t() | atom(),
+        "statusCounts" => status_counts(),
+        "targetResourceId" => String.t() | atom(),
+        "targetResourceTags" => map(),
+        "targetStatus" => list(any()),
+        "targetStatusReason" => list(any())
+      }
+
+  """
+  @type cis_target_resource_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_configuration_request() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type disassociate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      repository_aggregation() :: %{
+        "repositories" => list(string_filter()),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type repository_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_cis_session_request() :: %{
+        required("message") => start_cis_session_message(),
+        required("scanJobId") => String.t() | atom()
+      }
+
+  """
+  @type start_cis_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type create_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ec2_deep_inspection_configuration_response() :: %{
+        "errorMessage" => String.t() | atom(),
+        "orgPackagePaths" => list(String.t() | atom()),
+        "packagePaths" => list(String.t() | atom()),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type update_ec2_deep_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_scan_request() :: %{
+        required("resource") => list(),
+        required("scanId") => String.t() | atom()
+      }
+
+  """
+  @type get_code_security_scan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_code_security_scan_configuration_request() :: %{
+        required("configuration") => code_security_scan_configuration(),
+        required("scanConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_findings_report_response() :: %{
+        required("reportId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_findings_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_org_ec2_deep_inspection_configuration_request() :: %{
+        required("orgPackagePaths") => list(String.t() | atom())
+      }
+
+  """
+  @type update_org_ec2_deep_inspection_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_filter_response() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_account_status_request() :: %{
+        optional("accountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_account_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cis_scan_configurations_request() :: %{
+        optional("filterCriteria") => list_cis_scan_configurations_filter_criteria(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_cis_scan_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "exploitAvailableCount" => [float()],
+        "fixAvailableCount" => [float()],
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type account_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_coverage_statistics_request() :: %{
+        optional("filterCriteria") => coverage_filter_criteria(),
+        optional("groupBy") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_coverage_statistics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_findings_response() :: %{
+        optional("findings") => list(finding()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_request() :: %{}
+
+  """
+  @type get_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ecr_configuration_state() :: %{
+        "rescanDurationState" => ecr_rescan_duration_state()
+      }
+
+  """
+  @type ecr_configuration_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cis_scan_report_request() :: %{
+        optional("reportFormat") => list(any()),
+        optional("targetAccounts") => list(String.t() | atom()),
+        required("scanArn") => String.t() | atom()
+      }
+
+  """
+  @type get_cis_scan_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss3() :: %{
+        "baseScore" => float(),
+        "scoringVector" => String.t() | atom()
+      }
+
+  """
+  @type cvss3() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_integration_request() :: %{
+        optional("tags") => map(),
+        required("integrationArn") => String.t() | atom()
+      }
+
+  """
+  @type get_code_security_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_filter() :: %{
+        "endInclusive" => [non_neg_integer()],
+        "startInclusive" => [non_neg_integer()]
+      }
+
+  """
+  @type date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_organization_configuration_response() :: %{
+        required("autoEnable") => auto_enable()
+      }
+
+  """
+  @type update_organization_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_code_security_scan_configuration() :: %{
+        "continuousIntegrationScanConfigurations" => list(project_continuous_integration_scan_configuration()),
+        "periodicScanConfigurations" => list(project_periodic_scan_configuration())
+      }
+
+  """
+  @type project_code_security_scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_scan_metadata() :: %{
+        "codeRepository" => code_repository_metadata(),
+        "ec2" => ec2_metadata(),
+        "ecrImage" => ecr_container_image_metadata(),
+        "ecrRepository" => ecr_repository_metadata(),
+        "lambdaFunction" => lambda_function_metadata()
+      }
+
+  """
+  @type resource_scan_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_aggregation() :: %{
+        "projectNames" => list(string_filter()),
+        "providerTypes" => list(string_filter()),
+        "resourceIds" => list(string_filter()),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type code_repository_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_state() :: %{
+        "accountId" => String.t() | atom(),
+        "resourceState" => resource_state(),
+        "state" => state()
+      }
+
+  """
+  @type account_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_security_scan_configurations_response() :: %{
+        "configurations" => list(code_security_scan_configuration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_code_security_scan_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      one_time_schedule() :: %{}
+
+  """
+  @type one_time_schedule() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_layer_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "functionName" => String.t() | atom(),
+        "layerArn" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type lambda_layer_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss_score() :: %{
+        "baseScore" => [float()],
         "scoringVector" => String.t() | atom(),
+        "source" => String.t() | atom(),
         "version" => String.t() | atom()
       }
 
   """
-  @type cvss_score_details() :: %{(String.t() | atom()) => any()}
+  @type cvss_score() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      code_security_scan_configuration() :: %{
-        "continuousIntegrationScanConfiguration" => continuous_integration_scan_configuration(),
-        "periodicScanConfiguration" => periodic_scan_configuration(),
-        "ruleSetCategories" => list(list(any())())
+      cis_scan_results_aggregated_by_checks_filter_criteria() :: %{
+        "accountIdFilters" => list(cis_string_filter()),
+        "checkIdFilters" => list(cis_string_filter()),
+        "failedResourcesFilters" => list(cis_number_filter()),
+        "platformFilters" => list(cis_string_filter()),
+        "securityLevelFilters" => list(cis_security_level_filter()),
+        "titleFilters" => list(cis_string_filter())
       }
 
   """
-  @type code_security_scan_configuration() :: %{(String.t() | atom()) => any()}
+  @type cis_scan_results_aggregated_by_checks_filter_criteria() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      stop_cis_session_response() :: %{}
-
-  """
-  @type stop_cis_session_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      inspector_score_details() :: %{
-        "adjustedCvss" => cvss_score_details()
+      create_sbom_export_response() :: %{
+        "reportId" => String.t() | atom()
       }
 
   """
-  @type inspector_score_details() :: %{(String.t() | atom()) => any()}
+  @type create_sbom_export_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      finding() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "codeVulnerabilityDetails" => code_vulnerability_details(),
-        "description" => String.t() | atom(),
-        "epss" => epss_details(),
-        "exploitAvailable" => String.t() | atom(),
-        "exploitabilityDetails" => exploitability_details(),
-        "findingArn" => String.t() | atom(),
-        "firstObservedAt" => non_neg_integer(),
-        "fixAvailable" => String.t() | atom(),
-        "inspectorScore" => [float()],
-        "inspectorScoreDetails" => inspector_score_details(),
-        "lastObservedAt" => non_neg_integer(),
-        "networkReachabilityDetails" => network_reachability_details(),
-        "packageVulnerabilityDetails" => package_vulnerability_details(),
-        "remediation" => remediation(),
-        "resources" => list(resource()),
-        "severity" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
+      start_code_security_scan_response() :: %{
+        "scanId" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type finding() :: %{(String.t() | atom()) => any()}
+  @type start_code_security_scan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      free_trial_info_error() :: %{
+      exploit_observed() :: %{
+        "firstSeen" => non_neg_integer(),
+        "lastSeen" => non_neg_integer()
+      }
+
+  """
+  @type exploit_observed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      usage() :: %{
+        "currency" => String.t() | atom(),
+        "estimatedMonthlyCost" => float(),
+        "total" => float(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_report_status_response() :: %{
+        optional("destination") => destination(),
+        optional("errorCode") => String.t() | atom(),
+        optional("errorMessage") => String.t() | atom(),
+        optional("filterCriteria") => filter_criteria(),
+        optional("reportId") => String.t() | atom(),
+        optional("status") => String.t() | atom()
+      }
+
+  """
+  @type get_findings_report_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ec2_deep_inspection_configuration_request() :: %{}
+
+  """
+  @type get_ec2_deep_inspection_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sort_criteria() :: %{
+        "field" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type sort_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_date_filter() :: %{
+        "earliestScanStartTime" => [non_neg_integer()],
+        "latestScanStartTime" => [non_neg_integer()]
+      }
+
+  """
+  @type cis_date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      atig_data() :: %{
+        "firstSeen" => non_neg_integer(),
+        "lastSeen" => non_neg_integer(),
+        "targets" => list(String.t() | atom()),
+        "ttps" => list(String.t() | atom())
+      }
+
+  """
+  @type atig_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step() :: %{
+        "componentArn" => String.t() | atom(),
+        "componentId" => String.t() | atom(),
+        "componentType" => String.t() | atom()
+      }
+
+  """
+  @type step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegated_admin_account() :: %{
         "accountId" => String.t() | atom(),
-        "code" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type delegated_admin_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_line() :: %{
+        "content" => [String.t() | atom()],
+        "lineNumber" => [integer()]
+      }
+
+  """
+  @type code_line() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_response() :: %{}
+
+  """
+  @type update_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_member_ec2_deep_inspection_status_request() :: %{
+        optional("accountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_member_ec2_deep_inspection_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disassociate_code_security_scan_configuration_response() :: %{
+        "failedAssociations" => list(failed_association_result()),
+        "successfulAssociations" => list(successful_association_result())
+      }
+
+  """
+  @type batch_disassociate_code_security_scan_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      send_cis_session_health_response() :: %{}
+
+  """
+  @type send_cis_session_health_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_status() :: %{
+        "reason" => String.t() | atom(),
+        "statusCode" => String.t() | atom()
+      }
+
+  """
+  @type scan_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type free_trial_info_error() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_scan_configuration() :: %{
+        "ownerId" => String.t() | atom(),
+        "scanConfigurationArn" => String.t() | atom(),
+        "scanName" => String.t() | atom(),
+        "schedule" => list(),
+        "securityLevel" => list(any()),
+        "tags" => map(),
+        "targets" => cis_targets()
+      }
+
+  """
+  @type cis_scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_filter() :: %{
+        "comparison" => list(any()),
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_integration_request() :: %{
+        optional("details") => list(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_code_security_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_scan_configuration_response() :: %{
+        "configuration" => code_security_scan_configuration(),
+        "createdAt" => [non_neg_integer()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "level" => list(any()),
+        "name" => String.t() | atom(),
+        "scanConfigurationArn" => String.t() | atom(),
+        "scopeSettings" => scope_settings(),
+        "tags" => map()
+      }
+
+  """
+  @type get_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_members_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("onlyAssociated") => [boolean()]
+      }
+
+  """
+  @type list_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cis_scan_report_response() :: %{
+        "status" => list(any()),
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type get_cis_scan_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_security_scan_configuration_associations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("scanConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type list_code_security_scan_configuration_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_ec2_deep_inspection_configuration_response() :: %{
+        "errorMessage" => String.t() | atom(),
+        "orgPackagePaths" => list(String.t() | atom()),
+        "packagePaths" => list(String.t() | atom()),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type get_ec2_deep_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_scan_mode_state() :: %{
+        "scanMode" => String.t() | atom(),
+        "scanModeStatus" => String.t() | atom()
+      }
+
+  """
+  @type ec2_scan_mode_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_vulnerability_details() :: %{
+        "cwes" => list(String.t() | atom()),
+        "detectorId" => String.t() | atom(),
+        "detectorName" => String.t() | atom(),
+        "detectorTags" => list(String.t() | atom()),
+        "filePath" => code_file_path(),
+        "referenceUrls" => list(String.t() | atom()),
+        "ruleId" => String.t() | atom(),
+        "sourceLambdaLayerArn" => String.t() | atom()
+      }
+
+  """
+  @type code_vulnerability_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coverage_map_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type coverage_map_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2038,244 +2232,46 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      port_range_filter() :: %{
-        "beginInclusive" => integer(),
-        "endInclusive" => integer()
+      ecr_rescan_duration_state() :: %{
+        "pullDateRescanDuration" => String.t() | atom(),
+        "pullDateRescanMode" => String.t() | atom(),
+        "rescanDuration" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type port_range_filter() :: %{(String.t() | atom()) => any()}
+  @type ecr_rescan_duration_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      finding_type_aggregation() :: %{
-        "findingType" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
+      package_filter() :: %{
+        "architecture" => string_filter(),
+        "epoch" => number_filter(),
+        "filePath" => string_filter(),
+        "name" => string_filter(),
+        "release" => string_filter(),
+        "sourceLambdaLayerArn" => string_filter(),
+        "sourceLayerHash" => string_filter(),
+        "version" => string_filter()
       }
 
   """
-  @type finding_type_aggregation() :: %{(String.t() | atom()) => any()}
+  @type package_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_code_security_integration_response() :: %{
-        "authorizationUrl" => String.t() | atom(),
-        "createdOn" => [non_neg_integer()],
-        "integrationArn" => String.t() | atom(),
-        "lastUpdateOn" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "tags" => map(),
-        "type" => list(any())
+      ec2_configuration_state() :: %{
+        "scanModeState" => ec2_scan_mode_state(),
+        "vmScannerState" => v_m_scanner_state()
       }
 
   """
-  @type get_code_security_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      date_filter() :: %{
-        "endInclusive" => [non_neg_integer()],
-        "startInclusive" => [non_neg_integer()]
-      }
-
-  """
-  @type date_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_request() :: %{
-        optional("filterCriteria") => filter_criteria(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortCriteria") => sort_criteria()
-      }
-
-  """
-  @type list_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss_score_adjustment() :: %{
-        "metric" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type cvss_score_adjustment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_usage_totals_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("totals") => list(usage_total())
-      }
-
-  """
-  @type list_usage_totals_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_security_scan_configuration_response() :: %{
-        "scanConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type create_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cisa_data() :: %{
-        "action" => String.t() | atom(),
-        "dateAdded" => non_neg_integer(),
-        "dateDue" => non_neg_integer()
-      }
-
-  """
-  @type cisa_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_map_filter() :: %{
-        "comparison" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type resource_map_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_filter_response() :: %{
-        required("arn") => String.t() | atom()
-      }
-
-  """
-  @type delete_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      repository_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "affectedImages" => [float()],
-        "repository" => String.t() | atom(),
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type repository_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_function_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "functionName" => [String.t() | atom()],
-        "lambdaTags" => map(),
-        "lastModifiedAt" => non_neg_integer(),
-        "resourceId" => String.t() | atom(),
-        "runtime" => [String.t() | atom()],
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type lambda_function_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_coverage_response() :: %{
-        optional("coveredResources") => list(covered_resource()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_coverage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_member_request() :: %{
-        required("accountId") => String.t() | atom()
-      }
-
-  """
-  @type get_member_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_organization_configuration_response() :: %{
-        required("autoEnable") => auto_enable()
-      }
-
-  """
-  @type update_organization_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_vulnerabilities_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("filterCriteria") => search_vulnerabilities_filter_criteria()
-      }
-
-  """
-  @type search_vulnerabilities_request() :: %{(String.t() | atom()) => any()}
+  @type ec2_configuration_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2294,935 +2290,10 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      get_delegated_admin_account_request() :: %{}
+      update_encryption_key_response() :: %{}
 
   """
-  @type get_delegated_admin_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_code_security_scan_response() :: %{
-        "scanId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type start_code_security_scan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_security_level_filter() :: %{
-        "comparison" => list(any()),
-        "value" => list(any())
-      }
-
-  """
-  @type cis_security_level_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      covered_resource() :: %{
-        "accountId" => String.t() | atom(),
-        "lastScannedAt" => non_neg_integer(),
-        "resourceId" => String.t() | atom(),
-        "resourceMetadata" => resource_scan_metadata(),
-        "resourceType" => String.t() | atom(),
-        "scanMode" => String.t() | atom(),
-        "scanStatus" => scan_status(),
-        "scanType" => String.t() | atom()
-      }
-
-  """
-  @type covered_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cluster_information() :: %{
-        "clusterArn" => [String.t() | atom()],
-        "clusterDetails" => list(cluster_details())
-      }
-
-  """
-  @type cluster_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_repository_aggregation() :: %{
-        "projectNames" => list(string_filter()),
-        "providerTypes" => list(string_filter()),
-        "resourceIds" => list(string_filter()),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type code_repository_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "action" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "criteria" => filter_criteria(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "ownerId" => String.t() | atom(),
-        "reason" => String.t() | atom(),
-        "tags" => map(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sbom_export_response() :: %{
-        "reportId" => String.t() | atom()
-      }
-
-  """
-  @type create_sbom_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cis_scan_configurations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scanConfigurations" => list(cis_scan_configuration())
-      }
-
-  """
-  @type list_cis_scan_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_detail() :: %{
-        "cisaData" => cisa_data(),
-        "cwes" => list(String.t() | atom()),
-        "epssScore" => [float()],
-        "evidences" => list(evidence()),
-        "exploitObserved" => exploit_observed(),
-        "findingArn" => String.t() | atom(),
-        "referenceUrls" => list(String.t() | atom()),
-        "riskScore" => integer(),
-        "tools" => list(String.t() | atom()),
-        "ttps" => list(String.t() | atom())
-      }
-
-  """
-  @type finding_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_function_metadata() :: %{
-        "functionName" => [String.t() | atom()],
-        "functionTags" => map(),
-        "layers" => list([String.t() | atom()]()),
-        "runtime" => String.t() | atom()
-      }
-
-  """
-  @type lambda_function_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_permissions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("service") => String.t() | atom()
-      }
-
-  """
-  @type list_account_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_session_message() :: %{
-        "cisRuleDetails" => binary(),
-        "ruleId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type cis_session_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_delegated_admin_accounts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_delegated_admin_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_code_security_integration_request() :: %{
-        required("details") => list(),
-        required("integrationArn") => String.t() | atom()
-      }
-
-  """
-  @type update_code_security_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecr_rescan_duration_state() :: %{
-        "pullDateRescanDuration" => String.t() | atom(),
-        "pullDateRescanMode" => String.t() | atom(),
-        "rescanDuration" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type ecr_rescan_duration_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_number_filter() :: %{
-        "lowerInclusive" => [integer()],
-        "upperInclusive" => [integer()]
-      }
-
-  """
-  @type cis_number_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_findings_report_request() :: %{
-        optional("filterCriteria") => filter_criteria(),
-        required("reportFormat") => String.t() | atom(),
-        required("s3Destination") => destination()
-      }
-
-  """
-  @type create_findings_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_response() :: %{}
-
-  """
-  @type update_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_security_scan_configuration_request() :: %{
-        required("scanConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type get_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecr_container_image_metadata() :: %{
-        "imagePulledAt" => non_neg_integer(),
-        "inUseCount" => [float()],
-        "lastInUseAt" => non_neg_integer(),
-        "tags" => list([String.t() | atom()]())
-      }
-
-  """
-  @type ecr_container_image_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_filter_request() :: %{
-        optional("action") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("filterCriteria") => filter_criteria(),
-        optional("name") => String.t() | atom(),
-        optional("reason") => String.t() | atom(),
-        required("filterArn") => String.t() | atom()
-      }
-
-  """
-  @type update_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "exploitAvailableCount" => [float()],
-        "fixAvailableCount" => [float()],
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type account_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_repository_metadata() :: %{
-        "integrationArn" => String.t() | atom(),
-        "lastScannedCommitId" => String.t() | atom(),
-        "onDemandScan" => code_repository_on_demand_scan(),
-        "projectName" => [String.t() | atom()],
-        "providerType" => [String.t() | atom()],
-        "providerTypeVisibility" => [String.t() | atom()],
-        "scanConfiguration" => project_code_security_scan_configuration()
-      }
-
-  """
-  @type code_repository_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_security_integrations_response() :: %{
-        "integrations" => list(code_security_integration_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_code_security_integrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_cis_session_health_response() :: %{}
-
-  """
-  @type send_cis_session_health_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_account_status_response() :: %{
-        optional("failedAccounts") => list(failed_account()),
-        required("accounts") => list(account_state())
-      }
-
-  """
-  @type batch_get_account_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_free_trial_info_request() :: %{
-        required("accountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_free_trial_info_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_member_response() :: %{
-        optional("member") => member()
-      }
-
-  """
-  @type get_member_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      epss_details() :: %{
-        "score" => float()
-      }
-
-  """
-  @type epss_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      port_range() :: %{
-        "begin" => integer(),
-        "end" => integer()
-      }
-
-  """
-  @type port_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_organization_configuration_request() :: %{
-        required("autoEnable") => auto_enable()
-      }
-
-  """
-  @type update_organization_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_response() :: %{
-        optional("failedAccounts") => list(failed_account()),
-        required("accounts") => list(account())
-      }
-
-  """
-  @type enable_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "packageName" => String.t() | atom(),
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type package_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cis_scans_request() :: %{
-        optional("detailLevel") => list(any()),
-        optional("filterCriteria") => list_cis_scans_filter_criteria(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_cis_scans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_layer_aggregation() :: %{
-        "layerHashes" => list(string_filter()),
-        "repositories" => list(string_filter()),
-        "resourceIds" => list(string_filter()),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type image_layer_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_aggregation() :: %{
-        "findingType" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type account_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_layer_aggregation() :: %{
-        "functionNames" => list(string_filter()),
-        "layerArns" => list(string_filter()),
-        "resourceIds" => list(string_filter()),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type lambda_layer_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_code_security_scan_configuration_request() :: %{
-        required("configuration") => code_security_scan_configuration(),
-        required("scanConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type update_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_reachability_details() :: %{
-        "networkPath" => network_path(),
-        "openPortRange" => port_range(),
-        "protocol" => String.t() | atom()
-      }
-
-  """
-  @type network_reachability_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_code_snippet_request() :: %{
-        required("findingArns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_code_snippet_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_scan() :: %{
-        "failedChecks" => [integer()],
-        "scanArn" => String.t() | atom(),
-        "scanConfigurationArn" => String.t() | atom(),
-        "scanDate" => [non_neg_integer()],
-        "scanName" => String.t() | atom(),
-        "scheduledBy" => [String.t() | atom()],
-        "securityLevel" => list(any()),
-        "status" => list(any()),
-        "targets" => cis_targets(),
-        "totalChecks" => [integer()]
-      }
-
-  """
-  @type cis_scan() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cis_scan_configuration_request() :: %{
-        optional("tags") => map(),
-        required("scanName") => String.t() | atom(),
-        required("schedule") => list(),
-        required("securityLevel") => list(any()),
-        required("targets") => create_cis_targets()
-      }
-
-  """
-  @type create_cis_scan_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_details_error() :: %{
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "findingArn" => String.t() | atom()
-      }
-
-  """
-  @type finding_details_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_code_security_scan_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("resource") => list()
-      }
-
-  """
-  @type start_code_security_scan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sort_criteria() :: %{
-        "field" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type sort_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      weekly_schedule() :: %{
-        "days" => list(list(any())()),
-        "startTime" => time()
-      }
-
-  """
-  @type weekly_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_vulnerability_details() :: %{
-        "cvss" => list(cvss_score()),
-        "referenceUrls" => list(String.t() | atom()),
-        "relatedVulnerabilities" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "sourceUrl" => String.t() | atom(),
-        "vendorCreatedAt" => non_neg_integer(),
-        "vendorSeverity" => String.t() | atom(),
-        "vendorUpdatedAt" => non_neg_integer(),
-        "vulnerabilityId" => String.t() | atom(),
-        "vulnerablePackages" => list(vulnerable_package())
-      }
-
-  """
-  @type package_vulnerability_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss_score() :: %{
-        "baseScore" => [float()],
-        "scoringVector" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type cvss_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_instance_details() :: %{
-        "iamInstanceProfileArn" => String.t() | atom(),
-        "imageId" => String.t() | atom(),
-        "ipV4Addresses" => list(String.t() | atom()),
-        "ipV6Addresses" => list(String.t() | atom()),
-        "keyName" => String.t() | atom(),
-        "launchedAt" => non_neg_integer(),
-        "platform" => String.t() | atom(),
-        "subnetId" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_security_scan_configuration_request() :: %{
-        optional("scopeSettings") => scope_settings(),
-        optional("tags") => map(),
-        required("configuration") => code_security_scan_configuration(),
-        required("level") => list(any()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_member_ec2_deep_inspection_status_request() :: %{
-        optional("accountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_member_ec2_deep_inspection_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      epss() :: %{
-        "score" => float()
-      }
-
-  """
-  @type epss() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      exploit_observed() :: %{
-        "firstSeen" => non_neg_integer(),
-        "lastSeen" => non_neg_integer()
-      }
-
-  """
-  @type exploit_observed() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("onlyAssociated") => [boolean()]
-      }
-
-  """
-  @type list_members_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_response() :: %{
-        optional("members") => list(member()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_members_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ec2_deep_inspection_configuration_response() :: %{
-        "errorMessage" => String.t() | atom(),
-        "orgPackagePaths" => list(String.t() | atom()),
-        "packagePaths" => list(String.t() | atom()),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type get_ec2_deep_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_delegated_admin_account_request() :: %{
-        required("delegatedAdminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type disable_delegated_admin_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_string_filter() :: %{
-        "comparison" => list(any()),
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type cis_string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_continuous_integration_scan_configuration() :: %{
-        "ruleSetCategories" => list(list(any())()),
-        "supportedEvent" => list(any())
-      }
-
-  """
-  @type project_continuous_integration_scan_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      free_trial_info() :: %{
-        "end" => [non_neg_integer()],
-        "start" => [non_neg_integer()],
-        "status" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type free_trial_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_cis_session_response() :: %{}
-
-  """
-  @type start_cis_session_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cis_scan_report_request() :: %{
-        optional("reportFormat") => list(any()),
-        optional("targetAccounts") => list(String.t() | atom()),
-        required("scanArn") => String.t() | atom()
-      }
-
-  """
-  @type get_cis_scan_report_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scope_settings() :: %{
-        "projectSelectionScope" => list(any())
-      }
-
-  """
-  @type scope_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cis_scan_configuration_response() :: %{
-        "scanConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type update_cis_scan_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fields" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cis_scan_result_details_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "scanResultDetails" => list(cis_scan_result_details())
-      }
-
-  """
-  @type get_cis_scan_result_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_coverage_request() :: %{
-        optional("filterCriteria") => coverage_filter_criteria(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_coverage_request() :: %{(String.t() | atom()) => any()}
+  @type update_encryption_key_response() :: %{}
 
   @typedoc """
 
@@ -3241,96 +2312,10 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      resource_string_filter() :: %{
-        "comparison" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
+      tag_resource_response() :: %{}
 
   """
-  @type resource_string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_coverage_statistics_response() :: %{
-        optional("countsByGroup") => list(counts()),
-        optional("nextToken") => String.t() | atom(),
-        required("totalCounts") => [float()]
-      }
-
-  """
-  @type list_coverage_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_target_status_filter() :: %{
-        "comparison" => list(any()),
-        "value" => list(any())
-      }
-
-  """
-  @type cis_target_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_coverage_statistics_request() :: %{
-        optional("filterCriteria") => coverage_filter_criteria(),
-        optional("groupBy") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_coverage_statistics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      daily_schedule() :: %{
-        "startTime" => time()
-      }
-
-  """
-  @type daily_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ec2_deep_inspection_configuration_request() :: %{}
-
-  """
-  @type get_ec2_deep_inspection_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      evidence() :: %{
-        "evidenceDetail" => String.t() | atom(),
-        "evidenceRule" => String.t() | atom(),
-        "severity" => String.t() | atom()
-      }
-
-  """
-  @type evidence() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -3367,132 +2352,36 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      cancel_sbom_export_response() :: %{
-        "reportId" => String.t() | atom()
+      update_cis_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t() | atom()
       }
 
   """
-  @type cancel_sbom_export_response() :: %{(String.t() | atom()) => any()}
+  @type update_cis_scan_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_account_status_request() :: %{
-        optional("accountIds") => list(String.t() | atom())
+      list_code_security_integrations_response() :: %{
+        "integrations" => list(code_security_integration_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type batch_get_account_status_request() :: %{(String.t() | atom()) => any()}
+  @type list_code_security_integrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_clusters_for_image_response() :: %{
-        "cluster" => list(cluster_information()),
-        "nextToken" => String.t() | atom()
+      batch_get_member_ec2_deep_inspection_status_response() :: %{
+        "accountIds" => list(member_account_ec2_deep_inspection_status_state()),
+        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state())
       }
 
   """
-  @type get_clusters_for_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_security_integration_response() :: %{
-        "authorizationUrl" => String.t() | atom(),
-        "integrationArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_code_security_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_cis_session_message() :: %{
-        "benchmarkProfile" => String.t() | atom(),
-        "benchmarkVersion" => String.t() | atom(),
-        "computePlatform" => compute_platform(),
-        "progress" => stop_cis_message_progress(),
-        "reason" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type stop_cis_session_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ami_aggregation() :: %{
-        "amis" => list(string_filter()),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type ami_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member() :: %{
-        "accountId" => String.t() | atom(),
-        "delegatedAdminAccountId" => String.t() | atom(),
-        "relationshipStatus" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      string_filter() :: %{
-        "comparison" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cis_scan_results_aggregated_by_checks_request() :: %{
-        optional("filterCriteria") => cis_scan_results_aggregated_by_checks_filter_criteria(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        required("scanArn") => String.t() | atom()
-      }
-
-  """
-  @type list_cis_scan_results_aggregated_by_checks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_security_scan_configuration_associations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("scanConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type list_code_security_scan_configuration_associations_request() :: %{
+  @type batch_get_member_ec2_deep_inspection_status_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -3500,251 +2389,47 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      code_repository_aggregation_response() :: %{
-        "accountId" => [String.t() | atom()],
-        "exploitAvailableActiveFindingsCount" => [float()],
-        "fixAvailableActiveFindingsCount" => [float()],
-        "projectNames" => [String.t() | atom()],
-        "providerType" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "severityCounts" => severity_counts()
+      remediation() :: %{
+        "recommendation" => recommendation()
       }
 
   """
-  @type code_repository_aggregation_response() :: %{(String.t() | atom()) => any()}
+  @type remediation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_code_security_scan_configuration_request() :: %{
-        required("scanConfigurationArn") => String.t() | atom()
+      disassociate_member_request() :: %{
+        required("accountId") => String.t() | atom()
       }
 
   """
-  @type delete_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_member_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      package_aggregation() :: %{
-        "packageNames" => list(string_filter()),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type package_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_counts() :: %{
-        "failed" => [integer()],
-        "passed" => [integer()],
-        "skipped" => [integer()]
-      }
-
-  """
-  @type status_counts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_scan_results_aggregated_by_checks_filter_criteria() :: %{
-        "accountIdFilters" => list(cis_string_filter()),
-        "checkIdFilters" => list(cis_string_filter()),
-        "failedResourcesFilters" => list(cis_number_filter()),
-        "platformFilters" => list(cis_string_filter()),
-        "securityLevelFilters" => list(cis_security_level_filter()),
-        "titleFilters" => list(cis_string_filter())
-      }
-
-  """
-  @type cis_scan_results_aggregated_by_checks_filter_criteria() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      scan_status() :: %{
-        "reason" => String.t() | atom(),
-        "statusCode" => String.t() | atom()
-      }
-
-  """
-  @type scan_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_encryption_key_request() :: %{
-        required("resourceType") => String.t() | atom(),
-        required("scanType") => String.t() | atom()
-      }
-
-  """
-  @type get_encryption_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_repository_on_demand_scan() :: %{
-        "lastScanAt" => non_neg_integer(),
-        "lastScannedCommitId" => String.t() | atom(),
-        "scanStatus" => scan_status()
-      }
-
-  """
-  @type code_repository_on_demand_scan() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failed_association_result() :: %{
-        "resource" => list(),
-        "scanConfigurationArn" => String.t() | atom(),
-        "statusCode" => list(any()),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type failed_association_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_result_status_filter() :: %{
-        "comparison" => list(any()),
-        "value" => list(any())
-      }
-
-  """
-  @type cis_result_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_finding_aggregations_request() :: %{
-        optional("accountIds") => list(string_filter()),
-        optional("aggregationRequest") => list(),
-        optional("maxResults") => integer(),
+      list_finding_aggregations_response() :: %{
         optional("nextToken") => String.t() | atom(),
+        optional("responses") => list(list()),
         required("aggregationType") => String.t() | atom()
       }
 
   """
-  @type list_finding_aggregations_request() :: %{(String.t() | atom()) => any()}
+  @type list_finding_aggregations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      one_time_schedule() :: %{}
-
-  """
-  @type one_time_schedule() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_security_scan_configuration_response() :: %{
-        "configuration" => code_security_scan_configuration(),
-        "createdAt" => [non_neg_integer()],
-        "lastUpdatedAt" => [non_neg_integer()],
-        "level" => list(any()),
-        "name" => String.t() | atom(),
-        "scanConfigurationArn" => String.t() | atom(),
-        "scopeSettings" => scope_settings(),
-        "tags" => map()
+      associate_member_request() :: %{
+        required("accountId") => String.t() | atom()
       }
 
   """
-  @type get_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_instance_aggregation_response() :: %{
-        "accountId" => [String.t() | atom()],
-        "ami" => String.t() | atom(),
-        "instanceId" => String.t() | atom(),
-        "instanceTags" => map(),
-        "networkFindings" => [float()],
-        "operatingSystem" => [String.t() | atom()],
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type ec2_instance_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_associate_code_security_scan_configuration_request() :: %{
-        required("associateConfigurationRequests") => list(associate_configuration_request())
-      }
-
-  """
-  @type batch_associate_code_security_scan_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_cis_scan_results_aggregated_by_target_resource_request() :: %{
-        optional("filterCriteria") => cis_scan_results_aggregated_by_target_resource_filter_criteria(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        required("scanArn") => String.t() | atom()
-      }
-
-  """
-  @type list_cis_scan_results_aggregated_by_target_resource_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disassociate_code_security_scan_configuration_response() :: %{
-        "failedAssociations" => list(failed_association_result()),
-        "successfulAssociations" => list(successful_association_result())
-      }
-
-  """
-  @type batch_disassociate_code_security_scan_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type associate_member_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3769,332 +2454,6 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      tag_filter() :: %{
-        "comparison" => list(any()),
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_code_snippet_response() :: %{
-        "codeSnippetResults" => list(code_snippet_result()),
-        "errors" => list(code_snippet_error())
-      }
-
-  """
-  @type batch_get_code_snippet_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_filter() :: %{
-        "architecture" => string_filter(),
-        "epoch" => number_filter(),
-        "filePath" => string_filter(),
-        "name" => string_filter(),
-        "release" => string_filter(),
-        "sourceLambdaLayerArn" => string_filter(),
-        "sourceLayerHash" => string_filter(),
-        "version" => string_filter()
-      }
-
-  """
-  @type package_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step() :: %{
-        "componentArn" => String.t() | atom(),
-        "componentId" => String.t() | atom(),
-        "componentType" => String.t() | atom()
-      }
-
-  """
-  @type step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      exploitability_details() :: %{
-        "lastKnownExploitAt" => non_neg_integer()
-      }
-
-  """
-  @type exploitability_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_details() :: %{
-        "awsEc2Instance" => aws_ec2_instance_details(),
-        "awsEcrContainerImage" => aws_ecr_container_image_details(),
-        "awsLambdaFunction" => aws_lambda_function_details(),
-        "codeRepository" => code_repository_details()
-      }
-
-  """
-  @type resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_member_ec2_deep_inspection_status_request() :: %{
-        required("accountIds") => list(member_account_ec2_deep_inspection_status())
-      }
-
-  """
-  @type batch_update_member_ec2_deep_inspection_status_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      send_cis_session_telemetry_response() :: %{}
-
-  """
-  @type send_cis_session_telemetry_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_member_ec2_deep_inspection_status_response() :: %{
-        "accountIds" => list(member_account_ec2_deep_inspection_status_state()),
-        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state())
-      }
-
-  """
-  @type batch_update_member_ec2_deep_inspection_status_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      auto_enable() :: %{
-        "codeRepository" => [boolean()],
-        "ec2" => [boolean()],
-        "ecr" => [boolean()],
-        "lambda" => [boolean()],
-        "lambdaCode" => [boolean()]
-      }
-
-  """
-  @type auto_enable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cis_scan_result_details() :: %{
-        "accountId" => String.t() | atom(),
-        "checkDescription" => [String.t() | atom()],
-        "checkId" => [String.t() | atom()],
-        "findingArn" => String.t() | atom(),
-        "level" => list(any()),
-        "platform" => [String.t() | atom()],
-        "remediation" => [String.t() | atom()],
-        "scanArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "targetResourceId" => String.t() | atom(),
-        "title" => [String.t() | atom()]
-      }
-
-  """
-  @type cis_scan_result_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_repository_details() :: %{
-        "integrationArn" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "providerType" => String.t() | atom()
-      }
-
-  """
-  @type code_repository_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cis_scan_report_response() :: %{
-        "status" => list(any()),
-        "url" => [String.t() | atom()]
-      }
-
-  """
-  @type get_cis_scan_report_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_clusters_for_image_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("filter") => cluster_for_image_filter_criteria()
-      }
-
-  """
-  @type get_clusters_for_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_cis_session_telemetry_request() :: %{
-        required("messages") => list(cis_session_message()),
-        required("scanJobId") => String.t() | atom(),
-        required("sessionToken") => String.t() | atom()
-      }
-
-  """
-  @type send_cis_session_telemetry_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_delegated_admin_account_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("delegatedAdminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type enable_delegated_admin_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_layer_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "layerHash" => String.t() | atom(),
-        "repository" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type image_layer_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_layer_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "functionName" => String.t() | atom(),
-        "layerArn" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type lambda_layer_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_code_security_integration_response() :: %{
-        "integrationArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_code_security_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecr_container_image_details() :: %{
-        "architecture" => String.t() | atom(),
-        "author" => [String.t() | atom()],
-        "imageHash" => String.t() | atom(),
-        "imageTags" => list(String.t() | atom()),
-        "inUseCount" => [float()],
-        "lastInUseAt" => non_neg_integer(),
-        "platform" => String.t() | atom(),
-        "pushedAt" => non_neg_integer(),
-        "registry" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecr_container_image_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_member_response() :: %{
-        required("accountId") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_member_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_code_security_scan_configuration_response() :: %{
-        "scanConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type update_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      title_aggregation() :: %{
-        "findingType" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom(),
-        "titles" => list(string_filter()),
-        "vulnerabilityIds" => list(string_filter())
-      }
-
-  """
-  @type title_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_org_ec2_deep_inspection_configuration_response() :: %{}
-
-  """
-  @type update_org_ec2_deep_inspection_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       aws_eks_metadata_details() :: %{
         "namespace" => [String.t() | atom()],
         "workloadInfoList" => list(aws_eks_workload_info())
@@ -4102,6 +2461,73 @@ defmodule AWS.Inspector2 do
 
   """
   @type aws_eks_metadata_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_eks_workload_info() :: %{
+        "name" => [String.t() | atom()],
+        "type" => [String.t() | atom()]
+      }
+
+  """
+  @type aws_eks_workload_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cisa_data() :: %{
+        "action" => String.t() | atom(),
+        "dateAdded" => non_neg_integer(),
+        "dateDue" => non_neg_integer()
+      }
+
+  """
+  @type cisa_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monthly_schedule() :: %{
+        "day" => list(any()),
+        "startTime" => time()
+      }
+
+  """
+  @type monthly_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_git_hub_integration_detail() :: %{
+        "code" => String.t() | atom(),
+        "installationId" => String.t() | atom()
+      }
+
+  """
+  @type update_git_hub_integration_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_filter_criteria() :: %{
+        "accountId" => list(resource_string_filter()),
+        "ec2InstanceTags" => list(resource_map_filter()),
+        "ecrImageTags" => list(resource_string_filter()),
+        "ecrRepositoryName" => list(resource_string_filter()),
+        "lambdaFunctionName" => list(resource_string_filter()),
+        "lambdaFunctionTags" => list(resource_map_filter()),
+        "resourceId" => list(resource_string_filter()),
+        "resourceType" => list(resource_string_filter())
+      }
+
+  """
+  @type resource_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4125,10 +2551,173 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      reset_encryption_key_response() :: %{}
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
 
   """
-  @type reset_encryption_key_response() :: %{}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_usage_totals_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("totals") => list(usage_total())
+      }
+
+  """
+  @type list_usage_totals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_response() :: %{
+        optional("failedAccounts") => list(failed_account()),
+        required("accounts") => list(account())
+      }
+
+  """
+  @type disable_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_string_filter() :: %{
+        "comparison" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type cis_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      successful_association_result() :: %{
+        "resource" => list(),
+        "scanConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type successful_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      status_counts() :: %{
+        "failed" => [integer()],
+        "passed" => [integer()],
+        "skipped" => [integer()]
+      }
+
+  """
+  @type status_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      periodic_scan_configuration() :: %{
+        "frequency" => list(any()),
+        "frequencyExpression" => String.t() | atom()
+      }
+
+  """
+  @type periodic_scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_layer_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "layerHash" => String.t() | atom(),
+        "repository" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type image_layer_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_account() :: %{
+        "accountId" => String.t() | atom(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "resourceStatus" => resource_status(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type failed_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission() :: %{
+        "operation" => String.t() | atom(),
+        "service" => String.t() | atom()
+      }
+
+  """
+  @type permission() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_filters_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("filters") => list(filter())
+      }
+
+  """
+  @type list_filters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4154,37 +2743,23 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      ec2_scan_mode_state() :: %{
-        "scanMode" => String.t() | atom(),
-        "scanModeStatus" => String.t() | atom()
+      disable_delegated_admin_account_response() :: %{
+        required("delegatedAdminAccountId") => String.t() | atom()
       }
 
   """
-  @type ec2_scan_mode_state() :: %{(String.t() | atom()) => any()}
+  @type disable_delegated_admin_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cis_date_filter() :: %{
-        "earliestScanStartTime" => [non_neg_integer()],
-        "latestScanStartTime" => [non_neg_integer()]
+      batch_update_member_ec2_deep_inspection_status_request() :: %{
+        required("accountIds") => list(member_account_ec2_deep_inspection_status())
       }
 
   """
-  @type cis_date_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_associate_code_security_scan_configuration_response() :: %{
-        "failedAssociations" => list(failed_association_result()),
-        "successfulAssociations" => list(successful_association_result())
-      }
-
-  """
-  @type batch_associate_code_security_scan_configuration_response() :: %{
+  @type batch_update_member_ec2_deep_inspection_status_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4192,64 +2767,114 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      cis_scan_result_details_filter_criteria() :: %{
-        "checkIdFilters" => list(cis_string_filter()),
-        "findingArnFilters" => list(cis_string_filter()),
-        "findingStatusFilters" => list(cis_finding_status_filter()),
-        "securityLevelFilters" => list(cis_security_level_filter()),
-        "titleFilters" => list(cis_string_filter())
-      }
-
-  """
-  @type cis_scan_result_details_filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_filters_response() :: %{
+      list_account_permissions_response() :: %{
         optional("nextToken") => String.t() | atom(),
-        required("filters") => list(filter())
+        required("permissions") => list(permission())
       }
 
   """
-  @type list_filters_response() :: %{(String.t() | atom()) => any()}
+  @type list_account_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_eks_workload_info() :: %{
-        "name" => [String.t() | atom()],
-        "type" => [String.t() | atom()]
+      ec2_instance_aggregation_response() :: %{
+        "accountId" => [String.t() | atom()],
+        "ami" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
+        "instanceTags" => map(),
+        "networkFindings" => [float()],
+        "operatingSystem" => [String.t() | atom()],
+        "severityCounts" => severity_counts()
       }
 
   """
-  @type aws_eks_workload_info() :: %{(String.t() | atom()) => any()}
+  @type ec2_instance_aggregation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      permission() :: %{
-        "operation" => String.t() | atom(),
-        "service" => String.t() | atom()
+      list_cis_scan_results_aggregated_by_checks_request() :: %{
+        optional("filterCriteria") => cis_scan_results_aggregated_by_checks_filter_criteria(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        required("scanArn") => String.t() | atom()
       }
 
   """
-  @type permission() :: %{(String.t() | atom()) => any()}
+  @type list_cis_scan_results_aggregated_by_checks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_configuration_request() :: %{
-        "resource" => list(),
-        "scanConfigurationArn" => String.t() | atom()
+      cluster_for_image_filter_criteria() :: %{
+        "resourceId" => [String.t() | atom()]
       }
 
   """
-  @type disassociate_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type cluster_for_image_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_instance_details() :: %{
+        "iamInstanceProfileArn" => String.t() | atom(),
+        "imageId" => String.t() | atom(),
+        "ipV4Addresses" => list(String.t() | atom()),
+        "ipV6Addresses" => list(String.t() | atom()),
+        "keyName" => String.t() | atom(),
+        "launchedAt" => non_neg_integer(),
+        "platform" => String.t() | atom(),
+        "subnetId" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_findings_report_response() :: %{
+        optional("reportId") => String.t() | atom()
+      }
+
+  """
+  @type create_findings_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      repository_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "affectedImages" => [float()],
+        "repository" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type repository_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time() :: %{
+        "timeOfDay" => String.t() | atom(),
+        "timezone" => String.t() | atom()
+      }
+
+  """
+  @type time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4267,24 +2892,78 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      free_trial_account_info() :: %{
-        "accountId" => String.t() | atom(),
-        "freeTrialInfo" => list(free_trial_info())
+      stop_cis_message_progress() :: %{
+        "errorChecks" => integer(),
+        "failedChecks" => integer(),
+        "informationalChecks" => integer(),
+        "notApplicableChecks" => integer(),
+        "notEvaluatedChecks" => integer(),
+        "successfulChecks" => integer(),
+        "totalChecks" => integer(),
+        "unknownChecks" => integer()
       }
 
   """
-  @type free_trial_account_info() :: %{(String.t() | atom()) => any()}
+  @type stop_cis_message_progress() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_org_ec2_deep_inspection_configuration_request() :: %{
-        required("orgPackagePaths") => list(String.t() | atom())
+      send_cis_session_telemetry_response() :: %{}
+
+  """
+  @type send_cis_session_telemetry_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      coverage_number_filter() :: %{
+        "lowerInclusive" => [float()],
+        "upperInclusive" => [float()]
       }
 
   """
-  @type update_org_ec2_deep_inspection_configuration_request() :: %{
+  @type coverage_number_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_findings_report_request() :: %{
+        optional("filterCriteria") => filter_criteria(),
+        required("reportFormat") => String.t() | atom(),
+        required("s3Destination") => destination()
+      }
+
+  """
+  @type create_findings_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_details_error() :: %{
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "findingArn" => String.t() | atom()
+      }
+
+  """
+  @type finding_details_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_member_ec2_deep_inspection_status_response() :: %{
+        "accountIds" => list(member_account_ec2_deep_inspection_status_state()),
+        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state())
+      }
+
+  """
+  @type batch_update_member_ec2_deep_inspection_status_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4292,56 +2971,12 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      delete_filter_request() :: %{
-        required("arn") => String.t() | atom()
+      cancel_sbom_export_request() :: %{
+        required("reportId") => String.t() | atom()
       }
 
   """
-  @type delete_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecr_container_aggregation_response() :: %{
-        "accountId" => String.t() | atom(),
-        "architecture" => [String.t() | atom()],
-        "imageSha" => [String.t() | atom()],
-        "imageTags" => list(String.t() | atom()),
-        "inUseCount" => [float()],
-        "lastInUseAt" => non_neg_integer(),
-        "repository" => [String.t() | atom()],
-        "resourceId" => String.t() | atom(),
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type aws_ecr_container_aggregation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_state() :: %{
-        "accountId" => String.t() | atom(),
-        "resourceState" => resource_state(),
-        "state" => state()
-      }
-
-  """
-  @type account_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      number_filter() :: %{
-        "lowerInclusive" => [float()],
-        "upperInclusive" => [float()]
-      }
-
-  """
-  @type number_filter() :: %{(String.t() | atom()) => any()}
+  @type cancel_sbom_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4367,28 +3002,345 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      map_filter() :: %{
-        "comparison" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      finding_type_aggregation() :: %{
+        "findingType" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
       }
 
   """
-  @type map_filter() :: %{(String.t() | atom()) => any()}
+  @type finding_type_aggregation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_filters_request() :: %{
-        optional("action") => String.t() | atom(),
-        optional("arns") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
+      describe_organization_configuration_response() :: %{
+        optional("autoEnable") => auto_enable(),
+        optional("maxAccountLimitReached") => [boolean()]
+      }
+
+  """
+  @type describe_organization_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_security_scan_configuration_association_summary() :: %{
+        "resource" => list()
+      }
+
+  """
+  @type code_security_scan_configuration_association_summary() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_code_security_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type update_code_security_scan_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecr_container_aggregation_response() :: %{
+        "accountId" => String.t() | atom(),
+        "architecture" => [String.t() | atom()],
+        "imageSha" => [String.t() | atom()],
+        "imageTags" => list(String.t() | atom()),
+        "inUseCount" => [float()],
+        "lastInUseAt" => non_neg_integer(),
+        "repository" => [String.t() | atom()],
+        "resourceId" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type aws_ecr_container_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_finding_details_request() :: %{
+        required("findingArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_finding_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      weekly_schedule() :: %{
+        "days" => list(list(any())()),
+        "startTime" => time()
+      }
+
+  """
+  @type weekly_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_security_scan_configuration_associations_response() :: %{
+        "associations" => list(code_security_scan_configuration_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_code_security_scan_configuration_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      cis_session_message() :: %{
+        "cisRuleDetails" => binary(),
+        "ruleId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type cis_session_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_sbom_export_response() :: %{
+        "reportId" => String.t() | atom()
+      }
+
+  """
+  @type cancel_sbom_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_filter_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("reason") => String.t() | atom(),
+        optional("tags") => map(),
+        required("action") => String.t() | atom(),
+        required("filterCriteria") => filter_criteria(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss_score_details() :: %{
+        "adjustments" => list(cvss_score_adjustment()),
+        "cvssSource" => String.t() | atom(),
+        "score" => [float()],
+        "scoreSource" => String.t() | atom(),
+        "scoringVector" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type cvss_score_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function_aggregation() :: %{
+        "functionNames" => list(string_filter()),
+        "functionTags" => list(map_filter()),
+        "resourceIds" => list(string_filter()),
+        "runtimes" => list(string_filter()),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type lambda_function_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cis_scan_results_aggregated_by_checks_response() :: %{
+        "checkAggregations" => list(cis_check_aggregation()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_cis_scan_results_aggregated_by_checks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      counts() :: %{
+        "count" => float(),
+        "groupKey" => String.t() | atom()
+      }
+
+  """
+  @type counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_status() :: %{
+        "codeRepository" => String.t() | atom(),
+        "ec2" => String.t() | atom(),
+        "ecr" => String.t() | atom(),
+        "lambda" => String.t() | atom(),
+        "lambdaCode" => String.t() | atom()
+      }
+
+  """
+  @type resource_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account() :: %{
+        "accountId" => String.t() | atom(),
+        "resourceStatus" => resource_status(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compute_platform() :: %{
+        "product" => String.t() | atom(),
+        "vendor" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type compute_platform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      suggested_fix() :: %{
+        "code" => [String.t() | atom()],
+        "description" => [String.t() | atom()]
+      }
+
+  """
+  @type suggested_fix() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_coverage_statistics_response() :: %{
+        optional("countsByGroup") => list(counts()),
+        optional("nextToken") => String.t() | atom(),
+        required("totalCounts") => [float()]
+      }
+
+  """
+  @type list_coverage_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_delegated_admin_accounts_response() :: %{
+        optional("delegatedAdminAccounts") => list(delegated_admin_account()),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_filters_request() :: %{(String.t() | atom()) => any()}
+  @type list_delegated_admin_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sbom_export_request() :: %{
+        required("reportId") => String.t() | atom()
+      }
+
+  """
+  @type get_sbom_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_clusters_for_image_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("filter") => cluster_for_image_filter_criteria()
+      }
+
+  """
+  @type get_clusters_for_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_details() :: %{
+        "clusterMetadata" => list(),
+        "lastInUse" => [non_neg_integer()],
+        "runningUnitCount" => [float()],
+        "stoppedUnitCount" => [float()]
+      }
+
+  """
+  @type cluster_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_scan_result_details_filter_criteria() :: %{
+        "checkIdFilters" => list(cis_string_filter()),
+        "findingArnFilters" => list(cis_string_filter()),
+        "findingStatusFilters" => list(cis_finding_status_filter()),
+        "securityLevelFilters" => list(cis_security_level_filter()),
+        "titleFilters" => list(cis_string_filter())
+      }
+
+  """
+  @type cis_scan_result_details_filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4406,13 +3358,655 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      batch_get_finding_details_response() :: %{
-        "errors" => list(finding_details_error()),
-        "findingDetails" => list(finding_detail())
+      vulnerability() :: %{
+        "atigData" => atig_data(),
+        "cisaData" => cisa_data(),
+        "cvss2" => cvss2(),
+        "cvss3" => cvss3(),
+        "cvss4" => cvss4(),
+        "cwes" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "detectionPlatforms" => list(String.t() | atom()),
+        "epss" => epss(),
+        "exploitObserved" => exploit_observed(),
+        "id" => String.t() | atom(),
+        "referenceUrls" => list(String.t() | atom()),
+        "relatedVulnerabilities" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "sourceUrl" => String.t() | atom(),
+        "vendorCreatedAt" => non_neg_integer(),
+        "vendorSeverity" => String.t() | atom(),
+        "vendorUpdatedAt" => non_neg_integer()
       }
 
   """
-  @type batch_get_finding_details_response() :: %{(String.t() | atom()) => any()}
+  @type vulnerability() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_member_response() :: %{
+        optional("member") => member()
+      }
+
+  """
+  @type get_member_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_configuration_request() :: %{}
+
+  """
+  @type describe_organization_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecr_container_image_details() :: %{
+        "architecture" => String.t() | atom(),
+        "author" => [String.t() | atom()],
+        "imageHash" => String.t() | atom(),
+        "imageTags" => list(String.t() | atom()),
+        "inUseCount" => [float()],
+        "lastInUseAt" => non_neg_integer(),
+        "platform" => String.t() | atom(),
+        "pushedAt" => non_neg_integer(),
+        "registry" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecr_container_image_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      exploitability_details() :: %{
+        "lastKnownExploitAt" => non_neg_integer()
+      }
+
+  """
+  @type exploitability_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecr_container_image_metadata() :: %{
+        "imagePulledAt" => non_neg_integer(),
+        "inUseCount" => [float()],
+        "lastInUseAt" => non_neg_integer(),
+        "tags" => list([String.t() | atom()]())
+      }
+
+  """
+  @type ecr_container_image_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      number_filter() :: %{
+        "lowerInclusive" => [float()],
+        "upperInclusive" => [float()]
+      }
+
+  """
+  @type number_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "Url" => String.t() | atom(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_free_trial_info_request() :: %{
+        required("accountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_free_trial_info_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_security_integration_summary() :: %{
+        "createdOn" => [non_neg_integer()],
+        "integrationArn" => String.t() | atom(),
+        "lastUpdateOn" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "tags" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type code_security_integration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_security_integration_response() :: %{
+        "authorizationUrl" => String.t() | atom(),
+        "integrationArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_code_security_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      v_m_scanner_state() :: %{
+        "activated" => [boolean()],
+        "activatedAt" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type v_m_scanner_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      usage_total() :: %{
+        "accountId" => String.t() | atom(),
+        "usage" => list(usage())
+      }
+
+  """
+  @type usage_total() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      continuous_integration_scan_configuration() :: %{
+        "supportedEvents" => list(list(any())())
+      }
+
+  """
+  @type continuous_integration_scan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "codeVulnerabilityDetails" => code_vulnerability_details(),
+        "description" => String.t() | atom(),
+        "epss" => epss_details(),
+        "exploitAvailable" => String.t() | atom(),
+        "exploitabilityDetails" => exploitability_details(),
+        "findingArn" => String.t() | atom(),
+        "firstObservedAt" => non_neg_integer(),
+        "fixAvailable" => String.t() | atom(),
+        "inspectorScore" => [float()],
+        "inspectorScoreDetails" => inspector_score_details(),
+        "lastObservedAt" => non_neg_integer(),
+        "networkReachabilityDetails" => network_reachability_details(),
+        "packageVulnerabilityDetails" => package_vulnerability_details(),
+        "remediation" => remediation(),
+        "resources" => list(resource()),
+        "severity" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_security_scan_configuration_request() :: %{
+        required("scanConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_code_security_scan_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_targets() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "targetResourceTags" => map()
+      }
+
+  """
+  @type cis_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_encryption_key_response() :: %{
+        "kmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type get_encryption_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_coverage_response() :: %{
+        optional("coveredResources") => list(covered_resource()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_coverage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      port_range_filter() :: %{
+        "beginInclusive" => integer(),
+        "endInclusive" => integer()
+      }
+
+  """
+  @type port_range_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_security_integrations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_code_security_integrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_snippet_error() :: %{
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "findingArn" => String.t() | atom()
+      }
+
+  """
+  @type code_snippet_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_metadata_details() :: %{
+        "detailsGroup" => [String.t() | atom()],
+        "taskDefinitionArn" => [String.t() | atom()]
+      }
+
+  """
+  @type aws_ecs_metadata_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_cis_session_message() :: %{
+        "benchmarkProfile" => String.t() | atom(),
+        "benchmarkVersion" => String.t() | atom(),
+        "computePlatform" => compute_platform(),
+        "progress" => stop_cis_message_progress(),
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type stop_cis_session_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_account_ec2_deep_inspection_status_state() :: %{
+        "accountId" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type member_account_ec2_deep_inspection_status_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_associate_code_security_scan_configuration_request() :: %{
+        required("associateConfigurationRequests") => list(associate_configuration_request())
+      }
+
+  """
+  @type batch_associate_code_security_scan_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      package_aggregation() :: %{
+        "packageNames" => list(string_filter()),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type package_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cis_scans_request() :: %{
+        optional("detailLevel") => list(any()),
+        optional("filterCriteria") => list_cis_scans_filter_criteria(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_cis_scans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_on_demand_scan() :: %{
+        "lastScanAt" => non_neg_integer(),
+        "lastScannedCommitId" => String.t() | atom(),
+        "scanStatus" => scan_status()
+      }
+
+  """
+  @type code_repository_on_demand_scan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cis_scan_results_aggregated_by_target_resource_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "targetResourceAggregations" => list(cis_target_resource_aggregation())
+      }
+
+  """
+  @type list_cis_scan_results_aggregated_by_target_resource_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_cis_scan_configuration_response() :: %{
+        "scanConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type create_cis_scan_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_check_aggregation() :: %{
+        "accountId" => String.t() | atom(),
+        "checkDescription" => [String.t() | atom()],
+        "checkId" => [String.t() | atom()],
+        "level" => list(any()),
+        "platform" => [String.t() | atom()],
+        "scanArn" => String.t() | atom(),
+        "statusCounts" => status_counts(),
+        "title" => [String.t() | atom()]
+      }
+
+  """
+  @type cis_check_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_metadata() :: %{
+        "integrationArn" => String.t() | atom(),
+        "lastScannedCommitId" => String.t() | atom(),
+        "onDemandScan" => code_repository_on_demand_scan(),
+        "projectName" => [String.t() | atom()],
+        "providerType" => [String.t() | atom()],
+        "providerTypeVisibility" => [String.t() | atom()],
+        "scanConfiguration" => project_code_security_scan_configuration()
+      }
+
+  """
+  @type code_repository_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_integration_response() :: %{
+        "authorizationUrl" => String.t() | atom(),
+        "createdOn" => [non_neg_integer()],
+        "integrationArn" => String.t() | atom(),
+        "lastUpdateOn" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "tags" => map(),
+        "type" => list(any())
+      }
+
+  """
+  @type get_code_security_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_encryption_key_request() :: %{
+        required("resourceType") => String.t() | atom(),
+        required("scanType") => String.t() | atom()
+      }
+
+  """
+  @type get_encryption_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_response() :: %{
+        optional("failedAccounts") => list(failed_account()),
+        required("accounts") => list(account())
+      }
+
+  """
+  @type enable_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sbom_export_response() :: %{
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "filterCriteria" => resource_filter_criteria(),
+        "format" => String.t() | atom(),
+        "reportId" => String.t() | atom(),
+        "s3Destination" => destination(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type get_sbom_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_snippet_request() :: %{
+        required("findingArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_code_snippet_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecr_repository_metadata() :: %{
+        "name" => [String.t() | atom()],
+        "scanFrequency" => String.t() | atom()
+      }
+
+  """
+  @type ecr_repository_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      free_trial_info_error() :: %{
+        "accountId" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type free_trial_info_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_result_status_filter() :: %{
+        "comparison" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type cis_result_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_request() :: %{
+        optional("accountIds") => list(String.t() | atom()),
+        optional("resourceTypes") => list(String.t() | atom())
+      }
+
+  """
+  @type disable_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_finding_status_filter() :: %{
+        "comparison" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type cis_finding_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_filter_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_delegated_admin_account_request() :: %{}
+
+  """
+  @type get_delegated_admin_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_details() :: %{
+        "awsEc2Instance" => aws_ec2_instance_details(),
+        "awsEcrContainerImage" => aws_ecr_container_image_details(),
+        "awsLambdaFunction" => aws_lambda_function_details(),
+        "codeRepository" => code_repository_details()
+      }
+
+  """
+  @type resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4434,526 +4028,932 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
-      successful_association_result() :: %{
-        "resource" => list(),
-        "scanConfigurationArn" => String.t() | atom()
+      list_finding_aggregations_request() :: %{
+        optional("accountIds") => list(string_filter()),
+        optional("aggregationRequest") => list(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("aggregationType") => String.t() | atom()
       }
 
   """
-  @type successful_association_result() :: %{(String.t() | atom()) => any()}
+  @type list_finding_aggregations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ami_aggregation_response() :: %{
+      stop_cis_session_response() :: %{}
+
+  """
+  @type stop_cis_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_finding_details_response() :: %{
+        "errors" => list(finding_details_error()),
+        "findingDetails" => list(finding_detail())
+      }
+
+  """
+  @type batch_get_finding_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_criteria() :: %{
+        "componentType" => list(string_filter()),
+        "ecrImageHash" => list(string_filter()),
+        "ecrImageRegistry" => list(string_filter()),
+        "inspectorScore" => list(number_filter()),
+        "vulnerabilityId" => list(string_filter()),
+        "findingArn" => list(string_filter()),
+        "relatedVulnerabilities" => list(string_filter()),
+        "findingStatus" => list(string_filter()),
+        "lambdaFunctionLayers" => list(string_filter()),
+        "ecrImageTags" => list(string_filter()),
+        "codeVulnerabilityFilePath" => list(string_filter()),
+        "lastObservedAt" => list(date_filter()),
+        "severity" => list(string_filter()),
+        "portRange" => list(port_range_filter()),
+        "firstObservedAt" => list(date_filter()),
+        "exploitAvailable" => list(string_filter()),
+        "resourceType" => list(string_filter()),
+        "lambdaFunctionName" => list(string_filter()),
+        "updatedAt" => list(date_filter()),
+        "lambdaFunctionExecutionRoleArn" => list(string_filter()),
+        "resourceTags" => list(map_filter()),
+        "vulnerabilitySource" => list(string_filter()),
+        "resourceId" => list(string_filter()),
+        "ec2InstanceSubnetId" => list(string_filter()),
+        "ec2InstanceImageId" => list(string_filter()),
+        "codeRepositoryProjectName" => list(string_filter()),
+        "vulnerablePackages" => list(package_filter()),
+        "lambdaFunctionRuntime" => list(string_filter()),
+        "vendorSeverity" => list(string_filter()),
+        "codeVulnerabilityDetectorTags" => list(string_filter()),
+        "awsAccountId" => list(string_filter()),
+        "title" => list(string_filter()),
+        "codeVulnerabilityDetectorName" => list(string_filter()),
+        "networkProtocol" => list(string_filter()),
+        "fixAvailable" => list(string_filter()),
+        "lambdaFunctionLastModifiedAt" => list(date_filter()),
+        "codeRepositoryProviderType" => list(string_filter()),
+        "ecrImageLastInUseAt" => list(date_filter()),
+        "ecrImageArchitecture" => list(string_filter()),
+        "ec2InstanceVpcId" => list(string_filter()),
+        "findingType" => list(string_filter()),
+        "componentId" => list(string_filter()),
+        "ecrImageInUseCount" => list(number_filter()),
+        "ecrImageRepositoryName" => list(string_filter()),
+        "ecrImagePushedAt" => list(date_filter()),
+        "epssScore" => list(number_filter())
+      }
+
+  """
+  @type filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_code_security_integration_response() :: %{
+        "integrationArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_code_security_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_permissions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("service") => String.t() | atom()
+      }
+
+  """
+  @type list_account_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_information() :: %{
+        "clusterArn" => [String.t() | atom()],
+        "clusterDetails" => list(cluster_details())
+      }
+
+  """
+  @type cluster_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_enable() :: %{
+        "codeRepository" => [boolean()],
+        "ec2" => [boolean()],
+        "ecr" => [boolean()],
+        "lambda" => [boolean()],
+        "lambdaCode" => [boolean()]
+      }
+
+  """
+  @type auto_enable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      severity_counts() :: %{
+        "all" => [float()],
+        "critical" => [float()],
+        "high" => [float()],
+        "medium" => [float()]
+      }
+
+  """
+  @type severity_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delegated_admin() :: %{
         "accountId" => String.t() | atom(),
-        "affectedInstances" => [float()],
-        "ami" => String.t() | atom(),
-        "severityCounts" => severity_counts()
+        "relationshipStatus" => String.t() | atom()
       }
 
   """
-  @type ami_aggregation_response() :: %{(String.t() | atom()) => any()}
+  @type delegated_admin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_member_request() :: %{
-        required("accountId") => String.t() | atom()
+      member_account_ec2_deep_inspection_status() :: %{
+        "accountId" => String.t() | atom(),
+        "activateDeepInspection" => [boolean()]
       }
 
   """
-  @type disassociate_member_request() :: %{(String.t() | atom()) => any()}
+  @type member_account_ec2_deep_inspection_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_security_integration_request() :: %{
+        required("integrationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_code_security_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_report_status_request() :: %{
+        optional("reportId") => String.t() | atom()
+      }
+
+  """
+  @type get_findings_report_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_snippet_response() :: %{
+        "codeSnippetResults" => list(code_snippet_result()),
+        "errors" => list(code_snippet_error())
+      }
+
+  """
+  @type batch_get_code_snippet_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "action" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "criteria" => filter_criteria(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "ownerId" => String.t() | atom(),
+        "reason" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_target_status_reason_filter() :: %{
+        "comparison" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type cis_target_status_reason_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_org_ec2_deep_inspection_configuration_response() :: %{}
+
+  """
+  @type update_org_ec2_deep_inspection_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      epss() :: %{
+        "score" => float()
+      }
+
+  """
+  @type epss() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inspector_score_details() :: %{
+        "adjustedCvss" => cvss_score_details()
+      }
+
+  """
+  @type inspector_score_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      port_range() :: %{
+        "begin" => integer(),
+        "end" => integer()
+      }
+
+  """
+  @type port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cis_scan_results_aggregated_by_target_resource_filter_criteria() :: %{
+        "accountIdFilters" => list(cis_string_filter()),
+        "checkIdFilters" => list(cis_string_filter()),
+        "failedChecksFilters" => list(cis_number_filter()),
+        "platformFilters" => list(cis_string_filter()),
+        "statusFilters" => list(cis_result_status_filter()),
+        "targetResourceIdFilters" => list(cis_string_filter()),
+        "targetResourceTagFilters" => list(tag_filter()),
+        "targetStatusFilters" => list(cis_target_status_filter()),
+        "targetStatusReasonFilters" => list(cis_target_status_reason_filter())
+      }
+
+  """
+  @type cis_scan_results_aggregated_by_target_resource_filter_criteria() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      failed_member_account_ec2_deep_inspection_status_state() :: %{
+        "accountId" => String.t() | atom(),
+        "ec2ScanStatus" => String.t() | atom(),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type failed_member_account_ec2_deep_inspection_status_state() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      account_aggregation() :: %{
+        "findingType" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type account_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_clusters_for_image_response() :: %{
+        "cluster" => list(cluster_information()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_clusters_for_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_delegated_admin_account_response() :: %{
+        optional("delegatedAdmin") => delegated_admin()
+      }
+
+  """
+  @type get_delegated_admin_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_state() :: %{
+        "codeRepository" => state(),
+        "ec2" => state(),
+        "ecr" => state(),
+        "lambda" => state(),
+        "lambdaCode" => state()
+      }
+
+  """
+  @type resource_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coverage_string_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type coverage_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_cis_session_telemetry_request() :: %{
+        required("messages") => list(cis_session_message()),
+        required("scanJobId") => String.t() | atom(),
+        required("sessionToken") => String.t() | atom()
+      }
+
+  """
+  @type send_cis_session_telemetry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_security_scan_response() :: %{
+        "accountId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "lastCommitId" => [String.t() | atom()],
+        "resource" => list(),
+        "scanId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_code_security_scan_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_member_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type batch_associate_code_security_scan_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_disassociate_code_security_scan_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_get_account_status_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_get_code_snippet_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type batch_get_finding_details_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type batch_get_free_trial_info_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type batch_get_member_ec2_deep_inspection_status_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type batch_update_member_ec2_deep_inspection_status_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type cancel_findings_report_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type cancel_sbom_export_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_cis_scan_configuration_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type create_code_security_integration_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_code_security_scan_configuration_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_filter_errors() ::
-          bad_request_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type create_findings_report_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_sbom_export_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_cis_scan_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_code_security_integration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_code_security_scan_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_filter_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_organization_configuration_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type disable_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disable_delegated_admin_account_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_member_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type enable_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type enable_delegated_admin_account_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_cis_scan_report_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_cis_scan_result_details_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_clusters_for_image_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_code_security_integration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_code_security_scan_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_code_security_scan_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_configuration_errors() ::
-          throttling_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | throttling_exception()
 
   @type get_delegated_admin_account_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_ec2_deep_inspection_configuration_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_encryption_key_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_findings_report_status_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_member_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_sbom_export_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_account_permissions_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_cis_scan_configurations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_cis_scan_results_aggregated_by_checks_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_cis_scan_results_aggregated_by_target_resource_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_cis_scans_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_code_security_integrations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_code_security_scan_configuration_associations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_code_security_scan_configurations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_coverage_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | throttling_exception()
 
   @type list_coverage_statistics_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | throttling_exception()
 
   @type list_delegated_admin_accounts_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_filters_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_finding_aggregations_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | throttling_exception()
 
   @type list_findings_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | throttling_exception()
 
   @type list_members_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_usage_totals_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type reset_encryption_key_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type search_vulnerabilities_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type send_cis_session_health_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type send_cis_session_telemetry_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_cis_session_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_code_security_scan_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_cis_session_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_cis_scan_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_code_security_integration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_code_security_scan_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_configuration_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_ec2_deep_inspection_configuration_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_encryption_key_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_filter_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_org_ec2_deep_inspection_configuration_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_organization_configuration_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   def metadata do
     %{

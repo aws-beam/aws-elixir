@@ -58,114 +58,24 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      missing_parameter_value_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
+      list_jobs_output() :: %{
+        "JobList" => list(glacier_job_description()),
+        "Marker" => String.t() | atom()
       }
 
   """
-  @type missing_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+  @type list_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_archive_input() :: %{}
-
-  """
-  @type delete_archive_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_job_output() :: %{
-        "jobId" => String.t() | atom(),
-        "jobOutputPath" => String.t() | atom(),
-        "location" => String.t() | atom()
+      set_vault_notifications_input() :: %{
+        optional("vaultNotificationConfig") => vault_notification_config()
       }
 
   """
-  @type initiate_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_input() :: %{}
-
-  """
-  @type describe_job_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_tags_from_vault_input() :: %{
-        optional("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type remove_tags_from_vault_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      abort_multipart_upload_input() :: %{}
-
-  """
-  @type abort_multipart_upload_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_access_policy_output() :: %{
-        "policy" => vault_access_policy()
-      }
-
-  """
-  @type get_vault_access_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioned_capacity_input() :: %{}
-
-  """
-  @type list_provisioned_capacity_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_retrieval_policy_input() :: %{}
-
-  """
-  @type get_data_retrieval_policy_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_vault_input() :: %{}
-
-  """
-  @type describe_vault_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_vault_output() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_vault_output() :: %{(String.t() | atom()) => any()}
+  @type set_vault_notifications_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,18 +87,6 @@ defmodule AWS.Glacier do
 
   """
   @type set_vault_access_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_retrieval_rule() :: %{
-        "BytesPerHour" => float(),
-        "Strategy" => String.t() | atom()
-      }
-
-  """
-  @type data_retrieval_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,293 +105,61 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      input_serialization() :: %{
-        "csv" => csv_input()
+      get_vault_access_policy_input() :: %{}
+
+  """
+  @type get_vault_access_policy_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      csv_output() :: %{
+        "FieldDelimiter" => String.t() | atom(),
+        "QuoteCharacter" => String.t() | atom(),
+        "QuoteEscapeCharacter" => String.t() | atom(),
+        "QuoteFields" => list(any()),
+        "RecordDelimiter" => String.t() | atom()
       }
 
   """
-  @type input_serialization() :: %{(String.t() | atom()) => any()}
+  @type csv_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_provisioned_capacity_output() :: %{
-        "ProvisionedCapacityList" => list(provisioned_capacity_description())
-      }
-
-  """
-  @type list_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grantee() :: %{
-        "DisplayName" => String.t() | atom(),
-        "EmailAddress" => String.t() | atom(),
-        "ID" => String.t() | atom(),
-        "Type" => list(any()),
-        "URI" => String.t() | atom()
-      }
-
-  """
-  @type grantee() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_notifications_input() :: %{}
-
-  """
-  @type get_vault_notifications_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      request_timeout_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vault_access_policy() :: %{
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type vault_access_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_job_input() :: %{
-        optional("jobParameters") => job_parameters()
-      }
-
-  """
-  @type initiate_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inventory_retrieval_job_description() :: %{
-        "EndDate" => String.t() | atom(),
-        "Format" => String.t() | atom(),
-        "Limit" => String.t() | atom(),
-        "Marker" => String.t() | atom(),
-        "StartDate" => String.t() | atom()
-      }
-
-  """
-  @type inventory_retrieval_job_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      select_parameters() :: %{
-        "Expression" => String.t() | atom(),
-        "ExpressionType" => list(any()),
-        "InputSerialization" => input_serialization(),
-        "OutputSerialization" => output_serialization()
-      }
-
-  """
-  @type select_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insufficient_capacity_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vault_output() :: %{
-        "location" => String.t() | atom()
-      }
-
-  """
-  @type create_vault_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_parameters() :: %{
-        "ArchiveId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Format" => String.t() | atom(),
-        "InventoryRetrievalParameters" => inventory_retrieval_job_input(),
-        "OutputLocation" => output_location(),
-        "RetrievalByteRange" => String.t() | atom(),
-        "SNSTopic" => String.t() | atom(),
-        "SelectParameters" => select_parameters(),
-        "Tier" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type job_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_multipart_upload_input() :: %{
-        optional("archiveSize") => String.t() | atom(),
-        optional("checksum") => String.t() | atom()
-      }
-
-  """
-  @type complete_multipart_upload_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vault_notifications_input() :: %{}
-
-  """
-  @type delete_vault_notifications_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      set_vault_notifications_input() :: %{
-        optional("vaultNotificationConfig") => vault_notification_config()
-      }
-
-  """
-  @type set_vault_notifications_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_lock_input() :: %{}
-
-  """
-  @type get_vault_lock_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_retrieval_policy() :: %{
-        "Rules" => list(data_retrieval_rule())
-      }
-
-  """
-  @type data_retrieval_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioned_capacity_description() :: %{
-        "CapacityId" => String.t() | atom(),
-        "ExpirationDate" => String.t() | atom(),
-        "StartDate" => String.t() | atom()
-      }
-
-  """
-  @type provisioned_capacity_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      part_list_element() :: %{
-        "RangeInBytes" => String.t() | atom(),
-        "SHA256TreeHash" => String.t() | atom()
-      }
-
-  """
-  @type part_list_element() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grant() :: %{
-        "Grantee" => grantee(),
-        "Permission" => list(any())
-      }
-
-  """
-  @type grant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vault_notifications_output() :: %{
-        "vaultNotificationConfig" => vault_notification_config()
-      }
-
-  """
-  @type get_vault_notifications_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_vaults_input() :: %{
+      list_multipart_uploads_input() :: %{
         optional("limit") => [integer()],
         optional("marker") => String.t() | atom()
       }
 
   """
-  @type list_vaults_input() :: %{(String.t() | atom()) => any()}
+  @type list_multipart_uploads_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_parameter_value_exception() :: %{
+      vault_lock_policy() :: %{
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type vault_lock_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
         "code" => String.t() | atom(),
         "message" => String.t() | atom(),
         "type" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -515,138 +181,25 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      get_job_output_input() :: %{
-        optional("range") => String.t() | atom()
+      list_multipart_uploads_output() :: %{
+        "Marker" => String.t() | atom(),
+        "UploadsList" => list(upload_list_element())
       }
 
   """
-  @type get_job_output_input() :: %{(String.t() | atom()) => any()}
+  @type list_multipart_uploads_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      archive_creation_output() :: %{
-        "archiveId" => String.t() | atom(),
-        "checksum" => String.t() | atom(),
-        "location" => String.t() | atom()
+      data_retrieval_rule() :: %{
+        "BytesPerHour" => float(),
+        "Strategy" => String.t() | atom()
       }
 
   """
-  @type archive_creation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption() :: %{
-        "EncryptionType" => list(any()),
-        "KMSContext" => String.t() | atom(),
-        "KMSKeyId" => String.t() | atom()
-      }
-
-  """
-  @type encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vault_access_policy_input() :: %{}
-
-  """
-  @type delete_vault_access_policy_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_provisioned_capacity_input() :: %{}
-
-  """
-  @type purchase_provisioned_capacity_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      output_location() :: %{
-        "S3" => s3_location()
-      }
-
-  """
-  @type output_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_list_element() :: %{
-        "ArchiveDescription" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "MultipartUploadId" => String.t() | atom(),
-        "PartSizeInBytes" => float(),
-        "VaultARN" => String.t() | atom()
-      }
-
-  """
-  @type upload_list_element() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_multipart_part_input() :: %{
-        optional("body") => binary(),
-        optional("checksum") => String.t() | atom(),
-        optional("range") => String.t() | atom()
-      }
-
-  """
-  @type upload_multipart_part_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "AccessControlList" => list(grant()),
-        "BucketName" => String.t() | atom(),
-        "CannedACL" => list(any()),
-        "Encryption" => encryption(),
-        "Prefix" => String.t() | atom(),
-        "StorageClass" => list(any()),
-        "Tagging" => map(),
-        "UserMetadata" => map()
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_multipart_upload_input() :: %{
-        optional("archiveDescription") => String.t() | atom(),
-        optional("partSize") => String.t() | atom()
-      }
-
-  """
-  @type initiate_multipart_upload_input() :: %{(String.t() | atom()) => any()}
+  @type data_retrieval_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -663,121 +216,110 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      list_vaults_output() :: %{
-        "Marker" => String.t() | atom(),
-        "VaultList" => list(describe_vault_output())
+      get_vault_access_policy_output() :: %{
+        "policy" => vault_access_policy()
       }
 
   """
-  @type list_vaults_output() :: %{(String.t() | atom()) => any()}
+  @type get_vault_access_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vault_lock_policy() :: %{
-        "Policy" => String.t() | atom()
+      get_vault_notifications_input() :: %{}
+
+  """
+  @type get_vault_notifications_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_multipart_upload_input() :: %{}
+
+  """
+  @type abort_multipart_upload_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      grant() :: %{
+        "Grantee" => grantee(),
+        "Permission" => list(any())
       }
 
   """
-  @type vault_lock_policy() :: %{(String.t() | atom()) => any()}
+  @type grant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_vault_access_policy_input() :: %{}
+      list_tags_for_vault_output() :: %{
+        "Tags" => map()
+      }
 
   """
-  @type get_vault_access_policy_input() :: %{}
+  @type list_tags_for_vault_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      policy_enforced_exception() :: %{
+      output_serialization() :: %{
+        "csv" => csv_output()
+      }
+
+  """
+  @type output_serialization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_provisioned_capacity_input() :: %{}
+
+  """
+  @type purchase_provisioned_capacity_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
         "code" => String.t() | atom(),
         "message" => String.t() | atom(),
         "type" => String.t() | atom()
       }
 
   """
-  @type policy_enforced_exception() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_jobs_output() :: %{
-        "JobList" => list(glacier_job_description()),
-        "Marker" => String.t() | atom()
+      insufficient_capacity_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type list_jobs_output() :: %{(String.t() | atom()) => any()}
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_vault_input() :: %{}
-
-  """
-  @type delete_vault_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_multipart_part_output() :: %{
-        "checksum" => String.t() | atom()
+      get_data_retrieval_policy_output() :: %{
+        "Policy" => data_retrieval_policy()
       }
 
   """
-  @type upload_multipart_part_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_vault_input() :: %{}
-
-  """
-  @type list_tags_for_vault_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_vault_lock_input() :: %{
-        optional("policy") => vault_lock_policy()
-      }
-
-  """
-  @type initiate_vault_lock_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_provisioned_capacity_output() :: %{
-        "capacityId" => String.t() | atom()
-      }
-
-  """
-  @type purchase_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vault_notification_config() :: %{
-        "Events" => list(String.t() | atom()),
-        "SNSTopic" => String.t() | atom()
-      }
-
-  """
-  @type vault_notification_config() :: %{(String.t() | atom()) => any()}
+  @type get_data_retrieval_policy_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -814,39 +356,43 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      list_jobs_input() :: %{
-        optional("completed") => String.t() | atom(),
-        optional("limit") => [integer()],
-        optional("marker") => String.t() | atom(),
-        optional("statuscode") => String.t() | atom()
+      missing_parameter_value_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type list_jobs_input() :: %{(String.t() | atom()) => any()}
+  @type missing_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_multipart_uploads_output() :: %{
-        "Marker" => String.t() | atom(),
-        "UploadsList" => list(upload_list_element())
-      }
+      delete_vault_access_policy_input() :: %{}
 
   """
-  @type list_multipart_uploads_output() :: %{(String.t() | atom()) => any()}
+  @type delete_vault_access_policy_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_parts_input() :: %{
-        optional("limit") => [integer()],
-        optional("marker") => String.t() | atom()
+      purchase_provisioned_capacity_output() :: %{
+        "capacityId" => String.t() | atom()
       }
 
   """
-  @type list_parts_input() :: %{(String.t() | atom()) => any()}
+  @type purchase_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_vault_lock_input() :: %{}
+
+  """
+  @type complete_vault_lock_input() :: %{}
 
   @typedoc """
 
@@ -858,6 +404,111 @@ defmodule AWS.Glacier do
 
   """
   @type initiate_vault_lock_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_retrieval_policy_input() :: %{}
+
+  """
+  @type get_data_retrieval_policy_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_vault_input() :: %{}
+
+  """
+  @type describe_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_value_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vault_access_policy() :: %{
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type vault_access_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioned_capacity_input() :: %{}
+
+  """
+  @type list_provisioned_capacity_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_vaults_output() :: %{
+        "Marker" => String.t() | atom(),
+        "VaultList" => list(describe_vault_output())
+      }
+
+  """
+  @type list_vaults_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_retrieval_policy() :: %{
+        "Rules" => list(data_retrieval_rule())
+      }
+
+  """
+  @type data_retrieval_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "AccessControlList" => list(grant()),
+        "BucketName" => String.t() | atom(),
+        "CannedACL" => list(any()),
+        "Encryption" => encryption(),
+        "Prefix" => String.t() | atom(),
+        "StorageClass" => list(any()),
+        "Tagging" => map(),
+        "UserMetadata" => map()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption() :: %{
+        "EncryptionType" => list(any()),
+        "KMSContext" => String.t() | atom(),
+        "KMSKeyId" => String.t() | atom()
+      }
+
+  """
+  @type encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -880,76 +531,171 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      csv_output() :: %{
-        "FieldDelimiter" => String.t() | atom(),
-        "QuoteCharacter" => String.t() | atom(),
-        "QuoteEscapeCharacter" => String.t() | atom(),
-        "QuoteFields" => list(any()),
-        "RecordDelimiter" => String.t() | atom()
+      remove_tags_from_vault_input() :: %{
+        optional("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type csv_output() :: %{(String.t() | atom()) => any()}
+  @type remove_tags_from_vault_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inventory_retrieval_job_input() :: %{
-        "EndDate" => String.t() | atom(),
-        "Limit" => String.t() | atom(),
-        "Marker" => String.t() | atom(),
-        "StartDate" => String.t() | atom()
+      list_vaults_input() :: %{
+        optional("limit") => [integer()],
+        optional("marker") => String.t() | atom()
       }
 
   """
-  @type inventory_retrieval_job_input() :: %{(String.t() | atom()) => any()}
+  @type list_vaults_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
+      resource_not_found_exception() :: %{
         "code" => String.t() | atom(),
         "message" => String.t() | atom(),
         "type" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_job_output_output() :: %{
-        "acceptRanges" => String.t() | atom(),
-        "archiveDescription" => String.t() | atom(),
-        "body" => binary(),
-        "checksum" => String.t() | atom(),
-        "contentRange" => String.t() | atom(),
-        "contentType" => String.t() | atom(),
-        "status" => integer()
+      get_job_output_input() :: %{
+        optional("range") => String.t() | atom()
       }
 
   """
-  @type get_job_output_output() :: %{(String.t() | atom()) => any()}
+  @type get_job_output_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_vault_output() :: %{
+      part_list_element() :: %{
+        "RangeInBytes" => String.t() | atom(),
+        "SHA256TreeHash" => String.t() | atom()
+      }
+
+  """
+  @type part_list_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vault_output() :: %{
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type create_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_list_element() :: %{
+        "ArchiveDescription" => String.t() | atom(),
         "CreationDate" => String.t() | atom(),
-        "LastInventoryDate" => String.t() | atom(),
-        "NumberOfArchives" => float(),
-        "SizeInBytes" => float(),
-        "VaultARN" => String.t() | atom(),
-        "VaultName" => String.t() | atom()
+        "MultipartUploadId" => String.t() | atom(),
+        "PartSizeInBytes" => float(),
+        "VaultARN" => String.t() | atom()
       }
 
   """
-  @type describe_vault_output() :: %{(String.t() | atom()) => any()}
+  @type upload_list_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_job_output() :: %{
+        "jobId" => String.t() | atom(),
+        "jobOutputPath" => String.t() | atom(),
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type initiate_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vault_notifications_output() :: %{
+        "vaultNotificationConfig" => vault_notification_config()
+      }
+
+  """
+  @type get_vault_notifications_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      abort_vault_lock_input() :: %{}
+
+  """
+  @type abort_vault_lock_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_vault_input() :: %{}
+
+  """
+  @type list_tags_for_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vault_notifications_input() :: %{}
+
+  """
+  @type delete_vault_notifications_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioned_capacity_description() :: %{
+        "CapacityId" => String.t() | atom(),
+        "ExpirationDate" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
+      }
+
+  """
+  @type provisioned_capacity_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vault_lock_input() :: %{}
+
+  """
+  @type get_vault_lock_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_multipart_upload_input() :: %{
+        optional("archiveSize") => String.t() | atom(),
+        optional("checksum") => String.t() | atom()
+      }
+
+  """
+  @type complete_multipart_upload_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -978,24 +724,139 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      list_multipart_uploads_input() :: %{
-        optional("limit") => [integer()],
-        optional("marker") => String.t() | atom()
+      input_serialization() :: %{
+        "csv" => csv_input()
       }
 
   """
-  @type list_multipart_uploads_input() :: %{(String.t() | atom()) => any()}
+  @type input_serialization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output_serialization() :: %{
-        "csv" => csv_output()
+      output_location() :: %{
+        "S3" => s3_location()
       }
 
   """
-  @type output_serialization() :: %{(String.t() | atom()) => any()}
+  @type output_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_parts_input() :: %{
+        optional("limit") => [integer()],
+        optional("marker") => String.t() | atom()
+      }
+
+  """
+  @type list_parts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vault_input() :: %{}
+
+  """
+  @type create_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_job_input() :: %{
+        optional("jobParameters") => job_parameters()
+      }
+
+  """
+  @type initiate_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_parameters() :: %{
+        "ArchiveId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "InventoryRetrievalParameters" => inventory_retrieval_job_input(),
+        "OutputLocation" => output_location(),
+        "RetrievalByteRange" => String.t() | atom(),
+        "SNSTopic" => String.t() | atom(),
+        "SelectParameters" => select_parameters(),
+        "Tier" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type job_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_vault_lock_input() :: %{
+        optional("policy") => vault_lock_policy()
+      }
+
+  """
+  @type initiate_vault_lock_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_vault_output() :: %{
+        "CreationDate" => String.t() | atom(),
+        "LastInventoryDate" => String.t() | atom(),
+        "NumberOfArchives" => float(),
+        "SizeInBytes" => float(),
+        "VaultARN" => String.t() | atom(),
+        "VaultName" => String.t() | atom()
+      }
+
+  """
+  @type describe_vault_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_creation_output() :: %{
+        "archiveId" => String.t() | atom(),
+        "checksum" => String.t() | atom(),
+        "location" => String.t() | atom()
+      }
+
+  """
+  @type archive_creation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_multipart_part_input() :: %{
+        optional("body") => binary(),
+        optional("checksum") => String.t() | atom(),
+        optional("range") => String.t() | atom()
+      }
+
+  """
+  @type upload_multipart_part_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioned_capacity_output() :: %{
+        "ProvisionedCapacityList" => list(provisioned_capacity_description())
+      }
+
+  """
+  @type list_provisioned_capacity_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1014,19 +875,165 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      create_vault_input() :: %{}
+      describe_job_input() :: %{}
 
   """
-  @type create_vault_input() :: %{}
+  @type describe_job_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      abort_vault_lock_input() :: %{}
+      select_parameters() :: %{
+        "Expression" => String.t() | atom(),
+        "ExpressionType" => list(any()),
+        "InputSerialization" => input_serialization(),
+        "OutputSerialization" => output_serialization()
+      }
 
   """
-  @type abort_vault_lock_input() :: %{}
+  @type select_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_input() :: %{
+        optional("completed") => String.t() | atom(),
+        optional("limit") => [integer()],
+        optional("marker") => String.t() | atom(),
+        optional("statuscode") => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_output_output() :: %{
+        "acceptRanges" => String.t() | atom(),
+        "archiveDescription" => String.t() | atom(),
+        "body" => binary(),
+        "checksum" => String.t() | atom(),
+        "contentRange" => String.t() | atom(),
+        "contentType" => String.t() | atom(),
+        "status" => integer()
+      }
+
+  """
+  @type get_job_output_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_multipart_upload_input() :: %{
+        optional("archiveDescription") => String.t() | atom(),
+        optional("partSize") => String.t() | atom()
+      }
+
+  """
+  @type initiate_multipart_upload_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_archive_input() :: %{}
+
+  """
+  @type delete_archive_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_retrieval_job_description() :: %{
+        "EndDate" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "Limit" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
+      }
+
+  """
+  @type inventory_retrieval_job_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_multipart_part_output() :: %{
+        "checksum" => String.t() | atom()
+      }
+
+  """
+  @type upload_multipart_part_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_enforced_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type policy_enforced_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vault_notification_config() :: %{
+        "Events" => list(String.t() | atom()),
+        "SNSTopic" => String.t() | atom()
+      }
+
+  """
+  @type vault_notification_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      grantee() :: %{
+        "DisplayName" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "ID" => String.t() | atom(),
+        "Type" => list(any()),
+        "URI" => String.t() | atom()
+      }
+
+  """
+  @type grantee() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vault_input() :: %{}
+
+  """
+  @type delete_vault_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inventory_retrieval_job_input() :: %{
+        "EndDate" => String.t() | atom(),
+        "Limit" => String.t() | atom(),
+        "Marker" => String.t() | atom(),
+        "StartDate" => String.t() | atom()
+      }
+
+  """
+  @type inventory_retrieval_job_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1046,254 +1053,247 @@ defmodule AWS.Glacier do
 
   ## Example:
 
-      get_data_retrieval_policy_output() :: %{
-        "Policy" => data_retrieval_policy()
+      request_timeout_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type get_data_retrieval_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      complete_vault_lock_input() :: %{}
-
-  """
-  @type complete_vault_lock_input() :: %{}
+  @type request_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @type abort_multipart_upload_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type abort_vault_lock_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type add_tags_to_vault_errors() ::
           no_longer_supported_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | missing_parameter_value_exception()
           | limit_exceeded_exception()
           | service_unavailable_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
-          | missing_parameter_value_exception()
 
   @type complete_multipart_upload_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type complete_vault_lock_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type create_vault_errors() ::
           no_longer_supported_exception()
-          | limit_exceeded_exception()
-          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | limit_exceeded_exception()
+          | service_unavailable_exception()
 
   @type delete_archive_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type delete_vault_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type delete_vault_access_policy_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type delete_vault_notifications_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type describe_job_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type describe_vault_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type get_data_retrieval_policy_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type get_job_output_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type get_vault_access_policy_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type get_vault_lock_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type get_vault_notifications_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type initiate_job_errors() ::
-          no_longer_supported_exception()
-          | policy_enforced_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
+          policy_enforced_exception()
+          | no_longer_supported_exception()
           | resource_not_found_exception()
-          | insufficient_capacity_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | insufficient_capacity_exception()
+          | service_unavailable_exception()
 
   @type initiate_multipart_upload_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type initiate_vault_lock_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type list_jobs_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type list_multipart_uploads_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type list_parts_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type list_provisioned_capacity_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type list_tags_for_vault_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type list_vaults_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type purchase_provisioned_capacity_errors() ::
           no_longer_supported_exception()
-          | limit_exceeded_exception()
-          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | limit_exceeded_exception()
+          | service_unavailable_exception()
 
   @type remove_tags_from_vault_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type set_data_retrieval_policy_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
           | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type set_vault_access_policy_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type set_vault_notifications_errors() ::
           no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type upload_archive_errors() ::
-          no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
+          request_timeout_exception()
+          | no_longer_supported_exception()
           | resource_not_found_exception()
-          | request_timeout_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type upload_multipart_part_errors() ::
-          no_longer_supported_exception()
-          | service_unavailable_exception()
-          | invalid_parameter_value_exception()
+          request_timeout_exception()
+          | no_longer_supported_exception()
           | resource_not_found_exception()
-          | request_timeout_exception()
+          | invalid_parameter_value_exception()
           | missing_parameter_value_exception()
+          | service_unavailable_exception()
 
   def metadata do
     %{

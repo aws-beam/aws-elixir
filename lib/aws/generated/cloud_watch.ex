@@ -34,609 +34,115 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      enable_insight_rules_input() :: %{
-        required("RuleNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type enable_insight_rules_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_dashboards_output() :: %{}
-      
-  """
-  @type delete_dashboards_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_dataset_kms_key_output() :: %{}
-      
-  """
-  @type associate_dataset_kms_key_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_stream_filter() :: %{
-        "MetricNames" => list(String.t() | atom()),
-        "Namespace" => String.t() | atom()
-      }
-      
-  """
-  @type metric_stream_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      range() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_rule() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "Tags" => list(tag()),
-        "TemplateName" => String.t() | atom()
-      }
-      
-  """
-  @type managed_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_metric_streams_input() :: %{
-        required("Names") => list(String.t() | atom())
-      }
-      
-  """
-  @type start_metric_streams_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      label_options() :: %{
-        "Timezone" => String.t() | atom()
-      }
-      
-  """
-  @type label_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dashboard_not_found_error() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type dashboard_not_found_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_insight_rule_input() :: %{
-        optional("ApplyOnTransformedLogs") => boolean(),
-        optional("RuleState") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("RuleDefinition") => String.t() | atom(),
-        required("RuleName") => String.t() | atom()
-      }
-      
-  """
-  @type put_insight_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_alarm_mute_rule_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("ExpireDate") => non_neg_integer(),
-        optional("MuteTargets") => mute_targets(),
-        optional("StartDate") => non_neg_integer(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("Rule") => rule()
-      }
-      
-  """
-  @type put_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_composite_alarm_input() :: %{
-        optional("ActionsEnabled") => boolean(),
-        optional("ActionsSuppressor") => String.t() | atom(),
-        optional("ActionsSuppressorExtensionPeriod") => integer(),
-        optional("ActionsSuppressorWaitPeriod") => integer(),
-        optional("AlarmActions") => list(String.t() | atom()),
-        optional("AlarmDescription") => String.t() | atom(),
-        optional("InsufficientDataActions") => list(String.t() | atom()),
-        optional("OKActions") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("AlarmName") => String.t() | atom(),
-        required("AlarmRule") => String.t() | atom()
-      }
-      
-  """
-  @type put_composite_alarm_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_anomaly_detector_input() :: %{
-        optional("Dimensions") => list(dimension()),
-        optional("MetricMathAnomalyDetector") => metric_math_anomaly_detector(),
-        optional("MetricName") => String.t() | atom(),
-        optional("Namespace") => String.t() | atom(),
-        optional("SingleMetricAnomalyDetector") => single_metric_anomaly_detector(),
-        optional("Stat") => String.t() | atom()
-      }
-      
-  """
-  @type delete_anomaly_detector_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_insight_rule_report_output() :: %{
-        "AggregateValue" => float(),
-        "AggregationStatistic" => String.t() | atom(),
-        "ApproximateUniqueCount" => float(),
-        "Contributors" => list(insight_rule_contributor()),
-        "KeyLabels" => list(String.t() | atom()),
-        "MetricDatapoints" => list(insight_rule_metric_datapoint())
-      }
-      
-  """
-  @type get_insight_rule_report_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      alarm_history_item() :: %{
-        "AlarmContributorAttributes" => map(),
-        "AlarmContributorId" => String.t() | atom(),
-        "AlarmName" => String.t() | atom(),
-        "AlarmType" => list(any()),
-        "HistoryData" => String.t() | atom(),
-        "HistoryItemType" => list(any()),
-        "HistorySummary" => String.t() | atom(),
-        "Timestamp" => non_neg_integer()
-      }
-      
-  """
-  @type alarm_history_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity() :: %{
-        "Attributes" => map(),
-        "KeyAttributes" => map()
-      }
-      
-  """
-  @type entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_dashboards_input() :: %{
-        required("DashboardNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_dashboards_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_insight_rules_output() :: %{
-        "Failures" => list(partial_failure())
-      }
-      
-  """
-  @type enable_insight_rules_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_insight_rule_report_input() :: %{
-        optional("MaxContributorCount") => integer(),
-        optional("Metrics") => list(String.t() | atom()),
-        optional("OrderBy") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("Period") => integer(),
-        required("RuleName") => String.t() | atom(),
-        required("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type get_insight_rule_report_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric() :: %{
-        "Dimensions" => list(dimension()),
-        "MetricName" => String.t() | atom(),
-        "Namespace" => String.t() | atom()
-      }
-      
-  """
-  @type metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anomaly_detector_configuration() :: %{
-        "ExcludedTimeRanges" => list(range()),
-        "MetricTimezone" => String.t() | atom()
-      }
-      
-  """
-  @type anomaly_detector_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_metric_stream_input() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_metric_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_key_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_key_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_metric_stream_output() :: %{
-        "Arn" => String.t() | atom()
-      }
-      
-  """
-  @type put_metric_stream_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_o_tel_enrichment_output() :: %{}
-      
-  """
-  @type start_o_tel_enrichment_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disable_alarm_actions_input() :: %{
-        required("AlarmNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type disable_alarm_actions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_required_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type missing_required_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_managed_insight_rules_output() :: %{
-        "ManagedRules" => list(managed_rule_description()),
+      describe_alarm_contributors_output() :: %{
+        "AlarmContributors" => list(alarm_contributor()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_managed_insight_rules_output() :: %{(String.t() | atom()) => any()}
+  @type describe_alarm_contributors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      alarm_mute_rule_summary() :: %{
-        "AlarmMuteRuleArn" => String.t() | atom(),
-        "ExpireDate" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "MuteType" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type alarm_mute_rule_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_metrics_input() :: %{
-        optional("Dimensions") => list(dimension_filter()),
-        optional("IncludeLinkedAccounts") => boolean(),
-        optional("MetricName") => String.t() | atom(),
-        optional("Namespace") => String.t() | atom(),
+      describe_alarm_contributors_input() :: %{
         optional("NextToken") => String.t() | atom(),
-        optional("OwningAccount") => String.t() | atom(),
-        optional("RecentlyActive") => list(any())
+        required("AlarmName") => String.t() | atom()
       }
       
   """
-  @type list_metrics_input() :: %{(String.t() | atom()) => any()}
+  @type describe_alarm_contributors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_metric_widget_image_output() :: %{
-        "MetricWidgetImage" => binary()
-      }
-      
-  """
-  @type get_metric_widget_image_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_metric_widget_image_input() :: %{
-        optional("OutputFormat") => String.t() | atom(),
-        required("MetricWidget") => String.t() | atom()
-      }
-      
-  """
-  @type get_metric_widget_image_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_rule_state() :: %{
-        "RuleName" => String.t() | atom(),
-        "State" => String.t() | atom()
-      }
-      
-  """
-  @type managed_rule_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_stream_entry() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "FirehoseArn" => String.t() | atom(),
-        "LastUpdateDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "OutputFormat" => list(any()),
-        "State" => String.t() | atom()
-      }
-      
-  """
-  @type metric_stream_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_stream_statistics_configuration() :: %{
-        "AdditionalStatistics" => list(String.t() | atom()),
-        "IncludeMetrics" => list(metric_stream_statistics_metric())
-      }
-      
-  """
-  @type metric_stream_statistics_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_managed_insight_rules_input() :: %{
-        required("ManagedRules") => list(managed_rule())
-      }
-      
-  """
-  @type put_managed_insight_rules_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_managed_insight_rules_output() :: %{
-        "Failures" => list(partial_failure())
-      }
-      
-  """
-  @type put_managed_insight_rules_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mute_targets() :: %{
-        "AlarmNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type mute_targets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_o_tel_enrichment_input() :: %{}
-      
-  """
-  @type start_o_tel_enrichment_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dashboards_input() :: %{
-        optional("DashboardNamePrefix") => String.t() | atom(),
+      describe_insight_rules_input() :: %{
+        optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_dashboards_input() :: %{(String.t() | atom()) => any()}
+  @type describe_insight_rules_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_output() :: %{
-        "Tags" => list(tag())
+      put_dashboard_output() :: %{
+        "DashboardValidationMessages" => list(dashboard_validation_message())
       }
       
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type put_dashboard_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_alarms_input() :: %{
-        optional("ActionPrefix") => String.t() | atom(),
-        optional("AlarmNamePrefix") => String.t() | atom(),
-        optional("AlarmNames") => list(String.t() | atom()),
-        optional("AlarmTypes") => list(list(any())()),
-        optional("ChildrenOfAlarmName") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ParentsOfAlarmName") => String.t() | atom(),
-        optional("StateValue") => list(any())
+      dimension_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type describe_alarms_input() :: %{(String.t() | atom()) => any()}
+  @type dimension_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_alarms_output() :: %{
-        "CompositeAlarms" => list(composite_alarm()),
-        "MetricAlarms" => list(metric_alarm()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_alarms_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_combination_exception() :: %{
+      dashboard_invalid_input_error() :: %{
+        "dashboardValidationMessages" => list(dashboard_validation_message()),
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
+  @type dashboard_invalid_input_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_alarm_history_input() :: %{
-        optional("AlarmContributorId") => String.t() | atom(),
-        optional("AlarmName") => String.t() | atom(),
-        optional("AlarmTypes") => list(list(any())()),
-        optional("EndDate") => non_neg_integer(),
-        optional("HistoryItemType") => list(any()),
-        optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ScanBy") => list(any()),
-        optional("StartDate") => non_neg_integer()
+      metric_data_result() :: %{
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom(),
+        "Messages" => list(message_data()),
+        "StatusCode" => list(any()),
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
       }
       
   """
-  @type describe_alarm_history_input() :: %{(String.t() | atom()) => any()}
+  @type metric_data_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_insight_rule_output() :: %{}
+      list_managed_insight_rules_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
+      }
       
   """
-  @type put_insight_rule_output() :: %{}
+  @type list_managed_insight_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alarm_contributor() :: %{
+        "ContributorAttributes" => map(),
+        "ContributorId" => String.t() | atom(),
+        "StateReason" => String.t() | atom(),
+        "StateTransitionedTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type alarm_contributor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,71 +166,61 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      disable_insight_rules_output() :: %{
-        "Failures" => list(partial_failure())
-      }
+      delete_anomaly_detector_output() :: %{}
       
   """
-  @type disable_insight_rules_output() :: %{(String.t() | atom()) => any()}
+  @type delete_anomaly_detector_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      metric_stream_statistics_metric() :: %{
-        "MetricName" => String.t() | atom(),
+      get_insight_rule_report_input() :: %{
+        optional("MaxContributorCount") => integer(),
+        optional("Metrics") => list(String.t() | atom()),
+        optional("OrderBy") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("Period") => integer(),
+        required("RuleName") => String.t() | atom(),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_insight_rule_report_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule() :: %{
+        "Schedule" => schedule()
+      }
+      
+  """
+  @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_output() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_stream_filter() :: %{
+        "MetricNames" => list(String.t() | atom()),
         "Namespace" => String.t() | atom()
       }
       
   """
-  @type metric_stream_statistics_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      message_data() :: %{
-        "Code" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type message_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      alarm_contributor() :: %{
-        "ContributorAttributes" => map(),
-        "ContributorId" => String.t() | atom(),
-        "StateReason" => String.t() | atom(),
-        "StateTransitionedTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type alarm_contributor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_metric_streams_output() :: %{}
-      
-  """
-  @type stop_metric_streams_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      dashboard_invalid_input_error() :: %{
-        "dashboardValidationMessages" => list(dashboard_validation_message()),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type dashboard_invalid_input_error() :: %{(String.t() | atom()) => any()}
+  @type metric_stream_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -744,414 +240,12 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      disable_insight_rules_input() :: %{
-        required("RuleNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type disable_insight_rules_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_datum() :: %{
-        "Counts" => list(float()),
-        "Dimensions" => list(dimension()),
-        "MetricName" => String.t() | atom(),
-        "StatisticValues" => statistic_set(),
-        "StorageResolution" => integer(),
-        "Timestamp" => non_neg_integer(),
-        "Unit" => list(any()),
-        "Value" => float(),
-        "Values" => list(float())
-      }
-      
-  """
-  @type metric_datum() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
+      concurrent_modification_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_metric_alarm_input() :: %{
-        optional("ActionsEnabled") => boolean(),
-        optional("AlarmActions") => list(String.t() | atom()),
-        optional("AlarmDescription") => String.t() | atom(),
-        optional("ComparisonOperator") => list(any()),
-        optional("DatapointsToAlarm") => integer(),
-        optional("Dimensions") => list(dimension()),
-        optional("EvaluateLowSampleCountPercentile") => String.t() | atom(),
-        optional("EvaluationCriteria") => list(),
-        optional("EvaluationInterval") => integer(),
-        optional("EvaluationPeriods") => integer(),
-        optional("ExtendedStatistic") => String.t() | atom(),
-        optional("InsufficientDataActions") => list(String.t() | atom()),
-        optional("MetricName") => String.t() | atom(),
-        optional("Metrics") => list(metric_data_query()),
-        optional("Namespace") => String.t() | atom(),
-        optional("OKActions") => list(String.t() | atom()),
-        optional("Period") => integer(),
-        optional("Statistic") => list(any()),
-        optional("Tags") => list(tag()),
-        optional("Threshold") => float(),
-        optional("ThresholdMetricId") => String.t() | atom(),
-        optional("TreatMissingData") => String.t() | atom(),
-        optional("Unit") => list(any()),
-        required("AlarmName") => String.t() | atom()
-      }
-      
-  """
-  @type put_metric_alarm_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_o_tel_enrichment_input() :: %{}
-      
-  """
-  @type stop_o_tel_enrichment_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_alarm_mute_rules_input() :: %{
-        optional("AlarmName") => String.t() | atom(),
-        optional("MaxRecords") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Statuses") => list(list(any())())
-      }
-      
-  """
-  @type list_alarm_mute_rules_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_o_tel_enrichment_output() :: %{}
-      
-  """
-  @type stop_o_tel_enrichment_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      insight_rule_metric_datapoint() :: %{
-        "Average" => float(),
-        "MaxContributorValue" => float(),
-        "Maximum" => float(),
-        "Minimum" => float(),
-        "SampleCount" => float(),
-        "Sum" => float(),
-        "Timestamp" => non_neg_integer(),
-        "UniqueContributors" => float()
-      }
-      
-  """
-  @type insight_rule_metric_datapoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      alarm_prom_q_l_criteria() :: %{
-        "PendingPeriod" => integer(),
-        "Query" => String.t() | atom(),
-        "RecoveryPeriod" => integer()
-      }
-      
-  """
-  @type alarm_prom_q_l_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      datapoint() :: %{
-        "Average" => float(),
-        "ExtendedStatistics" => map(),
-        "Maximum" => float(),
-        "Minimum" => float(),
-        "SampleCount" => float(),
-        "Sum" => float(),
-        "Timestamp" => non_neg_integer(),
-        "Unit" => list(any())
-      }
-      
-  """
-  @type datapoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_data_query() :: %{
-        "AccountId" => String.t() | atom(),
-        "Expression" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Label" => String.t() | atom(),
-        "MetricStat" => metric_stat(),
-        "Period" => integer(),
-        "ReturnData" => boolean()
-      }
-      
-  """
-  @type metric_data_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dashboard_entry() :: %{
-        "DashboardArn" => String.t() | atom(),
-        "DashboardName" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "Size" => float()
-      }
-      
-  """
-  @type dashboard_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_value_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      single_metric_anomaly_detector() :: %{
-        "AccountId" => String.t() | atom(),
-        "Dimensions" => list(dimension()),
-        "MetricName" => String.t() | atom(),
-        "Namespace" => String.t() | atom(),
-        "Stat" => String.t() | atom()
-      }
-      
-  """
-  @type single_metric_anomaly_detector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_characteristics() :: %{
-        "PeriodicSpikes" => boolean()
-      }
-      
-  """
-  @type metric_characteristics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_anomaly_detectors_output() :: %{
-        "AnomalyDetectors" => list(anomaly_detector()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_anomaly_detectors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insight_rule_contributor_datapoint() :: %{
-        "ApproximateValue" => float(),
-        "Timestamp" => non_neg_integer()
-      }
-      
-  """
-  @type insight_rule_contributor_datapoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_alarm_mute_rule_output() :: %{
-        "AlarmMuteRuleArn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "ExpireDate" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "MuteTargets" => mute_targets(),
-        "MuteType" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Rule" => rule(),
-        "StartDate" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type get_alarm_mute_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_anomaly_detectors_input() :: %{
-        optional("AnomalyDetectorTypes") => list(list(any())()),
-        optional("Dimensions") => list(dimension()),
-        optional("MaxResults") => integer(),
-        optional("MetricName") => String.t() | atom(),
-        optional("Namespace") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_anomaly_detectors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_alarm_actions_input() :: %{
-        required("AlarmNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type enable_alarm_actions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_format_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_format_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_o_tel_enrichment_input() :: %{}
-      
-  """
-  @type get_o_tel_enrichment_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      insight_rule_contributor() :: %{
-        "ApproximateAggregateValue" => float(),
-        "Datapoints" => list(insight_rule_contributor_datapoint()),
-        "Keys" => list(String.t() | atom())
-      }
-      
-  """
-  @type insight_rule_contributor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_math_anomaly_detector() :: %{
-        "MetricDataQueries" => list(metric_data_query())
-      }
-      
-  """
-  @type metric_math_anomaly_detector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_metric_data_output() :: %{
-        "Messages" => list(message_data()),
-        "MetricDataResults" => list(metric_data_result()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_metric_data_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_input() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule() :: %{
-        "Schedule" => schedule()
-      }
-      
-  """
-  @type rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_metrics_output() :: %{
-        "Metrics" => list(metric()),
-        "NextToken" => String.t() | atom(),
-        "OwningAccounts" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_metrics_output() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1171,6 +265,49 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      invalid_next_token() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_o_tel_enrichment_input() :: %{}
+      
+  """
+  @type get_o_tel_enrichment_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dashboards_input() :: %{
+        optional("DashboardNamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_dashboards_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_alarms_for_metric_output() :: %{
+        "MetricAlarms" => list(metric_alarm())
+      }
+      
+  """
+  @type describe_alarms_for_metric_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag_resource_output() :: %{}
       
   """
@@ -1180,250 +317,97 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      get_metric_stream_input() :: %{
-        required("Name") => String.t() | atom()
+      managed_rule_state() :: %{
+        "RuleName" => String.t() | atom(),
+        "State" => String.t() | atom()
       }
       
   """
-  @type get_metric_stream_input() :: %{(String.t() | atom()) => any()}
+  @type managed_rule_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_metric_streams_output() :: %{
-        "Entries" => list(metric_stream_entry()),
-        "NextToken" => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type list_metric_streams_output() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      disassociate_dataset_kms_key_input() :: %{
-        required("DatasetIdentifier") => String.t() | atom()
-      }
+      stop_o_tel_enrichment_input() :: %{}
       
   """
-  @type disassociate_dataset_kms_key_input() :: %{(String.t() | atom()) => any()}
+  @type stop_o_tel_enrichment_input() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      get_metric_stream_output() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "ExcludeFilters" => list(metric_stream_filter()),
-        "FirehoseArn" => String.t() | atom(),
-        "IncludeFilters" => list(metric_stream_filter()),
-        "IncludeLinkedAccountsMetrics" => boolean(),
-        "LastUpdateDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "OutputFormat" => list(any()),
-        "RoleArn" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "StatisticsConfigurations" => list(metric_stream_statistics_configuration())
-      }
-      
-  """
-  @type get_metric_stream_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schedule() :: %{
-        "Duration" => String.t() | atom(),
-        "Expression" => String.t() | atom(),
-        "Timezone" => String.t() | atom()
-      }
-      
-  """
-  @type schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_alarms_for_metric_input() :: %{
-        optional("Dimensions") => list(dimension()),
-        optional("ExtendedStatistic") => String.t() | atom(),
-        optional("Period") => integer(),
-        optional("Statistic") => list(any()),
-        optional("Unit") => list(any()),
-        required("MetricName") => String.t() | atom(),
-        required("Namespace") => String.t() | atom()
-      }
-      
-  """
-  @type describe_alarms_for_metric_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_alarms_input() :: %{
-        required("AlarmNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_alarms_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_metric_stream_input() :: %{
-        optional("ExcludeFilters") => list(metric_stream_filter()),
-        optional("IncludeFilters") => list(metric_stream_filter()),
-        optional("IncludeLinkedAccountsMetrics") => boolean(),
-        optional("StatisticsConfigurations") => list(metric_stream_statistics_configuration()),
+      put_alarm_mute_rule_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("ExpireDate") => non_neg_integer(),
+        optional("MuteTargets") => mute_targets(),
+        optional("StartDate") => non_neg_integer(),
         optional("Tags") => list(tag()),
-        required("FirehoseArn") => String.t() | atom(),
         required("Name") => String.t() | atom(),
-        required("OutputFormat") => list(any()),
-        required("RoleArn") => String.t() | atom()
+        required("Rule") => rule()
       }
       
   """
-  @type put_metric_stream_input() :: %{(String.t() | atom()) => any()}
+  @type put_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_dashboard_output() :: %{
-        "DashboardValidationMessages" => list(dashboard_validation_message())
-      }
-      
-  """
-  @type put_dashboard_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_metric_streams_output() :: %{}
-      
-  """
-  @type start_metric_streams_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      dashboard_validation_message() :: %{
-        "DataPath" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type dashboard_validation_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_anomaly_detector_output() :: %{}
-      
-  """
-  @type delete_anomaly_detector_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_rule_description() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "RuleState" => managed_rule_state(),
-        "TemplateName" => String.t() | atom()
-      }
-      
-  """
-  @type managed_rule_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_alarm_contributors_output() :: %{
-        "AlarmContributors" => list(alarm_contributor()),
+      describe_anomaly_detectors_output() :: %{
+        "AnomalyDetectors" => list(anomaly_detector()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_alarm_contributors_output() :: %{(String.t() | atom()) => any()}
+  @type describe_anomaly_detectors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_dataset_kms_key_input() :: %{
-        required("DatasetIdentifier") => String.t() | atom(),
-        required("KmsKeyArn") => String.t() | atom()
+      invalid_parameter_combination_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type associate_dataset_kms_key_input() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_metric_statistics_output() :: %{
-        "Datapoints" => list(datapoint()),
-        "Label" => String.t() | atom()
+      entity_metric_data() :: %{
+        "Entity" => entity(),
+        "MetricData" => list(metric_datum())
       }
       
   """
-  @type get_metric_statistics_output() :: %{(String.t() | atom()) => any()}
+  @type entity_metric_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_metric_streams_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type list_metric_streams_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_insight_rules_input() :: %{
-        required("RuleNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_insight_rules_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_metric_stream_output() :: %{}
-      
-  """
-  @type delete_metric_stream_output() :: %{}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1438,160 +422,6 @@ defmodule AWS.CloudWatch do
       
   """
   @type metric_stat() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_input() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_alarm_mute_rule_input() :: %{
-        required("AlarmMuteRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type get_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insight_rule() :: %{
-        "ApplyOnTransformedLogs" => boolean(),
-        "Definition" => String.t() | atom(),
-        "ManagedRule" => boolean(),
-        "Name" => String.t() | atom(),
-        "Schema" => String.t() | atom(),
-        "State" => String.t() | atom()
-      }
-      
-  """
-  @type insight_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_key_disabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_key_disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dataset_input() :: %{
-        required("DatasetIdentifier") => String.t() | atom()
-      }
-      
-  """
-  @type get_dataset_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dashboards_output() :: %{
-        "DashboardEntries" => list(dashboard_entry()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_dashboards_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_dataset_kms_key_output() :: %{}
-      
-  """
-  @type disassociate_dataset_kms_key_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_input() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_output() :: %{}
-      
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_alarm_mute_rules_output() :: %{
-        "AlarmMuteRuleSummaries" => list(alarm_mute_rule_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_alarm_mute_rules_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_metric_data_input() :: %{
-        optional("LabelOptions") => label_options(),
-        optional("MaxDatapoints") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ScanBy") => list(any()),
-        required("EndTime") => non_neg_integer(),
-        required("MetricDataQueries") => list(metric_data_query()),
-        required("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type get_metric_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_alarm_history_output() :: %{
-        "AlarmHistoryItems" => list(alarm_history_item()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_alarm_history_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1626,26 +456,13 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      describe_alarm_contributors_input() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("AlarmName") => String.t() | atom()
+      get_metric_statistics_output() :: %{
+        "Datapoints" => list(datapoint()),
+        "Label" => String.t() | atom()
       }
       
   """
-  @type describe_alarm_contributors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dashboard_output() :: %{
-        "DashboardArn" => String.t() | atom(),
-        "DashboardBody" => String.t() | atom(),
-        "DashboardName" => String.t() | atom()
-      }
-      
-  """
-  @type get_dashboard_output() :: %{(String.t() | atom()) => any()}
+  @type get_metric_statistics_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,35 +509,51 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_alarms_output() :: %{
+        "CompositeAlarms" => list(composite_alarm()),
+        "MetricAlarms" => list(metric_alarm()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_alarms_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dimension() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
+      start_metric_streams_output() :: %{}
       
   """
-  @type dimension() :: %{(String.t() | atom()) => any()}
+  @type start_metric_streams_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      internal_service_fault() :: %{
-        "Message" => String.t() | atom()
+      metric_data_query() :: %{
+        "AccountId" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Label" => String.t() | atom(),
+        "MetricStat" => metric_stat(),
+        "Period" => integer(),
+        "ReturnData" => boolean()
       }
       
   """
-  @type internal_service_fault() :: %{(String.t() | atom()) => any()}
+  @type metric_data_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_alarm_actions_input() :: %{
+        required("AlarmNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type enable_alarm_actions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1745,10 +578,81 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      put_anomaly_detector_output() :: %{}
+      anomaly_detector_configuration() :: %{
+        "ExcludedTimeRanges" => list(range()),
+        "MetricTimezone" => String.t() | atom()
+      }
       
   """
-  @type put_anomaly_detector_output() :: %{}
+  @type anomaly_detector_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_insight_rule_report_output() :: %{
+        "AggregateValue" => float(),
+        "AggregationStatistic" => String.t() | atom(),
+        "ApproximateUniqueCount" => float(),
+        "Contributors" => list(insight_rule_contributor()),
+        "KeyLabels" => list(String.t() | atom()),
+        "MetricDatapoints" => list(insight_rule_metric_datapoint())
+      }
+      
+  """
+  @type get_insight_rule_report_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_metric_stream_input() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_metric_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_datum() :: %{
+        "Counts" => list(float()),
+        "Dimensions" => list(dimension()),
+        "MetricName" => String.t() | atom(),
+        "StatisticValues" => statistic_set(),
+        "StorageResolution" => integer(),
+        "Timestamp" => non_neg_integer(),
+        "Unit" => list(any()),
+        "Value" => float(),
+        "Values" => list(float())
+      }
+      
+  """
+  @type metric_datum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1767,37 +671,258 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      describe_alarms_for_metric_output() :: %{
-        "MetricAlarms" => list(metric_alarm())
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type describe_alarms_for_metric_output() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dimension_filter() :: %{
-        "Name" => String.t() | atom(),
+      list_dashboards_output() :: %{
+        "DashboardEntries" => list(dashboard_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_dashboards_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      message_data() :: %{
+        "Code" => String.t() | atom(),
         "Value" => String.t() | atom()
       }
       
   """
-  @type dimension_filter() :: %{(String.t() | atom()) => any()}
+  @type message_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_managed_insight_rules_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceARN") => String.t() | atom()
+      metric() :: %{
+        "Dimensions" => list(dimension()),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
       
   """
-  @type list_managed_insight_rules_input() :: %{(String.t() | atom()) => any()}
+  @type metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      range() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_o_tel_enrichment_output() :: %{}
+      
+  """
+  @type stop_o_tel_enrichment_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_anomaly_detector_output() :: %{}
+      
+  """
+  @type put_anomaly_detector_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_input() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insight_rule() :: %{
+        "ApplyOnTransformedLogs" => boolean(),
+        "Definition" => String.t() | atom(),
+        "ManagedRule" => boolean(),
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+      
+  """
+  @type insight_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_metric_streams_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_metric_streams_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dashboard_entry() :: %{
+        "DashboardArn" => String.t() | atom(),
+        "DashboardName" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "Size" => float()
+      }
+      
+  """
+  @type dashboard_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_insight_rules_output() :: %{
+        "Failures" => list(partial_failure())
+      }
+      
+  """
+  @type disable_insight_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_o_tel_enrichment_output() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_o_tel_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_key_disabled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_key_disabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_insight_rule_input() :: %{
+        optional("ApplyOnTransformedLogs") => boolean(),
+        optional("RuleState") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("RuleDefinition") => String.t() | atom(),
+        required("RuleName") => String.t() | atom()
+      }
+      
+  """
+  @type put_insight_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_metric_streams_input() :: %{
+        required("Names") => list(String.t() | atom())
+      }
+      
+  """
+  @type stop_metric_streams_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_composite_alarm_input() :: %{
+        optional("ActionsEnabled") => boolean(),
+        optional("ActionsSuppressor") => String.t() | atom(),
+        optional("ActionsSuppressorExtensionPeriod") => integer(),
+        optional("ActionsSuppressorWaitPeriod") => integer(),
+        optional("AlarmActions") => list(String.t() | atom()),
+        optional("AlarmDescription") => String.t() | atom(),
+        optional("InsufficientDataActions") => list(String.t() | atom()),
+        optional("OKActions") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("AlarmName") => String.t() | atom(),
+        required("AlarmRule") => String.t() | atom()
+      }
+      
+  """
+  @type put_composite_alarm_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alarm_mute_rule_input() :: %{
+        required("AlarmMuteRuleName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_input() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_dataset_kms_key_output() :: %{}
+      
+  """
+  @type associate_dataset_kms_key_output() :: %{}
 
   @typedoc """
 
@@ -1816,12 +941,330 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      get_o_tel_enrichment_output() :: %{
+      kms_key_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_key_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_anomaly_detectors_input() :: %{
+        optional("AnomalyDetectorTypes") => list(list(any())()),
+        optional("Dimensions") => list(dimension()),
+        optional("MaxResults") => integer(),
+        optional("MetricName") => String.t() | atom(),
+        optional("Namespace") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_anomaly_detectors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_stream_statistics_metric() :: %{
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
+      }
+      
+  """
+  @type metric_stream_statistics_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity() :: %{
+        "Attributes" => map(),
+        "KeyAttributes" => map()
+      }
+      
+  """
+  @type entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_stream_output() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "ExcludeFilters" => list(metric_stream_filter()),
+        "FirehoseArn" => String.t() | atom(),
+        "IncludeFilters" => list(metric_stream_filter()),
+        "IncludeLinkedAccountsMetrics" => boolean(),
+        "LastUpdateDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "OutputFormat" => list(any()),
+        "RoleArn" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "StatisticsConfigurations" => list(metric_stream_statistics_configuration())
+      }
+      
+  """
+  @type get_metric_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_o_tel_enrichment_input() :: %{}
+      
+  """
+  @type start_o_tel_enrichment_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dashboard_input() :: %{
+        required("DashboardName") => String.t() | atom()
+      }
+      
+  """
+  @type get_dashboard_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dashboard_validation_message() :: %{
+        "DataPath" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type dashboard_validation_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_stream_output() :: %{
+        "Arn" => String.t() | atom()
+      }
+      
+  """
+  @type put_metric_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_alarms_for_metric_input() :: %{
+        optional("Dimensions") => list(dimension()),
+        optional("ExtendedStatistic") => String.t() | atom(),
+        optional("Period") => integer(),
+        optional("Statistic") => list(any()),
+        optional("Unit") => list(any()),
+        required("MetricName") => String.t() | atom(),
+        required("Namespace") => String.t() | atom()
+      }
+      
+  """
+  @type describe_alarms_for_metric_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_managed_insight_rules_input() :: %{
+        required("ManagedRules") => list(managed_rule())
+      }
+      
+  """
+  @type put_managed_insight_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_alarm_mute_rules_output() :: %{
+        "AlarmMuteRuleSummaries" => list(alarm_mute_rule_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_alarm_mute_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_alarm_mute_rule_output() :: %{
+        "AlarmMuteRuleArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ExpireDate" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MuteTargets" => mute_targets(),
+        "MuteType" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Rule" => rule(),
+        "StartDate" => non_neg_integer(),
         "Status" => list(any())
       }
       
   """
-  @type get_o_tel_enrichment_output() :: %{(String.t() | atom()) => any()}
+  @type get_alarm_mute_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insight_rule_contributor() :: %{
+        "ApproximateAggregateValue" => float(),
+        "Datapoints" => list(insight_rule_contributor_datapoint()),
+        "Keys" => list(String.t() | atom())
+      }
+      
+  """
+  @type insight_rule_contributor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alarms_input() :: %{
+        required("AlarmNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_alarms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_math_anomaly_detector() :: %{
+        "MetricDataQueries" => list(metric_data_query())
+      }
+      
+  """
+  @type metric_math_anomaly_detector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_alarm_history_input() :: %{
+        optional("AlarmContributorId") => String.t() | atom(),
+        optional("AlarmName") => String.t() | atom(),
+        optional("AlarmTypes") => list(list(any())()),
+        optional("EndDate") => non_neg_integer(),
+        optional("HistoryItemType") => list(any()),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ScanBy") => list(any()),
+        optional("StartDate") => non_neg_integer()
+      }
+      
+  """
+  @type describe_alarm_history_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_dataset_kms_key_input() :: %{
+        required("DatasetIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_dataset_kms_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dashboard_output() :: %{
+        "DashboardArn" => String.t() | atom(),
+        "DashboardBody" => String.t() | atom(),
+        "DashboardName" => String.t() | atom()
+      }
+      
+  """
+  @type get_dashboard_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insight_rule_contributor_datapoint() :: %{
+        "ApproximateValue" => float(),
+        "Timestamp" => non_neg_integer()
+      }
+      
+  """
+  @type insight_rule_contributor_datapoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_dataset_kms_key_output() :: %{}
+      
+  """
+  @type disassociate_dataset_kms_key_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      statistic_set() :: %{
+        "Maximum" => float(),
+        "Minimum" => float(),
+        "SampleCount" => float(),
+        "Sum" => float()
+      }
+      
+  """
+  @type statistic_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_alarm_mute_rules_input() :: %{
+        optional("AlarmName") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Statuses") => list(list(any())())
+      }
+      
+  """
+  @type list_alarm_mute_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alarm_mute_rule_summary() :: %{
+        "AlarmMuteRuleArn" => String.t() | atom(),
+        "ExpireDate" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MuteType" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type alarm_mute_rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1839,113 +1282,408 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      stop_metric_streams_input() :: %{
-        required("Names") => list(String.t() | atom())
-      }
+      delete_dashboards_output() :: %{}
       
   """
-  @type stop_metric_streams_input() :: %{(String.t() | atom()) => any()}
+  @type delete_dashboards_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      invalid_next_token() :: %{
+      delete_insight_rules_output() :: %{
+        "Failures" => list(partial_failure())
+      }
+      
+  """
+  @type delete_insight_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alarm_prom_q_l_criteria() :: %{
+        "PendingPeriod" => integer(),
+        "Query" => String.t() | atom(),
+        "RecoveryPeriod" => integer()
+      }
+      
+  """
+  @type alarm_prom_q_l_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_format_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_next_token() :: %{(String.t() | atom()) => any()}
+  @type invalid_format_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      metric_data_result() :: %{
-        "Id" => String.t() | atom(),
-        "Label" => String.t() | atom(),
-        "Messages" => list(message_data()),
-        "StatusCode" => list(any()),
-        "Timestamps" => list(non_neg_integer()),
-        "Values" => list(float())
+      get_dataset_input() :: %{
+        required("DatasetIdentifier") => String.t() | atom()
       }
       
   """
-  @type metric_data_result() :: %{(String.t() | atom()) => any()}
+  @type get_dataset_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      partial_failure() :: %{
-        "ExceptionType" => String.t() | atom(),
-        "FailureCode" => String.t() | atom(),
-        "FailureDescription" => String.t() | atom(),
-        "FailureResource" => String.t() | atom()
+      dashboard_not_found_error() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type partial_failure() :: %{(String.t() | atom()) => any()}
+  @type dashboard_not_found_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_insight_rules_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      stop_metric_streams_output() :: %{}
+      
+  """
+  @type stop_metric_streams_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_stream_entry() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "FirehoseArn" => String.t() | atom(),
+        "LastUpdateDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "OutputFormat" => list(any()),
+        "State" => String.t() | atom()
       }
       
   """
-  @type describe_insight_rules_input() :: %{(String.t() | atom()) => any()}
+  @type metric_stream_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_alarm_mute_rule_input() :: %{
+      resource_not_found() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_insight_rules_input() :: %{
+        required("RuleNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_insight_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_o_tel_enrichment_output() :: %{}
+      
+  """
+  @type start_o_tel_enrichment_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_alarm_history_output() :: %{
+        "AlarmHistoryItems" => list(alarm_history_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_alarm_history_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alarm_history_item() :: %{
+        "AlarmContributorAttributes" => map(),
+        "AlarmContributorId" => String.t() | atom(),
+        "AlarmName" => String.t() | atom(),
+        "AlarmType" => list(any()),
+        "HistoryData" => String.t() | atom(),
+        "HistoryItemType" => list(any()),
+        "HistorySummary" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
+      }
+      
+  """
+  @type alarm_history_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insight_rule_metric_datapoint() :: %{
+        "Average" => float(),
+        "MaxContributorValue" => float(),
+        "Maximum" => float(),
+        "Minimum" => float(),
+        "SampleCount" => float(),
+        "Sum" => float(),
+        "Timestamp" => non_neg_integer(),
+        "UniqueContributors" => float()
+      }
+      
+  """
+  @type insight_rule_metric_datapoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_fault() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_service_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      single_metric_anomaly_detector() :: %{
+        "AccountId" => String.t() | atom(),
+        "Dimensions" => list(dimension()),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "Stat" => String.t() | atom()
+      }
+      
+  """
+  @type single_metric_anomaly_detector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_insight_rules_input() :: %{
+        required("RuleNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type enable_insight_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_alarm_mute_rule_input() :: %{
         required("AlarmMuteRuleName") => String.t() | atom()
       }
       
   """
-  @type delete_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
+  @type get_alarm_mute_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      entity_metric_data() :: %{
-        "Entity" => entity(),
-        "MetricData" => list(metric_datum())
+      list_tags_for_resource_input() :: %{
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type entity_metric_data() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_dashboard_input() :: %{
-        required("DashboardName") => String.t() | atom()
+      metric_characteristics() :: %{
+        "PeriodicSpikes" => boolean()
       }
       
   """
-  @type get_dashboard_input() :: %{(String.t() | atom()) => any()}
+  @type metric_characteristics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      statistic_set() :: %{
+      delete_metric_stream_output() :: %{}
+      
+  """
+  @type delete_metric_stream_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_alarm_actions_input() :: %{
+        required("AlarmNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type disable_alarm_actions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_widget_image_input() :: %{
+        optional("OutputFormat") => String.t() | atom(),
+        required("MetricWidget") => String.t() | atom()
+      }
+      
+  """
+  @type get_metric_widget_image_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_rule() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "TemplateName" => String.t() | atom()
+      }
+      
+  """
+  @type managed_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_data_input() :: %{
+        optional("LabelOptions") => label_options(),
+        optional("MaxDatapoints") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ScanBy") => list(any()),
+        required("EndTime") => non_neg_integer(),
+        required("MetricDataQueries") => list(metric_data_query()),
+        required("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type get_metric_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_required_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type missing_required_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dimension() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_dataset_kms_key_input() :: %{
+        required("DatasetIdentifier") => String.t() | atom(),
+        required("KmsKeyArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_dataset_kms_key_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_insight_rule_output() :: %{}
+      
+  """
+  @type put_insight_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      datapoint() :: %{
+        "Average" => float(),
+        "ExtendedStatistics" => map(),
         "Maximum" => float(),
         "Minimum" => float(),
         "SampleCount" => float(),
-        "Sum" => float()
+        "Sum" => float(),
+        "Timestamp" => non_neg_integer(),
+        "Unit" => list(any())
       }
       
   """
-  @type statistic_set() :: %{(String.t() | atom()) => any()}
+  @type datapoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_stream_input() :: %{
+        optional("ExcludeFilters") => list(metric_stream_filter()),
+        optional("IncludeFilters") => list(metric_stream_filter()),
+        optional("IncludeLinkedAccountsMetrics") => boolean(),
+        optional("StatisticsConfigurations") => list(metric_stream_statistics_configuration()),
+        optional("Tags") => list(tag()),
+        required("FirehoseArn") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("OutputFormat") => list(any()),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_metric_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_managed_insight_rules_output() :: %{
+        "Failures" => list(partial_failure())
+      }
+      
+  """
+  @type put_managed_insight_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_managed_insight_rules_output() :: %{
+        "ManagedRules" => list(managed_rule_description()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_managed_insight_rules_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1970,125 +1708,387 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
-      delete_insight_rules_output() :: %{
+      list_metrics_input() :: %{
+        optional("Dimensions") => list(dimension_filter()),
+        optional("IncludeLinkedAccounts") => boolean(),
+        optional("MetricName") => String.t() | atom(),
+        optional("Namespace") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OwningAccount") => String.t() | atom(),
+        optional("RecentlyActive") => list(any())
+      }
+      
+  """
+  @type list_metrics_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_alarms_input() :: %{
+        optional("ActionPrefix") => String.t() | atom(),
+        optional("AlarmNamePrefix") => String.t() | atom(),
+        optional("AlarmNames") => list(String.t() | atom()),
+        optional("AlarmTypes") => list(list(any())()),
+        optional("ChildrenOfAlarmName") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ParentsOfAlarmName") => String.t() | atom(),
+        optional("StateValue") => list(any())
+      }
+      
+  """
+  @type describe_alarms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_stream_statistics_configuration() :: %{
+        "AdditionalStatistics" => list(String.t() | atom()),
+        "IncludeMetrics" => list(metric_stream_statistics_metric())
+      }
+      
+  """
+  @type metric_stream_statistics_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partial_failure() :: %{
+        "ExceptionType" => String.t() | atom(),
+        "FailureCode" => String.t() | atom(),
+        "FailureDescription" => String.t() | atom(),
+        "FailureResource" => String.t() | atom()
+      }
+      
+  """
+  @type partial_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_metric_streams_input() :: %{
+        required("Names") => list(String.t() | atom())
+      }
+      
+  """
+  @type start_metric_streams_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_insight_rules_output() :: %{
         "Failures" => list(partial_failure())
       }
       
   """
-  @type delete_insight_rules_output() :: %{(String.t() | atom()) => any()}
+  @type enable_insight_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_widget_image_output() :: %{
+        "MetricWidgetImage" => binary()
+      }
+      
+  """
+  @type get_metric_widget_image_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_rule_description() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "RuleState" => managed_rule_state(),
+        "TemplateName" => String.t() | atom()
+      }
+      
+  """
+  @type managed_rule_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_metric_streams_output() :: %{
+        "Entries" => list(metric_stream_entry()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_metric_streams_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dashboards_input() :: %{
+        required("DashboardNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_dashboards_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_metrics_output() :: %{
+        "Metrics" => list(metric()),
+        "NextToken" => String.t() | atom(),
+        "OwningAccounts" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_metrics_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_output() :: %{}
+      
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      label_options() :: %{
+        "Timezone" => String.t() | atom()
+      }
+      
+  """
+  @type label_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_data_output() :: %{
+        "Messages" => list(message_data()),
+        "MetricDataResults" => list(metric_data_result()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_metric_data_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mute_targets() :: %{
+        "AlarmNames" => list(String.t() | atom())
+      }
+      
+  """
+  @type mute_targets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_alarm_input() :: %{
+        optional("ActionsEnabled") => boolean(),
+        optional("AlarmActions") => list(String.t() | atom()),
+        optional("AlarmDescription") => String.t() | atom(),
+        optional("ComparisonOperator") => list(any()),
+        optional("DatapointsToAlarm") => integer(),
+        optional("Dimensions") => list(dimension()),
+        optional("EvaluateLowSampleCountPercentile") => String.t() | atom(),
+        optional("EvaluationCriteria") => list(),
+        optional("EvaluationInterval") => integer(),
+        optional("EvaluationPeriods") => integer(),
+        optional("ExtendedStatistic") => String.t() | atom(),
+        optional("InsufficientDataActions") => list(String.t() | atom()),
+        optional("MetricName") => String.t() | atom(),
+        optional("Metrics") => list(metric_data_query()),
+        optional("Namespace") => String.t() | atom(),
+        optional("OKActions") => list(String.t() | atom()),
+        optional("Period") => integer(),
+        optional("Statistic") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("Threshold") => float(),
+        optional("ThresholdMetricId") => String.t() | atom(),
+        optional("TreatMissingData") => String.t() | atom(),
+        optional("Unit") => list(any()),
+        required("AlarmName") => String.t() | atom()
+      }
+      
+  """
+  @type put_metric_alarm_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_stream_input() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type get_metric_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disable_insight_rules_input() :: %{
+        required("RuleNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type disable_insight_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_anomaly_detector_input() :: %{
+        optional("Dimensions") => list(dimension()),
+        optional("MetricMathAnomalyDetector") => metric_math_anomaly_detector(),
+        optional("MetricName") => String.t() | atom(),
+        optional("Namespace") => String.t() | atom(),
+        optional("SingleMetricAnomalyDetector") => single_metric_anomaly_detector(),
+        optional("Stat") => String.t() | atom()
+      }
+      
+  """
+  @type delete_anomaly_detector_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule() :: %{
+        "Duration" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
+      }
+      
+  """
+  @type schedule() :: %{(String.t() | atom()) => any()}
 
   @type associate_dataset_kms_key_errors() ::
-          kms_key_disabled_exception()
-          | kms_access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          conflict_exception()
           | kms_key_not_found_exception()
+          | resource_not_found_exception()
+          | kms_key_disabled_exception()
+          | kms_access_denied_exception()
 
   @type delete_alarms_errors() :: resource_not_found()
 
   @type delete_anomaly_detector_errors() ::
-          internal_service_fault()
-          | invalid_parameter_value_exception()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | missing_required_parameter_exception()
 
   @type delete_dashboards_errors() ::
-          internal_service_fault() | invalid_parameter_value_exception() | conflict_exception()
+          internal_service_fault() | conflict_exception() | invalid_parameter_value_exception()
 
   @type delete_insight_rules_errors() ::
-          invalid_parameter_value_exception() | missing_required_parameter_exception()
+          missing_required_parameter_exception() | invalid_parameter_value_exception()
 
   @type delete_metric_stream_errors() ::
-          internal_service_fault()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | invalid_parameter_value_exception()
-          | missing_required_parameter_exception()
 
   @type describe_alarm_contributors_errors() ::
-          invalid_next_token() | resource_not_found_exception()
+          resource_not_found_exception() | invalid_next_token()
 
   @type describe_alarm_history_errors() :: invalid_next_token()
 
   @type describe_alarms_errors() :: invalid_next_token()
 
   @type describe_anomaly_detectors_errors() ::
-          invalid_next_token()
-          | internal_service_fault()
+          internal_service_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
+          | invalid_next_token()
 
   @type describe_insight_rules_errors() :: invalid_next_token()
 
   @type disable_insight_rules_errors() ::
-          invalid_parameter_value_exception() | missing_required_parameter_exception()
+          missing_required_parameter_exception() | invalid_parameter_value_exception()
 
   @type disassociate_dataset_kms_key_errors() ::
-          resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception()
 
   @type enable_insight_rules_errors() ::
-          limit_exceeded_exception()
+          missing_required_parameter_exception()
           | invalid_parameter_value_exception()
-          | missing_required_parameter_exception()
+          | limit_exceeded_exception()
 
   @type get_alarm_mute_rule_errors() :: resource_not_found_exception()
 
   @type get_dashboard_errors() ::
           internal_service_fault()
-          | invalid_parameter_value_exception()
           | dashboard_not_found_error()
+          | invalid_parameter_value_exception()
 
   @type get_dataset_errors() :: resource_not_found_exception()
 
   @type get_insight_rule_report_errors() ::
-          invalid_parameter_value_exception()
+          missing_required_parameter_exception()
           | resource_not_found_exception()
-          | missing_required_parameter_exception()
+          | invalid_parameter_value_exception()
 
   @type get_metric_data_errors() :: invalid_next_token()
 
   @type get_metric_statistics_errors() ::
-          internal_service_fault()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | missing_required_parameter_exception()
 
   @type get_metric_stream_errors() ::
-          internal_service_fault()
-          | invalid_parameter_value_exception()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | missing_required_parameter_exception()
 
-  @type list_alarm_mute_rules_errors() :: invalid_next_token() | resource_not_found_exception()
+  @type list_alarm_mute_rules_errors() :: resource_not_found_exception() | invalid_next_token()
 
   @type list_dashboards_errors() :: internal_service_fault() | invalid_parameter_value_exception()
 
   @type list_managed_insight_rules_errors() ::
-          invalid_next_token()
+          missing_required_parameter_exception()
           | invalid_parameter_value_exception()
-          | missing_required_parameter_exception()
+          | invalid_next_token()
 
   @type list_metric_streams_errors() ::
-          invalid_next_token()
+          missing_required_parameter_exception()
           | internal_service_fault()
           | invalid_parameter_value_exception()
-          | missing_required_parameter_exception()
+          | invalid_next_token()
 
   @type list_metrics_errors() :: internal_service_fault() | invalid_parameter_value_exception()
 
   @type list_tags_for_resource_errors() ::
           internal_service_fault()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
 
   @type put_alarm_mute_rule_errors() :: limit_exceeded_fault()
 
   @type put_anomaly_detector_errors() ::
-          internal_service_fault()
-          | limit_exceeded_exception()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | invalid_parameter_value_exception()
+          | limit_exceeded_exception()
           | invalid_parameter_combination_exception()
-          | missing_required_parameter_exception()
 
   @type put_composite_alarm_errors() :: limit_exceeded_fault()
 
@@ -2096,53 +2096,53 @@ defmodule AWS.CloudWatch do
           internal_service_fault() | conflict_exception() | dashboard_invalid_input_error()
 
   @type put_insight_rule_errors() ::
-          limit_exceeded_exception()
+          missing_required_parameter_exception()
           | invalid_parameter_value_exception()
-          | missing_required_parameter_exception()
+          | limit_exceeded_exception()
 
   @type put_managed_insight_rules_errors() ::
-          invalid_parameter_value_exception() | missing_required_parameter_exception()
+          missing_required_parameter_exception() | invalid_parameter_value_exception()
 
   @type put_metric_alarm_errors() :: limit_exceeded_fault()
 
   @type put_metric_data_errors() ::
-          internal_service_fault()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | missing_required_parameter_exception()
 
   @type put_metric_stream_errors() ::
-          internal_service_fault()
-          | concurrent_modification_exception()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | missing_required_parameter_exception()
+          | concurrent_modification_exception()
 
-  @type set_alarm_state_errors() :: invalid_format_fault() | resource_not_found()
+  @type set_alarm_state_errors() :: resource_not_found() | invalid_format_fault()
 
   @type start_metric_streams_errors() ::
-          internal_service_fault()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | invalid_parameter_value_exception()
-          | missing_required_parameter_exception()
 
   @type stop_metric_streams_errors() ::
-          internal_service_fault()
+          missing_required_parameter_exception()
+          | internal_service_fault()
           | invalid_parameter_value_exception()
-          | missing_required_parameter_exception()
 
   @type tag_resource_errors() ::
           internal_service_fault()
-          | concurrent_modification_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | concurrent_modification_exception()
 
   @type untag_resource_errors() ::
           internal_service_fault()
-          | concurrent_modification_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | concurrent_modification_exception()
 
   def metadata do
     %{
@@ -2242,7 +2242,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, associate_dataset_kms_key_errors()}
   def associate_dataset_kms_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDatasetKmsKey", input, options)
   end
@@ -2267,7 +2268,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_alarm_mute_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlarmMuteRule", input, options)
   end
@@ -2311,7 +2313,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_alarms_errors()}
   def delete_alarms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlarms", input, options)
   end
@@ -2331,7 +2334,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_anomaly_detector_errors()}
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnomalyDetector", input, options)
   end
@@ -2350,7 +2354,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_dashboards_errors()}
   def delete_dashboards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDashboards", input, options)
   end
@@ -2368,7 +2373,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_insight_rules_errors()}
   def delete_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInsightRules", input, options)
   end
@@ -2382,7 +2388,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_metric_stream_errors()}
   def delete_metric_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMetricStream", input, options)
   end
@@ -2400,7 +2407,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_alarm_contributors_errors()}
   def describe_alarm_contributors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlarmContributors", input, options)
   end
@@ -2427,7 +2435,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_alarm_history_errors()}
   def describe_alarm_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlarmHistory", input, options)
   end
@@ -2449,7 +2458,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_alarms_errors()}
   def describe_alarms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlarms", input, options)
   end
@@ -2470,7 +2480,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_alarms_for_metric(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlarmsForMetric", input, options)
   end
@@ -2493,7 +2504,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_anomaly_detectors_errors()}
   def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAnomalyDetectors", input, options)
   end
@@ -2510,7 +2522,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_insight_rules_errors()}
   def describe_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInsightRules", input, options)
   end
@@ -2526,7 +2539,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_alarm_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAlarmActions", input, options)
   end
@@ -2543,7 +2557,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, disable_insight_rules_errors()}
   def disable_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableInsightRules", input, options)
   end
@@ -2592,7 +2607,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, disassociate_dataset_kms_key_errors()}
   def disassociate_dataset_kms_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDatasetKmsKey", input, options)
   end
@@ -2605,7 +2621,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_alarm_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAlarmActions", input, options)
   end
@@ -2622,7 +2639,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, enable_insight_rules_errors()}
   def enable_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableInsightRules", input, options)
   end
@@ -2659,7 +2677,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_alarm_mute_rule_errors()}
   def get_alarm_mute_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAlarmMuteRule", input, options)
   end
@@ -2677,7 +2696,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_dashboard_errors()}
   def get_dashboard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDashboard", input, options)
   end
@@ -2709,7 +2729,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_dataset_errors()}
   def get_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataset", input, options)
   end
@@ -2771,7 +2792,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_insight_rule_report_errors()}
   def get_insight_rule_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInsightRuleReport", input, options)
   end
@@ -2873,7 +2895,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_data_errors()}
   def get_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricData", input, options)
   end
@@ -2961,7 +2984,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_statistics_errors()}
   def get_metric_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricStatistics", input, options)
   end
@@ -2975,7 +2999,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_stream_errors()}
   def get_metric_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricStream", input, options)
   end
@@ -3009,7 +3034,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_metric_widget_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricWidgetImage", input, options)
   end
@@ -3029,7 +3055,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_o_tel_enrichment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOTelEnrichment", input, options)
   end
@@ -3054,7 +3081,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_alarm_mute_rules_errors()}
   def list_alarm_mute_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAlarmMuteRules", input, options)
   end
@@ -3077,7 +3105,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDashboards", input, options)
   end
@@ -3093,7 +3122,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_managed_insight_rules_errors()}
   def list_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListManagedInsightRules", input, options)
   end
@@ -3107,7 +3137,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_metric_streams_errors()}
   def list_metric_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetricStreams", input, options)
   end
@@ -3145,7 +3176,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_metrics_errors()}
   def list_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetrics", input, options)
   end
@@ -3162,7 +3194,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3207,7 +3240,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_alarm_mute_rule_errors()}
   def put_alarm_mute_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAlarmMuteRule", input, options)
   end
@@ -3232,7 +3266,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_anomaly_detector_errors()}
   def put_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAnomalyDetector", input, options)
   end
@@ -3319,7 +3354,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_composite_alarm_errors()}
   def put_composite_alarm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutCompositeAlarm", input, options)
   end
@@ -3358,7 +3394,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_dashboard_errors()}
   def put_dashboard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDashboard", input, options)
   end
@@ -3382,7 +3419,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_insight_rule_errors()}
   def put_insight_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutInsightRule", input, options)
   end
@@ -3406,7 +3444,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_managed_insight_rules_errors()}
   def put_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutManagedInsightRules", input, options)
   end
@@ -3484,7 +3523,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_alarm_errors()}
   def put_metric_alarm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMetricAlarm", input, options)
   end
@@ -3574,7 +3614,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_data_errors()}
   def put_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMetricData", input, options)
   end
@@ -3630,7 +3671,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_stream_errors()}
   def put_metric_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMetricStream", input, options)
   end
@@ -3671,7 +3713,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, set_alarm_state_errors()}
   def set_alarm_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetAlarmState", input, options)
   end
@@ -3685,7 +3728,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, start_metric_streams_errors()}
   def start_metric_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetricStreams", input, options)
   end
@@ -3709,7 +3753,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_o_tel_enrichment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartOTelEnrichment", input, options)
   end
@@ -3723,7 +3768,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, stop_metric_streams_errors()}
   def stop_metric_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMetricStreams", input, options)
   end
@@ -3742,7 +3788,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_o_tel_enrichment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopOTelEnrichment", input, options)
   end
@@ -3779,7 +3826,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3796,7 +3844,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

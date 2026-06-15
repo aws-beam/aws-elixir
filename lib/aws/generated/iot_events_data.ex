@@ -22,6 +22,98 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
+      reset_action_configuration() :: %{
+        "note" => String.t() | atom()
+      }
+
+  """
+  @type reset_action_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timer_definition() :: %{
+        "name" => String.t() | atom(),
+        "seconds" => integer()
+      }
+
+  """
+  @type timer_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_event() :: %{
+        "eventType" => list(any()),
+        "stateChangeConfiguration" => state_change_configuration()
+      }
+
+  """
+  @type system_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      simple_rule_evaluation() :: %{
+        "inputPropertyValue" => String.t() | atom(),
+        "operator" => list(any()),
+        "thresholdValue" => String.t() | atom()
+      }
+
+  """
+  @type simple_rule_evaluation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_enable_alarm_request() :: %{
+        required("enableActionRequests") => list(enable_alarm_action_request())
+      }
+
+  """
+  @type batch_enable_alarm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_message_response() :: %{
+        "BatchPutMessageErrorEntries" => list(batch_put_message_error_entry())
+      }
+
+  """
+  @type batch_put_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_failure_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -33,12 +125,195 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
-      batch_reset_alarm_response() :: %{
+      batch_disable_alarm_response() :: %{
         "errorEntries" => list(batch_alarm_action_error_entry())
       }
 
   """
-  @type batch_reset_alarm_response() :: %{(String.t() | atom()) => any()}
+  @type batch_disable_alarm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_detector_request() :: %{
+        required("detectors") => list(delete_detector_request())
+      }
+
+  """
+  @type batch_delete_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_snooze_alarm_request() :: %{
+        required("snoozeActionRequests") => list(snooze_alarm_action_request())
+      }
+
+  """
+  @type batch_snooze_alarm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_enable_alarm_response() :: %{
+        "errorEntries" => list(batch_alarm_action_error_entry())
+      }
+
+  """
+  @type batch_enable_alarm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_detector_response() :: %{
+        "batchDeleteDetectorErrorEntries" => list(batch_delete_detector_error_entry())
+      }
+
+  """
+  @type batch_delete_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_alarm_action_request() :: %{
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type disable_alarm_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snooze_alarm_action_request() :: %{
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
+        "snoozeDuration" => integer()
+      }
+
+  """
+  @type snooze_alarm_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alarm() :: %{
+        "alarmModelName" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
+        "alarmState" => alarm_state(),
+        "creationTime" => non_neg_integer(),
+        "keyValue" => String.t() | atom(),
+        "lastUpdateTime" => non_neg_integer(),
+        "severity" => integer()
+      }
+
+  """
+  @type alarm() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      acknowledge_alarm_action_request() :: %{
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type acknowledge_alarm_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_snooze_alarm_response() :: %{
+        "errorEntries" => list(batch_alarm_action_error_entry())
+      }
+
+  """
+  @type batch_snooze_alarm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_detector_response() :: %{
+        "batchUpdateDetectorErrorEntries" => list(batch_update_detector_error_entry())
+      }
+
+  """
+  @type batch_update_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_action_configuration() :: %{
+        "note" => String.t() | atom()
+      }
+
+  """
+  @type disable_action_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variable_definition() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type variable_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snooze_action_configuration() :: %{
+        "note" => String.t() | atom(),
+        "snoozeDuration" => integer()
+      }
+
+  """
+  @type snooze_action_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_message_request() :: %{
+        required("messages") => list(message())
+      }
+
+  """
+  @type batch_put_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -57,42 +332,38 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
-      detector_state() :: %{
-        "stateName" => String.t() | atom(),
-        "timers" => list(timer()),
-        "variables" => list(variable())
+      rule_evaluation() :: %{
+        "simpleRuleEvaluation" => simple_rule_evaluation()
       }
 
   """
-  @type detector_state() :: %{(String.t() | atom()) => any()}
+  @type rule_evaluation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_snooze_alarm_request() :: %{
-        required("snoozeActionRequests") => list(snooze_alarm_action_request())
+      list_alarms_response() :: %{
+        "alarmSummaries" => list(alarm_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type batch_snooze_alarm_request() :: %{(String.t() | atom()) => any()}
+  @type list_alarms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      alarm() :: %{
-        "alarmModelName" => String.t() | atom(),
-        "alarmModelVersion" => String.t() | atom(),
-        "alarmState" => alarm_state(),
-        "creationTime" => non_neg_integer(),
-        "keyValue" => String.t() | atom(),
-        "lastUpdateTime" => non_neg_integer(),
-        "severity" => integer()
+      alarm_state() :: %{
+        "customerAction" => customer_action(),
+        "ruleEvaluation" => rule_evaluation(),
+        "stateName" => list(any()),
+        "systemEvent" => system_event()
       }
 
   """
-  @type alarm() :: %{(String.t() | atom()) => any()}
+  @type alarm_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -121,208 +392,12 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
-      timer() :: %{
-        "name" => String.t() | atom(),
-        "timestamp" => non_neg_integer()
+      batch_reset_alarm_request() :: %{
+        required("resetActionRequests") => list(reset_alarm_action_request())
       }
 
   """
-  @type timer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_detectors_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("stateName") => String.t() | atom()
-      }
-
-  """
-  @type list_detectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | atom(),
-        "keyValue" => String.t() | atom(),
-        "note" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type disable_alarm_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_acknowledge_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry())
-      }
-
-  """
-  @type batch_acknowledge_alarm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | atom(),
-        "keyValue" => String.t() | atom(),
-        "note" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type reset_alarm_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_message_request() :: %{
-        required("messages") => list(message())
-      }
-
-  """
-  @type batch_put_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_action_configuration() :: %{
-        "note" => String.t() | atom()
-      }
-
-  """
-  @type enable_action_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_detector_response() :: %{
-        "batchDeleteDetectorErrorEntries" => list(batch_delete_detector_error_entry())
-      }
-
-  """
-  @type batch_delete_detector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_detector_request() :: %{
-        optional("keyValue") => String.t() | atom()
-      }
-
-  """
-  @type describe_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alarm_summary() :: %{
-        "alarmModelName" => String.t() | atom(),
-        "alarmModelVersion" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "keyValue" => String.t() | atom(),
-        "lastUpdateTime" => non_neg_integer(),
-        "stateName" => list(any())
-      }
-
-  """
-  @type alarm_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      simple_rule_evaluation() :: %{
-        "inputPropertyValue" => String.t() | atom(),
-        "operator" => list(any()),
-        "thresholdValue" => String.t() | atom()
-      }
-
-  """
-  @type simple_rule_evaluation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_acknowledge_alarm_request() :: %{
-        required("acknowledgeActionRequests") => list(acknowledge_alarm_action_request())
-      }
-
-  """
-  @type batch_acknowledge_alarm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      acknowledge_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | atom(),
-        "keyValue" => String.t() | atom(),
-        "note" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type acknowledge_alarm_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detector_state_summary() :: %{
-        "stateName" => String.t() | atom()
-      }
-
-  """
-  @type detector_state_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timer_definition() :: %{
-        "name" => String.t() | atom(),
-        "seconds" => integer()
-      }
-
-  """
-  @type timer_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+  @type batch_reset_alarm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -339,198 +414,6 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
-      batch_snooze_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry())
-      }
-
-  """
-  @type batch_snooze_alarm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      customer_action() :: %{
-        "acknowledgeActionConfiguration" => acknowledge_action_configuration(),
-        "actionName" => list(any()),
-        "disableActionConfiguration" => disable_action_configuration(),
-        "enableActionConfiguration" => enable_action_configuration(),
-        "resetActionConfiguration" => reset_action_configuration(),
-        "snoozeActionConfiguration" => snooze_action_configuration()
-      }
-
-  """
-  @type customer_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_action_configuration() :: %{
-        "note" => String.t() | atom()
-      }
-
-  """
-  @type disable_action_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detector_state_definition() :: %{
-        "stateName" => String.t() | atom(),
-        "timers" => list(timer_definition()),
-        "variables" => list(variable_definition())
-      }
-
-  """
-  @type detector_state_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_detector_error_entry() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "messageId" => String.t() | atom()
-      }
-
-  """
-  @type batch_update_detector_error_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detector_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "detectorModelName" => String.t() | atom(),
-        "detectorModelVersion" => String.t() | atom(),
-        "keyValue" => String.t() | atom(),
-        "lastUpdateTime" => non_neg_integer(),
-        "state" => detector_state_summary()
-      }
-
-  """
-  @type detector_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variable() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disable_alarm_request() :: %{
-        required("disableActionRequests") => list(disable_alarm_action_request())
-      }
-
-  """
-  @type batch_disable_alarm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_alarms_response() :: %{
-        "alarmSummaries" => list(alarm_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_alarms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_action_configuration() :: %{
-        "note" => String.t() | atom()
-      }
-
-  """
-  @type reset_action_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_alarm_response() :: %{
-        "alarm" => alarm()
-      }
-
-  """
-  @type describe_alarm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_enable_alarm_request() :: %{
-        required("enableActionRequests") => list(enable_alarm_action_request())
-      }
-
-  """
-  @type batch_enable_alarm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_reset_alarm_request() :: %{
-        required("resetActionRequests") => list(reset_alarm_action_request())
-      }
-
-  """
-  @type batch_reset_alarm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_detector_response() :: %{
-        "detector" => detector()
-      }
-
-  """
-  @type describe_detector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_detector_request() :: %{
-        required("detectors") => list(delete_detector_request())
-      }
-
-  """
-  @type batch_delete_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_detectors_response() :: %{
         "detectorSummaries" => list(detector_summary()),
         "nextToken" => String.t() | atom()
@@ -538,152 +421,6 @@ defmodule AWS.IoTEventsData do
 
   """
   @type list_detectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alarm_state() :: %{
-        "customerAction" => customer_action(),
-        "ruleEvaluation" => rule_evaluation(),
-        "stateName" => list(any()),
-        "systemEvent" => system_event()
-      }
-
-  """
-  @type alarm_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variable_definition() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type variable_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_alarm_request() :: %{
-        optional("keyValue") => String.t() | atom()
-      }
-
-  """
-  @type describe_alarm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      state_change_configuration() :: %{
-        "triggerType" => list(any())
-      }
-
-  """
-  @type state_change_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_message_error_entry() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "messageId" => String.t() | atom()
-      }
-
-  """
-  @type batch_put_message_error_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snooze_action_configuration() :: %{
-        "note" => String.t() | atom(),
-        "snoozeDuration" => integer()
-      }
-
-  """
-  @type snooze_action_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snooze_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | atom(),
-        "keyValue" => String.t() | atom(),
-        "note" => String.t() | atom(),
-        "requestId" => String.t() | atom(),
-        "snoozeDuration" => integer()
-      }
-
-  """
-  @type snooze_alarm_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_event() :: %{
-        "eventType" => list(any()),
-        "stateChangeConfiguration" => state_change_configuration()
-      }
-
-  """
-  @type system_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_detector_response() :: %{
-        "batchUpdateDetectorErrorEntries" => list(batch_update_detector_error_entry())
-      }
-
-  """
-  @type batch_update_detector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_enable_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry())
-      }
-
-  """
-  @type batch_enable_alarm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_detector_error_entry() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "messageId" => String.t() | atom()
-      }
-
-  """
-  @type batch_delete_detector_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -703,23 +440,48 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
-      batch_put_message_response() :: %{
-        "BatchPutMessageErrorEntries" => list(batch_put_message_error_entry())
+      batch_delete_detector_error_entry() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "messageId" => String.t() | atom()
       }
 
   """
-  @type batch_put_message_response() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_detector_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_evaluation() :: %{
-        "simpleRuleEvaluation" => simple_rule_evaluation()
+      describe_detector_request() :: %{
+        optional("keyValue") => String.t() | atom()
       }
 
   """
-  @type rule_evaluation() :: %{(String.t() | atom()) => any()}
+  @type describe_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variable() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timestamp_value() :: %{
+        "timeInMillis" => float()
+      }
+
+  """
+  @type timestamp_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -741,23 +503,276 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
-      timestamp_value() :: %{
-        "timeInMillis" => float()
+      batch_update_detector_error_entry() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "messageId" => String.t() | atom()
       }
 
   """
-  @type timestamp_value() :: %{(String.t() | atom()) => any()}
+  @type batch_update_detector_error_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_disable_alarm_response() :: %{
+      batch_put_message_error_entry() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "messageId" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_message_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_acknowledge_alarm_request() :: %{
+        required("acknowledgeActionRequests") => list(acknowledge_alarm_action_request())
+      }
+
+  """
+  @type batch_acknowledge_alarm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detector_state_definition() :: %{
+        "stateName" => String.t() | atom(),
+        "timers" => list(timer_definition()),
+        "variables" => list(variable_definition())
+      }
+
+  """
+  @type detector_state_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_detectors_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("stateName") => String.t() | atom()
+      }
+
+  """
+  @type list_detectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_alarm_action_request() :: %{
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type reset_alarm_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      state_change_configuration() :: %{
+        "triggerType" => list(any())
+      }
+
+  """
+  @type state_change_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detector_state_summary() :: %{
+        "stateName" => String.t() | atom()
+      }
+
+  """
+  @type detector_state_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_alarm_response() :: %{
+        "alarm" => alarm()
+      }
+
+  """
+  @type describe_alarm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_detector_request() :: %{
+        "detectorModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "messageId" => String.t() | atom()
+      }
+
+  """
+  @type delete_detector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_detector_response() :: %{
+        "detector" => detector()
+      }
+
+  """
+  @type describe_detector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_action_configuration() :: %{
+        "note" => String.t() | atom()
+      }
+
+  """
+  @type enable_action_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_action() :: %{
+        "acknowledgeActionConfiguration" => acknowledge_action_configuration(),
+        "actionName" => list(any()),
+        "disableActionConfiguration" => disable_action_configuration(),
+        "enableActionConfiguration" => enable_action_configuration(),
+        "resetActionConfiguration" => reset_action_configuration(),
+        "snoozeActionConfiguration" => snooze_action_configuration()
+      }
+
+  """
+  @type customer_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alarm_summary() :: %{
+        "alarmModelName" => String.t() | atom(),
+        "alarmModelVersion" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "keyValue" => String.t() | atom(),
+        "lastUpdateTime" => non_neg_integer(),
+        "stateName" => list(any())
+      }
+
+  """
+  @type alarm_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_alarm_request() :: %{
+        optional("keyValue") => String.t() | atom()
+      }
+
+  """
+  @type describe_alarm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detector_state() :: %{
+        "stateName" => String.t() | atom(),
+        "timers" => list(timer()),
+        "variables" => list(variable())
+      }
+
+  """
+  @type detector_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_reset_alarm_response() :: %{
         "errorEntries" => list(batch_alarm_action_error_entry())
       }
 
   """
-  @type batch_disable_alarm_response() :: %{(String.t() | atom()) => any()}
+  @type batch_reset_alarm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detector_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "detectorModelName" => String.t() | atom(),
+        "detectorModelVersion" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "lastUpdateTime" => non_neg_integer(),
+        "state" => detector_state_summary()
+      }
+
+  """
+  @type detector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_alarm_action_request() :: %{
+        "alarmModelName" => String.t() | atom(),
+        "keyValue" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type enable_alarm_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disable_alarm_request() :: %{
+        required("disableActionRequests") => list(disable_alarm_action_request())
+      }
+
+  """
+  @type batch_disable_alarm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_acknowledge_alarm_response() :: %{
+        "errorEntries" => list(batch_alarm_action_error_entry())
+      }
+
+  """
+  @type batch_acknowledge_alarm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -777,104 +792,89 @@ defmodule AWS.IoTEventsData do
 
   ## Example:
 
-      delete_detector_request() :: %{
-        "detectorModelName" => String.t() | atom(),
-        "keyValue" => String.t() | atom(),
-        "messageId" => String.t() | atom()
+      timer() :: %{
+        "name" => String.t() | atom(),
+        "timestamp" => non_neg_integer()
       }
 
   """
-  @type delete_detector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_alarm_action_request() :: %{
-        "alarmModelName" => String.t() | atom(),
-        "keyValue" => String.t() | atom(),
-        "note" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type enable_alarm_action_request() :: %{(String.t() | atom()) => any()}
+  @type timer() :: %{(String.t() | atom()) => any()}
 
   @type batch_acknowledge_alarm_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type batch_delete_detector_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type batch_disable_alarm_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type batch_enable_alarm_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type batch_put_message_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type batch_reset_alarm_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type batch_snooze_alarm_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type batch_update_detector_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type describe_alarm_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type describe_detector_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type list_alarms_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type list_detectors_errors() ::
-          throttling_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
           | internal_failure_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   def metadata do
     %{

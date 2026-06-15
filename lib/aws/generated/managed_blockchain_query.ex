@@ -26,99 +26,13 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Example:
 
-      get_asset_contract_input() :: %{
-        required("contractIdentifier") => contract_identifier()
+      contract_identifier() :: %{
+        "contractAddress" => String.t() | atom(),
+        "network" => String.t() | atom()
       }
 
   """
-  @type get_asset_contract_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_contracts_output() :: %{
-        "contracts" => list(asset_contract()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_asset_contracts_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_token_balance_input_item() :: %{
-        "atBlockchainInstant" => blockchain_instant(),
-        "ownerIdentifier" => owner_identifier(),
-        "tokenIdentifier" => token_identifier()
-      }
-
-  """
-  @type batch_get_token_balance_input_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_contract_output() :: %{
-        "contractIdentifier" => contract_identifier(),
-        "deployerAddress" => String.t() | atom(),
-        "metadata" => contract_metadata(),
-        "tokenStandard" => String.t() | atom()
-      }
-
-  """
-  @type get_asset_contract_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contract_filter() :: %{
-        "deployerAddress" => String.t() | atom(),
-        "network" => String.t() | atom(),
-        "tokenStandard" => String.t() | atom()
-      }
-
-  """
-  @type contract_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      owner_filter() :: %{
-        "address" => String.t() | atom()
-      }
-
-  """
-  @type owner_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blockchain_instant() :: %{
-        "time" => [non_neg_integer()]
-      }
-
-  """
-  @type blockchain_instant() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type contract_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,15 +53,111 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Example:
 
-      list_token_balances_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("ownerFilter") => owner_filter(),
-        required("tokenFilter") => token_filter()
+      confirmation_status_filter() :: %{
+        "include" => list(String.t() | atom())
       }
 
   """
-  @type list_token_balances_input() :: %{(String.t() | atom()) => any()}
+  @type confirmation_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_transaction_output() :: %{
+        "transaction" => transaction()
+      }
+
+  """
+  @type get_transaction_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_token_balance_input_item() :: %{
+        "atBlockchainInstant" => blockchain_instant(),
+        "ownerIdentifier" => owner_identifier(),
+        "tokenIdentifier" => token_identifier()
+      }
+
+  """
+  @type batch_get_token_balance_input_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_identifier() :: %{
+        "contractAddress" => String.t() | atom(),
+        "network" => String.t() | atom(),
+        "tokenId" => String.t() | atom()
+      }
+
+  """
+  @type token_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_filtered_transaction_events_sort() :: %{
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
+      }
+
+  """
+  @type list_filtered_transaction_events_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_token_balances_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "tokenBalances" => list(token_balance())
+      }
+
+  """
+  @type list_token_balances_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contract_filter() :: %{
+        "deployerAddress" => String.t() | atom(),
+        "network" => String.t() | atom(),
+        "tokenStandard" => String.t() | atom()
+      }
+
+  """
+  @type contract_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -171,6 +181,18 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Example:
 
+      list_asset_contracts_output() :: %{
+        "contracts" => list(asset_contract()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_contracts_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       time_filter() :: %{
         "from" => blockchain_instant(),
         "to" => blockchain_instant()
@@ -178,244 +200,6 @@ defmodule AWS.ManagedBlockchainQuery do
 
   """
   @type time_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transaction_output_item() :: %{
-        "confirmationStatus" => String.t() | atom(),
-        "network" => String.t() | atom(),
-        "transactionHash" => String.t() | atom(),
-        "transactionId" => String.t() | atom(),
-        "transactionTimestamp" => [non_neg_integer()]
-      }
-
-  """
-  @type transaction_output_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_contract() :: %{
-        "contractIdentifier" => contract_identifier(),
-        "deployerAddress" => String.t() | atom(),
-        "tokenStandard" => String.t() | atom()
-      }
-
-  """
-  @type asset_contract() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_token_balance_output() :: %{
-        "errors" => list(batch_get_token_balance_error_item()),
-        "tokenBalances" => list(batch_get_token_balance_output_item())
-      }
-
-  """
-  @type batch_get_token_balance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_filtered_transaction_events_input() :: %{
-        optional("confirmationStatusFilter") => confirmation_status_filter(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("sort") => list_filtered_transaction_events_sort(),
-        optional("timeFilter") => time_filter(),
-        optional("voutFilter") => vout_filter(),
-        required("addressIdentifierFilter") => address_identifier_filter(),
-        required("network") => [String.t() | atom()]
-      }
-
-  """
-  @type list_filtered_transaction_events_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_token_balance_output() :: %{
-        "atBlockchainInstant" => blockchain_instant(),
-        "balance" => [String.t() | atom()],
-        "lastUpdatedTime" => blockchain_instant(),
-        "ownerIdentifier" => owner_identifier(),
-        "tokenIdentifier" => token_identifier()
-      }
-
-  """
-  @type get_token_balance_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contract_metadata() :: %{
-        "decimals" => [integer()],
-        "name" => [String.t() | atom()],
-        "symbol" => [String.t() | atom()]
-      }
-
-  """
-  @type contract_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_token_balance_error_item() :: %{
-        "atBlockchainInstant" => blockchain_instant(),
-        "errorCode" => [String.t() | atom()],
-        "errorMessage" => [String.t() | atom()],
-        "errorType" => String.t() | atom(),
-        "ownerIdentifier" => owner_identifier(),
-        "tokenIdentifier" => token_identifier()
-      }
-
-  """
-  @type batch_get_token_balance_error_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vout_filter() :: %{
-        "voutSpent" => [boolean()]
-      }
-
-  """
-  @type vout_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transaction_output() :: %{
-        "transaction" => transaction()
-      }
-
-  """
-  @type get_transaction_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_transactions_sort() :: %{
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type list_transactions_sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transaction_input() :: %{
-        optional("transactionHash") => String.t() | atom(),
-        optional("transactionId") => String.t() | atom(),
-        required("network") => String.t() | atom()
-      }
-
-  """
-  @type get_transaction_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      token_identifier() :: %{
-        "contractAddress" => String.t() | atom(),
-        "network" => String.t() | atom(),
-        "tokenId" => String.t() | atom()
-      }
-
-  """
-  @type token_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_token_balance_input() :: %{
-        optional("getTokenBalanceInputs") => list(batch_get_token_balance_input_item())
-      }
-
-  """
-  @type batch_get_token_balance_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_transaction_events_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("transactionHash") => String.t() | atom(),
-        optional("transactionId") => String.t() | atom(),
-        required("network") => String.t() | atom()
-      }
-
-  """
-  @type list_transaction_events_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -434,94 +218,6 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Example:
 
-      list_filtered_transaction_events_sort() :: %{
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => String.t() | atom()
-      }
-
-  """
-  @type list_filtered_transaction_events_sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      confirmation_status_filter() :: %{
-        "include" => list(String.t() | atom())
-      }
-
-  """
-  @type confirmation_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      token_balance() :: %{
-        "atBlockchainInstant" => blockchain_instant(),
-        "balance" => [String.t() | atom()],
-        "lastUpdatedTime" => blockchain_instant(),
-        "ownerIdentifier" => owner_identifier(),
-        "tokenIdentifier" => token_identifier()
-      }
-
-  """
-  @type token_balance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_contracts_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("contractFilter") => contract_filter()
-      }
-
-  """
-  @type list_asset_contracts_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      owner_identifier() :: %{
-        "address" => String.t() | atom()
-      }
-
-  """
-  @type owner_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contract_identifier() :: %{
-        "contractAddress" => String.t() | atom(),
-        "network" => String.t() | atom()
-      }
-
-  """
-  @type contract_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_filtered_transaction_events_output() :: %{
         "events" => list(transaction_event()),
         "nextToken" => String.t() | atom()
@@ -534,38 +230,38 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Example:
 
-      get_token_balance_input() :: %{
-        optional("atBlockchainInstant") => blockchain_instant(),
-        required("ownerIdentifier") => owner_identifier(),
-        required("tokenIdentifier") => token_identifier()
+      asset_contract() :: %{
+        "contractIdentifier" => contract_identifier(),
+        "deployerAddress" => String.t() | atom(),
+        "tokenStandard" => String.t() | atom()
       }
 
   """
-  @type get_token_balance_input() :: %{(String.t() | atom()) => any()}
+  @type asset_contract() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_token_balances_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "tokenBalances" => list(token_balance())
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => [integer()]
       }
 
   """
-  @type list_token_balances_output() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_transaction_events_output() :: %{
-        "events" => list(transaction_event()),
-        "nextToken" => String.t() | atom()
+      list_transactions_sort() :: %{
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => String.t() | atom()
       }
 
   """
-  @type list_transaction_events_output() :: %{(String.t() | atom()) => any()}
+  @type list_transactions_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -597,12 +293,70 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Example:
 
-      address_identifier_filter() :: %{
-        "transactionEventToAddress" => list(String.t() | atom())
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type address_identifier_filter() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transaction_output_item() :: %{
+        "confirmationStatus" => String.t() | atom(),
+        "network" => String.t() | atom(),
+        "transactionHash" => String.t() | atom(),
+        "transactionId" => String.t() | atom(),
+        "transactionTimestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type transaction_output_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_token_balance_input() :: %{
+        optional("atBlockchainInstant") => blockchain_instant(),
+        required("ownerIdentifier") => owner_identifier(),
+        required("tokenIdentifier") => token_identifier()
+      }
+
+  """
+  @type get_token_balance_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contract_metadata() :: %{
+        "decimals" => [integer()],
+        "name" => [String.t() | atom()],
+        "symbol" => [String.t() | atom()]
+      }
+
+  """
+  @type contract_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_transaction_events_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("transactionHash") => String.t() | atom(),
+        optional("transactionId") => String.t() | atom(),
+        required("network") => String.t() | atom()
+      }
+
+  """
+  @type list_transaction_events_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,13 +392,24 @@ defmodule AWS.ManagedBlockchainQuery do
 
   ## Example:
 
-      list_transactions_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "transactions" => list(transaction_output_item())
+      batch_get_token_balance_input() :: %{
+        optional("getTokenBalanceInputs") => list(batch_get_token_balance_input_item())
       }
 
   """
-  @type list_transactions_output() :: %{(String.t() | atom()) => any()}
+  @type batch_get_token_balance_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -659,72 +424,307 @@ defmodule AWS.ManagedBlockchainQuery do
   """
   @type token_filter() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      batch_get_token_balance_error_item() :: %{
+        "atBlockchainInstant" => blockchain_instant(),
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "errorType" => String.t() | atom(),
+        "ownerIdentifier" => owner_identifier(),
+        "tokenIdentifier" => token_identifier()
+      }
+
+  """
+  @type batch_get_token_balance_error_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner_identifier() :: %{
+        "address" => String.t() | atom()
+      }
+
+  """
+  @type owner_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vout_filter() :: %{
+        "voutSpent" => [boolean()]
+      }
+
+  """
+  @type vout_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_contracts_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("contractFilter") => contract_filter()
+      }
+
+  """
+  @type list_asset_contracts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_balance() :: %{
+        "atBlockchainInstant" => blockchain_instant(),
+        "balance" => [String.t() | atom()],
+        "lastUpdatedTime" => blockchain_instant(),
+        "ownerIdentifier" => owner_identifier(),
+        "tokenIdentifier" => token_identifier()
+      }
+
+  """
+  @type token_balance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_transaction_events_output() :: %{
+        "events" => list(transaction_event()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_transaction_events_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_token_balance_output() :: %{
+        "errors" => list(batch_get_token_balance_error_item()),
+        "tokenBalances" => list(batch_get_token_balance_output_item())
+      }
+
+  """
+  @type batch_get_token_balance_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_token_balances_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("ownerFilter") => owner_filter(),
+        required("tokenFilter") => token_filter()
+      }
+
+  """
+  @type list_token_balances_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_transactions_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "transactions" => list(transaction_output_item())
+      }
+
+  """
+  @type list_transactions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blockchain_instant() :: %{
+        "time" => [non_neg_integer()]
+      }
+
+  """
+  @type blockchain_instant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner_filter() :: %{
+        "address" => String.t() | atom()
+      }
+
+  """
+  @type owner_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_contract_input() :: %{
+        required("contractIdentifier") => contract_identifier()
+      }
+
+  """
+  @type get_asset_contract_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_filtered_transaction_events_input() :: %{
+        optional("confirmationStatusFilter") => confirmation_status_filter(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("sort") => list_filtered_transaction_events_sort(),
+        optional("timeFilter") => time_filter(),
+        optional("voutFilter") => vout_filter(),
+        required("addressIdentifierFilter") => address_identifier_filter(),
+        required("network") => [String.t() | atom()]
+      }
+
+  """
+  @type list_filtered_transaction_events_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_contract_output() :: %{
+        "contractIdentifier" => contract_identifier(),
+        "deployerAddress" => String.t() | atom(),
+        "metadata" => contract_metadata(),
+        "tokenStandard" => String.t() | atom()
+      }
+
+  """
+  @type get_asset_contract_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_transaction_input() :: %{
+        optional("transactionHash") => String.t() | atom(),
+        optional("transactionId") => String.t() | atom(),
+        required("network") => String.t() | atom()
+      }
+
+  """
+  @type get_transaction_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      address_identifier_filter() :: %{
+        "transactionEventToAddress" => list(String.t() | atom())
+      }
+
+  """
+  @type address_identifier_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_token_balance_output() :: %{
+        "atBlockchainInstant" => blockchain_instant(),
+        "balance" => [String.t() | atom()],
+        "lastUpdatedTime" => blockchain_instant(),
+        "ownerIdentifier" => owner_identifier(),
+        "tokenIdentifier" => token_identifier()
+      }
+
+  """
+  @type get_token_balance_output() :: %{(String.t() | atom()) => any()}
+
   @type batch_get_token_balance_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_asset_contract_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_token_balance_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_transaction_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_asset_contracts_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type list_filtered_transaction_events_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type list_token_balances_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type list_transaction_events_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type list_transactions_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   def metadata do
     %{

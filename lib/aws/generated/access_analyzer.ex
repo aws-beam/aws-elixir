@@ -48,577 +48,24 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      trail_properties() :: %{
-        "allRegions" => [boolean()],
-        "cloudTrailArn" => String.t() | atom(),
-        "regions" => list([String.t() | atom()]())
+      span() :: %{
+        "end" => position(),
+        "start" => position()
       }
 
   """
-  @type trail_properties() :: %{(String.t() | atom()) => any()}
+  @type span() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_analyzer_request() :: %{
-        optional("configuration") => list()
+      dynamodb_table_configuration() :: %{
+        "tablePolicy" => String.t() | atom()
       }
 
   """
-  @type update_analyzer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_trail_details() :: %{
-        "accessRole" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "startTime" => non_neg_integer(),
-        "trails" => list(trail())
-      }
-
-  """
-  @type cloud_trail_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_analyzer_response() :: %{
-        "configuration" => list()
-      }
-
-  """
-  @type update_analyzer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reason_summary() :: %{
-        "description" => [String.t() | atom()],
-        "statementId" => [String.t() | atom()],
-        "statementIndex" => [integer()]
-      }
-
-  """
-  @type reason_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_statistics_request() :: %{
-        required("analyzerArn") => String.t() | atom()
-      }
-
-  """
-  @type get_findings_statistics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_reason() :: %{
-        "code" => String.t() | atom()
-      }
-
-  """
-  @type status_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_configuration() :: %{
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_rule() :: %{
-        "exclusions" => list(analysis_rule_criteria())
-      }
-
-  """
-  @type analysis_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_access_type_statistics() :: %{
-        "total" => [integer()],
-        "unusedAccessType" => [String.t() | atom()]
-      }
-
-  """
-  @type unused_access_type_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      check_no_public_access_response() :: %{
-        "message" => [String.t() | atom()],
-        "reasons" => list(reason_summary()),
-        "result" => String.t() | atom()
-      }
-
-  """
-  @type check_no_public_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_archive_rule_request() :: %{
-        "clientToken" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_archive_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_aggregation_account_details() :: %{
-        "account" => [String.t() | atom()],
-        "details" => map(),
-        "numberOfActiveFindings" => [integer()]
-      }
-
-  """
-  @type finding_aggregation_account_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_previews_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("accessPreviews") => list(access_preview_summary())
-      }
-
-  """
-  @type list_access_previews_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_iam_user_access_key_details() :: %{
-        "accessKeyId" => [String.t() | atom()],
-        "lastAccessed" => non_neg_integer()
-      }
-
-  """
-  @type unused_iam_user_access_key_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kms_grant_constraints() :: %{
-        "encryptionContextEquals" => map(),
-        "encryptionContextSubset" => map()
-      }
-
-  """
-  @type kms_grant_constraints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generated_policy_properties() :: %{
-        "cloudTrailProperties" => cloud_trail_properties(),
-        "isComplete" => [boolean()],
-        "principalArn" => String.t() | atom()
-      }
-
-  """
-  @type generated_policy_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_summary() :: %{
-        "action" => list([String.t() | atom()]()),
-        "analyzedAt" => non_neg_integer(),
-        "condition" => map(),
-        "createdAt" => non_neg_integer(),
-        "error" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "isPublic" => [boolean()],
-        "principal" => map(),
-        "resource" => [String.t() | atom()],
-        "resourceControlPolicyRestriction" => String.t() | atom(),
-        "resourceOwnerAccount" => [String.t() | atom()],
-        "resourceType" => String.t() | atom(),
-        "sources" => list(finding_source()),
-        "status" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type finding_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_previews_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("analyzerArn") => String.t() | atom()
-      }
-
-  """
-  @type list_access_previews_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sns_topic_configuration() :: %{
-        "topicPolicy" => String.t() | atom()
-      }
-
-  """
-  @type sns_topic_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_access_configuration() :: %{
-        "analysisRule" => analysis_rule(),
-        "unusedAccessAge" => [integer()]
-      }
-
-  """
-  @type unused_access_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_bucket_acl_grant_configuration() :: %{
-        "grantee" => list(),
-        "permission" => String.t() | atom()
-      }
-
-  """
-  @type s3_bucket_acl_grant_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_statistics_response() :: %{
-        "findingsStatistics" => list(list()),
-        "lastUpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_findings_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_recommendation_response() :: %{
-        "completedAt" => non_neg_integer(),
-        "error" => recommendation_error(),
-        "nextToken" => String.t() | atom(),
-        "recommendationType" => String.t() | atom(),
-        "recommendedSteps" => list(list()),
-        "resourceArn" => String.t() | atom(),
-        "startedAt" => non_neg_integer(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type get_finding_recommendation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analyzed_resource() :: %{
-        "actions" => list([String.t() | atom()]()),
-        "analyzedAt" => non_neg_integer(),
-        "createdAt" => non_neg_integer(),
-        "error" => [String.t() | atom()],
-        "isPublic" => [boolean()],
-        "resourceArn" => String.t() | atom(),
-        "resourceOwnerAccount" => [String.t() | atom()],
-        "resourceType" => String.t() | atom(),
-        "sharedVia" => list([String.t() | atom()]()),
-        "status" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type analyzed_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_analyzer_response() :: %{
-        "analyzer" => analyzer_summary()
-      }
-
-  """
-  @type get_analyzer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_access_analysis_rule_criteria() :: %{
-        "accountIds" => list([String.t() | atom()]()),
-        "resourceArns" => list([String.t() | atom()]()),
-        "resourceTypes" => list(String.t() | atom())
-      }
-
-  """
-  @type internal_access_analysis_rule_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_response() :: %{
-        "findings" => list(finding_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_analyzer_request() :: %{
-        "analyzerName" => String.t() | atom(),
-        "archiveRules" => list(inline_archive_rule()),
-        "clientToken" => [String.t() | atom()],
-        "configuration" => list(),
-        "tags" => map(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type create_analyzer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_iam_user_password_details() :: %{
-        "lastAccessed" => non_neg_integer()
-      }
-
-  """
-  @type unused_iam_user_password_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_iam_role_details() :: %{
-        "lastAccessed" => non_neg_integer()
-      }
-
-  """
-  @type unused_iam_role_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_permission_details() :: %{
-        "actions" => list(unused_action()),
-        "lastAccessed" => non_neg_integer(),
-        "serviceNamespace" => [String.t() | atom()]
-      }
-
-  """
-  @type unused_permission_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        "tagKeys" => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_analyzed_resource_response() :: %{
-        "resource" => analyzed_resource()
-      }
-
-  """
-  @type get_analyzed_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_v2_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("analyzerArn") => String.t() | atom()
-      }
-
-  """
-  @type get_finding_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_express_directory_access_point_configuration() :: %{
-        "accessPointPolicy" => String.t() | atom(),
-        "networkOrigin" => list()
-      }
-
-  """
-  @type s3_express_directory_access_point_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      check_no_new_access_request() :: %{
-        required("existingPolicyDocument") => String.t() | atom(),
-        required("newPolicyDocument") => String.t() | atom(),
-        required("policyType") => String.t() | atom()
-      }
-
-  """
-  @type check_no_new_access_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      position() :: %{
-        "column" => [integer()],
-        "line" => [integer()],
-        "offset" => [integer()]
-      }
-
-  """
-  @type position() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_analyzer_request() :: %{
-        "clientToken" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_analyzer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_analyzers_response() :: %{
-        "analyzers" => list(analyzer_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_analyzers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analysis_rule_criteria() :: %{
-        "accountIds" => list([String.t() | atom()]()),
-        "resourceTags" => list(map())
-      }
-
-  """
-  @type analysis_rule_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      check_access_not_granted_response() :: %{
-        "message" => [String.t() | atom()],
-        "reasons" => list(reason_summary()),
-        "result" => String.t() | atom()
-      }
-
-  """
-  @type check_access_not_granted_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_access_configuration() :: %{
-        "analysisRule" => internal_access_analysis_rule()
-      }
-
-  """
-  @type internal_access_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_policy_generation_response() :: %{}
-
-  """
-  @type cancel_policy_generation_response() :: %{}
+  @type dynamodb_table_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -639,74 +86,436 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      list_analyzed_resources_request() :: %{
+      get_generated_policy_request() :: %{
+        optional("includeResourcePlaceholders") => [boolean()],
+        optional("includeServiceLevelTemplate") => [boolean()]
+      }
+
+  """
+  @type get_generated_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      check_no_public_access_response() :: %{
+        "message" => [String.t() | atom()],
+        "reasons" => list(reason_summary()),
+        "result" => String.t() | atom()
+      }
+
+  """
+  @type check_no_public_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_action() :: %{
+        "action" => [String.t() | atom()],
+        "lastAccessed" => non_neg_integer()
+      }
+
+  """
+  @type unused_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_access_findings_statistics() :: %{
+        "topAccounts" => list(finding_aggregation_account_details()),
+        "totalActiveFindings" => [integer()],
+        "totalArchivedFindings" => [integer()],
+        "totalResolvedFindings" => [integer()],
+        "unusedAccessTypeStatistics" => list(unused_access_type_statistics())
+      }
+
+  """
+  @type unused_access_findings_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_analyzer_response() :: %{
+        "analyzer" => analyzer_summary()
+      }
+
+  """
+  @type get_analyzer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trail() :: %{
+        "allRegions" => [boolean()],
+        "cloudTrailArn" => String.t() | atom(),
+        "regions" => list([String.t() | atom()]())
+      }
+
+  """
+  @type trail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_analyzer_request() :: %{
+        optional("configuration") => list()
+      }
+
+  """
+  @type update_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_finding_recommendation_request() :: %{
+        required("analyzerArn") => String.t() | atom()
+      }
+
+  """
+  @type generate_finding_recommendation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_previews_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("accessPreviews") => list(access_preview_summary())
+      }
+
+  """
+  @type list_access_previews_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_policy_generation_response() :: %{}
+
+  """
+  @type cancel_policy_generation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      check_no_public_access_request() :: %{
+        required("policyDocument") => String.t() | atom(),
+        required("resourceType") => String.t() | atom()
+      }
+
+  """
+  @type check_no_public_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_access_resource_type_details() :: %{
+        "totalActiveFindings" => [integer()],
+        "totalArchivedFindings" => [integer()],
+        "totalResolvedFindings" => [integer()]
+      }
+
+  """
+  @type internal_access_resource_type_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_aggregation_account_details() :: %{
+        "account" => [String.t() | atom()],
+        "details" => map(),
+        "numberOfActiveFindings" => [integer()]
+      }
+
+  """
+  @type finding_aggregation_account_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_findings_request() :: %{
         "analyzerArn" => String.t() | atom(),
+        "filter" => map(),
         "maxResults" => [integer()],
         "nextToken" => String.t() | atom(),
+        "sort" => sort_criteria()
+      }
+
+  """
+  @type list_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_generated_policy_response() :: %{
+        required("generatedPolicyResult") => generated_policy_result(),
+        required("jobDetails") => job_details()
+      }
+
+  """
+  @type get_generated_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("principalArn") => String.t() | atom()
+      }
+
+  """
+  @type list_policy_generations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_grant_constraints() :: %{
+        "encryptionContextEquals" => map(),
+        "encryptionContextSubset" => map()
+      }
+
+  """
+  @type kms_grant_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_v2_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
+      }
+
+  """
+  @type get_finding_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_iam_role_details() :: %{
+        "lastAccessed" => non_neg_integer()
+      }
+
+  """
+  @type unused_iam_role_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_summary_v2() :: %{
+        "analyzedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t() | atom()],
+        "findingType" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "resource" => [String.t() | atom()],
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type finding_summary_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access() :: %{
+        "actions" => list(String.t() | atom()),
+        "resources" => list(String.t() | atom())
+      }
+
+  """
+  @type access() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_previews_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
+      }
+
+  """
+  @type list_access_previews_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analyzed_resource_summary() :: %{
+        "resourceArn" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()],
         "resourceType" => String.t() | atom()
       }
 
   """
-  @type list_analyzed_resources_request() :: %{(String.t() | atom()) => any()}
+  @type analyzed_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_preview_status_reason() :: %{
-        "code" => String.t() | atom()
+      check_access_not_granted_response() :: %{
+        "message" => [String.t() | atom()],
+        "reasons" => list(reason_summary()),
+        "result" => String.t() | atom()
       }
 
   """
-  @type access_preview_status_reason() :: %{(String.t() | atom()) => any()}
+  @type check_access_not_granted_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_archive_rules_request() :: %{
-        "maxResults" => [integer()],
+      inline_archive_rule() :: %{
+        "filter" => map(),
+        "ruleName" => String.t() | atom()
+      }
+
+  """
+  @type inline_archive_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_statistics_request() :: %{
+        required("analyzerArn") => String.t() | atom()
+      }
+
+  """
+  @type get_findings_statistics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_preview_findings_request() :: %{
+        optional("filter") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
+      }
+
+  """
+  @type list_access_preview_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_request() :: %{
+        "analyzerArn" => String.t() | atom()
+      }
+
+  """
+  @type get_finding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_access_configuration() :: %{
+        "analysisRule" => analysis_rule(),
+        "unusedAccessAge" => [integer()]
+      }
+
+  """
+  @type unused_access_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_findings_response() :: %{
+        "findings" => list(finding_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_archive_rules_request() :: %{(String.t() | atom()) => any()}
+  @type list_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      span() :: %{
-        "end" => position(),
-        "start" => position()
+      unused_iam_user_password_details() :: %{
+        "lastAccessed" => non_neg_integer()
       }
 
   """
-  @type span() :: %{(String.t() | atom()) => any()}
+  @type unused_iam_user_password_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      finding_source() :: %{
-        "detail" => finding_source_detail(),
-        "type" => String.t() | atom()
+      rds_db_cluster_snapshot_configuration() :: %{
+        "attributes" => map(),
+        "kmsKeyId" => String.t() | atom()
       }
 
   """
-  @type finding_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_analyzed_resources_response() :: %{
-        "analyzedResources" => list(analyzed_resource_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_analyzed_resources_response() :: %{(String.t() | atom()) => any()}
+  @type rds_db_cluster_snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -738,28 +547,270 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      archive_rule_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "filter" => map(),
-        "ruleName" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
+      delete_archive_rule_request() :: %{
+        "clientToken" => [String.t() | atom()]
       }
 
   """
-  @type archive_rule_summary() :: %{(String.t() | atom()) => any()}
+  @type delete_archive_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      job_error() :: %{
+        "code" => String.t() | atom(),
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type job_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_trail_properties() :: %{
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer(),
+        "trailProperties" => list(trail_properties())
+      }
+
+  """
+  @type cloud_trail_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_rule() :: %{
+        "exclusions" => list(analysis_rule_criteria())
+      }
+
+  """
+  @type analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sqs_queue_configuration() :: %{
+        "queuePolicy" => String.t() | atom()
+      }
+
+  """
+  @type sqs_queue_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_recommendation_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("analyzerArn") => String.t() | atom()
+      }
+
+  """
+  @type get_finding_recommendation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_access_details() :: %{
+        "action" => list([String.t() | atom()]()),
+        "condition" => map(),
+        "isPublic" => [boolean()],
+        "principal" => map(),
+        "resourceControlPolicyRestriction" => String.t() | atom(),
+        "sources" => list(finding_source())
+      }
+
+  """
+  @type external_access_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_archive_rule_request() :: %{
+        "clientToken" => [String.t() | atom()],
+        "filter" => map()
+      }
+
+  """
+  @type update_archive_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_access_analysis_rule_criteria() :: %{
+        "accountIds" => list([String.t() | atom()]()),
+        "resourceArns" => list([String.t() | atom()]()),
+        "resourceTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type internal_access_analysis_rule_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_access_findings_statistics() :: %{
+        "resourceTypeStatistics" => map(),
+        "totalActiveFindings" => [integer()],
+        "totalArchivedFindings" => [integer()],
+        "totalResolvedFindings" => [integer()]
+      }
+
+  """
+  @type internal_access_findings_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reason_summary() :: %{
+        "description" => [String.t() | atom()],
+        "statementId" => [String.t() | atom()],
+        "statementIndex" => [integer()]
+      }
+
+  """
+  @type reason_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_source_detail() :: %{
+        "accessPointAccount" => [String.t() | atom()],
+        "accessPointArn" => [String.t() | atom()]
+      }
+
+  """
+  @type finding_source_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecr_repository_configuration() :: %{
+        "repositoryPolicy" => String.t() | atom()
+      }
+
+  """
+  @type ecr_repository_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_preview_summary() :: %{
+        "analyzerArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => access_preview_status_reason()
+      }
+
+  """
+  @type access_preview_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analyzers_response() :: %{
+        "analyzers" => list(analyzer_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_analyzers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sort_criteria() :: %{
+        "attributeName" => [String.t() | atom()],
+        "orderBy" => String.t() | atom()
+      }
+
+  """
+  @type sort_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_permissions_recommended_step() :: %{
+        "existingPolicyId" => [String.t() | atom()],
+        "policyUpdatedAt" => non_neg_integer(),
+        "recommendedAction" => String.t() | atom(),
+        "recommendedPolicy" => [String.t() | atom()]
+      }
+
+  """
+  @type unused_permissions_recommended_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_analyzer_request() :: %{}
+
+  """
+  @type get_analyzer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_configuration() :: %{
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_policy_generation_response() :: %{
+        required("jobId") => String.t() | atom()
+      }
+
+  """
+  @type start_policy_generation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      status_reason() :: %{
+        "code" => String.t() | atom()
+      }
+
+  """
+  @type status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -773,6 +824,340 @@ defmodule AWS.AccessAnalyzer do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_archive_rules_request() :: %{
+        "maxResults" => [integer()],
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_archive_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_express_directory_access_point_configuration() :: %{
+        "accessPointPolicy" => String.t() | atom(),
+        "networkOrigin" => list()
+      }
+
+  """
+  @type s3_express_directory_access_point_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessable_entity_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_archive_rule_response() :: %{
+        "archiveRule" => archive_rule_summary()
+      }
+
+  """
+  @type get_archive_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      check_no_new_access_request() :: %{
+        required("existingPolicyDocument") => String.t() | atom(),
+        required("newPolicyDocument") => String.t() | atom(),
+        required("policyType") => String.t() | atom()
+      }
+
+  """
+  @type check_no_new_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_iam_user_access_key_details() :: %{
+        "accessKeyId" => [String.t() | atom()],
+        "lastAccessed" => non_neg_integer()
+      }
+
+  """
+  @type unused_iam_user_access_key_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_analyzer_response() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type create_analyzer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analyzed_resource() :: %{
+        "actions" => list([String.t() | atom()]()),
+        "analyzedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t() | atom()],
+        "isPublic" => [boolean()],
+        "resourceArn" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "sharedVia" => list([String.t() | atom()]()),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type analyzed_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_type_details() :: %{
+        "totalActiveCrossAccount" => [integer()],
+        "totalActiveErrors" => [integer()],
+        "totalActivePublic" => [integer()]
+      }
+
+  """
+  @type resource_type_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_analyzer_request() :: %{
+        "clientToken" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_findings_request() :: %{
+        "analyzerArn" => String.t() | atom(),
+        "clientToken" => [String.t() | atom()],
+        "ids" => list(String.t() | atom()),
+        "resourceArn" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type update_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_analyzed_resource_response() :: %{
+        "resource" => analyzed_resource()
+      }
+
+  """
+  @type get_analyzed_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_express_directory_bucket_configuration() :: %{
+        "accessPoints" => map(),
+        "bucketPolicy" => String.t() | atom()
+      }
+
+  """
+  @type s3_express_directory_bucket_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_resource_scan_request() :: %{
+        "analyzerArn" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceOwnerAccount" => [String.t() | atom()]
+      }
+
+  """
+  @type start_resource_scan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_bucket_configuration() :: %{
+        "accessPoints" => map(),
+        "bucketAclGrants" => list(s3_bucket_acl_grant_configuration()),
+        "bucketPolicy" => String.t() | atom(),
+        "bucketPublicAccessBlock" => s3_public_access_block_configuration()
+      }
+
+  """
+  @type s3_bucket_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sns_topic_configuration() :: %{
+        "topicPolicy" => String.t() | atom()
+      }
+
+  """
+  @type sns_topic_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      efs_file_system_configuration() :: %{
+        "fileSystemPolicy" => String.t() | atom()
+      }
+
+  """
+  @type efs_file_system_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_generation_details() :: %{
+        "principalArn" => String.t() | atom()
+      }
+
+  """
+  @type policy_generation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_access_type_statistics() :: %{
+        "total" => [integer()],
+        "unusedAccessType" => [String.t() | atom()]
+      }
+
+  """
+  @type unused_access_type_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_access_analysis_rule() :: %{
+        "inclusions" => list(internal_access_analysis_rule_criteria())
+      }
+
+  """
+  @type internal_access_analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generated_policy_properties() :: %{
+        "cloudTrailProperties" => cloud_trail_properties(),
+        "isComplete" => [boolean()],
+        "principalArn" => String.t() | atom()
+      }
+
+  """
+  @type generated_policy_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_policy_request() :: %{
+        optional("locale") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("validatePolicyResourceType") => String.t() | atom(),
+        required("policyDocument") => String.t() | atom(),
+        required("policyType") => String.t() | atom()
+      }
+
+  """
+  @type validate_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_statistics_response() :: %{
+        "findingsStatistics" => list(list()),
+        "lastUpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_findings_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_bucket_acl_grant_configuration() :: %{
+        "grantee" => list(),
+        "permission" => String.t() | atom()
+      }
+
+  """
+  @type s3_bucket_acl_grant_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ebs_snapshot_configuration() :: %{
+        "groups" => list(String.t() | atom()),
+        "kmsKeyId" => String.t() | atom(),
+        "userIds" => list(String.t() | atom())
+      }
+
+  """
+  @type ebs_snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -792,6 +1177,225 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_trail_details() :: %{
+        "accessRole" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "startTime" => non_neg_integer(),
+        "trails" => list(trail())
+      }
+
+  """
+  @type cloud_trail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analyzers_request() :: %{
+        "maxResults" => [integer()],
+        "nextToken" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type list_analyzers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internet_configuration() :: %{}
+
+  """
+  @type internet_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_access_point_configuration() :: %{
+        "accessPointPolicy" => String.t() | atom(),
+        "networkOrigin" => list(),
+        "publicAccessBlock" => s3_public_access_block_configuration()
+      }
+
+  """
+  @type s3_access_point_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_analyzer_response() :: %{
+        "configuration" => list()
+      }
+
+  """
+  @type update_analyzer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_policy_generation_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("cloudTrailDetails") => cloud_trail_details(),
+        required("policyGenerationDetails") => policy_generation_details()
+      }
+
+  """
+  @type start_policy_generation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        "tagKeys" => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynamodb_stream_configuration() :: %{
+        "streamPolicy" => String.t() | atom()
+      }
+
+  """
+  @type dynamodb_stream_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_details() :: %{
+        "completedOn" => non_neg_integer(),
+        "jobError" => job_error(),
+        "jobId" => String.t() | atom(),
+        "startedOn" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_generation() :: %{
+        "completedOn" => non_neg_integer(),
+        "jobId" => String.t() | atom(),
+        "principalArn" => String.t() | atom(),
+        "startedOn" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type policy_generation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_key_configuration() :: %{
+        "grants" => list(kms_grant_configuration()),
+        "keyPolicies" => map()
+      }
+
+  """
+  @type kms_key_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_preview() :: %{
+        "analyzerArn" => String.t() | atom(),
+        "configurations" => map(),
+        "createdAt" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => access_preview_status_reason()
+      }
+
+  """
+  @type access_preview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_archive_rule_request() :: %{}
+
+  """
+  @type get_archive_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_archive_rules_response() :: %{
+        "archiveRules" => list(archive_rule_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_archive_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_access_preview_response() :: %{
+        required("accessPreview") => access_preview()
+      }
+
+  """
+  @type get_access_preview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_access_preview_request() :: %{
         optional("clientToken") => [String.t() | atom()],
         required("analyzerArn") => String.t() | atom(),
@@ -805,71 +1409,107 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      policy_generation_details() :: %{
-        "principalArn" => String.t() | atom()
+      apply_archive_rule_request() :: %{
+        "analyzerArn" => String.t() | atom(),
+        "clientToken" => [String.t() | atom()],
+        "ruleName" => String.t() | atom()
       }
 
   """
-  @type policy_generation_details() :: %{(String.t() | atom()) => any()}
+  @type apply_archive_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ecr_repository_configuration() :: %{
-        "repositoryPolicy" => String.t() | atom()
+      get_finding_v2_response() :: %{
+        "analyzedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "error" => [String.t() | atom()],
+        "findingDetails" => list(list()),
+        "findingType" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "resource" => [String.t() | atom()],
+        "resourceOwnerAccount" => [String.t() | atom()],
+        "resourceType" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type ecr_repository_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_finding_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_access_analysis_rule() :: %{
-        "inclusions" => list(internal_access_analysis_rule_criteria())
+      trail_properties() :: %{
+        "allRegions" => [boolean()],
+        "cloudTrailArn" => String.t() | atom(),
+        "regions" => list([String.t() | atom()]())
       }
 
   """
-  @type internal_access_analysis_rule() :: %{(String.t() | atom()) => any()}
+  @type trail_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_generated_policy_response() :: %{
-        required("generatedPolicyResult") => generated_policy_result(),
-        required("jobDetails") => job_details()
+      validate_policy_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("findings") => list(validate_policy_finding())
       }
 
   """
-  @type get_generated_policy_response() :: %{(String.t() | atom()) => any()}
+  @type validate_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      check_no_public_access_request() :: %{
-        required("policyDocument") => String.t() | atom(),
-        required("resourceType") => String.t() | atom()
+      create_archive_rule_request() :: %{
+        "clientToken" => [String.t() | atom()],
+        "filter" => map(),
+        "ruleName" => String.t() | atom()
       }
 
   """
-  @type check_no_public_access_request() :: %{(String.t() | atom()) => any()}
+  @type create_archive_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      list_analyzed_resources_request() :: %{
+        "analyzerArn" => String.t() | atom(),
+        "maxResults" => [integer()],
+        "nextToken" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type list_analyzed_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_access_details() :: %{
+        "accessType" => String.t() | atom(),
+        "action" => list([String.t() | atom()]()),
+        "condition" => map(),
+        "principal" => map(),
+        "principalOwnerAccount" => [String.t() | atom()],
+        "principalType" => String.t() | atom(),
+        "resourceControlPolicyRestriction" => String.t() | atom(),
+        "serviceControlPolicyRestriction" => String.t() | atom(),
+        "sources" => list(finding_source())
+      }
+
+  """
+  @type internal_access_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -890,38 +1530,139 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      list_archive_rules_response() :: %{
-        "archiveRules" => list(archive_rule_summary()),
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_analyzer_request() :: %{
+        "analyzerName" => String.t() | atom(),
+        "archiveRules" => list(inline_archive_rule()),
+        "clientToken" => [String.t() | atom()],
+        "configuration" => list(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type create_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      position() :: %{
+        "column" => [integer()],
+        "line" => [integer()],
+        "offset" => [integer()]
+      }
+
+  """
+  @type position() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      check_access_not_granted_request() :: %{
+        required("access") => list(access()),
+        required("policyDocument") => String.t() | atom(),
+        required("policyType") => String.t() | atom()
+      }
+
+  """
+  @type check_access_not_granted_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_linked_analyzer_request() :: %{
+        optional("archiveRules") => list(inline_archive_rule()),
+        optional("clientToken") => [String.t() | atom()],
+        optional("configuration") => list(),
+        required("type") => String.t() | atom()
+      }
+
+  """
+  @type create_service_linked_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_findings_v2_response() :: %{
+        "findings" => list(finding_summary_v2()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_archive_rules_response() :: %{(String.t() | atom()) => any()}
+  @type list_findings_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_generated_policy_request() :: %{
-        optional("includeResourcePlaceholders") => [boolean()],
-        optional("includeServiceLevelTemplate") => [boolean()]
+      unused_permission_details() :: %{
+        "actions" => list(unused_action()),
+        "lastAccessed" => non_neg_integer(),
+        "serviceNamespace" => [String.t() | atom()]
       }
 
   """
-  @type get_generated_policy_request() :: %{(String.t() | atom()) => any()}
+  @type unused_permission_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      analyzed_resource_summary() :: %{
-        "resourceArn" => String.t() | atom(),
-        "resourceOwnerAccount" => [String.t() | atom()],
-        "resourceType" => String.t() | atom()
+      internal_access_configuration() :: %{
+        "analysisRule" => internal_access_analysis_rule()
       }
 
   """
-  @type analyzed_resource_summary() :: %{(String.t() | atom()) => any()}
+  @type internal_access_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      location() :: %{
+        "path" => list(list()),
+        "span" => span()
+      }
+
+  """
+  @type location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_access_preview_request() :: %{
+        required("analyzerArn") => String.t() | atom()
+      }
+
+  """
+  @type get_access_preview_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type recommendation_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -952,456 +1693,13 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      kms_grant_configuration() :: %{
-        "constraints" => kms_grant_constraints(),
-        "granteePrincipal" => String.t() | atom(),
-        "issuingAccount" => String.t() | atom(),
-        "operations" => list(String.t() | atom()),
-        "retiringPrincipal" => String.t() | atom()
+      list_analyzed_resources_response() :: %{
+        "analyzedResources" => list(analyzed_resource_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type kms_grant_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      check_no_new_access_response() :: %{
-        "message" => [String.t() | atom()],
-        "reasons" => list(reason_summary()),
-        "result" => String.t() | atom()
-      }
-
-  """
-  @type check_no_new_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_request() :: %{
-        "analyzerArn" => String.t() | atom(),
-        "filter" => map(),
-        "maxResults" => [integer()],
-        "nextToken" => String.t() | atom(),
-        "sort" => sort_criteria()
-      }
-
-  """
-  @type list_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_generations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("principalArn") => String.t() | atom()
-      }
-
-  """
-  @type list_policy_generations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_access_details() :: %{
-        "accessType" => String.t() | atom(),
-        "action" => list([String.t() | atom()]()),
-        "condition" => map(),
-        "principal" => map(),
-        "principalOwnerAccount" => [String.t() | atom()],
-        "principalType" => String.t() | atom(),
-        "resourceControlPolicyRestriction" => String.t() | atom(),
-        "serviceControlPolicyRestriction" => String.t() | atom(),
-        "sources" => list(finding_source())
-      }
-
-  """
-  @type internal_access_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generated_policy_result() :: %{
-        "generatedPolicies" => list(generated_policy()),
-        "properties" => generated_policy_properties()
-      }
-
-  """
-  @type generated_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_role_configuration() :: %{
-        "trustPolicy" => String.t() | atom()
-      }
-
-  """
-  @type iam_role_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_error() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type recommendation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      location() :: %{
-        "path" => list(list()),
-        "span" => span()
-      }
-
-  """
-  @type location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_generation() :: %{
-        "completedOn" => non_neg_integer(),
-        "jobId" => String.t() | atom(),
-        "principalArn" => String.t() | atom(),
-        "startedOn" => non_neg_integer(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type policy_generation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_type_details() :: %{
-        "totalActiveCrossAccount" => [integer()],
-        "totalActiveErrors" => [integer()],
-        "totalActivePublic" => [integer()]
-      }
-
-  """
-  @type resource_type_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      apply_archive_rule_request() :: %{
-        "analyzerArn" => String.t() | atom(),
-        "clientToken" => [String.t() | atom()],
-        "ruleName" => String.t() | atom()
-      }
-
-  """
-  @type apply_archive_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_generations_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("policyGenerations") => list(policy_generation())
-      }
-
-  """
-  @type list_policy_generations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_linked_analyzer_request() :: %{
-        optional("clientToken") => [String.t() | atom()]
-      }
-
-  """
-  @type delete_service_linked_analyzer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_recommendation_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("analyzerArn") => String.t() | atom()
-      }
-
-  """
-  @type get_finding_recommendation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_finding_recommendation_request() :: %{
-        required("analyzerArn") => String.t() | atom()
-      }
-
-  """
-  @type generate_finding_recommendation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kms_key_configuration() :: %{
-        "grants" => list(kms_grant_configuration()),
-        "keyPolicies" => map()
-      }
-
-  """
-  @type kms_key_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_details() :: %{
-        "completedOn" => non_neg_integer(),
-        "jobError" => job_error(),
-        "jobId" => String.t() | atom(),
-        "startedOn" => non_neg_integer(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inline_archive_rule() :: %{
-        "filter" => map(),
-        "ruleName" => String.t() | atom()
-      }
-
-  """
-  @type inline_archive_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ebs_snapshot_configuration() :: %{
-        "groups" => list(String.t() | atom()),
-        "kmsKeyId" => String.t() | atom(),
-        "userIds" => list(String.t() | atom())
-      }
-
-  """
-  @type ebs_snapshot_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynamodb_table_configuration() :: %{
-        "tablePolicy" => String.t() | atom()
-      }
-
-  """
-  @type dynamodb_table_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      efs_file_system_configuration() :: %{
-        "fileSystemPolicy" => String.t() | atom()
-      }
-
-  """
-  @type efs_file_system_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_request() :: %{
-        "analyzerArn" => String.t() | atom()
-      }
-
-  """
-  @type get_finding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_policy_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("findings") => list(validate_policy_finding())
-      }
-
-  """
-  @type validate_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_express_directory_bucket_configuration() :: %{
-        "accessPoints" => map(),
-        "bucketPolicy" => String.t() | atom()
-      }
-
-  """
-  @type s3_express_directory_bucket_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_preview_response() :: %{
-        required("id") => String.t() | atom()
-      }
-
-  """
-  @type create_access_preview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_policy_generation_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("cloudTrailDetails") => cloud_trail_details(),
-        required("policyGenerationDetails") => policy_generation_details()
-      }
-
-  """
-  @type start_policy_generation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      external_access_details() :: %{
-        "action" => list([String.t() | atom()]()),
-        "condition" => map(),
-        "isPublic" => [boolean()],
-        "principal" => map(),
-        "resourceControlPolicyRestriction" => String.t() | atom(),
-        "sources" => list(finding_source())
-      }
-
-  """
-  @type external_access_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_response() :: %{
-        "finding" => finding()
-      }
-
-  """
-  @type get_finding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sort_criteria() :: %{
-        "attributeName" => [String.t() | atom()],
-        "orderBy" => String.t() | atom()
-      }
-
-  """
-  @type sort_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_trail_properties() :: %{
-        "endTime" => non_neg_integer(),
-        "startTime" => non_neg_integer(),
-        "trailProperties" => list(trail_properties())
-      }
-
-  """
-  @type cloud_trail_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_preview_findings_request() :: %{
-        optional("filter") => map(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("analyzerArn") => String.t() | atom()
-      }
-
-  """
-  @type list_access_preview_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessable_entity_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
+  @type list_analyzed_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1419,37 +1717,12 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      iam_role_configuration() :: %{
+        "trustPolicy" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_analyzer_response() :: %{
-        "arn" => String.t() | atom()
-      }
-
-  """
-  @type create_analyzer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_permissions_recommended_step() :: %{
-        "existingPolicyId" => [String.t() | atom()],
-        "policyUpdatedAt" => non_neg_integer(),
-        "recommendedAction" => String.t() | atom(),
-        "recommendedPolicy" => [String.t() | atom()]
-      }
-
-  """
-  @type unused_permissions_recommended_step() :: %{(String.t() | atom()) => any()}
+  @type iam_role_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1466,259 +1739,171 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_policy_request() :: %{
-        optional("locale") => String.t() | atom(),
-        optional("maxResults") => [integer()],
+      list_access_preview_findings_response() :: %{
         optional("nextToken") => String.t() | atom(),
-        optional("validatePolicyResourceType") => String.t() | atom(),
-        required("policyDocument") => String.t() | atom(),
-        required("policyType") => String.t() | atom()
+        required("findings") => list(access_preview_finding())
       }
 
   """
-  @type validate_policy_request() :: %{(String.t() | atom()) => any()}
+  @type list_access_preview_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_analyzer_request() :: %{}
-
-  """
-  @type get_analyzer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_analyzed_resource_request() :: %{
-        "analyzerArn" => String.t() | atom(),
-        "resourceArn" => String.t() | atom()
+      s3_public_access_block_configuration() :: %{
+        "ignorePublicAcls" => [boolean()],
+        "restrictPublicBuckets" => [boolean()]
       }
 
   """
-  @type get_analyzed_resource_request() :: %{(String.t() | atom()) => any()}
+  @type s3_public_access_block_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unused_access_findings_statistics() :: %{
-        "topAccounts" => list(finding_aggregation_account_details()),
-        "totalActiveFindings" => [integer()],
-        "totalArchivedFindings" => [integer()],
-        "totalResolvedFindings" => [integer()],
-        "unusedAccessTypeStatistics" => list(unused_access_type_statistics())
-      }
-
-  """
-  @type unused_access_findings_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_bucket_configuration() :: %{
-        "accessPoints" => map(),
-        "bucketAclGrants" => list(s3_bucket_acl_grant_configuration()),
-        "bucketPolicy" => String.t() | atom(),
-        "bucketPublicAccessBlock" => s3_public_access_block_configuration()
-      }
-
-  """
-  @type s3_bucket_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_findings_request() :: %{
-        "analyzerArn" => String.t() | atom(),
-        "clientToken" => [String.t() | atom()],
-        "ids" => list(String.t() | atom()),
-        "resourceArn" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type update_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_access_resource_type_details() :: %{
-        "totalActiveFindings" => [integer()],
-        "totalArchivedFindings" => [integer()],
-        "totalResolvedFindings" => [integer()]
-      }
-
-  """
-  @type internal_access_resource_type_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_access_preview_request() :: %{
-        required("analyzerArn") => String.t() | atom()
-      }
-
-  """
-  @type get_access_preview_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_source_detail() :: %{
-        "accessPointAccount" => [String.t() | atom()],
-        "accessPointArn" => [String.t() | atom()]
-      }
-
-  """
-  @type finding_source_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_linked_analyzer_request() :: %{
-        optional("archiveRules") => list(inline_archive_rule()),
-        optional("clientToken") => [String.t() | atom()],
-        optional("configuration") => list(),
-        required("type") => String.t() | atom()
-      }
-
-  """
-  @type create_service_linked_analyzer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access() :: %{
-        "actions" => list(String.t() | atom()),
-        "resources" => list(String.t() | atom())
-      }
-
-  """
-  @type access() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rds_db_snapshot_configuration() :: %{
-        "attributes" => map(),
-        "kmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type rds_db_snapshot_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_v2_response() :: %{
+      finding_summary() :: %{
+        "action" => list([String.t() | atom()]()),
         "analyzedAt" => non_neg_integer(),
+        "condition" => map(),
         "createdAt" => non_neg_integer(),
         "error" => [String.t() | atom()],
-        "findingDetails" => list(list()),
-        "findingType" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
+        "isPublic" => [boolean()],
+        "principal" => map(),
         "resource" => [String.t() | atom()],
+        "resourceControlPolicyRestriction" => String.t() | atom(),
         "resourceOwnerAccount" => [String.t() | atom()],
         "resourceType" => String.t() | atom(),
+        "sources" => list(finding_source()),
         "status" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_finding_v2_response() :: %{(String.t() | atom()) => any()}
+  @type finding_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      finding_summary_v2() :: %{
-        "analyzedAt" => non_neg_integer(),
+      analysis_rule_criteria() :: %{
+        "accountIds" => list([String.t() | atom()]()),
+        "resourceTags" => list(map())
+      }
+
+  """
+  @type analysis_rule_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_source() :: %{
+        "detail" => finding_source_detail(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type finding_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_preview_status_reason() :: %{
+        "code" => String.t() | atom()
+      }
+
+  """
+  @type access_preview_status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      criterion() :: %{
+        "contains" => list([String.t() | atom()]()),
+        "eq" => list([String.t() | atom()]()),
+        "exists" => [boolean()],
+        "neq" => list([String.t() | atom()]())
+      }
+
+  """
+  @type criterion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_linked_analyzer_response() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type create_service_linked_analyzer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_secret_configuration() :: %{
+        "kmsKeyId" => String.t() | atom(),
+        "secretPolicy" => String.t() | atom()
+      }
+
+  """
+  @type secrets_manager_secret_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_linked_analyzer_request() :: %{
+        optional("clientToken") => [String.t() | atom()]
+      }
+
+  """
+  @type delete_service_linked_analyzer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_rule_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "error" => [String.t() | atom()],
-        "findingType" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "resource" => [String.t() | atom()],
-        "resourceOwnerAccount" => [String.t() | atom()],
-        "resourceType" => String.t() | atom(),
-        "status" => String.t() | atom(),
+        "filter" => map(),
+        "ruleName" => String.t() | atom(),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type finding_summary_v2() :: %{(String.t() | atom()) => any()}
+  @type archive_rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_policy_generation_request() :: %{}
+      get_finding_response() :: %{
+        "finding" => finding()
+      }
 
   """
-  @type cancel_policy_generation_request() :: %{}
+  @type get_finding_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_archive_rule_request() :: %{}
+      check_no_new_access_response() :: %{
+        "message" => [String.t() | atom()],
+        "reasons" => list(reason_summary()),
+        "result" => String.t() | atom()
+      }
 
   """
-  @type get_archive_rule_request() :: %{}
+  @type check_no_new_access_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1745,14 +1930,13 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      trail() :: %{
-        "allRegions" => [boolean()],
-        "cloudTrailArn" => String.t() | atom(),
-        "regions" => list([String.t() | atom()]())
+      generated_policy_result() :: %{
+        "generatedPolicies" => list(generated_policy()),
+        "properties" => generated_policy_properties()
       }
 
   """
-  @type trail() :: %{(String.t() | atom()) => any()}
+  @type generated_policy_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1769,575 +1953,391 @@ defmodule AWS.AccessAnalyzer do
 
   ## Example:
 
-      check_access_not_granted_request() :: %{
-        required("access") => list(access()),
-        required("policyDocument") => String.t() | atom(),
-        required("policyType") => String.t() | atom()
+      kms_grant_configuration() :: %{
+        "constraints" => kms_grant_constraints(),
+        "granteePrincipal" => String.t() | atom(),
+        "issuingAccount" => String.t() | atom(),
+        "operations" => list(String.t() | atom()),
+        "retiringPrincipal" => String.t() | atom()
       }
 
   """
-  @type check_access_not_granted_request() :: %{(String.t() | atom()) => any()}
+  @type kms_grant_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_service_linked_analyzer_response() :: %{
-        "arn" => String.t() | atom()
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type create_service_linked_analyzer_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      rds_db_cluster_snapshot_configuration() :: %{
+      get_finding_recommendation_response() :: %{
+        "completedAt" => non_neg_integer(),
+        "error" => recommendation_error(),
+        "nextToken" => String.t() | atom(),
+        "recommendationType" => String.t() | atom(),
+        "recommendedSteps" => list(list()),
+        "resourceArn" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type get_finding_recommendation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_generations_response() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("policyGenerations") => list(policy_generation())
+      }
+
+  """
+  @type list_policy_generations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rds_db_snapshot_configuration() :: %{
         "attributes" => map(),
         "kmsKeyId" => String.t() | atom()
       }
 
   """
-  @type rds_db_cluster_snapshot_configuration() :: %{(String.t() | atom()) => any()}
+  @type rds_db_snapshot_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_preview_summary() :: %{
+      create_access_preview_response() :: %{
+        required("id") => String.t() | atom()
+      }
+
+  """
+  @type create_access_preview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_policy_generation_request() :: %{}
+
+  """
+  @type cancel_policy_generation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_analyzed_resource_request() :: %{
         "analyzerArn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusReason" => access_preview_status_reason()
+        "resourceArn" => String.t() | atom()
       }
 
   """
-  @type access_preview_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_access_findings_statistics() :: %{
-        "resourceTypeStatistics" => map(),
-        "totalActiveFindings" => [integer()],
-        "totalArchivedFindings" => [integer()],
-        "totalResolvedFindings" => [integer()]
-      }
-
-  """
-  @type internal_access_findings_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_analyzers_request() :: %{
-        "maxResults" => [integer()],
-        "nextToken" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type list_analyzers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_v2_response() :: %{
-        "findings" => list(finding_summary_v2()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_findings_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_policy_generation_response() :: %{
-        required("jobId") => String.t() | atom()
-      }
-
-  """
-  @type start_policy_generation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_access_preview_response() :: %{
-        required("accessPreview") => access_preview()
-      }
-
-  """
-  @type get_access_preview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internet_configuration() :: %{}
-
-  """
-  @type internet_configuration() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      criterion() :: %{
-        "contains" => list([String.t() | atom()]()),
-        "eq" => list([String.t() | atom()]()),
-        "exists" => [boolean()],
-        "neq" => list([String.t() | atom()]())
-      }
-
-  """
-  @type criterion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_archive_rule_request() :: %{
-        "clientToken" => [String.t() | atom()],
-        "filter" => map(),
-        "ruleName" => String.t() | atom()
-      }
-
-  """
-  @type create_archive_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_resource_scan_request() :: %{
-        "analyzerArn" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "resourceOwnerAccount" => [String.t() | atom()]
-      }
-
-  """
-  @type start_resource_scan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      secrets_manager_secret_configuration() :: %{
-        "kmsKeyId" => String.t() | atom(),
-        "secretPolicy" => String.t() | atom()
-      }
-
-  """
-  @type secrets_manager_secret_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_error() :: %{
-        "code" => String.t() | atom(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type job_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_public_access_block_configuration() :: %{
-        "ignorePublicAcls" => [boolean()],
-        "restrictPublicBuckets" => [boolean()]
-      }
-
-  """
-  @type s3_public_access_block_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_preview() :: %{
-        "analyzerArn" => String.t() | atom(),
-        "configurations" => map(),
-        "createdAt" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusReason" => access_preview_status_reason()
-      }
-
-  """
-  @type access_preview() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_archive_rule_response() :: %{
-        "archiveRule" => archive_rule_summary()
-      }
-
-  """
-  @type get_archive_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sqs_queue_configuration() :: %{
-        "queuePolicy" => String.t() | atom()
-      }
-
-  """
-  @type sqs_queue_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_access_point_configuration() :: %{
-        "accessPointPolicy" => String.t() | atom(),
-        "networkOrigin" => list(),
-        "publicAccessBlock" => s3_public_access_block_configuration()
-      }
-
-  """
-  @type s3_access_point_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_archive_rule_request() :: %{
-        "clientToken" => [String.t() | atom()],
-        "filter" => map()
-      }
-
-  """
-  @type update_archive_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_preview_findings_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("findings") => list(access_preview_finding())
-      }
-
-  """
-  @type list_access_preview_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynamodb_stream_configuration() :: %{
-        "streamPolicy" => String.t() | atom()
-      }
-
-  """
-  @type dynamodb_stream_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_action() :: %{
-        "action" => [String.t() | atom()],
-        "lastAccessed" => non_neg_integer()
-      }
-
-  """
-  @type unused_action() :: %{(String.t() | atom()) => any()}
+  @type get_analyzed_resource_request() :: %{(String.t() | atom()) => any()}
 
   @type apply_archive_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type cancel_policy_generation_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type check_access_not_granted_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | unprocessable_entity_exception()
           | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type check_no_new_access_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | unprocessable_entity_exception()
           | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type check_no_public_access_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | unprocessable_entity_exception()
           | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_access_preview_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_analyzer_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_archive_rule_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_service_linked_analyzer_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_analyzer_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_archive_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_service_linked_analyzer_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type generate_finding_recommendation_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_access_preview_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_analyzed_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_analyzer_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_archive_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_finding_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_finding_recommendation_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_finding_v2_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_findings_statistics_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_generated_policy_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_access_preview_findings_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_access_previews_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_analyzed_resources_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_analyzers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_archive_rules_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_findings_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_findings_v2_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_policy_generations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type start_policy_generation_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_resource_scan_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_analyzer_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_archive_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_findings_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type validate_policy_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   def metadata do
     %{

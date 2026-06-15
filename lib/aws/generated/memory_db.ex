@@ -20,593 +20,31 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      batch_update_cluster_response() :: %{
-        "ProcessedClusters" => list(cluster()),
-        "UnprocessedClusters" => list(unprocessed_cluster())
-      }
-      
-  """
-  @type batch_update_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_acl_request() :: %{
-        optional("UserNamesToAdd") => list(String.t() | atom()),
-        optional("UserNamesToRemove") => list(String.t() | atom()),
-        required("ACLName") => String.t() | atom()
-      }
-      
-  """
-  @type update_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_user_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_user_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      node_quota_for_customer_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_multi_region_parameters_response() :: %{
-        "MultiRegionParameters" => list(multi_region_parameter()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_multi_region_parameters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_snapshot_request() :: %{
-        required("SnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_subnet_group_response() :: %{
-        "SubnetGroup" => subnet_group()
-      }
-      
-  """
-  @type create_subnet_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      multi_region_cluster_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type multi_region_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_multi_region_parameter_groups_response() :: %{
-        "MultiRegionParameterGroups" => list(multi_region_parameter_group()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_multi_region_parameter_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_shard_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type failover_shard_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_engine_versions_request() :: %{
-        optional("DefaultOnly") => boolean(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
+      describe_clusters_request() :: %{
+        optional("ClusterName") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("ParameterGroupFamily") => String.t() | atom()
+        optional("ShowShardDetails") => boolean()
       }
       
   """
-  @type describe_engine_versions_request() :: %{(String.t() | atom()) => any()}
+  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_parameter_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Family") => String.t() | atom(),
-        required("ParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type create_parameter_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      availability_zone() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type availability_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_multi_region_cluster_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_multi_region_cluster_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_parameter_groups_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ParameterGroups" => list(parameter_group())
-      }
-      
-  """
-  @type describe_parameter_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_response() :: %{
-        "User" => user()
-      }
-      
-  """
-  @type update_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_service_updates_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ServiceUpdates" => list(service_update())
-      }
-      
-  """
-  @type describe_service_updates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_reserved_nodes_request() :: %{
-        optional("Duration") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("NodeType") => String.t() | atom(),
-        optional("OfferingType") => String.t() | atom(),
-        optional("ReservationId") => String.t() | atom(),
-        optional("ReservedNodesOfferingId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_reserved_nodes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{
-        "TagList" => list(tag())
-      }
-      
-  """
-  @type untag_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unprocessed_cluster() :: %{
-        "ClusterName" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "ErrorType" => String.t() | atom()
-      }
-      
-  """
-  @type unprocessed_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_update_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_update_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_group_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_parameter_group_response() :: %{
-        "ParameterGroup" => parameter_group()
-      }
-      
-  """
-  @type create_parameter_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ClusterName") => String.t() | atom(),
-        required("SnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_users_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Users" => list(user())
-      }
-      
-  """
-  @type describe_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_node_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type reserved_node_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_nodes_offering() :: %{
-        "Duration" => integer(),
-        "FixedPrice" => float(),
-        "NodeType" => String.t() | atom(),
-        "OfferingType" => String.t() | atom(),
-        "RecurringCharges" => list(recurring_charge()),
-        "ReservedNodesOfferingId" => String.t() | atom()
-      }
-      
-  """
-  @type reserved_nodes_offering() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_acl_request() :: %{
-        required("ACLName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_parameters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_parameters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_multi_region_clusters_response() :: %{
-        "MultiRegionClusters" => list(multi_region_cluster()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_multi_region_clusters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      security_group_membership() :: %{
-        "SecurityGroupId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type security_group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_snapshots_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Snapshots" => list(snapshot())
-      }
-      
-  """
-  @type describe_snapshots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recurring_charge() :: %{
-        "RecurringChargeAmount" => float(),
-        "RecurringChargeFrequency" => String.t() | atom()
-      }
-      
-  """
-  @type recurring_charge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      multi_region_parameter_group() :: %{
-        "ARN" => String.t() | atom(),
+      parameter() :: %{
+        "AllowedValues" => String.t() | atom(),
+        "DataType" => String.t() | atom(),
         "Description" => String.t() | atom(),
-        "Family" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "MinimumEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type multi_region_parameter_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reset_parameter_group_request() :: %{
-        optional("AllParameters") => boolean(),
-        optional("ParameterNames") => list(String.t() | atom()),
-        required("ParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type reset_parameter_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_kms_key_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_kms_key_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_snapshot_response() :: %{
-        "Snapshot" => snapshot()
-      }
-      
-  """
-  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_allowed_multi_region_cluster_updates_request() :: %{
-        required("MultiRegionClusterName") => String.t() | atom()
-      }
-      
-  """
-  @type list_allowed_multi_region_cluster_updates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acls_update_status() :: %{
-        "ACLToApply" => String.t() | atom()
-      }
-      
-  """
-  @type acls_update_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet() :: %{
-        "AvailabilityZone" => availability_zone(),
-        "Identifier" => String.t() | atom(),
-        "SupportedNetworkTypes" => list(list(any())())
-      }
-      
-  """
-  @type subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_multi_region_cluster_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("MultiRegionParameterGroupName") => String.t() | atom(),
-        optional("NodeType") => String.t() | atom(),
-        optional("ShardConfiguration") => shard_configuration_request(),
-        optional("UpdateStrategy") => list(any()),
-        required("MultiRegionClusterName") => String.t() | atom()
-      }
-      
-  """
-  @type update_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_subnet() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_name_value() :: %{
-        "ParameterName" => String.t() | atom(),
-        "ParameterValue" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,447 +62,34 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      list_tags_response() :: %{
-        "TagList" => list(tag())
-      }
-      
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_users_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resharding_status() :: %{
-        "SlotMigration" => slot_migration()
-      }
-      
-  """
-  @type resharding_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_parameters_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Parameters" => list(parameter())
-      }
-      
-  """
-  @type describe_parameters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_acl_response() :: %{
-        "ACL" => acl()
-      }
-      
-  """
-  @type update_acl_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reset_parameter_group_response() :: %{
-        "ParameterGroup" => parameter_group()
-      }
-      
-  """
-  @type reset_parameter_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_group_state_fault() :: %{
+      invalid_multi_region_cluster_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_multi_region_cluster_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_acl_request() :: %{
-        optional("Tags") => list(tag()),
-        optional("UserNames") => list(String.t() | atom()),
-        required("ACLName") => String.t() | atom()
+      update_multi_region_cluster_response() :: %{
+        "MultiRegionCluster" => multi_region_cluster()
       }
       
   """
-  @type create_acl_request() :: %{(String.t() | atom()) => any()}
+  @type update_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      acl() :: %{
-        "ARN" => String.t() | atom(),
-        "Clusters" => list(String.t() | atom()),
-        "MinimumEngineVersion" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PendingChanges" => acl_pending_changes(),
-        "Status" => String.t() | atom(),
-        "UserNames" => list(String.t() | atom())
-      }
-      
-  """
-  @type acl() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      memorydb_node() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "CreateTime" => non_neg_integer(),
-        "Endpoint" => endpoint(),
-        "Name" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type memorydb_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_group_not_found_fault() :: %{
+      node_quota_for_cluster_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_parameter_group_request() :: %{
-        required("ParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_parameter_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acl_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type acl_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_reserved_nodes_offerings_request() :: %{
-        optional("Duration") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("NodeType") => String.t() | atom(),
-        optional("OfferingType") => String.t() | atom(),
-        optional("ReservedNodesOfferingId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_reserved_nodes_offerings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cluster_request() :: %{
-        optional("ACLName") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("IpDiscovery") => list(any()),
-        optional("MaintenanceWindow") => String.t() | atom(),
-        optional("NodeType") => String.t() | atom(),
-        optional("ParameterGroupName") => String.t() | atom(),
-        optional("ReplicaConfiguration") => replica_configuration_request(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("ShardConfiguration") => shard_configuration_request(),
-        optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t() | atom(),
-        optional("SnsTopicArn") => String.t() | atom(),
-        optional("SnsTopicStatus") => String.t() | atom(),
-        required("ClusterName") => String.t() | atom()
-      }
-      
-  """
-  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      multi_region_parameter() :: %{
-        "AllowedValues" => String.t() | atom(),
-        "DataType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "MinimumEngineVersion" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type multi_region_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_combination_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_configuration() :: %{
-        "Description" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "MaintenanceWindow" => String.t() | atom(),
-        "MultiRegionClusterName" => String.t() | atom(),
-        "MultiRegionParameterGroupName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NodeType" => String.t() | atom(),
-        "NumShards" => integer(),
-        "ParameterGroupName" => String.t() | atom(),
-        "Port" => integer(),
-        "Shards" => list(shard_detail()),
-        "SnapshotRetentionLimit" => integer(),
-        "SnapshotWindow" => String.t() | atom(),
-        "SubnetGroupName" => String.t() | atom(),
-        "TopicArn" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type cluster_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_vpc_network_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_quota_per_resource_exceeded() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type tag_quota_per_resource_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_not_allowed_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_not_allowed_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_allowed_multi_region_cluster_updates_response() :: %{
-        "ScaleDownNodeTypes" => list(String.t() | atom()),
-        "ScaleUpNodeTypes" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_allowed_multi_region_cluster_updates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_subnet_group_request() :: %{
-        required("SubnetGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_subnet_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      shards_per_cluster_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type shards_per_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_group() :: %{
-        "ARN" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Subnets" => list(subnet()),
-        "SupportedNetworkTypes" => list(list(any())()),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_multi_region_cluster_request() :: %{
-        required("MultiRegionClusterName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cluster_request() :: %{
-        optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("DataTiering") => boolean(),
-        optional("Description") => String.t() | atom(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("IpDiscovery") => list(any()),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("MaintenanceWindow") => String.t() | atom(),
-        optional("MultiRegionClusterName") => String.t() | atom(),
-        optional("NetworkType") => list(any()),
-        optional("NumReplicasPerShard") => integer(),
-        optional("NumShards") => integer(),
-        optional("ParameterGroupName") => String.t() | atom(),
-        optional("Port") => integer(),
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("SnapshotArns") => list(String.t() | atom()),
-        optional("SnapshotName") => String.t() | atom(),
-        optional("SnapshotRetentionLimit") => integer(),
-        optional("SnapshotWindow") => String.t() | atom(),
-        optional("SnsTopicArn") => String.t() | atom(),
-        optional("SubnetGroupName") => String.t() | atom(),
-        optional("TLSEnabled") => boolean(),
-        optional("Tags") => list(tag()),
-        required("ACLName") => String.t() | atom(),
-        required("ClusterName") => String.t() | atom(),
-        required("NodeType") => String.t() | atom()
-      }
-      
-  """
-  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      engine_version_info() :: %{
-        "Engine" => String.t() | atom(),
-        "EnginePatchVersion" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "ParameterGroupFamily" => String.t() | atom()
-      }
-      
-  """
-  @type engine_version_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      no_operation_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type no_operation_fault() :: %{(String.t() | atom()) => any()}
+  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1110,163 +135,167 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      subnet_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      shard_detail() :: %{
-        "Configuration" => shard_configuration(),
-        "Name" => String.t() | atom(),
-        "Size" => String.t() | atom(),
-        "SnapshotCreationTime" => non_neg_integer()
-      }
-      
-  """
-  @type shard_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_snapshot_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acls_request() :: %{
-        optional("ACLName") => String.t() | atom(),
+      describe_multi_region_parameters_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("Source") => String.t() | atom(),
+        required("MultiRegionParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_acls_request() :: %{(String.t() | atom()) => any()}
+  @type describe_multi_region_parameters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      test_failover_not_available_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type test_failover_not_available_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_value_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_acl_state_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_acl_state_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_allowed_node_type_updates_request() :: %{
-        required("ClusterName") => String.t() | atom()
-      }
-      
-  """
-  @type list_allowed_node_type_updates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_multi_region_cluster_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Engine") => String.t() | atom(),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("MultiRegionParameterGroupName") => String.t() | atom(),
-        optional("NumShards") => integer(),
-        optional("TLSEnabled") => boolean(),
-        optional("Tags") => list(tag()),
-        required("MultiRegionClusterNameSuffix") => String.t() | atom(),
-        required("NodeType") => String.t() | atom()
-      }
-      
-  """
-  @type create_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_subnet_groups_response() :: %{
+      describe_snapshots_response() :: %{
         "NextToken" => String.t() | atom(),
-        "SubnetGroups" => list(subnet_group())
+        "Snapshots" => list(snapshot())
       }
       
   """
-  @type describe_subnet_groups_response() :: %{(String.t() | atom()) => any()}
+  @type describe_snapshots_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service_update_request() :: %{
-        "ServiceUpdateNameToApply" => String.t() | atom()
+      describe_parameters_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Parameters" => list(parameter())
       }
       
   """
-  @type service_update_request() :: %{(String.t() | atom()) => any()}
+  @type describe_parameters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_multi_region_cluster_response() :: %{
-        "MultiRegionCluster" => multi_region_cluster()
+      describe_reserved_nodes_request() :: %{
+        optional("Duration") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
+        optional("OfferingType") => String.t() | atom(),
+        optional("ReservationId") => String.t() | atom(),
+        optional("ReservedNodesOfferingId") => String.t() | atom()
       }
       
   """
-  @type delete_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type describe_reserved_nodes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      parameter() :: %{
-        "AllowedValues" => String.t() | atom(),
-        "DataType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
+      describe_multi_region_clusters_response() :: %{
+        "MultiRegionClusters" => list(multi_region_cluster()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_clusters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_user_name_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_user_name_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_acl_request() :: %{
+        optional("Tags") => list(tag()),
+        optional("UserNames") => list(String.t() | atom()),
+        required("ACLName") => String.t() | atom()
+      }
+      
+  """
+  @type create_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acl() :: %{
+        "ARN" => String.t() | atom(),
+        "Clusters" => list(String.t() | atom()),
         "MinimumEngineVersion" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
+        "PendingChanges" => acl_pending_changes(),
+        "Status" => String.t() | atom(),
+        "UserNames" => list(String.t() | atom())
       }
       
   """
-  @type parameter() :: %{(String.t() | atom()) => any()}
+  @type acl() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acls_update_status() :: %{
+        "ACLToApply" => String.t() | atom()
+      }
+      
+  """
+  @type acls_update_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_multi_region_cluster_request() :: %{
+        required("MultiRegionClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_acl_response() :: %{
+        "ACL" => acl()
+      }
+      
+  """
+  @type update_acl_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subnet_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("SubnetGroupName") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_subnet_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1285,24 +314,315 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      invalid_arn_fault() :: %{
-        "message" => String.t() | atom()
+      multi_region_parameter() :: %{
+        "AllowedValues" => String.t() | atom(),
+        "DataType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "MinimumEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
+  @type multi_region_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      authentication() :: %{
-        "PasswordCount" => integer(),
-        "Type" => list(any())
+      acl_pending_changes() :: %{
+        "UserNamesToAdd" => list(String.t() | atom()),
+        "UserNamesToRemove" => list(String.t() | atom())
       }
       
   """
-  @type authentication() :: %{(String.t() | atom()) => any()}
+  @type acl_pending_changes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_acl_response() :: %{
+        "ACL" => acl()
+      }
+      
+  """
+  @type delete_acl_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot() :: %{
+        "ARN" => String.t() | atom(),
+        "ClusterConfiguration" => cluster_configuration(),
+        "DataTiering" => list(any()),
+        "KmsKeyId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_response() :: %{
+        "Snapshot" => snapshot()
+      }
+      
+  """
+  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      node_quota_for_customer_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type node_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_kms_key_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_kms_key_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_cluster_request() :: %{
+        optional("ServiceUpdate") => service_update_request(),
+        required("ClusterNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_request() :: %{
+        optional("ACLName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("IpDiscovery") => list(any()),
+        optional("MaintenanceWindow") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
+        optional("ParameterGroupName") => String.t() | atom(),
+        optional("ReplicaConfiguration") => replica_configuration_request(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("ShardConfiguration") => shard_configuration_request(),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SnapshotWindow") => String.t() | atom(),
+        optional("SnsTopicArn") => String.t() | atom(),
+        optional("SnsTopicStatus") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet() :: %{
+        "AvailabilityZone" => availability_zone(),
+        "Identifier" => String.t() | atom(),
+        "SupportedNetworkTypes" => list(list(any())())
+      }
+      
+  """
+  @type subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subnet_group_request() :: %{
+        required("SubnetGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_subnet_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_parameter_group_response() :: %{
+        "ParameterGroup" => parameter_group()
+      }
+      
+  """
+  @type create_parameter_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_node_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type reserved_node_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_group_in_use_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_group_in_use_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_multi_region_clusters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MultiRegionClusterName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ShowClusterDetails") => boolean()
+      }
+      
+  """
+  @type describe_multi_region_clusters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_combination_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_quota_per_resource_exceeded() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type tag_quota_per_resource_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_request() :: %{
+        optional("AccessString") => String.t() | atom(),
+        optional("AuthenticationMode") => authentication_mode(),
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      security_group_membership() :: %{
+        "SecurityGroupId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type security_group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1329,128 +649,67 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      create_subnet_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("SubnetGroupName") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_subnet_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_multi_region_cluster_response() :: %{
-        "MultiRegionCluster" => multi_region_cluster()
-      }
-      
-  """
-  @type create_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acl_pending_changes() :: %{
-        "UserNamesToAdd" => list(String.t() | atom()),
-        "UserNamesToRemove" => list(String.t() | atom())
-      }
-      
-  """
-  @type acl_pending_changes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      api_call_rate_for_customer_exceeded_fault() :: %{
+      shards_per_cluster_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type api_call_rate_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type shards_per_cluster_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_update_cluster_request() :: %{
-        optional("ServiceUpdate") => service_update_request(),
-        required("ClusterNames") => list(String.t() | atom())
+      purchase_reserved_nodes_offering_response() :: %{
+        "ReservedNode" => reserved_node()
       }
       
   """
-  @type batch_update_cluster_request() :: %{(String.t() | atom()) => any()}
+  @type purchase_reserved_nodes_offering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      parameter_group_already_exists_fault() :: %{
+      snapshot_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+  @type snapshot_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_cluster_response() :: %{
-        "Cluster" => cluster()
+      invalid_node_state_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type invalid_node_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_subnet_group_response() :: %{
-        "SubnetGroup" => subnet_group()
+      invalid_credentials_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type delete_subnet_group_response() :: %{(String.t() | atom()) => any()}
+  @type invalid_credentials_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_user_request() :: %{
-        required("UserName") => String.t() | atom()
+      invalid_snapshot_state_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_acl_response() :: %{
-        "ACL" => acl()
-      }
-      
-  """
-  @type create_acl_response() :: %{(String.t() | atom()) => any()}
+  @type invalid_snapshot_state_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1470,113 +729,347 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      shard_not_found_fault() :: %{
+      invalid_subnet() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type shard_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_subnet() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_user_response() :: %{
-        "User" => user()
-      }
-      
-  """
-  @type delete_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_quota_for_customer_exceeded_fault() :: %{
+      subnet_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      user_already_exists_fault() :: %{
+      update_subnet_group_response() :: %{
+        "SubnetGroup" => subnet_group()
+      }
+      
+  """
+  @type update_subnet_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_shard_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type failover_shard_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_not_allowed_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type user_already_exists_fault() :: %{(String.t() | atom()) => any()}
+  @type subnet_not_allowed_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_parameter_group_response() :: %{
-        "ParameterGroup" => parameter_group()
-      }
-      
-  """
-  @type delete_parameter_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_acls_response() :: %{
-        "ACLs" => list(acl()),
+      describe_engine_versions_response() :: %{
+        "EngineVersions" => list(engine_version_info()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_acls_response() :: %{(String.t() | atom()) => any()}
+  @type describe_engine_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      purchase_reserved_nodes_offering_response() :: %{
-        "ReservedNode" => reserved_node()
-      }
-      
-  """
-  @type purchase_reserved_nodes_offering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_node_not_found_fault() :: %{
+      reserved_nodes_offering_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type reserved_node_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type reserved_nodes_offering_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_parameter_group_response() :: %{
+        "ParameterGroup" => parameter_group()
+      }
+      
+  """
+  @type update_parameter_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acl_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type acl_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pending_modified_service_update() :: %{
+        "ServiceUpdateName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type pending_modified_service_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_request() :: %{
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ClusterName") => String.t() | atom(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_acl_request() :: %{
+        required("ACLName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acl_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type acl_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_failover_not_available_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type test_failover_not_available_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      multi_region_parameter_group() :: %{
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Family" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type multi_region_parameter_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_request() :: %{
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_user_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_user_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_updates_request() :: %{
+        optional("ClusterNames") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ServiceUpdateName") => String.t() | atom(),
+        optional("Status") => list(list(any())())
+      }
+      
+  """
+  @type describe_service_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_events_response() :: %{
+        "Events" => list(event()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_response() :: %{
+        "User" => user()
+      }
+      
+  """
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_node_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type reserved_node_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_response() :: %{
+        "Snapshot" => snapshot()
+      }
+      
+  """
+  @type copy_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_shard_request() :: %{
+        required("ClusterName") => String.t() | atom(),
+        required("ShardName") => String.t() | atom()
+      }
+      
+  """
+  @type failover_shard_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_in_use() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_reserved_nodes_offerings_request() :: %{
+        optional("Duration") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
+        optional("OfferingType") => String.t() | atom(),
+        optional("ReservedNodesOfferingId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_reserved_nodes_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_multi_region_cluster_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("MultiRegionParameterGroupName") => String.t() | atom(),
+        optional("NodeType") => String.t() | atom(),
+        optional("ShardConfiguration") => shard_configuration_request(),
+        optional("UpdateStrategy") => list(any()),
+        required("MultiRegionClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type update_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_subnet_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SubnetGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_subnet_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1597,207 +1090,6 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      shard_configuration_request() :: %{
-        "ShardCount" => integer()
-      }
-      
-  """
-  @type shard_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_multi_region_clusters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("MultiRegionClusterName") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ShowClusterDetails") => boolean()
-      }
-      
-  """
-  @type describe_multi_region_clusters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_user_name_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_user_name_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event() :: %{
-        "Date" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "SourceName" => String.t() | atom(),
-        "SourceType" => list(any())
-      }
-      
-  """
-  @type event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cluster_request() :: %{
-        optional("FinalSnapshotName") => String.t() | atom(),
-        optional("MultiRegionClusterName") => String.t() | atom(),
-        required("ClusterName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_group_quota_exceeded_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_events_request() :: %{
-        optional("Duration") => integer(),
-        optional("EndTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SourceName") => String.t() | atom(),
-        optional("SourceType") => list(any()),
-        optional("StartTime") => non_neg_integer()
-      }
-      
-  """
-  @type describe_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot() :: %{
-        "ARN" => String.t() | atom(),
-        "ClusterConfiguration" => cluster_configuration(),
-        "DataTiering" => list(any()),
-        "KmsKeyId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_subnet_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SubnetGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_subnet_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_in_use() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type subnet_in_use() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_multi_region_parameter_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("MultiRegionParameterGroupName") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_multi_region_parameter_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_linked_role_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{
-        "TagList" => list(tag())
-      }
-      
-  """
-  @type tag_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_multi_region_cluster_response() :: %{
-        "MultiRegionCluster" => multi_region_cluster()
-      }
-      
-  """
-  @type update_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acl_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type acl_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_reserved_nodes_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ReservedNodes" => list(reserved_node())
-      }
-      
-  """
-  @type describe_reserved_nodes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       regional_cluster() :: %{
         "ARN" => String.t() | atom(),
         "ClusterName" => String.t() | atom(),
@@ -1812,131 +1104,12 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      describe_parameter_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ParameterGroupName") => String.t() | atom()
+      list_tags_response() :: %{
+        "TagList" => list(tag())
       }
       
   """
-  @type describe_parameter_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_snapshot_request() :: %{
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TargetBucket") => String.t() | atom(),
-        required("SourceSnapshotName") => String.t() | atom(),
-        required("TargetSnapshotName") => String.t() | atom()
-      }
-      
-  """
-  @type copy_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_clusters_response() :: %{
-        "Clusters" => list(cluster()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cluster_pending_updates() :: %{
-        "ACLs" => acls_update_status(),
-        "Resharding" => resharding_status(),
-        "ServiceUpdates" => list(pending_modified_service_update())
-      }
-      
-  """
-  @type cluster_pending_updates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snapshot_already_exists_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_request() :: %{
-        optional("AccessString") => String.t() | atom(),
-        optional("AuthenticationMode") => authentication_mode(),
-        required("UserName") => String.t() | atom()
-      }
-      
-  """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replica_configuration_request() :: %{
-        "ReplicaCount" => integer()
-      }
-      
-  """
-  @type replica_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_nodes_offering_not_found_fault() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type reserved_nodes_offering_not_found_fault() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_multi_region_parameters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Source") => String.t() | atom(),
-        required("MultiRegionParameterGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_multi_region_parameters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user() :: %{
-        "ACLNames" => list(String.t() | atom()),
-        "ARN" => String.t() | atom(),
-        "AccessString" => String.t() | atom(),
-        "Authentication" => authentication(),
-        "MinimumEngineVersion" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type user() :: %{(String.t() | atom()) => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1961,44 +1134,182 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      multi_region_cluster() :: %{
+      snapshot_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_parameter_group_request() :: %{
+        optional("AllParameters") => boolean(),
+        optional("ParameterNames") => list(String.t() | atom()),
+        required("ParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type reset_parameter_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user() :: %{
+        "ACLNames" => list(String.t() | atom()),
         "ARN" => String.t() | atom(),
-        "Clusters" => list(regional_cluster()),
-        "Description" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "MultiRegionClusterName" => String.t() | atom(),
-        "MultiRegionParameterGroupName" => String.t() | atom(),
-        "NodeType" => String.t() | atom(),
-        "NumberOfShards" => integer(),
-        "Status" => String.t() | atom(),
-        "TLSEnabled" => boolean()
+        "AccessString" => String.t() | atom(),
+        "Authentication" => authentication(),
+        "MinimumEngineVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type multi_region_cluster() :: %{(String.t() | atom()) => any()}
+  @type user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_cluster_state_fault() :: %{
-        "message" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type invalid_cluster_state_fault() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      default_user_required() :: %{
+      unprocessed_cluster() :: %{
+        "ClusterName" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom()
+      }
+      
+  """
+  @type unprocessed_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_response() :: %{
+        "User" => user()
+      }
+      
+  """
+  @type delete_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_update_request() :: %{
+        "ServiceUpdateNameToApply" => String.t() | atom()
+      }
+      
+  """
+  @type service_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_parameter_group_request() :: %{
+        required("ParameterGroupName") => String.t() | atom(),
+        required("ParameterNameValues") => list(parameter_name_value())
+      }
+      
+  """
+  @type update_parameter_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_multi_region_parameter_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MultiRegionParameterGroupName") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_parameter_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_name_value() :: %{
+        "ParameterName" => String.t() | atom(),
+        "ParameterValue" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_name_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type tag_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acl_already_exists_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type default_user_required() :: %{(String.t() | atom()) => any()}
+  @type acl_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_cluster_capacity_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_multi_region_parameters_response() :: %{
+        "MultiRegionParameters" => list(multi_region_parameter()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_parameters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2020,23 +1331,142 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      reserved_node_quota_exceeded_fault() :: %{
+      multi_region_cluster_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type reserved_node_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type multi_region_cluster_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_parameter_group_response() :: %{
-        "ParameterGroup" => parameter_group()
+      multi_region_cluster_already_exists_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type update_parameter_group_response() :: %{(String.t() | atom()) => any()}
+  @type multi_region_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_users_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Users" => list(user())
+      }
+      
+  """
+  @type describe_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_acls_request() :: %{
+        optional("ACLName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_acls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      api_call_rate_for_customer_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type api_call_rate_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_users_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_response() :: %{
+        "User" => user()
+      }
+      
+  """
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_request() :: %{
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("DataTiering") => boolean(),
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("IpDiscovery") => list(any()),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("MaintenanceWindow") => String.t() | atom(),
+        optional("MultiRegionClusterName") => String.t() | atom(),
+        optional("NetworkType") => list(any()),
+        optional("NumReplicasPerShard") => integer(),
+        optional("NumShards") => integer(),
+        optional("ParameterGroupName") => String.t() | atom(),
+        optional("Port") => integer(),
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("SnapshotArns") => list(String.t() | atom()),
+        optional("SnapshotName") => String.t() | atom(),
+        optional("SnapshotRetentionLimit") => integer(),
+        optional("SnapshotWindow") => String.t() | atom(),
+        optional("SnsTopicArn") => String.t() | atom(),
+        optional("SubnetGroupName") => String.t() | atom(),
+        optional("TLSEnabled") => boolean(),
+        optional("Tags") => list(tag()),
+        required("ACLName") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom(),
+        required("NodeType") => String.t() | atom()
+      }
+      
+  """
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      shard_configuration_request() :: %{
+        "ShardCount" => integer()
+      }
+      
+  """
+  @type shard_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type untag_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2066,36 +1496,126 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      subnet_group_in_use_fault() :: %{
+      describe_parameter_groups_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ParameterGroups" => list(parameter_group())
+      }
+      
+  """
+  @type describe_parameter_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_pending_updates() :: %{
+        "ACLs" => acls_update_status(),
+        "Resharding" => resharding_status(),
+        "ServiceUpdates" => list(pending_modified_service_update())
+      }
+      
+  """
+  @type cluster_pending_updates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_parameter_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Family") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type create_parameter_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      shard_configuration() :: %{
+        "ReplicaCount" => integer(),
+        "Slots" => String.t() | atom()
+      }
+      
+  """
+  @type shard_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_snapshot_request() :: %{
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TargetBucket") => String.t() | atom(),
+        required("SourceSnapshotName") => String.t() | atom(),
+        required("TargetSnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type copy_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_parameter_group_response() :: %{
+        "ParameterGroup" => parameter_group()
+      }
+      
+  """
+  @type delete_parameter_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_request() :: %{
+        required("UserName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type subnet_group_in_use_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_arn_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_parameter_group_request() :: %{
-        required("ParameterGroupName") => String.t() | atom(),
-        required("ParameterNameValues") => list(parameter_name_value())
+      engine_version_info() :: %{
+        "Engine" => String.t() | atom(),
+        "EnginePatchVersion" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "ParameterGroupFamily" => String.t() | atom()
       }
       
   """
-  @type update_parameter_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pending_modified_service_update() :: %{
-        "ServiceUpdateName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type pending_modified_service_update() :: %{(String.t() | atom()) => any()}
+  @type engine_version_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2115,45 +1635,226 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      invalid_node_state_fault() :: %{
+      shard_not_found_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_node_state_fault() :: %{(String.t() | atom()) => any()}
+  @type shard_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      insufficient_cluster_capacity_fault() :: %{
-        "message" => String.t() | atom()
+      subnet_group() :: %{
+        "ARN" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Subnets" => list(subnet()),
+        "SupportedNetworkTypes" => list(list(any())()),
+        "VpcId" => String.t() | atom()
       }
       
   """
-  @type insufficient_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
+  @type subnet_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cluster_already_exists_fault() :: %{
+      cluster_quota_for_customer_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+  @type cluster_quota_for_customer_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      multi_region_cluster_already_exists_fault() :: %{
+      describe_events_request() :: %{
+        optional("Duration") => integer(),
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SourceName") => String.t() | atom(),
+        optional("SourceType") => list(any()),
+        optional("StartTime") => non_neg_integer()
+      }
+      
+  """
+  @type describe_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_update_cluster_response() :: %{
+        "ProcessedClusters" => list(cluster()),
+        "UnprocessedClusters" => list(unprocessed_cluster())
+      }
+      
+  """
+  @type batch_update_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_service_updates_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ServiceUpdates" => list(service_update())
+      }
+      
+  """
+  @type describe_service_updates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_parameters_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ParameterGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_parameters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_cluster_state_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type multi_region_cluster_already_exists_fault() :: %{(String.t() | atom()) => any()}
+  @type invalid_cluster_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_nodes_offering() :: %{
+        "Duration" => integer(),
+        "FixedPrice" => float(),
+        "NodeType" => String.t() | atom(),
+        "OfferingType" => String.t() | atom(),
+        "RecurringCharges" => list(recurring_charge()),
+        "ReservedNodesOfferingId" => String.t() | atom()
+      }
+      
+  """
+  @type reserved_nodes_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_acl_response() :: %{
+        "ACL" => acl()
+      }
+      
+  """
+  @type create_acl_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      memorydb_node() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "Endpoint" => endpoint(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type memorydb_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_group_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reset_parameter_group_response() :: %{
+        "ParameterGroup" => parameter_group()
+      }
+      
+  """
+  @type reset_parameter_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_allowed_multi_region_cluster_updates_request() :: %{
+        required("MultiRegionClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type list_allowed_multi_region_cluster_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_multi_region_cluster_response() :: %{
+        "MultiRegionCluster" => multi_region_cluster()
+      }
+      
+  """
+  @type delete_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_multi_region_parameter_groups_response() :: %{
+        "MultiRegionParameterGroups" => list(multi_region_parameter_group()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_multi_region_parameter_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_allowed_multi_region_cluster_updates_response() :: %{
+        "ScaleDownNodeTypes" => list(String.t() | atom()),
+        "ScaleUpNodeTypes" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_allowed_multi_region_cluster_updates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_clusters_response() :: %{
+        "Clusters" => list(cluster()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2170,199 +1871,453 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      copy_snapshot_response() :: %{
-        "Snapshot" => snapshot()
+      update_acl_request() :: %{
+        optional("UserNamesToAdd") => list(String.t() | atom()),
+        optional("UserNamesToRemove") => list(String.t() | atom()),
+        required("ACLName") => String.t() | atom()
       }
       
   """
-  @type copy_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type update_acl_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_service_updates_request() :: %{
-        optional("ClusterNames") => list(String.t() | atom()),
+      describe_parameter_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("ServiceUpdateName") => String.t() | atom(),
-        optional("Status") => list(list(any())())
+        optional("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type describe_service_updates_request() :: %{(String.t() | atom()) => any()}
+  @type describe_parameter_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_engine_versions_response() :: %{
-        "EngineVersions" => list(engine_version_info()),
-        "NextToken" => String.t() | atom()
+      shard_detail() :: %{
+        "Configuration" => shard_configuration(),
+        "Name" => String.t() | atom(),
+        "Size" => String.t() | atom(),
+        "SnapshotCreationTime" => non_neg_integer()
       }
       
   """
-  @type describe_engine_versions_response() :: %{(String.t() | atom()) => any()}
+  @type shard_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_credentials_exception() :: %{
+      reserved_node_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type invalid_credentials_exception() :: %{(String.t() | atom()) => any()}
+  @type reserved_node_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_acl_response() :: %{
-        "ACL" => acl()
-      }
-      
-  """
-  @type delete_acl_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subnet_quota_exceeded_fault() :: %{
+      snapshot_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type subnet_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type snapshot_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      acl_quota_exceeded_fault() :: %{
+      subnet_group_already_exists_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type acl_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type subnet_group_already_exists_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_user_response() :: %{
-        "User" => user()
+      list_allowed_node_type_updates_request() :: %{
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type create_user_response() :: %{(String.t() | atom()) => any()}
+  @type list_allowed_node_type_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      slot_migration() :: %{
-        "ProgressPercentage" => float()
+      delete_parameter_group_request() :: %{
+        required("ParameterGroupName") => String.t() | atom()
       }
       
   """
-  @type slot_migration() :: %{(String.t() | atom()) => any()}
+  @type delete_parameter_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      parameter_group_not_found_fault() :: %{
+      default_user_required() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type default_user_required() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      failover_shard_request() :: %{
-        required("ClusterName") => String.t() | atom(),
-        required("ShardName") => String.t() | atom()
+      tag_not_found_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type failover_shard_request() :: %{(String.t() | atom()) => any()}
+  @type tag_not_found_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_clusters_request() :: %{
-        optional("ClusterName") => String.t() | atom(),
+      multi_region_cluster() :: %{
+        "ARN" => String.t() | atom(),
+        "Clusters" => list(regional_cluster()),
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "MultiRegionClusterName" => String.t() | atom(),
+        "MultiRegionParameterGroupName" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
+        "NumberOfShards" => integer(),
+        "Status" => String.t() | atom(),
+        "TLSEnabled" => boolean()
+      }
+      
+  """
+  @type multi_region_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_vpc_network_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_vpc_network_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_acl_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_acl_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_engine_versions_request() :: %{
+        optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("ShowShardDetails") => boolean()
+        optional("ParameterGroupFamily") => String.t() | atom()
       }
       
   """
-  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
+  @type describe_engine_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_events_response() :: %{
-        "Events" => list(event()),
-        "NextToken" => String.t() | atom()
+      delete_cluster_request() :: %{
+        optional("FinalSnapshotName") => String.t() | atom(),
+        optional("MultiRegionClusterName") => String.t() | atom(),
+        required("ClusterName") => String.t() | atom()
       }
       
   """
-  @type describe_events_response() :: %{(String.t() | atom()) => any()}
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_subnet_group_response() :: %{
+      create_subnet_group_response() :: %{
         "SubnetGroup" => subnet_group()
       }
       
   """
-  @type update_subnet_group_response() :: %{(String.t() | atom()) => any()}
+  @type create_subnet_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      shard_configuration() :: %{
-        "ReplicaCount" => integer(),
-        "Slots" => String.t() | atom()
-      }
-      
-  """
-  @type shard_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      multi_region_parameter_group_not_found_fault() :: %{
+      subnet_group_quota_exceeded_fault() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type multi_region_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+  @type subnet_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_snapshot_response() :: %{
+      create_multi_region_cluster_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Engine") => String.t() | atom(),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("MultiRegionParameterGroupName") => String.t() | atom(),
+        optional("NumShards") => integer(),
+        optional("TLSEnabled") => boolean(),
+        optional("Tags") => list(tag()),
+        required("MultiRegionClusterNameSuffix") => String.t() | atom(),
+        required("NodeType") => String.t() | atom()
+      }
+      
+  """
+  @type create_multi_region_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_multi_region_cluster_response() :: %{
+        "MultiRegionCluster" => multi_region_cluster()
+      }
+      
+  """
+  @type create_multi_region_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_configuration() :: %{
+        "Description" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "MaintenanceWindow" => String.t() | atom(),
+        "MultiRegionClusterName" => String.t() | atom(),
+        "MultiRegionParameterGroupName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
+        "NumShards" => integer(),
+        "ParameterGroupName" => String.t() | atom(),
+        "Port" => integer(),
+        "Shards" => list(shard_detail()),
+        "SnapshotRetentionLimit" => integer(),
+        "SnapshotWindow" => String.t() | atom(),
+        "SubnetGroupName" => String.t() | atom(),
+        "TopicArn" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_reserved_nodes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ReservedNodes" => list(reserved_node())
+      }
+      
+  """
+  @type describe_reserved_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resharding_status() :: %{
+        "SlotMigration" => slot_migration()
+      }
+      
+  """
+  @type resharding_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_already_exists_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_already_exists_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_group_state_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_group_state_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_update_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_update_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_acls_response() :: %{
+        "ACLs" => list(acl()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_acls_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subnet_group_response() :: %{
+        "SubnetGroup" => subnet_group()
+      }
+      
+  """
+  @type delete_subnet_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_group_quota_exceeded_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_group_quota_exceeded_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event() :: %{
+        "Date" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
+        "SourceType" => list(any())
+      }
+      
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authentication() :: %{
+        "PasswordCount" => integer(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_linked_role_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_linked_role_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recurring_charge() :: %{
+        "RecurringChargeAmount" => float(),
+        "RecurringChargeFrequency" => String.t() | atom()
+      }
+      
+  """
+  @type recurring_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_subnet_groups_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SubnetGroups" => list(subnet_group())
+      }
+      
+  """
+  @type describe_subnet_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_response() :: %{
         "Snapshot" => snapshot()
       }
       
   """
-  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2382,70 +2337,115 @@ defmodule AWS.MemoryDB do
 
   ## Example:
       
-      node_quota_for_cluster_exceeded_fault() :: %{
-        "message" => String.t() | atom()
+      filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type node_quota_for_cluster_exceeded_fault() :: %{(String.t() | atom()) => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_cluster_response() :: %{
-        "Cluster" => cluster()
+      multi_region_parameter_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type multi_region_parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      no_operation_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type no_operation_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replica_configuration_request() :: %{
+        "ReplicaCount" => integer()
+      }
+      
+  """
+  @type replica_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parameter_group_not_found_fault() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type parameter_group_not_found_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      slot_migration() :: %{
+        "ProgressPercentage" => float()
+      }
+      
+  """
+  @type slot_migration() :: %{(String.t() | atom()) => any()}
 
   @type batch_update_cluster_errors() ::
-          invalid_parameter_value_exception() | service_update_not_found_fault()
+          service_update_not_found_fault() | invalid_parameter_value_exception()
 
   @type copy_snapshot_errors() ::
-          snapshot_already_exists_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
+          | snapshot_quota_exceeded_fault()
+          | snapshot_already_exists_fault()
           | invalid_parameter_value_exception()
           | invalid_snapshot_state_fault()
+          | snapshot_not_found_fault()
           | tag_quota_per_resource_exceeded()
           | invalid_parameter_combination_exception()
-          | snapshot_not_found_fault()
-          | snapshot_quota_exceeded_fault()
 
   @type create_acl_errors() ::
-          acl_quota_exceeded_fault()
+          user_not_found_fault()
           | default_user_required()
           | acl_already_exists_fault()
-          | duplicate_user_name_fault()
           | invalid_parameter_value_exception()
+          | acl_quota_exceeded_fault()
           | tag_quota_per_resource_exceeded()
-          | user_not_found_fault()
+          | duplicate_user_name_fault()
 
   @type create_cluster_errors() ::
-          node_quota_for_cluster_exceeded_fault()
-          | parameter_group_not_found_fault()
-          | invalid_credentials_exception()
-          | cluster_already_exists_fault()
-          | insufficient_cluster_capacity_fault()
+          parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
-          | cluster_quota_for_customer_exceeded_fault()
           | invalid_acl_state_fault()
+          | invalid_vpc_network_state_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | multi_region_cluster_not_found_fault()
+          | insufficient_cluster_capacity_fault()
+          | cluster_already_exists_fault()
           | invalid_parameter_value_exception()
+          | acl_not_found_fault()
+          | invalid_credentials_exception()
           | shards_per_cluster_quota_exceeded_fault()
           | tag_quota_per_resource_exceeded()
-          | invalid_vpc_network_state_fault()
           | invalid_parameter_combination_exception()
-          | acl_not_found_fault()
           | subnet_group_not_found_fault()
-          | invalid_multi_region_cluster_state_fault()
-          | multi_region_cluster_not_found_fault()
           | node_quota_for_customer_exceeded_fault()
+          | node_quota_for_cluster_exceeded_fault()
+          | invalid_multi_region_cluster_state_fault()
 
   @type create_multi_region_cluster_errors() ::
           multi_region_parameter_group_not_found_fault()
-          | multi_region_cluster_already_exists_fault()
           | cluster_quota_for_customer_exceeded_fault()
+          | multi_region_cluster_already_exists_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
           | invalid_parameter_combination_exception()
@@ -2453,81 +2453,81 @@ defmodule AWS.MemoryDB do
   @type create_parameter_group_errors() ::
           service_linked_role_not_found_fault()
           | parameter_group_quota_exceeded_fault()
+          | invalid_parameter_group_state_fault()
           | parameter_group_already_exists_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
           | invalid_parameter_combination_exception()
-          | invalid_parameter_group_state_fault()
 
   @type create_snapshot_errors() ::
-          invalid_cluster_state_fault()
+          service_linked_role_not_found_fault()
+          | snapshot_quota_exceeded_fault()
+          | invalid_cluster_state_fault()
           | snapshot_already_exists_fault()
-          | service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
           | invalid_parameter_combination_exception()
           | cluster_not_found_fault()
-          | snapshot_quota_exceeded_fault()
 
   @type create_subnet_group_errors() ::
-          subnet_quota_exceeded_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
           | subnet_group_quota_exceeded_fault()
-          | subnet_not_allowed_fault()
-          | tag_quota_per_resource_exceeded()
-          | invalid_subnet()
           | subnet_group_already_exists_fault()
+          | subnet_not_allowed_fault()
+          | subnet_quota_exceeded_fault()
+          | invalid_subnet()
+          | tag_quota_per_resource_exceeded()
 
   @type create_user_errors() ::
-          duplicate_user_name_fault()
+          user_already_exists_fault()
           | user_quota_exceeded_fault()
-          | user_already_exists_fault()
           | invalid_parameter_value_exception()
           | tag_quota_per_resource_exceeded()
           | invalid_parameter_combination_exception()
+          | duplicate_user_name_fault()
 
   @type delete_acl_errors() ::
           invalid_acl_state_fault() | invalid_parameter_value_exception() | acl_not_found_fault()
 
   @type delete_cluster_errors() ::
-          invalid_cluster_state_fault()
+          service_linked_role_not_found_fault()
+          | invalid_cluster_state_fault()
           | snapshot_already_exists_fault()
-          | service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
           | cluster_not_found_fault()
 
   @type delete_multi_region_cluster_errors() ::
-          invalid_parameter_value_exception()
+          multi_region_cluster_not_found_fault()
+          | invalid_parameter_value_exception()
           | invalid_multi_region_cluster_state_fault()
-          | multi_region_cluster_not_found_fault()
 
   @type delete_parameter_group_errors() ::
           parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
+          | invalid_parameter_group_state_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | invalid_parameter_group_state_fault()
 
   @type delete_snapshot_errors() ::
           service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_snapshot_state_fault()
-          | invalid_parameter_combination_exception()
           | snapshot_not_found_fault()
+          | invalid_parameter_combination_exception()
 
   @type delete_subnet_group_errors() ::
-          subnet_group_in_use_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
+          | subnet_group_in_use_fault()
           | subnet_group_not_found_fault()
 
   @type delete_user_errors() ::
-          invalid_parameter_value_exception()
-          | user_not_found_fault()
+          user_not_found_fault()
           | invalid_user_state_fault()
+          | invalid_parameter_value_exception()
 
   @type describe_acls_errors() ::
-          invalid_parameter_combination_exception() | acl_not_found_fault()
+          acl_not_found_fault() | invalid_parameter_combination_exception()
 
   @type describe_clusters_errors() ::
           service_linked_role_not_found_fault()
@@ -2546,10 +2546,10 @@ defmodule AWS.MemoryDB do
           | invalid_parameter_combination_exception()
 
   @type describe_multi_region_clusters_errors() ::
-          invalid_parameter_value_exception()
+          multi_region_cluster_not_found_fault()
+          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
           | cluster_not_found_fault()
-          | multi_region_cluster_not_found_fault()
 
   @type describe_multi_region_parameter_groups_errors() ::
           multi_region_parameter_group_not_found_fault()
@@ -2577,14 +2577,14 @@ defmodule AWS.MemoryDB do
 
   @type describe_reserved_nodes_errors() ::
           service_linked_role_not_found_fault()
-          | reserved_node_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
+          | reserved_node_not_found_fault()
 
   @type describe_reserved_nodes_offerings_errors() ::
-          reserved_nodes_offering_not_found_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
+          | reserved_nodes_offering_not_found_fault()
           | invalid_parameter_combination_exception()
 
   @type describe_service_updates_errors() ::
@@ -2593,29 +2593,29 @@ defmodule AWS.MemoryDB do
   @type describe_snapshots_errors() ::
           service_linked_role_not_found_fault()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
           | snapshot_not_found_fault()
+          | invalid_parameter_combination_exception()
 
   @type describe_subnet_groups_errors() ::
           service_linked_role_not_found_fault() | subnet_group_not_found_fault()
 
   @type describe_users_errors() ::
-          invalid_parameter_combination_exception() | user_not_found_fault()
+          user_not_found_fault() | invalid_parameter_combination_exception()
 
   @type failover_shard_errors() ::
           invalid_cluster_state_fault()
           | shard_not_found_fault()
           | api_call_rate_for_customer_exceeded_fault()
-          | invalid_parameter_value_exception()
           | test_failover_not_available_fault()
+          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
           | cluster_not_found_fault()
           | invalid_kms_key_fault()
 
   @type list_allowed_multi_region_cluster_updates_errors() ::
-          invalid_parameter_value_exception()
+          multi_region_cluster_not_found_fault()
+          | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | multi_region_cluster_not_found_fault()
 
   @type list_allowed_node_type_updates_errors() ::
           service_linked_role_not_found_fault()
@@ -2624,118 +2624,118 @@ defmodule AWS.MemoryDB do
           | cluster_not_found_fault()
 
   @type list_tags_errors() ::
-          multi_region_parameter_group_not_found_fault()
-          | parameter_group_not_found_fault()
-          | invalid_cluster_state_fault()
+          parameter_group_not_found_fault()
+          | multi_region_parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
-          | invalid_arn_fault()
-          | acl_not_found_fault()
-          | subnet_group_not_found_fault()
-          | cluster_not_found_fault()
           | user_not_found_fault()
+          | invalid_cluster_state_fault()
+          | invalid_arn_fault()
           | multi_region_cluster_not_found_fault()
+          | acl_not_found_fault()
           | snapshot_not_found_fault()
+          | cluster_not_found_fault()
+          | subnet_group_not_found_fault()
 
   @type purchase_reserved_nodes_offering_errors() ::
-          reserved_node_quota_exceeded_fault()
-          | reserved_nodes_offering_not_found_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
+          | reserved_node_quota_exceeded_fault()
+          | reserved_node_already_exists_fault()
           | invalid_parameter_value_exception()
+          | reserved_nodes_offering_not_found_fault()
           | tag_quota_per_resource_exceeded()
           | invalid_parameter_combination_exception()
-          | reserved_node_already_exists_fault()
 
   @type reset_parameter_group_errors() ::
           parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
+          | invalid_parameter_group_state_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | invalid_parameter_group_state_fault()
 
   @type tag_resource_errors() ::
-          multi_region_parameter_group_not_found_fault()
-          | parameter_group_not_found_fault()
-          | invalid_cluster_state_fault()
+          parameter_group_not_found_fault()
+          | multi_region_parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
-          | invalid_arn_fault()
-          | invalid_parameter_value_exception()
-          | tag_quota_per_resource_exceeded()
-          | acl_not_found_fault()
-          | subnet_group_not_found_fault()
-          | cluster_not_found_fault()
           | user_not_found_fault()
+          | invalid_cluster_state_fault()
+          | invalid_arn_fault()
           | multi_region_cluster_not_found_fault()
+          | invalid_parameter_value_exception()
+          | acl_not_found_fault()
           | snapshot_not_found_fault()
+          | tag_quota_per_resource_exceeded()
+          | cluster_not_found_fault()
+          | subnet_group_not_found_fault()
 
   @type untag_resource_errors() ::
-          multi_region_parameter_group_not_found_fault()
-          | parameter_group_not_found_fault()
-          | invalid_cluster_state_fault()
+          parameter_group_not_found_fault()
+          | multi_region_parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
-          | invalid_arn_fault()
-          | invalid_parameter_value_exception()
-          | tag_not_found_fault()
-          | acl_not_found_fault()
-          | subnet_group_not_found_fault()
-          | cluster_not_found_fault()
           | user_not_found_fault()
+          | tag_not_found_fault()
+          | invalid_cluster_state_fault()
+          | invalid_arn_fault()
           | multi_region_cluster_not_found_fault()
+          | invalid_parameter_value_exception()
+          | acl_not_found_fault()
           | snapshot_not_found_fault()
+          | cluster_not_found_fault()
+          | subnet_group_not_found_fault()
 
   @type update_acl_errors() ::
-          default_user_required()
-          | duplicate_user_name_fault()
+          user_not_found_fault()
           | invalid_acl_state_fault()
+          | default_user_required()
           | invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
           | acl_not_found_fault()
-          | user_not_found_fault()
+          | invalid_parameter_combination_exception()
+          | duplicate_user_name_fault()
 
   @type update_cluster_errors() ::
-          node_quota_for_cluster_exceeded_fault()
-          | parameter_group_not_found_fault()
-          | invalid_node_state_fault()
-          | invalid_cluster_state_fault()
-          | service_linked_role_not_found_fault()
-          | cluster_quota_for_customer_exceeded_fault()
-          | invalid_acl_state_fault()
-          | invalid_parameter_value_exception()
+          parameter_group_not_found_fault()
           | no_operation_fault()
-          | shards_per_cluster_quota_exceeded_fault()
+          | service_linked_role_not_found_fault()
+          | invalid_acl_state_fault()
           | invalid_vpc_network_state_fault()
-          | invalid_parameter_combination_exception()
+          | invalid_cluster_state_fault()
+          | cluster_quota_for_customer_exceeded_fault()
+          | invalid_parameter_value_exception()
           | acl_not_found_fault()
+          | invalid_node_state_fault()
+          | shards_per_cluster_quota_exceeded_fault()
+          | invalid_parameter_combination_exception()
           | cluster_not_found_fault()
           | invalid_kms_key_fault()
           | node_quota_for_customer_exceeded_fault()
+          | node_quota_for_cluster_exceeded_fault()
 
   @type update_multi_region_cluster_errors() ::
           multi_region_parameter_group_not_found_fault()
+          | multi_region_cluster_not_found_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
           | invalid_multi_region_cluster_state_fault()
-          | multi_region_cluster_not_found_fault()
 
   @type update_parameter_group_errors() ::
           parameter_group_not_found_fault()
           | service_linked_role_not_found_fault()
+          | invalid_parameter_group_state_fault()
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
-          | invalid_parameter_group_state_fault()
 
   @type update_subnet_group_errors() ::
-          subnet_quota_exceeded_fault()
-          | service_linked_role_not_found_fault()
+          service_linked_role_not_found_fault()
           | subnet_in_use()
           | subnet_not_allowed_fault()
-          | subnet_group_not_found_fault()
+          | subnet_quota_exceeded_fault()
           | invalid_subnet()
+          | subnet_group_not_found_fault()
 
   @type update_user_errors() ::
-          invalid_parameter_value_exception()
-          | invalid_parameter_combination_exception()
-          | user_not_found_fault()
+          user_not_found_fault()
           | invalid_user_state_fault()
+          | invalid_parameter_value_exception()
+          | invalid_parameter_combination_exception()
 
   def metadata do
     %{
@@ -2765,7 +2765,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, batch_update_cluster_errors()}
   def batch_update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdateCluster", input, options)
   end
@@ -2779,7 +2780,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -2795,7 +2797,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_acl_errors()}
   def create_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateACL", input, options)
   end
@@ -2811,7 +2814,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -2825,7 +2829,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_multi_region_cluster_errors()}
   def create_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMultiRegionCluster", input, options)
   end
@@ -2843,7 +2848,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
@@ -2857,7 +2863,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -2880,7 +2887,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
@@ -2896,7 +2904,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -2913,7 +2922,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_acl_errors()}
   def delete_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteACL", input, options)
   end
@@ -2933,7 +2943,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -2947,7 +2958,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_multi_region_cluster_errors()}
   def delete_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMultiRegionCluster", input, options)
   end
@@ -2964,7 +2976,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
@@ -2981,7 +2994,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -2998,7 +3012,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
@@ -3014,7 +3029,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -3028,7 +3044,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_acls_errors()}
   def describe_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeACLs", input, options)
   end
@@ -3043,7 +3060,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -3057,7 +3075,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_engine_versions_errors()}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineVersions", input, options)
   end
@@ -3077,7 +3096,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -3091,7 +3111,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_multi_region_clusters_errors()}
   def describe_multi_region_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMultiRegionClusters", input, options)
   end
@@ -3109,7 +3130,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_multi_region_parameter_groups_errors()}
   def describe_multi_region_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMultiRegionParameterGroups", input, options)
   end
@@ -3128,7 +3150,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_multi_region_parameters_errors()}
   def describe_multi_region_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMultiRegionParameters", input, options)
   end
@@ -3145,7 +3168,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
@@ -3159,7 +3183,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -3174,7 +3199,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodes", input, options)
   end
@@ -3192,7 +3218,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_reserved_nodes_offerings_errors()}
   def describe_reserved_nodes_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodesOfferings", input, options)
   end
@@ -3206,7 +3233,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
@@ -3224,7 +3252,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -3241,7 +3270,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
@@ -3255,7 +3285,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
@@ -3276,7 +3307,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, failover_shard_errors()}
   def failover_shard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverShard", input, options)
   end
@@ -3294,7 +3326,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_allowed_multi_region_cluster_updates_errors()}
   def list_allowed_multi_region_cluster_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedMultiRegionClusterUpdates", input, options)
   end
@@ -3312,7 +3345,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_allowed_node_type_updates_errors()}
   def list_allowed_node_type_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedNodeTypeUpdates", input, options)
   end
@@ -3335,7 +3369,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -3355,7 +3390,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, purchase_reserved_nodes_offering_errors()}
   def purchase_reserved_nodes_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedNodesOffering", input, options)
   end
@@ -3374,7 +3410,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, reset_parameter_group_errors()}
   def reset_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetParameterGroup", input, options)
   end
@@ -3406,7 +3443,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3438,7 +3476,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3452,7 +3491,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_acl_errors()}
   def update_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateACL", input, options)
   end
@@ -3469,7 +3509,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -3483,7 +3524,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_multi_region_cluster_errors()}
   def update_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMultiRegionCluster", input, options)
   end
@@ -3500,7 +3542,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
@@ -3516,7 +3559,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end
@@ -3530,7 +3574,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

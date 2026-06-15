@@ -20,19 +20,8 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      batch_delete_recipe_version_response() :: %{
-        "Errors" => list(recipe_version_error_detail()),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type batch_delete_recipe_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_project_response() :: %{
+      project() :: %{
+        "AccountId" => String.t() | atom(),
         "CreateDate" => non_neg_integer(),
         "CreatedBy" => String.t() | atom(),
         "DatasetName" => String.t() | atom(),
@@ -45,146 +34,33 @@ defmodule AWS.DataBrew do
         "ResourceArn" => String.t() | atom(),
         "RoleArn" => String.t() | atom(),
         "Sample" => sample(),
-        "SessionStatus" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type describe_project_response() :: %{(String.t() | atom()) => any()}
+  @type project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      database_output() :: %{
-        "DatabaseOptions" => database_table_output_options(),
-        "DatabaseOutputMode" => list(any()),
-        "GlueConnectionName" => String.t() | atom()
-      }
-
-  """
-  @type database_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ruleset_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("Rules") => list(rule()),
-        required("TargetArn") => String.t() | atom()
-      }
-
-  """
-  @type create_ruleset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recipe_reference() :: %{
-        "Name" => String.t() | atom(),
-        "RecipeVersion" => String.t() | atom()
-      }
-
-  """
-  @type recipe_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ruleset_response() :: %{
+      delete_project_response() :: %{
         "Name" => String.t() | atom()
       }
 
   """
-  @type update_ruleset_response() :: %{(String.t() | atom()) => any()}
+  @type delete_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_schedule_response() :: %{
+      update_profile_job_response() :: %{
         "Name" => String.t() | atom()
       }
 
   """
-  @type update_schedule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recipe_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("Steps") => list(recipe_step())
-      }
-
-  """
-  @type create_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_table_output_options() :: %{
-        "Location" => s3_location()
-      }
-
-  """
-  @type s3_table_output_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recipes_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Recipes" => list(recipe())
-      }
-
-  """
-  @type list_recipes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_profile_job_request() :: %{
-        optional("Configuration") => profile_configuration(),
-        optional("EncryptionKeyArn") => String.t() | atom(),
-        optional("EncryptionMode") => list(any()),
-        optional("JobSample") => job_sample(),
-        optional("LogSubscription") => list(any()),
-        optional("MaxCapacity") => integer(),
-        optional("MaxRetries") => integer(),
-        optional("Tags") => map(),
-        optional("Timeout") => integer(),
-        optional("ValidationConfigurations") => list(validation_configuration()),
-        required("DatasetName") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("OutputLocation") => s3_location(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_profile_job_request() :: %{(String.t() | atom()) => any()}
+  @type update_profile_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -224,28 +100,103 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      view_frame() :: %{
-        "Analytics" => list(any()),
-        "ColumnRange" => integer(),
-        "HiddenColumns" => list(String.t() | atom()),
-        "RowRange" => integer(),
-        "StartColumnIndex" => integer(),
-        "StartRowIndex" => integer()
+      csv_output_options() :: %{
+        "Delimiter" => String.t() | atom()
       }
 
   """
-  @type view_frame() :: %{(String.t() | atom()) => any()}
+  @type csv_output_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_dataset_response() :: %{
+      recipe_reference() :: %{
+        "Name" => String.t() | atom(),
+        "RecipeVersion" => String.t() | atom()
+      }
+
+  """
+  @type recipe_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata() :: %{
+        "SourceArn" => String.t() | atom()
+      }
+
+  """
+  @type metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recipe_request() :: %{
+        optional("RecipeVersion") => String.t() | atom()
+      }
+
+  """
+  @type describe_recipe_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule() :: %{
+        "CheckExpression" => String.t() | atom(),
+        "ColumnSelectors" => list(column_selector()),
+        "Disabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "SubstitutionMap" => map(),
+        "Threshold" => threshold()
+      }
+
+  """
+  @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_project_session_response() :: %{
+        "ClientSessionId" => String.t() | atom(),
         "Name" => String.t() | atom()
       }
 
   """
-  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
+  @type start_project_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_request() :: %{}
+
+  """
+  @type delete_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_ruleset_response() :: %{
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Rules" => list(rule()),
+        "Tags" => map(),
+        "TargetArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_ruleset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -262,13 +213,93 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      statistics_configuration() :: %{
-        "IncludedStatistics" => list(String.t() | atom()),
-        "Overrides" => list(statistic_override())
+      describe_dataset_request() :: %{}
+
+  """
+  @type describe_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type statistics_configuration() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recipe_job_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_recipe_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_profile_job_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_profile_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rulesets_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Rulesets" => list(ruleset_item())
+      }
+
+  """
+  @type list_rulesets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recipe_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type list_recipe_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dataset_request() :: %{
+        optional("Format") => list(any()),
+        optional("FormatOptions") => format_options(),
+        optional("PathOptions") => path_options(),
+        required("Input") => input()
+      }
+
+  """
+  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type delete_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -302,34 +333,36 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      recipe() :: %{
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
+        "PublishedBy" => String.t() | atom(),
+        "PublishedDate" => non_neg_integer(),
+        "RecipeVersion" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Steps" => list(recipe_step()),
+        "Tags" => map()
+      }
 
   """
-  @type untag_resource_response() :: %{}
+  @type recipe() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      publish_recipe_response() :: %{
-        "Name" => String.t() | atom()
+      statistics_configuration() :: %{
+        "IncludedStatistics" => list(String.t() | atom()),
+        "Overrides" => list(statistic_override())
       }
 
   """
-  @type publish_recipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      datetime_options() :: %{
-        "Format" => String.t() | atom(),
-        "LocaleCode" => String.t() | atom(),
-        "TimezoneOffset" => String.t() | atom()
-      }
-
-  """
-  @type datetime_options() :: %{(String.t() | atom()) => any()}
+  @type statistics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -348,85 +381,108 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      list_jobs_request() :: %{
-        optional("DatasetName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProjectName") => String.t() | atom()
+      list_datasets_response() :: %{
+        "Datasets" => list(dataset()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_job_run_request() :: %{}
-
-  """
-  @type stop_job_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_project_request() :: %{}
-
-  """
-  @type describe_project_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_recipe_version_request() :: %{
-        required("RecipeVersions") => list(String.t() | atom())
+      create_profile_job_request() :: %{
+        optional("Configuration") => profile_configuration(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
+        optional("EncryptionMode") => list(any()),
+        optional("JobSample") => job_sample(),
+        optional("LogSubscription") => list(any()),
+        optional("MaxCapacity") => integer(),
+        optional("MaxRetries") => integer(),
+        optional("Tags") => map(),
+        optional("Timeout") => integer(),
+        optional("ValidationConfigurations") => list(validation_configuration()),
+        required("DatasetName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("OutputLocation") => s3_location(),
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type batch_delete_recipe_version_request() :: %{(String.t() | atom()) => any()}
+  @type create_profile_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_job_run_response() :: %{
-        "Attempt" => integer(),
-        "CompletedOn" => non_neg_integer(),
-        "DataCatalogOutputs" => list(data_catalog_output()),
-        "DatabaseOutputs" => list(database_output()),
-        "DatasetName" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "ExecutionTime" => integer(),
-        "JobName" => String.t() | atom(),
-        "JobSample" => job_sample(),
-        "LogGroupName" => String.t() | atom(),
-        "LogSubscription" => list(any()),
-        "Outputs" => list(output()),
-        "ProfileConfiguration" => profile_configuration(),
-        "RecipeReference" => recipe_reference(),
-        "RunId" => String.t() | atom(),
-        "StartedBy" => String.t() | atom(),
-        "StartedOn" => non_neg_integer(),
-        "State" => list(any()),
-        "ValidationConfigurations" => list(validation_configuration())
+      create_project_response() :: %{
+        "Name" => String.t() | atom()
       }
 
   """
-  @type describe_job_run_response() :: %{(String.t() | atom()) => any()}
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_job_runs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      create_project_request() :: %{
+        optional("Sample") => sample(),
+        optional("Tags") => map(),
+        required("DatasetName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RecipeName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type list_job_runs_request() :: %{(String.t() | atom()) => any()}
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recipe_job_request() :: %{
+        optional("DataCatalogOutputs") => list(data_catalog_output()),
+        optional("DatabaseOutputs") => list(database_output()),
+        optional("EncryptionKeyArn") => String.t() | atom(),
+        optional("EncryptionMode") => list(any()),
+        optional("LogSubscription") => list(any()),
+        optional("MaxCapacity") => integer(),
+        optional("MaxRetries") => integer(),
+        optional("Outputs") => list(output()),
+        optional("Timeout") => integer(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_recipe_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      excel_options() :: %{
+        "HeaderRow" => boolean(),
+        "SheetIndexes" => list(integer()),
+        "SheetNames" => list(String.t() | atom())
+      }
+
+  """
+  @type excel_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_schedule_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type update_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -443,125 +499,155 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      metadata() :: %{
-        "SourceArn" => String.t() | atom()
-      }
+      describe_job_run_request() :: %{}
 
   """
-  @type metadata() :: %{(String.t() | atom()) => any()}
+  @type describe_job_run_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_datasets_request() :: %{
+      allowed_statistics() :: %{
+        "Statistics" => list(String.t() | atom())
+      }
+
+  """
+  @type allowed_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_request() :: %{}
+
+  """
+  @type delete_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_statistics_configuration() :: %{
+        "Selectors" => list(column_selector()),
+        "Statistics" => statistics_configuration()
+      }
+
+  """
+  @type column_statistics_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output() :: %{
+        "CompressionFormat" => list(any()),
+        "Format" => list(any()),
+        "FormatOptions" => output_format_options(),
+        "Location" => s3_location(),
+        "MaxOutputFiles" => integer(),
+        "Overwrite" => boolean(),
+        "PartitionColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_request() :: %{
+        optional("Sample") => sample(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_recipe_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type publish_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      csv_options() :: %{
+        "Delimiter" => String.t() | atom(),
+        "HeaderRow" => boolean()
+      }
+
+  """
+  @type csv_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schedules_request() :: %{
+        optional("JobName") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+  @type list_schedules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_project_session_response() :: %{
-        "ClientSessionId" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      s3_location() :: %{
+        "Bucket" => String.t() | atom(),
+        "BucketOwner" => String.t() | atom(),
+        "Key" => String.t() | atom()
       }
 
   """
-  @type start_project_session_response() :: %{(String.t() | atom()) => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_ruleset_response() :: %{
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Rules" => list(rule()),
-        "Tags" => map(),
-        "TargetArn" => String.t() | atom()
+      database_output() :: %{
+        "DatabaseOptions" => database_table_output_options(),
+        "DatabaseOutputMode" => list(any()),
+        "GlueConnectionName" => String.t() | atom()
       }
 
   """
-  @type describe_ruleset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      entity_detector_configuration() :: %{
-        "AllowedStatistics" => list(allowed_statistics()),
-        "EntityTypes" => list(String.t() | atom())
-      }
-
-  """
-  @type entity_detector_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recipe_job_request() :: %{
-        optional("DataCatalogOutputs") => list(data_catalog_output()),
-        optional("DatabaseOutputs") => list(database_output()),
-        optional("DatasetName") => String.t() | atom(),
-        optional("EncryptionKeyArn") => String.t() | atom(),
-        optional("EncryptionMode") => list(any()),
-        optional("LogSubscription") => list(any()),
-        optional("MaxCapacity") => integer(),
-        optional("MaxRetries") => integer(),
-        optional("Outputs") => list(output()),
-        optional("ProjectName") => String.t() | atom(),
-        optional("RecipeReference") => recipe_reference(),
-        optional("Tags") => map(),
-        optional("Timeout") => integer(),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_recipe_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_ruleset_request() :: %{}
-
-  """
-  @type describe_ruleset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recipe_job_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type update_recipe_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_response() :: %{
-        "Jobs" => list(job()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type database_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -583,23 +669,343 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      delete_schedule_response() :: %{
-        "Name" => String.t() | atom()
+      ruleset_item() :: %{
+        "AccountId" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "RuleCount" => integer(),
+        "Tags" => map(),
+        "TargetArn" => String.t() | atom()
       }
 
   """
-  @type delete_schedule_response() :: %{(String.t() | atom()) => any()}
+  @type ruleset_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
+      describe_project_response() :: %{
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "OpenDate" => non_neg_integer(),
+        "OpenedBy" => String.t() | atom(),
+        "RecipeName" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Sample" => sample(),
+        "SessionStatus" => list(any()),
+        "Tags" => map()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type describe_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_parameter() :: %{
+        "CreateColumn" => boolean(),
+        "DatetimeOptions" => datetime_options(),
+        "Filter" => filter_expression(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type dataset_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      view_frame() :: %{
+        "Analytics" => list(any()),
+        "ColumnRange" => integer(),
+        "HiddenColumns" => list(String.t() | atom()),
+        "RowRange" => integer(),
+        "StartColumnIndex" => integer(),
+        "StartRowIndex" => integer()
+      }
+
+  """
+  @type view_frame() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_table_output_options() :: %{
+        "Location" => s3_location()
+      }
+
+  """
+  @type s3_table_output_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_project_session_action_response() :: %{
+        "ActionId" => integer(),
+        "Name" => String.t() | atom(),
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type send_project_session_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition_expression() :: %{
+        "Condition" => String.t() | atom(),
+        "TargetColumn" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type condition_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_selector() :: %{
+        "Name" => String.t() | atom(),
+        "Regex" => String.t() | atom()
+      }
+
+  """
+  @type column_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      format_options() :: %{
+        "Csv" => csv_options(),
+        "Excel" => excel_options(),
+        "Json" => json_options()
+      }
+
+  """
+  @type format_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recipe_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type update_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_dataset_response() :: %{
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Format" => list(any()),
+        "FormatOptions" => format_options(),
+        "Input" => input(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "PathOptions" => path_options(),
+        "ResourceArn" => String.t() | atom(),
+        "Source" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_response() :: %{
+        "JobRuns" => list(job_run()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      threshold() :: %{
+        "Type" => list(any()),
+        "Unit" => list(any()),
+        "Value" => float()
+      }
+
+  """
+  @type threshold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recipes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recipes" => list(recipe())
+      }
+
+  """
+  @type list_recipes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_response() :: %{
+        "Jobs" => list(job()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_schedule_request() :: %{}
+
+  """
+  @type describe_schedule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      database_table_output_options() :: %{
+        "TableName" => String.t() | atom(),
+        "TempDirectory" => s3_location()
+      }
+
+  """
+  @type database_table_output_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_project_request() :: %{}
+
+  """
+  @type describe_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_request() :: %{
+        optional("Format") => list(any()),
+        optional("FormatOptions") => format_options(),
+        optional("PathOptions") => path_options(),
+        optional("Tags") => map(),
+        required("Input") => input(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_recipe_version_response() :: %{
+        "Errors" => list(recipe_version_error_detail()),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_recipe_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      json_options() :: %{
+        "MultiLine" => boolean()
+      }
+
+  """
+  @type json_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_job_run_response() :: %{
+        "RunId" => String.t() | atom()
+      }
+
+  """
+  @type stop_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -617,13 +1023,166 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      list_schedules_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Schedules" => list(schedule())
+      statistic_override() :: %{
+        "Parameters" => map(),
+        "Statistic" => String.t() | atom()
       }
 
   """
-  @type list_schedules_response() :: %{(String.t() | atom()) => any()}
+  @type statistic_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_recipe_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type publish_recipe_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schedule_request() :: %{
+        optional("JobNames") => list(String.t() | atom()),
+        optional("Tags") => map(),
+        required("CronExpression") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_schedule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_catalog_input_definition() :: %{
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "TempDirectory" => s3_location()
+      }
+
+  """
+  @type data_catalog_input_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_expression() :: %{
+        "Expression" => String.t() | atom(),
+        "ValuesMap" => map()
+      }
+
+  """
+  @type filter_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_request() :: %{}
+
+  """
+  @type delete_schedule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_recipe_version_request() :: %{
+        required("RecipeVersions") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_recipe_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type delete_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      datetime_options() :: %{
+        "Format" => String.t() | atom(),
+        "LocaleCode" => String.t() | atom(),
+        "TimezoneOffset" => String.t() | atom()
+      }
+
+  """
+  @type datetime_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      files_limit() :: %{
+        "MaxFiles" => integer(),
+        "Order" => list(any()),
+        "OrderedBy" => list(any())
+      }
+
+  """
+  @type files_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_configuration() :: %{
+        "ColumnStatisticsConfigurations" => list(column_statistics_configuration()),
+        "DatasetStatisticsConfiguration" => statistics_configuration(),
+        "EntityDetectorConfiguration" => entity_detector_configuration(),
+        "ProfileColumns" => list(column_selector())
+      }
+
+  """
+  @type profile_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,12 +1209,82 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      delete_ruleset_response() :: %{
+      update_ruleset_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Rules") => list(rule())
+      }
+
+  """
+  @type update_ruleset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_job_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ruleset_response() :: %{
         "Name" => String.t() | atom()
       }
 
   """
-  @type delete_ruleset_response() :: %{(String.t() | atom()) => any()}
+  @type update_ruleset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_project_session_request() :: %{
+        optional("AssumeControl") => boolean()
+      }
+
+  """
+  @type start_project_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_run_request() :: %{}
+
+  """
+  @type start_job_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recipe_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("Steps") => list(recipe_step())
+      }
+
+  """
+  @type create_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -684,31 +1313,73 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      describe_schedule_response() :: %{
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "CronExpression" => String.t() | atom(),
-        "JobNames" => list(String.t() | atom()),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Tags" => map()
+      list_projects_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Projects" => list(project())
       }
 
   """
-  @type describe_schedule_response() :: %{(String.t() | atom()) => any()}
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output_format_options() :: %{
-        "Csv" => csv_output_options()
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
       }
 
   """
-  @type output_format_options() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recipe_version_response() :: %{
+        "Name" => String.t() | atom(),
+        "RecipeVersion" => String.t() | atom()
+      }
+
+  """
+  @type delete_recipe_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recipes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RecipeVersion") => String.t() | atom()
+      }
+
+  """
+  @type list_recipes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recipe_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recipes" => list(recipe())
+      }
+
+  """
+  @type list_recipe_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -737,778 +1408,16 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      files_limit() :: %{
-        "MaxFiles" => integer(),
-        "Order" => list(any()),
-        "OrderedBy" => list(any())
-      }
-
-  """
-  @type files_limit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      csv_options() :: %{
-        "Delimiter" => String.t() | atom(),
-        "HeaderRow" => boolean()
-      }
-
-  """
-  @type csv_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_run_request() :: %{}
-
-  """
-  @type describe_job_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      input() :: %{
-        "DataCatalogInputDefinition" => data_catalog_input_definition(),
-        "DatabaseInputDefinition" => database_input_definition(),
-        "Metadata" => metadata(),
-        "S3InputDefinition" => s3_location()
-      }
-
-  """
-  @type input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_project_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_job_run_response() :: %{
-        "RunId" => String.t() | atom()
-      }
-
-  """
-  @type start_job_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project() :: %{
-        "AccountId" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "DatasetName" => String.t() | atom(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "OpenDate" => non_neg_integer(),
-        "OpenedBy" => String.t() | atom(),
-        "RecipeName" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Sample" => sample(),
-        "Tags" => map()
-      }
-
-  """
-  @type project() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_configuration() :: %{
-        "RulesetArn" => String.t() | atom(),
-        "ValidationMode" => list(any())
-      }
-
-  """
-  @type validation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      publish_recipe_request() :: %{
-        optional("Description") => String.t() | atom()
-      }
-
-  """
-  @type publish_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rulesets_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Rulesets" => list(ruleset_item())
-      }
-
-  """
-  @type list_rulesets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_project_session_request() :: %{
-        optional("AssumeControl") => boolean()
-      }
-
-  """
-  @type start_project_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      csv_output_options() :: %{
-        "Delimiter" => String.t() | atom()
-      }
-
-  """
-  @type csv_output_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recipe_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type list_recipe_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recipe_action() :: %{
-        "Operation" => String.t() | atom(),
-        "Parameters" => map()
-      }
-
-  """
-  @type recipe_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recipe_response() :: %{
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ProjectName" => String.t() | atom(),
-        "PublishedBy" => String.t() | atom(),
-        "PublishedDate" => non_neg_integer(),
-        "RecipeVersion" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Steps" => list(recipe_step()),
-        "Tags" => map()
-      }
-
-  """
-  @type describe_recipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_runs_response() :: %{
-        "JobRuns" => list(job_run()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_job_runs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      format_options() :: %{
-        "Csv" => csv_options(),
-        "Excel" => excel_options(),
-        "Json" => json_options()
-      }
-
-  """
-  @type format_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rulesets_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TargetArn") => String.t() | atom()
-      }
-
-  """
-  @type list_rulesets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recipe() :: %{
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ProjectName" => String.t() | atom(),
-        "PublishedBy" => String.t() | atom(),
-        "PublishedDate" => non_neg_integer(),
-        "RecipeVersion" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Steps" => list(recipe_step()),
-        "Tags" => map()
-      }
-
-  """
-  @type recipe() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sample() :: %{
-        "Size" => integer(),
-        "Type" => list(any())
-      }
-
-  """
-  @type sample() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Projects" => list(project())
-      }
-
-  """
-  @type list_projects_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recipe_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Recipes" => list(recipe())
-      }
-
-  """
-  @type list_recipe_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_request() :: %{}
-
-  """
-  @type describe_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_catalog_input_definition() :: %{
-        "CatalogId" => String.t() | atom(),
-        "DatabaseName" => String.t() | atom(),
-        "TableName" => String.t() | atom(),
-        "TempDirectory" => s3_location()
-      }
-
-  """
-  @type data_catalog_input_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ruleset_item() :: %{
-        "AccountId" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "RuleCount" => integer(),
-        "Tags" => map(),
-        "TargetArn" => String.t() | atom()
-      }
-
-  """
-  @type ruleset_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_expression() :: %{
-        "Expression" => String.t() | atom(),
-        "ValuesMap" => map()
-      }
-
-  """
-  @type filter_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "Bucket" => String.t() | atom(),
-        "BucketOwner" => String.t() | atom(),
-        "Key" => String.t() | atom()
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dataset_request() :: %{
-        optional("Format") => list(any()),
-        optional("FormatOptions") => format_options(),
-        optional("PathOptions") => path_options(),
-        required("Input") => input()
-      }
-
-  """
-  @type update_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_table_output_options() :: %{
-        "TableName" => String.t() | atom(),
-        "TempDirectory" => s3_location()
-      }
-
-  """
-  @type database_table_output_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule() :: %{
-        "CheckExpression" => String.t() | atom(),
-        "ColumnSelectors" => list(column_selector()),
-        "Disabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "SubstitutionMap" => map(),
-        "Threshold" => threshold()
-      }
-
-  """
-  @type rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recipe_job_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_recipe_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_parameter() :: %{
-        "CreateColumn" => boolean(),
-        "DatetimeOptions" => datetime_options(),
-        "Filter" => filter_expression(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type dataset_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recipe_request() :: %{
-        optional("RecipeVersion") => String.t() | atom()
-      }
-
-  """
-  @type describe_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schedule() :: %{
-        "AccountId" => String.t() | atom(),
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "CronExpression" => String.t() | atom(),
-        "JobNames" => list(String.t() | atom()),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type delete_project_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_job_run_response() :: %{
-        "RunId" => String.t() | atom()
-      }
-
-  """
-  @type stop_job_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_job_run_request() :: %{}
-
-  """
-  @type start_job_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_project_request() :: %{
-        optional("Sample") => sample(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_configuration() :: %{
-        "ColumnStatisticsConfigurations" => list(column_statistics_configuration()),
-        "DatasetStatisticsConfiguration" => statistics_configuration(),
-        "EntityDetectorConfiguration" => entity_detector_configuration(),
-        "ProfileColumns" => list(column_selector())
-      }
-
-  """
-  @type profile_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ruleset_request() :: %{
+      create_ruleset_request() :: %{
         optional("Description") => String.t() | atom(),
-        required("Rules") => list(rule())
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("Rules") => list(rule()),
+        required("TargetArn") => String.t() | atom()
       }
 
   """
-  @type update_ruleset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recipe_step() :: %{
-        "Action" => recipe_action(),
-        "ConditionExpressions" => list(condition_expression())
-      }
-
-  """
-  @type recipe_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_input_definition() :: %{
-        "DatabaseTableName" => String.t() | atom(),
-        "GlueConnectionName" => String.t() | atom(),
-        "QueryString" => String.t() | atom(),
-        "TempDirectory" => s3_location()
-      }
-
-  """
-  @type database_input_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recipe_version_request() :: %{}
-
-  """
-  @type delete_recipe_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      column_selector() :: %{
-        "Name" => String.t() | atom(),
-        "Regex" => String.t() | atom()
-      }
-
-  """
-  @type column_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      json_options() :: %{
-        "MultiLine" => boolean()
-      }
-
-  """
-  @type json_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_schedule_request() :: %{
-        optional("JobNames") => list(String.t() | atom()),
-        required("CronExpression") => String.t() | atom()
-      }
-
-  """
-  @type update_schedule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_request() :: %{}
-
-  """
-  @type delete_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      recipe_version_error_detail() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "RecipeVersion" => String.t() | atom()
-      }
-
-  """
-  @type recipe_version_error_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column_statistics_configuration() :: %{
-        "Selectors" => list(column_selector()),
-        "Statistics" => statistics_configuration()
-      }
-
-  """
-  @type column_statistics_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ruleset_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_ruleset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recipe_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Steps") => list(recipe_step())
-      }
-
-  """
-  @type update_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dataset_response() :: %{
-        "CreateDate" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "Format" => list(any()),
-        "FormatOptions" => format_options(),
-        "Input" => input(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "PathOptions" => path_options(),
-        "ResourceArn" => String.t() | atom(),
-        "Source" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
+  @type create_ruleset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1548,280 +1457,33 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      create_dataset_request() :: %{
-        optional("Format") => list(any()),
-        optional("FormatOptions") => format_options(),
-        optional("PathOptions") => path_options(),
-        optional("Tags") => map(),
-        required("Input") => input(),
-        required("Name") => String.t() | atom()
+      start_job_run_response() :: %{
+        "RunId" => String.t() | atom()
       }
 
   """
-  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+  @type start_job_run_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_recipe_job_request() :: %{
-        optional("DataCatalogOutputs") => list(data_catalog_output()),
-        optional("DatabaseOutputs") => list(database_output()),
-        optional("EncryptionKeyArn") => String.t() | atom(),
-        optional("EncryptionMode") => list(any()),
-        optional("LogSubscription") => list(any()),
-        optional("MaxCapacity") => integer(),
-        optional("MaxRetries") => integer(),
-        optional("Outputs") => list(output()),
-        optional("Timeout") => integer(),
-        required("RoleArn") => String.t() | atom()
+      update_recipe_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Steps") => list(recipe_step())
       }
 
   """
-  @type update_recipe_job_request() :: %{(String.t() | atom()) => any()}
+  @type update_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_schedule_request() :: %{
-        optional("JobNames") => list(String.t() | atom()),
-        optional("Tags") => map(),
-        required("CronExpression") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
+      describe_job_request() :: %{}
 
   """
-  @type create_schedule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_request() :: %{
-        optional("Sample") => sample(),
-        optional("Tags") => map(),
-        required("DatasetName") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("RecipeName") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      condition_expression() :: %{
-        "Condition" => String.t() | atom(),
-        "TargetColumn" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type condition_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_projects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      threshold() :: %{
-        "Type" => list(any()),
-        "Unit" => list(any()),
-        "Value" => float()
-      }
-
-  """
-  @type threshold() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_schedule_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_schedule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_schedule_request() :: %{}
-
-  """
-  @type delete_schedule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schedules_request() :: %{
-        optional("JobName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_schedules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      excel_options() :: %{
-        "HeaderRow" => boolean(),
-        "SheetIndexes" => list(integer()),
-        "SheetNames" => list(String.t() | atom())
-      }
-
-  """
-  @type excel_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      allowed_statistics() :: %{
-        "Statistics" => list(String.t() | atom())
-      }
-
-  """
-  @type allowed_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_dataset_request() :: %{}
-
-  """
-  @type describe_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_request() :: %{}
-
-  """
-  @type delete_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_datasets_response() :: %{
-        "Datasets" => list(dataset()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_request() :: %{}
-
-  """
-  @type delete_project_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_profile_job_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type update_profile_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type delete_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recipe_version_response() :: %{
-        "Name" => String.t() | atom(),
-        "RecipeVersion" => String.t() | atom()
-      }
-
-  """
-  @type delete_recipe_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      statistic_override() :: %{
-        "Parameters" => map(),
-        "Statistic" => String.t() | atom()
-      }
-
-  """
-  @type statistic_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_profile_job_response() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_profile_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_schedule_request() :: %{}
-
-  """
-  @type describe_schedule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recipes_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RecipeVersion") => String.t() | atom()
-      }
-
-  """
-  @type list_recipes_request() :: %{(String.t() | atom()) => any()}
+  @type describe_job_request() :: %{}
 
   @typedoc """
 
@@ -1842,31 +1504,171 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      send_project_session_action_response() :: %{
-        "ActionId" => integer(),
-        "Name" => String.t() | atom(),
-        "Result" => String.t() | atom()
+      recipe_step() :: %{
+        "Action" => recipe_action(),
+        "ConditionExpressions" => list(condition_expression())
       }
 
   """
-  @type send_project_session_action_response() :: %{(String.t() | atom()) => any()}
+  @type recipe_step() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output() :: %{
-        "CompressionFormat" => list(any()),
-        "Format" => list(any()),
-        "FormatOptions" => output_format_options(),
-        "Location" => s3_location(),
-        "MaxOutputFiles" => integer(),
-        "Overwrite" => boolean(),
-        "PartitionColumns" => list(String.t() | atom())
+      entity_detector_configuration() :: %{
+        "AllowedStatistics" => list(allowed_statistics()),
+        "EntityTypes" => list(String.t() | atom())
       }
 
   """
-  @type output() :: %{(String.t() | atom()) => any()}
+  @type entity_detector_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_schedule_request() :: %{
+        optional("JobNames") => list(String.t() | atom()),
+        required("CronExpression") => String.t() | atom()
+      }
+
+  """
+  @type update_schedule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recipe_action() :: %{
+        "Operation" => String.t() | atom(),
+        "Parameters" => map()
+      }
+
+  """
+  @type recipe_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recipe_job_request() :: %{
+        optional("DataCatalogOutputs") => list(data_catalog_output()),
+        optional("DatabaseOutputs") => list(database_output()),
+        optional("DatasetName") => String.t() | atom(),
+        optional("EncryptionKeyArn") => String.t() | atom(),
+        optional("EncryptionMode") => list(any()),
+        optional("LogSubscription") => list(any()),
+        optional("MaxCapacity") => integer(),
+        optional("MaxRetries") => integer(),
+        optional("Outputs") => list(output()),
+        optional("ProjectName") => String.t() | atom(),
+        optional("RecipeReference") => recipe_reference(),
+        optional("Tags") => map(),
+        optional("Timeout") => integer(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_recipe_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sample() :: %{
+        "Size" => integer(),
+        "Type" => list(any())
+      }
+
+  """
+  @type sample() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_recipe_response() :: %{
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
+        "PublishedBy" => String.t() | atom(),
+        "PublishedDate" => non_neg_integer(),
+        "RecipeVersion" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Steps" => list(recipe_step()),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recipe_version_request() :: %{}
+
+  """
+  @type delete_recipe_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_ruleset_request() :: %{}
+
+  """
+  @type describe_ruleset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schedule_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_schedule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_configuration() :: %{
+        "RulesetArn" => String.t() | atom(),
+        "ValidationMode" => list(any())
+      }
+
+  """
+  @type validation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{}
+
+  """
+  @type delete_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schedules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Schedules" => list(schedule())
+      }
+
+  """
+  @type list_schedules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1881,85 +1683,283 @@ defmodule AWS.DataBrew do
 
   ## Example:
 
-      update_recipe_response() :: %{
+      output_format_options() :: %{
+        "Csv" => csv_output_options()
+      }
+
+  """
+  @type output_format_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_request() :: %{
+        optional("DatasetName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProjectName") => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ruleset_response() :: %{
         "Name" => String.t() | atom()
       }
 
   """
-  @type update_recipe_response() :: %{(String.t() | atom()) => any()}
+  @type delete_ruleset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_run_response() :: %{
+        "Attempt" => integer(),
+        "CompletedOn" => non_neg_integer(),
+        "DataCatalogOutputs" => list(data_catalog_output()),
+        "DatabaseOutputs" => list(database_output()),
+        "DatasetName" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ExecutionTime" => integer(),
+        "JobName" => String.t() | atom(),
+        "JobSample" => job_sample(),
+        "LogGroupName" => String.t() | atom(),
+        "LogSubscription" => list(any()),
+        "Outputs" => list(output()),
+        "ProfileConfiguration" => profile_configuration(),
+        "RecipeReference" => recipe_reference(),
+        "RunId" => String.t() | atom(),
+        "StartedBy" => String.t() | atom(),
+        "StartedOn" => non_neg_integer(),
+        "State" => list(any()),
+        "ValidationConfigurations" => list(validation_configuration())
+      }
+
+  """
+  @type describe_job_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_schedule_response() :: %{
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "CronExpression" => String.t() | atom(),
+        "JobNames" => list(String.t() | atom()),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_schedule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_job_run_request() :: %{}
+
+  """
+  @type stop_job_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rulesets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TargetArn") => String.t() | atom()
+      }
+
+  """
+  @type list_rulesets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ruleset_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_ruleset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_input_definition() :: %{
+        "DatabaseTableName" => String.t() | atom(),
+        "GlueConnectionName" => String.t() | atom(),
+        "QueryString" => String.t() | atom(),
+        "TempDirectory" => s3_location()
+      }
+
+  """
+  @type database_input_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input() :: %{
+        "DataCatalogInputDefinition" => data_catalog_input_definition(),
+        "DatabaseInputDefinition" => database_input_definition(),
+        "Metadata" => metadata(),
+        "S3InputDefinition" => s3_location()
+      }
+
+  """
+  @type input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule() :: %{
+        "AccountId" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "CronExpression" => String.t() | atom(),
+        "JobNames" => list(String.t() | atom()),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recipe_job_response() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type update_recipe_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recipe_version_error_detail() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "RecipeVersion" => String.t() | atom()
+      }
+
+  """
+  @type recipe_version_error_detail() :: %{(String.t() | atom()) => any()}
 
   @type batch_delete_recipe_version_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type create_dataset_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_profile_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_project_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type create_recipe_errors() ::
-          validation_exception() | service_quota_exceeded_exception() | conflict_exception()
+          service_quota_exceeded_exception() | conflict_exception() | validation_exception()
 
   @type create_recipe_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_ruleset_errors() ::
-          validation_exception() | service_quota_exceeded_exception() | conflict_exception()
+          service_quota_exceeded_exception() | conflict_exception() | validation_exception()
 
   @type create_schedule_errors() ::
-          validation_exception() | service_quota_exceeded_exception() | conflict_exception()
+          service_quota_exceeded_exception() | conflict_exception() | validation_exception()
 
   @type delete_dataset_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type delete_job_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type delete_project_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type delete_recipe_version_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type delete_ruleset_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
-  @type delete_schedule_errors() :: validation_exception() | resource_not_found_exception()
+  @type delete_schedule_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type describe_dataset_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_dataset_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type describe_job_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_job_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type describe_job_run_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_job_run_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type describe_project_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_project_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type describe_recipe_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_recipe_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type describe_ruleset_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_ruleset_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type describe_schedule_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_schedule_errors() :: resource_not_found_exception() | validation_exception()
 
   @type list_datasets_errors() :: validation_exception()
 
-  @type list_job_runs_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_job_runs_errors() :: resource_not_found_exception() | validation_exception()
 
   @type list_jobs_errors() :: validation_exception()
 
@@ -1969,60 +1969,60 @@ defmodule AWS.DataBrew do
 
   @type list_recipes_errors() :: validation_exception()
 
-  @type list_rulesets_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_rulesets_errors() :: resource_not_found_exception() | validation_exception()
 
   @type list_schedules_errors() :: validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type publish_recipe_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type send_project_session_action_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type start_job_run_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type start_project_session_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
-  @type stop_job_run_errors() :: validation_exception() | resource_not_found_exception()
+  @type stop_job_run_errors() :: resource_not_found_exception() | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type update_dataset_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type update_profile_job_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
-  @type update_project_errors() :: validation_exception() | resource_not_found_exception()
+  @type update_project_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type update_recipe_errors() :: validation_exception() | resource_not_found_exception()
+  @type update_recipe_errors() :: resource_not_found_exception() | validation_exception()
 
   @type update_recipe_job_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
-  @type update_ruleset_errors() :: validation_exception() | resource_not_found_exception()
+  @type update_ruleset_errors() :: resource_not_found_exception() | validation_exception()
 
   @type update_schedule_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   def metadata do
     %{

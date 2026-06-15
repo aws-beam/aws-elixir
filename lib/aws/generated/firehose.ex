@@ -21,13 +21,25 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      http_endpoint_request_configuration() :: %{
-        "CommonAttributes" => list(http_endpoint_common_attribute()),
-        "ContentEncoding" => list(any())
+      invalid_source_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type http_endpoint_request_configuration() :: %{(String.t() | atom()) => any()}
+  @type invalid_source_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_column_list() :: %{
+        "Exclude" => list(String.t() | atom()),
+        "Include" => list(String.t() | atom())
+      }
+      
+  """
+  @type database_column_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -44,83 +56,61 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      record() :: %{
-        "Data" => binary()
+      tag_delivery_stream_input() :: %{
+        required("DeliveryStreamName") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type record() :: %{(String.t() | atom()) => any()}
+  @type tag_delivery_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      encryption_configuration() :: %{
-        "KMSEncryptionConfig" => kms_encryption_config(),
-        "NoEncryptionConfig" => list(any())
+      authentication_configuration() :: %{
+        "Connectivity" => list(any()),
+        "RoleARN" => String.t() | atom()
       }
       
   """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      http_endpoint_buffering_hints() :: %{
+      buffering_hints() :: %{
         "IntervalInSeconds" => integer(),
         "SizeInMBs" => integer()
       }
       
   """
-  @type http_endpoint_buffering_hints() :: %{(String.t() | atom()) => any()}
+  @type buffering_hints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_kms_resource_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
+      database_list() :: %{
+        "Exclude" => list(String.t() | atom()),
+        "Include" => list(String.t() | atom())
       }
       
   """
-  @type invalid_kms_resource_exception() :: %{(String.t() | atom()) => any()}
+  @type database_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      failure_description() :: %{
-        "Details" => String.t() | atom(),
-        "Type" => list(any())
+      list_tags_for_delivery_stream_output() :: %{
+        "HasMoreTags" => boolean(),
+        "Tags" => list(tag())
       }
       
   """
-  @type failure_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      redshift_retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type redshift_retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amazon_open_search_serverless_buffering_hints() :: %{
-        "IntervalInSeconds" => integer(),
-        "SizeInMBs" => integer()
-      }
-      
-  """
-  @type amazon_open_search_serverless_buffering_hints() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_delivery_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -147,82 +137,56 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      vpc_configuration() :: %{
-        "RoleARN" => String.t() | atom(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
+      splunk_retry_options() :: %{
+        "DurationInSeconds" => integer()
       }
       
   """
-  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
+  @type splunk_retry_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      snowflake_vpc_configuration() :: %{
-        "PrivateLinkVpceId" => String.t() | atom()
+      amazon_open_search_serverless_retry_options() :: %{
+        "DurationInSeconds" => integer()
       }
       
   """
-  @type snowflake_vpc_configuration() :: %{(String.t() | atom()) => any()}
+  @type amazon_open_search_serverless_retry_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      database_source_vpc_configuration() :: %{
-        "VpcEndpointServiceName" => String.t() | atom()
+      delete_delivery_stream_output() :: %{}
+      
+  """
+  @type delete_delivery_stream_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination_description() :: %{
+        "BucketARN" => String.t() | atom(),
+        "BufferingHints" => buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "CompressionFormat" => list(any()),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "ErrorOutputPrefix" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
       }
       
   """
-  @type database_source_vpc_configuration() :: %{(String.t() | atom()) => any()}
+  @type s3_destination_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_destination_output() :: %{}
-      
-  """
-  @type update_destination_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_delivery_stream_encryption_output() :: %{}
-      
-  """
-  @type start_delivery_stream_encryption_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      direct_put_source_configuration() :: %{
-        "ThroughputHintInMBs" => integer()
-      }
-      
-  """
-  @type direct_put_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      extended_s3_destination_description() :: %{
+      extended_s3_destination_configuration() :: %{
         "BucketARN" => String.t() | atom(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
@@ -236,24 +200,566 @@ defmodule AWS.Firehose do
         "Prefix" => String.t() | atom(),
         "ProcessingConfiguration" => processing_configuration(),
         "RoleARN" => String.t() | atom(),
-        "S3BackupDescription" => s3_destination_description(),
+        "S3BackupConfiguration" => s3_destination_configuration(),
         "S3BackupMode" => list(any())
       }
       
   """
-  @type extended_s3_destination_description() :: %{(String.t() | atom()) => any()}
+  @type extended_s3_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_delivery_stream_output() :: %{
-        "HasMoreTags" => boolean(),
-        "Tags" => list(tag())
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type list_tags_for_delivery_stream_output() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type snowflake_buffering_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_encryption_config() :: %{
+        "AWSKMSKeyARN" => String.t() | atom()
+      }
+      
+  """
+  @type kms_encryption_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_destination_configuration() :: %{
+        "BucketARN" => String.t() | atom(),
+        "BufferingHints" => buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "CompressionFormat" => list(any()),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "ErrorOutputPrefix" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_snapshot_info() :: %{
+        "FailureDescription" => failure_description(),
+        "Id" => String.t() | atom(),
+        "RequestTimestamp" => non_neg_integer(),
+        "RequestedBy" => list(any()),
+        "Status" => list(any()),
+        "Table" => String.t() | atom()
+      }
+      
+  """
+  @type database_snapshot_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firehose_record() :: %{
+        "Data" => binary()
+      }
+      
+  """
+  @type firehose_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      m_s_k_source_description() :: %{
+        "AuthenticationConfiguration" => authentication_configuration(),
+        "DeliveryStartTimestamp" => non_neg_integer(),
+        "MSKClusterARN" => String.t() | atom(),
+        "ReadFromTimestamp" => non_neg_integer(),
+        "TopicName" => String.t() | atom()
+      }
+      
+  """
+  @type m_s_k_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_record_input() :: %{
+        required("DeliveryStreamName") => String.t() | atom(),
+        required("Record") => record()
+      }
+      
+  """
+  @type put_record_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elasticsearch_destination_configuration() :: %{
+        "BufferingHints" => elasticsearch_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ClusterEndpoint" => String.t() | atom(),
+        "DocumentIdOptions" => document_id_options(),
+        "DomainARN" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "IndexRotationPeriod" => list(any()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => elasticsearch_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration(),
+        "TypeName" => String.t() | atom(),
+        "VpcConfiguration" => vpc_configuration()
+      }
+      
+  """
+  @type elasticsearch_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_open_search_serverless_destination_update() :: %{
+        "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "CollectionEndpoint" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => amazon_open_search_serverless_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3Update" => s3_destination_update()
+      }
+      
+  """
+  @type amazon_open_search_serverless_destination_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_field() :: %{
+        "SourceName" => String.t() | atom()
+      }
+      
+  """
+  @type partition_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      catalog_configuration() :: %{
+        "CatalogARN" => String.t() | atom(),
+        "WarehouseLocation" => String.t() | atom()
+      }
+      
+  """
+  @type catalog_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delivery_streams_output() :: %{
+        "DeliveryStreamNames" => list(String.t() | atom()),
+        "HasMoreDeliveryStreams" => boolean()
+      }
+      
+  """
+  @type list_delivery_streams_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      parquet_ser_de() :: %{
+        "BlockSizeBytes" => integer(),
+        "Compression" => list(any()),
+        "EnableDictionaryCompression" => boolean(),
+        "MaxPaddingBytes" => integer(),
+        "PageSizeBytes" => integer(),
+        "WriterVersion" => list(any())
+      }
+      
+  """
+  @type parquet_ser_de() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_destination_configuration() :: %{
+        "BufferingHints" => http_endpoint_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "EndpointConfiguration" => http_endpoint_configuration(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RequestConfiguration" => http_endpoint_request_configuration(),
+        "RetryOptions" => http_endpoint_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
+      }
+      
+  """
+  @type http_endpoint_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_retry_options() :: %{
+        "DurationInSeconds" => integer()
+      }
+      
+  """
+  @type snowflake_retry_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      splunk_destination_update() :: %{
+        "BufferingHints" => splunk_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "HECAcknowledgmentTimeoutInSeconds" => integer(),
+        "HECEndpoint" => String.t() | atom(),
+        "HECEndpointType" => list(any()),
+        "HECToken" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => splunk_retry_options(),
+        "S3BackupMode" => list(any()),
+        "S3Update" => s3_destination_update(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
+      }
+      
+  """
+  @type splunk_destination_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_delivery_stream_encryption_input() :: %{
+        optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
+        required("DeliveryStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type start_delivery_stream_encryption_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_record_batch_output() :: %{
+        "Encrypted" => boolean(),
+        "FailedPutCount" => integer(),
+        "RequestResponses" => list(put_record_batch_response_entry())
+      }
+      
+  """
+  @type put_record_batch_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_put_source_description() :: %{
+        "ThroughputHintInMBs" => integer()
+      }
+      
+  """
+  @type direct_put_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_destination_input() :: %{
+        optional("AmazonOpenSearchServerlessDestinationUpdate") => amazon_open_search_serverless_destination_update(),
+        optional("AmazonopensearchserviceDestinationUpdate") => amazonopensearchservice_destination_update(),
+        optional("ElasticsearchDestinationUpdate") => elasticsearch_destination_update(),
+        optional("ExtendedS3DestinationUpdate") => extended_s3_destination_update(),
+        optional("HttpEndpointDestinationUpdate") => http_endpoint_destination_update(),
+        optional("IcebergDestinationUpdate") => iceberg_destination_update(),
+        optional("RedshiftDestinationUpdate") => redshift_destination_update(),
+        optional("S3DestinationUpdate") => s3_destination_update(),
+        optional("SnowflakeDestinationUpdate") => snowflake_destination_update(),
+        optional("SplunkDestinationUpdate") => splunk_destination_update(),
+        required("CurrentDeliveryStreamVersionId") => String.t() | atom(),
+        required("DeliveryStreamName") => String.t() | atom(),
+        required("DestinationId") => String.t() | atom()
+      }
+      
+  """
+  @type update_destination_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_request_configuration() :: %{
+        "CommonAttributes" => list(http_endpoint_common_attribute()),
+        "ContentEncoding" => list(any())
+      }
+      
+  """
+  @type http_endpoint_request_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_destination_description() :: %{
+        "AppendOnly" => boolean(),
+        "BufferingHints" => buffering_hints(),
+        "CatalogConfiguration" => catalog_configuration(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description(),
+        "SchemaEvolutionConfiguration" => schema_evolution_configuration(),
+        "TableCreationConfiguration" => table_creation_configuration()
+      }
+      
+  """
+  @type iceberg_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      splunk_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type splunk_buffering_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      processor_parameter() :: %{
+        "ParameterName" => list(any()),
+        "ParameterValue" => String.t() | atom()
+      }
+      
+  """
+  @type processor_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_delivery_stream_output() :: %{
+        "DeliveryStreamDescription" => delivery_stream_description()
+      }
+      
+  """
+  @type describe_delivery_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_delivery_streams_input() :: %{
+        optional("DeliveryStreamType") => list(any()),
+        optional("ExclusiveStartDeliveryStreamName") => String.t() | atom(),
+        optional("Limit") => integer()
+      }
+      
+  """
+  @type list_delivery_streams_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_role_configuration() :: %{
+        "Enabled" => boolean(),
+        "SnowflakeRole" => String.t() | atom()
+      }
+      
+  """
+  @type snowflake_role_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_description() :: %{
+        "DatabaseSourceDescription" => database_source_description(),
+        "DirectPutSourceDescription" => direct_put_source_description(),
+        "KinesisStreamSourceDescription" => kinesis_stream_source_description(),
+        "MSKSourceDescription" => m_s_k_source_description()
+      }
+      
+  """
+  @type source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redshift_destination_update() :: %{
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ClusterJDBCURL" => String.t() | atom(),
+        "CopyCommand" => copy_command(),
+        "Password" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => redshift_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3BackupUpdate" => s3_destination_update(),
+        "S3Update" => s3_destination_update(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type redshift_destination_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_table_configuration() :: %{
+        "DestinationDatabaseName" => String.t() | atom(),
+        "DestinationTableName" => String.t() | atom(),
+        "PartitionSpec" => partition_spec(),
+        "S3ErrorOutputPrefix" => String.t() | atom(),
+        "UniqueKeys" => list(String.t() | atom())
+      }
+      
+  """
+  @type destination_table_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failure_description() :: %{
+        "Details" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type failure_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partition_spec() :: %{
+        "Identity" => list(partition_field())
+      }
+      
+  """
+  @type partition_spec() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_delivery_stream_output() :: %{
+        "DeliveryStreamARN" => String.t() | atom()
+      }
+      
+  """
+  @type create_delivery_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      orc_ser_de() :: %{
+        "BlockSizeBytes" => integer(),
+        "BloomFilterColumns" => list(String.t() | atom()),
+        "BloomFilterFalsePositiveProbability" => float(),
+        "Compression" => list(any()),
+        "DictionaryKeyThreshold" => float(),
+        "EnablePadding" => boolean(),
+        "FormatVersion" => list(any()),
+        "PaddingTolerance" => float(),
+        "RowIndexStride" => integer(),
+        "StripeSizeBytes" => integer()
+      }
+      
+  """
+  @type orc_ser_de() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_id_options() :: %{
+        "DefaultDocumentIdFormat" => list(any())
+      }
+      
+  """
+  @type document_id_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,35 +816,365 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      start_delivery_stream_encryption_input() :: %{
-        optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
-        required("DeliveryStreamName") => String.t() | atom()
+      vpc_configuration() :: %{
+        "RoleARN" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
       }
       
   """
-  @type start_delivery_stream_encryption_input() :: %{(String.t() | atom()) => any()}
+  @type vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      amazon_open_search_serverless_destination_description() :: %{
-        "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
+      delete_delivery_stream_input() :: %{
+        optional("AllowForceDelete") => boolean(),
+        required("DeliveryStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_delivery_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_kms_resource_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_kms_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dynamic_partitioning_configuration() :: %{
+        "Enabled" => boolean(),
+        "RetryOptions" => retry_options()
+      }
+      
+  """
+  @type dynamic_partitioning_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_options() :: %{
+        "DurationInSeconds" => integer()
+      }
+      
+  """
+  @type retry_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_retry_options() :: %{
+        "DurationInSeconds" => integer()
+      }
+      
+  """
+  @type http_endpoint_retry_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elasticsearch_destination_description() :: %{
+        "BufferingHints" => elasticsearch_buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CollectionEndpoint" => String.t() | atom(),
+        "ClusterEndpoint" => String.t() | atom(),
+        "DocumentIdOptions" => document_id_options(),
+        "DomainARN" => String.t() | atom(),
         "IndexName" => String.t() | atom(),
+        "IndexRotationPeriod" => list(any()),
         "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => amazon_open_search_serverless_retry_options(),
+        "RetryOptions" => elasticsearch_retry_options(),
         "RoleARN" => String.t() | atom(),
         "S3BackupMode" => list(any()),
         "S3DestinationDescription" => s3_destination_description(),
+        "TypeName" => String.t() | atom(),
         "VpcConfigurationDescription" => vpc_configuration_description()
       }
       
   """
-  @type amazon_open_search_serverless_destination_description() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type elasticsearch_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_configuration() :: %{
+        "AccessKey" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type http_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      processing_configuration() :: %{
+        "Enabled" => boolean(),
+        "Processors" => list(processor())
+      }
+      
+  """
+  @type processing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      m_s_k_source_configuration() :: %{
+        "AuthenticationConfiguration" => authentication_configuration(),
+        "MSKClusterARN" => String.t() | atom(),
+        "ReadFromTimestamp" => non_neg_integer(),
+        "TopicName" => String.t() | atom()
+      }
+      
+  """
+  @type m_s_k_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_destination_update() :: %{
+        "BufferingHints" => http_endpoint_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "EndpointConfiguration" => http_endpoint_configuration(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RequestConfiguration" => http_endpoint_request_configuration(),
+        "RetryOptions" => http_endpoint_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3Update" => s3_destination_update(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
+      }
+      
+  """
+  @type http_endpoint_destination_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deserializer() :: %{
+        "HiveJsonSerDe" => hive_json_ser_de(),
+        "OpenXJsonSerDe" => open_x_json_ser_de()
+      }
+      
+  """
+  @type deserializer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      direct_put_source_configuration() :: %{
+        "ThroughputHintInMBs" => integer()
+      }
+      
+  """
+  @type direct_put_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_open_search_serverless_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type amazon_open_search_serverless_buffering_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      splunk_destination_description() :: %{
+        "BufferingHints" => splunk_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "HECAcknowledgmentTimeoutInSeconds" => integer(),
+        "HECEndpoint" => String.t() | atom(),
+        "HECEndpointType" => list(any()),
+        "HECToken" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => splunk_retry_options(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
+      }
+      
+  """
+  @type splunk_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serializer() :: %{
+        "OrcSerDe" => orc_ser_de(),
+        "ParquetSerDe" => parquet_ser_de()
+      }
+      
+  """
+  @type serializer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_stream_description() :: %{
+        "CreateTimestamp" => non_neg_integer(),
+        "DeliveryStreamARN" => String.t() | atom(),
+        "DeliveryStreamEncryptionConfiguration" => delivery_stream_encryption_configuration(),
+        "DeliveryStreamName" => String.t() | atom(),
+        "DeliveryStreamStatus" => list(any()),
+        "DeliveryStreamType" => list(any()),
+        "Destinations" => list(destination_description()),
+        "FailureDescription" => failure_description(),
+        "HasMoreDestinations" => boolean(),
+        "LastUpdateTimestamp" => non_neg_integer(),
+        "Source" => source_description(),
+        "VersionId" => String.t() | atom()
+      }
+      
+  """
+  @type delivery_stream_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_command() :: %{
+        "CopyOptions" => String.t() | atom(),
+        "DataTableColumns" => String.t() | atom(),
+        "DataTableName" => String.t() | atom()
+      }
+      
+  """
+  @type copy_command() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extended_s3_destination_update() :: %{
+        "BucketARN" => String.t() | atom(),
+        "BufferingHints" => buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "CompressionFormat" => list(any()),
+        "CustomTimeZone" => String.t() | atom(),
+        "DataFormatConversionConfiguration" => data_format_conversion_configuration(),
+        "DynamicPartitioningConfiguration" => dynamic_partitioning_configuration(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "ErrorOutputPrefix" => String.t() | atom(),
+        "FileExtension" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3BackupUpdate" => s3_destination_update()
+      }
+      
+  """
+  @type extended_s3_destination_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_argument_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_delivery_stream_encryption_output() :: %{}
+      
+  """
+  @type stop_delivery_stream_encryption_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_stream_source_configuration() :: %{
+        "KinesisStreamARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_stream_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type http_endpoint_buffering_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_configuration() :: %{
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "RoleARN" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+      
+  """
+  @type schema_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -362,813 +1198,13 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      create_delivery_stream_input() :: %{
-        optional("AmazonOpenSearchServerlessDestinationConfiguration") => amazon_open_search_serverless_destination_configuration(),
-        optional("AmazonopensearchserviceDestinationConfiguration") => amazonopensearchservice_destination_configuration(),
-        optional("DatabaseSourceConfiguration") => database_source_configuration(),
-        optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
-        optional("DeliveryStreamType") => list(any()),
-        optional("DirectPutSourceConfiguration") => direct_put_source_configuration(),
-        optional("ElasticsearchDestinationConfiguration") => elasticsearch_destination_configuration(),
-        optional("ExtendedS3DestinationConfiguration") => extended_s3_destination_configuration(),
-        optional("HttpEndpointDestinationConfiguration") => http_endpoint_destination_configuration(),
-        optional("IcebergDestinationConfiguration") => iceberg_destination_configuration(),
-        optional("KinesisStreamSourceConfiguration") => kinesis_stream_source_configuration(),
-        optional("MSKSourceConfiguration") => m_s_k_source_configuration(),
-        optional("RedshiftDestinationConfiguration") => redshift_destination_configuration(),
-        optional("S3DestinationConfiguration") => s3_destination_configuration(),
-        optional("SnowflakeDestinationConfiguration") => snowflake_destination_configuration(),
-        optional("SplunkDestinationConfiguration") => splunk_destination_configuration(),
-        optional("Tags") => list(tag()),
-        required("DeliveryStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type create_delivery_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_configuration_description() :: %{
-        "RoleARN" => String.t() | atom(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_configuration_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_description() :: %{
-        "DatabaseSourceDescription" => database_source_description(),
-        "DirectPutSourceDescription" => direct_put_source_description(),
-        "KinesisStreamSourceDescription" => kinesis_stream_source_description(),
-        "MSKSourceDescription" => m_s_k_source_description()
-      }
-      
-  """
-  @type source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_endpoint_configuration() :: %{
-        "AccessKey" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-      
-  """
-  @type http_endpoint_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_endpoint_destination_description() :: %{
-        "BufferingHints" => http_endpoint_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "EndpointConfiguration" => http_endpoint_description(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RequestConfiguration" => http_endpoint_request_configuration(),
-        "RetryOptions" => http_endpoint_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration()
-      }
-      
-  """
-  @type http_endpoint_destination_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_record_batch_input() :: %{
-        required("DeliveryStreamName") => String.t() | atom(),
-        required("Records") => list(record())
-      }
-      
-  """
-  @type put_record_batch_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      m_s_k_source_description() :: %{
-        "AuthenticationConfiguration" => authentication_configuration(),
-        "DeliveryStartTimestamp" => non_neg_integer(),
-        "MSKClusterARN" => String.t() | atom(),
-        "ReadFromTimestamp" => non_neg_integer(),
-        "TopicName" => String.t() | atom()
-      }
-      
-  """
-  @type m_s_k_source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      processor() :: %{
-        "Parameters" => list(processor_parameter()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type processor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      m_s_k_source_configuration() :: %{
-        "AuthenticationConfiguration" => authentication_configuration(),
-        "MSKClusterARN" => String.t() | atom(),
-        "ReadFromTimestamp" => non_neg_integer(),
-        "TopicName" => String.t() | atom()
-      }
-      
-  """
-  @type m_s_k_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snowflake_role_configuration() :: %{
-        "Enabled" => boolean(),
-        "SnowflakeRole" => String.t() | atom()
-      }
-      
-  """
-  @type snowflake_role_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_delivery_streams_output() :: %{
-        "DeliveryStreamNames" => list(String.t() | atom()),
-        "HasMoreDeliveryStreams" => boolean()
-      }
-      
-  """
-  @type list_delivery_streams_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_stream_encryption_configuration_input() :: %{
-        "KeyARN" => String.t() | atom(),
-        "KeyType" => list(any())
-      }
-      
-  """
-  @type delivery_stream_encryption_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      elasticsearch_destination_configuration() :: %{
-        "BufferingHints" => elasticsearch_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t() | atom(),
-        "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "IndexRotationPeriod" => list(any()),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => elasticsearch_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration(),
-        "TypeName" => String.t() | atom(),
-        "VpcConfiguration" => vpc_configuration()
-      }
-      
-  """
-  @type elasticsearch_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      splunk_buffering_hints() :: %{
-        "IntervalInSeconds" => integer(),
-        "SizeInMBs" => integer()
-      }
-      
-  """
-  @type splunk_buffering_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_endpoint_destination_configuration() :: %{
-        "BufferingHints" => http_endpoint_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "EndpointConfiguration" => http_endpoint_configuration(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RequestConfiguration" => http_endpoint_request_configuration(),
-        "RetryOptions" => http_endpoint_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration()
-      }
-      
-  """
-  @type http_endpoint_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_description() :: %{
-        "AmazonOpenSearchServerlessDestinationDescription" => amazon_open_search_serverless_destination_description(),
-        "AmazonopensearchserviceDestinationDescription" => amazonopensearchservice_destination_description(),
-        "DestinationId" => String.t() | atom(),
-        "ElasticsearchDestinationDescription" => elasticsearch_destination_description(),
-        "ExtendedS3DestinationDescription" => extended_s3_destination_description(),
-        "HttpEndpointDestinationDescription" => http_endpoint_destination_description(),
-        "IcebergDestinationDescription" => iceberg_destination_description(),
-        "RedshiftDestinationDescription" => redshift_destination_description(),
-        "S3DestinationDescription" => s3_destination_description(),
-        "SnowflakeDestinationDescription" => snowflake_destination_description(),
-        "SplunkDestinationDescription" => splunk_destination_description()
-      }
-      
-  """
-  @type destination_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snowflake_destination_description() :: %{
-        "AccountUrl" => String.t() | atom(),
-        "BufferingHints" => snowflake_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ContentColumnName" => String.t() | atom(),
-        "DataLoadingOption" => list(any()),
-        "Database" => String.t() | atom(),
-        "MetaDataColumnName" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => snowflake_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description(),
-        "Schema" => String.t() | atom(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
-        "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
-        "Table" => String.t() | atom(),
-        "User" => String.t() | atom()
-      }
-      
-  """
-  @type snowflake_destination_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      open_x_json_ser_de() :: %{
-        "CaseInsensitive" => boolean(),
-        "ColumnToJsonKeyMappings" => map(),
-        "ConvertDotsInJsonKeysToUnderscores" => boolean()
-      }
-      
-  """
-  @type open_x_json_ser_de() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snowflake_buffering_hints() :: %{
-        "IntervalInSeconds" => integer(),
-        "SizeInMBs" => integer()
-      }
-      
-  """
-  @type snowflake_buffering_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_destination_input() :: %{
-        optional("AmazonOpenSearchServerlessDestinationUpdate") => amazon_open_search_serverless_destination_update(),
-        optional("AmazonopensearchserviceDestinationUpdate") => amazonopensearchservice_destination_update(),
-        optional("ElasticsearchDestinationUpdate") => elasticsearch_destination_update(),
-        optional("ExtendedS3DestinationUpdate") => extended_s3_destination_update(),
-        optional("HttpEndpointDestinationUpdate") => http_endpoint_destination_update(),
-        optional("IcebergDestinationUpdate") => iceberg_destination_update(),
-        optional("RedshiftDestinationUpdate") => redshift_destination_update(),
-        optional("S3DestinationUpdate") => s3_destination_update(),
-        optional("SnowflakeDestinationUpdate") => snowflake_destination_update(),
-        optional("SplunkDestinationUpdate") => splunk_destination_update(),
-        required("CurrentDeliveryStreamVersionId") => String.t() | atom(),
-        required("DeliveryStreamName") => String.t() | atom(),
-        required("DestinationId") => String.t() | atom()
-      }
-      
-  """
-  @type update_destination_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      elasticsearch_retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type elasticsearch_retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      direct_put_source_description() :: %{
-        "ThroughputHintInMBs" => integer()
-      }
-      
-  """
-  @type direct_put_source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_column_list() :: %{
+      database_table_list() :: %{
         "Exclude" => list(String.t() | atom()),
         "Include" => list(String.t() | atom())
       }
       
   """
-  @type database_column_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_source_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_source_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      copy_command() :: %{
-        "CopyOptions" => String.t() | atom(),
-        "DataTableColumns" => String.t() | atom(),
-        "DataTableName" => String.t() | atom()
-      }
-      
-  """
-  @type copy_command() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      iceberg_destination_configuration() :: %{
-        "AppendOnly" => boolean(),
-        "BufferingHints" => buffering_hints(),
-        "CatalogConfiguration" => catalog_configuration(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "DestinationTableConfigurationList" => list(destination_table_configuration()),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration(),
-        "SchemaEvolutionConfiguration" => schema_evolution_configuration(),
-        "TableCreationConfiguration" => table_creation_configuration()
-      }
-      
-  """
-  @type iceberg_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amazonopensearchservice_retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type amazonopensearchservice_retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_table_configuration() :: %{
-        "DestinationDatabaseName" => String.t() | atom(),
-        "DestinationTableName" => String.t() | atom(),
-        "PartitionSpec" => partition_spec(),
-        "S3ErrorOutputPrefix" => String.t() | atom(),
-        "UniqueKeys" => list(String.t() | atom())
-      }
-      
-  """
-  @type destination_table_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_id_options() :: %{
-        "DefaultDocumentIdFormat" => list(any())
-      }
-      
-  """
-  @type document_id_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_delivery_stream_input() :: %{
-        optional("ExclusiveStartTagKey") => String.t() | atom(),
-        optional("Limit") => integer(),
-        required("DeliveryStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_delivery_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_snapshot_info() :: %{
-        "FailureDescription" => failure_description(),
-        "Id" => String.t() | atom(),
-        "RequestTimestamp" => non_neg_integer(),
-        "RequestedBy" => list(any()),
-        "Status" => list(any()),
-        "Table" => String.t() | atom()
-      }
-      
-  """
-  @type database_snapshot_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snowflake_destination_configuration() :: %{
-        "AccountUrl" => String.t() | atom(),
-        "BufferingHints" => snowflake_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ContentColumnName" => String.t() | atom(),
-        "DataLoadingOption" => list(any()),
-        "Database" => String.t() | atom(),
-        "KeyPassphrase" => String.t() | atom(),
-        "MetaDataColumnName" => String.t() | atom(),
-        "PrivateKey" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => snowflake_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration(),
-        "Schema" => String.t() | atom(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
-        "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
-        "Table" => String.t() | atom(),
-        "User" => String.t() | atom()
-      }
-      
-  """
-  @type snowflake_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amazon_open_search_serverless_retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type amazon_open_search_serverless_retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_destination_configuration() :: %{
-        "BucketARN" => String.t() | atom(),
-        "BufferingHints" => buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CompressionFormat" => list(any()),
-        "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t() | atom(),
-        "Prefix" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type s3_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      splunk_destination_update() :: %{
-        "BufferingHints" => splunk_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "HECAcknowledgmentTimeoutInSeconds" => integer(),
-        "HECEndpoint" => String.t() | atom(),
-        "HECEndpointType" => list(any()),
-        "HECToken" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => splunk_retry_options(),
-        "S3BackupMode" => list(any()),
-        "S3Update" => s3_destination_update(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration()
-      }
-      
-  """
-  @type splunk_destination_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_delivery_stream_input() :: %{
-        optional("AllowForceDelete") => boolean(),
-        required("DeliveryStreamName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_delivery_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delivery_stream_encryption_configuration() :: %{
-        "FailureDescription" => failure_description(),
-        "KeyARN" => String.t() | atom(),
-        "KeyType" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type delivery_stream_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amazon_open_search_serverless_destination_configuration() :: %{
-        "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CollectionEndpoint" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => amazon_open_search_serverless_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration(),
-        "VpcConfiguration" => vpc_configuration()
-      }
-      
-  """
-  @type amazon_open_search_serverless_destination_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_delivery_stream_input() :: %{
-        required("DeliveryStreamName") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_delivery_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_record_batch_response_entry() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "RecordId" => String.t() | atom()
-      }
-      
-  """
-  @type put_record_batch_response_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      processing_configuration() :: %{
-        "Enabled" => boolean(),
-        "Processors" => list(processor())
-      }
-      
-  """
-  @type processing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_delivery_stream_output() :: %{}
-      
-  """
-  @type tag_delivery_stream_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      redshift_destination_update() :: %{
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterJDBCURL" => String.t() | atom(),
-        "CopyCommand" => copy_command(),
-        "Password" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => redshift_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3BackupUpdate" => s3_destination_update(),
-        "S3Update" => s3_destination_update(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type redshift_destination_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      buffering_hints() :: %{
-        "IntervalInSeconds" => integer(),
-        "SizeInMBs" => integer()
-      }
-      
-  """
-  @type buffering_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hive_json_ser_de() :: %{
-        "TimestampFormats" => list(String.t() | atom())
-      }
-      
-  """
-  @type hive_json_ser_de() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_record_batch_output() :: %{
-        "Encrypted" => boolean(),
-        "FailedPutCount" => integer(),
-        "RequestResponses" => list(put_record_batch_response_entry())
-      }
-      
-  """
-  @type put_record_batch_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_stream_source_description() :: %{
-        "DeliveryStartTimestamp" => non_neg_integer(),
-        "KinesisStreamARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_stream_source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_source_description() :: %{
-        "Columns" => database_column_list(),
-        "DatabaseSourceAuthenticationConfiguration" => database_source_authentication_configuration(),
-        "DatabaseSourceVPCConfiguration" => database_source_vpc_configuration(),
-        "Databases" => database_list(),
-        "Endpoint" => String.t() | atom(),
-        "Port" => integer(),
-        "SSLMode" => list(any()),
-        "SnapshotInfo" => list(database_snapshot_info()),
-        "SnapshotWatermarkTable" => String.t() | atom(),
-        "SurrogateKeys" => list(String.t() | atom()),
-        "Tables" => database_table_list(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type database_source_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_endpoint_retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type http_endpoint_retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      elasticsearch_destination_update() :: %{
-        "BufferingHints" => elasticsearch_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t() | atom(),
-        "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "IndexRotationPeriod" => list(any()),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => elasticsearch_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3Update" => s3_destination_update(),
-        "TypeName" => String.t() | atom()
-      }
-      
-  """
-  @type elasticsearch_destination_update() :: %{(String.t() | atom()) => any()}
+  @type database_table_list() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1219,23 +1255,403 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      partition_spec() :: %{
-        "Identity" => list(partition_field())
+      database_source_description() :: %{
+        "Columns" => database_column_list(),
+        "DatabaseSourceAuthenticationConfiguration" => database_source_authentication_configuration(),
+        "DatabaseSourceVPCConfiguration" => database_source_vpc_configuration(),
+        "Databases" => database_list(),
+        "Endpoint" => String.t() | atom(),
+        "Port" => integer(),
+        "SSLMode" => list(any()),
+        "SnapshotInfo" => list(database_snapshot_info()),
+        "SnapshotWatermarkTable" => String.t() | atom(),
+        "SurrogateKeys" => list(String.t() | atom()),
+        "Tables" => database_table_list(),
+        "Type" => list(any())
       }
       
   """
-  @type partition_spec() :: %{(String.t() | atom()) => any()}
+  @type database_source_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_delivery_stream_encryption_input() :: %{
+      input_format_configuration() :: %{
+        "Deserializer" => deserializer()
+      }
+      
+  """
+  @type input_format_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_open_search_serverless_destination_configuration() :: %{
+        "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "CollectionEndpoint" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => amazon_open_search_serverless_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration(),
+        "VpcConfiguration" => vpc_configuration()
+      }
+      
+  """
+  @type amazon_open_search_serverless_destination_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      amazonopensearchservice_destination_update() :: %{
+        "BufferingHints" => amazonopensearchservice_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ClusterEndpoint" => String.t() | atom(),
+        "DocumentIdOptions" => document_id_options(),
+        "DomainARN" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "IndexRotationPeriod" => list(any()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => amazonopensearchservice_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3Update" => s3_destination_update(),
+        "TypeName" => String.t() | atom()
+      }
+      
+  """
+  @type amazonopensearchservice_destination_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_configuration_description() :: %{
+        "RoleARN" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_configuration_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_format_configuration() :: %{
+        "Serializer" => serializer()
+      }
+      
+  """
+  @type output_format_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elasticsearch_destination_update() :: %{
+        "BufferingHints" => elasticsearch_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ClusterEndpoint" => String.t() | atom(),
+        "DocumentIdOptions" => document_id_options(),
+        "DomainARN" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "IndexRotationPeriod" => list(any()),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => elasticsearch_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3Update" => s3_destination_update(),
+        "TypeName" => String.t() | atom()
+      }
+      
+  """
+  @type elasticsearch_destination_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_evolution_configuration() :: %{
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type schema_evolution_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secrets_manager_configuration() :: %{
+        "Enabled" => boolean(),
+        "RoleARN" => String.t() | atom(),
+        "SecretARN" => String.t() | atom()
+      }
+      
+  """
+  @type secrets_manager_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_description() :: %{
+        "Name" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type http_endpoint_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elasticsearch_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type elasticsearch_buffering_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redshift_destination_configuration() :: %{
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ClusterJDBCURL" => String.t() | atom(),
+        "CopyCommand" => copy_command(),
+        "Password" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => redshift_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupConfiguration" => s3_destination_configuration(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type redshift_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_endpoint_destination_description() :: %{
+        "BufferingHints" => http_endpoint_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "EndpointConfiguration" => http_endpoint_description(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RequestConfiguration" => http_endpoint_request_configuration(),
+        "RetryOptions" => http_endpoint_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration()
+      }
+      
+  """
+  @type http_endpoint_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      processor() :: %{
+        "Parameters" => list(processor_parameter()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type processor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_record_output() :: %{
+        "Encrypted" => boolean(),
+        "RecordId" => String.t() | atom()
+      }
+      
+  """
+  @type put_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_destination_description() :: %{
+        "AccountUrl" => String.t() | atom(),
+        "BufferingHints" => snowflake_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ContentColumnName" => String.t() | atom(),
+        "DataLoadingOption" => list(any()),
+        "Database" => String.t() | atom(),
+        "MetaDataColumnName" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => snowflake_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description(),
+        "Schema" => String.t() | atom(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
+        "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
+        "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
+        "Table" => String.t() | atom(),
+        "User" => String.t() | atom()
+      }
+      
+  """
+  @type snowflake_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logging_options() :: %{
+        "Enabled" => boolean(),
+        "LogGroupName" => String.t() | atom(),
+        "LogStreamName" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logging_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_record_batch_input() :: %{
+        required("DeliveryStreamName") => String.t() | atom(),
+        required("Records") => list(record())
+      }
+      
+  """
+  @type put_record_batch_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_description() :: %{
+        "AmazonOpenSearchServerlessDestinationDescription" => amazon_open_search_serverless_destination_description(),
+        "AmazonopensearchserviceDestinationDescription" => amazonopensearchservice_destination_description(),
+        "DestinationId" => String.t() | atom(),
+        "ElasticsearchDestinationDescription" => elasticsearch_destination_description(),
+        "ExtendedS3DestinationDescription" => extended_s3_destination_description(),
+        "HttpEndpointDestinationDescription" => http_endpoint_destination_description(),
+        "IcebergDestinationDescription" => iceberg_destination_description(),
+        "RedshiftDestinationDescription" => redshift_destination_description(),
+        "S3DestinationDescription" => s3_destination_description(),
+        "SnowflakeDestinationDescription" => snowflake_destination_description(),
+        "SplunkDestinationDescription" => splunk_destination_description()
+      }
+      
+  """
+  @type destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_destination_output() :: %{}
+      
+  """
+  @type update_destination_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_delivery_stream_encryption_output() :: %{}
+      
+  """
+  @type start_delivery_stream_encryption_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_delivery_stream_input() :: %{
+        optional("AmazonOpenSearchServerlessDestinationConfiguration") => amazon_open_search_serverless_destination_configuration(),
+        optional("AmazonopensearchserviceDestinationConfiguration") => amazonopensearchservice_destination_configuration(),
+        optional("DatabaseSourceConfiguration") => database_source_configuration(),
+        optional("DeliveryStreamEncryptionConfigurationInput") => delivery_stream_encryption_configuration_input(),
+        optional("DeliveryStreamType") => list(any()),
+        optional("DirectPutSourceConfiguration") => direct_put_source_configuration(),
+        optional("ElasticsearchDestinationConfiguration") => elasticsearch_destination_configuration(),
+        optional("ExtendedS3DestinationConfiguration") => extended_s3_destination_configuration(),
+        optional("HttpEndpointDestinationConfiguration") => http_endpoint_destination_configuration(),
+        optional("IcebergDestinationConfiguration") => iceberg_destination_configuration(),
+        optional("KinesisStreamSourceConfiguration") => kinesis_stream_source_configuration(),
+        optional("MSKSourceConfiguration") => m_s_k_source_configuration(),
+        optional("RedshiftDestinationConfiguration") => redshift_destination_configuration(),
+        optional("S3DestinationConfiguration") => s3_destination_configuration(),
+        optional("SnowflakeDestinationConfiguration") => snowflake_destination_configuration(),
+        optional("SplunkDestinationConfiguration") => splunk_destination_configuration(),
+        optional("Tags") => list(tag()),
         required("DeliveryStreamName") => String.t() | atom()
       }
       
   """
-  @type stop_delivery_stream_encryption_input() :: %{(String.t() | atom()) => any()}
+  @type create_delivery_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_source_vpc_configuration() :: %{
+        "VpcEndpointServiceName" => String.t() | atom()
+      }
+      
+  """
+  @type database_source_vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazon_open_search_serverless_destination_description() :: %{
+        "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "CollectionEndpoint" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => amazon_open_search_serverless_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description(),
+        "VpcConfigurationDescription" => vpc_configuration_description()
+      }
+      
+  """
+  @type amazon_open_search_serverless_destination_description() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      amazonopensearchservice_retry_options() :: %{
+        "DurationInSeconds" => integer()
+      }
+      
+  """
+  @type amazonopensearchservice_retry_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1254,31 +1670,94 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      elasticsearch_destination_description() :: %{
-        "BufferingHints" => elasticsearch_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t() | atom(),
-        "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "IndexRotationPeriod" => list(any()),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => elasticsearch_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description(),
-        "TypeName" => String.t() | atom(),
-        "VpcConfigurationDescription" => vpc_configuration_description()
+      open_x_json_ser_de() :: %{
+        "CaseInsensitive" => boolean(),
+        "ColumnToJsonKeyMappings" => map(),
+        "ConvertDotsInJsonKeysToUnderscores" => boolean()
       }
       
   """
-  @type elasticsearch_destination_description() :: %{(String.t() | atom()) => any()}
+  @type open_x_json_ser_de() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      extended_s3_destination_configuration() :: %{
+      stop_delivery_stream_encryption_input() :: %{
+        required("DeliveryStreamName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_delivery_stream_encryption_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration() :: %{
+        "KMSEncryptionConfig" => kms_encryption_config(),
+        "NoEncryptionConfig" => list(any())
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snowflake_destination_configuration() :: %{
+        "AccountUrl" => String.t() | atom(),
+        "BufferingHints" => snowflake_buffering_hints(),
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ContentColumnName" => String.t() | atom(),
+        "DataLoadingOption" => list(any()),
+        "Database" => String.t() | atom(),
+        "KeyPassphrase" => String.t() | atom(),
+        "MetaDataColumnName" => String.t() | atom(),
+        "PrivateKey" => String.t() | atom(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => snowflake_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupMode" => list(any()),
+        "S3Configuration" => s3_destination_configuration(),
+        "Schema" => String.t() | atom(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
+        "SnowflakeRoleConfiguration" => snowflake_role_configuration(),
+        "SnowflakeVpcConfiguration" => snowflake_vpc_configuration(),
+        "Table" => String.t() | atom(),
+        "User" => String.t() | atom()
+      }
+      
+  """
+  @type snowflake_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redshift_destination_description() :: %{
+        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
+        "ClusterJDBCURL" => String.t() | atom(),
+        "CopyCommand" => copy_command(),
+        "ProcessingConfiguration" => processing_configuration(),
+        "RetryOptions" => redshift_retry_options(),
+        "RoleARN" => String.t() | atom(),
+        "S3BackupDescription" => s3_destination_description(),
+        "S3BackupMode" => list(any()),
+        "S3DestinationDescription" => s3_destination_description(),
+        "SecretsManagerConfiguration" => secrets_manager_configuration(),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type redshift_destination_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extended_s3_destination_description() :: %{
         "BucketARN" => String.t() | atom(),
         "BufferingHints" => buffering_hints(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
@@ -1292,30 +1771,114 @@ defmodule AWS.Firehose do
         "Prefix" => String.t() | atom(),
         "ProcessingConfiguration" => processing_configuration(),
         "RoleARN" => String.t() | atom(),
-        "S3BackupConfiguration" => s3_destination_configuration(),
+        "S3BackupDescription" => s3_destination_description(),
         "S3BackupMode" => list(any())
       }
       
   """
-  @type extended_s3_destination_configuration() :: %{(String.t() | atom()) => any()}
+  @type extended_s3_destination_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_record_output() :: %{
-        "Encrypted" => boolean(),
-        "RecordId" => String.t() | atom()
+      list_tags_for_delivery_stream_input() :: %{
+        optional("ExclusiveStartTagKey") => String.t() | atom(),
+        optional("Limit") => integer(),
+        required("DeliveryStreamName") => String.t() | atom()
       }
       
   """
-  @type put_record_output() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_delivery_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      iceberg_destination_description() :: %{
+      snowflake_vpc_configuration() :: %{
+        "PrivateLinkVpceId" => String.t() | atom()
+      }
+      
+  """
+  @type snowflake_vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_delivery_stream_output() :: %{}
+      
+  """
+  @type tag_delivery_stream_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      kinesis_stream_source_description() :: %{
+        "DeliveryStartTimestamp" => non_neg_integer(),
+        "KinesisStreamARN" => String.t() | atom(),
+        "RoleARN" => String.t() | atom()
+      }
+      
+  """
+  @type kinesis_stream_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_format_conversion_configuration() :: %{
+        "Enabled" => boolean(),
+        "InputFormatConfiguration" => input_format_configuration(),
+        "OutputFormatConfiguration" => output_format_configuration(),
+        "SchemaConfiguration" => schema_configuration()
+      }
+      
+  """
+  @type data_format_conversion_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amazonopensearchservice_buffering_hints() :: %{
+        "IntervalInSeconds" => integer(),
+        "SizeInMBs" => integer()
+      }
+      
+  """
+  @type amazonopensearchservice_buffering_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_delivery_stream_input() :: %{
+        required("DeliveryStreamName") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_delivery_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_stream_encryption_configuration_input() :: %{
+        "KeyARN" => String.t() | atom(),
+        "KeyType" => list(any())
+      }
+      
+  """
+  @type delivery_stream_encryption_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iceberg_destination_configuration() :: %{
         "AppendOnly" => boolean(),
         "BufferingHints" => buffering_hints(),
         "CatalogConfiguration" => catalog_configuration(),
@@ -1325,35 +1888,80 @@ defmodule AWS.Firehose do
         "RetryOptions" => retry_options(),
         "RoleARN" => String.t() | atom(),
         "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description(),
+        "S3Configuration" => s3_destination_configuration(),
         "SchemaEvolutionConfiguration" => schema_evolution_configuration(),
         "TableCreationConfiguration" => table_creation_configuration()
       }
       
   """
-  @type iceberg_destination_description() :: %{(String.t() | atom()) => any()}
+  @type iceberg_destination_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delivery_stream_description() :: %{
-        "CreateTimestamp" => non_neg_integer(),
-        "DeliveryStreamARN" => String.t() | atom(),
-        "DeliveryStreamEncryptionConfiguration" => delivery_stream_encryption_configuration(),
-        "DeliveryStreamName" => String.t() | atom(),
-        "DeliveryStreamStatus" => list(any()),
-        "DeliveryStreamType" => list(any()),
-        "Destinations" => list(destination_description()),
-        "FailureDescription" => failure_description(),
-        "HasMoreDestinations" => boolean(),
-        "LastUpdateTimestamp" => non_neg_integer(),
-        "Source" => source_description(),
-        "VersionId" => String.t() | atom()
+      redshift_retry_options() :: %{
+        "DurationInSeconds" => integer()
       }
       
   """
-  @type delivery_stream_description() :: %{(String.t() | atom()) => any()}
+  @type redshift_retry_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      elasticsearch_retry_options() :: %{
+        "DurationInSeconds" => integer()
+      }
+      
+  """
+  @type elasticsearch_retry_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delivery_stream_encryption_configuration() :: %{
+        "FailureDescription" => failure_description(),
+        "KeyARN" => String.t() | atom(),
+        "KeyType" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type delivery_stream_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_delivery_stream_output() :: %{}
+      
+  """
+  @type untag_delivery_stream_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      hive_json_ser_de() :: %{
+        "TimestampFormats" => list(String.t() | atom())
+      }
+      
+  """
+  @type hive_json_ser_de() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_creation_configuration() :: %{
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type table_creation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1383,198 +1991,6 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      output_format_configuration() :: %{
-        "Serializer" => serializer()
-      }
-      
-  """
-  @type output_format_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      snowflake_retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type snowflake_retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_endpoint_description() :: %{
-        "Name" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-      
-  """
-  @type http_endpoint_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logging_options() :: %{
-        "Enabled" => boolean(),
-        "LogGroupName" => String.t() | atom(),
-        "LogStreamName" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logging_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_encryption_config() :: %{
-        "AWSKMSKeyARN" => String.t() | atom()
-      }
-      
-  """
-  @type kms_encryption_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_delivery_stream_output() :: %{}
-      
-  """
-  @type delete_delivery_stream_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      orc_ser_de() :: %{
-        "BlockSizeBytes" => integer(),
-        "BloomFilterColumns" => list(String.t() | atom()),
-        "BloomFilterFalsePositiveProbability" => float(),
-        "Compression" => list(any()),
-        "DictionaryKeyThreshold" => float(),
-        "EnablePadding" => boolean(),
-        "FormatVersion" => list(any()),
-        "PaddingTolerance" => float(),
-        "RowIndexStride" => integer(),
-        "StripeSizeBytes" => integer()
-      }
-      
-  """
-  @type orc_ser_de() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      secrets_manager_configuration() :: %{
-        "Enabled" => boolean(),
-        "RoleARN" => String.t() | atom(),
-        "SecretARN" => String.t() | atom()
-      }
-      
-  """
-  @type secrets_manager_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_delivery_stream_encryption_output() :: %{}
-      
-  """
-  @type stop_delivery_stream_encryption_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      amazonopensearchservice_destination_update() :: %{
-        "BufferingHints" => amazonopensearchservice_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterEndpoint" => String.t() | atom(),
-        "DocumentIdOptions" => document_id_options(),
-        "DomainARN" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "IndexRotationPeriod" => list(any()),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => amazonopensearchservice_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3Update" => s3_destination_update(),
-        "TypeName" => String.t() | atom()
-      }
-      
-  """
-  @type amazonopensearchservice_destination_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      catalog_configuration() :: %{
-        "CatalogARN" => String.t() | atom(),
-        "WarehouseLocation" => String.t() | atom()
-      }
-      
-  """
-  @type catalog_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_argument_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parquet_ser_de() :: %{
-        "BlockSizeBytes" => integer(),
-        "Compression" => list(any()),
-        "EnableDictionaryCompression" => boolean(),
-        "MaxPaddingBytes" => integer(),
-        "PageSizeBytes" => integer(),
-        "WriterVersion" => list(any())
-      }
-      
-  """
-  @type parquet_ser_de() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       http_endpoint_common_attribute() :: %{
         "AttributeName" => String.t() | atom(),
         "AttributeValue" => String.t() | atom()
@@ -1587,491 +2003,75 @@ defmodule AWS.Firehose do
 
   ## Example:
       
-      redshift_destination_description() :: %{
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterJDBCURL" => String.t() | atom(),
-        "CopyCommand" => copy_command(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => redshift_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupDescription" => s3_destination_description(),
-        "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "Username" => String.t() | atom()
+      put_record_batch_response_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "RecordId" => String.t() | atom()
       }
       
   """
-  @type redshift_destination_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      redshift_destination_configuration() :: %{
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "ClusterJDBCURL" => String.t() | atom(),
-        "CopyCommand" => copy_command(),
-        "Password" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => redshift_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupConfiguration" => s3_destination_configuration(),
-        "S3BackupMode" => list(any()),
-        "S3Configuration" => s3_destination_configuration(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration(),
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type redshift_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_format_configuration() :: %{
-        "Deserializer" => deserializer()
-      }
-      
-  """
-  @type input_format_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_delivery_streams_input() :: %{
-        optional("DeliveryStreamType") => list(any()),
-        optional("ExclusiveStartDeliveryStreamName") => String.t() | atom(),
-        optional("Limit") => integer()
-      }
-      
-  """
-  @type list_delivery_streams_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schema_configuration() :: %{
-        "CatalogId" => String.t() | atom(),
-        "DatabaseName" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "RoleARN" => String.t() | atom(),
-        "TableName" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-      
-  """
-  @type schema_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_format_conversion_configuration() :: %{
-        "Enabled" => boolean(),
-        "InputFormatConfiguration" => input_format_configuration(),
-        "OutputFormatConfiguration" => output_format_configuration(),
-        "SchemaConfiguration" => schema_configuration()
-      }
-      
-  """
-  @type data_format_conversion_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_list() :: %{
-        "Exclude" => list(String.t() | atom()),
-        "Include" => list(String.t() | atom())
-      }
-      
-  """
-  @type database_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_delivery_stream_input() :: %{
-        required("DeliveryStreamName") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_delivery_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amazon_open_search_serverless_destination_update() :: %{
-        "BufferingHints" => amazon_open_search_serverless_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CollectionEndpoint" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => amazon_open_search_serverless_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3Update" => s3_destination_update()
-      }
-      
-  """
-  @type amazon_open_search_serverless_destination_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_destination_description() :: %{
-        "BucketARN" => String.t() | atom(),
-        "BufferingHints" => buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CompressionFormat" => list(any()),
-        "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t() | atom(),
-        "Prefix" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type s3_destination_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_delivery_stream_output() :: %{}
-      
-  """
-  @type untag_delivery_stream_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_delivery_stream_output() :: %{
-        "DeliveryStreamARN" => String.t() | atom()
-      }
-      
-  """
-  @type create_delivery_stream_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kinesis_stream_source_configuration() :: %{
-        "KinesisStreamARN" => String.t() | atom(),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type kinesis_stream_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authentication_configuration() :: %{
-        "Connectivity" => list(any()),
-        "RoleARN" => String.t() | atom()
-      }
-      
-  """
-  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      elasticsearch_buffering_hints() :: %{
-        "IntervalInSeconds" => integer(),
-        "SizeInMBs" => integer()
-      }
-      
-  """
-  @type elasticsearch_buffering_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      extended_s3_destination_update() :: %{
-        "BucketARN" => String.t() | atom(),
-        "BufferingHints" => buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "CompressionFormat" => list(any()),
-        "CustomTimeZone" => String.t() | atom(),
-        "DataFormatConversionConfiguration" => data_format_conversion_configuration(),
-        "DynamicPartitioningConfiguration" => dynamic_partitioning_configuration(),
-        "EncryptionConfiguration" => encryption_configuration(),
-        "ErrorOutputPrefix" => String.t() | atom(),
-        "FileExtension" => String.t() | atom(),
-        "Prefix" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3BackupUpdate" => s3_destination_update()
-      }
-      
-  """
-  @type extended_s3_destination_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_record_input() :: %{
-        required("DeliveryStreamName") => String.t() | atom(),
-        required("Record") => record()
-      }
-      
-  """
-  @type put_record_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_table_list() :: %{
-        "Exclude" => list(String.t() | atom()),
-        "Include" => list(String.t() | atom())
-      }
-      
-  """
-  @type database_table_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deserializer() :: %{
-        "HiveJsonSerDe" => hive_json_ser_de(),
-        "OpenXJsonSerDe" => open_x_json_ser_de()
-      }
-      
-  """
-  @type deserializer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      amazonopensearchservice_buffering_hints() :: %{
-        "IntervalInSeconds" => integer(),
-        "SizeInMBs" => integer()
-      }
-      
-  """
-  @type amazonopensearchservice_buffering_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      partition_field() :: %{
-        "SourceName" => String.t() | atom()
-      }
-      
-  """
-  @type partition_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      splunk_retry_options() :: %{
-        "DurationInSeconds" => integer()
-      }
-      
-  """
-  @type splunk_retry_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dynamic_partitioning_configuration() :: %{
-        "Enabled" => boolean(),
-        "RetryOptions" => retry_options()
-      }
-      
-  """
-  @type dynamic_partitioning_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      processor_parameter() :: %{
-        "ParameterName" => list(any()),
-        "ParameterValue" => String.t() | atom()
-      }
-      
-  """
-  @type processor_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schema_evolution_configuration() :: %{
-        "Enabled" => boolean()
-      }
-      
-  """
-  @type schema_evolution_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_delivery_stream_output() :: %{
-        "DeliveryStreamDescription" => delivery_stream_description()
-      }
-      
-  """
-  @type describe_delivery_stream_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      splunk_destination_description() :: %{
-        "BufferingHints" => splunk_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "HECAcknowledgmentTimeoutInSeconds" => integer(),
-        "HECEndpoint" => String.t() | atom(),
-        "HECEndpointType" => list(any()),
-        "HECToken" => String.t() | atom(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RetryOptions" => splunk_retry_options(),
-        "S3BackupMode" => list(any()),
-        "S3DestinationDescription" => s3_destination_description(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration()
-      }
-      
-  """
-  @type splunk_destination_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      serializer() :: %{
-        "OrcSerDe" => orc_ser_de(),
-        "ParquetSerDe" => parquet_ser_de()
-      }
-      
-  """
-  @type serializer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_endpoint_destination_update() :: %{
-        "BufferingHints" => http_endpoint_buffering_hints(),
-        "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "EndpointConfiguration" => http_endpoint_configuration(),
-        "ProcessingConfiguration" => processing_configuration(),
-        "RequestConfiguration" => http_endpoint_request_configuration(),
-        "RetryOptions" => http_endpoint_retry_options(),
-        "RoleARN" => String.t() | atom(),
-        "S3BackupMode" => list(any()),
-        "S3Update" => s3_destination_update(),
-        "SecretsManagerConfiguration" => secrets_manager_configuration()
-      }
-      
-  """
-  @type http_endpoint_destination_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table_creation_configuration() :: %{
-        "Enabled" => boolean()
-      }
-      
-  """
-  @type table_creation_configuration() :: %{(String.t() | atom()) => any()}
+  @type put_record_batch_response_entry() :: %{(String.t() | atom()) => any()}
 
   @type create_delivery_stream_errors() ::
-          limit_exceeded_exception()
+          resource_in_use_exception()
           | invalid_argument_exception()
-          | resource_in_use_exception()
           | invalid_kms_resource_exception()
+          | limit_exceeded_exception()
 
   @type delete_delivery_stream_errors() ::
-          resource_not_found_exception() | resource_in_use_exception()
+          resource_in_use_exception() | resource_not_found_exception()
 
   @type describe_delivery_stream_errors() :: resource_not_found_exception()
 
   @type list_tags_for_delivery_stream_errors() ::
-          limit_exceeded_exception()
-          | invalid_argument_exception()
+          invalid_argument_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type put_record_errors() ::
           invalid_argument_exception()
-          | service_unavailable_exception()
           | resource_not_found_exception()
-          | invalid_source_exception()
           | invalid_kms_resource_exception()
+          | service_unavailable_exception()
+          | invalid_source_exception()
 
   @type put_record_batch_errors() ::
           invalid_argument_exception()
-          | service_unavailable_exception()
           | resource_not_found_exception()
-          | invalid_source_exception()
           | invalid_kms_resource_exception()
+          | service_unavailable_exception()
+          | invalid_source_exception()
 
   @type start_delivery_stream_encryption_errors() ::
-          limit_exceeded_exception()
+          resource_in_use_exception()
           | invalid_argument_exception()
           | resource_not_found_exception()
-          | resource_in_use_exception()
           | invalid_kms_resource_exception()
+          | limit_exceeded_exception()
 
   @type stop_delivery_stream_encryption_errors() ::
-          limit_exceeded_exception()
+          resource_in_use_exception()
           | invalid_argument_exception()
           | resource_not_found_exception()
-          | resource_in_use_exception()
+          | limit_exceeded_exception()
 
   @type tag_delivery_stream_errors() ::
-          limit_exceeded_exception()
+          resource_in_use_exception()
           | invalid_argument_exception()
           | resource_not_found_exception()
-          | resource_in_use_exception()
+          | limit_exceeded_exception()
 
   @type untag_delivery_stream_errors() ::
-          limit_exceeded_exception()
+          resource_in_use_exception()
           | invalid_argument_exception()
           | resource_not_found_exception()
-          | resource_in_use_exception()
+          | limit_exceeded_exception()
 
   @type update_destination_errors() ::
-          concurrent_modification_exception()
+          resource_in_use_exception()
           | invalid_argument_exception()
           | resource_not_found_exception()
-          | resource_in_use_exception()
+          | concurrent_modification_exception()
 
   def metadata do
     %{
@@ -2183,7 +2183,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, create_delivery_stream_errors()}
   def create_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeliveryStream", input, options)
   end
@@ -2220,7 +2221,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, delete_delivery_stream_errors()}
   def delete_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryStream", input, options)
   end
@@ -2245,7 +2247,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, describe_delivery_stream_errors()}
   def describe_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryStream", input, options)
   end
@@ -2268,7 +2271,8 @@ defmodule AWS.Firehose do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_delivery_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeliveryStreams", input, options)
   end
@@ -2285,7 +2289,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, list_tags_for_delivery_stream_errors()}
   def list_tags_for_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForDeliveryStream", input, options)
   end
@@ -2368,7 +2373,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, put_record_errors()}
   def put_record(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRecord", input, options)
   end
@@ -2476,7 +2482,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, put_record_batch_errors()}
   def put_record_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRecordBatch", input, options)
   end
@@ -2544,7 +2551,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, start_delivery_stream_encryption_errors()}
   def start_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDeliveryStreamEncryption", input, options)
   end
@@ -2584,7 +2592,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, stop_delivery_stream_encryption_errors()}
   def stop_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDeliveryStreamEncryption", input, options)
   end
@@ -2615,7 +2624,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, tag_delivery_stream_errors()}
   def tag_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagDeliveryStream", input, options)
   end
@@ -2636,7 +2646,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, untag_delivery_stream_errors()}
   def untag_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagDeliveryStream", input, options)
   end
@@ -2691,7 +2702,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, update_destination_errors()}
   def update_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDestination", input, options)
   end

@@ -456,7 +456,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, get_data_automation_status_errors()}
   def get_data_automation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataAutomationStatus", input, options)
   end
@@ -470,7 +471,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, invoke_data_automation_errors()}
   def invoke_data_automation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvokeDataAutomation", input, options)
   end
@@ -484,7 +486,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, invoke_data_automation_async_errors()}
   def invoke_data_automation_async(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvokeDataAutomationAsync", input, options)
   end
@@ -498,7 +501,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -512,7 +516,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -526,7 +531,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

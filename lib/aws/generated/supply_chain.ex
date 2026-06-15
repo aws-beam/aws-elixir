@@ -26,68 +26,51 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      data_integration_flow_source() :: %{
-        "datasetSource" => data_integration_flow_dataset_source_configuration(),
-        "s3Source" => data_integration_flow_s3_source_configuration(),
-        "sourceName" => String.t() | atom(),
-        "sourceType" => list(any())
-      }
-
-  """
-  @type data_integration_flow_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_dataset_request() :: %{}
-
-  """
-  @type delete_data_lake_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_namespace_response() :: %{
-        "instanceId" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type delete_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_integration_flow_execution_request() :: %{}
-
-  """
-  @type get_data_integration_flow_execution_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_lake_namespaces_response() :: %{
-        "namespaces" => list(data_lake_namespace()),
+      list_instances_response() :: %{
+        "instances" => list(instance()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_lake_namespaces_response() :: %{(String.t() | atom()) => any()}
+  @type list_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_data_integration_event_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("datasetTarget") => data_integration_event_dataset_target_configuration(),
+        optional("eventTimestamp") => [non_neg_integer()],
+        required("data") => String.t() | atom(),
+        required("eventGroupId") => String.t() | atom(),
+        required("eventType") => list(any())
+      }
+
+  """
+  @type send_data_integration_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_lake_dataset_response() :: %{
+        "dataset" => data_lake_dataset()
+      }
+
+  """
+  @type update_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset_partition_spec() :: %{
+        "fields" => list(data_lake_dataset_partition_field())
+      }
+
+  """
+  @type data_lake_dataset_partition_spec() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -102,82 +85,109 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      data_integration_event_dataset_target_configuration() :: %{
-        "datasetIdentifier" => String.t() | atom(),
-        "operationType" => list(any())
-      }
-
-  """
-  @type data_integration_event_dataset_target_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_s3_target_configuration() :: %{
+      data_integration_flow_s3_source() :: %{
         "bucketName" => String.t() | atom(),
-        "options" => data_integration_flow_s3_options(),
-        "prefix" => String.t() | atom()
+        "key" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_s3_target_configuration() :: %{(String.t() | atom()) => any()}
+  @type data_integration_flow_s3_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_integration_flow_execution_source_info() :: %{
-        "datasetSource" => data_integration_flow_dataset_source(),
-        "s3Source" => data_integration_flow_s3_source(),
-        "sourceType" => list(any())
+      data_lake_namespace() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_execution_source_info() :: %{(String.t() | atom()) => any()}
+  @type data_lake_namespace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_integration_flow_s3_options() :: %{
-        "fileType" => list(any())
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type data_integration_flow_s3_options() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_data_integration_flow_executions_request() :: %{
+      get_data_lake_dataset_request() :: %{}
+
+  """
+  @type get_data_lake_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_events_request() :: %{
+        optional("eventType") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_data_integration_flow_executions_request() :: %{(String.t() | atom()) => any()}
+  @type list_data_integration_events_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_data_lake_dataset_response() :: %{
-        "dataset" => data_lake_dataset()
+      data_lake_dataset_schema() :: %{
+        "fields" => list(data_lake_dataset_schema_field()),
+        "name" => String.t() | atom(),
+        "primaryKeys" => list(data_lake_dataset_primary_key_field())
       }
 
   """
-  @type get_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
+  @type data_lake_dataset_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bill_of_materials_import_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("s3uri") => String.t() | atom()
+      }
+
+  """
+  @type create_bill_of_materials_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_namespace_response() :: %{
+        "namespace" => data_lake_namespace()
+      }
+
+  """
+  @type get_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -195,58 +205,12 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      data_lake_dataset_partition_field() :: %{
-        "name" => String.t() | atom(),
-        "transform" => data_lake_dataset_partition_field_transform()
+      data_integration_flow_s3_options() :: %{
+        "fileType" => list(any())
       }
 
   """
-  @type data_lake_dataset_partition_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_integration_flow_request() :: %{}
-
-  """
-  @type delete_data_integration_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_lake_dataset_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_data_lake_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_lake_dataset_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("partitionSpec") => data_lake_dataset_partition_spec(),
-        optional("schema") => data_lake_dataset_schema(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_data_lake_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_instance_response() :: %{
-        "instance" => instance()
-      }
-
-  """
-  @type create_instance_response() :: %{(String.t() | atom()) => any()}
+  @type data_integration_flow_s3_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -264,73 +228,209 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      data_integration_flow_dedupe_strategy() :: %{
-        "fieldPriority" => data_integration_flow_field_priority_dedupe_strategy_configuration(),
-        "type" => list(any())
+      list_data_lake_datasets_response() :: %{
+        "datasets" => list(data_lake_dataset()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_dedupe_strategy() :: %{(String.t() | atom()) => any()}
+  @type list_data_lake_datasets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_lake_dataset_primary_key_field() :: %{
+      data_integration_flow_target() :: %{
+        "datasetTarget" => data_integration_flow_dataset_target_configuration(),
+        "s3Target" => data_integration_flow_s3_target_configuration(),
+        "targetType" => list(any())
+      }
+
+  """
+  @type data_integration_flow_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_event_request() :: %{}
+
+  """
+  @type get_data_integration_event_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_lake_namespace_response() :: %{
+        "instanceId" => String.t() | atom(),
         "name" => String.t() | atom()
       }
 
   """
-  @type data_lake_dataset_primary_key_field() :: %{(String.t() | atom()) => any()}
+  @type delete_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      list_data_lake_namespaces_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_data_lake_namespaces_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_data_integration_flow_request() :: %{
-        optional("tags") => map(),
-        required("sources") => list(data_integration_flow_source()),
-        required("target") => data_integration_flow_target(),
-        required("transformation") => data_integration_flow_transformation()
+      update_data_lake_namespace_request() :: %{
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type create_data_integration_flow_request() :: %{(String.t() | atom()) => any()}
+  @type update_data_lake_namespace_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_data_lake_namespace_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map()
+      get_data_lake_namespace_request() :: %{}
+
+  """
+  @type get_data_lake_namespace_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_lake_namespace_response() :: %{
+        "namespace" => data_lake_namespace()
       }
 
   """
-  @type create_data_lake_namespace_request() :: %{(String.t() | atom()) => any()}
+  @type update_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_integration_flow_field_priority_dedupe_field() :: %{
+      delete_data_lake_dataset_request() :: %{}
+
+  """
+  @type delete_data_lake_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_flow_response() :: %{
+        "flow" => data_integration_flow()
+      }
+
+  """
+  @type get_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_event_dataset_target_details() :: %{
+        "datasetIdentifier" => String.t() | atom(),
+        "datasetLoadExecution" => data_integration_event_dataset_load_execution_details(),
+        "operationType" => list(any())
+      }
+
+  """
+  @type data_integration_event_dataset_target_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_execution() :: %{
+        "endTime" => [non_neg_integer()],
+        "executionId" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
+        "message" => [String.t() | atom()],
+        "outputMetadata" => data_integration_flow_execution_output_metadata(),
+        "sourceInfo" => data_integration_flow_execution_source_info(),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type data_integration_flow_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_lake_dataset_response() :: %{
+        "instanceId" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "sortOrder" => list(any())
+        "namespace" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_field_priority_dedupe_field() :: %{(String.t() | atom()) => any()}
+  @type delete_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_dataset_options() :: %{
+        "dedupeRecords" => [boolean()],
+        "dedupeStrategy" => data_integration_flow_dedupe_strategy(),
+        "loadType" => list(any())
+      }
+
+  """
+  @type data_integration_flow_dataset_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset_partition_field_transform() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type data_lake_dataset_partition_field_transform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "partitionSpec" => data_lake_dataset_partition_spec(),
+        "schema" => data_lake_dataset_schema()
+      }
+
+  """
+  @type data_lake_dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -353,179 +453,10 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      update_data_integration_flow_response() :: %{
-        "flow" => data_integration_flow()
-      }
+      delete_instance_request() :: %{}
 
   """
-  @type update_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_instance_request() :: %{}
-
-  """
-  @type get_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_bill_of_materials_import_job_response() :: %{
-        "jobId" => String.t() | atom()
-      }
-
-  """
-  @type create_bill_of_materials_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_lake_namespace_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_data_lake_namespace_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_dataset_schema_field() :: %{
-        "isRequired" => [boolean()],
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type data_lake_dataset_schema_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bill_of_materials_import_job_response() :: %{
-        "job" => bill_of_materials_import_job()
-      }
-
-  """
-  @type get_bill_of_materials_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_s_q_l_transformation_configuration() :: %{
-        "query" => String.t() | atom()
-      }
-
-  """
-  @type data_integration_flow_s_q_l_transformation_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_integration_flow_response() :: %{
-        "instanceId" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type create_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_lake_datasets_response() :: %{
-        "datasets" => list(data_lake_dataset()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_lake_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_lake_namespace_response() :: %{
-        "namespace" => data_lake_namespace()
-      }
-
-  """
-  @type update_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bill_of_materials_import_job_request() :: %{}
-
-  """
-  @type get_bill_of_materials_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_dataset_options() :: %{
-        "dedupeRecords" => [boolean()],
-        "dedupeStrategy" => data_integration_flow_dedupe_strategy(),
-        "loadType" => list(any())
-      }
-
-  """
-  @type data_integration_flow_dataset_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_integration_flow_request() :: %{}
-
-  """
-  @type get_data_integration_flow_request() :: %{}
+  @type delete_instance_request() :: %{}
 
   @typedoc """
 
@@ -545,13 +476,158 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      update_instance_request() :: %{
-        optional("instanceDescription") => String.t() | atom(),
-        optional("instanceName") => String.t() | atom()
+      list_instances_request() :: %{
+        optional("instanceNameFilter") => list(String.t() | atom()),
+        optional("instanceStateFilter") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type update_instance_request() :: %{(String.t() | atom()) => any()}
+  @type list_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_source() :: %{
+        "datasetSource" => data_integration_flow_dataset_source_configuration(),
+        "s3Source" => data_integration_flow_s3_source_configuration(),
+        "sourceName" => String.t() | atom(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type data_integration_flow_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_dataset_response() :: %{
+        "dataset" => data_lake_dataset()
+      }
+
+  """
+  @type get_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_instance_response() :: %{
+        "instance" => instance()
+      }
+
+  """
+  @type update_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_integration_flow_request() :: %{
+        optional("tags") => map(),
+        required("sources") => list(data_integration_flow_source()),
+        required("target") => data_integration_flow_target(),
+        required("transformation") => data_integration_flow_transformation()
+      }
+
+  """
+  @type create_data_integration_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_lake_namespaces_response() :: %{
+        "namespaces" => list(data_lake_namespace()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_lake_namespaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_instance_response() :: %{
+        "instance" => instance()
+      }
+
+  """
+  @type get_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset_schema_field() :: %{
+        "isRequired" => [boolean()],
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type data_lake_dataset_schema_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_event_dataset_target_configuration() :: %{
+        "datasetIdentifier" => String.t() | atom(),
+        "operationType" => list(any())
+      }
+
+  """
+  @type data_integration_event_dataset_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_flow_executions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_integration_flow_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -569,73 +645,187 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      data_integration_event_dataset_target_details() :: %{
-        "datasetIdentifier" => String.t() | atom(),
-        "datasetLoadExecution" => data_integration_event_dataset_load_execution_details(),
-        "operationType" => list(any())
-      }
-
-  """
-  @type data_integration_event_dataset_target_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_instance_response() :: %{
+      create_instance_response() :: %{
         "instance" => instance()
       }
 
   """
-  @type get_instance_response() :: %{(String.t() | atom()) => any()}
+  @type create_instance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_lake_dataset_schema() :: %{
-        "fields" => list(data_lake_dataset_schema_field()),
-        "name" => String.t() | atom(),
-        "primaryKeys" => list(data_lake_dataset_primary_key_field())
+      create_bill_of_materials_import_job_response() :: %{
+        "jobId" => String.t() | atom()
       }
 
   """
-  @type data_lake_dataset_schema() :: %{(String.t() | atom()) => any()}
+  @type create_bill_of_materials_import_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_data_integration_events_request() :: %{
-        optional("eventType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      create_instance_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("instanceDescription") => String.t() | atom(),
+        optional("instanceName") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("webAppDnsDomain") => String.t() | atom()
       }
 
   """
-  @type list_data_integration_events_request() :: %{(String.t() | atom()) => any()}
+  @type create_instance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
+      data_integration_event() :: %{
+        "datasetTargetDetails" => data_integration_event_dataset_target_details(),
+        "eventGroupId" => String.t() | atom(),
+        "eventId" => String.t() | atom(),
+        "eventTimestamp" => [non_neg_integer()],
+        "eventType" => list(any()),
+        "instanceId" => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type data_integration_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_lake_dataset_partition_field_transform() :: %{
-        "type" => list(any())
+      create_data_lake_dataset_response() :: %{
+        "dataset" => data_lake_dataset()
       }
 
   """
-  @type data_lake_dataset_partition_field_transform() :: %{(String.t() | atom()) => any()}
+  @type create_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      instance() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "createdTime" => [non_neg_integer()],
+        "errorMessage" => [String.t() | atom()],
+        "instanceDescription" => String.t() | atom(),
+        "instanceId" => String.t() | atom(),
+        "instanceName" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
+        "state" => list(any()),
+        "versionNumber" => [float()],
+        "webAppDnsDomain" => String.t() | atom()
+      }
+
+  """
+  @type instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_namespace_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_data_lake_namespace_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_integration_flows_response() :: %{
+        "flows" => list(data_integration_flow()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_integration_flows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_integration_flow_response() :: %{
+        "instanceId" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type create_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset_primary_key_field() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type data_lake_dataset_primary_key_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_integration_flow_request() :: %{}
+
+  """
+  @type delete_data_integration_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bill_of_materials_import_job() :: %{
+        "instanceId" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "message" => [String.t() | atom()],
+        "s3uri" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type bill_of_materials_import_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -653,73 +843,195 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      create_bill_of_materials_import_job_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("s3uri") => String.t() | atom()
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type create_bill_of_materials_import_job_request() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_instances_request() :: %{
-        optional("instanceNameFilter") => list(String.t() | atom()),
-        optional("instanceStateFilter") => list(list(any())()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      create_data_lake_namespace_response() :: %{
+        "namespace" => data_lake_namespace()
       }
 
   """
-  @type list_instances_request() :: %{(String.t() | atom()) => any()}
+  @type create_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_data_lake_dataset_response() :: %{
-        "dataset" => data_lake_dataset()
+      update_data_integration_flow_request() :: %{
+        optional("sources") => list(data_integration_flow_source()),
+        optional("target") => data_integration_flow_target(),
+        optional("transformation") => data_integration_flow_transformation()
       }
 
   """
-  @type create_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
+  @type update_data_integration_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_instances_response() :: %{
-        "instances" => list(instance()),
-        "nextToken" => String.t() | atom()
+      update_data_lake_dataset_request() :: %{
+        optional("description") => String.t() | atom()
       }
 
   """
-  @type list_instances_response() :: %{(String.t() | atom()) => any()}
+  @type update_data_lake_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
+      data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
+        "fields" => list(data_integration_flow_field_priority_dedupe_field())
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      data_integration_flow_transformation() :: %{
-        "sqlTransformation" => data_integration_flow_s_q_l_transformation_configuration(),
-        "transformationType" => list(any())
+      delete_instance_response() :: %{
+        "instance" => instance()
       }
 
   """
-  @type data_integration_flow_transformation() :: %{(String.t() | atom()) => any()}
+  @type delete_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_field_priority_dedupe_field() :: %{
+        "name" => String.t() | atom(),
+        "sortOrder" => list(any())
+      }
+
+  """
+  @type data_integration_flow_field_priority_dedupe_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_flow_request() :: %{}
+
+  """
+  @type get_data_integration_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_dedupe_strategy() :: %{
+        "fieldPriority" => data_integration_flow_field_priority_dedupe_strategy_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type data_integration_flow_dedupe_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bill_of_materials_import_job_response() :: %{
+        "job" => bill_of_materials_import_job()
+      }
+
+  """
+  @type get_bill_of_materials_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bill_of_materials_import_job_request() :: %{}
+
+  """
+  @type get_bill_of_materials_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_integration_flow_execution_request() :: %{}
+
+  """
+  @type get_data_integration_flow_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_instance_request() :: %{
+        optional("instanceDescription") => String.t() | atom(),
+        optional("instanceName") => String.t() | atom()
+      }
+
+  """
+  @type update_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_dataset_partition_field() :: %{
+        "name" => String.t() | atom(),
+        "transform" => data_lake_dataset_partition_field_transform()
+      }
+
+  """
+  @type data_lake_dataset_partition_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_lake_dataset_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("partitionSpec") => data_lake_dataset_partition_spec(),
+        optional("schema") => data_lake_dataset_schema(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_data_lake_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_s3_target_configuration() :: %{
+        "bucketName" => String.t() | atom(),
+        "options" => data_integration_flow_s3_options(),
+        "prefix" => String.t() | atom()
+      }
+
+  """
+  @type data_integration_flow_s3_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -747,12 +1059,14 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      data_integration_flow_execution_output_metadata() :: %{
-        "diagnosticReportsRootS3URI" => String.t() | atom()
+      data_integration_flow_s3_source_configuration() :: %{
+        "bucketName" => String.t() | atom(),
+        "options" => data_integration_flow_s3_options(),
+        "prefix" => String.t() | atom()
       }
 
   """
-  @type data_integration_flow_execution_output_metadata() :: %{(String.t() | atom()) => any()}
+  @type data_integration_flow_s3_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -764,83 +1078,6 @@ defmodule AWS.SupplyChain do
 
   """
   @type get_data_integration_event_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_integration_flow_response() :: %{
-        "flow" => data_integration_flow()
-      }
-
-  """
-  @type get_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_instance_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("instanceDescription") => String.t() | atom(),
-        optional("instanceName") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("webAppDnsDomain") => String.t() | atom()
-      }
-
-  """
-  @type create_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "createdTime" => [non_neg_integer()],
-        "errorMessage" => [String.t() | atom()],
-        "instanceDescription" => String.t() | atom(),
-        "instanceId" => String.t() | atom(),
-        "instanceName" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "state" => list(any()),
-        "versionNumber" => [float()],
-        "webAppDnsDomain" => String.t() | atom()
-      }
-
-  """
-  @type instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_namespace_request() :: %{}
-
-  """
-  @type get_data_lake_namespace_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -858,229 +1095,13 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      get_data_lake_namespace_response() :: %{
-        "namespace" => data_lake_namespace()
+      data_integration_flow_transformation() :: %{
+        "sqlTransformation" => data_integration_flow_s_q_l_transformation_configuration(),
+        "transformationType" => list(any())
       }
 
   """
-  @type get_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_instance_response() :: %{
-        "instance" => instance()
-      }
-
-  """
-  @type delete_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_data_integration_event_response() :: %{
-        "eventId" => String.t() | atom()
-      }
-
-  """
-  @type send_data_integration_event_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_instance_request() :: %{}
-
-  """
-  @type delete_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_integration_event_request() :: %{}
-
-  """
-  @type get_data_integration_event_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_integration_flows_response() :: %{
-        "flows" => list(data_integration_flow()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_integration_flows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_lake_namespaces_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_lake_namespaces_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
-        "fields" => list(data_integration_flow_field_priority_dedupe_field())
-      }
-
-  """
-  @type data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_s3_source() :: %{
-        "bucketName" => String.t() | atom(),
-        "key" => String.t() | atom()
-      }
-
-  """
-  @type data_integration_flow_s3_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_data_integration_event_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("datasetTarget") => data_integration_event_dataset_target_configuration(),
-        optional("eventTimestamp") => [non_neg_integer()],
-        required("data") => String.t() | atom(),
-        required("eventGroupId") => String.t() | atom(),
-        required("eventType") => list(any())
-      }
-
-  """
-  @type send_data_integration_event_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_execution() :: %{
-        "endTime" => [non_neg_integer()],
-        "executionId" => String.t() | atom(),
-        "flowName" => String.t() | atom(),
-        "instanceId" => String.t() | atom(),
-        "message" => [String.t() | atom()],
-        "outputMetadata" => data_integration_flow_execution_output_metadata(),
-        "sourceInfo" => data_integration_flow_execution_source_info(),
-        "startTime" => [non_neg_integer()],
-        "status" => list(any())
-      }
-
-  """
-  @type data_integration_flow_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_s3_source_configuration() :: %{
-        "bucketName" => String.t() | atom(),
-        "options" => data_integration_flow_s3_options(),
-        "prefix" => String.t() | atom()
-      }
-
-  """
-  @type data_integration_flow_s3_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_dataset_request() :: %{}
-
-  """
-  @type get_data_lake_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_integration_flow_target() :: %{
-        "datasetTarget" => data_integration_flow_dataset_target_configuration(),
-        "s3Target" => data_integration_flow_s3_target_configuration(),
-        "targetType" => list(any())
-      }
-
-  """
-  @type data_integration_flow_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_dataset_partition_spec() :: %{
-        "fields" => list(data_lake_dataset_partition_field())
-      }
-
-  """
-  @type data_lake_dataset_partition_spec() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_namespace() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "instanceId" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type data_lake_namespace() :: %{(String.t() | atom()) => any()}
+  @type data_integration_flow_transformation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1098,41 +1119,65 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      data_integration_event() :: %{
-        "datasetTargetDetails" => data_integration_event_dataset_target_details(),
-        "eventGroupId" => String.t() | atom(),
-        "eventId" => String.t() | atom(),
-        "eventTimestamp" => [non_neg_integer()],
-        "eventType" => list(any()),
-        "instanceId" => String.t() | atom()
+      data_integration_flow_execution_source_info() :: %{
+        "datasetSource" => data_integration_flow_dataset_source(),
+        "s3Source" => data_integration_flow_s3_source(),
+        "sourceType" => list(any())
       }
 
   """
-  @type data_integration_event() :: %{(String.t() | atom()) => any()}
+  @type data_integration_flow_execution_source_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_instance_response() :: %{
-        "instance" => instance()
-      }
+      get_instance_request() :: %{}
 
   """
-  @type update_instance_response() :: %{(String.t() | atom()) => any()}
+  @type get_instance_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_data_integration_flow_request() :: %{
-        optional("sources") => list(data_integration_flow_source()),
-        optional("target") => data_integration_flow_target(),
-        optional("transformation") => data_integration_flow_transformation()
+      send_data_integration_event_response() :: %{
+        "eventId" => String.t() | atom()
       }
 
   """
-  @type update_data_integration_flow_request() :: %{(String.t() | atom()) => any()}
+  @type send_data_integration_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_integration_flow_execution_output_metadata() :: %{
+        "diagnosticReportsRootS3URI" => String.t() | atom()
+      }
+
+  """
+  @type data_integration_flow_execution_output_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_integration_flow_response() :: %{
+        "flow" => data_integration_flow()
+      }
+
+  """
+  @type update_data_integration_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -1150,283 +1195,238 @@ defmodule AWS.SupplyChain do
 
   ## Example:
 
-      bill_of_materials_import_job() :: %{
-        "instanceId" => String.t() | atom(),
-        "jobId" => String.t() | atom(),
-        "message" => [String.t() | atom()],
-        "s3uri" => String.t() | atom(),
-        "status" => list(any())
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type bill_of_materials_import_job() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_data_lake_namespace_response() :: %{
-        "namespace" => data_lake_namespace()
+      data_integration_flow_s_q_l_transformation_configuration() :: %{
+        "query" => String.t() | atom()
       }
 
   """
-  @type create_data_lake_namespace_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_dataset() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "instanceId" => String.t() | atom(),
-        "lastModifiedTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "namespace" => String.t() | atom(),
-        "partitionSpec" => data_lake_dataset_partition_spec(),
-        "schema" => data_lake_dataset_schema()
-      }
-
-  """
-  @type data_lake_dataset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_lake_dataset_response() :: %{
-        "instanceId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "namespace" => String.t() | atom()
-      }
-
-  """
-  @type delete_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_lake_dataset_response() :: %{
-        "dataset" => data_lake_dataset()
-      }
-
-  """
-  @type update_data_lake_dataset_response() :: %{(String.t() | atom()) => any()}
+  @type data_integration_flow_s_q_l_transformation_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @type create_bill_of_materials_import_job_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_data_integration_flow_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_data_lake_dataset_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_data_lake_namespace_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_instance_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_data_integration_flow_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_data_lake_dataset_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_data_lake_namespace_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_instance_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_bill_of_materials_import_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_integration_event_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_integration_flow_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_integration_flow_execution_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_lake_dataset_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_lake_namespace_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_instance_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_data_integration_events_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_data_integration_flow_executions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_data_integration_flows_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_data_lake_datasets_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_data_lake_namespaces_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_instances_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type send_data_integration_event_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_data_integration_flow_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_data_lake_dataset_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_data_lake_namespace_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_instance_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{

@@ -48,6 +48,220 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
+      stop_query_input() :: %{}
+
+  """
+  @type stop_query_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      availability_measurement() :: %{
+        "ExperienceScore" => [float()],
+        "PercentOfClientLocationImpacted" => [float()],
+        "PercentOfTotalTrafficImpacted" => [float()]
+      }
+
+  """
+  @type availability_measurement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_parameter() :: %{
+        "Field" => [String.t() | atom()],
+        "Operator" => String.t() | atom(),
+        "Values" => list([String.t() | atom()]())
+      }
+
+  """
+  @type filter_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_measurement() :: %{
+        "ExperienceScore" => [float()],
+        "PercentOfClientLocationImpacted" => [float()],
+        "PercentOfTotalTrafficImpacted" => [float()],
+        "RoundTripTime" => round_trip_time()
+      }
+
+  """
+  @type performance_measurement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_event() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "EndedAt" => [non_neg_integer()],
+        "EventArn" => String.t() | atom(),
+        "EventId" => String.t() | atom(),
+        "HealthScoreThreshold" => float(),
+        "ImpactType" => String.t() | atom(),
+        "ImpactedLocations" => list(impacted_location()),
+        "LastUpdatedAt" => [non_neg_integer()],
+        "PercentOfTotalTrafficImpacted" => [float()],
+        "StartedAt" => [non_neg_integer()],
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type health_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_monitor_input() :: %{
+        optional("LinkedAccountId") => String.t() | atom()
+      }
+
+  """
+  @type get_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_config() :: %{
+        "BucketName" => [String.t() | atom()],
+        "BucketPrefix" => [String.t() | atom()],
+        "LogDeliveryStatus" => String.t() | atom()
+      }
+
+  """
+  @type s3_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor() :: %{
+        "MonitorArn" => String.t() | atom(),
+        "MonitorName" => String.t() | atom(),
+        "ProcessingStatus" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type monitor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_monitors_output() :: %{
+        "Monitors" => list(monitor()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_monitors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_monitor_input() :: %{
+        optional("ClientToken") => [String.t() | atom()],
+        optional("HealthEventsConfig") => health_events_config(),
+        optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
+        optional("MaxCityNetworksToMonitor") => integer(),
+        optional("ResourcesToAdd") => list(String.t() | atom()),
+        optional("ResourcesToRemove") => list(String.t() | atom()),
+        optional("Status") => String.t() | atom(),
+        optional("TrafficPercentageToMonitor") => integer()
+      }
+
+  """
+  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_output() :: %{
+        "QueryId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_monitor_output() :: %{
+        "MonitorArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type update_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_health_event_output() :: %{
         optional("CreatedAt") => [non_neg_integer()],
         optional("EndedAt") => [non_neg_integer()],
@@ -69,202 +283,144 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      health_events_config() :: %{
-        "AvailabilityLocalHealthEventsConfig" => local_health_events_config(),
-        "AvailabilityScoreThreshold" => float(),
-        "PerformanceLocalHealthEventsConfig" => local_health_events_config(),
-        "PerformanceScoreThreshold" => float()
+      get_internet_event_output() :: %{
+        "ClientLocation" => client_location(),
+        "EndedAt" => [non_neg_integer()],
+        "EventArn" => String.t() | atom(),
+        "EventId" => String.t() | atom(),
+        "EventStatus" => String.t() | atom(),
+        "EventType" => String.t() | atom(),
+        "StartedAt" => [non_neg_integer()]
       }
 
   """
-  @type health_events_config() :: %{(String.t() | atom()) => any()}
+  @type get_internet_event_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_monitors_input() :: %{
-        optional("IncludeLinkedAccounts") => [boolean()],
-        optional("MaxResults") => integer(),
-        optional("MonitorStatus") => [String.t() | atom()],
-        optional("NextToken") => [String.t() | atom()]
+      stop_query_output() :: %{}
+
+  """
+  @type stop_query_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_event_input() :: %{
+        optional("LinkedAccountId") => String.t() | atom()
       }
 
   """
-  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
+  @type get_health_event_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_query_results_output() :: %{
-        "Data" => list(list([String.t() | atom()]())()),
-        "Fields" => list(query_field()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type get_query_results_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_monitor_output() :: %{
-        "CreatedAt" => [non_neg_integer()],
-        "HealthEventsConfig" => health_events_config(),
-        "InternetMeasurementsLogDelivery" => internet_measurements_log_delivery(),
-        "MaxCityNetworksToMonitor" => integer(),
-        "ModifiedAt" => [non_neg_integer()],
-        "MonitorArn" => String.t() | atom(),
-        "MonitorName" => String.t() | atom(),
-        "ProcessingStatus" => String.t() | atom(),
-        "ProcessingStatusInfo" => [String.t() | atom()],
-        "Resources" => list(String.t() | atom()),
-        "Status" => String.t() | atom(),
-        "Tags" => map(),
-        "TrafficPercentageToMonitor" => integer()
-      }
-
-  """
-  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_query_output() :: %{
-        "QueryId" => [String.t() | atom()]
-      }
-
-  """
-  @type start_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_monitors_output() :: %{
-        "Monitors" => list(monitor()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_monitors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_parameter() :: %{
-        "Field" => [String.t() | atom()],
-        "Operator" => String.t() | atom(),
-        "Values" => list([String.t() | atom()]())
-      }
-
-  """
-  @type filter_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_query_input() :: %{}
-
-  """
-  @type stop_query_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      network_impairment() :: %{
-        "AsPath" => list(network()),
-        "NetworkEventType" => String.t() | atom(),
-        "Networks" => list(network())
-      }
-
-  """
-  @type network_impairment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_monitor_output() :: %{}
-
-  """
-  @type delete_monitor_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      client_location() :: %{
-        "ASName" => [String.t() | atom()],
-        "ASNumber" => [float()],
-        "City" => [String.t() | atom()],
-        "Country" => [String.t() | atom()],
-        "Latitude" => [float()],
-        "Longitude" => [float()],
-        "Metro" => [String.t() | atom()],
-        "Subdivision" => [String.t() | atom()]
-      }
-
-  """
-  @type client_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_internet_events_input() :: %{
-        optional("EndTime") => [non_neg_integer()],
-        optional("EventStatus") => [String.t() | atom()],
-        optional("EventType") => [String.t() | atom()],
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()],
-        optional("StartTime") => [non_neg_integer()]
-      }
-
-  """
-  @type list_internet_events_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
+      limit_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_output() :: %{
-        optional("Tags") => map()
+      get_internet_event_input() :: %{}
+
+  """
+  @type get_internet_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_field() :: %{
+        "Name" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
       }
 
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type query_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      monitor() :: %{
-        "MonitorArn" => String.t() | atom(),
-        "MonitorName" => String.t() | atom(),
-        "ProcessingStatus" => String.t() | atom(),
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_input() :: %{}
+
+  """
+  @type get_query_status_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_monitor_input() :: %{}
+
+  """
+  @type delete_monitor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_monitor_output() :: %{
+        "Arn" => String.t() | atom(),
         "Status" => String.t() | atom()
       }
 
   """
-  @type monitor() :: %{(String.t() | atom()) => any()}
+  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_output() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type get_query_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -295,37 +451,6 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      get_query_status_output() :: %{
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type get_query_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_monitor_input() :: %{}
-
-  """
-  @type delete_monitor_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -337,21 +462,29 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      get_internet_event_input() :: %{}
+      internet_event_summary() :: %{
+        "ClientLocation" => client_location(),
+        "EndedAt" => [non_neg_integer()],
+        "EventArn" => String.t() | atom(),
+        "EventId" => String.t() | atom(),
+        "EventStatus" => String.t() | atom(),
+        "EventType" => String.t() | atom(),
+        "StartedAt" => [non_neg_integer()]
+      }
 
   """
-  @type get_internet_event_input() :: %{}
+  @type internet_event_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internet_measurements_log_delivery() :: %{
-        "S3Config" => s3_config()
+      untag_resource_input() :: %{
+        "TagKeys" => list(String.t() | atom())
       }
 
   """
-  @type internet_measurements_log_delivery() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,152 +503,91 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      s3_config() :: %{
-        "BucketName" => [String.t() | atom()],
-        "BucketPrefix" => [String.t() | atom()],
-        "LogDeliveryStatus" => String.t() | atom()
+      start_query_input() :: %{
+        optional("FilterParameters") => list(filter_parameter()),
+        optional("LinkedAccountId") => String.t() | atom(),
+        required("EndTime") => [non_neg_integer()],
+        required("QueryType") => String.t() | atom(),
+        required("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type s3_config() :: %{(String.t() | atom()) => any()}
+  @type start_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_internet_event_output() :: %{
-        "ClientLocation" => client_location(),
-        "EndedAt" => [non_neg_integer()],
-        "EventArn" => String.t() | atom(),
-        "EventId" => String.t() | atom(),
-        "EventStatus" => String.t() | atom(),
-        "EventType" => String.t() | atom(),
-        "StartedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_internet_event_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
+      internal_server_error_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      performance_measurement() :: %{
-        "ExperienceScore" => [float()],
-        "PercentOfClientLocationImpacted" => [float()],
-        "PercentOfTotalTrafficImpacted" => [float()],
-        "RoundTripTime" => round_trip_time()
+      client_location() :: %{
+        "ASName" => [String.t() | atom()],
+        "ASNumber" => [float()],
+        "City" => [String.t() | atom()],
+        "Country" => [String.t() | atom()],
+        "Latitude" => [float()],
+        "Longitude" => [float()],
+        "Metro" => [String.t() | atom()],
+        "Subdivision" => [String.t() | atom()]
       }
 
   """
-  @type performance_measurement() :: %{(String.t() | atom()) => any()}
+  @type client_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_query_status_input() :: %{}
-
-  """
-  @type get_query_status_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_monitor_input() :: %{
-        optional("LinkedAccountId") => String.t() | atom()
+      network() :: %{
+        "ASName" => [String.t() | atom()],
+        "ASNumber" => [float()]
       }
 
   """
-  @type get_monitor_input() :: %{(String.t() | atom()) => any()}
+  @type network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_query_output() :: %{}
-
-  """
-  @type stop_query_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        "Tags" => map()
+      internet_measurements_log_delivery() :: %{
+        "S3Config" => s3_config()
       }
 
   """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type internet_measurements_log_delivery() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_health_events_output() :: %{
-        optional("NextToken") => [String.t() | atom()],
-        required("HealthEvents") => list(health_event())
+      get_monitor_output() :: %{
+        "CreatedAt" => [non_neg_integer()],
+        "HealthEventsConfig" => health_events_config(),
+        "InternetMeasurementsLogDelivery" => internet_measurements_log_delivery(),
+        "MaxCityNetworksToMonitor" => integer(),
+        "ModifiedAt" => [non_neg_integer()],
+        "MonitorArn" => String.t() | atom(),
+        "MonitorName" => String.t() | atom(),
+        "ProcessingStatus" => String.t() | atom(),
+        "ProcessingStatusInfo" => [String.t() | atom()],
+        "Resources" => list(String.t() | atom()),
+        "Status" => String.t() | atom(),
+        "Tags" => map(),
+        "TrafficPercentageToMonitor" => integer()
       }
 
   """
-  @type list_health_events_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_health_event_input() :: %{
-        optional("LinkedAccountId") => String.t() | atom()
-      }
-
-  """
-  @type get_health_event_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      availability_measurement() :: %{
-        "ExperienceScore" => [float()],
-        "PercentOfClientLocationImpacted" => [float()],
-        "PercentOfTotalTrafficImpacted" => [float()]
-      }
-
-  """
-  @type availability_measurement() :: %{(String.t() | atom()) => any()}
+  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,196 +609,52 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      network_impairment() :: %{
+        "AsPath" => list(network()),
+        "NetworkEventType" => String.t() | atom(),
+        "Networks" => list(network())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type network_impairment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      query_field() :: %{
-        "Name" => [String.t() | atom()],
-        "Type" => [String.t() | atom()]
-      }
-
-  """
-  @type query_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        "TagKeys" => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_monitor_input() :: %{
-        optional("ClientToken") => [String.t() | atom()],
-        optional("HealthEventsConfig") => health_events_config(),
-        optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
-        optional("MaxCityNetworksToMonitor") => integer(),
-        optional("ResourcesToAdd") => list(String.t() | atom()),
-        optional("ResourcesToRemove") => list(String.t() | atom()),
-        optional("Status") => String.t() | atom(),
-        optional("TrafficPercentageToMonitor") => integer()
-      }
-
-  """
-  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      health_event() :: %{
-        "CreatedAt" => [non_neg_integer()],
-        "EndedAt" => [non_neg_integer()],
-        "EventArn" => String.t() | atom(),
-        "EventId" => String.t() | atom(),
-        "HealthScoreThreshold" => float(),
-        "ImpactType" => String.t() | atom(),
-        "ImpactedLocations" => list(impacted_location()),
-        "LastUpdatedAt" => [non_neg_integer()],
-        "PercentOfTotalTrafficImpacted" => [float()],
-        "StartedAt" => [non_neg_integer()],
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type health_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_results_input() :: %{
+      list_internet_events_input() :: %{
+        optional("EndTime") => [non_neg_integer()],
+        optional("EventStatus") => [String.t() | atom()],
+        optional("EventType") => [String.t() | atom()],
         optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
+        optional("NextToken") => [String.t() | atom()],
+        optional("StartTime") => [non_neg_integer()]
       }
 
   """
-  @type get_query_results_input() :: %{(String.t() | atom()) => any()}
+  @type list_internet_events_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      network() :: %{
-        "ASName" => [String.t() | atom()],
-        "ASNumber" => [float()]
-      }
-
-  """
-  @type network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      round_trip_time() :: %{
-        "P50" => [float()],
-        "P90" => [float()],
-        "P95" => [float()]
-      }
-
-  """
-  @type round_trip_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
+      not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_monitor_output() :: %{
-        "Arn" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -756,45 +684,69 @@ defmodule AWS.InternetMonitor do
 
   ## Example:
 
-      internet_event_summary() :: %{
-        "ClientLocation" => client_location(),
-        "EndedAt" => [non_neg_integer()],
-        "EventArn" => String.t() | atom(),
-        "EventId" => String.t() | atom(),
-        "EventStatus" => String.t() | atom(),
-        "EventType" => String.t() | atom(),
-        "StartedAt" => [non_neg_integer()]
-      }
+      list_tags_for_resource_input() :: %{}
 
   """
-  @type internet_event_summary() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      start_query_input() :: %{
-        optional("FilterParameters") => list(filter_parameter()),
-        optional("LinkedAccountId") => String.t() | atom(),
-        required("EndTime") => [non_neg_integer()],
-        required("QueryType") => String.t() | atom(),
-        required("StartTime") => [non_neg_integer()]
+      list_health_events_output() :: %{
+        optional("NextToken") => [String.t() | atom()],
+        required("HealthEvents") => list(health_event())
       }
 
   """
-  @type start_query_input() :: %{(String.t() | atom()) => any()}
+  @type list_health_events_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_monitor_output() :: %{
-        "MonitorArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
+      delete_monitor_output() :: %{}
+
+  """
+  @type delete_monitor_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type update_monitor_output() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      round_trip_time() :: %{
+        "P50" => [float()],
+        "P90" => [float()],
+        "P95" => [float()]
+      }
+
+  """
+  @type round_trip_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_monitors_input() :: %{
+        optional("IncludeLinkedAccounts") => [boolean()],
+        optional("MaxResults") => integer(),
+        optional("MonitorStatus") => [String.t() | atom()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -814,112 +766,160 @@ defmodule AWS.InternetMonitor do
   """
   @type create_monitor_input() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      get_query_results_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type get_query_results_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_events_config() :: %{
+        "AvailabilityLocalHealthEventsConfig" => local_health_events_config(),
+        "AvailabilityScoreThreshold" => float(),
+        "PerformanceLocalHealthEventsConfig" => local_health_events_config(),
+        "PerformanceScoreThreshold" => float()
+      }
+
+  """
+  @type health_events_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_results_output() :: %{
+        "Data" => list(list([String.t() | atom()]())()),
+        "Fields" => list(query_field()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type get_query_results_output() :: %{(String.t() | atom()) => any()}
+
   @type create_monitor_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_monitor_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_health_event_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_internet_event_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_monitor_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_query_results_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          internal_server_exception()
           | validation_exception()
+          | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_query_status_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          internal_server_exception()
           | validation_exception()
+          | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_health_events_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_internet_events_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_monitors_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
+          | not_found_exception()
           | internal_server_error_exception()
           | access_denied_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type start_query_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          internal_server_exception()
           | validation_exception()
+          | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type stop_query_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          internal_server_exception()
           | validation_exception()
+          | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
+          | not_found_exception()
           | internal_server_error_exception()
           | access_denied_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
+          | not_found_exception()
           | internal_server_error_exception()
           | access_denied_exception()
-          | not_found_exception()
           | too_many_requests_exception()
 
   @type update_monitor_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   def metadata do
     %{

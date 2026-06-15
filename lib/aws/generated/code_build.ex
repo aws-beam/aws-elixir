@@ -30,787 +30,14 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      update_fleet_output() :: %{
-        "fleet" => fleet()
-      }
-      
-  """
-  @type update_fleet_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_source_version() :: %{
-        "sourceIdentifier" => String.t() | atom(),
-        "sourceVersion" => String.t() | atom()
-      }
-      
-  """
-  @type project_source_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      phase_context() :: %{
-        "message" => String.t() | atom(),
-        "statusCode" => String.t() | atom()
-      }
-      
-  """
-  @type phase_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_sandboxes_input() :: %{
-        required("ids") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_sandboxes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_fleet_output() :: %{}
-      
-  """
-  @type delete_fleet_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_curated_environment_images_input() :: %{}
-      
-  """
-  @type list_curated_environment_images_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_command_executions_for_sandbox_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any()),
-        required("sandboxId") => String.t() | atom()
-      }
-      
-  """
-  @type list_command_executions_for_sandbox_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_report_group_input() :: %{
-        optional("deleteReports") => boolean(),
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_report_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_build_batches_input() :: %{
-        required("ids") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_build_batches_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_report_groups_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_report_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_builds_for_project_output() :: %{
-        "ids" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_builds_for_project_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_build_batch_input() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type stop_build_batch_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_build_batches_for_project_input() :: %{
-        optional("filter") => build_batch_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("projectName") => String.t() | atom(),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_build_batches_for_project_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      command_execution() :: %{
-        "command" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "exitCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "logs" => logs_location(),
-        "sandboxArn" => String.t() | atom(),
-        "sandboxId" => String.t() | atom(),
-        "standardErrContent" => String.t() | atom(),
-        "standardOutputContent" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "submitTime" => non_neg_integer(),
+      webhook_filter() :: %{
+        "excludeMatchedPattern" => boolean(),
+        "pattern" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type command_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_build_batch_input() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_build_batch_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_command_executions_output() :: %{
-        "commandExecutions" => list(command_execution()),
-        "commandExecutionsNotFound" => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_command_executions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_webhook_output() :: %{}
-      
-  """
-  @type delete_webhook_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_sandbox_output() :: %{
-        "sandbox" => sandbox()
-      }
-      
-  """
-  @type stop_sandbox_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      git_submodules_config() :: %{
-        "fetchSubmodules" => boolean()
-      }
-      
-  """
-  @type git_submodules_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_build_batches_output() :: %{
-        "ids" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_build_batches_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_sandbox_connection_input() :: %{
-        required("sandboxId") => String.t() | atom()
-      }
-      
-  """
-  @type start_sandbox_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_configuration() :: %{
-        "defaultBehavior" => list(any()),
-        "orderedProxyRules" => list(fleet_proxy_rule())
-      }
-      
-  """
-  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      logs_config() :: %{
-        "cloudWatchLogs" => cloud_watch_logs_config(),
-        "s3Logs" => s3_logs_config()
-      }
-      
-  """
-  @type logs_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_output() :: %{
-        "policy" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_fleets_output() :: %{
-        "fleets" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_fleets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build() :: %{
-        "fileSystemLocations" => list(project_file_system_location()),
-        "cache" => project_cache(),
-        "id" => String.t() | atom(),
-        "phases" => list(build_phase()),
-        "artifacts" => build_artifacts(),
-        "reportArns" => list(String.t() | atom()),
-        "buildNumber" => float(),
-        "serviceRole" => String.t() | atom(),
-        "secondarySources" => list(project_source()),
-        "buildStatus" => list(any()),
-        "sourceVersion" => String.t() | atom(),
-        "secondaryArtifacts" => list(build_artifacts()),
-        "queuedTimeoutInMinutes" => integer(),
-        "buildComplete" => boolean(),
-        "source" => project_source(),
-        "resolvedSourceVersion" => String.t() | atom(),
-        "logs" => logs_location(),
-        "exportedEnvironmentVariables" => list(exported_environment_variable()),
-        "startTime" => non_neg_integer(),
-        "secondarySourceVersions" => list(project_source_version()),
-        "networkInterface" => network_interface(),
-        "environment" => project_environment(),
-        "arn" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "autoRetryConfig" => auto_retry_config(),
-        "initiator" => String.t() | atom(),
-        "vpcConfig" => vpc_config(),
-        "buildBatchArn" => String.t() | atom(),
-        "timeoutInMinutes" => integer(),
-        "encryptionKey" => String.t() | atom(),
-        "currentPhase" => String.t() | atom(),
-        "debugSession" => debug_session()
-      }
-      
-  """
-  @type build() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_project_input() :: %{
-        optional("artifacts") => project_artifacts(),
-        optional("autoRetryLimit") => integer(),
-        optional("badgeEnabled") => boolean(),
-        optional("buildBatchConfig") => project_build_batch_config(),
-        optional("cache") => project_cache(),
-        optional("concurrentBuildLimit") => integer(),
-        optional("description") => String.t() | atom(),
-        optional("encryptionKey") => String.t() | atom(),
-        optional("environment") => project_environment(),
-        optional("fileSystemLocations") => list(project_file_system_location()),
-        optional("logsConfig") => logs_config(),
-        optional("queuedTimeoutInMinutes") => integer(),
-        optional("secondaryArtifacts") => list(project_artifacts()),
-        optional("secondarySourceVersions") => list(project_source_version()),
-        optional("secondarySources") => list(project_source()),
-        optional("serviceRole") => String.t() | atom(),
-        optional("source") => project_source(),
-        optional("sourceVersion") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("timeoutInMinutes") => integer(),
-        optional("vpcConfig") => vpc_config(),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type update_project_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_group() :: %{
-        "currentBuildSummary" => build_summary(),
-        "dependsOn" => list(String.t() | atom()),
-        "identifier" => String.t() | atom(),
-        "ignoreFailure" => boolean(),
-        "priorBuildSummaryList" => list(build_summary())
-      }
-      
-  """
-  @type build_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_builds_for_project_input() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any()),
-        required("projectName") => String.t() | atom()
-      }
-      
-  """
-  @type list_builds_for_project_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_builds_input() :: %{
-        required("ids") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_builds_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_build_batch_output() :: %{
-        "buildBatch" => build_batch()
-      }
-      
-  """
-  @type stop_build_batch_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_file_system_location() :: %{
-        "identifier" => String.t() | atom(),
-        "location" => String.t() | atom(),
-        "mountOptions" => String.t() | atom(),
-        "mountPoint" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type project_file_system_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reports_input() :: %{
-        optional("filter") => report_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_reports_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_source_credentials_input() :: %{}
-      
-  """
-  @type list_source_credentials_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_report_groups_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "reportGroups" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_report_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_shared_projects_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_shared_projects_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment_variable() :: %{
-        "name" => String.t() | atom(),
-        "type" => list(any()),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type environment_variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logs_config() :: %{
-        "groupName" => String.t() | atom(),
-        "status" => list(any()),
-        "streamName" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logs_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      docker_server_status() :: %{
-        "message" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-      
-  """
-  @type docker_server_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      network_interface() :: %{
-        "networkInterfaceId" => String.t() | atom(),
-        "subnetId" => String.t() | atom()
-      }
-      
-  """
-  @type network_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_build_output() :: %{
-        "build" => build()
-      }
-      
-  """
-  @type retry_build_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_with_raw_data() :: %{
-        "data" => String.t() | atom(),
-        "reportArn" => String.t() | atom()
-      }
-      
-  """
-  @type report_with_raw_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sandbox_session_phase() :: %{
-        "contexts" => list(phase_context()),
-        "durationInSeconds" => float(),
-        "endTime" => non_neg_integer(),
-        "phaseStatus" => list(any()),
-        "phaseType" => String.t() | atom(),
-        "startTime" => non_neg_integer()
-      }
-      
-  """
-  @type sandbox_session_phase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_report_group_output() :: %{
-        "reportGroup" => report_group()
-      }
-      
-  """
-  @type create_report_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_fleet_input() :: %{
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_webhook_output() :: %{
-        "webhook" => webhook()
-      }
-      
-  """
-  @type update_webhook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_report_group_trend_input() :: %{
-        optional("numOfReports") => integer(),
-        required("reportGroupArn") => String.t() | atom(),
-        required("trendField") => list(any())
-      }
-      
-  """
-  @type get_report_group_trend_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_artifacts() :: %{
-        "artifactIdentifier" => String.t() | atom(),
-        "bucketOwnerAccess" => list(any()),
-        "encryptionDisabled" => boolean(),
-        "location" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "namespaceType" => list(any()),
-        "overrideArtifactName" => boolean(),
-        "packaging" => list(any()),
-        "path" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type project_artifacts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      exported_environment_variable() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type exported_environment_variable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_shared_projects_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "projects" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_shared_projects_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_builds_output() :: %{
-        "builds" => list(build()),
-        "buildsNotFound" => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_builds_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_project_output() :: %{
-        "project" => project()
-      }
-      
-  """
-  @type create_project_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_build_output() :: %{
-        "build" => build()
-      }
-      
-  """
-  @type stop_build_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_report_output() :: %{}
-      
-  """
-  @type delete_report_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      environment_platform() :: %{
-        "languages" => list(environment_language()),
-        "platform" => list(any())
-      }
-      
-  """
-  @type environment_platform() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_output() :: %{
-        "resourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_builds_input() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_builds_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_suspended_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type account_suspended_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_export_config() :: %{
-        "exportConfigType" => list(any()),
-        "s3Destination" => s3_report_export_config()
-      }
-      
-  """
-  @type report_export_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_code_coverages_input() :: %{
-        optional("maxLineCoveragePercentage") => float(),
-        optional("maxResults") => integer(),
-        optional("minLineCoveragePercentage") => float(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        required("reportArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_code_coverages_input() :: %{(String.t() | atom()) => any()}
+  @type webhook_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -822,401 +49,6 @@ defmodule AWS.CodeBuild do
       
   """
   @type delete_source_credentials_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_coverage_report_summary() :: %{
-        "branchCoveragePercentage" => float(),
-        "branchesCovered" => integer(),
-        "branchesMissed" => integer(),
-        "lineCoveragePercentage" => float(),
-        "linesCovered" => integer(),
-        "linesMissed" => integer()
-      }
-      
-  """
-  @type code_coverage_report_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_input() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_cache() :: %{
-        "cacheNamespace" => String.t() | atom(),
-        "location" => String.t() | atom(),
-        "modes" => list(list(any())()),
-        "type" => list(any())
-      }
-      
-  """
-  @type project_cache() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_command_execution_output() :: %{
-        "commandExecution" => command_execution()
-      }
-      
-  """
-  @type start_command_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_command_executions_for_sandbox_output() :: %{
-        "commandExecutions" => list(command_execution()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_command_executions_for_sandbox_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_not_deleted() :: %{
-        "id" => String.t() | atom(),
-        "statusCode" => String.t() | atom()
-      }
-      
-  """
-  @type build_not_deleted() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_case() :: %{
-        "durationInNanoSeconds" => float(),
-        "expired" => non_neg_integer(),
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "prefix" => String.t() | atom(),
-        "reportArn" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "testRawDataPath" => String.t() | atom(),
-        "testSuiteName" => String.t() | atom()
-      }
-      
-  """
-  @type test_case() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_project_visibility_input() :: %{
-        optional("resourceAccessRole") => String.t() | atom(),
-        required("projectArn") => String.t() | atom(),
-        required("projectVisibility") => list(any())
-      }
-      
-  """
-  @type update_project_visibility_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fleet_status() :: %{
-        "context" => list(any()),
-        "message" => String.t() | atom(),
-        "statusCode" => list(any())
-      }
-      
-  """
-  @type fleet_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_build_batch_output() :: %{
-        "buildsDeleted" => list(String.t() | atom()),
-        "buildsNotDeleted" => list(build_not_deleted()),
-        "statusCode" => String.t() | atom()
-      }
-      
-  """
-  @type delete_build_batch_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_summary() :: %{
-        "arn" => String.t() | atom(),
-        "buildStatus" => list(any()),
-        "primaryArtifact" => resolved_artifact(),
-        "requestedOn" => non_neg_integer(),
-        "secondaryArtifacts" => list(resolved_artifact())
-      }
-      
-  """
-  @type build_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_source_credentials_input() :: %{
-        optional("shouldOverwrite") => boolean(),
-        optional("username") => String.t() | atom(),
-        required("authType") => list(any()),
-        required("serverType") => list(any()),
-        required("token") => String.t() | atom()
-      }
-      
-  """
-  @type import_source_credentials_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_reports_output() :: %{
-        "reports" => list(report()),
-        "reportsNotFound" => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_reports_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reports_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "reports" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_reports_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_webhook_output() :: %{
-        "webhook" => webhook()
-      }
-      
-  """
-  @type create_webhook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_command_execution_input() :: %{
-        optional("type") => list(any()),
-        required("command") => String.t() | atom(),
-        required("sandboxId") => String.t() | atom()
-      }
-      
-  """
-  @type start_command_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_report_group_output() :: %{}
-      
-  """
-  @type delete_report_group_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_build_input() :: %{
-        optional("encryptionKeyOverride") => String.t() | atom(),
-        optional("idempotencyToken") => String.t() | atom(),
-        optional("certificateOverride") => String.t() | atom(),
-        optional("computeTypeOverride") => list(any()),
-        optional("autoRetryLimitOverride") => integer(),
-        optional("artifactsOverride") => project_artifacts(),
-        optional("buildStatusConfigOverride") => build_status_config(),
-        optional("gitSubmodulesConfigOverride") => git_submodules_config(),
-        optional("debugSessionEnabled") => boolean(),
-        optional("buildspecOverride") => String.t() | atom(),
-        optional("environmentTypeOverride") => list(any()),
-        optional("sourceAuthOverride") => source_auth(),
-        optional("fleetOverride") => project_fleet(),
-        optional("cacheOverride") => project_cache(),
-        optional("timeoutInMinutesOverride") => integer(),
-        optional("sourceTypeOverride") => list(any()),
-        optional("reportBuildStatusOverride") => boolean(),
-        optional("privilegedModeOverride") => boolean(),
-        optional("gitCloneDepthOverride") => integer(),
-        optional("queuedTimeoutInMinutesOverride") => integer(),
-        optional("secondarySourcesVersionOverride") => list(project_source_version()),
-        optional("environmentVariablesOverride") => list(environment_variable()),
-        required("projectName") => String.t() | atom(),
-        optional("secondarySourcesOverride") => list(project_source()),
-        optional("sourceVersion") => String.t() | atom(),
-        optional("sourceLocationOverride") => String.t() | atom(),
-        optional("serviceRoleOverride") => String.t() | atom(),
-        optional("logsConfigOverride") => logs_config(),
-        optional("secondaryArtifactsOverride") => list(project_artifacts()),
-        optional("imageOverride") => String.t() | atom(),
-        optional("imagePullCredentialsTypeOverride") => list(any()),
-        optional("registryCredentialOverride") => registry_credential(),
-        optional("insecureSslOverride") => boolean()
-      }
-      
-  """
-  @type start_build_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reports_for_report_group_input() :: %{
-        optional("filter") => report_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any()),
-        required("reportGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_reports_for_report_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_builds_input() :: %{
-        required("ids") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_delete_builds_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_curated_environment_images_output() :: %{
-        "platforms" => list(environment_platform())
-      }
-      
-  """
-  @type list_curated_environment_images_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_code_coverages_output() :: %{
-        "codeCoverages" => list(code_coverage()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_code_coverages_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_shared_report_groups_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "reportGroups" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_shared_report_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_build_batch_output() :: %{
-        "buildBatch" => build_batch()
-      }
-      
-  """
-  @type retry_build_batch_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type account_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_build_batch_input() :: %{
-        optional("id") => String.t() | atom(),
-        optional("idempotencyToken") => String.t() | atom(),
-        optional("retryType") => list(any())
-      }
-      
-  """
-  @type retry_build_batch_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      debug_session() :: %{
-        "sessionEnabled" => boolean(),
-        "sessionTarget" => String.t() | atom()
-      }
-      
-  """
-  @type debug_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1261,108 +93,25 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      put_resource_policy_input() :: %{
-        required("policy") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_projects_output() :: %{
-        "projects" => list(project()),
-        "projectsNotFound" => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_projects_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_projects_output() :: %{
+      describe_test_cases_output() :: %{
         "nextToken" => String.t() | atom(),
-        "projects" => list(String.t() | atom())
+        "testCases" => list(test_case())
       }
       
   """
-  @type list_projects_output() :: %{(String.t() | atom()) => any()}
+  @type describe_test_cases_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_sandbox_output() :: %{
-        "sandbox" => sandbox()
+      batch_get_report_groups_output() :: %{
+        "reportGroups" => list(report_group()),
+        "reportGroupsNotFound" => list(String.t() | atom())
       }
       
   """
-  @type start_sandbox_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_build_batch_config() :: %{
-        "batchReportMode" => list(any()),
-        "combineArtifacts" => boolean(),
-        "restrictions" => batch_restrictions(),
-        "serviceRole" => String.t() | atom(),
-        "timeoutInMins" => integer()
-      }
-      
-  """
-  @type project_build_batch_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_build_batches_output() :: %{
-        "buildBatches" => list(build_batch()),
-        "buildBatchesNotFound" => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_build_batches_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_report_group_output() :: %{
-        "reportGroup" => report_group()
-      }
-      
-  """
-  @type update_report_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalidate_project_cache_input() :: %{
-        required("projectName") => String.t() | atom()
-      }
-      
-  """
-  @type invalidate_project_cache_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_sandbox_connection_output() :: %{
-        "ssmSession" => s_smsession()
-      }
-      
-  """
-  @type start_sandbox_connection_output() :: %{(String.t() | atom()) => any()}
+  @type batch_get_report_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1380,189 +129,13 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      describe_test_cases_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "testCases" => list(test_case())
+      proxy_configuration() :: %{
+        "defaultBehavior" => list(any()),
+        "orderedProxyRules" => list(fleet_proxy_rule())
       }
       
   """
-  @type describe_test_cases_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_config() :: %{
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnets" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auto_retry_config() :: %{
-        "autoRetryLimit" => integer(),
-        "autoRetryNumber" => integer(),
-        "nextAutoRetry" => String.t() | atom(),
-        "previousAutoRetry" => String.t() | atom()
-      }
-      
-  """
-  @type auto_retry_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_logs_config() :: %{
-        "bucketOwnerAccess" => list(any()),
-        "encryptionDisabled" => boolean(),
-        "location" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type s3_logs_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_input_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_source_credentials_output() :: %{
-        "sourceCredentialsInfos" => list(source_credentials_info())
-      }
-      
-  """
-  @type list_source_credentials_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_project_visibility_output() :: %{
-        "projectArn" => String.t() | atom(),
-        "projectVisibility" => list(any()),
-        "publicProjectAlias" => String.t() | atom()
-      }
-      
-  """
-  @type update_project_visibility_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_build_output() :: %{
-        "build" => build()
-      }
-      
-  """
-  @type start_build_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      o_auth_provider_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type o_auth_provider_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_status_config() :: %{
-        "context" => String.t() | atom(),
-        "targetUrl" => String.t() | atom()
-      }
-      
-  """
-  @type build_status_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_report_export_config() :: %{
-        "bucket" => String.t() | atom(),
-        "bucketOwner" => String.t() | atom(),
-        "encryptionDisabled" => boolean(),
-        "encryptionKey" => String.t() | atom(),
-        "packaging" => list(any()),
-        "path" => String.t() | atom()
-      }
-      
-  """
-  @type s3_report_export_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_build_batch_output() :: %{
-        "buildBatch" => build_batch()
-      }
-      
-  """
-  @type start_build_batch_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_fleet_output() :: %{
-        "fleet" => fleet()
-      }
-      
-  """
-  @type create_fleet_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_webhook_input() :: %{
-        optional("branchFilter") => String.t() | atom(),
-        optional("buildType") => list(any()),
-        optional("filterGroups") => list(list(webhook_filter())()),
-        optional("manualCreation") => boolean(),
-        optional("pullRequestBuildPolicy") => pull_request_build_policy(),
-        optional("scopeConfiguration") => scope_configuration(),
-        required("projectName") => String.t() | atom()
-      }
-      
-  """
-  @type create_webhook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_sandbox_input() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type stop_sandbox_input() :: %{(String.t() | atom()) => any()}
+  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1579,6 +152,158 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      start_build_input() :: %{
+        optional("debugSessionEnabled") => boolean(),
+        optional("encryptionKeyOverride") => String.t() | atom(),
+        optional("cacheOverride") => project_cache(),
+        optional("environmentTypeOverride") => list(any()),
+        optional("gitCloneDepthOverride") => integer(),
+        optional("fleetOverride") => project_fleet(),
+        optional("timeoutInMinutesOverride") => integer(),
+        optional("sourceLocationOverride") => String.t() | atom(),
+        optional("secondarySourcesOverride") => list(project_source()),
+        optional("gitSubmodulesConfigOverride") => git_submodules_config(),
+        optional("sourceVersion") => String.t() | atom(),
+        optional("secondaryArtifactsOverride") => list(project_artifacts()),
+        optional("insecureSslOverride") => boolean(),
+        optional("queuedTimeoutInMinutesOverride") => integer(),
+        optional("buildspecOverride") => String.t() | atom(),
+        optional("registryCredentialOverride") => registry_credential(),
+        required("projectName") => String.t() | atom(),
+        optional("reportBuildStatusOverride") => boolean(),
+        optional("privilegedModeOverride") => boolean(),
+        optional("serviceRoleOverride") => String.t() | atom(),
+        optional("secondarySourcesVersionOverride") => list(project_source_version()),
+        optional("idempotencyToken") => String.t() | atom(),
+        optional("artifactsOverride") => project_artifacts(),
+        optional("sourceTypeOverride") => list(any()),
+        optional("imageOverride") => String.t() | atom(),
+        optional("environmentVariablesOverride") => list(environment_variable()),
+        optional("buildStatusConfigOverride") => build_status_config(),
+        optional("autoRetryLimitOverride") => integer(),
+        optional("imagePullCredentialsTypeOverride") => list(any()),
+        optional("logsConfigOverride") => logs_config(),
+        optional("sourceAuthOverride") => source_auth(),
+        optional("certificateOverride") => String.t() | atom(),
+        optional("computeTypeOverride") => list(any())
+      }
+      
+  """
+  @type start_build_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_builds_for_project_output() :: %{
+        "ids" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_builds_for_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_reports_input() :: %{
+        required("reportArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_reports_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_reports_output() :: %{
+        "reports" => list(report()),
+        "reportsNotFound" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_reports_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_config() :: %{
+        "groupName" => String.t() | atom(),
+        "status" => list(any()),
+        "streamName" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logs_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_filter() :: %{
+        "status" => list(any())
+      }
+      
+  """
+  @type report_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_auth() :: %{
+        "resource" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type source_auth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_sandboxes_output() :: %{
+        "sandboxes" => list(sandbox()),
+        "sandboxesNotFound" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_sandboxes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_file_system_location() :: %{
+        "identifier" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "mountOptions" => String.t() | atom(),
+        "mountPoint" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type project_file_system_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_build_batch_output() :: %{
+        "buildBatch" => build_batch()
+      }
+      
+  """
+  @type start_build_batch_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_get_fleets_output() :: %{
         "fleets" => list(fleet()),
         "fleetsNotFound" => list(String.t() | atom())
@@ -1586,159 +311,6 @@ defmodule AWS.CodeBuild do
       
   """
   @type batch_get_fleets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_source() :: %{
-        "auth" => source_auth(),
-        "buildStatusConfig" => build_status_config(),
-        "buildspec" => String.t() | atom(),
-        "gitCloneDepth" => integer(),
-        "gitSubmodulesConfig" => git_submodules_config(),
-        "insecureSsl" => boolean(),
-        "location" => String.t() | atom(),
-        "reportBuildStatus" => boolean(),
-        "sourceIdentifier" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type project_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_project_input() :: %{
-        optional("autoRetryLimit") => integer(),
-        optional("badgeEnabled") => boolean(),
-        optional("buildBatchConfig") => project_build_batch_config(),
-        optional("cache") => project_cache(),
-        optional("concurrentBuildLimit") => integer(),
-        optional("description") => String.t() | atom(),
-        optional("encryptionKey") => String.t() | atom(),
-        optional("fileSystemLocations") => list(project_file_system_location()),
-        optional("logsConfig") => logs_config(),
-        optional("queuedTimeoutInMinutes") => integer(),
-        optional("secondaryArtifacts") => list(project_artifacts()),
-        optional("secondarySourceVersions") => list(project_source_version()),
-        optional("secondarySources") => list(project_source()),
-        optional("sourceVersion") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        optional("timeoutInMinutes") => integer(),
-        optional("vpcConfig") => vpc_config(),
-        required("artifacts") => project_artifacts(),
-        required("environment") => project_environment(),
-        required("name") => String.t() | atom(),
-        required("serviceRole") => String.t() | atom(),
-        required("source") => project_source()
-      }
-      
-  """
-  @type create_project_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_fleets_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_fleets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_credentials_info() :: %{
-        "arn" => String.t() | atom(),
-        "authType" => list(any()),
-        "resource" => String.t() | atom(),
-        "serverType" => list(any())
-      }
-      
-  """
-  @type source_credentials_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_fleet_input() :: %{
-        optional("baseCapacity") => integer(),
-        optional("computeConfiguration") => compute_configuration(),
-        optional("computeType") => list(any()),
-        optional("environmentType") => list(any()),
-        optional("fleetServiceRole") => String.t() | atom(),
-        optional("imageId") => String.t() | atom(),
-        optional("overflowBehavior") => list(any()),
-        optional("proxyConfiguration") => proxy_configuration(),
-        optional("scalingConfiguration") => scaling_configuration_input(),
-        optional("tags") => list(tag()),
-        optional("vpcConfig") => vpc_config(),
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type update_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_fleet_input() :: %{
-        optional("computeConfiguration") => compute_configuration(),
-        optional("fleetServiceRole") => String.t() | atom(),
-        optional("imageId") => String.t() | atom(),
-        optional("overflowBehavior") => list(any()),
-        optional("proxyConfiguration") => proxy_configuration(),
-        optional("scalingConfiguration") => scaling_configuration_input(),
-        optional("tags") => list(tag()),
-        optional("vpcConfig") => vpc_config(),
-        required("baseCapacity") => integer(),
-        required("computeType") => list(any()),
-        required("environmentType") => list(any()),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      webhook_filter() :: %{
-        "excludeMatchedPattern" => boolean(),
-        "pattern" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type webhook_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_batch_phase() :: %{
-        "contexts" => list(phase_context()),
-        "durationInSeconds" => float(),
-        "endTime" => non_neg_integer(),
-        "phaseStatus" => list(any()),
-        "phaseType" => list(any()),
-        "startTime" => non_neg_integer()
-      }
-      
-  """
-  @type build_batch_phase() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1774,6 +346,132 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      update_webhook_input() :: %{
+        optional("branchFilter") => String.t() | atom(),
+        optional("buildType") => list(any()),
+        optional("filterGroups") => list(list(webhook_filter())()),
+        optional("pullRequestBuildPolicy") => pull_request_build_policy(),
+        optional("rotateSecret") => boolean(),
+        required("projectName") => String.t() | atom()
+      }
+      
+  """
+  @type update_webhook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_build_batches_for_project_output() :: %{
+        "ids" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_build_batches_for_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_report_group_input() :: %{
+        optional("exportConfig") => report_export_config(),
+        optional("tags") => list(tag()),
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type update_report_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_command_execution_input() :: %{
+        optional("type") => list(any()),
+        required("command") => String.t() | atom(),
+        required("sandboxId") => String.t() | atom()
+      }
+      
+  """
+  @type start_command_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_project_output() :: %{
+        "project" => project()
+      }
+      
+  """
+  @type create_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      webhook() :: %{
+        "branchFilter" => String.t() | atom(),
+        "buildType" => list(any()),
+        "filterGroups" => list(list(webhook_filter())()),
+        "lastModifiedSecret" => non_neg_integer(),
+        "manualCreation" => boolean(),
+        "payloadUrl" => String.t() | atom(),
+        "pullRequestBuildPolicy" => pull_request_build_policy(),
+        "scopeConfiguration" => scope_configuration(),
+        "secret" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+      
+  """
+  @type webhook() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_badge() :: %{
+        "badgeEnabled" => boolean(),
+        "badgeRequestUrl" => String.t() | atom()
+      }
+      
+  """
+  @type project_badge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      build_summary() :: %{
+        "arn" => String.t() | atom(),
+        "buildStatus" => list(any()),
+        "primaryArtifact" => resolved_artifact(),
+        "requestedOn" => non_neg_integer(),
+        "secondaryArtifacts" => list(resolved_artifact())
+      }
+      
+  """
+  @type build_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       logs_location() :: %{
         "cloudWatchLogs" => cloud_watch_logs_config(),
         "cloudWatchLogsArn" => String.t() | atom(),
@@ -1792,6 +490,323 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
+      command_execution() :: %{
+        "command" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "exitCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "logs" => logs_location(),
+        "sandboxArn" => String.t() | atom(),
+        "sandboxId" => String.t() | atom(),
+        "standardErrContent" => String.t() | atom(),
+        "standardOutputContent" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "submitTime" => non_neg_integer(),
+        "type" => list(any())
+      }
+      
+  """
+  @type command_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_builds_output() :: %{
+        "builds" => list(build()),
+        "buildsNotFound" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_builds_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sandboxes_output() :: %{
+        "ids" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_sandboxes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_fleets_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_fleets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_shared_report_groups_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_shared_report_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_sandbox_output() :: %{
+        "sandbox" => sandbox()
+      }
+      
+  """
+  @type stop_sandbox_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_with_raw_data() :: %{
+        "data" => String.t() | atom(),
+        "reportArn" => String.t() | atom()
+      }
+      
+  """
+  @type report_with_raw_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      exported_environment_variable() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type exported_environment_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_build_batch_output() :: %{
+        "buildBatch" => build_batch()
+      }
+      
+  """
+  @type retry_build_batch_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      docker_server() :: %{
+        "computeType" => list(any()),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => docker_server_status()
+      }
+      
+  """
+  @type docker_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_command_execution_output() :: %{
+        "commandExecution" => command_execution()
+      }
+      
+  """
+  @type start_command_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_environment() :: %{
+        "certificate" => String.t() | atom(),
+        "computeConfiguration" => compute_configuration(),
+        "computeType" => list(any()),
+        "dockerServer" => docker_server(),
+        "environmentVariables" => list(environment_variable()),
+        "fleet" => project_fleet(),
+        "image" => String.t() | atom(),
+        "imagePullCredentialsType" => list(any()),
+        "privilegedMode" => boolean(),
+        "registryCredential" => registry_credential(),
+        "type" => list(any())
+      }
+      
+  """
+  @type project_environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_build_output() :: %{
+        "build" => build()
+      }
+      
+  """
+  @type stop_build_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_report_export_config() :: %{
+        "bucket" => String.t() | atom(),
+        "bucketOwner" => String.t() | atom(),
+        "encryptionDisabled" => boolean(),
+        "encryptionKey" => String.t() | atom(),
+        "packaging" => list(any()),
+        "path" => String.t() | atom()
+      }
+      
+  """
+  @type s3_report_export_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_projects_output() :: %{
+        "projects" => list(project()),
+        "projectsNotFound" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_projects_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_fleets_input() :: %{
+        required("names") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_fleets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_build_input() :: %{
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type stop_build_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      phase_context() :: %{
+        "message" => String.t() | atom(),
+        "statusCode" => String.t() | atom()
+      }
+      
+  """
+  @type phase_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s_smsession() :: %{
+        "sessionId" => String.t() | atom(),
+        "streamUrl" => String.t() | atom(),
+        "tokenValue" => String.t() | atom()
+      }
+      
+  """
+  @type s_smsession() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_webhook_output() :: %{
+        "webhook" => webhook()
+      }
+      
+  """
+  @type create_webhook_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_cache() :: %{
+        "cacheNamespace" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "modes" => list(list(any())()),
+        "type" => list(any())
+      }
+      
+  """
+  @type project_cache() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_input() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_coverage_report_summary() :: %{
+        "branchCoveragePercentage" => float(),
+        "branchesCovered" => integer(),
+        "branchesMissed" => integer(),
+        "lineCoveragePercentage" => float(),
+        "linesCovered" => integer(),
+        "linesMissed" => integer()
+      }
+      
+  """
+  @type code_coverage_report_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_projects_input() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_projects_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       fleet_proxy_rule() :: %{
         "effect" => list(any()),
         "entities" => list(String.t() | atom()),
@@ -1805,10 +820,144 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      delete_resource_policy_output() :: %{}
+      start_sandbox_output() :: %{
+        "sandbox" => sandbox()
+      }
       
   """
-  @type delete_resource_policy_output() :: %{}
+  @type start_sandbox_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_test_cases_input() :: %{
+        optional("filter") => test_case_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("reportArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_test_cases_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_build_input() :: %{
+        optional("id") => String.t() | atom(),
+        optional("idempotencyToken") => String.t() | atom()
+      }
+      
+  """
+  @type retry_build_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_source_version() :: %{
+        "sourceIdentifier" => String.t() | atom(),
+        "sourceVersion" => String.t() | atom()
+      }
+      
+  """
+  @type project_source_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_build_batch_input() :: %{
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_build_batch_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_source_credentials_input() :: %{
+        optional("shouldOverwrite") => boolean(),
+        optional("username") => String.t() | atom(),
+        required("authType") => list(any()),
+        required("serverType") => list(any()),
+        required("token") => String.t() | atom()
+      }
+      
+  """
+  @type import_source_credentials_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_builds_output() :: %{
+        "buildsDeleted" => list(String.t() | atom()),
+        "buildsNotDeleted" => list(build_not_deleted())
+      }
+      
+  """
+  @type batch_delete_builds_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_build_batch_output() :: %{
+        "buildsDeleted" => list(String.t() | atom()),
+        "buildsNotDeleted" => list(build_not_deleted()),
+        "statusCode" => String.t() | atom()
+      }
+      
+  """
+  @type delete_build_batch_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      build_group() :: %{
+        "currentBuildSummary" => build_summary(),
+        "dependsOn" => list(String.t() | atom()),
+        "identifier" => String.t() | atom(),
+        "ignoreFailure" => boolean(),
+        "priorBuildSummaryList" => list(build_summary())
+      }
+      
+  """
+  @type build_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reports_for_report_group_input() :: %{
+        optional("filter") => report_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
+        required("reportGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_reports_for_report_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scaling_configuration_input() :: %{
+        "maxCapacity" => integer(),
+        "scalingType" => list(any()),
+        "targetTrackingScalingConfigs" => list(target_tracking_scaling_configuration())
+      }
+      
+  """
+  @type scaling_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1827,13 +976,608 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      batch_get_command_executions_input() :: %{
-        required("commandExecutionIds") => list(String.t() | atom()),
+      build_artifacts() :: %{
+        "artifactIdentifier" => String.t() | atom(),
+        "bucketOwnerAccess" => list(any()),
+        "encryptionDisabled" => boolean(),
+        "location" => String.t() | atom(),
+        "md5sum" => String.t() | atom(),
+        "overrideArtifactName" => boolean(),
+        "sha256sum" => String.t() | atom()
+      }
+      
+  """
+  @type build_artifacts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_project_input() :: %{
+        optional("artifacts") => project_artifacts(),
+        optional("autoRetryLimit") => integer(),
+        optional("badgeEnabled") => boolean(),
+        optional("buildBatchConfig") => project_build_batch_config(),
+        optional("cache") => project_cache(),
+        optional("concurrentBuildLimit") => integer(),
+        optional("description") => String.t() | atom(),
+        optional("encryptionKey") => String.t() | atom(),
+        optional("environment") => project_environment(),
+        optional("fileSystemLocations") => list(project_file_system_location()),
+        optional("logsConfig") => logs_config(),
+        optional("queuedTimeoutInMinutes") => integer(),
+        optional("secondaryArtifacts") => list(project_artifacts()),
+        optional("secondarySourceVersions") => list(project_source_version()),
+        optional("secondarySources") => list(project_source()),
+        optional("serviceRole") => String.t() | atom(),
+        optional("source") => project_source(),
+        optional("sourceVersion") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("timeoutInMinutes") => integer(),
+        optional("vpcConfig") => vpc_config(),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type update_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_fleet_input() :: %{
+        optional("computeConfiguration") => compute_configuration(),
+        optional("fleetServiceRole") => String.t() | atom(),
+        optional("imageId") => String.t() | atom(),
+        optional("overflowBehavior") => list(any()),
+        optional("proxyConfiguration") => proxy_configuration(),
+        optional("scalingConfiguration") => scaling_configuration_input(),
+        optional("tags") => list(tag()),
+        optional("vpcConfig") => vpc_config(),
+        required("baseCapacity") => integer(),
+        required("computeType") => list(any()),
+        required("environmentType") => list(any()),
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type create_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_fleet_output() :: %{}
+      
+  """
+  @type delete_fleet_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_language() :: %{
+        "images" => list(environment_image()),
+        "language" => list(any())
+      }
+      
+  """
+  @type environment_language() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_builds_input() :: %{
+        required("ids") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_builds_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report() :: %{
+        "arn" => String.t() | atom(),
+        "codeCoverageSummary" => code_coverage_report_summary(),
+        "created" => non_neg_integer(),
+        "executionId" => String.t() | atom(),
+        "expired" => non_neg_integer(),
+        "exportConfig" => report_export_config(),
+        "name" => String.t() | atom(),
+        "reportGroupArn" => String.t() | atom(),
+        "status" => list(any()),
+        "testSummary" => test_report_summary(),
+        "truncated" => boolean(),
+        "type" => list(any())
+      }
+      
+  """
+  @type report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      network_interface() :: %{
+        "networkInterfaceId" => String.t() | atom(),
+        "subnetId" => String.t() | atom()
+      }
+      
+  """
+  @type network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_fleet_output() :: %{
+        "fleet" => fleet()
+      }
+      
+  """
+  @type create_fleet_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_input() :: %{
+        optional("baseCapacity") => integer(),
+        optional("computeConfiguration") => compute_configuration(),
+        optional("computeType") => list(any()),
+        optional("environmentType") => list(any()),
+        optional("fleetServiceRole") => String.t() | atom(),
+        optional("imageId") => String.t() | atom(),
+        optional("overflowBehavior") => list(any()),
+        optional("proxyConfiguration") => proxy_configuration(),
+        optional("scalingConfiguration") => scaling_configuration_input(),
+        optional("tags") => list(tag()),
+        optional("vpcConfig") => vpc_config(),
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_code_coverages_input() :: %{
+        optional("maxLineCoveragePercentage") => float(),
+        optional("maxResults") => integer(),
+        optional("minLineCoveragePercentage") => float(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        required("reportArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_code_coverages_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_projects_input() :: %{
+        required("names") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_projects_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_code_coverages_output() :: %{
+        "codeCoverages" => list(code_coverage()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_code_coverages_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_credentials_info() :: %{
+        "arn" => String.t() | atom(),
+        "authType" => list(any()),
+        "resource" => String.t() | atom(),
+        "serverType" => list(any())
+      }
+      
+  """
+  @type source_credentials_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_builds_output() :: %{
+        "ids" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_builds_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_builds_input() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_builds_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_output() :: %{
+        "resourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_variable() :: %{
+        "name" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type environment_variable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_group() :: %{
+        "arn" => String.t() | atom(),
+        "created" => non_neg_integer(),
+        "exportConfig" => report_export_config(),
+        "lastModified" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => list(tag()),
+        "type" => list(any())
+      }
+      
+  """
+  @type report_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sandboxes_for_project_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
+        required("projectName") => String.t() | atom()
+      }
+      
+  """
+  @type list_sandboxes_for_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_command_executions_for_sandbox_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
         required("sandboxId") => String.t() | atom()
       }
       
   """
-  @type batch_get_command_executions_input() :: %{(String.t() | atom()) => any()}
+  @type list_command_executions_for_sandbox_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet() :: %{
+        "arn" => String.t() | atom(),
+        "baseCapacity" => integer(),
+        "computeConfiguration" => compute_configuration(),
+        "computeType" => list(any()),
+        "created" => non_neg_integer(),
+        "environmentType" => list(any()),
+        "fleetServiceRole" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "imageId" => String.t() | atom(),
+        "lastModified" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "overflowBehavior" => list(any()),
+        "proxyConfiguration" => proxy_configuration(),
+        "scalingConfiguration" => scaling_configuration_output(),
+        "status" => fleet_status(),
+        "tags" => list(tag()),
+        "vpcConfig" => vpc_config()
+      }
+      
+  """
+  @type fleet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      build_phase() :: %{
+        "contexts" => list(phase_context()),
+        "durationInSeconds" => float(),
+        "endTime" => non_neg_integer(),
+        "phaseStatus" => list(any()),
+        "phaseType" => list(any()),
+        "startTime" => non_neg_integer()
+      }
+      
+  """
+  @type build_phase() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_project_output() :: %{
+        "project" => project()
+      }
+      
+  """
+  @type update_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_report_group_trend_input() :: %{
+        optional("numOfReports") => integer(),
+        required("reportGroupArn") => String.t() | atom(),
+        required("trendField") => list(any())
+      }
+      
+  """
+  @type get_report_group_trend_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute_configuration() :: %{
+        "disk" => float(),
+        "instanceType" => String.t() | atom(),
+        "machineType" => list(any()),
+        "memory" => float(),
+        "vCpu" => float()
+      }
+      
+  """
+  @type compute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_curated_environment_images_input() :: %{}
+      
+  """
+  @type list_curated_environment_images_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalidate_project_cache_input() :: %{
+        required("projectName") => String.t() | atom()
+      }
+      
+  """
+  @type invalidate_project_cache_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_source_credentials_input() :: %{}
+      
+  """
+  @type list_source_credentials_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_case() :: %{
+        "durationInNanoSeconds" => float(),
+        "expired" => non_neg_integer(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "prefix" => String.t() | atom(),
+        "reportArn" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "testRawDataPath" => String.t() | atom(),
+        "testSuiteName" => String.t() | atom()
+      }
+      
+  """
+  @type test_case() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_suspended_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type account_suspended_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_shared_report_groups_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "reportGroups" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_shared_report_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_report_group_trend_output() :: %{
+        "rawData" => list(report_with_raw_data()),
+        "stats" => report_group_trend_stats()
+      }
+      
+  """
+  @type get_report_group_trend_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_reports_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "reports" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_reports_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_report_groups_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "reportGroups" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_report_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_platform() :: %{
+        "languages" => list(environment_language()),
+        "platform" => list(any())
+      }
+      
+  """
+  @type environment_platform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_shared_projects_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_shared_projects_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      build_status_config() :: %{
+        "context" => String.t() | atom(),
+        "targetUrl" => String.t() | atom()
+      }
+      
+  """
+  @type build_status_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_image() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "versions" => list(String.t() | atom())
+      }
+      
+  """
+  @type environment_image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      debug_session() :: %{
+        "sessionEnabled" => boolean(),
+        "sessionTarget" => String.t() | atom()
+      }
+      
+  """
+  @type debug_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_builds_for_project_input() :: %{
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
+        required("projectName") => String.t() | atom()
+      }
+      
+  """
+  @type list_builds_for_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_project_visibility_output() :: %{
+        "projectArn" => String.t() | atom(),
+        "projectVisibility" => list(any()),
+        "publicProjectAlias" => String.t() | atom()
+      }
+      
+  """
+  @type update_project_visibility_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1859,157 +1603,24 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      registry_credential() :: %{
-        "credential" => String.t() | atom(),
-        "credentialProvider" => list(any())
+      start_build_output() :: %{
+        "build" => build()
       }
       
   """
-  @type registry_credential() :: %{(String.t() | atom()) => any()}
+  @type start_build_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      build_batch() :: %{
-        "arn" => String.t() | atom(),
-        "artifacts" => build_artifacts(),
-        "buildBatchConfig" => project_build_batch_config(),
-        "buildBatchNumber" => float(),
-        "buildBatchStatus" => list(any()),
-        "buildGroups" => list(build_group()),
-        "buildTimeoutInMinutes" => integer(),
-        "cache" => project_cache(),
-        "complete" => boolean(),
-        "currentPhase" => String.t() | atom(),
-        "debugSessionEnabled" => boolean(),
-        "encryptionKey" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "environment" => project_environment(),
-        "fileSystemLocations" => list(project_file_system_location()),
+      build_not_deleted() :: %{
         "id" => String.t() | atom(),
-        "initiator" => String.t() | atom(),
-        "logConfig" => logs_config(),
-        "phases" => list(build_batch_phase()),
-        "projectName" => String.t() | atom(),
-        "queuedTimeoutInMinutes" => integer(),
-        "reportArns" => list(String.t() | atom()),
-        "resolvedSourceVersion" => String.t() | atom(),
-        "secondaryArtifacts" => list(build_artifacts()),
-        "secondarySourceVersions" => list(project_source_version()),
-        "secondarySources" => list(project_source()),
-        "serviceRole" => String.t() | atom(),
-        "source" => project_source(),
-        "sourceVersion" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "vpcConfig" => vpc_config()
+        "statusCode" => String.t() | atom()
       }
       
   """
-  @type build_batch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sandboxes_for_project_output() :: %{
-        "ids" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_sandboxes_for_project_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolved_artifact() :: %{
-        "identifier" => String.t() | atom(),
-        "location" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type resolved_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_shared_report_groups_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_shared_report_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_project_output() :: %{
-        "project" => project()
-      }
-      
-  """
-  @type update_project_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_report_group_input() :: %{
-        optional("tags") => list(tag()),
-        required("exportConfig") => report_export_config(),
-        required("name") => String.t() | atom(),
-        required("type") => list(any())
-      }
-      
-  """
-  @type create_report_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s_smsession() :: %{
-        "sessionId" => String.t() | atom(),
-        "streamUrl" => String.t() | atom(),
-        "tokenValue" => String.t() | atom()
-      }
-      
-  """
-  @type s_smsession() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sandboxes_output() :: %{
-        "ids" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_sandboxes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_build_batches_input() :: %{
-        optional("filter") => build_batch_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_build_batches_input() :: %{(String.t() | atom()) => any()}
+  @type build_not_deleted() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2027,17 +1638,6 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      get_resource_policy_input() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       start_sandbox_input() :: %{
         optional("idempotencyToken") => String.t() | atom(),
         optional("projectName") => String.t() | atom()
@@ -2050,36 +1650,39 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      list_projects_input() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
+      list_projects_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "projects" => list(String.t() | atom())
       }
       
   """
-  @type list_projects_input() :: %{(String.t() | atom()) => any()}
+  @type list_projects_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      build_batch_filter() :: %{
-        "status" => list(any())
+      test_report_summary() :: %{
+        "durationInNanoSeconds" => float(),
+        "statusCounts" => map(),
+        "total" => integer()
       }
       
   """
-  @type build_batch_filter() :: %{(String.t() | atom()) => any()}
+  @type test_report_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_projects_input() :: %{
-        required("names") => list(String.t() | atom())
+      vpc_config() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnets" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
       
   """
-  @type batch_get_projects_input() :: %{(String.t() | atom()) => any()}
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2098,105 +1701,117 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      batch_get_fleets_input() :: %{
-        required("names") => list(String.t() | atom())
+      build() :: %{
+        "phases" => list(build_phase()),
+        "initiator" => String.t() | atom(),
+        "timeoutInMinutes" => integer(),
+        "networkInterface" => network_interface(),
+        "fileSystemLocations" => list(project_file_system_location()),
+        "projectName" => String.t() | atom(),
+        "secondaryArtifacts" => list(build_artifacts()),
+        "startTime" => non_neg_integer(),
+        "environment" => project_environment(),
+        "source" => project_source(),
+        "serviceRole" => String.t() | atom(),
+        "artifacts" => build_artifacts(),
+        "buildBatchArn" => String.t() | atom(),
+        "sourceVersion" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "exportedEnvironmentVariables" => list(exported_environment_variable()),
+        "resolvedSourceVersion" => String.t() | atom(),
+        "buildStatus" => list(any()),
+        "buildComplete" => boolean(),
+        "vpcConfig" => vpc_config(),
+        "buildNumber" => float(),
+        "reportArns" => list(String.t() | atom()),
+        "autoRetryConfig" => auto_retry_config(),
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "cache" => project_cache(),
+        "secondarySourceVersions" => list(project_source_version()),
+        "queuedTimeoutInMinutes" => integer(),
+        "currentPhase" => String.t() | atom(),
+        "logs" => logs_location(),
+        "debugSession" => debug_session(),
+        "encryptionKey" => String.t() | atom(),
+        "secondarySources" => list(project_source())
       }
       
   """
-  @type batch_get_fleets_input() :: %{(String.t() | atom()) => any()}
+  @type build() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      report_filter() :: %{
+      build_batch_filter() :: %{
         "status" => list(any())
       }
       
   """
-  @type report_filter() :: %{(String.t() | atom()) => any()}
+  @type build_batch_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_sandboxes_for_project_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any()),
-        required("projectName") => String.t() | atom()
+      sandbox_session() :: %{
+        "currentPhase" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "logs" => logs_location(),
+        "networkInterface" => network_interface(),
+        "phases" => list(sandbox_session_phase()),
+        "resolvedSourceVersion" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom()
       }
       
   """
-  @type list_sandboxes_for_project_input() :: %{(String.t() | atom()) => any()}
+  @type sandbox_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      scaling_configuration_input() :: %{
-        "maxCapacity" => integer(),
-        "scalingType" => list(any()),
-        "targetTrackingScalingConfigs" => list(target_tracking_scaling_configuration())
+      invalidate_project_cache_output() :: %{}
+      
+  """
+  @type invalidate_project_cache_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_report_group_input() :: %{
+        optional("deleteReports") => boolean(),
+        required("arn") => String.t() | atom()
       }
       
   """
-  @type scaling_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type delete_report_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      project_fleet() :: %{
-        "fleetArn" => String.t() | atom()
+      batch_get_sandboxes_input() :: %{
+        required("ids") => list(String.t() | atom())
       }
       
   """
-  @type project_fleet() :: %{(String.t() | atom()) => any()}
+  @type batch_get_sandboxes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_webhook_input() :: %{
-        required("projectName") => String.t() | atom()
+      update_webhook_output() :: %{
+        "webhook" => webhook()
       }
       
   """
-  @type delete_webhook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_project_output() :: %{}
-      
-  """
-  @type delete_project_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sandboxes_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any())
-      }
-      
-  """
-  @type list_sandboxes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_project_input() :: %{
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_project_input() :: %{(String.t() | atom()) => any()}
+  @type update_webhook_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2214,102 +1829,38 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      describe_test_cases_input() :: %{
-        optional("filter") => test_case_filter(),
+      list_report_groups_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        required("reportArn") => String.t() | atom()
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
       }
       
   """
-  @type describe_test_cases_input() :: %{(String.t() | atom()) => any()}
+  @type list_report_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      environment_image() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "versions" => list(String.t() | atom())
+      registry_credential() :: %{
+        "credential" => String.t() | atom(),
+        "credentialProvider" => list(any())
       }
       
   """
-  @type environment_image() :: %{(String.t() | atom()) => any()}
+  @type registry_credential() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_delete_builds_output() :: %{
-        "buildsDeleted" => list(String.t() | atom()),
-        "buildsNotDeleted" => list(build_not_deleted())
+      batch_delete_builds_input() :: %{
+        required("ids") => list(String.t() | atom())
       }
       
   """
-  @type batch_delete_builds_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_report_group_input() :: %{
-        optional("exportConfig") => report_export_config(),
-        optional("tags") => list(tag()),
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type update_report_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_phase() :: %{
-        "contexts" => list(phase_context()),
-        "durationInSeconds" => float(),
-        "endTime" => non_neg_integer(),
-        "phaseStatus" => list(any()),
-        "phaseType" => list(any()),
-        "startTime" => non_neg_integer()
-      }
-      
-  """
-  @type build_phase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_build_batches_for_project_output() :: %{
-        "ids" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_build_batches_for_project_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalidate_project_cache_output() :: %{}
-      
-  """
-  @type invalidate_project_cache_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      retry_build_input() :: %{
-        optional("id") => String.t() | atom(),
-        optional("idempotencyToken") => String.t() | atom()
-      }
-      
-  """
-  @type retry_build_input() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_builds_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2356,44 +1907,618 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      environment_language() :: %{
-        "images" => list(environment_image()),
-        "language" => list(any())
+      list_reports_for_report_group_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "reports" => list(String.t() | atom())
       }
       
   """
-  @type environment_language() :: %{(String.t() | atom()) => any()}
+  @type list_reports_for_report_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_sandboxes_output() :: %{
-        "sandboxes" => list(sandbox()),
-        "sandboxesNotFound" => list(String.t() | atom())
+      create_project_input() :: %{
+        optional("autoRetryLimit") => integer(),
+        optional("badgeEnabled") => boolean(),
+        optional("buildBatchConfig") => project_build_batch_config(),
+        optional("cache") => project_cache(),
+        optional("concurrentBuildLimit") => integer(),
+        optional("description") => String.t() | atom(),
+        optional("encryptionKey") => String.t() | atom(),
+        optional("fileSystemLocations") => list(project_file_system_location()),
+        optional("logsConfig") => logs_config(),
+        optional("queuedTimeoutInMinutes") => integer(),
+        optional("secondaryArtifacts") => list(project_artifacts()),
+        optional("secondarySourceVersions") => list(project_source_version()),
+        optional("secondarySources") => list(project_source()),
+        optional("sourceVersion") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        optional("timeoutInMinutes") => integer(),
+        optional("vpcConfig") => vpc_config(),
+        required("artifacts") => project_artifacts(),
+        required("environment") => project_environment(),
+        required("name") => String.t() | atom(),
+        required("serviceRole") => String.t() | atom(),
+        required("source") => project_source()
       }
       
   """
-  @type batch_get_sandboxes_output() :: %{(String.t() | atom()) => any()}
+  @type create_project_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      sandbox_session() :: %{
-        "currentPhase" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "logs" => logs_location(),
-        "networkInterface" => network_interface(),
-        "phases" => list(sandbox_session_phase()),
-        "resolvedSourceVersion" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
+      delete_project_output() :: %{}
+      
+  """
+  @type delete_project_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_report_group_output() :: %{}
+      
+  """
+  @type delete_report_group_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_curated_environment_images_output() :: %{
+        "platforms" => list(environment_platform())
+      }
+      
+  """
+  @type list_curated_environment_images_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_build_output() :: %{
+        "build" => build()
+      }
+      
+  """
+  @type retry_build_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_webhook_input() :: %{
+        optional("branchFilter") => String.t() | atom(),
+        optional("buildType") => list(any()),
+        optional("filterGroups") => list(list(webhook_filter())()),
+        optional("manualCreation") => boolean(),
+        optional("pullRequestBuildPolicy") => pull_request_build_policy(),
+        optional("scopeConfiguration") => scope_configuration(),
+        required("projectName") => String.t() | atom()
+      }
+      
+  """
+  @type create_webhook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_report_group_output() :: %{
+        "reportGroup" => report_group()
+      }
+      
+  """
+  @type update_report_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_export_config() :: %{
+        "exportConfigType" => list(any()),
+        "s3Destination" => s3_report_export_config()
+      }
+      
+  """
+  @type report_export_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retry_build_batch_input() :: %{
+        optional("id") => String.t() | atom(),
+        optional("idempotencyToken") => String.t() | atom(),
+        optional("retryType") => list(any())
+      }
+      
+  """
+  @type retry_build_batch_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_build_batches_for_project_input() :: %{
+        optional("filter") => build_batch_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("projectName") => String.t() | atom(),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_build_batches_for_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_webhook_input() :: %{
+        required("projectName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_webhook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolved_artifact() :: %{
+        "identifier" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type resolved_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_output() :: %{}
+      
+  """
+  @type delete_resource_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_input() :: %{
+        required("policy") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      docker_server_status() :: %{
+        "message" => String.t() | atom(),
         "status" => String.t() | atom()
       }
       
   """
-  @type sandbox_session() :: %{(String.t() | atom()) => any()}
+  @type docker_server_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      build_batch() :: %{
+        "arn" => String.t() | atom(),
+        "artifacts" => build_artifacts(),
+        "buildBatchConfig" => project_build_batch_config(),
+        "buildBatchNumber" => float(),
+        "buildBatchStatus" => list(any()),
+        "buildGroups" => list(build_group()),
+        "buildTimeoutInMinutes" => integer(),
+        "cache" => project_cache(),
+        "complete" => boolean(),
+        "currentPhase" => String.t() | atom(),
+        "debugSessionEnabled" => boolean(),
+        "encryptionKey" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "environment" => project_environment(),
+        "fileSystemLocations" => list(project_file_system_location()),
+        "id" => String.t() | atom(),
+        "initiator" => String.t() | atom(),
+        "logConfig" => logs_config(),
+        "phases" => list(build_batch_phase()),
+        "projectName" => String.t() | atom(),
+        "queuedTimeoutInMinutes" => integer(),
+        "reportArns" => list(String.t() | atom()),
+        "resolvedSourceVersion" => String.t() | atom(),
+        "secondaryArtifacts" => list(build_artifacts()),
+        "secondarySourceVersions" => list(project_source_version()),
+        "secondarySources" => list(project_source()),
+        "serviceRole" => String.t() | atom(),
+        "source" => project_source(),
+        "sourceVersion" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "vpcConfig" => vpc_config()
+      }
+      
+  """
+  @type build_batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_report_groups_input() :: %{
+        required("reportGroupArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_report_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_input() :: %{
+        required("name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sandboxes_for_project_output() :: %{
+        "ids" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_sandboxes_for_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_source() :: %{
+        "auth" => source_auth(),
+        "buildStatusConfig" => build_status_config(),
+        "buildspec" => String.t() | atom(),
+        "gitCloneDepth" => integer(),
+        "gitSubmodulesConfig" => git_submodules_config(),
+        "insecureSsl" => boolean(),
+        "location" => String.t() | atom(),
+        "reportBuildStatus" => boolean(),
+        "sourceIdentifier" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type project_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_group_trend_stats() :: %{
+        "average" => String.t() | atom(),
+        "max" => String.t() | atom(),
+        "min" => String.t() | atom()
+      }
+      
+  """
+  @type report_group_trend_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_build_batches_input() :: %{
+        optional("filter") => build_batch_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_build_batches_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_source_credentials_output() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type import_source_credentials_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_source_credentials_output() :: %{
+        "arn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_source_credentials_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      logs_config() :: %{
+        "cloudWatchLogs" => cloud_watch_logs_config(),
+        "s3Logs" => s3_logs_config()
+      }
+      
+  """
+  @type logs_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type account_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_project_visibility_input() :: %{
+        optional("resourceAccessRole") => String.t() | atom(),
+        required("projectArn") => String.t() | atom(),
+        required("projectVisibility") => list(any())
+      }
+      
+  """
+  @type update_project_visibility_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_input() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_webhook_output() :: %{}
+      
+  """
+  @type delete_webhook_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_logs_config() :: %{
+        "bucketOwnerAccess" => list(any()),
+        "encryptionDisabled" => boolean(),
+        "location" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type s3_logs_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_shared_projects_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "projects" => list(String.t() | atom())
+      }
+      
+  """
+  @type list_shared_projects_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_sandbox_connection_output() :: %{
+        "ssmSession" => s_smsession()
+      }
+      
+  """
+  @type start_sandbox_connection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_fleet() :: %{
+        "fleetArn" => String.t() | atom()
+      }
+      
+  """
+  @type project_fleet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_sandbox_input() :: %{
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type stop_sandbox_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_source_credentials_output() :: %{
+        "sourceCredentialsInfos" => list(source_credentials_info())
+      }
+      
+  """
+  @type list_source_credentials_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sandboxes_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any())
+      }
+      
+  """
+  @type list_sandboxes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      git_submodules_config() :: %{
+        "fetchSubmodules" => boolean()
+      }
+      
+  """
+  @type git_submodules_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_report_group_input() :: %{
+        optional("tags") => list(tag()),
+        required("exportConfig") => report_export_config(),
+        required("name") => String.t() | atom(),
+        required("type") => list(any())
+      }
+      
+  """
+  @type create_report_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_build_batch_output() :: %{
+        "buildBatch" => build_batch()
+      }
+      
+  """
+  @type stop_build_batch_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_build_batch_input() :: %{
+        required("id") => String.t() | atom()
+      }
+      
+  """
+  @type stop_build_batch_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_command_executions_for_sandbox_output() :: %{
+        "commandExecutions" => list(command_execution()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_command_executions_for_sandbox_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_build_batches_input() :: %{
+        required("ids") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_build_batches_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_report_output() :: %{}
+      
+  """
+  @type delete_report_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet_status() :: %{
+        "context" => list(any()),
+        "message" => String.t() | atom(),
+        "statusCode" => list(any())
+      }
+      
+  """
+  @type fleet_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_report_group_output() :: %{
+        "reportGroup" => report_group()
+      }
+      
+  """
+  @type create_report_group_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2413,336 +2538,211 @@ defmodule AWS.CodeBuild do
 
   ## Example:
       
-      report() :: %{
-        "arn" => String.t() | atom(),
-        "codeCoverageSummary" => code_coverage_report_summary(),
-        "created" => non_neg_integer(),
-        "executionId" => String.t() | atom(),
-        "expired" => non_neg_integer(),
-        "exportConfig" => report_export_config(),
-        "name" => String.t() | atom(),
-        "reportGroupArn" => String.t() | atom(),
-        "status" => list(any()),
-        "testSummary" => test_report_summary(),
-        "truncated" => boolean(),
-        "type" => list(any())
+      build_batch_phase() :: %{
+        "contexts" => list(phase_context()),
+        "durationInSeconds" => float(),
+        "endTime" => non_neg_integer(),
+        "phaseStatus" => list(any()),
+        "phaseType" => list(any()),
+        "startTime" => non_neg_integer()
       }
       
   """
-  @type report() :: %{(String.t() | atom()) => any()}
+  @type build_batch_phase() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_already_exists_exception() :: %{
+      project_build_batch_config() :: %{
+        "batchReportMode" => list(any()),
+        "combineArtifacts" => boolean(),
+        "restrictions" => batch_restrictions(),
+        "serviceRole" => String.t() | atom(),
+        "timeoutInMins" => integer()
+      }
+      
+  """
+  @type project_build_batch_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_command_executions_input() :: %{
+        required("commandExecutionIds") => list(String.t() | atom()),
+        required("sandboxId") => String.t() | atom()
+      }
+      
+  """
+  @type batch_get_command_executions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_output() :: %{
+        "fleet" => fleet()
+      }
+      
+  """
+  @type update_fleet_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_fleet_input() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_sandbox_connection_input() :: %{
+        required("sandboxId") => String.t() | atom()
+      }
+      
+  """
+  @type start_sandbox_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_command_executions_output() :: %{
+        "commandExecutions" => list(command_execution()),
+        "commandExecutionsNotFound" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_command_executions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sandbox_session_phase() :: %{
+        "contexts" => list(phase_context()),
+        "durationInSeconds" => float(),
+        "endTime" => non_neg_integer(),
+        "phaseStatus" => list(any()),
+        "phaseType" => String.t() | atom(),
+        "startTime" => non_neg_integer()
+      }
+      
+  """
+  @type sandbox_session_phase() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auto_retry_config() :: %{
+        "autoRetryLimit" => integer(),
+        "autoRetryNumber" => integer(),
+        "nextAutoRetry" => String.t() | atom(),
+        "previousAutoRetry" => String.t() | atom()
+      }
+      
+  """
+  @type auto_retry_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_build_batches_output() :: %{
+        "buildBatches" => list(build_batch()),
+        "buildBatchesNotFound" => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_build_batches_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      o_auth_provider_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type o_auth_provider_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_reports_input() :: %{
-        required("reportArns") => list(String.t() | atom())
+      list_fleets_output() :: %{
+        "fleets" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
       }
       
   """
-  @type batch_get_reports_input() :: %{(String.t() | atom()) => any()}
+  @type list_fleets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      stop_build_input() :: %{
-        required("id") => String.t() | atom()
-      }
-      
-  """
-  @type stop_build_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build_artifacts() :: %{
+      project_artifacts() :: %{
         "artifactIdentifier" => String.t() | atom(),
         "bucketOwnerAccess" => list(any()),
         "encryptionDisabled" => boolean(),
         "location" => String.t() | atom(),
-        "md5sum" => String.t() | atom(),
-        "overrideArtifactName" => boolean(),
-        "sha256sum" => String.t() | atom()
-      }
-      
-  """
-  @type build_artifacts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      import_source_credentials_output() :: %{
-        "arn" => String.t() | atom()
-      }
-      
-  """
-  @type import_source_credentials_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_report_summary() :: %{
-        "durationInNanoSeconds" => float(),
-        "statusCounts" => map(),
-        "total" => integer()
-      }
-      
-  """
-  @type test_report_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      webhook() :: %{
-        "branchFilter" => String.t() | atom(),
-        "buildType" => list(any()),
-        "filterGroups" => list(list(webhook_filter())()),
-        "lastModifiedSecret" => non_neg_integer(),
-        "manualCreation" => boolean(),
-        "payloadUrl" => String.t() | atom(),
-        "pullRequestBuildPolicy" => pull_request_build_policy(),
-        "scopeConfiguration" => scope_configuration(),
-        "secret" => String.t() | atom(),
-        "status" => list(any()),
-        "statusMessage" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-      
-  """
-  @type webhook() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_report_groups_output() :: %{
-        "reportGroups" => list(report_group()),
-        "reportGroupsNotFound" => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_report_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_webhook_input() :: %{
-        optional("branchFilter") => String.t() | atom(),
-        optional("buildType") => list(any()),
-        optional("filterGroups") => list(list(webhook_filter())()),
-        optional("pullRequestBuildPolicy") => pull_request_build_policy(),
-        optional("rotateSecret") => boolean(),
-        required("projectName") => String.t() | atom()
-      }
-      
-  """
-  @type update_webhook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fleet() :: %{
-        "arn" => String.t() | atom(),
-        "baseCapacity" => integer(),
-        "computeConfiguration" => compute_configuration(),
-        "computeType" => list(any()),
-        "created" => non_neg_integer(),
-        "environmentType" => list(any()),
-        "fleetServiceRole" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "imageId" => String.t() | atom(),
-        "lastModified" => non_neg_integer(),
         "name" => String.t() | atom(),
-        "overflowBehavior" => list(any()),
-        "proxyConfiguration" => proxy_configuration(),
-        "scalingConfiguration" => scaling_configuration_output(),
-        "status" => fleet_status(),
-        "tags" => list(tag()),
-        "vpcConfig" => vpc_config()
-      }
-      
-  """
-  @type fleet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_badge() :: %{
-        "badgeEnabled" => boolean(),
-        "badgeRequestUrl" => String.t() | atom()
-      }
-      
-  """
-  @type project_badge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_report_group_trend_output() :: %{
-        "rawData" => list(report_with_raw_data()),
-        "stats" => report_group_trend_stats()
-      }
-      
-  """
-  @type get_report_group_trend_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_reports_for_report_group_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "reports" => list(String.t() | atom())
-      }
-      
-  """
-  @type list_reports_for_report_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      project_environment() :: %{
-        "certificate" => String.t() | atom(),
-        "computeConfiguration" => compute_configuration(),
-        "computeType" => list(any()),
-        "dockerServer" => docker_server(),
-        "environmentVariables" => list(environment_variable()),
-        "fleet" => project_fleet(),
-        "image" => String.t() | atom(),
-        "imagePullCredentialsType" => list(any()),
-        "privilegedMode" => boolean(),
-        "registryCredential" => registry_credential(),
+        "namespaceType" => list(any()),
+        "overrideArtifactName" => boolean(),
+        "packaging" => list(any()),
+        "path" => String.t() | atom(),
         "type" => list(any())
       }
       
   """
-  @type project_environment() :: %{(String.t() | atom()) => any()}
+  @type project_artifacts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      docker_server() :: %{
-        "computeType" => list(any()),
-        "securityGroupIds" => list(String.t() | atom()),
-        "status" => docker_server_status()
+      list_reports_input() :: %{
+        optional("filter") => report_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any())
       }
       
   """
-  @type docker_server() :: %{(String.t() | atom()) => any()}
+  @type list_reports_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_builds_output() :: %{
+      list_build_batches_output() :: %{
         "ids" => list(String.t() | atom()),
         "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_builds_output() :: %{(String.t() | atom()) => any()}
+  @type list_build_batches_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_get_report_groups_input() :: %{
-        required("reportGroupArns") => list(String.t() | atom())
+      get_resource_policy_output() :: %{
+        "policy" => String.t() | atom()
       }
       
   """
-  @type batch_get_report_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compute_configuration() :: %{
-        "disk" => float(),
-        "instanceType" => String.t() | atom(),
-        "machineType" => list(any()),
-        "memory" => float(),
-        "vCpu" => float()
-      }
-      
-  """
-  @type compute_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_group() :: %{
-        "arn" => String.t() | atom(),
-        "created" => non_neg_integer(),
-        "exportConfig" => report_export_config(),
-        "lastModified" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => list(tag()),
-        "type" => list(any())
-      }
-      
-  """
-  @type report_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_auth() :: %{
-        "resource" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type source_auth() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_group_trend_stats() :: %{
-        "average" => String.t() | atom(),
-        "max" => String.t() | atom(),
-        "min" => String.t() | atom()
-      }
-      
-  """
-  @type report_group_trend_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_source_credentials_output() :: %{
-        "arn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_source_credentials_output() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
 
   @type batch_delete_builds_errors() :: invalid_input_exception()
 
@@ -2763,23 +2763,23 @@ defmodule AWS.CodeBuild do
   @type batch_get_sandboxes_errors() :: invalid_input_exception()
 
   @type create_fleet_errors() ::
-          resource_already_exists_exception()
+          account_limit_exceeded_exception()
+          | resource_already_exists_exception()
           | invalid_input_exception()
-          | account_limit_exceeded_exception()
 
   @type create_project_errors() ::
-          resource_already_exists_exception()
+          account_limit_exceeded_exception()
+          | resource_already_exists_exception()
           | invalid_input_exception()
-          | account_limit_exceeded_exception()
 
   @type create_report_group_errors() ::
-          resource_already_exists_exception()
+          account_limit_exceeded_exception()
+          | resource_already_exists_exception()
           | invalid_input_exception()
-          | account_limit_exceeded_exception()
 
   @type create_webhook_errors() ::
-          resource_already_exists_exception()
-          | o_auth_provider_exception()
+          o_auth_provider_exception()
+          | resource_already_exists_exception()
           | invalid_input_exception()
           | resource_not_found_exception()
 
@@ -2811,9 +2811,9 @@ defmodule AWS.CodeBuild do
   @type get_resource_policy_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type import_source_credentials_errors() ::
-          resource_already_exists_exception()
+          account_limit_exceeded_exception()
+          | resource_already_exists_exception()
           | invalid_input_exception()
-          | account_limit_exceeded_exception()
 
   @type invalidate_project_cache_errors() ::
           invalid_input_exception() | resource_not_found_exception()
@@ -2856,15 +2856,15 @@ defmodule AWS.CodeBuild do
   @type put_resource_policy_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type retry_build_errors() ::
-          invalid_input_exception()
-          | account_limit_exceeded_exception()
+          account_limit_exceeded_exception()
+          | invalid_input_exception()
           | resource_not_found_exception()
 
   @type retry_build_batch_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type start_build_errors() ::
-          invalid_input_exception()
-          | account_limit_exceeded_exception()
+          account_limit_exceeded_exception()
+          | invalid_input_exception()
           | resource_not_found_exception()
 
   @type start_build_batch_errors() :: invalid_input_exception() | resource_not_found_exception()
@@ -2874,8 +2874,8 @@ defmodule AWS.CodeBuild do
 
   @type start_sandbox_errors() ::
           invalid_input_exception()
-          | resource_not_found_exception()
           | account_suspended_exception()
+          | resource_not_found_exception()
 
   @type start_sandbox_connection_errors() ::
           invalid_input_exception() | resource_not_found_exception()
@@ -2887,8 +2887,8 @@ defmodule AWS.CodeBuild do
   @type stop_sandbox_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type update_fleet_errors() ::
-          invalid_input_exception()
-          | account_limit_exceeded_exception()
+          account_limit_exceeded_exception()
+          | invalid_input_exception()
           | resource_not_found_exception()
 
   @type update_project_errors() :: invalid_input_exception() | resource_not_found_exception()
@@ -2926,7 +2926,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_delete_builds_errors()}
   def batch_delete_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteBuilds", input, options)
   end
@@ -2940,7 +2941,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_build_batches_errors()}
   def batch_get_build_batches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBuildBatches", input, options)
   end
@@ -2954,7 +2956,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_builds_errors()}
   def batch_get_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBuilds", input, options)
   end
@@ -2968,7 +2971,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_command_executions_errors()}
   def batch_get_command_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCommandExecutions", input, options)
   end
@@ -2982,7 +2986,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_fleets_errors()}
   def batch_get_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetFleets", input, options)
   end
@@ -2996,7 +3001,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_projects_errors()}
   def batch_get_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetProjects", input, options)
   end
@@ -3011,7 +3017,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_report_groups_errors()}
   def batch_get_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetReportGroups", input, options)
   end
@@ -3026,7 +3033,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_reports_errors()}
   def batch_get_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetReports", input, options)
   end
@@ -3040,7 +3048,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_sandboxes_errors()}
   def batch_get_sandboxes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetSandboxes", input, options)
   end
@@ -3054,7 +3063,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -3068,7 +3078,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -3085,7 +3096,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_report_group_errors()}
   def create_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReportGroup", input, options)
   end
@@ -3115,7 +3127,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_webhook_errors()}
   def create_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebhook", input, options)
   end
@@ -3129,7 +3142,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_build_batch_errors()}
   def delete_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBuildBatch", input, options)
   end
@@ -3145,7 +3159,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -3161,7 +3176,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -3176,7 +3192,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_report_errors()}
   def delete_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReport", input, options)
   end
@@ -3192,7 +3209,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_report_group_errors()}
   def delete_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReportGroup", input, options)
   end
@@ -3206,7 +3224,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -3220,7 +3239,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_source_credentials_errors()}
   def delete_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSourceCredentials", input, options)
   end
@@ -3238,7 +3258,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebhook", input, options)
   end
@@ -3252,7 +3273,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, describe_code_coverages_errors()}
   def describe_code_coverages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCodeCoverages", input, options)
   end
@@ -3267,7 +3289,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, describe_test_cases_errors()}
   def describe_test_cases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTestCases", input, options)
   end
@@ -3281,7 +3304,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, get_report_group_trend_errors()}
   def get_report_group_trend(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReportGroupTrend", input, options)
   end
@@ -3295,7 +3319,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -3311,7 +3336,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, import_source_credentials_errors()}
   def import_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportSourceCredentials", input, options)
   end
@@ -3325,7 +3351,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, invalidate_project_cache_errors()}
   def invalidate_project_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvalidateProjectCache", input, options)
   end
@@ -3339,7 +3366,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_build_batches_errors()}
   def list_build_batches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildBatches", input, options)
   end
@@ -3353,7 +3381,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_build_batches_for_project_errors()}
   def list_build_batches_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildBatchesForProject", input, options)
   end
@@ -3367,7 +3396,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
   end
@@ -3383,7 +3413,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_builds_for_project_errors()}
   def list_builds_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildsForProject", input, options)
   end
@@ -3401,7 +3432,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_command_executions_for_sandbox_errors()}
   def list_command_executions_for_sandbox(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCommandExecutionsForSandbox", input, options)
   end
@@ -3414,7 +3446,8 @@ defmodule AWS.CodeBuild do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_curated_environment_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCuratedEnvironmentImages", input, options)
   end
@@ -3429,7 +3462,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -3445,7 +3479,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -3461,7 +3496,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_report_groups_errors()}
   def list_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReportGroups", input, options)
   end
@@ -3477,7 +3513,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_reports_errors()}
   def list_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReports", input, options)
   end
@@ -3492,7 +3529,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_reports_for_report_group_errors()}
   def list_reports_for_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReportsForReportGroup", input, options)
   end
@@ -3506,7 +3544,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_sandboxes_errors()}
   def list_sandboxes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSandboxes", input, options)
   end
@@ -3520,7 +3559,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_sandboxes_for_project_errors()}
   def list_sandboxes_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSandboxesForProject", input, options)
   end
@@ -3535,7 +3575,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_shared_projects_errors()}
   def list_shared_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSharedProjects", input, options)
   end
@@ -3550,7 +3591,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_shared_report_groups_errors()}
   def list_shared_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSharedReportGroups", input, options)
   end
@@ -3564,7 +3606,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_source_credentials_errors()}
   def list_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSourceCredentials", input, options)
   end
@@ -3579,7 +3622,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -3593,7 +3637,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, retry_build_errors()}
   def retry_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryBuild", input, options)
   end
@@ -3609,7 +3654,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, retry_build_batch_errors()}
   def retry_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryBuildBatch", input, options)
   end
@@ -3631,7 +3677,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_build_errors()}
   def start_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBuild", input, options)
   end
@@ -3645,7 +3692,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_build_batch_errors()}
   def start_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBuildBatch", input, options)
   end
@@ -3659,7 +3707,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_command_execution_errors()}
   def start_command_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCommandExecution", input, options)
   end
@@ -3673,7 +3722,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_sandbox_errors()}
   def start_sandbox(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSandbox", input, options)
   end
@@ -3687,7 +3737,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_sandbox_connection_errors()}
   def start_sandbox_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSandboxConnection", input, options)
   end
@@ -3701,7 +3752,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_build_errors()}
   def stop_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBuild", input, options)
   end
@@ -3715,7 +3767,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_build_batch_errors()}
   def stop_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBuildBatch", input, options)
   end
@@ -3729,7 +3782,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_sandbox_errors()}
   def stop_sandbox(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSandbox", input, options)
   end
@@ -3743,7 +3797,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -3757,7 +3812,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -3815,7 +3871,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_project_visibility_errors()}
   def update_project_visibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProjectVisibility", input, options)
   end
@@ -3830,7 +3887,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_report_group_errors()}
   def update_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateReportGroup", input, options)
   end
@@ -3846,7 +3904,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_webhook_errors()}
   def update_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWebhook", input, options)
   end

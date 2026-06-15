@@ -34,13 +34,1724 @@ defmodule AWS.SFN do
 
   ## Example:
       
-      state_machine_version_list_item() :: %{
+      lambda_function_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_function_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type activity_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_list_item() :: %{
+        "creationDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
+        "type" => list(any())
+      }
+      
+  """
+  @type state_machine_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_tracing_configuration() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_tracing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_activity_task_input() :: %{
+        optional("workerName") => String.t() | atom(),
+        required("activityArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_activity_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assigned_variables_details() :: %{
+        "truncated" => boolean()
+      }
+      
+  """
+  @type assigned_variables_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_map_run_input() :: %{
+        required("mapRunArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_map_run_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_succeeded_event_details() :: %{
+        "output" => String.t() | atom(),
+        "outputDetails" => history_event_execution_data_details()
+      }
+      
+  """
+  @type activity_succeeded_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      missing_required_parameter() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type missing_required_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_execution_output() :: %{
+        "executionArn" => String.t() | atom(),
+        "startDate" => non_neg_integer()
+      }
+      
+  """
+  @type start_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_arn() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_arn() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_activity_input() :: %{
+        required("activityArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_activity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_limit_exceeded() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type activity_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_limit_exceeded() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type execution_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_execution_history_output() :: %{
+        "events" => list(history_event()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_execution_history_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_not_redrivable() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type execution_not_redrivable() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_map_run_input() :: %{
+        optional("maxConcurrency") => integer(),
+        optional("toleratedFailureCount") => float(),
+        optional("toleratedFailurePercentage") => float(),
+        required("mapRunArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_map_run_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_output() :: %{
+        "tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_started_event_details() :: %{
+        "workerName" => String.t() | atom()
+      }
+      
+  """
+  @type activity_started_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_map_run_output() :: %{}
+      
+  """
+  @type update_map_run_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "state" => String.t() | atom()
+      }
+      
+  """
+  @type evaluation_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_executions_output() :: %{
+        "executions" => list(execution_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_executions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      history_event() :: %{
+        "taskFailedEventDetails" => task_failed_event_details(),
+        "executionSucceededEventDetails" => execution_succeeded_event_details(),
+        "evaluationFailedEventDetails" => evaluation_failed_event_details(),
+        "taskSucceededEventDetails" => task_succeeded_event_details(),
+        "stateEnteredEventDetails" => state_entered_event_details(),
+        "type" => list(any()),
+        "taskScheduledEventDetails" => task_scheduled_event_details(),
+        "executionFailedEventDetails" => execution_failed_event_details(),
+        "mapIterationStartedEventDetails" => map_iteration_event_details(),
+        "activityScheduleFailedEventDetails" => activity_schedule_failed_event_details(),
+        "activitySucceededEventDetails" => activity_succeeded_event_details(),
+        "activityFailedEventDetails" => activity_failed_event_details(),
+        "lambdaFunctionScheduledEventDetails" => lambda_function_scheduled_event_details(),
+        "taskSubmitFailedEventDetails" => task_submit_failed_event_details(),
+        "activityTimedOutEventDetails" => activity_timed_out_event_details(),
+        "mapRunFailedEventDetails" => map_run_failed_event_details(),
+        "activityStartedEventDetails" => activity_started_event_details(),
+        "timestamp" => non_neg_integer(),
+        "executionAbortedEventDetails" => execution_aborted_event_details(),
+        "taskStartedEventDetails" => task_started_event_details(),
+        "lambdaFunctionSucceededEventDetails" => lambda_function_succeeded_event_details(),
+        "mapIterationAbortedEventDetails" => map_iteration_event_details(),
+        "taskSubmittedEventDetails" => task_submitted_event_details(),
+        "taskTimedOutEventDetails" => task_timed_out_event_details(),
+        "mapStateStartedEventDetails" => map_state_started_event_details(),
+        "mapIterationFailedEventDetails" => map_iteration_event_details(),
+        "executionRedrivenEventDetails" => execution_redriven_event_details(),
+        "activityScheduledEventDetails" => activity_scheduled_event_details(),
+        "id" => float(),
+        "lambdaFunctionScheduleFailedEventDetails" => lambda_function_schedule_failed_event_details(),
+        "lambdaFunctionTimedOutEventDetails" => lambda_function_timed_out_event_details(),
+        "mapRunRedrivenEventDetails" => map_run_redriven_event_details(),
+        "lambdaFunctionStartFailedEventDetails" => lambda_function_start_failed_event_details(),
+        "executionStartedEventDetails" => execution_started_event_details(),
+        "executionTimedOutEventDetails" => execution_timed_out_event_details(),
+        "mapRunStartedEventDetails" => map_run_started_event_details(),
+        "previousEventId" => float(),
+        "taskStartFailedEventDetails" => task_start_failed_event_details(),
+        "stateExitedEventDetails" => state_exited_event_details(),
+        "mapIterationSucceededEventDetails" => map_iteration_event_details(),
+        "lambdaFunctionFailedEventDetails" => lambda_function_failed_event_details()
+      }
+      
+  """
+  @type history_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_worker_limit_exceeded() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type activity_worker_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_task_success_output() :: %{}
+      
+  """
+  @type send_task_success_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_machines_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "stateMachines" => list(state_machine_list_item())
+      }
+      
+  """
+  @type list_state_machines_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_output() :: %{}
+      
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_submit_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type task_submit_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_activity_input() :: %{
+        required("activityArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_activity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_function_succeeded_event_details() :: %{
+        "output" => String.t() | atom(),
+        "outputDetails" => history_event_execution_data_details()
+      }
+      
+  """
+  @type lambda_function_succeeded_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_machine_output() :: %{
+        "creationDate" => non_neg_integer(),
+        "stateMachineArn" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_state_machine_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_started_event_details() :: %{
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type task_started_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_machine_aliases_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "stateMachineAliases" => list(state_machine_alias_list_item())
+      }
+      
+  """
+  @type list_state_machine_aliases_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_map_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("executionArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_map_runs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_machine_alias_input() :: %{
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("routingConfiguration") => list(routing_configuration_list_item())
+      }
+      
+  """
+  @type create_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      map_run_started_event_details() :: %{
+        "mapRunArn" => String.t() | atom()
+      }
+      
+  """
+  @type map_run_started_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tracing_configuration() :: %{
+        "enabled" => boolean()
+      }
+      
+  """
+  @type tracing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type execution_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_details() :: %{
+        "billedDurationInMilliseconds" => float(),
+        "billedMemoryUsedInMB" => float()
+      }
+      
+  """
+  @type billing_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_log_group() :: %{
+        "logGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_encryption_configuration() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_configuration_list_item() :: %{
+        "stateMachineVersionArn" => String.t() | atom(),
+        "weight" => integer()
+      }
+      
+  """
+  @type routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_state_machine_alias_input() :: %{
+        required("stateMachineAliasArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_function_start_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_function_start_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_state_output() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "inspectionData" => inspection_data(),
+        "nextState" => String.t() | atom(),
+        "output" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type test_state_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_activity_output() :: %{}
+      
+  """
+  @type delete_activity_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_task_failure_input() :: %{
+        optional("cause") => String.t() | atom(),
+        optional("error") => String.t() | atom(),
+        required("taskToken") => String.t() | atom()
+      }
+      
+  """
+  @type send_task_failure_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_aborted_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type execution_aborted_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_executions_input() :: %{
+        optional("mapRunArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("redriveFilter") => list(any()),
+        optional("stateMachineArn") => String.t() | atom(),
+        optional("statusFilter") => list(any())
+      }
+      
+  """
+  @type list_executions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_machine_alias_output() :: %{}
+      
+  """
+  @type delete_state_machine_alias_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type state_machine_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_logging_configuration() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_type_not_supported() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type state_machine_type_not_supported() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      publish_state_machine_version_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("revisionId") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
+      }
+      
+  """
+  @type publish_state_machine_version_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      logging_configuration() :: %{
+        "destinations" => list(log_destination()),
+        "includeExecutionData" => boolean(),
+        "level" => list(any())
+      }
+      
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_alias_list_item() :: %{
+        "creationDate" => non_neg_integer(),
+        "stateMachineAliasArn" => String.t() | atom()
+      }
+      
+  """
+  @type state_machine_alias_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      map_run_redriven_event_details() :: %{
+        "mapRunArn" => String.t() | atom(),
+        "redriveCount" => integer()
+      }
+      
+  """
+  @type map_run_redriven_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_start_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type task_start_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inspection_error_details() :: %{
+        "catchIndex" => integer(),
+        "retryBackoffIntervalSeconds" => integer(),
+        "retryIndex" => integer()
+      }
+      
+  """
+  @type inspection_error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_input() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mock_error_output() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type mock_error_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      publish_state_machine_version_output() :: %{
         "creationDate" => non_neg_integer(),
         "stateMachineVersionArn" => String.t() | atom()
       }
       
   """
-  @type state_machine_version_list_item() :: %{(String.t() | atom()) => any()}
+  @type publish_state_machine_version_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      map_state_started_event_details() :: %{
+        "length" => integer()
+      }
+      
+  """
+  @type map_state_started_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_started_event_details() :: %{
+        "input" => String.t() | atom(),
+        "inputDetails" => history_event_execution_data_details(),
+        "roleArn" => String.t() | atom(),
+        "stateMachineAliasArn" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom()
+      }
+      
+  """
+  @type execution_started_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_destination() :: %{
+        "cloudWatchLogsLogGroup" => cloud_watch_logs_log_group()
+      }
+      
+  """
+  @type log_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      map_run_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type map_run_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_execution_input() :: %{
+        optional("cause") => String.t() | atom(),
+        optional("error") => String.t() | atom(),
+        required("executionArn") => String.t() | atom()
+      }
+      
+  """
+  @type stop_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_activities_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_activities_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      map_iteration_event_details() :: %{
+        "index" => integer(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type map_iteration_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_succeeded_event_details() :: %{
+        "output" => String.t() | atom(),
+        "outputDetails" => history_event_execution_data_details()
+      }
+      
+  """
+  @type execution_succeeded_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_list_item() :: %{
+        "executionArn" => String.t() | atom(),
+        "itemCount" => integer(),
+        "mapRunArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "redriveCount" => integer(),
+        "redriveDate" => non_neg_integer(),
+        "startDate" => non_neg_integer(),
+        "stateMachineAliasArn" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom(),
+        "status" => list(any()),
+        "stopDate" => non_neg_integer()
+      }
+      
+  """
+  @type execution_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_input() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_state_machine_alias_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("routingConfiguration") => list(routing_configuration_list_item()),
+        required("stateMachineAliasArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_scheduled_event_details() :: %{
+        "heartbeatInSeconds" => float(),
+        "input" => String.t() | atom(),
+        "inputDetails" => history_event_execution_data_details(),
+        "resource" => String.t() | atom(),
+        "timeoutInSeconds" => float()
+      }
+      
+  """
+  @type activity_scheduled_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_map_run_output() :: %{
+        "executionArn" => String.t() | atom(),
+        "executionCounts" => map_run_execution_counts(),
+        "itemCounts" => map_run_item_counts(),
+        "mapRunArn" => String.t() | atom(),
+        "maxConcurrency" => integer(),
+        "redriveCount" => integer(),
+        "redriveDate" => non_neg_integer(),
+        "startDate" => non_neg_integer(),
+        "status" => list(any()),
+        "stopDate" => non_neg_integer(),
+        "toleratedFailureCount" => float(),
+        "toleratedFailurePercentage" => float()
+      }
+      
+  """
+  @type describe_map_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_limit_exceeded() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type state_machine_limit_exceeded() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_execution_input() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_sync_execution_input() :: %{
+        optional("includedData") => list(any()),
+        optional("input") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("traceHeader") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
+      }
+      
+  """
+  @type start_sync_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type activity_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_list_item() :: %{
+        "activityArn" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type activity_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_machine_versions_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "stateMachineVersions" => list(state_machine_version_list_item())
+      }
+      
+  """
+  @type list_state_machine_versions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_exited_event_details() :: %{
+        "assignedVariables" => map(),
+        "assignedVariablesDetails" => assigned_variables_details(),
+        "name" => String.t() | atom(),
+        "output" => String.t() | atom(),
+        "outputDetails" => history_event_execution_data_details()
+      }
+      
+  """
+  @type state_exited_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_timed_out_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type activity_timed_out_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_token() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_token() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_state_machine_alias_output() :: %{
+        "updateDate" => non_neg_integer()
+      }
+      
+  """
+  @type update_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_machine_alias_output() :: %{
+        "creationDate" => non_neg_integer(),
+        "stateMachineAliasArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_machine_aliases_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_state_machine_aliases_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type task_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redrive_execution_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("executionArn") => String.t() | atom()
+      }
+      
+  """
+  @type redrive_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_state_machine_input() :: %{
+        optional("includedData") => list(any()),
+        required("stateMachineArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_state_machine_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_schedule_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type activity_schedule_failed_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_state_machine_for_execution_output() :: %{
+        "definition" => String.t() | atom(),
+        "encryptionConfiguration" => encryption_configuration(),
+        "label" => String.t() | atom(),
+        "loggingConfiguration" => logging_configuration(),
+        "mapRunArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
+        "tracingConfiguration" => tracing_configuration(),
+        "updateDate" => non_neg_integer(),
+        "variableReferences" => map()
+      }
+      
+  """
+  @type describe_state_machine_for_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      map_run_list_item() :: %{
+        "executionArn" => String.t() | atom(),
+        "mapRunArn" => String.t() | atom(),
+        "startDate" => non_neg_integer(),
+        "stateMachineArn" => String.t() | atom(),
+        "stopDate" => non_neg_integer()
+      }
+      
+  """
+  @type map_run_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_map_runs_output() :: %{
+        "mapRuns" => list(map_run_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_map_runs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_state_machine_alias_output() :: %{
+        "creationDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "routingConfiguration" => list(routing_configuration_list_item()),
+        "stateMachineAliasArn" => String.t() | atom(),
+        "updateDate" => non_neg_integer()
+      }
+      
+  """
+  @type describe_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_timed_out_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type execution_timed_out_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_state_input() :: %{
+        optional("context") => String.t() | atom(),
+        optional("input") => String.t() | atom(),
+        optional("inspectionLevel") => list(any()),
+        optional("mock") => mock_input(),
+        optional("revealSecrets") => boolean(),
+        optional("roleArn") => String.t() | atom(),
+        optional("stateConfiguration") => test_state_configuration(),
+        optional("stateName") => String.t() | atom(),
+        optional("variables") => String.t() | atom(),
+        required("definition") => String.t() | atom()
+      }
+      
+  """
+  @type test_state_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_events_execution_data_details() :: %{
+        "included" => boolean()
+      }
+      
+  """
+  @type cloud_watch_events_execution_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_state_machine_definition_diagnostic() :: %{
+        "code" => String.t() | atom(),
+        "location" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "severity" => list(any())
+      }
+      
+  """
+  @type validate_state_machine_definition_diagnostic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_state_machine_definition_input() :: %{
+        optional("maxResults") => integer(),
+        optional("severity") => list(any()),
+        optional("type") => list(any()),
+        required("definition") => String.t() | atom()
+      }
+      
+  """
+  @type validate_state_machine_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inspection_data() :: %{
+        "afterArguments" => String.t() | atom(),
+        "afterInputPath" => String.t() | atom(),
+        "afterItemBatcher" => String.t() | atom(),
+        "afterItemSelector" => String.t() | atom(),
+        "afterItemsPath" => String.t() | atom(),
+        "afterItemsPointer" => String.t() | atom(),
+        "afterParameters" => String.t() | atom(),
+        "afterResultPath" => String.t() | atom(),
+        "afterResultSelector" => String.t() | atom(),
+        "errorDetails" => inspection_error_details(),
+        "input" => String.t() | atom(),
+        "maxConcurrency" => integer(),
+        "request" => inspection_data_request(),
+        "response" => inspection_data_response(),
+        "result" => String.t() | atom(),
+        "toleratedFailureCount" => integer(),
+        "toleratedFailurePercentage" => float(),
+        "variables" => String.t() | atom()
+      }
+      
+  """
+  @type inspection_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_entered_event_details() :: %{
+        "input" => String.t() | atom(),
+        "inputDetails" => history_event_execution_data_details(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type state_entered_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mock_input() :: %{
+        "errorOutput" => mock_error_output(),
+        "fieldValidationMode" => list(any()),
+        "result" => String.t() | atom()
+      }
+      
+  """
+  @type mock_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_execution_input() :: %{
+        optional("includedData") => list(any()),
+        required("executionArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_output() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_does_not_exist() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type task_does_not_exist() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      history_event_execution_data_details() :: %{
+        "truncated" => boolean()
+      }
+      
+  """
+  @type history_event_execution_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_execution_history_input() :: %{
+        optional("includeExecutionData") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("reverseOrder") => boolean(),
+        required("executionArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_execution_history_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_task_heartbeat_output() :: %{}
+      
+  """
+  @type send_task_heartbeat_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_does_not_exist() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type execution_does_not_exist() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_machine_version_input() :: %{
+        required("stateMachineVersionArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_state_machine_version_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_activity_output() :: %{
+        "activityArn" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "encryptionConfiguration" => encryption_configuration(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type describe_activity_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_sync_execution_output() :: %{
+        "billingDetails" => billing_details(),
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "executionArn" => String.t() | atom(),
+        "input" => String.t() | atom(),
+        "inputDetails" => cloud_watch_events_execution_data_details(),
+        "name" => String.t() | atom(),
+        "output" => String.t() | atom(),
+        "outputDetails" => cloud_watch_events_execution_data_details(),
+        "startDate" => non_neg_integer(),
+        "stateMachineArn" => String.t() | atom(),
+        "status" => list(any()),
+        "stopDate" => non_neg_integer(),
+        "traceHeader" => String.t() | atom()
+      }
+      
+  """
+  @type start_sync_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inspection_data_response() :: %{
+        "body" => String.t() | atom(),
+        "headers" => String.t() | atom(),
+        "protocol" => String.t() | atom(),
+        "statusCode" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type inspection_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_input() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_succeeded_event_details() :: %{
+        "output" => String.t() | atom(),
+        "outputDetails" => history_event_execution_data_details(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type task_succeeded_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_state_configuration() :: %{
+        "errorCausedByState" => String.t() | atom(),
+        "mapItemReaderData" => String.t() | atom(),
+        "mapIterationFailureCount" => integer(),
+        "retrierRetryCount" => integer()
+      }
+      
+  """
+  @type test_state_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_function_timed_out_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_function_timed_out_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_task_success_input() :: %{
+        required("output") => String.t() | atom(),
+        required("taskToken") => String.t() | atom()
+      }
+      
+  """
+  @type send_task_success_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_deleting() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type state_machine_deleting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_task_heartbeat_input() :: %{
+        required("taskToken") => String.t() | atom()
+      }
+      
+  """
+  @type send_task_heartbeat_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_state_machine_input() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("loggingConfiguration") => logging_configuration(),
+        optional("publish") => boolean(),
+        optional("tags") => list(tag()),
+        optional("tracingConfiguration") => tracing_configuration(),
+        optional("type") => list(any()),
+        optional("versionDescription") => String.t() | atom(),
+        required("definition") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_state_machine_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_state_machine_output() :: %{
+        "revisionId" => String.t() | atom(),
+        "stateMachineVersionArn" => String.t() | atom(),
+        "updateDate" => non_neg_integer()
+      }
+      
+  """
+  @type update_state_machine_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_timed_out_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type task_timed_out_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_does_not_exist() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type state_machine_does_not_exist() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_submitted_event_details() :: %{
+        "output" => String.t() | atom(),
+        "outputDetails" => history_event_execution_data_details(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+      
+  """
+  @type task_submitted_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_machines_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_state_machines_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -71,118 +1782,373 @@ defmodule AWS.SFN do
 
   ## Example:
       
-      list_executions_output() :: %{
-        "executions" => list(execution_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_executions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_machine_type_not_supported() :: %{
+      invalid_name() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type state_machine_type_not_supported() :: %{(String.t() | atom()) => any()}
+  @type invalid_name() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      execution_does_not_exist() :: %{
-        "message" => String.t() | atom()
+      create_activity_input() :: %{
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom()
       }
       
   """
-  @type execution_does_not_exist() :: %{(String.t() | atom()) => any()}
+  @type create_activity_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_state_machine_aliases_input() :: %{
+      execution_redriven_event_details() :: %{
+        "redriveCount" => integer()
+      }
+      
+  """
+  @type execution_redriven_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inspection_data_request() :: %{
+        "body" => String.t() | atom(),
+        "headers" => String.t() | atom(),
+        "method" => String.t() | atom(),
+        "protocol" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+      
+  """
+  @type inspection_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_scheduled_event_details() :: %{
+        "heartbeatInSeconds" => float(),
+        "parameters" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "taskCredentials" => task_credentials(),
+        "timeoutInSeconds" => float()
+      }
+      
+  """
+  @type task_scheduled_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_state_machine_versions_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         required("stateMachineArn") => String.t() | atom()
       }
       
   """
-  @type list_state_machine_aliases_input() :: %{(String.t() | atom()) => any()}
+  @type list_state_machine_versions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      execution_succeeded_event_details() :: %{
-        "output" => String.t() | atom(),
-        "outputDetails" => history_event_execution_data_details()
-      }
-      
-  """
-  @type execution_succeeded_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      missing_required_parameter() :: %{
+      invalid_definition() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type missing_required_parameter() :: %{(String.t() | atom()) => any()}
+  @type invalid_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      state_machine_alias_list_item() :: %{
+      too_many_tags() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redrive_execution_output() :: %{
+        "redriveDate" => non_neg_integer()
+      }
+      
+  """
+  @type redrive_execution_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      task_credentials() :: %{
+        "roleArn" => String.t() | atom()
+      }
+      
+  """
+  @type task_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_function_scheduled_event_details() :: %{
+        "input" => String.t() | atom(),
+        "inputDetails" => history_event_execution_data_details(),
+        "resource" => String.t() | atom(),
+        "taskCredentials" => task_credentials(),
+        "timeoutInSeconds" => float()
+      }
+      
+  """
+  @type lambda_function_scheduled_event_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_state_machine_definition_output() :: %{
+        "diagnostics" => list(validate_state_machine_definition_diagnostic()),
+        "result" => list(any()),
+        "truncated" => boolean()
+      }
+      
+  """
+  @type validate_state_machine_definition_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_machine_alias_input() :: %{
+        required("stateMachineAliasArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_machine_output() :: %{}
+      
+  """
+  @type delete_state_machine_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type execution_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_execution_input() :: %{
+        optional("input") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("traceHeader") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
+      }
+      
+  """
+  @type start_execution_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      state_machine_version_list_item() :: %{
         "creationDate" => non_neg_integer(),
-        "stateMachineAliasArn" => String.t() | atom()
+        "stateMachineVersionArn" => String.t() | atom()
       }
       
   """
-  @type state_machine_alias_list_item() :: %{(String.t() | atom()) => any()}
+  @type state_machine_version_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cloud_watch_events_execution_data_details() :: %{
-        "included" => boolean()
+      lambda_function_schedule_failed_event_details() :: %{
+        "cause" => String.t() | atom(),
+        "error" => String.t() | atom()
       }
       
   """
-  @type cloud_watch_events_execution_data_details() :: %{(String.t() | atom()) => any()}
+  @type lambda_function_schedule_failed_event_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_execution_input() :: %{
-        optional("includedData") => list(any()),
-        required("executionArn") => String.t() | atom()
+      task_timed_out() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type describe_execution_input() :: %{(String.t() | atom()) => any()}
+  @type task_timed_out() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      activity_does_not_exist() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type activity_does_not_exist() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_machine_version_output() :: %{}
+      
+  """
+  @type delete_state_machine_version_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_activity_task_output() :: %{
+        "input" => String.t() | atom(),
+        "taskToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_activity_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_state_machine_input() :: %{
+        required("stateMachineArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_state_machine_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_activity_output() :: %{
+        "activityArn" => String.t() | atom(),
+        "creationDate" => non_neg_integer()
+      }
+      
+  """
+  @type create_activity_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_state_machine_input() :: %{
+        optional("definition") => String.t() | atom(),
+        optional("encryptionConfiguration") => encryption_configuration(),
+        optional("loggingConfiguration") => logging_configuration(),
+        optional("publish") => boolean(),
+        optional("roleArn") => String.t() | atom(),
+        optional("tracingConfiguration") => tracing_configuration(),
+        optional("versionDescription") => String.t() | atom(),
+        required("stateMachineArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_state_machine_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_output() :: %{}
+      
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_activities_output() :: %{
+        "activities" => list(activity_list_item()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_activities_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kms_invalid_state_exception() :: %{
+        "kmsKeyState" => list(any()),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_task_failure_output() :: %{}
+      
+  """
+  @type send_task_failure_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_state_machine_output() :: %{
+        "creationDate" => non_neg_integer(),
+        "definition" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "encryptionConfiguration" => encryption_configuration(),
+        "label" => String.t() | atom(),
+        "loggingConfiguration" => logging_configuration(),
+        "name" => String.t() | atom(),
+        "revisionId" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "stateMachineArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tracingConfiguration" => tracing_configuration(),
+        "type" => list(any()),
+        "variableReferences" => map()
+      }
+      
+  """
+  @type describe_state_machine_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -218,21 +2184,43 @@ defmodule AWS.SFN do
 
   ## Example:
       
-      update_state_machine_alias_output() :: %{
-        "updateDate" => non_neg_integer()
+      map_run_execution_counts() :: %{
+        "aborted" => float(),
+        "failed" => float(),
+        "failuresNotRedrivable" => float(),
+        "pending" => float(),
+        "pendingRedrive" => float(),
+        "resultsWritten" => float(),
+        "running" => float(),
+        "succeeded" => float(),
+        "timedOut" => float(),
+        "total" => float()
       }
       
   """
-  @type update_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
+  @type map_run_execution_counts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_state_machine_output() :: %{}
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
       
   """
-  @type delete_state_machine_output() :: %{}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_execution_output() :: %{
+        "stopDate" => non_neg_integer()
+      }
+      
+  """
+  @type stop_execution_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -254,2208 +2242,220 @@ defmodule AWS.SFN do
   """
   @type map_run_item_counts() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      delete_state_machine_version_output() :: %{}
-      
-  """
-  @type delete_state_machine_version_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_state_machine_aliases_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "stateMachineAliases" => list(state_machine_alias_list_item())
-      }
-      
-  """
-  @type list_state_machine_aliases_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type task_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_state_machine_input() :: %{
-        optional("includedData") => list(any()),
-        required("stateMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_state_machine_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_state_machine_alias_input() :: %{
-        required("stateMachineAliasArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_execution_output() :: %{
-        "executionArn" => String.t() | atom(),
-        "startDate" => non_neg_integer()
-      }
-      
-  """
-  @type start_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      map_run_started_event_details() :: %{
-        "mapRunArn" => String.t() | atom()
-      }
-      
-  """
-  @type map_run_started_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_tracing_configuration() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_tracing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_state_machines_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "stateMachines" => list(state_machine_list_item())
-      }
-      
-  """
-  @type list_state_machines_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_state_machine_alias_input() :: %{
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("routingConfiguration") => list(routing_configuration_list_item())
-      }
-      
-  """
-  @type create_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_output() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      map_run_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type map_run_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_task_failure_output() :: %{}
-      
-  """
-  @type send_task_failure_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_schedule_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type activity_schedule_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_entered_event_details() :: %{
-        "input" => String.t() | atom(),
-        "inputDetails" => history_event_execution_data_details(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type state_entered_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_token() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_token() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_activity_input() :: %{
-        required("activityArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_activity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_state_machine_alias_input() :: %{
-        required("stateMachineAliasArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_machine_list_item() :: %{
-        "creationDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "stateMachineArn" => String.t() | atom(),
-        "type" => list(any())
-      }
-      
-  """
-  @type state_machine_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_state_machine_output() :: %{
-        "creationDate" => non_neg_integer(),
-        "stateMachineArn" => String.t() | atom(),
-        "stateMachineVersionArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_state_machine_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_aborted_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type execution_aborted_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_redriven_event_details() :: %{
-        "redriveCount" => integer()
-      }
-      
-  """
-  @type execution_redriven_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_start_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_function_start_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_function_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_state_machine_alias_output() :: %{
-        "creationDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "routingConfiguration" => list(routing_configuration_list_item()),
-        "stateMachineAliasArn" => String.t() | atom(),
-        "updateDate" => non_neg_integer()
-      }
-      
-  """
-  @type describe_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      redrive_execution_output() :: %{
-        "redriveDate" => non_neg_integer()
-      }
-      
-  """
-  @type redrive_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_output() :: %{
-        "tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_sync_execution_output() :: %{
-        "billingDetails" => billing_details(),
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "executionArn" => String.t() | atom(),
-        "input" => String.t() | atom(),
-        "inputDetails" => cloud_watch_events_execution_data_details(),
-        "name" => String.t() | atom(),
-        "output" => String.t() | atom(),
-        "outputDetails" => cloud_watch_events_execution_data_details(),
-        "startDate" => non_neg_integer(),
-        "stateMachineArn" => String.t() | atom(),
-        "status" => list(any()),
-        "stopDate" => non_neg_integer(),
-        "traceHeader" => String.t() | atom()
-      }
-      
-  """
-  @type start_sync_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_task_failure_input() :: %{
-        optional("cause") => String.t() | atom(),
-        optional("error") => String.t() | atom(),
-        required("taskToken") => String.t() | atom()
-      }
-      
-  """
-  @type send_task_failure_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inspection_error_details() :: %{
-        "catchIndex" => integer(),
-        "retryBackoffIntervalSeconds" => integer(),
-        "retryIndex" => integer()
-      }
-      
-  """
-  @type inspection_error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      logging_configuration() :: %{
-        "destinations" => list(log_destination()),
-        "includeExecutionData" => boolean(),
-        "level" => list(any())
-      }
-      
-  """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_activity_task_output() :: %{
-        "input" => String.t() | atom(),
-        "taskToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_activity_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_activity_output() :: %{
-        "activityArn" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "encryptionConfiguration" => encryption_configuration(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type describe_activity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_timed_out_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type task_timed_out_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      history_event_execution_data_details() :: %{
-        "truncated" => boolean()
-      }
-      
-  """
-  @type history_event_execution_data_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_map_run_output() :: %{}
-      
-  """
-  @type update_map_run_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_started_event_details() :: %{
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type task_started_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_activity_output() :: %{}
-      
-  """
-  @type delete_activity_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      redrive_execution_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("executionArn") => String.t() | atom()
-      }
-      
-  """
-  @type redrive_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_execution_history_input() :: %{
-        optional("includeExecutionData") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("reverseOrder") => boolean(),
-        required("executionArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_execution_history_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_state_machine_for_execution_output() :: %{
-        "definition" => String.t() | atom(),
-        "encryptionConfiguration" => encryption_configuration(),
-        "label" => String.t() | atom(),
-        "loggingConfiguration" => logging_configuration(),
-        "mapRunArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "revisionId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "stateMachineArn" => String.t() | atom(),
-        "tracingConfiguration" => tracing_configuration(),
-        "updateDate" => non_neg_integer(),
-        "variableReferences" => map()
-      }
-      
-  """
-  @type describe_state_machine_for_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_execution_history_output() :: %{
-        "events" => list(history_event()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_execution_history_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_state_machines_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_state_machines_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mock_error_output() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type mock_error_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inspection_data_request() :: %{
-        "body" => String.t() | atom(),
-        "headers" => String.t() | atom(),
-        "method" => String.t() | atom(),
-        "protocol" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-      
-  """
-  @type inspection_data_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_machine_already_exists() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type state_machine_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_not_redrivable() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type execution_not_redrivable() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_task_success_output() :: %{}
-      
-  """
-  @type send_task_success_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_succeeded_event_details() :: %{
-        "output" => String.t() | atom(),
-        "outputDetails" => history_event_execution_data_details()
-      }
-      
-  """
-  @type activity_succeeded_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_timed_out() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type task_timed_out() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_task_heartbeat_input() :: %{
-        required("taskToken") => String.t() | atom()
-      }
-      
-  """
-  @type send_task_heartbeat_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_succeeded_event_details() :: %{
-        "output" => String.t() | atom(),
-        "outputDetails" => history_event_execution_data_details(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type task_succeeded_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inspection_data() :: %{
-        "afterArguments" => String.t() | atom(),
-        "afterInputPath" => String.t() | atom(),
-        "afterItemBatcher" => String.t() | atom(),
-        "afterItemSelector" => String.t() | atom(),
-        "afterItemsPath" => String.t() | atom(),
-        "afterItemsPointer" => String.t() | atom(),
-        "afterParameters" => String.t() | atom(),
-        "afterResultPath" => String.t() | atom(),
-        "afterResultSelector" => String.t() | atom(),
-        "errorDetails" => inspection_error_details(),
-        "input" => String.t() | atom(),
-        "maxConcurrency" => integer(),
-        "request" => inspection_data_request(),
-        "response" => inspection_data_response(),
-        "result" => String.t() | atom(),
-        "toleratedFailureCount" => integer(),
-        "toleratedFailurePercentage" => float(),
-        "variables" => String.t() | atom()
-      }
-      
-  """
-  @type inspection_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      publish_state_machine_version_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("revisionId") => String.t() | atom(),
-        required("stateMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type publish_state_machine_version_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_schedule_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_function_schedule_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_destination() :: %{
-        "cloudWatchLogsLogGroup" => cloud_watch_logs_log_group()
-      }
-      
-  """
-  @type log_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_limit_exceeded() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type execution_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_activity_task_input() :: %{
-        optional("workerName") => String.t() | atom(),
-        required("activityArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_activity_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_exited_event_details() :: %{
-        "assignedVariables" => map(),
-        "assignedVariablesDetails" => assigned_variables_details(),
-        "name" => String.t() | atom(),
-        "output" => String.t() | atom(),
-        "outputDetails" => history_event_execution_data_details()
-      }
-      
-  """
-  @type state_exited_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_state_machine_input() :: %{
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("loggingConfiguration") => logging_configuration(),
-        optional("publish") => boolean(),
-        optional("tags") => list(tag()),
-        optional("tracingConfiguration") => tracing_configuration(),
-        optional("type") => list(any()),
-        optional("versionDescription") => String.t() | atom(),
-        required("definition") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_state_machine_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_encryption_configuration() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logs_log_group() :: %{
-        "logGroupArn" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_state_machine_alias_output() :: %{}
-      
-  """
-  @type delete_state_machine_alias_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type activity_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_activity_input() :: %{
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom()
-      }
-      
-  """
-  @type create_activity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_succeeded_event_details() :: %{
-        "output" => String.t() | atom(),
-        "outputDetails" => history_event_execution_data_details()
-      }
-      
-  """
-  @type lambda_function_succeeded_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type execution_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_state_configuration() :: %{
-        "errorCausedByState" => String.t() | atom(),
-        "mapItemReaderData" => String.t() | atom(),
-        "mapIterationFailureCount" => integer(),
-        "retrierRetryCount" => integer()
-      }
-      
-  """
-  @type test_state_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_timed_out_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_function_timed_out_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_function_scheduled_event_details() :: %{
-        "input" => String.t() | atom(),
-        "inputDetails" => history_event_execution_data_details(),
-        "resource" => String.t() | atom(),
-        "taskCredentials" => task_credentials(),
-        "timeoutInSeconds" => float()
-      }
-      
-  """
-  @type lambda_function_scheduled_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_submit_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type task_submit_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_input() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_state_machine_output() :: %{
-        "revisionId" => String.t() | atom(),
-        "stateMachineVersionArn" => String.t() | atom(),
-        "updateDate" => non_neg_integer()
-      }
-      
-  """
-  @type update_state_machine_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_activity_input() :: %{
-        required("activityArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_activity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tracing_configuration() :: %{
-        "enabled" => boolean()
-      }
-      
-  """
-  @type tracing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_execution_output() :: %{
-        "stopDate" => non_neg_integer()
-      }
-      
-  """
-  @type stop_execution_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_worker_limit_exceeded() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type activity_worker_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_timed_out_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type execution_timed_out_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      billing_details() :: %{
-        "billedDurationInMilliseconds" => float(),
-        "billedMemoryUsedInMB" => float()
-      }
-      
-  """
-  @type billing_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_started_event_details() :: %{
-        "input" => String.t() | atom(),
-        "inputDetails" => history_event_execution_data_details(),
-        "roleArn" => String.t() | atom(),
-        "stateMachineAliasArn" => String.t() | atom(),
-        "stateMachineVersionArn" => String.t() | atom()
-      }
-      
-  """
-  @type execution_started_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_output() :: %{}
-      
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      history_event() :: %{
-        "executionRedrivenEventDetails" => execution_redriven_event_details(),
-        "evaluationFailedEventDetails" => evaluation_failed_event_details(),
-        "mapIterationFailedEventDetails" => map_iteration_event_details(),
-        "mapRunRedrivenEventDetails" => map_run_redriven_event_details(),
-        "taskSucceededEventDetails" => task_succeeded_event_details(),
-        "id" => float(),
-        "lambdaFunctionScheduleFailedEventDetails" => lambda_function_schedule_failed_event_details(),
-        "taskFailedEventDetails" => task_failed_event_details(),
-        "stateExitedEventDetails" => state_exited_event_details(),
-        "timestamp" => non_neg_integer(),
-        "executionFailedEventDetails" => execution_failed_event_details(),
-        "lambdaFunctionTimedOutEventDetails" => lambda_function_timed_out_event_details(),
-        "taskScheduledEventDetails" => task_scheduled_event_details(),
-        "mapIterationAbortedEventDetails" => map_iteration_event_details(),
-        "mapRunFailedEventDetails" => map_run_failed_event_details(),
-        "taskStartFailedEventDetails" => task_start_failed_event_details(),
-        "lambdaFunctionSucceededEventDetails" => lambda_function_succeeded_event_details(),
-        "taskStartedEventDetails" => task_started_event_details(),
-        "activitySucceededEventDetails" => activity_succeeded_event_details(),
-        "mapRunStartedEventDetails" => map_run_started_event_details(),
-        "taskTimedOutEventDetails" => task_timed_out_event_details(),
-        "type" => list(any()),
-        "activityTimedOutEventDetails" => activity_timed_out_event_details(),
-        "activityScheduleFailedEventDetails" => activity_schedule_failed_event_details(),
-        "executionAbortedEventDetails" => execution_aborted_event_details(),
-        "activityFailedEventDetails" => activity_failed_event_details(),
-        "stateEnteredEventDetails" => state_entered_event_details(),
-        "mapIterationSucceededEventDetails" => map_iteration_event_details(),
-        "activityStartedEventDetails" => activity_started_event_details(),
-        "activityScheduledEventDetails" => activity_scheduled_event_details(),
-        "executionTimedOutEventDetails" => execution_timed_out_event_details(),
-        "taskSubmittedEventDetails" => task_submitted_event_details(),
-        "mapIterationStartedEventDetails" => map_iteration_event_details(),
-        "lambdaFunctionScheduledEventDetails" => lambda_function_scheduled_event_details(),
-        "executionSucceededEventDetails" => execution_succeeded_event_details(),
-        "previousEventId" => float(),
-        "lambdaFunctionStartFailedEventDetails" => lambda_function_start_failed_event_details(),
-        "executionStartedEventDetails" => execution_started_event_details(),
-        "lambdaFunctionFailedEventDetails" => lambda_function_failed_event_details(),
-        "mapStateStartedEventDetails" => map_state_started_event_details(),
-        "taskSubmitFailedEventDetails" => task_submit_failed_event_details()
-      }
-      
-  """
-  @type history_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_machine_limit_exceeded() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type state_machine_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      map_iteration_event_details() :: %{
-        "index" => integer(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type map_iteration_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_state_machine_alias_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("routingConfiguration") => list(routing_configuration_list_item()),
-        required("stateMachineAliasArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_state_machine_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_start_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type task_start_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      map_run_execution_counts() :: %{
-        "aborted" => float(),
-        "failed" => float(),
-        "failuresNotRedrivable" => float(),
-        "pending" => float(),
-        "pendingRedrive" => float(),
-        "resultsWritten" => float(),
-        "running" => float(),
-        "succeeded" => float(),
-        "timedOut" => float(),
-        "total" => float()
-      }
-      
-  """
-  @type map_run_execution_counts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_state_machine_definition_output() :: %{
-        "diagnostics" => list(validate_state_machine_definition_diagnostic()),
-        "result" => list(any()),
-        "truncated" => boolean()
-      }
-      
-  """
-  @type validate_state_machine_definition_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_already_exists() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type activity_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_state_machine_input() :: %{
-        optional("definition") => String.t() | atom(),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        optional("loggingConfiguration") => logging_configuration(),
-        optional("publish") => boolean(),
-        optional("roleArn") => String.t() | atom(),
-        optional("tracingConfiguration") => tracing_configuration(),
-        optional("versionDescription") => String.t() | atom(),
-        required("stateMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_state_machine_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_failed_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "location" => String.t() | atom(),
-        "state" => String.t() | atom()
-      }
-      
-  """
-  @type evaluation_failed_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_machine_does_not_exist() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type state_machine_does_not_exist() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      map_state_started_event_details() :: %{
-        "length" => integer()
-      }
-      
-  """
-  @type map_state_started_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      map_run_list_item() :: %{
-        "executionArn" => String.t() | atom(),
-        "mapRunArn" => String.t() | atom(),
-        "startDate" => non_neg_integer(),
-        "stateMachineArn" => String.t() | atom(),
-        "stopDate" => non_neg_integer()
-      }
-      
-  """
-  @type map_run_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_list_item() :: %{
-        "activityArn" => String.t() | atom(),
-        "creationDate" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type activity_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_input() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_definition() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_state_machine_input() :: %{
-        required("stateMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_state_machine_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_map_runs_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("executionArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_map_runs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_does_not_exist() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type task_does_not_exist() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_already_exists() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type execution_already_exists() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_activity_output() :: %{
-        "activityArn" => String.t() | atom(),
-        "creationDate" => non_neg_integer()
-      }
-      
-  """
-  @type create_activity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      assigned_variables_details() :: %{
-        "truncated" => boolean()
-      }
-      
-  """
-  @type assigned_variables_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_limit_exceeded() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type activity_limit_exceeded() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_name() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_input() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_submitted_event_details() :: %{
-        "output" => String.t() | atom(),
-        "outputDetails" => history_event_execution_data_details(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-      
-  """
-  @type task_submitted_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_output() :: %{}
-      
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      map_run_redriven_event_details() :: %{
-        "mapRunArn" => String.t() | atom(),
-        "redriveCount" => integer()
-      }
-      
-  """
-  @type map_run_redriven_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_state_output() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom(),
-        "inspectionData" => inspection_data(),
-        "nextState" => String.t() | atom(),
-        "output" => String.t() | atom(),
-        "status" => list(any())
-      }
-      
-  """
-  @type test_state_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_map_run_input() :: %{
-        optional("maxConcurrency") => integer(),
-        optional("toleratedFailureCount") => float(),
-        optional("toleratedFailurePercentage") => float(),
-        required("mapRunArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_map_run_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mock_input() :: %{
-        "errorOutput" => mock_error_output(),
-        "fieldValidationMode" => list(any()),
-        "result" => String.t() | atom()
-      }
-      
-  """
-  @type mock_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_sync_execution_input() :: %{
-        optional("includedData") => list(any()),
-        optional("input") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("traceHeader") => String.t() | atom(),
-        required("stateMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type start_sync_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_state_machine_definition_input() :: %{
-        optional("maxResults") => integer(),
-        optional("severity") => list(any()),
-        optional("type") => list(any()),
-        required("definition") => String.t() | atom()
-      }
-      
-  """
-  @type validate_state_machine_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_task_success_input() :: %{
-        required("output") => String.t() | atom(),
-        required("taskToken") => String.t() | atom()
-      }
-      
-  """
-  @type send_task_success_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      routing_configuration_list_item() :: %{
-        "stateMachineVersionArn" => String.t() | atom(),
-        "weight" => integer()
-      }
-      
-  """
-  @type routing_configuration_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_list_item() :: %{
-        "executionArn" => String.t() | atom(),
-        "itemCount" => integer(),
-        "mapRunArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "redriveCount" => integer(),
-        "redriveDate" => non_neg_integer(),
-        "startDate" => non_neg_integer(),
-        "stateMachineAliasArn" => String.t() | atom(),
-        "stateMachineArn" => String.t() | atom(),
-        "stateMachineVersionArn" => String.t() | atom(),
-        "status" => list(any()),
-        "stopDate" => non_neg_integer()
-      }
-      
-  """
-  @type execution_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_scheduled_event_details() :: %{
-        "heartbeatInSeconds" => float(),
-        "input" => String.t() | atom(),
-        "inputDetails" => history_event_execution_data_details(),
-        "resource" => String.t() | atom(),
-        "timeoutInSeconds" => float()
-      }
-      
-  """
-  @type activity_scheduled_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_timed_out_event_details() :: %{
-        "cause" => String.t() | atom(),
-        "error" => String.t() | atom()
-      }
-      
-  """
-  @type activity_timed_out_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_credentials() :: %{
-        "roleArn" => String.t() | atom()
-      }
-      
-  """
-  @type task_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_task_heartbeat_output() :: %{}
-      
-  """
-  @type send_task_heartbeat_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_state_machine_alias_output() :: %{
-        "creationDate" => non_neg_integer(),
-        "stateMachineAliasArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_state_machine_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_map_run_output() :: %{
-        "executionArn" => String.t() | atom(),
-        "executionCounts" => map_run_execution_counts(),
-        "itemCounts" => map_run_item_counts(),
-        "mapRunArn" => String.t() | atom(),
-        "maxConcurrency" => integer(),
-        "redriveCount" => integer(),
-        "redriveDate" => non_neg_integer(),
-        "startDate" => non_neg_integer(),
-        "status" => list(any()),
-        "stopDate" => non_neg_integer(),
-        "toleratedFailureCount" => float(),
-        "toleratedFailurePercentage" => float()
-      }
-      
-  """
-  @type describe_map_run_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      test_state_input() :: %{
-        optional("context") => String.t() | atom(),
-        optional("input") => String.t() | atom(),
-        optional("inspectionLevel") => list(any()),
-        optional("mock") => mock_input(),
-        optional("revealSecrets") => boolean(),
-        optional("roleArn") => String.t() | atom(),
-        optional("stateConfiguration") => test_state_configuration(),
-        optional("stateName") => String.t() | atom(),
-        optional("variables") => String.t() | atom(),
-        required("definition") => String.t() | atom()
-      }
-      
-  """
-  @type test_state_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_logging_configuration() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_state_machine_versions_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("stateMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_state_machine_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      state_machine_deleting() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type state_machine_deleting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_activities_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_activities_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_state_machine_versions_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "stateMachineVersions" => list(state_machine_version_list_item())
-      }
-      
-  """
-  @type list_state_machine_versions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_does_not_exist() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type activity_does_not_exist() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_state_machine_version_input() :: %{
-        required("stateMachineVersionArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_state_machine_version_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kms_invalid_state_exception() :: %{
-        "kmsKeyState" => list(any()),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type kms_invalid_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_state_machine_definition_diagnostic() :: %{
-        "code" => String.t() | atom(),
-        "location" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "severity" => list(any())
-      }
-      
-  """
-  @type validate_state_machine_definition_diagnostic() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_activities_output() :: %{
-        "activities" => list(activity_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_activities_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      activity_started_event_details() :: %{
-        "workerName" => String.t() | atom()
-      }
-      
-  """
-  @type activity_started_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_map_runs_output() :: %{
-        "mapRuns" => list(map_run_list_item()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_map_runs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_executions_input() :: %{
-        optional("mapRunArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("redriveFilter") => list(any()),
-        optional("stateMachineArn") => String.t() | atom(),
-        optional("statusFilter") => list(any())
-      }
-      
-  """
-  @type list_executions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inspection_data_response() :: %{
-        "body" => String.t() | atom(),
-        "headers" => String.t() | atom(),
-        "protocol" => String.t() | atom(),
-        "statusCode" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type inspection_data_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_execution_input() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      task_scheduled_event_details() :: %{
-        "heartbeatInSeconds" => float(),
-        "parameters" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "resource" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "taskCredentials" => task_credentials(),
-        "timeoutInSeconds" => float()
-      }
-      
-  """
-  @type task_scheduled_event_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      publish_state_machine_version_output() :: %{
-        "creationDate" => non_neg_integer(),
-        "stateMachineVersionArn" => String.t() | atom()
-      }
-      
-  """
-  @type publish_state_machine_version_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_execution_input() :: %{
-        optional("input") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("traceHeader") => String.t() | atom(),
-        required("stateMachineArn") => String.t() | atom()
-      }
-      
-  """
-  @type start_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_map_run_input() :: %{
-        required("mapRunArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_map_run_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_arn() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_arn() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_execution_input() :: %{
-        optional("cause") => String.t() | atom(),
-        optional("error") => String.t() | atom(),
-        required("executionArn") => String.t() | atom()
-      }
-      
-  """
-  @type stop_execution_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_state_machine_output() :: %{
-        "creationDate" => non_neg_integer(),
-        "definition" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "encryptionConfiguration" => encryption_configuration(),
-        "label" => String.t() | atom(),
-        "loggingConfiguration" => logging_configuration(),
-        "name" => String.t() | atom(),
-        "revisionId" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "stateMachineArn" => String.t() | atom(),
-        "status" => list(any()),
-        "tracingConfiguration" => tracing_configuration(),
-        "type" => list(any()),
-        "variableReferences" => map()
-      }
-      
-  """
-  @type describe_state_machine_output() :: %{(String.t() | atom()) => any()}
-
   @type create_activity_errors() ::
           too_many_tags()
           | invalid_name()
-          | activity_limit_exceeded()
+          | kms_throttling_exception()
           | activity_already_exists()
           | kms_access_denied_exception()
           | invalid_encryption_configuration()
-          | kms_throttling_exception()
+          | activity_limit_exceeded()
 
   @type create_state_machine_errors() ::
-          invalid_arn()
-          | too_many_tags()
-          | state_machine_deleting()
-          | invalid_logging_configuration()
-          | validation_exception()
-          | invalid_name()
+          too_many_tags()
           | invalid_definition()
-          | kms_access_denied_exception()
-          | state_machine_limit_exceeded()
-          | invalid_encryption_configuration()
-          | conflict_exception()
-          | state_machine_already_exists()
-          | invalid_tracing_configuration()
+          | invalid_name()
+          | state_machine_deleting()
           | kms_throttling_exception()
+          | conflict_exception()
+          | state_machine_limit_exceeded()
           | state_machine_type_not_supported()
+          | invalid_logging_configuration()
+          | state_machine_already_exists()
+          | validation_exception()
+          | kms_access_denied_exception()
+          | invalid_encryption_configuration()
+          | invalid_arn()
+          | invalid_tracing_configuration()
 
   @type create_state_machine_alias_errors() ::
-          invalid_arn()
-          | state_machine_deleting()
-          | validation_exception()
+          service_quota_exceeded_exception()
           | invalid_name()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | state_machine_deleting()
           | resource_not_found()
+          | conflict_exception()
+          | validation_exception()
+          | invalid_arn()
 
   @type delete_activity_errors() :: invalid_arn()
 
-  @type delete_state_machine_errors() :: invalid_arn() | validation_exception()
+  @type delete_state_machine_errors() :: validation_exception() | invalid_arn()
 
   @type delete_state_machine_alias_errors() ::
-          invalid_arn() | validation_exception() | conflict_exception() | resource_not_found()
+          resource_not_found() | conflict_exception() | validation_exception() | invalid_arn()
 
   @type delete_state_machine_version_errors() ::
-          invalid_arn() | validation_exception() | conflict_exception()
+          conflict_exception() | validation_exception() | invalid_arn()
 
-  @type describe_activity_errors() :: invalid_arn() | activity_does_not_exist()
+  @type describe_activity_errors() :: activity_does_not_exist() | invalid_arn()
 
   @type describe_execution_errors() ::
-          invalid_arn()
-          | kms_invalid_state_exception()
-          | kms_access_denied_exception()
-          | kms_throttling_exception()
+          kms_invalid_state_exception()
           | execution_does_not_exist()
+          | kms_throttling_exception()
+          | kms_access_denied_exception()
+          | invalid_arn()
 
-  @type describe_map_run_errors() :: invalid_arn() | resource_not_found()
+  @type describe_map_run_errors() :: resource_not_found() | invalid_arn()
 
   @type describe_state_machine_errors() ::
-          invalid_arn()
-          | kms_invalid_state_exception()
+          kms_invalid_state_exception()
           | state_machine_does_not_exist()
-          | kms_access_denied_exception()
           | kms_throttling_exception()
+          | kms_access_denied_exception()
+          | invalid_arn()
 
   @type describe_state_machine_alias_errors() ::
-          invalid_arn() | validation_exception() | resource_not_found()
+          resource_not_found() | validation_exception() | invalid_arn()
 
   @type describe_state_machine_for_execution_errors() ::
-          invalid_arn()
-          | kms_invalid_state_exception()
-          | kms_access_denied_exception()
-          | kms_throttling_exception()
+          kms_invalid_state_exception()
           | execution_does_not_exist()
+          | kms_throttling_exception()
+          | kms_access_denied_exception()
+          | invalid_arn()
 
   @type get_activity_task_errors() ::
-          invalid_arn()
-          | kms_invalid_state_exception()
+          kms_invalid_state_exception()
           | activity_does_not_exist()
+          | kms_throttling_exception()
           | kms_access_denied_exception()
           | activity_worker_limit_exceeded()
-          | kms_throttling_exception()
+          | invalid_arn()
 
   @type get_execution_history_errors() ::
-          invalid_arn()
-          | kms_invalid_state_exception()
-          | kms_access_denied_exception()
-          | invalid_token()
-          | kms_throttling_exception()
+          kms_invalid_state_exception()
           | execution_does_not_exist()
+          | kms_throttling_exception()
+          | invalid_token()
+          | kms_access_denied_exception()
+          | invalid_arn()
 
   @type list_activities_errors() :: invalid_token()
 
   @type list_executions_errors() ::
-          invalid_arn()
-          | validation_exception()
-          | state_machine_does_not_exist()
+          state_machine_does_not_exist()
+          | resource_not_found()
           | invalid_token()
           | state_machine_type_not_supported()
-          | resource_not_found()
+          | validation_exception()
+          | invalid_arn()
 
-  @type list_map_runs_errors() :: invalid_arn() | invalid_token() | execution_does_not_exist()
+  @type list_map_runs_errors() :: execution_does_not_exist() | invalid_token() | invalid_arn()
 
   @type list_state_machine_aliases_errors() ::
-          invalid_arn()
+          state_machine_does_not_exist()
           | state_machine_deleting()
-          | state_machine_does_not_exist()
-          | invalid_token()
           | resource_not_found()
+          | invalid_token()
+          | invalid_arn()
 
   @type list_state_machine_versions_errors() ::
-          invalid_arn() | validation_exception() | invalid_token()
+          invalid_token() | validation_exception() | invalid_arn()
 
   @type list_state_machines_errors() :: invalid_token()
 
-  @type list_tags_for_resource_errors() :: invalid_arn() | resource_not_found()
+  @type list_tags_for_resource_errors() :: resource_not_found() | invalid_arn()
 
   @type publish_state_machine_version_errors() ::
-          invalid_arn()
-          | state_machine_deleting()
-          | validation_exception()
+          service_quota_exceeded_exception()
           | state_machine_does_not_exist()
-          | service_quota_exceeded_exception()
+          | state_machine_deleting()
           | conflict_exception()
+          | validation_exception()
+          | invalid_arn()
 
   @type redrive_execution_errors() ::
-          invalid_arn()
+          execution_does_not_exist()
           | validation_exception()
-          | execution_limit_exceeded()
           | execution_not_redrivable()
-          | execution_does_not_exist()
+          | execution_limit_exceeded()
+          | invalid_arn()
 
   @type send_task_failure_errors() ::
           kms_invalid_state_exception()
-          | task_does_not_exist()
-          | kms_access_denied_exception()
           | task_timed_out()
-          | invalid_token()
+          | task_does_not_exist()
           | kms_throttling_exception()
+          | invalid_token()
+          | kms_access_denied_exception()
 
-  @type send_task_heartbeat_errors() :: task_does_not_exist() | task_timed_out() | invalid_token()
+  @type send_task_heartbeat_errors() :: task_timed_out() | task_does_not_exist() | invalid_token()
 
   @type send_task_success_errors() ::
           kms_invalid_state_exception()
-          | task_does_not_exist()
-          | kms_access_denied_exception()
           | task_timed_out()
-          | invalid_token()
+          | task_does_not_exist()
           | invalid_output()
           | kms_throttling_exception()
+          | invalid_token()
+          | kms_access_denied_exception()
 
   @type start_execution_errors() ::
-          invalid_arn()
-          | invalid_execution_input()
-          | kms_invalid_state_exception()
-          | state_machine_deleting()
-          | validation_exception()
-          | invalid_name()
+          kms_invalid_state_exception()
           | execution_already_exists()
+          | invalid_name()
           | state_machine_does_not_exist()
+          | state_machine_deleting()
+          | kms_throttling_exception()
+          | invalid_execution_input()
+          | validation_exception()
           | kms_access_denied_exception()
           | execution_limit_exceeded()
-          | kms_throttling_exception()
+          | invalid_arn()
 
   @type start_sync_execution_errors() ::
-          invalid_arn()
-          | invalid_execution_input()
-          | kms_invalid_state_exception()
-          | state_machine_deleting()
+          kms_invalid_state_exception()
           | invalid_name()
           | state_machine_does_not_exist()
-          | kms_access_denied_exception()
+          | state_machine_deleting()
           | kms_throttling_exception()
+          | invalid_execution_input()
           | state_machine_type_not_supported()
+          | kms_access_denied_exception()
+          | invalid_arn()
 
   @type stop_execution_errors() ::
-          invalid_arn()
-          | kms_invalid_state_exception()
+          kms_invalid_state_exception()
+          | execution_does_not_exist()
+          | kms_throttling_exception()
           | validation_exception()
           | kms_access_denied_exception()
-          | kms_throttling_exception()
-          | execution_does_not_exist()
+          | invalid_arn()
 
-  @type tag_resource_errors() :: invalid_arn() | too_many_tags() | resource_not_found()
+  @type tag_resource_errors() :: too_many_tags() | resource_not_found() | invalid_arn()
 
   @type test_state_errors() ::
-          invalid_arn()
+          invalid_definition()
           | invalid_execution_input()
           | validation_exception()
-          | invalid_definition()
+          | invalid_arn()
 
-  @type untag_resource_errors() :: invalid_arn() | resource_not_found()
+  @type untag_resource_errors() :: resource_not_found() | invalid_arn()
 
-  @type update_map_run_errors() :: invalid_arn() | validation_exception() | resource_not_found()
+  @type update_map_run_errors() :: resource_not_found() | validation_exception() | invalid_arn()
 
   @type update_state_machine_errors() ::
-          invalid_arn()
-          | state_machine_deleting()
-          | invalid_logging_configuration()
-          | validation_exception()
+          service_quota_exceeded_exception()
           | invalid_definition()
           | state_machine_does_not_exist()
+          | state_machine_deleting()
+          | kms_throttling_exception()
+          | conflict_exception()
+          | invalid_logging_configuration()
+          | validation_exception()
           | kms_access_denied_exception()
           | invalid_encryption_configuration()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
-          | invalid_tracing_configuration()
-          | kms_throttling_exception()
+          | invalid_arn()
           | missing_required_parameter()
+          | invalid_tracing_configuration()
 
   @type update_state_machine_alias_errors() ::
-          invalid_arn()
-          | state_machine_deleting()
-          | validation_exception()
-          | conflict_exception()
+          state_machine_deleting()
           | resource_not_found()
+          | conflict_exception()
+          | validation_exception()
+          | invalid_arn()
 
   @type validate_state_machine_definition_errors() :: validation_exception()
 
@@ -2502,7 +2502,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_activity_errors()}
   def create_activity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateActivity", input, options)
   end
@@ -2547,7 +2548,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_state_machine_errors()}
   def create_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStateMachine", input, options)
   end
@@ -2608,7 +2610,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_state_machine_alias_errors()}
   def create_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStateMachineAlias", input, options)
   end
@@ -2622,7 +2625,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_activity_errors()}
   def delete_activity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteActivity", input, options)
   end
@@ -2670,7 +2674,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_errors()}
   def delete_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStateMachine", input, options)
   end
@@ -2709,7 +2714,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_alias_errors()}
   def delete_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStateMachineAlias", input, options)
   end
@@ -2743,7 +2749,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_version_errors()}
   def delete_state_machine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStateMachineVersion", input, options)
   end
@@ -2760,7 +2767,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_activity_errors()}
   def describe_activity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeActivity", input, options)
   end
@@ -2792,7 +2800,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_execution_errors()}
   def describe_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExecution", input, options)
   end
@@ -2812,7 +2821,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_map_run_errors()}
   def describe_map_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMapRun", input, options)
   end
@@ -2861,7 +2871,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_errors()}
   def describe_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStateMachine", input, options)
   end
@@ -2894,7 +2905,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_alias_errors()}
   def describe_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStateMachineAlias", input, options)
   end
@@ -2924,7 +2936,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_for_execution_errors()}
   def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStateMachineForExecution", input, options)
   end
@@ -2960,7 +2973,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, get_activity_task_errors()}
   def get_activity_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetActivityTask", input, options)
   end
@@ -2987,7 +3001,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, get_execution_history_errors()}
   def get_execution_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExecutionHistory", input, options)
   end
@@ -3010,7 +3025,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_activities_errors()}
   def list_activities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActivities", input, options)
   end
@@ -3049,7 +3065,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
   end
@@ -3066,7 +3083,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_map_runs_errors()}
   def list_map_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMapRuns", input, options)
   end
@@ -3111,7 +3129,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machine_aliases_errors()}
   def list_state_machine_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStateMachineAliases", input, options)
   end
@@ -3145,7 +3164,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machine_versions_errors()}
   def list_state_machine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStateMachineVersions", input, options)
   end
@@ -3168,7 +3188,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machines_errors()}
   def list_state_machines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStateMachines", input, options)
   end
@@ -3185,7 +3206,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3229,7 +3251,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, publish_state_machine_version_errors()}
   def publish_state_machine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PublishStateMachineVersion", input, options)
   end
@@ -3294,7 +3317,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, redrive_execution_errors()}
   def redrive_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RedriveExecution", input, options)
   end
@@ -3318,7 +3342,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_failure_errors()}
   def send_task_failure(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTaskFailure", input, options)
   end
@@ -3355,7 +3380,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_heartbeat_errors()}
   def send_task_heartbeat(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTaskHeartbeat", input, options)
   end
@@ -3373,7 +3399,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_success_errors()}
   def send_task_success(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTaskSuccess", input, options)
   end
@@ -3434,7 +3461,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, start_execution_errors()}
   def start_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExecution", input, options)
   end
@@ -3461,7 +3489,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, start_sync_execution_errors()}
   def start_sync_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "sync-")
 
     Request.request_post(client, meta, "StartSyncExecution", input, options)
   end
@@ -3484,7 +3513,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, stop_execution_errors()}
   def stop_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopExecution", input, options)
   end
@@ -3506,7 +3536,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3578,7 +3609,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, test_state_errors()}
   def test_state(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "sync-")
 
     Request.request_post(client, meta, "TestState", input, options)
   end
@@ -3592,7 +3624,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3607,7 +3640,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_map_run_errors()}
   def update_map_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMapRun", input, options)
   end
@@ -3675,7 +3709,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_state_machine_errors()}
   def update_state_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStateMachine", input, options)
   end
@@ -3723,7 +3758,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_state_machine_alias_errors()}
   def update_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStateMachineAlias", input, options)
   end
@@ -3781,7 +3817,8 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, validate_state_machine_definition_errors()}
   def validate_state_machine_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateStateMachineDefinition", input, options)
   end

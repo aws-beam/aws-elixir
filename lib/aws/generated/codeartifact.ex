@@ -388,221 +388,16 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      describe_package_group_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("packageGroup") => String.t() | atom()
-      }
-
-  """
-  @type describe_package_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_group_result() :: %{
-        "packageGroup" => package_group_description()
-      }
-
-  """
-  @type update_package_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_version_assets_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("namespace") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("packageVersion") => String.t() | atom(),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type list_package_version_assets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_groups_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "packageGroups" => list(package_group_summary())
-      }
-
-  """
-  @type list_package_groups_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_versions_status_result() :: %{
-        "failedVersions" => map(),
-        "successfulVersions" => map()
-      }
-
-  """
-  @type update_package_versions_status_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_version_assets_result() :: %{
-        "assets" => list(asset_summary()),
-        "format" => list(any()),
-        "namespace" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "package" => String.t() | atom(),
-        "version" => String.t() | atom(),
-        "versionRevision" => String.t() | atom()
-      }
-
-  """
-  @type list_package_version_assets_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_group_request() :: %{
-        optional("contactInfo") => String.t() | atom(),
+      update_repository_request() :: %{
         optional("description") => String.t() | atom(),
         optional("domainOwner") => String.t() | atom(),
-        optional("tags") => list(tag()),
+        optional("upstreams") => list(upstream_repository()),
         required("domain") => String.t() | atom(),
-        required("packageGroup") => String.t() | atom()
-      }
-
-  """
-  @type create_package_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_version_dependencies_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("namespace") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("packageVersion") => String.t() | atom(),
         required("repository") => String.t() | atom()
       }
 
   """
-  @type list_package_version_dependencies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_result() :: %{}
-
-  """
-  @type untag_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dispose_package_versions_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("expectedStatus") => list(any()),
-        optional("namespace") => String.t() | atom(),
-        optional("versionRevisions") => map(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("repository") => String.t() | atom(),
-        required("versions") => list(String.t() | atom())
-      }
-
-  """
-  @type dispose_package_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_origin_configuration() :: %{
-        "restrictions" => package_origin_restrictions()
-      }
-
-  """
-  @type package_origin_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_repository_result() :: %{
-        "repository" => repository_description()
-      }
-
-  """
-  @type describe_repository_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_allowed_repositories_for_group_result() :: %{
-        "allowedRepositories" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_allowed_repositories_for_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_version_origin() :: %{
-        "domainEntryPoint" => domain_entry_point(),
-        "originType" => list(any())
-      }
-
-  """
-  @type package_version_origin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdTime" => non_neg_integer(),
-        "encryptionKey" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type domain_summary() :: %{(String.t() | atom()) => any()}
+  @type update_repository_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,37 +423,200 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      delete_repository_result() :: %{
+      successful_package_version_info() :: %{
+        "revision" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type successful_package_version_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_result() :: %{
+        "domain" => domain_description()
+      }
+
+  """
+  @type create_domain_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_packages_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "packages" => list(package_summary())
+      }
+
+  """
+  @type list_packages_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_description() :: %{
+        "arn" => String.t() | atom(),
+        "assetSizeBytes" => float(),
+        "createdTime" => non_neg_integer(),
+        "encryptionKey" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "repositoryCount" => integer(),
+        "s3BucketArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type domain_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_description() :: %{
+        "format" => list(any()),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "originConfiguration" => package_origin_configuration()
+      }
+
+  """
+  @type package_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_repository_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
+  """
+  @type delete_repository_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_group_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("packageGroup") => String.t() | atom()
+      }
+
+  """
+  @type delete_package_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_allowed_repositories_for_group_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("originRestrictionType") => list(any()),
+        required("packageGroup") => String.t() | atom()
+      }
+
+  """
+  @type list_allowed_repositories_for_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_package_groups_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("packageGroup") => String.t() | atom()
+      }
+
+  """
+  @type list_sub_package_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_group_origin_configuration_request() :: %{
+        optional("addAllowedRepositories") => list(package_group_allowed_repository()),
+        optional("domainOwner") => String.t() | atom(),
+        optional("removeAllowedRepositories") => list(package_group_allowed_repository()),
+        optional("restrictions") => map(),
+        required("domain") => String.t() | atom(),
+        required("packageGroup") => String.t() | atom()
+      }
+
+  """
+  @type update_package_group_origin_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_group_request() :: %{
+        optional("contactInfo") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("packageGroup") => String.t() | atom()
+      }
+
+  """
+  @type update_package_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => integer()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
+  """
+  @type get_domain_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_repository_result() :: %{
         "repository" => repository_description()
       }
 
   """
-  @type delete_repository_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_group_result() :: %{
-        "packageGroup" => package_group_description()
-      }
-
-  """
-  @type delete_package_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_version_asset_result() :: %{
-        "asset" => binary(),
-        "assetName" => String.t() | atom(),
-        "packageVersion" => String.t() | atom(),
-        "packageVersionRevision" => String.t() | atom()
-      }
-
-  """
-  @type get_package_version_asset_result() :: %{(String.t() | atom()) => any()}
+  @type update_repository_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -681,110 +639,319 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      create_domain_result() :: %{
-        "domain" => domain_description()
-      }
-
-  """
-  @type create_domain_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_summary() :: %{
-        "hashes" => map(),
-        "name" => String.t() | atom(),
-        "size" => float()
-      }
-
-  """
-  @type asset_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_group_request() :: %{
-        optional("contactInfo") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
+      get_authorization_token_request() :: %{
         optional("domainOwner") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("packageGroup") => String.t() | atom()
+        optional("durationSeconds") => float(),
+        required("domain") => String.t() | atom()
       }
 
   """
-  @type update_package_group_request() :: %{(String.t() | atom()) => any()}
+  @type get_authorization_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_associated_package_group_request() :: %{
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_result() :: %{
+        "deletedPackage" => package_summary()
+      }
+
+  """
+  @type delete_package_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_package_version_request() :: %{
         optional("domainOwner") => String.t() | atom(),
         optional("namespace") => String.t() | atom(),
+        optional("unfinished") => boolean(),
+        required("assetContent") => binary(),
+        required("assetName") => String.t() | atom(),
+        required("assetSHA256") => String.t() | atom(),
         required("domain") => String.t() | atom(),
         required("format") => list(any()),
-        required("package") => String.t() | atom()
-      }
-
-  """
-  @type get_associated_package_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_allowed_repositories_for_group_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("originRestrictionType") => list(any()),
-        required("packageGroup") => String.t() | atom()
-      }
-
-  """
-  @type list_allowed_repositories_for_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_repository_permissions_policy_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("policyRevision") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("policyDocument") => String.t() | atom(),
+        required("package") => String.t() | atom(),
+        required("packageVersion") => String.t() | atom(),
         required("repository") => String.t() | atom()
       }
 
   """
-  @type put_repository_permissions_policy_request() :: %{(String.t() | atom()) => any()}
+  @type publish_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      package_group_reference() :: %{
-        "arn" => String.t() | atom(),
-        "pattern" => String.t() | atom()
+      get_repository_permissions_policy_result() :: %{
+        "policy" => resource_policy()
       }
 
   """
-  @type package_group_reference() :: %{(String.t() | atom()) => any()}
+  @type get_repository_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_group_origin_configuration_result() :: %{
+        "allowedRepositoryUpdates" => map(),
+        "packageGroup" => package_group_description()
+      }
+
+  """
+  @type update_package_group_origin_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_group_result() :: %{
+        "packageGroup" => package_group_description()
+      }
+
+  """
+  @type delete_package_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_group_request() :: %{
+        optional("contactInfo") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("domainOwner") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("domain") => String.t() | atom(),
+        required("packageGroup") => String.t() | atom()
+      }
+
+  """
+  @type create_package_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_origin_configuration() :: %{
+        "restrictions" => package_origin_restrictions()
+      }
+
+  """
+  @type package_origin_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_repositories_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "repositories" => list(repository_summary())
+      }
+
+  """
+  @type list_repositories_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_repositories_in_domain_request() :: %{
+        optional("administratorAccount") => String.t() | atom(),
+        optional("domainOwner") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("repositoryPrefix") => String.t() | atom(),
+        required("domain") => String.t() | atom()
+      }
+
+  """
+  @type list_repositories_in_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_external_connection_result() :: %{
+        "repository" => repository_description()
+      }
+
+  """
+  @type disassociate_external_connection_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_repository_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("repository") => String.t() | atom()
+      }
+
+  """
+  @type get_repository_permissions_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_asset_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        optional("packageVersionRevision") => String.t() | atom(),
+        required("asset") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("packageVersion") => String.t() | atom(),
+        required("repository") => String.t() | atom()
+      }
+
+  """
+  @type get_package_version_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_package_versions_status_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
+      }
+
+  """
+  @type update_package_versions_status_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_origin() :: %{
+        "domainEntryPoint" => domain_entry_point(),
+        "originType" => list(any())
+      }
+
+  """
+  @type package_version_origin() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_result() :: %{
+        "domain" => domain_description()
+      }
+
+  """
+  @type describe_domain_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_group_result() :: %{
+        "packageGroup" => package_group_description()
+      }
+
+  """
+  @type describe_package_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom()
+      }
+
+  """
+  @type get_domain_permissions_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_domain_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
+  """
+  @type put_domain_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_asset_result() :: %{
+        "asset" => binary(),
+        "assetName" => String.t() | atom(),
+        "packageVersion" => String.t() | atom(),
+        "packageVersionRevision" => String.t() | atom()
+      }
+
+  """
+  @type get_package_version_asset_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_result() :: %{
+        "domain" => domain_description()
+      }
+
+  """
+  @type delete_domain_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_external_connection_result() :: %{
+        "repository" => repository_description()
+      }
+
+  """
+  @type associate_external_connection_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -813,349 +980,64 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      get_package_version_readme_result() :: %{
-        "format" => list(any()),
-        "namespace" => String.t() | atom(),
-        "package" => String.t() | atom(),
-        "readme" => String.t() | atom(),
-        "version" => String.t() | atom(),
-        "versionRevision" => String.t() | atom()
-      }
-
-  """
-  @type get_package_version_readme_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_version_dependencies_result() :: %{
-        "dependencies" => list(package_dependency()),
-        "format" => list(any()),
-        "namespace" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "package" => String.t() | atom(),
-        "version" => String.t() | atom(),
-        "versionRevision" => String.t() | atom()
-      }
-
-  """
-  @type list_package_version_dependencies_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upstream_repository() :: %{
-        "repositoryName" => String.t() | atom()
-      }
-
-  """
-  @type upstream_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_repositories_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "repositories" => list(repository_summary())
-      }
-
-  """
-  @type list_repositories_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_request() :: %{
+      copy_package_versions_request() :: %{
+        optional("allowOverwrite") => boolean(),
         optional("domainOwner") => String.t() | atom(),
-        required("domain") => String.t() | atom()
+        optional("includeFromUpstream") => boolean(),
+        optional("namespace") => String.t() | atom(),
+        optional("versionRevisions") => map(),
+        optional("versions") => list(String.t() | atom()),
+        required("destinationRepository") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("sourceRepository") => String.t() | atom()
       }
 
   """
-  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
+  @type copy_package_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_associated_packages_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "packages" => list(associated_package())
-      }
-
-  """
-  @type list_associated_packages_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      repository_summary() :: %{
-        "administratorAccount" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainName" => String.t() | atom(),
-        "domainOwner" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type repository_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_versions_result() :: %{
-        "failedVersions" => map(),
-        "successfulVersions" => map()
-      }
-
-  """
-  @type delete_package_versions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sub_package_groups_request() :: %{
+      list_associated_packages_request() :: %{
         optional("domainOwner") => String.t() | atom(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("preview") => boolean(),
         required("domain") => String.t() | atom(),
         required("packageGroup") => String.t() | atom()
       }
 
   """
-  @type list_sub_package_groups_request() :: %{(String.t() | atom()) => any()}
+  @type list_associated_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_domain_permissions_policy_result() :: %{
-        "policy" => resource_policy()
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type delete_domain_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_group_origin_restriction() :: %{
-        "effectiveMode" => list(any()),
-        "inheritedFrom" => package_group_reference(),
-        "mode" => list(any()),
-        "repositoriesCount" => float()
-      }
-
-  """
-  @type package_group_origin_restriction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_group_request() :: %{
+      get_repository_endpoint_request() :: %{
         optional("domainOwner") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("packageGroup") => String.t() | atom()
-      }
-
-  """
-  @type delete_package_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_repositories_in_domain_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "repositories" => list(repository_summary())
-      }
-
-  """
-  @type list_repositories_in_domain_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_request() :: %{
-        optional("encryptionKey") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("domain") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_entry_point() :: %{
-        "externalConnectionName" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-
-  """
-  @type domain_entry_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_versions_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("expectedStatus") => list(any()),
-        optional("namespace") => String.t() | atom(),
+        optional("endpointType") => list(any()),
         required("domain") => String.t() | atom(),
         required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("repository") => String.t() | atom(),
-        required("versions") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_package_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_repository_endpoint_result() :: %{
-        "repositoryEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type get_repository_endpoint_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_result() :: %{
-        "domain" => domain_description()
-      }
-
-  """
-  @type delete_domain_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_version_readme_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("namespace") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("packageVersion") => String.t() | atom(),
         required("repository") => String.t() | atom()
       }
 
   """
-  @type get_package_version_readme_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_repository_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type delete_repository_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_group_allowed_repository() :: %{
-        "originRestrictionType" => list(any()),
-        "repositoryName" => String.t() | atom()
-      }
-
-  """
-  @type package_group_allowed_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_repositories_in_domain_request() :: %{
-        optional("administratorAccount") => String.t() | atom(),
-        optional("domainOwner") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("repositoryPrefix") => String.t() | atom(),
-        required("domain") => String.t() | atom()
-      }
-
-  """
-  @type list_repositories_in_domain_request() :: %{(String.t() | atom()) => any()}
+  @type get_repository_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1175,140 +1057,38 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      describe_package_result() :: %{
-        "package" => package_description()
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
       }
 
   """
-  @type describe_package_result() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dispose_package_versions_result() :: %{
-        "failedVersions" => map(),
-        "successfulVersions" => map()
-      }
-
-  """
-  @type dispose_package_versions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_result() :: %{
-        "domains" => list(domain_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domains_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_group_origin_configuration_request() :: %{
-        optional("addAllowedRepositories") => list(package_group_allowed_repository()),
+      put_repository_permissions_policy_request() :: %{
         optional("domainOwner") => String.t() | atom(),
-        optional("removeAllowedRepositories") => list(package_group_allowed_repository()),
-        optional("restrictions") => map(),
+        optional("policyRevision") => String.t() | atom(),
         required("domain") => String.t() | atom(),
-        required("packageGroup") => String.t() | atom()
+        required("policyDocument") => String.t() | atom(),
+        required("repository") => String.t() | atom()
       }
 
   """
-  @type update_package_group_origin_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type put_repository_permissions_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_packages_result() :: %{
-        "nextToken" => String.t() | atom(),
-        "packages" => list(package_summary())
-      }
-
-  """
-  @type list_packages_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      successful_package_version_info() :: %{
-        "revision" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type successful_package_version_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_authorization_token_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("durationSeconds") => float(),
-        required("domain") => String.t() | atom()
-      }
-
-  """
-  @type get_authorization_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_package_versions_result() :: %{
-        "failedVersions" => map(),
-        "successfulVersions" => map()
-      }
-
-  """
-  @type copy_package_versions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_groups_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("prefix") => String.t() | atom(),
-        required("domain") => String.t() | atom()
-      }
-
-  """
-  @type list_package_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      license_info() :: %{
-        "name" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type license_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      publish_package_version_request() :: %{
+      list_package_version_dependencies_request() :: %{
         optional("domainOwner") => String.t() | atom(),
         optional("namespace") => String.t() | atom(),
-        optional("unfinished") => boolean(),
-        required("assetContent") => binary(),
-        required("assetName") => String.t() | atom(),
-        required("assetSHA256") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
         required("domain") => String.t() | atom(),
         required("format") => list(any()),
         required("package") => String.t() | atom(),
@@ -1317,29 +1097,79 @@ defmodule AWS.Codeartifact do
       }
 
   """
-  @type publish_package_version_request() :: %{(String.t() | atom()) => any()}
+  @type list_package_version_dependencies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_package_group_result() :: %{
-        "packageGroup" => package_group_description()
+      put_package_origin_configuration_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("repository") => String.t() | atom(),
+        required("restrictions") => package_origin_restrictions()
       }
 
   """
-  @type describe_package_group_result() :: %{(String.t() | atom()) => any()}
+  @type put_package_origin_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_repository_permissions_policy_result() :: %{
-        "policy" => resource_policy()
+      tag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tags") => list(tag())
       }
 
   """
-  @type delete_repository_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_summary() :: %{
+        "origin" => package_version_origin(),
+        "revision" => String.t() | atom(),
+        "status" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type package_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_summary() :: %{
+        "hashes" => map(),
+        "name" => String.t() | atom(),
+        "size" => float()
+      }
+
+  """
+  @type asset_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("repository") => String.t() | atom()
+      }
+
+  """
+  @type delete_package_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1364,27 +1194,142 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      package_description() :: %{
-        "format" => list(any()),
-        "name" => String.t() | atom(),
-        "namespace" => String.t() | atom(),
-        "originConfiguration" => package_origin_configuration()
+      update_package_group_result() :: %{
+        "packageGroup" => package_group_description()
       }
 
   """
-  @type package_description() :: %{(String.t() | atom()) => any()}
+  @type update_package_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_domains_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      describe_package_result() :: %{
+        "package" => package_description()
       }
 
   """
-  @type list_domains_request() :: %{(String.t() | atom()) => any()}
+  @type describe_package_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_readme_result() :: %{
+        "format" => list(any()),
+        "namespace" => String.t() | atom(),
+        "package" => String.t() | atom(),
+        "readme" => String.t() | atom(),
+        "version" => String.t() | atom(),
+        "versionRevision" => String.t() | atom()
+      }
+
+  """
+  @type get_package_version_readme_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_repository_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
+  """
+  @type put_repository_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_versions_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("expectedStatus") => list(any()),
+        optional("namespace") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("repository") => String.t() | atom(),
+        required("versions") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_package_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      repository_description() :: %{
+        "administratorAccount" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "domainOwner" => String.t() | atom(),
+        "externalConnections" => list(repository_external_connection_info()),
+        "name" => String.t() | atom(),
+        "upstreams" => list(upstream_repository_info())
+      }
+
+  """
+  @type repository_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_repositories_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("repositoryPrefix") => String.t() | atom()
+      }
+
+  """
+  @type list_repositories_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_repository_result() :: %{
+        "repository" => repository_description()
+      }
+
+  """
+  @type create_repository_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_version_assets_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("namespace") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("packageVersion") => String.t() | atom(),
+        required("repository") => String.t() | atom()
+      }
+
+  """
+  @type list_package_version_assets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_group_allowed_repository() :: %{
+        "originRestrictionType" => list(any()),
+        "repositoryName" => String.t() | atom()
+      }
+
+  """
+  @type package_group_allowed_repository() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1404,70 +1349,120 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sub_package_groups_result() :: %{
+      package_group_reference() :: %{
+        "arn" => String.t() | atom(),
+        "pattern" => String.t() | atom()
+      }
+
+  """
+  @type package_group_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("repository") => String.t() | atom()
+      }
+
+  """
+  @type describe_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_version_dependencies_result() :: %{
+        "dependencies" => list(package_dependency()),
+        "format" => list(any()),
+        "namespace" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "package" => String.t() | atom(),
+        "version" => String.t() | atom(),
+        "versionRevision" => String.t() | atom()
+      }
+
+  """
+  @type list_package_version_dependencies_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_groups_result() :: %{
         "nextToken" => String.t() | atom(),
         "packageGroups" => list(package_group_summary())
       }
 
   """
-  @type list_sub_package_groups_result() :: %{(String.t() | atom()) => any()}
+  @type list_package_groups_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_policy() :: %{
-        "document" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "revision" => String.t() | atom()
+      untag_resource_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type resource_policy() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_domain_permissions_policy_result() :: %{
-        "policy" => resource_policy()
+      delete_repository_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("repository") => String.t() | atom()
       }
 
   """
-  @type get_domain_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+  @type delete_repository_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_result() :: %{
-        "tags" => list(tag())
+      describe_domain_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
+  @type describe_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_external_connection_result() :: %{
-        "repository" => repository_description()
+      copy_package_versions_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
       }
 
   """
-  @type disassociate_external_connection_result() :: %{(String.t() | atom()) => any()}
+  @type copy_package_versions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1489,265 +1484,89 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      disassociate_external_connection_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("externalConnection") => String.t() | atom(),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_external_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_domain_permissions_policy_result() :: %{
-        "policy" => resource_policy()
-      }
-
-  """
-  @type put_domain_permissions_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_group_description() :: %{
-        "arn" => String.t() | atom(),
-        "contactInfo" => String.t() | atom(),
-        "createdTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainName" => String.t() | atom(),
-        "domainOwner" => String.t() | atom(),
-        "originConfiguration" => package_group_origin_configuration(),
-        "parent" => package_group_reference(),
-        "pattern" => String.t() | atom()
-      }
-
-  """
-  @type package_group_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_version_result() :: %{
-        "packageVersion" => package_version_description()
-      }
-
-  """
-  @type describe_package_version_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("namespace") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type delete_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_repository_permissions_policy_result() :: %{
-        "policy" => resource_policy()
-      }
-
-  """
-  @type put_repository_permissions_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
+      create_domain_request() :: %{
+        optional("encryptionKey") => String.t() | atom(),
+        optional("tags") => list(tag()),
         required("domain") => String.t() | atom()
       }
 
   """
-  @type describe_domain_request() :: %{(String.t() | atom()) => any()}
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      upstream_repository_info() :: %{
+      list_allowed_repositories_for_group_result() :: %{
+        "allowedRepositories" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_allowed_repositories_for_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_associated_package_group_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom()
+      }
+
+  """
+  @type get_associated_package_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_error() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type package_version_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_result() :: %{
+        "tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_entry_point() :: %{
+        "externalConnectionName" => String.t() | atom(),
         "repositoryName" => String.t() | atom()
       }
 
   """
-  @type upstream_repository_info() :: %{(String.t() | atom()) => any()}
+  @type domain_entry_point() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associated_package() :: %{
-        "associationType" => list(any()),
-        "format" => list(any()),
-        "namespace" => String.t() | atom(),
-        "package" => String.t() | atom()
-      }
-
-  """
-  @type associated_package() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_authorization_token_result() :: %{
-        "authorizationToken" => String.t() | atom(),
-        "expiration" => non_neg_integer()
-      }
-
-  """
-  @type get_authorization_token_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_package_origin_configuration_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("namespace") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("repository") => String.t() | atom(),
-        required("restrictions") => package_origin_restrictions()
-      }
-
-  """
-  @type put_package_origin_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_repository_endpoint_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("endpointType") => list(any()),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type get_repository_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_permissions_policy_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        required("domain") => String.t() | atom()
-      }
-
-  """
-  @type get_domain_permissions_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_associated_package_group_result() :: %{
-        "associationType" => list(any()),
-        "packageGroup" => package_group_description()
-      }
-
-  """
-  @type get_associated_package_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_repository_permissions_policy_request() :: %{
+      describe_repository_request() :: %{
         optional("domainOwner") => String.t() | atom(),
         required("domain") => String.t() | atom(),
         required("repository") => String.t() | atom()
       }
 
   """
-  @type get_repository_permissions_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_packages_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("preview") => boolean(),
-        required("domain") => String.t() | atom(),
-        required("packageGroup") => String.t() | atom()
-      }
-
-  """
-  @type list_associated_packages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_domain_permissions_policy_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("policyRevision") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("policyDocument") => String.t() | atom()
-      }
-
-  """
-  @type put_domain_permissions_policy_request() :: %{(String.t() | atom()) => any()}
+  @type describe_repository_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1774,51 +1593,32 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      create_package_group_result() :: %{
-        "packageGroup" => package_group_description()
-      }
-
-  """
-  @type create_package_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_external_connection_result() :: %{
-        "repository" => repository_description()
-      }
-
-  """
-  @type associate_external_connection_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_request() :: %{
+      describe_package_version_request() :: %{
         optional("domainOwner") => String.t() | atom(),
         optional("namespace") => String.t() | atom(),
         required("domain") => String.t() | atom(),
         required("format") => list(any()),
         required("package") => String.t() | atom(),
+        required("packageVersion") => String.t() | atom(),
         required("repository") => String.t() | atom()
       }
 
   """
-  @type describe_package_request() :: %{(String.t() | atom()) => any()}
+  @type describe_package_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => integer()
+      put_domain_permissions_policy_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("policyRevision") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("policyDocument") => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type put_domain_permissions_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1838,20 +1638,24 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      domain_description() :: %{
-        "arn" => String.t() | atom(),
-        "assetSizeBytes" => float(),
-        "createdTime" => non_neg_integer(),
-        "encryptionKey" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "repositoryCount" => integer(),
-        "s3BucketArn" => String.t() | atom(),
-        "status" => list(any())
+      create_package_group_result() :: %{
+        "packageGroup" => package_group_description()
       }
 
   """
-  @type domain_description() :: %{(String.t() | atom()) => any()}
+  @type create_package_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sub_package_groups_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "packageGroups" => list(package_group_summary())
+      }
+
+  """
+  @type list_sub_package_groups_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1873,199 +1677,13 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      delete_package_result() :: %{
-        "deletedPackage" => package_summary()
+      delete_package_versions_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
       }
 
   """
-  @type delete_package_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      repository_external_connection_info() :: %{
-        "externalConnectionName" => String.t() | atom(),
-        "packageFormat" => list(any()),
-        "status" => list(any())
-      }
-
-  """
-  @type repository_external_connection_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_repository_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("domainOwner") => String.t() | atom(),
-        optional("upstreams") => list(upstream_repository()),
-        required("domain") => String.t() | atom(),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type update_repository_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_result() :: %{}
-
-  """
-  @type tag_resource_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_repositories_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("repositoryPrefix") => String.t() | atom()
-      }
-
-  """
-  @type list_repositories_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_version_summary() :: %{
-        "origin" => package_version_origin(),
-        "revision" => String.t() | atom(),
-        "status" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type package_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_package_group_origin_configuration_result() :: %{
-        "allowedRepositoryUpdates" => map(),
-        "packageGroup" => package_group_description()
-      }
-
-  """
-  @type update_package_group_origin_configuration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_domain_result() :: %{
-        "domain" => domain_description()
-      }
-
-  """
-  @type describe_domain_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_package_version_asset_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("namespace") => String.t() | atom(),
-        optional("packageVersionRevision") => String.t() | atom(),
-        required("asset") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("packageVersion") => String.t() | atom(),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type get_package_version_asset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_repository_result() :: %{
-        "repository" => repository_description()
-      }
-
-  """
-  @type create_repository_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_version_request() :: %{
-        optional("domainOwner") => String.t() | atom(),
-        optional("namespace") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("packageVersion") => String.t() | atom(),
-        required("repository") => String.t() | atom()
-      }
-
-  """
-  @type describe_package_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      repository_description() :: %{
-        "administratorAccount" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainName" => String.t() | atom(),
-        "domainOwner" => String.t() | atom(),
-        "externalConnections" => list(repository_external_connection_info()),
-        "name" => String.t() | atom(),
-        "upstreams" => list(upstream_repository_info())
-      }
-
-  """
-  @type repository_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_repository_permissions_policy_result() :: %{
-        "policy" => resource_policy()
-      }
-
-  """
-  @type get_repository_permissions_policy_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_version_error() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type package_version_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_package_origin_configuration_result() :: %{
-        "originConfiguration" => package_origin_configuration()
-      }
-
-  """
-  @type put_package_origin_configuration_result() :: %{(String.t() | atom()) => any()}
+  @type delete_package_versions_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2085,34 +1703,12 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      package_origin_restrictions() :: %{
-        "publish" => list(any()),
-        "upstream" => list(any())
+      describe_package_version_result() :: %{
+        "packageVersion" => package_version_description()
       }
 
   """
-  @type package_origin_restrictions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      copy_package_versions_request() :: %{
-        optional("allowOverwrite") => boolean(),
-        optional("domainOwner") => String.t() | atom(),
-        optional("includeFromUpstream") => boolean(),
-        optional("namespace") => String.t() | atom(),
-        optional("versionRevisions") => map(),
-        optional("versions") => list(String.t() | atom()),
-        required("destinationRepository") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("format") => list(any()),
-        required("package") => String.t() | atom(),
-        required("sourceRepository") => String.t() | atom()
-      }
-
-  """
-  @type copy_package_versions_request() :: %{(String.t() | atom()) => any()}
+  @type describe_package_version_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2138,12 +1734,122 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      update_repository_result() :: %{
-        "repository" => repository_description()
+      disassociate_external_connection_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("externalConnection") => String.t() | atom(),
+        required("repository") => String.t() | atom()
       }
 
   """
-  @type update_repository_result() :: %{(String.t() | atom()) => any()}
+  @type disassociate_external_connection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_associated_package_group_result() :: %{
+        "associationType" => list(any()),
+        "packageGroup" => package_group_description()
+      }
+
+  """
+  @type get_associated_package_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_group_origin_configuration() :: %{
+        "restrictions" => map()
+      }
+
+  """
+  @type package_group_origin_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_result() :: %{}
+
+  """
+  @type untag_resource_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      repository_summary() :: %{
+        "administratorAccount" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "domainOwner" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type repository_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_group_description() :: %{
+        "arn" => String.t() | atom(),
+        "contactInfo" => String.t() | atom(),
+        "createdTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainName" => String.t() | atom(),
+        "domainOwner" => String.t() | atom(),
+        "originConfiguration" => package_group_origin_configuration(),
+        "parent" => package_group_reference(),
+        "pattern" => String.t() | atom()
+      }
+
+  """
+  @type package_group_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdTime" => non_neg_integer(),
+        "encryptionKey" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type domain_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      license_info() :: %{
+        "name" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type license_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upstream_repository_info() :: %{
+        "repositoryName" => String.t() | atom()
+      }
+
+  """
+  @type upstream_repository_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2162,389 +1868,683 @@ defmodule AWS.Codeartifact do
 
   ## Example:
 
-      package_group_origin_configuration() :: %{
-        "restrictions" => map()
+      list_associated_packages_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "packages" => list(associated_package())
       }
 
   """
-  @type package_group_origin_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_associated_packages_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_repository_request() :: %{
+      describe_package_group_request() :: %{
         optional("domainOwner") => String.t() | atom(),
         required("domain") => String.t() | atom(),
+        required("packageGroup") => String.t() | atom()
+      }
+
+  """
+  @type describe_package_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        required("domain") => String.t() | atom()
+      }
+
+  """
+  @type delete_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_repository_endpoint_result() :: %{
+        "repositoryEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type get_repository_endpoint_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      repository_external_connection_info() :: %{
+        "externalConnectionName" => String.t() | atom(),
+        "packageFormat" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type repository_external_connection_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dispose_package_versions_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("expectedStatus") => list(any()),
+        optional("namespace") => String.t() | atom(),
+        optional("versionRevisions") => map(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("repository") => String.t() | atom(),
+        required("versions") => list(String.t() | atom())
+      }
+
+  """
+  @type dispose_package_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_repositories_in_domain_result() :: %{
+        "nextToken" => String.t() | atom(),
+        "repositories" => list(repository_summary())
+      }
+
+  """
+  @type list_repositories_in_domain_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_package_version_readme_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("format") => list(any()),
+        required("package") => String.t() | atom(),
+        required("packageVersion") => String.t() | atom(),
         required("repository") => String.t() | atom()
       }
 
   """
-  @type describe_repository_request() :: %{(String.t() | atom()) => any()}
+  @type get_package_version_readme_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associated_package() :: %{
+        "associationType" => list(any()),
+        "format" => list(any()),
+        "namespace" => String.t() | atom(),
+        "package" => String.t() | atom()
+      }
+
+  """
+  @type associated_package() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_group_origin_restriction() :: %{
+        "effectiveMode" => list(any()),
+        "inheritedFrom" => package_group_reference(),
+        "mode" => list(any()),
+        "repositoriesCount" => float()
+      }
+
+  """
+  @type package_group_origin_restriction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_result() :: %{
+        "domains" => list(domain_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domains_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_policy() :: %{
+        "document" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_repository_result() :: %{
+        "repository" => repository_description()
+      }
+
+  """
+  @type describe_repository_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_repository_result() :: %{
+        "repository" => repository_description()
+      }
+
+  """
+  @type delete_repository_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorization_token_result() :: %{
+        "authorizationToken" => String.t() | atom(),
+        "expiration" => non_neg_integer()
+      }
+
+  """
+  @type get_authorization_token_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upstream_repository() :: %{
+        "repositoryName" => String.t() | atom()
+      }
+
+  """
+  @type upstream_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dispose_package_versions_result() :: %{
+        "failedVersions" => map(),
+        "successfulVersions" => map()
+      }
+
+  """
+  @type dispose_package_versions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_permissions_policy_result() :: %{
+        "policy" => resource_policy()
+      }
+
+  """
+  @type delete_domain_permissions_policy_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_groups_request() :: %{
+        optional("domainOwner") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => String.t() | atom(),
+        required("domain") => String.t() | atom()
+      }
+
+  """
+  @type list_package_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_package_origin_configuration_result() :: %{
+        "originConfiguration" => package_origin_configuration()
+      }
+
+  """
+  @type put_package_origin_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_origin_restrictions() :: %{
+        "publish" => list(any()),
+        "upstream" => list(any())
+      }
+
+  """
+  @type package_origin_restrictions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_version_assets_result() :: %{
+        "assets" => list(asset_summary()),
+        "format" => list(any()),
+        "namespace" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "package" => String.t() | atom(),
+        "version" => String.t() | atom(),
+        "versionRevision" => String.t() | atom()
+      }
+
+  """
+  @type list_package_version_assets_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_result() :: %{}
+
+  """
+  @type tag_resource_result() :: %{}
 
   @type associate_external_connection_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type copy_package_versions_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_domain_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_package_group_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_repository_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_domain_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_domain_permissions_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_package_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_package_group_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_package_versions_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_repository_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_repository_permissions_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_domain_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_package_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_package_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_package_version_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_repository_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_external_connection_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type dispose_package_versions_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_associated_package_group_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_authorization_token_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_domain_permissions_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_package_version_asset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_package_version_readme_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_repository_endpoint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_repository_permissions_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_allowed_repositories_for_group_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_associated_packages_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_domains_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_package_groups_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_package_version_assets_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_package_version_dependencies_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_package_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_packages_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_repositories_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_repositories_in_domain_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_sub_package_groups_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type publish_package_version_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_domain_permissions_policy_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_package_origin_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type put_repository_permissions_policy_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_package_group_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_package_group_origin_configuration_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_package_versions_status_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_repository_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

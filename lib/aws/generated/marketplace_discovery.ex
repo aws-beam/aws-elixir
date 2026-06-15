@@ -16,510 +16,13 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      eks_add_on_fulfillment_option() :: %{
-        "awsSupportedServices" => list(aws_supported_service()),
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionName" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "operatingSystems" => list(eks_add_on_operating_system()),
-        "releaseNotes" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type eks_add_on_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_artifact() :: %{
-        "dataClassification" => [String.t() | atom()],
-        "description" => [String.t() | atom()],
-        "resourceArn" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type data_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_facets_input() :: %{
-        optional("facetTypes") => list(list(any())()),
-        optional("filters") => list(search_filter()),
-        optional("nextToken") => String.t() | atom(),
-        optional("searchText") => String.t() | atom()
-      }
-
-  """
-  @type search_facets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pricing_unit() :: %{
-        "displayName" => String.t() | atom(),
-        "pricingUnitType" => list(any())
-      }
-
-  """
-  @type pricing_unit() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_fulfillment_options_output() :: %{
-        "fulfillmentOptions" => list(list()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_fulfillment_options_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_fulfillment_option() :: %{
-        "awsSupportedServices" => list(aws_supported_service()),
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionName" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "operatingSystems" => list(container_operating_system()),
-        "releaseNotes" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type container_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fulfillment_option_summary() :: %{
-        "displayName" => String.t() | atom(),
-        "fulfillmentOptionType" => list(any())
-      }
-
-  """
-  @type fulfillment_option_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_option_badge() :: %{
-        "badgeType" => list(any()),
-        "displayName" => String.t() | atom()
-      }
-
-  """
-  @type purchase_option_badge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      use_case() :: %{
-        "description" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type use_case() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_formation_fulfillment_option() :: %{
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionName" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "releaseNotes" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type cloud_formation_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      selector() :: %{
-        "type" => list(any()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_listing_input() :: %{
-        required("listingId") => String.t() | atom()
-      }
-
-  """
-  @type get_listing_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_facets_output() :: %{
-        "listingFacets" => map(),
-        "nextToken" => String.t() | atom(),
-        "totalResults" => float()
-      }
-
-  """
-  @type search_facets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pricing_model() :: %{
-        "displayName" => String.t() | atom(),
-        "pricingModelType" => list(any())
-      }
-
-  """
-  @type pricing_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listing_summary_associated_entity() :: %{
-        "product" => product_information()
-      }
-
-  """
-  @type listing_summary_associated_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      support_term() :: %{
-        "id" => String.t() | atom(),
-        "refundPolicy" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type support_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      renewal_term() :: %{
-        "id" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type renewal_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_purchase_options_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "purchaseOptions" => list(purchase_option_summary())
-      }
-
-  """
-  @type list_purchase_options_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      saas_fulfillment_option() :: %{
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentUrl" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type saas_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_fulfillment_option() :: %{
-        "awsSupportedServices" => list(aws_supported_service()),
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type api_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listing_associated_entity() :: %{
-        "offer" => offer_information(),
-        "product" => product_information()
-      }
-
-  """
-  @type listing_associated_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_item() :: %{
-        "type" => list(any()),
-        "url" => String.t() | atom(),
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type document_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      use_case_entry() :: %{
-        "useCase" => use_case()
-      }
-
-  """
-  @type use_case_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listing_badge() :: %{
-        "badgeType" => list(any()),
-        "displayName" => String.t() | atom()
-      }
-
-  """
-  @type listing_badge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_filter() :: %{
-        "filterType" => list(any()),
-        "filterValues" => list(String.t() | atom())
-      }
-
-  """
-  @type search_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listing_facet() :: %{
-        "count" => float(),
-        "displayName" => String.t() | atom(),
-        "parent" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type listing_facet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_operating_system() :: %{
-        "operatingSystemFamilyName" => [String.t() | atom()],
-        "operatingSystemName" => [String.t() | atom()]
-      }
-
-  """
-  @type container_operating_system() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_offer_set_input() :: %{
-        required("offerSetId") => String.t() | atom()
-      }
-
-  """
-  @type get_offer_set_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_supported_service() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "supportedServiceType" => [String.t() | atom()]
-      }
-
-  """
-  @type aws_supported_service() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_option_summary() :: %{
-        "associatedEntities" => list(purchase_option_associated_entity()),
-        "availableFromTime" => [non_neg_integer()],
-        "badges" => list(purchase_option_badge()),
-        "catalog" => String.t() | atom(),
-        "expirationTime" => [non_neg_integer()],
-        "purchaseOptionId" => String.t() | atom(),
-        "purchaseOptionName" => String.t() | atom(),
-        "purchaseOptionType" => list(any()),
+      offer_set_information() :: %{
+        "offerSetId" => String.t() | atom(),
         "sellerOfRecord" => seller_information()
       }
 
   """
-  @type purchase_option_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      usage_based_pricing_term() :: %{
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "rateCards" => list(usage_based_rate_card_item()),
-        "type" => list(any())
-      }
-
-  """
-  @type usage_based_pricing_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dimension_label() :: %{
-        "displayName" => String.t() | atom(),
-        "labelType" => list(any()),
-        "labelValue" => String.t() | atom()
-      }
-
-  """
-  @type dimension_label() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_listings_output() :: %{
-        "listingSummaries" => list(listing_summary()),
-        "nextToken" => String.t() | atom(),
-        "totalResults" => float()
-      }
-
-  """
-  @type search_listings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      product_information() :: %{
-        "manufacturer" => seller_information(),
-        "productId" => String.t() | atom(),
-        "productName" => String.t() | atom()
-      }
-
-  """
-  @type product_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      byol_pricing_term() :: %{
-        "id" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type byol_pricing_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recurring_payment_term() :: %{
-        "billingPeriod" => list(any()),
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "price" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      helm_fulfillment_option() :: %{
-        "awsSupportedServices" => list(aws_supported_service()),
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionName" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "operatingSystems" => list(helm_operating_system()),
-        "releaseNotes" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type helm_fulfillment_option() :: %{(String.t() | atom()) => any()}
+  @type offer_set_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,6 +44,103 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      get_offer_output() :: %{
+        "agreementProposalId" => String.t() | atom(),
+        "associatedEntities" => list(offer_associated_entity()),
+        "availableFromTime" => [non_neg_integer()],
+        "badges" => list(purchase_option_badge()),
+        "catalog" => String.t() | atom(),
+        "expirationTime" => [non_neg_integer()],
+        "offerId" => String.t() | atom(),
+        "offerName" => String.t() | atom(),
+        "pricingModel" => pricing_model(),
+        "replacementAgreementId" => String.t() | atom(),
+        "sellerOfRecord" => seller_information()
+      }
+
+  """
+  @type get_offer_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_associated_entity() :: %{
+        "offer" => offer_information(),
+        "product" => product_information()
+      }
+
+  """
+  @type listing_associated_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_information() :: %{
+        "offerId" => String.t() | atom(),
+        "offerName" => String.t() | atom(),
+        "sellerOfRecord" => seller_information()
+      }
+
+  """
+  @type offer_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      selector() :: %{
+        "type" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      saas_fulfillment_option() :: %{
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentUrl" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type saas_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configurable_upfront_rate_card_item() :: %{
+        "constraints" => constraints(),
+        "rateCard" => list(rate_card_item()),
+        "selector" => selector()
+      }
+
+  """
+  @type configurable_upfront_rate_card_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      usage_based_rate_card_item() :: %{
+        "rateCard" => list(rate_card_item())
+      }
+
+  """
+  @type usage_based_rate_card_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       legal_term() :: %{
         "documents" => list(document_item()),
         "id" => String.t() | atom(),
@@ -554,26 +154,18 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      payment_schedule_term() :: %{
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "schedule" => list(schedule_item()),
-        "type" => list(any())
+      sage_maker_model_fulfillment_option() :: %{
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "recommendation" => sage_maker_model_recommendation(),
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
       }
 
   """
-  @type payment_schedule_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      usage_based_rate_card_item() :: %{
-        "rateCard" => list(rate_card_item())
-      }
-
-  """
-  @type usage_based_rate_card_item() :: %{(String.t() | atom()) => any()}
+  @type sage_maker_model_fulfillment_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,43 +187,40 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      amazon_machine_image_fulfillment_option() :: %{
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionName" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "operatingSystems" => list(amazon_machine_image_operating_system()),
-        "recommendation" => amazon_machine_image_recommendation(),
-        "releaseNotes" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type amazon_machine_image_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      review_summary() :: %{
-        "reviewSourceSummaries" => list(review_source_summary())
-      }
-
-  """
-  @type review_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_offer_terms_output() :: %{
+      search_facets_output() :: %{
+        "listingFacets" => map(),
         "nextToken" => String.t() | atom(),
-        "offerTerms" => list(list())
+        "totalResults" => float()
       }
 
   """
-  @type get_offer_terms_output() :: %{(String.t() | atom()) => any()}
+  @type search_facets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recurring_payment_term() :: %{
+        "billingPeriod" => list(any()),
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "price" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -660,53 +249,294 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      internal_server_exception() :: %{
+      access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      professional_services_fulfillment_option() :: %{
+      fulfillment_option_summary() :: %{
+        "displayName" => String.t() | atom(),
+        "fulfillmentOptionType" => list(any())
+      }
+
+  """
+  @type fulfillment_option_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_exchange_fulfillment_option() :: %{
+        "dataArtifacts" => list(data_artifact()),
         "fulfillmentOptionDisplayName" => [String.t() | atom()],
         "fulfillmentOptionId" => [String.t() | atom()],
         "fulfillmentOptionType" => list(any())
       }
 
   """
-  @type professional_services_fulfillment_option() :: %{(String.t() | atom()) => any()}
+  @type data_exchange_fulfillment_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      helm_operating_system() :: %{
+      schedule_item() :: %{
+        "chargeAmount" => String.t() | atom(),
+        "chargeDate" => [non_neg_integer()]
+      }
+
+  """
+  @type schedule_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variable_payment_term() :: %{
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "maxTotalChargeAmount" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type variable_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_add_on_fulfillment_option() :: %{
+        "awsSupportedServices" => list(aws_supported_service()),
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionName" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "operatingSystems" => list(eks_add_on_operating_system()),
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type eks_add_on_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_add_on_operating_system() :: %{
         "operatingSystemFamilyName" => [String.t() | atom()],
         "operatingSystemName" => [String.t() | atom()]
       }
 
   """
-  @type helm_operating_system() :: %{(String.t() | atom()) => any()}
+  @type eks_add_on_operating_system() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      fixed_upfront_pricing_term() :: %{
-        "currencyCode" => String.t() | atom(),
+      constraints() :: %{
+        "multipleDimensionSelection" => list(any()),
+        "quantityConfiguration" => list(any())
+      }
+
+  """
+  @type constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      helm_fulfillment_option() :: %{
+        "awsSupportedServices" => list(aws_supported_service()),
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionName" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "operatingSystems" => list(helm_operating_system()),
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type helm_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pricing_model() :: %{
+        "displayName" => String.t() | atom(),
+        "pricingModelType" => list(any())
+      }
+
+  """
+  @type pricing_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer_associated_entity() :: %{
+        "offerSet" => offer_set_information(),
+        "product" => product_information()
+      }
+
+  """
+  @type offer_associated_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      free_trial_pricing_term() :: %{
         "duration" => String.t() | atom(),
         "grants" => list(grant_item()),
         "id" => String.t() | atom(),
-        "price" => String.t() | atom(),
         "type" => list(any())
       }
 
   """
-  @type fixed_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
+  @type free_trial_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_option_filter() :: %{
+        "filterType" => list(any()),
+        "filterValues" => list(String.t() | atom())
+      }
+
+  """
+  @type purchase_option_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      seller_information() :: %{
+        "displayName" => String.t() | atom(),
+        "sellerProfileId" => String.t() | atom()
+      }
+
+  """
+  @type seller_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      promotional_embedded_video() :: %{
+        "description" => String.t() | atom(),
+        "preview" => String.t() | atom(),
+        "thumbnail" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type promotional_embedded_video() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_algorithm_recommendation() :: %{
+        "recommendedBatchTransformInstanceType" => [String.t() | atom()],
+        "recommendedRealtimeInferenceInstanceType" => [String.t() | atom()],
+        "recommendedTrainingInstanceType" => [String.t() | atom()]
+      }
+
+  """
+  @type sage_maker_algorithm_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fulfillment_options_output() :: %{
+        "fulfillmentOptions" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_fulfillment_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_summary_associated_entity() :: %{
+        "product" => product_information()
+      }
+
+  """
+  @type listing_summary_associated_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_formation_fulfillment_option() :: %{
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionName" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type cloud_formation_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_supported_service() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "supportedServiceType" => [String.t() | atom()]
+      }
+
+  """
+  @type aws_supported_service() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_listings_output() :: %{
+        "listingSummaries" => list(listing_summary()),
+        "nextToken" => String.t() | atom(),
+        "totalResults" => float()
+      }
+
+  """
+  @type search_listings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,250 +561,6 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      list_fulfillment_options_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("productId") => String.t() | atom()
-      }
-
-  """
-  @type list_fulfillment_options_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      constraints() :: %{
-        "multipleDimensionSelection" => list(any()),
-        "quantityConfiguration" => list(any())
-      }
-
-  """
-  @type constraints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      review_source_summary() :: %{
-        "averageRating" => String.t() | atom(),
-        "sourceId" => list(any()),
-        "sourceName" => String.t() | atom(),
-        "sourceUrl" => String.t() | atom(),
-        "totalReviews" => float()
-      }
-
-  """
-  @type review_source_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_offer_output() :: %{
-        "agreementProposalId" => String.t() | atom(),
-        "associatedEntities" => list(offer_associated_entity()),
-        "availableFromTime" => [non_neg_integer()],
-        "badges" => list(purchase_option_badge()),
-        "catalog" => String.t() | atom(),
-        "expirationTime" => [non_neg_integer()],
-        "offerId" => String.t() | atom(),
-        "offerName" => String.t() | atom(),
-        "pricingModel" => pricing_model(),
-        "replacementAgreementId" => String.t() | atom(),
-        "sellerOfRecord" => seller_information()
-      }
-
-  """
-  @type get_offer_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_offer_input() :: %{
-        required("offerId") => String.t() | atom()
-      }
-
-  """
-  @type get_offer_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_exchange_fulfillment_option() :: %{
-        "dataArtifacts" => list(data_artifact()),
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any())
-      }
-
-  """
-  @type data_exchange_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configurable_upfront_rate_card_item() :: %{
-        "constraints" => constraints(),
-        "rateCard" => list(rate_card_item()),
-        "selector" => selector()
-      }
-
-  """
-  @type configurable_upfront_rate_card_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variable_payment_term() :: %{
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "maxTotalChargeAmount" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type variable_payment_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sage_maker_algorithm_recommendation() :: %{
-        "recommendedBatchTransformInstanceType" => [String.t() | atom()],
-        "recommendedRealtimeInferenceInstanceType" => [String.t() | atom()],
-        "recommendedTrainingInstanceType" => [String.t() | atom()]
-      }
-
-  """
-  @type sage_maker_algorithm_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schedule_item() :: %{
-        "chargeAmount" => String.t() | atom(),
-        "chargeDate" => [non_neg_integer()]
-      }
-
-  """
-  @type schedule_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sage_maker_algorithm_fulfillment_option() :: %{
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "recommendation" => sage_maker_algorithm_recommendation(),
-        "releaseNotes" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
-      }
-
-  """
-  @type sage_maker_algorithm_fulfillment_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_option_associated_entity() :: %{
-        "offer" => offer_information(),
-        "offerSet" => offer_set_information(),
-        "product" => product_information()
-      }
-
-  """
-  @type purchase_option_associated_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_listing_output() :: %{
-        "associatedEntities" => list(listing_associated_entity()),
-        "badges" => list(listing_badge()),
-        "catalog" => String.t() | atom(),
-        "categories" => list(category()),
-        "fulfillmentOptionSummaries" => list(fulfillment_option_summary()),
-        "highlights" => list(String.t() | atom()),
-        "integrationGuide" => String.t() | atom(),
-        "listingId" => String.t() | atom(),
-        "listingName" => String.t() | atom(),
-        "logoThumbnailUrl" => String.t() | atom(),
-        "longDescription" => String.t() | atom(),
-        "pricingModels" => list(pricing_model()),
-        "pricingUnits" => list(pricing_unit()),
-        "promotionalMedia" => list(list()),
-        "publisher" => seller_information(),
-        "resources" => list(resource()),
-        "reviewSummary" => review_summary(),
-        "sellerEngagements" => list(seller_engagement()),
-        "shortDescription" => String.t() | atom(),
-        "useCases" => list(use_case_entry())
-      }
-
-  """
-  @type get_listing_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      seller_information() :: %{
-        "displayName" => String.t() | atom(),
-        "sellerProfileId" => String.t() | atom()
-      }
-
-  """
-  @type seller_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       sage_maker_model_recommendation() :: %{
         "recommendedBatchTransformInstanceType" => [String.t() | atom()],
         "recommendedRealtimeInferenceInstanceType" => [String.t() | atom()]
@@ -987,43 +573,87 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      sage_maker_model_fulfillment_option() :: %{
-        "fulfillmentOptionDisplayName" => [String.t() | atom()],
-        "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "recommendation" => sage_maker_model_recommendation(),
-        "releaseNotes" => [String.t() | atom()],
-        "usageInstructions" => [String.t() | atom()]
+      usage_based_pricing_term() :: %{
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rateCards" => list(usage_based_rate_card_item()),
+        "type" => list(any())
       }
 
   """
-  @type sage_maker_model_fulfillment_option() :: %{(String.t() | atom()) => any()}
+  @type usage_based_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_offer_terms_input() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        required("offerId") => String.t() | atom()
+      product_information() :: %{
+        "manufacturer" => seller_information(),
+        "productId" => String.t() | atom(),
+        "productName" => String.t() | atom()
       }
 
   """
-  @type get_offer_terms_input() :: %{(String.t() | atom()) => any()}
+  @type product_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      category() :: %{
-        "categoryId" => String.t() | atom(),
-        "displayName" => String.t() | atom()
+      offer_set_associated_entity() :: %{
+        "offer" => offer_information(),
+        "product" => product_information()
       }
 
   """
-  @type category() :: %{(String.t() | atom()) => any()}
+  @type offer_set_associated_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_offer_terms_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "offerTerms" => list(list())
+      }
+
+  """
+  @type get_offer_terms_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_machine_image_operating_system() :: %{
+        "operatingSystemFamilyName" => [String.t() | atom()],
+        "operatingSystemName" => [String.t() | atom()],
+        "operatingSystemVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_machine_image_operating_system() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1042,74 +672,30 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      free_trial_pricing_term() :: %{
-        "duration" => String.t() | atom(),
-        "grants" => list(grant_item()),
-        "id" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type free_trial_pricing_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validity_term() :: %{
-        "agreementDuration" => String.t() | atom(),
-        "agreementEndDate" => [non_neg_integer()],
-        "agreementStartDate" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type validity_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      promotional_embedded_image() :: %{
-        "description" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type promotional_embedded_image() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_image_builder_component_fulfillment_option() :: %{
+      api_fulfillment_option() :: %{
         "awsSupportedServices" => list(aws_supported_service()),
         "fulfillmentOptionDisplayName" => [String.t() | atom()],
         "fulfillmentOptionId" => [String.t() | atom()],
-        "fulfillmentOptionName" => [String.t() | atom()],
         "fulfillmentOptionType" => list(any()),
-        "fulfillmentOptionVersion" => [String.t() | atom()],
-        "operatingSystems" => list(container_operating_system()),
-        "releaseNotes" => [String.t() | atom()],
         "usageInstructions" => [String.t() | atom()]
       }
 
   """
-  @type ec2_image_builder_component_fulfillment_option() :: %{(String.t() | atom()) => any()}
+  @type api_fulfillment_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      offer_associated_entity() :: %{
-        "offerSet" => offer_set_information(),
-        "product" => product_information()
+      configurable_upfront_pricing_term() :: %{
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rateCards" => list(configurable_upfront_rate_card_item()),
+        "type" => list(any())
       }
 
   """
-  @type offer_associated_entity() :: %{(String.t() | atom()) => any()}
+  @type configurable_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1155,26 +741,456 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      amazon_machine_image_operating_system() :: %{
-        "operatingSystemFamilyName" => [String.t() | atom()],
-        "operatingSystemName" => [String.t() | atom()],
-        "operatingSystemVersion" => [String.t() | atom()]
+      purchase_option_associated_entity() :: %{
+        "offer" => offer_information(),
+        "offerSet" => offer_set_information(),
+        "product" => product_information()
       }
 
   """
-  @type amazon_machine_image_operating_system() :: %{(String.t() | atom()) => any()}
+  @type purchase_option_associated_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      offer_set_information() :: %{
-        "offerSetId" => String.t() | atom(),
-        "sellerOfRecord" => seller_information()
+      get_offer_set_input() :: %{
+        required("offerSetId") => String.t() | atom()
       }
 
   """
-  @type offer_set_information() :: %{(String.t() | atom()) => any()}
+  @type get_offer_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      review_summary() :: %{
+        "reviewSourceSummaries" => list(review_source_summary())
+      }
+
+  """
+  @type review_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_offer_input() :: %{
+        required("offerId") => String.t() | atom()
+      }
+
+  """
+  @type get_offer_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_machine_image_fulfillment_option() :: %{
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionName" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "operatingSystems" => list(amazon_machine_image_operating_system()),
+        "recommendation" => amazon_machine_image_recommendation(),
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_machine_image_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_algorithm_fulfillment_option() :: %{
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "recommendation" => sage_maker_algorithm_recommendation(),
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type sage_maker_algorithm_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      professional_services_fulfillment_option() :: %{
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any())
+      }
+
+  """
+  @type professional_services_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_item() :: %{
+        "type" => list(any()),
+        "url" => String.t() | atom(),
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type document_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dimension_label() :: %{
+        "displayName" => String.t() | atom(),
+        "labelType" => list(any()),
+        "labelValue" => String.t() | atom()
+      }
+
+  """
+  @type dimension_label() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_product_input() :: %{
+        required("productId") => String.t() | atom()
+      }
+
+  """
+  @type get_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_filter() :: %{
+        "filterType" => list(any()),
+        "filterValues" => list(String.t() | atom())
+      }
+
+  """
+  @type search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_fulfillment_option() :: %{
+        "awsSupportedServices" => list(aws_supported_service()),
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionName" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "operatingSystems" => list(container_operating_system()),
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type container_fulfillment_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      review_source_summary() :: %{
+        "averageRating" => String.t() | atom(),
+        "sourceId" => list(any()),
+        "sourceName" => String.t() | atom(),
+        "sourceUrl" => String.t() | atom(),
+        "totalReviews" => float()
+      }
+
+  """
+  @type review_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      byol_pricing_term() :: %{
+        "id" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type byol_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validity_term() :: %{
+        "agreementDuration" => String.t() | atom(),
+        "agreementEndDate" => [non_neg_integer()],
+        "agreementStartDate" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type validity_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fixed_upfront_pricing_term() :: %{
+        "currencyCode" => String.t() | atom(),
+        "duration" => String.t() | atom(),
+        "grants" => list(grant_item()),
+        "id" => String.t() | atom(),
+        "price" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type fixed_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      renewal_term() :: %{
+        "id" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type renewal_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      helm_operating_system() :: %{
+        "operatingSystemFamilyName" => [String.t() | atom()],
+        "operatingSystemName" => [String.t() | atom()]
+      }
+
+  """
+  @type helm_operating_system() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_machine_image_recommendation() :: %{
+        "instanceType" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_machine_image_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      support_term() :: %{
+        "id" => String.t() | atom(),
+        "refundPolicy" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type support_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_purchase_options_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "purchaseOptions" => list(purchase_option_summary())
+      }
+
+  """
+  @type list_purchase_options_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_facet() :: %{
+        "count" => float(),
+        "displayName" => String.t() | atom(),
+        "parent" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type listing_facet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_operating_system() :: %{
+        "operatingSystemFamilyName" => [String.t() | atom()],
+        "operatingSystemName" => [String.t() | atom()]
+      }
+
+  """
+  @type container_operating_system() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_artifact() :: %{
+        "dataClassification" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "resourceArn" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type data_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_facets_input() :: %{
+        optional("facetTypes") => list(list(any())()),
+        optional("filters") => list(search_filter()),
+        optional("nextToken") => String.t() | atom(),
+        optional("searchText") => String.t() | atom()
+      }
+
+  """
+  @type search_facets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_schedule_term() :: %{
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "schedule" => list(schedule_item()),
+        "type" => list(any())
+      }
+
+  """
+  @type payment_schedule_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fulfillment_options_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("productId") => String.t() | atom()
+      }
+
+  """
+  @type list_fulfillment_options_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      promotional_embedded_image() :: %{
+        "description" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type promotional_embedded_image() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      use_case_entry() :: %{
+        "useCase" => use_case()
+      }
+
+  """
+  @type use_case_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_option_badge() :: %{
+        "badgeType" => list(any()),
+        "displayName" => String.t() | atom()
+      }
+
+  """
+  @type purchase_option_badge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      category() :: %{
+        "categoryId" => String.t() | atom(),
+        "displayName" => String.t() | atom()
+      }
+
+  """
+  @type category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_badge() :: %{
+        "badgeType" => list(any()),
+        "displayName" => String.t() | atom()
+      }
+
+  """
+  @type listing_badge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "contentType" => list(any()),
+        "displayName" => String.t() | atom(),
+        "resourceType" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_image_builder_component_fulfillment_option() :: %{
+        "awsSupportedServices" => list(aws_supported_service()),
+        "fulfillmentOptionDisplayName" => [String.t() | atom()],
+        "fulfillmentOptionId" => [String.t() | atom()],
+        "fulfillmentOptionName" => [String.t() | atom()],
+        "fulfillmentOptionType" => list(any()),
+        "fulfillmentOptionVersion" => [String.t() | atom()],
+        "operatingSystems" => list(container_operating_system()),
+        "releaseNotes" => [String.t() | atom()],
+        "usageInstructions" => [String.t() | atom()]
+      }
+
+  """
+  @type ec2_image_builder_component_fulfillment_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1193,115 +1209,99 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
-      get_product_input() :: %{
-        required("productId") => String.t() | atom()
-      }
-
-  """
-  @type get_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      promotional_embedded_video() :: %{
+      use_case() :: %{
         "description" => String.t() | atom(),
-        "preview" => String.t() | atom(),
-        "thumbnail" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type promotional_embedded_video() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      offer_set_associated_entity() :: %{
-        "offer" => offer_information(),
-        "product" => product_information()
-      }
-
-  """
-  @type offer_set_associated_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amazon_machine_image_recommendation() :: %{
-        "instanceType" => [String.t() | atom()]
-      }
-
-  """
-  @type amazon_machine_image_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eks_add_on_operating_system() :: %{
-        "operatingSystemFamilyName" => [String.t() | atom()],
-        "operatingSystemName" => [String.t() | atom()]
-      }
-
-  """
-  @type eks_add_on_operating_system() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_option_filter() :: %{
-        "filterType" => list(any()),
-        "filterValues" => list(String.t() | atom())
-      }
-
-  """
-  @type purchase_option_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configurable_upfront_pricing_term() :: %{
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "rateCards" => list(configurable_upfront_rate_card_item()),
-        "type" => list(any())
-      }
-
-  """
-  @type configurable_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      offer_information() :: %{
-        "offerId" => String.t() | atom(),
-        "offerName" => String.t() | atom(),
-        "sellerOfRecord" => seller_information()
-      }
-
-  """
-  @type offer_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "contentType" => list(any()),
         "displayName" => String.t() | atom(),
-        "resourceType" => list(any()),
         "value" => String.t() | atom()
       }
 
   """
-  @type resource() :: %{(String.t() | atom()) => any()}
+  @type use_case() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_option_summary() :: %{
+        "associatedEntities" => list(purchase_option_associated_entity()),
+        "availableFromTime" => [non_neg_integer()],
+        "badges" => list(purchase_option_badge()),
+        "catalog" => String.t() | atom(),
+        "expirationTime" => [non_neg_integer()],
+        "purchaseOptionId" => String.t() | atom(),
+        "purchaseOptionName" => String.t() | atom(),
+        "purchaseOptionType" => list(any()),
+        "sellerOfRecord" => seller_information()
+      }
+
+  """
+  @type purchase_option_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_listing_output() :: %{
+        "associatedEntities" => list(listing_associated_entity()),
+        "badges" => list(listing_badge()),
+        "catalog" => String.t() | atom(),
+        "categories" => list(category()),
+        "fulfillmentOptionSummaries" => list(fulfillment_option_summary()),
+        "highlights" => list(String.t() | atom()),
+        "integrationGuide" => String.t() | atom(),
+        "listingId" => String.t() | atom(),
+        "listingName" => String.t() | atom(),
+        "logoThumbnailUrl" => String.t() | atom(),
+        "longDescription" => String.t() | atom(),
+        "pricingModels" => list(pricing_model()),
+        "pricingUnits" => list(pricing_unit()),
+        "promotionalMedia" => list(list()),
+        "publisher" => seller_information(),
+        "resources" => list(resource()),
+        "reviewSummary" => review_summary(),
+        "sellerEngagements" => list(seller_engagement()),
+        "shortDescription" => String.t() | atom(),
+        "useCases" => list(use_case_entry())
+      }
+
+  """
+  @type get_listing_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pricing_unit() :: %{
+        "displayName" => String.t() | atom(),
+        "pricingUnitType" => list(any())
+      }
+
+  """
+  @type pricing_unit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_offer_terms_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("offerId") => String.t() | atom()
+      }
+
+  """
+  @type get_offer_terms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_listing_input() :: %{
+        required("listingId") => String.t() | atom()
+      }
+
+  """
+  @type get_listing_input() :: %{(String.t() | atom()) => any()}
 
   @type get_listing_errors() :: resource_not_found_exception()
 

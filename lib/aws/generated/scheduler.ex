@@ -20,10 +20,222 @@ defmodule AWS.Scheduler do
 
   ## Example:
 
-      delete_schedule_group_output() :: %{}
+      dead_letter_config() :: %{
+        "Arn" => String.t() | atom()
+      }
 
   """
-  @type delete_schedule_group_output() :: %{}
+  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flexible_time_window() :: %{
+        "MaximumWindowInMinutes" => integer(),
+        "Mode" => String.t() | atom()
+      }
+
+  """
+  @type flexible_time_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_pipeline_parameter() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type sage_maker_pipeline_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schedule_input() :: %{
+        optional("ActionAfterCompletion") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EndDate") => non_neg_integer(),
+        optional("GroupName") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("ScheduleExpressionTimezone") => String.t() | atom(),
+        optional("StartDate") => non_neg_integer(),
+        optional("State") => String.t() | atom(),
+        required("FlexibleTimeWindow") => flexible_time_window(),
+        required("ScheduleExpression") => String.t() | atom(),
+        required("Target") => target()
+      }
+
+  """
+  @type create_schedule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "GroupName" => String.t() | atom(),
+        "LastModificationDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "Target" => target_summary()
+      }
+
+  """
+  @type schedule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schedule_group_input() :: %{}
+
+  """
+  @type get_schedule_group_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_configuration() :: %{
+        "awsvpcConfiguration" => aws_vpc_configuration()
+      }
+
+  """
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_group_input() :: %{
+        optional("ClientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_schedule_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schedule_group_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_schedule_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schedule_groups_output() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("ScheduleGroups") => list(schedule_group_summary())
+      }
+
+  """
+  @type list_schedule_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schedule_groups_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NamePrefix") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_schedule_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_policy() :: %{
+        "MaximumEventAgeInSeconds" => integer(),
+        "MaximumRetryAttempts" => integer()
+      }
+
+  """
+  @type retry_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_vpc_configuration() :: %{
+        "AssignPublicIp" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -38,10 +250,12 @@ defmodule AWS.Scheduler do
 
   ## Example:
 
-      get_schedule_group_input() :: %{}
+      tag_resource_input() :: %{
+        required("Tags") => list(tag())
+      }
 
   """
-  @type get_schedule_group_input() :: %{}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -62,36 +276,256 @@ defmodule AWS.Scheduler do
 
   ## Example:
 
-      sage_maker_pipeline_parameter() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type sage_maker_pipeline_parameter() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      flexible_time_window() :: %{
-        "MaximumWindowInMinutes" => integer(),
-        "Mode" => String.t() | atom()
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type flexible_time_window() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_output() :: %{
-        optional("Tags") => list(tag())
+      create_schedule_output() :: %{
+        required("ScheduleArn") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+  @type create_schedule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_group_output() :: %{}
+
+  """
+  @type delete_schedule_group_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schedules_output() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Schedules") => list(schedule_summary())
+      }
+
+  """
+  @type list_schedules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("GroupName") => String.t() | atom()
+      }
+
+  """
+  @type delete_schedule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sqs_parameters() :: %{
+        "MessageGroupId" => String.t() | atom()
+      }
+
+  """
+  @type sqs_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target() :: %{
+        "Arn" => String.t() | atom(),
+        "DeadLetterConfig" => dead_letter_config(),
+        "EcsParameters" => ecs_parameters(),
+        "EventBridgeParameters" => event_bridge_parameters(),
+        "Input" => String.t() | atom(),
+        "KinesisParameters" => kinesis_parameters(),
+        "RetryPolicy" => retry_policy(),
+        "RoleArn" => String.t() | atom(),
+        "SageMakerPipelineParameters" => sage_maker_pipeline_parameters(),
+        "SqsParameters" => sqs_parameters()
+      }
+
+  """
+  @type target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecs_parameters() :: %{
+        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
+        "EnableECSManagedTags" => boolean(),
+        "EnableExecuteCommand" => boolean(),
+        "Group" => String.t() | atom(),
+        "LaunchType" => String.t() | atom(),
+        "NetworkConfiguration" => network_configuration(),
+        "PlacementConstraints" => list(placement_constraint()),
+        "PlacementStrategy" => list(placement_strategy()),
+        "PlatformVersion" => String.t() | atom(),
+        "PropagateTags" => String.t() | atom(),
+        "ReferenceId" => String.t() | atom(),
+        "Tags" => list(map()),
+        "TaskCount" => integer(),
+        "TaskDefinitionArn" => String.t() | atom()
+      }
+
+  """
+  @type ecs_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_pipeline_parameters() :: %{
+        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
+      }
+
+  """
+  @type sage_maker_pipeline_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_schedule_input() :: %{
+        optional("ActionAfterCompletion") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("EndDate") => non_neg_integer(),
+        optional("GroupName") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("ScheduleExpressionTimezone") => String.t() | atom(),
+        optional("StartDate") => non_neg_integer(),
+        optional("State") => String.t() | atom(),
+        required("FlexibleTimeWindow") => flexible_time_window(),
+        required("ScheduleExpression") => String.t() | atom(),
+        required("Target") => target()
+      }
+
+  """
+  @type update_schedule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_parameters() :: %{
+        "DetailType" => String.t() | atom(),
+        "Source" => String.t() | atom()
+      }
+
+  """
+  @type event_bridge_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kinesis_parameters() :: %{
+        "PartitionKey" => String.t() | atom()
+      }
+
+  """
+  @type kinesis_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_strategy_item() :: %{
+        "base" => integer(),
+        "capacityProvider" => String.t() | atom(),
+        "weight" => integer()
+      }
+
+  """
+  @type capacity_provider_strategy_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_summary() :: %{
+        "Arn" => String.t() | atom()
+      }
+
+  """
+  @type target_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      placement_constraint() :: %{
+        "expression" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type placement_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schedule_input() :: %{
+        optional("GroupName") => String.t() | atom()
+      }
+
+  """
+  @type get_schedule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -122,403 +556,6 @@ defmodule AWS.Scheduler do
 
   ## Example:
 
-      delete_schedule_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("GroupName") => String.t() | atom()
-      }
-
-  """
-  @type delete_schedule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_schedule_output() :: %{
-        required("ScheduleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_schedule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target() :: %{
-        "Arn" => String.t() | atom(),
-        "DeadLetterConfig" => dead_letter_config(),
-        "EcsParameters" => ecs_parameters(),
-        "EventBridgeParameters" => event_bridge_parameters(),
-        "Input" => String.t() | atom(),
-        "KinesisParameters" => kinesis_parameters(),
-        "RetryPolicy" => retry_policy(),
-        "RoleArn" => String.t() | atom(),
-        "SageMakerPipelineParameters" => sage_maker_pipeline_parameters(),
-        "SqsParameters" => sqs_parameters()
-      }
-
-  """
-  @type target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schedule_group_output() :: %{
-        optional("Arn") => String.t() | atom(),
-        optional("CreationDate") => non_neg_integer(),
-        optional("LastModificationDate") => non_neg_integer(),
-        optional("Name") => String.t() | atom(),
-        optional("State") => String.t() | atom()
-      }
-
-  """
-  @type get_schedule_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schedule_groups_output() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ScheduleGroups") => list(schedule_group_summary())
-      }
-
-  """
-  @type list_schedule_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_summary() :: %{
-        "Arn" => String.t() | atom()
-      }
-
-  """
-  @type target_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_schedule_input() :: %{
-        optional("ActionAfterCompletion") => String.t() | atom(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("EndDate") => non_neg_integer(),
-        optional("GroupName") => String.t() | atom(),
-        optional("KmsKeyArn") => String.t() | atom(),
-        optional("ScheduleExpressionTimezone") => String.t() | atom(),
-        optional("StartDate") => non_neg_integer(),
-        optional("State") => String.t() | atom(),
-        required("FlexibleTimeWindow") => flexible_time_window(),
-        required("ScheduleExpression") => String.t() | atom(),
-        required("Target") => target()
-      }
-
-  """
-  @type update_schedule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sage_maker_pipeline_parameters() :: %{
-        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
-      }
-
-  """
-  @type sage_maker_pipeline_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sqs_parameters() :: %{
-        "MessageGroupId" => String.t() | atom()
-      }
-
-  """
-  @type sqs_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schedule_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "GroupName" => String.t() | atom(),
-        "LastModificationDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "Target" => target_summary()
-      }
-
-  """
-  @type schedule_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_parameters() :: %{
-        "DetailType" => String.t() | atom(),
-        "Source" => String.t() | atom()
-      }
-
-  """
-  @type event_bridge_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_schedule_input() :: %{
-        optional("ActionAfterCompletion") => String.t() | atom(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("EndDate") => non_neg_integer(),
-        optional("GroupName") => String.t() | atom(),
-        optional("KmsKeyArn") => String.t() | atom(),
-        optional("ScheduleExpressionTimezone") => String.t() | atom(),
-        optional("StartDate") => non_neg_integer(),
-        optional("State") => String.t() | atom(),
-        required("FlexibleTimeWindow") => flexible_time_window(),
-        required("ScheduleExpression") => String.t() | atom(),
-        required("Target") => target()
-      }
-
-  """
-  @type create_schedule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_schedule_group_input() :: %{
-        optional("ClientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_schedule_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_schedule_input() :: %{
-        optional("GroupName") => String.t() | atom()
-      }
-
-  """
-  @type get_schedule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_provider_strategy_item() :: %{
-        "base" => integer(),
-        "capacityProvider" => String.t() | atom(),
-        "weight" => integer()
-      }
-
-  """
-  @type capacity_provider_strategy_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      placement_constraint() :: %{
-        "expression" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type placement_constraint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_configuration() :: %{
-        "awsvpcConfiguration" => aws_vpc_configuration()
-      }
-
-  """
-  @type network_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_schedule_group_output() :: %{
-        required("ScheduleGroupArn") => String.t() | atom()
-      }
-
-  """
-  @type create_schedule_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schedule_groups_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NamePrefix") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_schedule_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_schedules_output() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Schedules") => list(schedule_summary())
-      }
-
-  """
-  @type list_schedules_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dead_letter_config() :: %{
-        "Arn" => String.t() | atom()
-      }
-
-  """
-  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       list_schedules_input() :: %{
         optional("GroupName") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -529,76 +566,6 @@ defmodule AWS.Scheduler do
 
   """
   @type list_schedules_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_schedule_output() :: %{
-        required("ScheduleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_schedule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_vpc_configuration() :: %{
-        "AssignPublicIp" => String.t() | atom(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "Subnets" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_vpc_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kinesis_parameters() :: %{
-        "PartitionKey" => String.t() | atom()
-      }
-
-  """
-  @type kinesis_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_schedule_group_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-
-  """
-  @type create_schedule_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retry_policy() :: %{
-        "MaximumEventAgeInSeconds" => integer(),
-        "MaximumRetryAttempts" => integer()
-      }
-
-  """
-  @type retry_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -616,102 +583,135 @@ defmodule AWS.Scheduler do
 
   ## Example:
 
-      ecs_parameters() :: %{
-        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
-        "EnableECSManagedTags" => boolean(),
-        "EnableExecuteCommand" => boolean(),
-        "Group" => String.t() | atom(),
-        "LaunchType" => String.t() | atom(),
-        "NetworkConfiguration" => network_configuration(),
-        "PlacementConstraints" => list(placement_constraint()),
-        "PlacementStrategy" => list(placement_strategy()),
-        "PlatformVersion" => String.t() | atom(),
-        "PropagateTags" => String.t() | atom(),
-        "ReferenceId" => String.t() | atom(),
-        "Tags" => list(map()),
-        "TaskCount" => integer(),
-        "TaskDefinitionArn" => String.t() | atom()
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_schedule_output() :: %{
+        required("ScheduleArn") => String.t() | atom()
       }
 
   """
-  @type ecs_parameters() :: %{(String.t() | atom()) => any()}
+  @type update_schedule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schedule_group_output() :: %{
+        required("ScheduleGroupArn") => String.t() | atom()
+      }
+
+  """
+  @type create_schedule_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_schedule_group_output() :: %{
+        optional("Arn") => String.t() | atom(),
+        optional("CreationDate") => non_neg_integer(),
+        optional("LastModificationDate") => non_neg_integer(),
+        optional("Name") => String.t() | atom(),
+        optional("State") => String.t() | atom()
+      }
+
+  """
+  @type get_schedule_group_output() :: %{(String.t() | atom()) => any()}
 
   @type create_schedule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_schedule_group_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_schedule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_schedule_group_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_schedule_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_schedule_group_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_schedule_groups_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | throttling_exception()
 
   @type list_schedules_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_schedule_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   def metadata do
     %{

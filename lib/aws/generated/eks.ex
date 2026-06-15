@@ -32,1317 +32,6 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      list_nodegroups_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "nodegroups" => list(String.t() | atom())
-      }
-
-  """
-  @type list_nodegroups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_cluster_request() :: %{}
-
-  """
-  @type describe_cluster_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_fargate_profile_response() :: %{
-        "fargateProfile" => fargate_profile()
-      }
-
-  """
-  @type delete_fargate_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_policies_response() :: %{
-        "accessPolicies" => list(access_policy()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_summary() :: %{
-        "category" => list(any()),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "insightStatus" => insight_status(),
-        "kubernetesVersion" => String.t() | atom(),
-        "lastRefreshTime" => non_neg_integer(),
-        "lastTransitionTime" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type insight_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_capability_response() :: %{
-        "capability" => capability()
-      }
-
-  """
-  @type describe_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_policy() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type access_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_issue() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom(),
-        "resourceIds" => list(String.t() | atom())
-      }
-
-  """
-  @type addon_issue() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      argo_cd_role_mapping() :: %{
-        "identities" => list(sso_identity()),
-        "role" => list(any())
-      }
-
-  """
-  @type argo_cd_role_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_insights_request() :: %{
-        optional("filter") => insights_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_insight_response() :: %{
-        "insight" => insight()
-      }
-
-  """
-  @type describe_insight_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_namespace_config_request() :: %{
-        "namespace" => String.t() | atom()
-      }
-
-  """
-  @type addon_namespace_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_config() :: %{
-        "provider" => provider(),
-        "resources" => list(String.t() | atom())
-      }
-
-  """
-  @type encryption_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_labels_payload() :: %{
-        "addOrUpdateLabels" => map(),
-        "removeLabels" => list(String.t() | atom())
-      }
-
-  """
-  @type update_labels_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_eks_anywhere_subscription_response() :: %{
-        "subscription" => eks_anywhere_subscription()
-      }
-
-  """
-  @type describe_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      outpost_config_response() :: %{
-        "controlPlaneInstanceType" => String.t() | atom(),
-        "controlPlanePlacement" => control_plane_placement_response(),
-        "etcdInstanceType" => String.t() | atom(),
-        "etcdPlacement" => etcd_placement_response(),
-        "outpostArns" => list(String.t() | atom())
-      }
-
-  """
-  @type outpost_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compute_config_response() :: %{
-        "enabled" => boolean(),
-        "nodePools" => list(String.t() | atom()),
-        "nodeRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type compute_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compatibility() :: %{
-        "clusterVersion" => String.t() | atom(),
-        "defaultVersion" => boolean(),
-        "platformVersions" => list(String.t() | atom())
-      }
-
-  """
-  @type compatibility() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_addon_response() :: %{
-        "addon" => addon()
-      }
-
-  """
-  @type describe_addon_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_configuration_request() :: %{
-        "argoCd" => argo_cd_config_request()
-      }
-
-  """
-  @type capability_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_nodegroup_request() :: %{
-        optional("amiType") => list(any()),
-        optional("capacityType") => list(any()),
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("diskSize") => integer(),
-        optional("instanceTypes") => list(String.t() | atom()),
-        optional("labels") => map(),
-        optional("launchTemplate") => launch_template_specification(),
-        optional("nodeRepairConfig") => node_repair_config(),
-        optional("releaseVersion") => String.t() | atom(),
-        optional("remoteAccess") => remote_access_config(),
-        optional("scalingConfig") => nodegroup_scaling_config(),
-        optional("tags") => map(),
-        optional("taints") => list(taint()),
-        optional("updateConfig") => nodegroup_update_config(),
-        optional("version") => String.t() | atom(),
-        optional("warmPoolConfig") => warm_pool_config(),
-        required("nodeRole") => String.t() | atom(),
-        required("nodegroupName") => String.t() | atom(),
-        required("subnets") => list(String.t() | atom())
-      }
-
-  """
-  @type create_nodegroup_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_addon_request() :: %{
-        optional("preserve") => boolean()
-      }
-
-  """
-  @type delete_addon_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_capability_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("configuration") => capability_configuration_request(),
-        optional("tags") => map(),
-        required("capabilityName") => String.t() | atom(),
-        required("deletePropagationPolicy") => list(any()),
-        required("roleArn") => String.t() | atom(),
-        required("type") => list(any())
-      }
-
-  """
-  @type create_capability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_cluster_response() :: %{
-        "cluster" => cluster()
-      }
-
-  """
-  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_availability_zone_exception() :: %{
-        "clusterName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nodegroupName" => String.t() | atom(),
-        "validZones" => list(String.t() | atom())
-      }
-
-  """
-  @type unsupported_availability_zone_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_cluster_request() :: %{}
-
-  """
-  @type deregister_cluster_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_nodegroup_config_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("labels") => update_labels_payload(),
-        optional("nodeRepairConfig") => node_repair_config(),
-        optional("scalingConfig") => nodegroup_scaling_config(),
-        optional("taints") => update_taints_payload(),
-        optional("updateConfig") => nodegroup_update_config(),
-        optional("warmPoolConfig") => warm_pool_config()
-      }
-
-  """
-  @type update_nodegroup_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_scope() :: %{
-        "namespaces" => list(String.t() | atom()),
-        "type" => list(any())
-      }
-
-  """
-  @type access_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_access_policies_response() :: %{
-        "associatedAccessPolicies" => list(associated_access_policy()),
-        "clusterName" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "principalArn" => String.t() | atom()
-      }
-
-  """
-  @type list_associated_access_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_addon_response() :: %{
-        "addon" => addon()
-      }
-
-  """
-  @type delete_addon_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_fargate_profile_response() :: %{
-        "fargateProfile" => fargate_profile()
-      }
-
-  """
-  @type create_fargate_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remote_network_config_request() :: %{
-        "remoteNodeNetworks" => list(remote_node_network()),
-        "remotePodNetworks" => list(remote_pod_network())
-      }
-
-  """
-  @type remote_network_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cluster_response() :: %{
-        "cluster" => cluster()
-      }
-
-  """
-  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_argo_cd_config() :: %{
-        "networkAccess" => argo_cd_network_access_config_request(),
-        "rbacRoleMappings" => update_role_mappings()
-      }
-
-  """
-  @type update_argo_cd_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pod_identity_association() :: %{
-        "associationArn" => String.t() | atom(),
-        "associationId" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "disableSessionTags" => boolean(),
-        "externalId" => String.t() | atom(),
-        "modifiedAt" => non_neg_integer(),
-        "namespace" => String.t() | atom(),
-        "ownerArn" => String.t() | atom(),
-        "policy" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "serviceAccount" => String.t() | atom(),
-        "tags" => map(),
-        "targetRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type pod_identity_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_in_use_exception() :: %{
-        "addonName" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nodegroupName" => String.t() | atom()
-      }
-
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_identity_provider_config_request() :: %{
-        required("identityProviderConfig") => identity_provider_config()
-      }
-
-  """
-  @type describe_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_addon_configuration_response() :: %{
-        "addonName" => String.t() | atom(),
-        "addonVersion" => String.t() | atom(),
-        "configurationSchema" => String.t() | atom(),
-        "podIdentityConfiguration" => list(addon_pod_identity_configuration())
-      }
-
-  """
-  @type describe_addon_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_role_mappings() :: %{
-        "addOrUpdateRoleMappings" => list(argo_cd_role_mapping()),
-        "removeRoleMappings" => list(argo_cd_role_mapping())
-      }
-
-  """
-  @type update_role_mappings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity() :: %{
-        "oidc" => o_id_c()
-      }
-
-  """
-  @type identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      nodegroup_update_config() :: %{
-        "maxUnavailable" => integer(),
-        "maxUnavailablePercentage" => integer(),
-        "updateStrategy" => list(any())
-      }
-
-  """
-  @type nodegroup_update_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_identity_provider_config_response() :: %{
-        "tags" => map(),
-        "update" => update()
-      }
-
-  """
-  @type associate_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_provider_config() :: %{
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type identity_provider_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_access_policy_request() :: %{}
-
-  """
-  @type disassociate_access_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_pod_identity_configuration() :: %{
-        "recommendedManagedPolicies" => list(String.t() | atom()),
-        "serviceAccount" => String.t() | atom()
-      }
-
-  """
-  @type addon_pod_identity_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      license() :: %{
-        "id" => String.t() | atom(),
-        "token" => String.t() | atom()
-      }
-
-  """
-  @type license() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_entry_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("kubernetesGroups") => list(String.t() | atom()),
-        optional("username") => String.t() | atom()
-      }
-
-  """
-  @type update_access_entry_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_compatibility_detail() :: %{
-        "compatibleVersions" => list(String.t() | atom()),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type addon_compatibility_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      nodegroup() :: %{
-        "amiType" => list(any()),
-        "capacityType" => list(any()),
-        "clusterName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "diskSize" => integer(),
-        "health" => nodegroup_health(),
-        "instanceTypes" => list(String.t() | atom()),
-        "labels" => map(),
-        "launchTemplate" => launch_template_specification(),
-        "modifiedAt" => non_neg_integer(),
-        "nodeRepairConfig" => node_repair_config(),
-        "nodeRole" => String.t() | atom(),
-        "nodegroupArn" => String.t() | atom(),
-        "nodegroupName" => String.t() | atom(),
-        "releaseVersion" => String.t() | atom(),
-        "remoteAccess" => remote_access_config(),
-        "resources" => nodegroup_resources(),
-        "scalingConfig" => nodegroup_scaling_config(),
-        "status" => list(any()),
-        "subnets" => list(String.t() | atom()),
-        "tags" => map(),
-        "taints" => list(taint()),
-        "updateConfig" => nodegroup_update_config(),
-        "version" => String.t() | atom(),
-        "warmPoolConfig" => warm_pool_config()
-      }
-
-  """
-  @type nodegroup() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      nodegroup_scaling_config() :: %{
-        "desiredSize" => integer(),
-        "maxSize" => integer(),
-        "minSize" => integer()
-      }
-
-  """
-  @type nodegroup_scaling_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_cluster_response() :: %{
-        "cluster" => cluster()
-      }
-
-  """
-  @type deregister_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_eks_anywhere_subscriptions_request() :: %{
-        optional("includeStatus") => list(list(any())()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_eks_anywhere_subscriptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_policies_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_insights_response() :: %{
-        "insights" => list(insight_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      elastic_load_balancing() :: %{
-        "enabled" => boolean()
-      }
-
-  """
-  @type elastic_load_balancing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_capability_response() :: %{
-        "capability" => capability()
-      }
-
-  """
-  @type delete_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_pod_identity_associations() :: %{
-        "roleArn" => String.t() | atom(),
-        "serviceAccount" => String.t() | atom()
-      }
-
-  """
-  @type addon_pod_identity_associations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_provider_config_response() :: %{
-        "oidc" => oidc_identity_provider_config()
-      }
-
-  """
-  @type identity_provider_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_capability_request() :: %{}
-
-  """
-  @type describe_capability_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_config_request() :: %{
-        "authenticationMode" => list(any()),
-        "bootstrapClusterCreatorAdminPermissions" => boolean()
-      }
-
-  """
-  @type create_access_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_eks_anywhere_subscription_request() :: %{}
-
-  """
-  @type delete_eks_anywhere_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      control_plane_scaling_config() :: %{
-        "tier" => list(any())
-      }
-
-  """
-  @type control_plane_scaling_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_state_exception() :: %{
-        "clusterName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_cluster_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("connectorConfig") => connector_config_request(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type register_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_insights_refresh_response() :: %{
-        "endedAt" => non_neg_integer(),
-        "message" => String.t() | atom(),
-        "startedAt" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type describe_insights_refresh_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      control_plane_placement_response() :: %{
-        "groupName" => String.t() | atom(),
-        "spreadLevel" => list(any())
-      }
-
-  """
-  @type control_plane_placement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_status() :: %{
-        "reason" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type insight_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_access_policy_response() :: %{}
-
-  """
-  @type disassociate_access_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_capability_response() :: %{
-        "capability" => capability()
-      }
-
-  """
-  @type create_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pod_identity_associations_response() :: %{
-        "associations" => list(pod_identity_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_pod_identity_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability() :: %{
-        "arn" => String.t() | atom(),
-        "capabilityName" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "configuration" => capability_configuration_response(),
-        "createdAt" => non_neg_integer(),
-        "deletePropagationPolicy" => list(any()),
-        "health" => capability_health(),
-        "modifiedAt" => non_neg_integer(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map(),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type capability() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_addons_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_addons_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fargate_profile_issue() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom(),
-        "resourceIds" => list(String.t() | atom())
-      }
-
-  """
-  @type fargate_profile_issue() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compute_config_request() :: %{
-        "enabled" => boolean(),
-        "nodePools" => list(String.t() | atom()),
-        "nodeRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type compute_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_capability_response() :: %{
-        "update" => update()
-      }
-
-  """
-  @type update_capability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_addon_versions_request() :: %{
-        optional("addonName") => String.t() | atom(),
-        optional("kubernetesVersion") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owners") => list(String.t() | atom()),
-        optional("publishers") => list(String.t() | atom()),
-        optional("types") => list(String.t() | atom())
-      }
-
-  """
-  @type describe_addon_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon() :: %{
-        "addonArn" => String.t() | atom(),
-        "addonName" => String.t() | atom(),
-        "addonVersion" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "configurationValues" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "health" => addon_health(),
-        "marketplaceInformation" => marketplace_information(),
-        "modifiedAt" => non_neg_integer(),
-        "namespaceConfig" => addon_namespace_config_response(),
-        "owner" => String.t() | atom(),
-        "podIdentityAssociations" => list(String.t() | atom()),
-        "publisher" => String.t() | atom(),
-        "serviceAccountRoleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type addon() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_summary() :: %{
-        "arn" => String.t() | atom(),
-        "capabilityName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "modifiedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type capability_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_taints_payload() :: %{
-        "addOrUpdateTaints" => list(taint()),
-        "removeTaints" => list(taint())
-      }
-
-  """
-  @type update_taints_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_entry() :: %{
-        "accessEntryArn" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "kubernetesGroups" => list(String.t() | atom()),
-        "modifiedAt" => non_neg_integer(),
-        "principalArn" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type access_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_namespace_config_response() :: %{
-        "namespace" => String.t() | atom()
-      }
-
-  """
-  @type addon_namespace_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_fargate_profile_request() :: %{}
-
-  """
-  @type describe_fargate_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      provider() :: %{
-        "keyArn" => String.t() | atom()
-      }
-
-  """
-  @type provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eks_anywhere_subscription_term() :: %{
-        "duration" => integer(),
-        "unit" => list(any())
-      }
-
-  """
-  @type eks_anywhere_subscription_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_entry_response() :: %{
-        "accessEntry" => access_entry()
-      }
-
-  """
-  @type update_access_entry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_eks_anywhere_subscription_request() :: %{
-        optional("autoRenew") => boolean(),
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("licenseQuantity") => integer(),
-        optional("licenseType") => list(any()),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("term") => eks_anywhere_subscription_term()
-      }
-
-  """
-  @type create_eks_anywhere_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      zonal_shift_config_request() :: %{
-        "enabled" => boolean()
-      }
-
-  """
-  @type zonal_shift_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cluster_request() :: %{
-        optional("accessConfig") => create_access_config_request(),
-        optional("bootstrapSelfManagedAddons") => boolean(),
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("computeConfig") => compute_config_request(),
-        optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
-        optional("deletionProtection") => boolean(),
-        optional("encryptionConfig") => list(encryption_config()),
-        optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
-        optional("logging") => logging(),
-        optional("outpostConfig") => outpost_config_request(),
-        optional("remoteNetworkConfig") => remote_network_config_request(),
-        optional("storageConfig") => storage_config_request(),
-        optional("tags") => map(),
-        optional("upgradePolicy") => upgrade_policy_request(),
-        optional("version") => String.t() | atom(),
-        optional("zonalShiftConfig") => zonal_shift_config_request(),
-        required("name") => String.t() | atom(),
-        required("resourcesVpcConfig") => vpc_config_request(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update() :: %{
-        "createdAt" => non_neg_integer(),
-        "errors" => list(error_detail()),
-        "id" => String.t() | atom(),
-        "params" => list(update_param()),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insights_filter() :: %{
-        "categories" => list(list(any())()),
-        "kubernetesVersions" => list(String.t() | atom()),
-        "statuses" => list(list(any())())
-      }
-
-  """
-  @type insights_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_encryption_config_response() :: %{
-        "update" => update()
-      }
-
-  """
-  @type associate_encryption_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      client_exception() :: %{
-        "addonName" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nodegroupName" => String.t() | atom(),
-        "subscriptionId" => String.t() | atom()
-      }
-
-  """
-  @type client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "addonName" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "fargateProfileName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nodegroupName" => String.t() | atom(),
-        "subscriptionId" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_addon_request() :: %{
-        optional("addonVersion") => String.t() | atom(),
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("configurationValues") => String.t() | atom(),
-        optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
-        optional("resolveConflicts") => list(any()),
-        optional("serviceAccountRoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_addon_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_pod_identity_association_response() :: %{
-        "association" => pod_identity_association()
-      }
-
-  """
-  @type update_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      argo_cd_config_response() :: %{
-        "awsIdc" => argo_cd_aws_idc_config_response(),
-        "namespace" => String.t() | atom(),
-        "networkAccess" => argo_cd_network_access_config_response(),
-        "rbacRoleMappings" => list(argo_cd_role_mapping()),
-        "serverUrl" => String.t() | atom()
-      }
-
-  """
-  @type argo_cd_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       outpost_config_request() :: %{
         "controlPlaneInstanceType" => String.t() | atom(),
         "controlPlanePlacement" => control_plane_placement_request(),
@@ -1358,118 +47,23 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      describe_fargate_profile_response() :: %{
-        "fargateProfile" => fargate_profile()
+      resource_propagation_delay_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type describe_fargate_profile_response() :: %{(String.t() | atom()) => any()}
+  @type resource_propagation_delay_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_cluster_versions_request() :: %{
-        optional("clusterType") => String.t() | atom(),
-        optional("clusterVersions") => list(String.t() | atom()),
-        optional("defaultOnly") => boolean(),
-        optional("includeAll") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("versionStatus") => list(any())
+      describe_cluster_response() :: %{
+        "cluster" => cluster()
       }
 
   """
-  @type describe_cluster_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deprecation_detail() :: %{
-        "clientStats" => list(client_stat()),
-        "replacedWith" => String.t() | atom(),
-        "startServingReplacementVersion" => String.t() | atom(),
-        "stopServingVersion" => String.t() | atom(),
-        "usage" => String.t() | atom()
-      }
-
-  """
-  @type deprecation_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "addonName" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nodegroupName" => String.t() | atom(),
-        "subscriptionId" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      zonal_shift_config_response() :: %{
-        "enabled" => boolean()
-      }
-
-  """
-  @type zonal_shift_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upgrade_policy_response() :: %{
-        "supportType" => list(any())
-      }
-
-  """
-  @type upgrade_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_encryption_config_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        required("encryptionConfig") => list(encryption_config())
-      }
-
-  """
-  @type associate_encryption_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      issue() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom(),
-        "resourceIds" => list(String.t() | atom())
-      }
-
-  """
-  @type issue() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_eks_anywhere_subscription_response() :: %{
-        "subscription" => eks_anywhere_subscription()
-      }
-
-  """
-  @type create_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
+  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1513,86 +107,173 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      update_cluster_config_response() :: %{
-        "update" => update()
+      update_access_config_request() :: %{
+        "authenticationMode" => list(any())
       }
 
   """
-  @type update_cluster_config_response() :: %{(String.t() | atom()) => any()}
+  @type update_access_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_pod_identity_association_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("disableSessionTags") => boolean(),
-        optional("policy") => String.t() | atom(),
-        optional("roleArn") => String.t() | atom(),
-        optional("targetRoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_pod_identity_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_updates_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "updateIds" => list(String.t() | atom())
-      }
-
-  """
-  @type list_updates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_configuration_response() :: %{
-        "argoCd" => argo_cd_config_response()
-      }
-
-  """
-  @type capability_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_addon_versions_response() :: %{
-        "addons" => list(addon_info()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_addon_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_config_response() :: %{
-        "authenticationMode" => list(any()),
-        "bootstrapClusterCreatorAdminPermissions" => boolean()
-      }
-
-  """
-  @type access_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_capabilities_request() :: %{
+      list_eks_anywhere_subscriptions_request() :: %{
+        optional("includeStatus") => list(list(any())()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_capabilities_request() :: %{(String.t() | atom()) => any()}
+  @type list_eks_anywhere_subscriptions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_info() :: %{
+        "addonName" => String.t() | atom(),
+        "addonVersions" => list(addon_version_info()),
+        "defaultNamespace" => String.t() | atom(),
+        "marketplaceInformation" => marketplace_information(),
+        "owner" => String.t() | atom(),
+        "publisher" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type addon_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_pod_identity_association_response() :: %{
+        "association" => pod_identity_association()
+      }
+
+  """
+  @type create_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_param() :: %{
+        "type" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type update_param() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_entry_response() :: %{
+        "accessEntry" => access_entry()
+      }
+
+  """
+  @type describe_access_entry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_template_specification() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type launch_template_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pod_identity_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("namespace") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("serviceAccount") => String.t() | atom()
+      }
+
+  """
+  @type list_pod_identity_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_pod_identity_association_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("disableSessionTags") => boolean(),
+        optional("policy") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("targetRoleArn") => String.t() | atom(),
+        required("namespace") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("serviceAccount") => String.t() | atom()
+      }
+
+  """
+  @type create_pod_identity_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_issue() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type addon_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fargate_profiles_response() :: %{
+        "fargateProfileNames" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_fargate_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kubernetes_network_config_response() :: %{
+        "elasticLoadBalancing" => elastic_load_balancing(),
+        "ipFamily" => list(any()),
+        "serviceIpv4Cidr" => String.t() | atom(),
+        "serviceIpv6Cidr" => String.t() | atom()
+      }
+
+  """
+  @type kubernetes_network_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compute_config_response() :: %{
+        "enabled" => boolean(),
+        "nodePools" => list(String.t() | atom()),
+        "nodeRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type compute_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1612,96 +293,51 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      list_updates_request() :: %{
-        optional("addonName") => String.t() | atom(),
-        optional("capabilityName") => String.t() | atom(),
+      list_insights_request() :: %{
+        optional("filter") => insights_filter(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("nodegroupName") => String.t() | atom()
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_updates_request() :: %{(String.t() | atom()) => any()}
+  @type list_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      argo_cd_aws_idc_config_response() :: %{
-        "idcInstanceArn" => String.t() | atom(),
-        "idcManagedApplicationArn" => String.t() | atom(),
-        "idcRegion" => String.t() | atom()
-      }
-
-  """
-  @type argo_cd_aws_idc_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_cluster_versions_response() :: %{
-        "clusterVersions" => list(cluster_version_information()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_cluster_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_repair_config_overrides() :: %{
-        "minRepairWaitTimeMins" => integer(),
-        "nodeMonitoringCondition" => String.t() | atom(),
-        "nodeUnhealthyReason" => String.t() | atom(),
-        "repairAction" => list(any())
-      }
-
-  """
-  @type node_repair_config_overrides() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fargate_profile_health() :: %{
-        "issues" => list(fargate_profile_issue())
-      }
-
-  """
-  @type fargate_profile_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_addon_request() :: %{
-        optional("addonVersion") => String.t() | atom(),
+      associate_identity_provider_config_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
-        optional("configurationValues") => String.t() | atom(),
-        optional("namespaceConfig") => addon_namespace_config_request(),
-        optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
-        optional("resolveConflicts") => list(any()),
-        optional("serviceAccountRoleArn") => String.t() | atom(),
         optional("tags") => map(),
-        required("addonName") => String.t() | atom()
+        required("oidc") => oidc_identity_provider_config_request()
       }
 
   """
-  @type create_addon_request() :: %{(String.t() | atom()) => any()}
+  @type associate_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cluster_config_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type update_cluster_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compute_config_request() :: %{
+        "enabled" => boolean(),
+        "nodePools" => list(String.t() | atom()),
+        "nodeRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type compute_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1731,106 +367,60 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      describe_nodegroup_request() :: %{}
-
-  """
-  @type describe_nodegroup_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      argo_cd_network_access_config_response() :: %{
-        "vpceIds" => list(String.t() | atom())
-      }
-
-  """
-  @type argo_cd_network_access_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_access_entry_response() :: %{
-        "accessEntry" => access_entry()
-      }
-
-  """
-  @type describe_access_entry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_pod_identity_association_response() :: %{
-        "association" => pod_identity_association()
-      }
-
-  """
-  @type delete_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_insight_request() :: %{}
-
-  """
-  @type describe_insight_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_nodegroups_request() :: %{
+      list_updates_request() :: %{
+        optional("addonName") => String.t() | atom(),
+        optional("capabilityName") => String.t() | atom(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("nodegroupName") => String.t() | atom()
       }
 
   """
-  @type list_nodegroups_request() :: %{(String.t() | atom()) => any()}
+  @type list_updates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_config_request() :: %{
-        "endpointPrivateAccess" => boolean(),
-        "endpointPublicAccess" => boolean(),
-        "publicAccessCidrs" => list(String.t() | atom()),
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
+      describe_insight_response() :: %{
+        "insight" => insight()
       }
 
   """
-  @type vpc_config_request() :: %{(String.t() | atom()) => any()}
+  @type describe_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      pod_identity_association_summary() :: %{
-        "associationArn" => String.t() | atom(),
-        "associationId" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "namespace" => String.t() | atom(),
-        "ownerArn" => String.t() | atom(),
-        "serviceAccount" => String.t() | atom()
+      describe_fargate_profile_request() :: %{}
+
+  """
+  @type describe_fargate_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_taints_payload() :: %{
+        "addOrUpdateTaints" => list(taint()),
+        "removeTaints" => list(taint())
       }
 
   """
-  @type pod_identity_association_summary() :: %{(String.t() | atom()) => any()}
+  @type update_taints_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_network_config_request() :: %{
+        "remoteNodeNetworks" => list(remote_node_network()),
+        "remotePodNetworks" => list(remote_pod_network())
+      }
+
+  """
+  @type remote_network_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1847,74 +437,13 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      associate_identity_provider_config_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("oidc") => oidc_identity_provider_config_request()
-      }
-
-  """
-  @type associate_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_nodegroup_response() :: %{
-        "nodegroup" => nodegroup()
-      }
-
-  """
-  @type create_nodegroup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_capability_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("configuration") => update_capability_configuration(),
-        optional("deletePropagationPolicy") => list(any()),
-        optional("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_capability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_identity_provider_config_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        required("identityProviderConfig") => identity_provider_config()
-      }
-
-  """
-  @type disassociate_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_id_c() :: %{
-        "issuer" => String.t() | atom()
-      }
-
-  """
-  @type o_id_c() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_clusters_response() :: %{
-        "clusters" => list(String.t() | atom()),
+      list_addons_response() :: %{
+        "addons" => list(String.t() | atom()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
+  @type list_addons_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1931,13 +460,504 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      list_fargate_profiles_response() :: %{
-        "fargateProfileNames" => list(String.t() | atom()),
+      argo_cd_role_mapping() :: %{
+        "identities" => list(sso_identity()),
+        "role" => list(any())
+      }
+
+  """
+  @type argo_cd_role_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_network_access_config_request() :: %{
+        "vpceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type argo_cd_network_access_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_argo_cd_config() :: %{
+        "networkAccess" => argo_cd_network_access_config_request(),
+        "rbacRoleMappings" => update_role_mappings()
+      }
+
+  """
+  @type update_argo_cd_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      oidc_identity_provider_config_request() :: %{
+        "clientId" => String.t() | atom(),
+        "groupsClaim" => String.t() | atom(),
+        "groupsPrefix" => String.t() | atom(),
+        "identityProviderConfigName" => String.t() | atom(),
+        "issuerUrl" => String.t() | atom(),
+        "requiredClaims" => map(),
+        "usernameClaim" => String.t() | atom(),
+        "usernamePrefix" => String.t() | atom()
+      }
+
+  """
+  @type oidc_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_eks_anywhere_subscription_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        required("autoRenew") => boolean()
+      }
+
+  """
+  @type update_eks_anywhere_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_setup() :: %{
+        "enabled" => boolean(),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type log_setup() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_response() :: %{
+        "cluster" => cluster()
+      }
+
+  """
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_issue() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type capability_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_identity_provider_config_request() :: %{
+        required("identityProviderConfig") => identity_provider_config()
+      }
+
+  """
+  @type describe_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capability_request() :: %{}
+
+  """
+  @type delete_capability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_update_request() :: %{
+        optional("addonName") => String.t() | atom(),
+        optional("capabilityName") => String.t() | atom(),
+        optional("nodegroupName") => String.t() | atom()
+      }
+
+  """
+  @type describe_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight() :: %{
+        "additionalInfo" => map(),
+        "category" => list(any()),
+        "categorySpecificSummary" => insight_category_specific_summary(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "insightStatus" => insight_status(),
+        "kubernetesVersion" => String.t() | atom(),
+        "lastRefreshTime" => non_neg_integer(),
+        "lastTransitionTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "recommendation" => String.t() | atom(),
+        "resources" => list(insight_resource_detail())
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_access_policy_request() :: %{
+        required("accessScope") => access_scope(),
+        required("policyArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_access_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_namespace_config_response() :: %{
+        "namespace" => String.t() | atom()
+      }
+
+  """
+  @type addon_namespace_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_scaling_group() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type auto_scaling_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_eks_anywhere_subscription_request() :: %{}
+
+  """
+  @type describe_eks_anywhere_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_anywhere_subscription_term() :: %{
+        "duration" => integer(),
+        "unit" => list(any())
+      }
+
+  """
+  @type eks_anywhere_subscription_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fargate_profile_selector() :: %{
+        "labels" => map(),
+        "namespace" => String.t() | atom()
+      }
+
+  """
+  @type fargate_profile_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      zonal_shift_config_response() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type zonal_shift_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      elastic_load_balancing() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type elastic_load_balancing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_addon_response() :: %{
+        "addon" => addon()
+      }
+
+  """
+  @type delete_addon_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_stat() :: %{
+        "lastRequestTime" => non_neg_integer(),
+        "numberOfRequestsLast30Days" => integer(),
+        "userAgent" => String.t() | atom()
+      }
+
+  """
+  @type client_stat() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_update_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type describe_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_addon_versions_request() :: %{
+        optional("addonName") => String.t() | atom(),
+        optional("kubernetesVersion") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owners") => list(String.t() | atom()),
+        optional("publishers") => list(String.t() | atom()),
+        optional("types") => list(String.t() | atom())
+      }
+
+  """
+  @type describe_addon_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_encryption_config_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type associate_encryption_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_access_config() :: %{
+        "ec2SshKey" => String.t() | atom(),
+        "sourceSecurityGroups" => list(String.t() | atom())
+      }
+
+  """
+  @type remote_access_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_entry_request() :: %{}
+
+  """
+  @type describe_access_entry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      license() :: %{
+        "id" => String.t() | atom(),
+        "token" => String.t() | atom()
+      }
+
+  """
+  @type license() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pod_identity_associations_response() :: %{
+        "associations" => list(pod_identity_association_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_fargate_profiles_response() :: %{(String.t() | atom()) => any()}
+  @type list_pod_identity_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_provider_configs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_identity_provider_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_health() :: %{
+        "issues" => list(cluster_issue())
+      }
+
+  """
+  @type cluster_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_id_c() :: %{
+        "issuer" => String.t() | atom()
+      }
+
+  """
+  @type o_id_c() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_nodegroup_request() :: %{}
+
+  """
+  @type describe_nodegroup_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      taint() :: %{
+        "effect" => list(any()),
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type taint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_provider_config() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type identity_provider_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capability_configuration_request() :: %{
+        "argoCd" => argo_cd_config_request()
+      }
+
+  """
+  @type capability_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compatibility() :: %{
+        "clusterVersion" => String.t() | atom(),
+        "defaultVersion" => boolean(),
+        "platformVersions" => list(String.t() | atom())
+      }
+
+  """
+  @type compatibility() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_encryption_config_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        required("encryptionConfig") => list(encryption_config())
+      }
+
+  """
+  @type associate_encryption_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_scope() :: %{
+        "namespaces" => list(String.t() | atom()),
+        "type" => list(any())
+      }
+
+  """
+  @type access_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_policies_response() :: %{
+        "accessPolicies" => list(access_policy()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_access_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1959,54 +979,105 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      argo_cd_network_access_config_request() :: %{
-        "vpceIds" => list(String.t() | atom())
+      storage_config_request() :: %{
+        "blockStorage" => block_storage()
       }
 
   """
-  @type argo_cd_network_access_config_request() :: %{(String.t() | atom()) => any()}
+  @type storage_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_fargate_profile_request() :: %{}
+      storage_config_response() :: %{
+        "blockStorage" => block_storage()
+      }
 
   """
-  @type delete_fargate_profile_request() :: %{}
+  @type storage_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      block_storage() :: %{
-        "enabled" => boolean()
+      update_cluster_config_request() :: %{
+        optional("accessConfig") => update_access_config_request(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("computeConfig") => compute_config_request(),
+        optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
+        optional("deletionProtection") => boolean(),
+        optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
+        optional("logging") => logging(),
+        optional("remoteNetworkConfig") => remote_network_config_request(),
+        optional("resourcesVpcConfig") => vpc_config_request(),
+        optional("storageConfig") => storage_config_request(),
+        optional("upgradePolicy") => upgrade_policy_request(),
+        optional("zonalShiftConfig") => zonal_shift_config_request()
       }
 
   """
-  @type block_storage() :: %{(String.t() | atom()) => any()}
+  @type update_cluster_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      upgrade_policy_request() :: %{
-        "supportType" => list(any())
+      update_cluster_version_response() :: %{
+        "update" => update()
       }
 
   """
-  @type upgrade_policy_request() :: %{(String.t() | atom()) => any()}
+  @type update_cluster_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      etcd_placement_request() :: %{
-        "spreadLevel" => list(any())
+      capability_health() :: %{
+        "issues" => list(capability_issue())
       }
 
   """
-  @type etcd_placement_request() :: %{(String.t() | atom()) => any()}
+  @type capability_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_exception() :: %{
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_identity_provider_config_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type disassociate_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_response() :: %{
+        "insights" => list(insight_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2025,119 +1096,142 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      update_addon_response() :: %{
-        "update" => update()
-      }
+      describe_capability_request() :: %{}
 
   """
-  @type update_addon_response() :: %{(String.t() | atom()) => any()}
+  @type describe_capability_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_clusters_request() :: %{
-        optional("include") => list(String.t() | atom()),
+      list_capabilities_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
+  @type list_capabilities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_nodegroup_config_response() :: %{
-        "update" => update()
+      remote_pod_network() :: %{
+        "cidrs" => list(String.t() | atom())
       }
 
   """
-  @type update_nodegroup_config_response() :: %{(String.t() | atom()) => any()}
+  @type remote_pod_network() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_nodegroup_version_response() :: %{
-        "update" => update()
+      list_nodegroups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type update_nodegroup_version_response() :: %{(String.t() | atom()) => any()}
+  @type list_nodegroups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kubernetes_network_config_request() :: %{
-        "elasticLoadBalancing" => elastic_load_balancing(),
-        "ipFamily" => list(any()),
-        "serviceIpv4Cidr" => String.t() | atom()
+      list_nodegroups_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "nodegroups" => list(String.t() | atom())
       }
 
   """
-  @type kubernetes_network_config_request() :: %{(String.t() | atom()) => any()}
+  @type list_nodegroups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      control_plane_placement_request() :: %{
+      list_capabilities_response() :: %{
+        "capabilities" => list(capability_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_capabilities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_provider_config_response() :: %{
+        "oidc" => oidc_identity_provider_config()
+      }
+
+  """
+  @type identity_provider_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_plane_placement_response() :: %{
         "groupName" => String.t() | atom(),
         "spreadLevel" => list(any())
       }
 
   """
-  @type control_plane_placement_request() :: %{(String.t() | atom()) => any()}
+  @type control_plane_placement_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      certificate() :: %{
-        "data" => String.t() | atom()
+      list_associated_access_policies_response() :: %{
+        "associatedAccessPolicies" => list(associated_access_policy()),
+        "clusterName" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "principalArn" => String.t() | atom()
       }
 
   """
-  @type certificate() :: %{(String.t() | atom()) => any()}
+  @type list_associated_access_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      marketplace_information() :: %{
-        "productId" => String.t() | atom(),
-        "productUrl" => String.t() | atom()
-      }
-
-  """
-  @type marketplace_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_resource_detail() :: %{
+      capability() :: %{
         "arn" => String.t() | atom(),
-        "insightStatus" => insight_status(),
-        "kubernetesResourceUri" => String.t() | atom()
+        "capabilityName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "configuration" => capability_configuration_response(),
+        "createdAt" => non_neg_integer(),
+        "deletePropagationPolicy" => list(any()),
+        "health" => capability_health(),
+        "modifiedAt" => non_neg_integer(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
       }
 
   """
-  @type insight_resource_detail() :: %{(String.t() | atom()) => any()}
+  @type capability() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_access_entry_response() :: %{
-        "accessEntry" => access_entry()
+      nodegroup_update_config() :: %{
+        "maxUnavailable" => integer(),
+        "maxUnavailablePercentage" => integer(),
+        "updateStrategy" => list(any())
       }
 
   """
-  @type create_access_entry_response() :: %{(String.t() | atom()) => any()}
+  @type nodegroup_update_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2157,142 +1251,400 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      capability_issue() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom()
+      update_nodegroup_config_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("labels") => update_labels_payload(),
+        optional("nodeRepairConfig") => node_repair_config(),
+        optional("scalingConfig") => nodegroup_scaling_config(),
+        optional("taints") => update_taints_payload(),
+        optional("updateConfig") => nodegroup_update_config(),
+        optional("warmPoolConfig") => warm_pool_config()
       }
 
   """
-  @type capability_issue() :: %{(String.t() | atom()) => any()}
+  @type update_nodegroup_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      argo_cd_aws_idc_config_request() :: %{
-        "idcInstanceArn" => String.t() | atom(),
-        "idcRegion" => String.t() | atom()
+      update_nodegroup_config_response() :: %{
+        "update" => update()
       }
 
   """
-  @type argo_cd_aws_idc_config_request() :: %{(String.t() | atom()) => any()}
+  @type update_nodegroup_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sso_identity() :: %{
-        "id" => String.t() | atom(),
-        "type" => list(any())
+      resource_not_found_exception() :: %{
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "fargateProfileName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type sso_identity() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_cluster_request() :: %{}
+      control_plane_scaling_config() :: %{
+        "tier" => list(any())
+      }
 
   """
-  @type delete_cluster_request() :: %{}
+  @type control_plane_scaling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_eks_anywhere_subscription_response() :: %{
+      connector_config_response() :: %{
+        "activationCode" => String.t() | atom(),
+        "activationExpiry" => non_neg_integer(),
+        "activationId" => String.t() | atom(),
+        "provider" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type connector_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_resource_detail() :: %{
+        "arn" => String.t() | atom(),
+        "insightStatus" => insight_status(),
+        "kubernetesResourceUri" => String.t() | atom()
+      }
+
+  """
+  @type insight_resource_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_entry_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("kubernetesGroups") => list(String.t() | atom()),
+        optional("username") => String.t() | atom()
+      }
+
+  """
+  @type update_access_entry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_config_request() :: %{
+        "awsIdc" => argo_cd_aws_idc_config_request(),
+        "namespace" => String.t() | atom(),
+        "networkAccess" => argo_cd_network_access_config_request(),
+        "rbacRoleMappings" => list(argo_cd_role_mapping())
+      }
+
+  """
+  @type argo_cd_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capability_response() :: %{
+        "capability" => capability()
+      }
+
+  """
+  @type create_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_clusters_request() :: %{
+        optional("include") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      marketplace_information() :: %{
+        "productId" => String.t() | atom(),
+        "productUrl" => String.t() | atom()
+      }
+
+  """
+  @type marketplace_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_identity_provider_config_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        required("identityProviderConfig") => identity_provider_config()
+      }
+
+  """
+  @type disassociate_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_fargate_profile_response() :: %{
+        "fargateProfile" => fargate_profile()
+      }
+
+  """
+  @type delete_fargate_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nodegroup_resources() :: %{
+        "autoScalingGroups" => list(auto_scaling_group()),
+        "remoteAccessSecurityGroup" => String.t() | atom()
+      }
+
+  """
+  @type nodegroup_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provider() :: %{
+        "keyArn" => String.t() | atom()
+      }
+
+  """
+  @type provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_eks_anywhere_subscriptions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "subscriptions" => list(eks_anywhere_subscription())
+      }
+
+  """
+  @type list_eks_anywhere_subscriptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_fargate_profile_response() :: %{
+        "fargateProfile" => fargate_profile()
+      }
+
+  """
+  @type describe_fargate_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_identity_provider_config_response() :: %{
+        "identityProviderConfig" => identity_provider_config_response()
+      }
+
+  """
+  @type describe_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_addon_request() :: %{}
+
+  """
+  @type describe_addon_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_eks_anywhere_subscription_response() :: %{
         "subscription" => eks_anywhere_subscription()
       }
 
   """
-  @type delete_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
+  @type create_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_insights_refresh_request() :: %{}
-
-  """
-  @type start_insights_refresh_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_capabilities_response() :: %{
-        "capabilities" => list(capability_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_capabilities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_fargate_profile_request() :: %{
+      create_nodegroup_request() :: %{
+        optional("amiType") => list(any()),
+        optional("capacityType") => list(any()),
         optional("clientRequestToken") => String.t() | atom(),
-        optional("selectors") => list(fargate_profile_selector()),
-        optional("subnets") => list(String.t() | atom()),
+        optional("diskSize") => integer(),
+        optional("instanceTypes") => list(String.t() | atom()),
+        optional("labels") => map(),
+        optional("launchTemplate") => launch_template_specification(),
+        optional("nodeRepairConfig") => node_repair_config(),
+        optional("releaseVersion") => String.t() | atom(),
+        optional("remoteAccess") => remote_access_config(),
+        optional("scalingConfig") => nodegroup_scaling_config(),
         optional("tags") => map(),
-        required("fargateProfileName") => String.t() | atom(),
-        required("podExecutionRoleArn") => String.t() | atom()
+        optional("taints") => list(taint()),
+        optional("updateConfig") => nodegroup_update_config(),
+        optional("version") => String.t() | atom(),
+        optional("warmPoolConfig") => warm_pool_config(),
+        required("nodeRole") => String.t() | atom(),
+        required("nodegroupName") => String.t() | atom(),
+        required("subnets") => list(String.t() | atom())
       }
 
   """
-  @type create_fargate_profile_request() :: %{(String.t() | atom()) => any()}
+  @type create_nodegroup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_eks_anywhere_subscription_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        required("autoRenew") => boolean()
+      kubernetes_network_config_request() :: %{
+        "elasticLoadBalancing" => elastic_load_balancing(),
+        "ipFamily" => list(any()),
+        "serviceIpv4Cidr" => String.t() | atom()
       }
 
   """
-  @type update_eks_anywhere_subscription_request() :: %{(String.t() | atom()) => any()}
+  @type kubernetes_network_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      error_detail() :: %{
-        "errorCode" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "resourceIds" => list(String.t() | atom())
+      identity() :: %{
+        "oidc" => o_id_c()
       }
 
   """
-  @type error_detail() :: %{(String.t() | atom()) => any()}
+  @type identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_param() :: %{
+      capability_summary() :: %{
+        "arn" => String.t() | atom(),
+        "capabilityName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "status" => list(any()),
         "type" => list(any()),
-        "value" => String.t() | atom()
+        "version" => String.t() | atom()
       }
 
   """
-  @type update_param() :: %{(String.t() | atom()) => any()}
+  @type capability_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pod_identity_association_response() :: %{
+        "association" => pod_identity_association()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type update_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_nodegroup_response() :: %{
+        "nodegroup" => nodegroup()
+      }
+
+  """
+  @type describe_nodegroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_entry_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("kubernetesGroups") => list(String.t() | atom()),
+        optional("tags") => map(),
+        optional("type") => String.t() | atom(),
+        optional("username") => String.t() | atom(),
+        required("principalArn") => String.t() | atom()
+      }
+
+  """
+  @type create_access_entry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_in_use_exception() :: %{
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom()
+      }
+
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upgrade_policy_request() :: %{
+        "supportType" => list(any())
+      }
+
+  """
+  @type upgrade_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2321,28 +1673,973 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      invalid_parameter_exception() :: %{
+      addon_compatibility_detail() :: %{
+        "compatibleVersions" => list(String.t() | atom()),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type addon_compatibility_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_addon_request() :: %{
+        optional("preserve") => boolean()
+      }
+
+  """
+  @type delete_addon_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_plane_placement_request() :: %{
+        "groupName" => String.t() | atom(),
+        "spreadLevel" => list(any())
+      }
+
+  """
+  @type control_plane_placement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capability_response() :: %{
+        "capability" => capability()
+      }
+
+  """
+  @type delete_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_fargate_profile_response() :: %{
+        "fargateProfile" => fargate_profile()
+      }
+
+  """
+  @type create_fargate_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_pod_identity_association_response() :: %{
+        "association" => pod_identity_association()
+      }
+
+  """
+  @type delete_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_insights_refresh_response() :: %{
+        "message" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type start_insights_refresh_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_request() :: %{
+        optional("accessConfig") => create_access_config_request(),
+        optional("bootstrapSelfManagedAddons") => boolean(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("computeConfig") => compute_config_request(),
+        optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
+        optional("deletionProtection") => boolean(),
+        optional("encryptionConfig") => list(encryption_config()),
+        optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
+        optional("logging") => logging(),
+        optional("outpostConfig") => outpost_config_request(),
+        optional("remoteNetworkConfig") => remote_network_config_request(),
+        optional("storageConfig") => storage_config_request(),
+        optional("tags") => map(),
+        optional("upgradePolicy") => upgrade_policy_request(),
+        optional("version") => String.t() | atom(),
+        optional("zonalShiftConfig") => zonal_shift_config_request(),
+        required("name") => String.t() | atom(),
+        required("resourcesVpcConfig") => vpc_config_request(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_clusters_response() :: %{
+        "clusters" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deprecation_detail() :: %{
+        "clientStats" => list(client_stat()),
+        "replacedWith" => String.t() | atom(),
+        "startServingReplacementVersion" => String.t() | atom(),
+        "stopServingVersion" => String.t() | atom(),
+        "usage" => String.t() | atom()
+      }
+
+  """
+  @type deprecation_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_entry() :: %{
+        "accessEntryArn" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "kubernetesGroups" => list(String.t() | atom()),
+        "modifiedAt" => non_neg_integer(),
+        "principalArn" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type access_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nodegroup() :: %{
+        "amiType" => list(any()),
+        "capacityType" => list(any()),
+        "clusterName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "diskSize" => integer(),
+        "health" => nodegroup_health(),
+        "instanceTypes" => list(String.t() | atom()),
+        "labels" => map(),
+        "launchTemplate" => launch_template_specification(),
+        "modifiedAt" => non_neg_integer(),
+        "nodeRepairConfig" => node_repair_config(),
+        "nodeRole" => String.t() | atom(),
+        "nodegroupArn" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "releaseVersion" => String.t() | atom(),
+        "remoteAccess" => remote_access_config(),
+        "resources" => nodegroup_resources(),
+        "scalingConfig" => nodegroup_scaling_config(),
+        "status" => list(any()),
+        "subnets" => list(String.t() | atom()),
+        "tags" => map(),
+        "taints" => list(taint()),
+        "updateConfig" => nodegroup_update_config(),
+        "version" => String.t() | atom(),
+        "warmPoolConfig" => warm_pool_config()
+      }
+
+  """
+  @type nodegroup() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_eks_anywhere_subscription_response() :: %{
+        "subscription" => eks_anywhere_subscription()
+      }
+
+  """
+  @type describe_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_fargate_profile_request() :: %{}
+
+  """
+  @type delete_fargate_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_access_policy_response() :: %{}
+
+  """
+  @type disassociate_access_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_config_request() :: %{
+        "provider" => list(any()),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type connector_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_addon_request() :: %{
+        optional("addonVersion") => String.t() | atom(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configurationValues") => String.t() | atom(),
+        optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
+        optional("resolveConflicts") => list(any()),
+        optional("serviceAccountRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_addon_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_entries_response() :: %{
+        "accessEntries" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_access_entries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_addon_versions_response() :: %{
+        "addons" => list(addon_info()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_addon_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging() :: %{
+        "clusterLogging" => list(log_setup())
+      }
+
+  """
+  @type logging() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_addon_request() :: %{
+        optional("addonVersion") => String.t() | atom(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configurationValues") => String.t() | atom(),
+        optional("namespaceConfig") => addon_namespace_config_request(),
+        optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
+        optional("resolveConflicts") => list(any()),
+        optional("serviceAccountRoleArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("addonName") => String.t() | atom()
+      }
+
+  """
+  @type create_addon_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_request() :: %{}
+
+  """
+  @type describe_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_updates_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "updateIds" => list(String.t() | atom())
+      }
+
+  """
+  @type list_updates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_capability_configuration() :: %{
+        "argoCd" => update_argo_cd_config()
+      }
+
+  """
+  @type update_capability_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_fargate_profile_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("selectors") => list(fargate_profile_selector()),
+        optional("subnets") => list(String.t() | atom()),
+        optional("tags") => map(),
+        required("fargateProfileName") => String.t() | atom(),
+        required("podExecutionRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_fargate_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_role_mappings() :: %{
+        "addOrUpdateRoleMappings" => list(argo_cd_role_mapping()),
+        "removeRoleMappings" => list(argo_cd_role_mapping())
+      }
+
+  """
+  @type update_role_mappings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_detail() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_pod_identity_association_request() :: %{}
+
+  """
+  @type describe_pod_identity_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      nodegroup_health() :: %{
+        "issues" => list(issue())
+      }
+
+  """
+  @type nodegroup_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      warm_pool_config() :: %{
+        "enabled" => boolean(),
+        "maxGroupPreparedCapacity" => integer(),
+        "minSize" => integer(),
+        "poolState" => list(any()),
+        "reuseOnScaleIn" => boolean()
+      }
+
+  """
+  @type warm_pool_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_health() :: %{
+        "issues" => list(addon_issue())
+      }
+
+  """
+  @type addon_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_versions_response() :: %{
+        "clusterVersions" => list(cluster_version_information()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_cluster_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_entry_request() :: %{}
+
+  """
+  @type delete_access_entry_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_nodegroup_response() :: %{
+        "nodegroup" => nodegroup()
+      }
+
+  """
+  @type create_nodegroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fargate_profile() :: %{
+        "clusterName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "fargateProfileArn" => String.t() | atom(),
+        "fargateProfileName" => String.t() | atom(),
+        "health" => fargate_profile_health(),
+        "podExecutionRoleArn" => String.t() | atom(),
+        "selectors" => list(fargate_profile_selector()),
+        "status" => list(any()),
+        "subnets" => list(String.t() | atom()),
+        "tags" => map()
+      }
+
+  """
+  @type fargate_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_nodegroup_response() :: %{
+        "nodegroup" => nodegroup()
+      }
+
+  """
+  @type delete_nodegroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update() :: %{
+        "createdAt" => non_neg_integer(),
+        "errors" => list(error_detail()),
+        "id" => String.t() | atom(),
+        "params" => list(update_param()),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_capability_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configuration") => update_capability_configuration(),
+        optional("deletePropagationPolicy") => list(any()),
+        optional("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_capability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_insights_refresh_request() :: %{}
+
+  """
+  @type describe_insights_refresh_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      fargate_profile_issue() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type fargate_profile_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_pod_identity_association_response() :: %{
+        "association" => pod_identity_association()
+      }
+
+  """
+  @type describe_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_network_access_config_response() :: %{
+        "vpceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type argo_cd_network_access_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_addon_response() :: %{
+        "addon" => addon()
+      }
+
+  """
+  @type describe_addon_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_aws_idc_config_response() :: %{
+        "idcInstanceArn" => String.t() | atom(),
+        "idcManagedApplicationArn" => String.t() | atom(),
+        "idcRegion" => String.t() | atom()
+      }
+
+  """
+  @type argo_cd_aws_idc_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cluster_version_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("force") => boolean(),
+        required("version") => String.t() | atom()
+      }
+
+  """
+  @type update_cluster_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insights_filter() :: %{
+        "categories" => list(list(any())()),
+        "kubernetesVersions" => list(String.t() | atom()),
+        "statuses" => list(list(any())())
+      }
+
+  """
+  @type insights_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pod_identity_association_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("disableSessionTags") => boolean(),
+        optional("policy") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom(),
+        optional("targetRoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_pod_identity_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_addon_configuration_response() :: %{
+        "addonName" => String.t() | atom(),
+        "addonVersion" => String.t() | atom(),
+        "configurationSchema" => String.t() | atom(),
+        "podIdentityConfiguration" => list(addon_pod_identity_configuration())
+      }
+
+  """
+  @type describe_addon_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_entry_response() :: %{
+        "accessEntry" => access_entry()
+      }
+
+  """
+  @type create_access_entry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_nodegroup_version_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("force") => boolean(),
+        optional("launchTemplate") => launch_template_specification(),
+        optional("releaseVersion") => String.t() | atom(),
+        optional("version") => String.t() | atom()
+      }
+
+  """
+  @type update_nodegroup_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_availability_zone_exception() :: %{
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "validZones" => list(String.t() | atom())
+      }
+
+  """
+  @type unsupported_availability_zone_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "data" => String.t() | atom()
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      etcd_placement_response() :: %{
+        "spreadLevel" => list(any())
+      }
+
+  """
+  @type etcd_placement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_addon_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type update_addon_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_repair_config_overrides() :: %{
+        "minRepairWaitTimeMins" => integer(),
+        "nodeMonitoringCondition" => String.t() | atom(),
+        "nodeUnhealthyReason" => String.t() | atom(),
+        "repairAction" => list(any())
+      }
+
+  """
+  @type node_repair_config_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon() :: %{
+        "addonArn" => String.t() | atom(),
+        "addonName" => String.t() | atom(),
+        "addonVersion" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "configurationValues" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "health" => addon_health(),
+        "marketplaceInformation" => marketplace_information(),
+        "modifiedAt" => non_neg_integer(),
+        "namespaceConfig" => addon_namespace_config_response(),
+        "owner" => String.t() | atom(),
+        "podIdentityAssociations" => list(String.t() | atom()),
+        "publisher" => String.t() | atom(),
+        "serviceAccountRoleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type addon() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_eks_anywhere_subscription_response() :: %{
+        "subscription" => eks_anywhere_subscription()
+      }
+
+  """
+  @type delete_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_insights_refresh_response() :: %{
+        "endedAt" => non_neg_integer(),
+        "message" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type describe_insights_refresh_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_pod_identity_configuration() :: %{
+        "recommendedManagedPolicies" => list(String.t() | atom()),
+        "serviceAccount" => String.t() | atom()
+      }
+
+  """
+  @type addon_pod_identity_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pod_identity_association() :: %{
+        "associationArn" => String.t() | atom(),
+        "associationId" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "disableSessionTags" => boolean(),
+        "externalId" => String.t() | atom(),
+        "modifiedAt" => non_neg_integer(),
+        "namespace" => String.t() | atom(),
+        "ownerArn" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "serviceAccount" => String.t() | atom(),
+        "tags" => map(),
+        "targetRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type pod_identity_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      issue() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      block_storage() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type block_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_entries_request() :: %{
+        optional("associatedPolicyArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_access_entries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capability_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("configuration") => capability_configuration_request(),
+        optional("tags") => map(),
+        required("capabilityName") => String.t() | atom(),
+        required("deletePropagationPolicy") => list(any()),
+        required("roleArn") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type create_capability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_versions_request() :: %{
+        optional("clusterType") => String.t() | atom(),
+        optional("clusterVersions") => list(String.t() | atom()),
+        optional("defaultOnly") => boolean(),
+        optional("includeAll") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("versionStatus") => list(any())
+      }
+
+  """
+  @type describe_cluster_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_status() :: %{
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type insight_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_entry_response() :: %{}
+
+  """
+  @type delete_access_entry_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      server_exception() :: %{
         "addonName" => String.t() | atom(),
         "clusterName" => String.t() | atom(),
-        "fargateProfileName" => String.t() | atom(),
         "message" => String.t() | atom(),
         "nodegroupName" => String.t() | atom(),
         "subscriptionId" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+  @type server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      storage_config_request() :: %{
-        "blockStorage" => block_storage()
+      associate_identity_provider_config_response() :: %{
+        "tags" => map(),
+        "update" => update()
       }
 
   """
-  @type storage_config_request() :: %{(String.t() | atom()) => any()}
+  @type associate_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2357,33 +2654,180 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      cluster_health() :: %{
-        "issues" => list(cluster_issue())
+      list_access_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type cluster_health() :: %{(String.t() | atom()) => any()}
+  @type list_access_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      argo_cd_config_response() :: %{
+        "awsIdc" => argo_cd_aws_idc_config_response(),
+        "namespace" => String.t() | atom(),
+        "networkAccess" => argo_cd_network_access_config_response(),
+        "rbacRoleMappings" => list(argo_cd_role_mapping()),
+        "serverUrl" => String.t() | atom()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type argo_cd_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remote_access_config() :: %{
-        "ec2SshKey" => String.t() | atom(),
-        "sourceSecurityGroups" => list(String.t() | atom())
+      pod_identity_association_summary() :: %{
+        "associationArn" => String.t() | atom(),
+        "associationId" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "ownerArn" => String.t() | atom(),
+        "serviceAccount" => String.t() | atom()
       }
 
   """
-  @type remote_access_config() :: %{(String.t() | atom()) => any()}
+  @type pod_identity_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      outpost_config_response() :: %{
+        "controlPlaneInstanceType" => String.t() | atom(),
+        "controlPlanePlacement" => control_plane_placement_response(),
+        "etcdInstanceType" => String.t() | atom(),
+        "etcdPlacement" => etcd_placement_response(),
+        "outpostArns" => list(String.t() | atom())
+      }
+
+  """
+  @type outpost_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_nodegroup_version_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type update_nodegroup_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_entry_response() :: %{
+        "accessEntry" => access_entry()
+      }
+
+  """
+  @type update_access_entry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      argo_cd_aws_idc_config_request() :: %{
+        "idcInstanceArn" => String.t() | atom(),
+        "idcRegion" => String.t() | atom()
+      }
+
+  """
+  @type argo_cd_aws_idc_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      etcd_placement_request() :: %{
+        "spreadLevel" => list(any())
+      }
+
+  """
+  @type etcd_placement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_insight_request() :: %{}
+
+  """
+  @type describe_insight_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_request() :: %{}
+
+  """
+  @type delete_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_state_exception() :: %{
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_pod_identity_associations() :: %{
+        "roleArn" => String.t() | atom(),
+        "serviceAccount" => String.t() | atom()
+      }
+
+  """
+  @type addon_pod_identity_associations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_config() :: %{
+        "provider" => provider(),
+        "resources" => list(String.t() | atom())
+      }
+
+  """
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_eks_anywhere_subscription_response() :: %{
+        "subscription" => eks_anywhere_subscription()
+      }
+
+  """
+  @type update_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2401,6 +2845,176 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      register_cluster_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("connectorConfig") => connector_config_request(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type register_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_cluster_response() :: %{
+        "cluster" => cluster()
+      }
+
+  """
+  @type deregister_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_version_information() :: %{
+        "clusterType" => String.t() | atom(),
+        "clusterVersion" => String.t() | atom(),
+        "defaultPlatformVersion" => String.t() | atom(),
+        "defaultVersion" => boolean(),
+        "endOfExtendedSupportDate" => non_neg_integer(),
+        "endOfStandardSupportDate" => non_neg_integer(),
+        "kubernetesPatchVersion" => String.t() | atom(),
+        "releaseDate" => non_neg_integer(),
+        "status" => list(any()),
+        "versionStatus" => list(any())
+      }
+
+  """
+  @type cluster_version_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      addon_namespace_config_request() :: %{
+        "namespace" => String.t() | atom()
+      }
+
+  """
+  @type addon_namespace_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_addons_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_addons_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "addonName" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "fargateProfileName" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nodegroupName" => String.t() | atom(),
+        "subscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_addon_response() :: %{
+        "addon" => addon()
+      }
+
+  """
+  @type create_addon_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_cluster_request() :: %{}
+
+  """
+  @type deregister_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_labels_payload() :: %{
+        "addOrUpdateLabels" => map(),
+        "removeLabels" => list(String.t() | atom())
+      }
+
+  """
+  @type update_labels_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_config_request() :: %{
+        "authenticationMode" => list(any()),
+        "bootstrapClusterCreatorAdminPermissions" => boolean()
+      }
+
+  """
+  @type create_access_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_policy() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type access_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config_request() :: %{
+        "endpointPrivateAccess" => boolean(),
+        "endpointPublicAccess" => boolean(),
+        "publicAccessCidrs" => list(String.t() | atom()),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_associated_access_policies_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -2413,110 +3027,200 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      oidc_identity_provider_config_request() :: %{
-        "clientId" => String.t() | atom(),
-        "groupsClaim" => String.t() | atom(),
-        "groupsPrefix" => String.t() | atom(),
-        "identityProviderConfigName" => String.t() | atom(),
-        "issuerUrl" => String.t() | atom(),
-        "requiredClaims" => map(),
-        "usernameClaim" => String.t() | atom(),
-        "usernamePrefix" => String.t() | atom()
-      }
+      start_insights_refresh_request() :: %{}
 
   """
-  @type oidc_identity_provider_config_request() :: %{(String.t() | atom()) => any()}
+  @type start_insights_refresh_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_access_entry_request() :: %{
+      upgrade_policy_response() :: %{
+        "supportType" => list(any())
+      }
+
+  """
+  @type upgrade_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config_response() :: %{
+        "clusterSecurityGroupId" => String.t() | atom(),
+        "endpointPrivateAccess" => boolean(),
+        "endpointPublicAccess" => boolean(),
+        "publicAccessCidrs" => list(String.t() | atom()),
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_capability_response() :: %{
+        "capability" => capability()
+      }
+
+  """
+  @type describe_capability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      zonal_shift_config_request() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type zonal_shift_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_eks_anywhere_subscription_request() :: %{
+        optional("autoRenew") => boolean(),
         optional("clientRequestToken") => String.t() | atom(),
-        optional("kubernetesGroups") => list(String.t() | atom()),
+        optional("licenseQuantity") => integer(),
+        optional("licenseType") => list(any()),
         optional("tags") => map(),
-        optional("type") => String.t() | atom(),
-        optional("username") => String.t() | atom(),
-        required("principalArn") => String.t() | atom()
+        required("name") => String.t() | atom(),
+        required("term") => eks_anywhere_subscription_term()
       }
 
   """
-  @type create_access_entry_request() :: %{(String.t() | atom()) => any()}
+  @type create_eks_anywhere_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      taint() :: %{
-        "effect" => list(any()),
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      register_cluster_response() :: %{
+        "cluster" => cluster()
       }
 
   """
-  @type taint() :: %{(String.t() | atom()) => any()}
+  @type register_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      auto_scaling_group() :: %{
+      delete_nodegroup_request() :: %{}
+
+  """
+  @type delete_nodegroup_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      nodegroup_scaling_config() :: %{
+        "desiredSize" => integer(),
+        "maxSize" => integer(),
+        "minSize" => integer()
+      }
+
+  """
+  @type nodegroup_scaling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_eks_anywhere_subscription_request() :: %{}
+
+  """
+  @type delete_eks_anywhere_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_issue() :: %{
+        "code" => list(any()),
+        "message" => String.t() | atom(),
+        "resourceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type cluster_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_summary() :: %{
+        "category" => list(any()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "insightStatus" => insight_status(),
+        "kubernetesVersion" => String.t() | atom(),
+        "lastRefreshTime" => non_neg_integer(),
+        "lastTransitionTime" => non_neg_integer(),
         "name" => String.t() | atom()
       }
 
   """
-  @type auto_scaling_group() :: %{(String.t() | atom()) => any()}
+  @type insight_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_health() :: %{
-        "issues" => list(addon_issue())
+      update_capability_response() :: %{
+        "update" => update()
       }
 
   """
-  @type addon_health() :: %{(String.t() | atom()) => any()}
+  @type update_capability_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_capability_request() :: %{}
-
-  """
-  @type delete_capability_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_update_request() :: %{
-        optional("addonName") => String.t() | atom(),
-        optional("capabilityName") => String.t() | atom(),
-        optional("nodegroupName") => String.t() | atom()
+      addon_version_info() :: %{
+        "addonVersion" => String.t() | atom(),
+        "architecture" => list(String.t() | atom()),
+        "compatibilities" => list(compatibility()),
+        "computeTypes" => list(String.t() | atom()),
+        "requiresConfiguration" => boolean(),
+        "requiresIamPermissions" => boolean()
       }
 
   """
-  @type describe_update_request() :: %{(String.t() | atom()) => any()}
+  @type addon_version_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_insights_refresh_request() :: %{}
+      remote_node_network() :: %{
+        "cidrs" => list(String.t() | atom())
+      }
 
   """
-  @type describe_insights_refresh_request() :: %{}
+  @type remote_node_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_category_specific_summary() :: %{
+        "addonCompatibilityDetails" => list(addon_compatibility_detail()),
+        "deprecationDetails" => list(deprecation_detail())
+      }
+
+  """
+  @type insight_category_specific_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2544,359 +3248,10 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      nodegroup_health() :: %{
-        "issues" => list(issue())
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type nodegroup_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_nodegroup_version_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("force") => boolean(),
-        optional("launchTemplate") => launch_template_specification(),
-        optional("releaseVersion") => String.t() | atom(),
-        optional("version") => String.t() | atom()
-      }
-
-  """
-  @type update_nodegroup_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_config_request() :: %{
-        "provider" => list(any()),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type connector_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_access_entry_request() :: %{}
-
-  """
-  @type describe_access_entry_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_nodegroup_response() :: %{
-        "nodegroup" => nodegroup()
-      }
-
-  """
-  @type delete_nodegroup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      client_stat() :: %{
-        "lastRequestTime" => non_neg_integer(),
-        "numberOfRequestsLast30Days" => integer(),
-        "userAgent" => String.t() | atom()
-      }
-
-  """
-  @type client_stat() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "clusterName" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_config_response() :: %{
-        "activationCode" => String.t() | atom(),
-        "activationExpiry" => non_neg_integer(),
-        "activationId" => String.t() | atom(),
-        "provider" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type connector_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_config_response() :: %{
-        "blockStorage" => block_storage()
-      }
-
-  """
-  @type storage_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      nodegroup_resources() :: %{
-        "autoScalingGroups" => list(auto_scaling_group()),
-        "remoteAccessSecurityGroup" => String.t() | atom()
-      }
-
-  """
-  @type nodegroup_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_identity_provider_config_response() :: %{
-        "update" => update()
-      }
-
-  """
-  @type disassociate_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_exception() :: %{
-        "addonName" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nodegroupName" => String.t() | atom(),
-        "subscriptionId" => String.t() | atom()
-      }
-
-  """
-  @type server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kubernetes_network_config_response() :: %{
-        "elasticLoadBalancing" => elastic_load_balancing(),
-        "ipFamily" => list(any()),
-        "serviceIpv4Cidr" => String.t() | atom(),
-        "serviceIpv6Cidr" => String.t() | atom()
-      }
-
-  """
-  @type kubernetes_network_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fargate_profile() :: %{
-        "clusterName" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "fargateProfileArn" => String.t() | atom(),
-        "fargateProfileName" => String.t() | atom(),
-        "health" => fargate_profile_health(),
-        "podExecutionRoleArn" => String.t() | atom(),
-        "selectors" => list(fargate_profile_selector()),
-        "status" => list(any()),
-        "subnets" => list(String.t() | atom()),
-        "tags" => map()
-      }
-
-  """
-  @type fargate_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      argo_cd_config_request() :: %{
-        "awsIdc" => argo_cd_aws_idc_config_request(),
-        "namespace" => String.t() | atom(),
-        "networkAccess" => argo_cd_network_access_config_request(),
-        "rbacRoleMappings" => list(argo_cd_role_mapping())
-      }
-
-  """
-  @type argo_cd_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      etcd_placement_response() :: %{
-        "spreadLevel" => list(any())
-      }
-
-  """
-  @type etcd_placement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_insights_refresh_response() :: %{
-        "message" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type start_insights_refresh_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_access_config_request() :: %{
-        "authenticationMode" => list(any())
-      }
-
-  """
-  @type update_access_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_info() :: %{
-        "addonName" => String.t() | atom(),
-        "addonVersions" => list(addon_version_info()),
-        "defaultNamespace" => String.t() | atom(),
-        "marketplaceInformation" => marketplace_information(),
-        "owner" => String.t() | atom(),
-        "publisher" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type addon_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_eks_anywhere_subscriptions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "subscriptions" => list(eks_anywhere_subscription())
-      }
-
-  """
-  @type list_eks_anywhere_subscriptions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pod_identity_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("namespace") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("serviceAccount") => String.t() | atom()
-      }
-
-  """
-  @type list_pod_identity_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remote_node_network() :: %{
-        "cidrs" => list(String.t() | atom())
-      }
-
-  """
-  @type remote_node_network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cluster_version_response() :: %{
-        "update" => update()
-      }
-
-  """
-  @type update_cluster_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_access_policy_request() :: %{
-        required("accessScope") => access_scope(),
-        required("policyArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_access_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_template_specification() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type launch_template_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_config_response() :: %{
-        "clusterSecurityGroupId" => String.t() | atom(),
-        "endpointPrivateAccess" => boolean(),
-        "endpointPublicAccess" => boolean(),
-        "publicAccessCidrs" => list(String.t() | atom()),
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_eks_anywhere_subscription_response() :: %{
-        "subscription" => eks_anywhere_subscription()
-      }
-
-  """
-  @type update_eks_anywhere_subscription_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -2914,740 +3269,385 @@ defmodule AWS.EKS do
 
   ## Example:
 
-      describe_pod_identity_association_request() :: %{}
+      disassociate_access_policy_request() :: %{}
 
   """
-  @type describe_pod_identity_association_request() :: %{}
+  @type disassociate_access_policy_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_access_entry_request() :: %{}
-
-  """
-  @type delete_access_entry_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_capability_configuration() :: %{
-        "argoCd" => update_argo_cd_config()
+      fargate_profile_health() :: %{
+        "issues" => list(fargate_profile_issue())
       }
 
   """
-  @type update_capability_configuration() :: %{(String.t() | atom()) => any()}
+  @type fargate_profile_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      insight() :: %{
-        "additionalInfo" => map(),
-        "category" => list(any()),
-        "categorySpecificSummary" => insight_category_specific_summary(),
-        "description" => String.t() | atom(),
+      sso_identity() :: %{
         "id" => String.t() | atom(),
-        "insightStatus" => insight_status(),
-        "kubernetesVersion" => String.t() | atom(),
-        "lastRefreshTime" => non_neg_integer(),
-        "lastTransitionTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "recommendation" => String.t() | atom(),
-        "resources" => list(insight_resource_detail())
+        "type" => list(any())
       }
 
   """
-  @type insight() :: %{(String.t() | atom()) => any()}
+  @type sso_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_cluster_config_request() :: %{
-        optional("accessConfig") => update_access_config_request(),
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("computeConfig") => compute_config_request(),
-        optional("controlPlaneScalingConfig") => control_plane_scaling_config(),
-        optional("deletionProtection") => boolean(),
-        optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
-        optional("logging") => logging(),
-        optional("remoteNetworkConfig") => remote_network_config_request(),
-        optional("resourcesVpcConfig") => vpc_config_request(),
-        optional("storageConfig") => storage_config_request(),
-        optional("upgradePolicy") => upgrade_policy_request(),
-        optional("zonalShiftConfig") => zonal_shift_config_request()
+      access_config_response() :: %{
+        "authenticationMode" => list(any()),
+        "bootstrapClusterCreatorAdminPermissions" => boolean()
       }
 
   """
-  @type update_cluster_config_request() :: %{(String.t() | atom()) => any()}
+  @type access_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remote_pod_network() :: %{
-        "cidrs" => list(String.t() | atom())
+      capability_configuration_response() :: %{
+        "argoCd" => argo_cd_config_response()
       }
 
   """
-  @type remote_pod_network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cluster_issue() :: %{
-        "code" => list(any()),
-        "message" => String.t() | atom(),
-        "resourceIds" => list(String.t() | atom())
-      }
-
-  """
-  @type cluster_issue() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_addon_request() :: %{}
-
-  """
-  @type describe_addon_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_addons_response() :: %{
-        "addons" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_addons_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_category_specific_summary() :: %{
-        "addonCompatibilityDetails" => list(addon_compatibility_detail()),
-        "deprecationDetails" => list(deprecation_detail())
-      }
-
-  """
-  @type insight_category_specific_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_setup() :: %{
-        "enabled" => boolean(),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type log_setup() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_addon_response() :: %{
-        "addon" => addon()
-      }
-
-  """
-  @type create_addon_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_cluster_response() :: %{
-        "cluster" => cluster()
-      }
-
-  """
-  @type register_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capability_health() :: %{
-        "issues" => list(capability_issue())
-      }
-
-  """
-  @type capability_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_nodegroup_response() :: %{
-        "nodegroup" => nodegroup()
-      }
-
-  """
-  @type describe_nodegroup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_entries_response() :: %{
-        "accessEntries" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_access_entries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_pod_identity_association_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("disableSessionTags") => boolean(),
-        optional("policy") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("targetRoleArn") => String.t() | atom(),
-        required("namespace") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("serviceAccount") => String.t() | atom()
-      }
-
-  """
-  @type create_pod_identity_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_identity_provider_config_response() :: %{
-        "identityProviderConfig" => identity_provider_config_response()
-      }
-
-  """
-  @type describe_identity_provider_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fargate_profile_selector() :: %{
-        "labels" => map(),
-        "namespace" => String.t() | atom()
-      }
-
-  """
-  @type fargate_profile_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_entries_request() :: %{
-        optional("associatedPolicyArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_access_entries_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_pod_identity_association_response() :: %{
-        "association" => pod_identity_association()
-      }
-
-  """
-  @type describe_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging() :: %{
-        "clusterLogging" => list(log_setup())
-      }
-
-  """
-  @type logging() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_provider_configs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_identity_provider_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cluster_version_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("force") => boolean(),
-        required("version") => String.t() | atom()
-      }
-
-  """
-  @type update_cluster_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_propagation_delay_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_propagation_delay_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_eks_anywhere_subscription_request() :: %{}
-
-  """
-  @type describe_eks_anywhere_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      warm_pool_config() :: %{
-        "enabled" => boolean(),
-        "maxGroupPreparedCapacity" => integer(),
-        "minSize" => integer(),
-        "poolState" => list(any()),
-        "reuseOnScaleIn" => boolean()
-      }
-
-  """
-  @type warm_pool_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_entry_response() :: %{}
-
-  """
-  @type delete_access_entry_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_update_response() :: %{
-        "update" => update()
-      }
-
-  """
-  @type describe_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cluster_version_information() :: %{
-        "clusterType" => String.t() | atom(),
-        "clusterVersion" => String.t() | atom(),
-        "defaultPlatformVersion" => String.t() | atom(),
-        "defaultVersion" => boolean(),
-        "endOfExtendedSupportDate" => non_neg_integer(),
-        "endOfStandardSupportDate" => non_neg_integer(),
-        "kubernetesPatchVersion" => String.t() | atom(),
-        "releaseDate" => non_neg_integer(),
-        "status" => list(any()),
-        "versionStatus" => list(any())
-      }
-
-  """
-  @type cluster_version_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_pod_identity_association_response() :: %{
-        "association" => pod_identity_association()
-      }
-
-  """
-  @type create_pod_identity_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      addon_version_info() :: %{
-        "addonVersion" => String.t() | atom(),
-        "architecture" => list(String.t() | atom()),
-        "compatibilities" => list(compatibility()),
-        "computeTypes" => list(String.t() | atom()),
-        "requiresConfiguration" => boolean(),
-        "requiresIamPermissions" => boolean()
-      }
-
-  """
-  @type addon_version_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_nodegroup_request() :: %{}
-
-  """
-  @type delete_nodegroup_request() :: %{}
+  @type capability_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_access_policy_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type associate_encryption_config_errors() ::
-          server_exception()
-          | throttling_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type associate_identity_provider_config_errors() ::
-          server_exception()
-          | throttling_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type create_access_entry_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | resource_limit_exceeded_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
+          | server_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_addon_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
 
   @type create_capability_errors() ::
-          server_exception()
-          | throttling_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | resource_limit_exceeded_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_in_use_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_cluster_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | server_exception()
+          | unsupported_availability_zone_exception()
+          | resource_in_use_exception()
+          | client_exception()
           | service_unavailable_exception()
           | resource_limit_exceeded_exception()
-          | client_exception()
-          | resource_in_use_exception()
-          | unsupported_availability_zone_exception()
 
   @type create_eks_anywhere_subscription_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | server_exception()
+          | client_exception()
           | service_unavailable_exception()
           | resource_limit_exceeded_exception()
-          | client_exception()
 
   @type create_fargate_profile_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | resource_limit_exceeded_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
-          | client_exception()
+          | server_exception()
           | unsupported_availability_zone_exception()
+          | client_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_nodegroup_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
+          | client_exception()
           | service_unavailable_exception()
           | resource_limit_exceeded_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | resource_in_use_exception()
 
   @type create_pod_identity_association_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | resource_limit_exceeded_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
-          | resource_not_found_exception()
+          | server_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | resource_limit_exceeded_exception()
 
   @type delete_access_entry_errors() ::
-          server_exception() | invalid_request_exception() | resource_not_found_exception()
+          invalid_request_exception() | server_exception() | resource_not_found_exception()
 
   @type delete_addon_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type delete_capability_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type delete_cluster_errors() ::
-          server_exception()
-          | service_unavailable_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
 
   @type delete_eks_anywhere_subscription_errors() ::
-          server_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type delete_fargate_profile_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type delete_nodegroup_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
+          invalid_parameter_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
 
   @type delete_pod_identity_association_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type deregister_cluster_errors() ::
           server_exception()
-          | access_denied_exception()
-          | service_unavailable_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
 
   @type describe_access_entry_errors() ::
-          server_exception() | invalid_request_exception() | resource_not_found_exception()
+          invalid_request_exception() | server_exception() | resource_not_found_exception()
 
   @type describe_addon_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type describe_addon_configuration_errors() ::
-          server_exception() | invalid_parameter_exception() | resource_not_found_exception()
+          invalid_parameter_exception() | server_exception() | resource_not_found_exception()
 
   @type describe_addon_versions_errors() ::
-          server_exception() | invalid_parameter_exception() | resource_not_found_exception()
+          invalid_parameter_exception() | server_exception() | resource_not_found_exception()
 
   @type describe_capability_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
+          | access_denied_exception()
 
   @type describe_cluster_errors() ::
           server_exception()
-          | service_unavailable_exception()
           | resource_not_found_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type describe_cluster_versions_errors() ::
-          server_exception() | invalid_parameter_exception() | invalid_request_exception()
+          invalid_parameter_exception() | invalid_request_exception() | server_exception()
 
   @type describe_eks_anywhere_subscription_errors() ::
           server_exception()
-          | service_unavailable_exception()
           | resource_not_found_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type describe_fargate_profile_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type describe_identity_provider_config_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type describe_insight_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type describe_insights_refresh_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type describe_nodegroup_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type describe_pod_identity_association_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type describe_update_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type disassociate_access_policy_errors() ::
-          server_exception() | invalid_request_exception() | resource_not_found_exception()
+          invalid_request_exception() | server_exception() | resource_not_found_exception()
 
   @type disassociate_identity_provider_config_errors() ::
-          server_exception()
-          | throttling_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type list_access_entries_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type list_access_policies_errors() :: server_exception()
 
   @type list_addons_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type list_associated_access_policies_errors() ::
-          server_exception() | invalid_request_exception() | resource_not_found_exception()
+          invalid_request_exception() | server_exception() | resource_not_found_exception()
 
-  @type list_capabilities_errors() :: server_exception() | invalid_parameter_exception()
+  @type list_capabilities_errors() :: invalid_parameter_exception() | server_exception()
 
   @type list_clusters_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type list_eks_anywhere_subscriptions_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type list_fargate_profiles_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type list_identity_provider_configs_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type list_insights_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type list_nodegroups_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
+          | service_unavailable_exception()
 
   @type list_pod_identity_associations_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() :: bad_request_exception() | not_found_exception()
 
   @type list_updates_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type register_cluster_errors() ::
-          resource_propagation_delay_exception()
+          invalid_parameter_exception()
           | server_exception()
-          | invalid_parameter_exception()
+          | resource_in_use_exception()
+          | client_exception()
           | access_denied_exception()
           | service_unavailable_exception()
           | resource_limit_exceeded_exception()
-          | client_exception()
-          | resource_in_use_exception()
+          | resource_propagation_delay_exception()
 
   @type start_insights_refresh_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type tag_resource_errors() :: bad_request_exception() | not_found_exception()
@@ -3655,72 +3655,72 @@ defmodule AWS.EKS do
   @type untag_resource_errors() :: bad_request_exception() | not_found_exception()
 
   @type update_access_entry_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   @type update_addon_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
 
   @type update_capability_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          invalid_parameter_exception()
+          | server_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type update_cluster_config_errors() ::
-          server_exception()
-          | throttling_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type update_cluster_version_errors() ::
-          server_exception()
-          | throttling_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | invalid_state_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | invalid_state_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type update_eks_anywhere_subscription_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
           | client_exception()
 
   @type update_nodegroup_config_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
 
   @type update_nodegroup_version_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
+          | resource_in_use_exception()
           | resource_not_found_exception()
           | client_exception()
-          | resource_in_use_exception()
 
   @type update_pod_identity_association_errors() ::
-          server_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
           | invalid_request_exception()
+          | server_exception()
           | resource_not_found_exception()
 
   def metadata do

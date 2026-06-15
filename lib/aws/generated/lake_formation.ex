@@ -15,418 +15,38 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      delete_object_input() :: %{
-        "ETag" => String.t() | atom(),
-        "PartitionValues" => list(String.t() | atom()),
-        "Uri" => String.t() | atom()
-      }
-
-  """
-  @type delete_object_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      grant_permissions_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("Condition") => condition(),
-        optional("PermissionsWithGrantOption") => list(list(any())()),
-        required("Permissions") => list(list(any())()),
-        required("Principal") => data_lake_principal(),
-        required("Resource") => resource()
-      }
-
-  """
-  @type grant_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_principal_request() :: %{}
-
-  """
-  @type get_data_lake_principal_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permissions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PrincipalResourcePermissions" => list(principal_resource_permissions())
-      }
-
-  """
-  @type list_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_databases_by_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Expression") => list(l_f_tag())
-      }
-
-  """
-  @type search_databases_by_l_f_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_lake_formation_identity_center_configuration_response() :: %{
-        "ApplicationArn" => String.t() | atom()
-      }
-
-  """
-  @type create_lake_formation_identity_center_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      l_f_tag_key_resource() :: %{
-        "CatalogId" => String.t() | atom(),
-        "TagKey" => String.t() | atom(),
-        "TagValues" => list(String.t() | atom())
-      }
-
-  """
-  @type l_f_tag_key_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      principal_permissions() :: %{
+      batch_permissions_request_entry() :: %{
+        "Condition" => condition(),
+        "Id" => String.t() | atom(),
         "Permissions" => list(list(any())()),
-        "Principal" => data_lake_principal()
+        "PermissionsWithGrantOption" => list(list(any())()),
+        "Principal" => data_lake_principal(),
+        "Resource" => resource()
       }
 
   """
-  @type principal_permissions() :: %{(String.t() | atom()) => any()}
+  @type batch_permissions_request_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      entity_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      list_lake_formation_opt_ins_response() :: %{
+        "LakeFormationOptInsInfoList" => list(lake_formation_opt_ins_info()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type entity_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type list_lake_formation_opt_ins_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      operation_timeout_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      update_l_f_tag_expression_response() :: %{}
 
   """
-  @type operation_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resources_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceInfoList" => list(resource_info())
-      }
-
-  """
-  @type list_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      l_f_tag_expression() :: %{
-        "CatalogId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Expression" => list(l_f_tag()),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type l_f_tag_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_resource_response() :: %{
-        "ResourceInfo" => resource_info()
-      }
-
-  """
-  @type describe_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_condition() :: %{
-        "ComparisonOperator" => list(any()),
-        "Field" => list(any()),
-        "StringValueList" => list(String.t() | atom())
-      }
-
-  """
-  @type filter_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("TagValuesToAdd") => list(String.t() | atom()),
-        optional("TagValuesToDelete") => list(String.t() | atom()),
-        required("TagKey") => String.t() | atom()
-      }
-
-  """
-  @type update_l_f_tag_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_session_context() :: %{
-        "AdditionalContext" => map(),
-        "ClusterId" => String.t() | atom(),
-        "QueryAuthorizationId" => String.t() | atom(),
-        "QueryId" => String.t() | atom(),
-        "QueryStartTime" => non_neg_integer()
-      }
-
-  """
-  @type query_session_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      l_f_tag() :: %{
-        "TagKey" => String.t() | atom(),
-        "TagValues" => list(String.t() | atom())
-      }
-
-  """
-  @type l_f_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      expired_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type expired_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_request() :: %{
-        optional("ExpectedResourceOwnerAccount") => String.t() | atom(),
-        optional("HybridAccessEnabled") => boolean(),
-        optional("WithFederation") => boolean(),
-        required("ResourceArn") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_table_storage_optimizer_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("DatabaseName") => String.t() | atom(),
-        required("StorageOptimizerConfig") => map(),
-        required("TableName") => String.t() | atom()
-      }
-
-  """
-  @type update_table_storage_optimizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      commit_transaction_request() :: %{
-        required("TransactionId") => String.t() | atom()
-      }
-
-  """
-  @type commit_transaction_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("TagKey") => String.t() | atom()
-      }
-
-  """
-  @type get_l_f_tag_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_l_f_tags_response() :: %{
-        "LFTagOnDatabase" => list(l_f_tag_pair()),
-        "LFTagsOnColumns" => list(column_l_f_tag()),
-        "LFTagsOnTable" => list(l_f_tag_pair())
-      }
-
-  """
-  @type get_resource_l_f_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_transaction_request() :: %{
-        required("TransactionId") => String.t() | atom()
-      }
-
-  """
-  @type cancel_transaction_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_transaction_response() :: %{
-        "TransactionDescription" => transaction_description()
-      }
-
-  """
-  @type describe_transaction_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      l_f_tag_policy_resource() :: %{
-        "CatalogId" => String.t() | atom(),
-        "Expression" => list(l_f_tag()),
-        "ExpressionName" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-
-  """
-  @type l_f_tag_policy_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_resource() :: %{
-        "CatalogId" => String.t() | atom(),
-        "DatabaseName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "TableWildcard" => table_wildcard()
-      }
-
-  """
-  @type table_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      l_f_tag_error() :: %{
-        "Error" => error_detail(),
-        "LFTag" => l_f_tag_pair()
-      }
-
-  """
-  @type l_f_tag_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      planning_statistics() :: %{
-        "EstimatedDataToScanBytes" => float(),
-        "PlanningTimeMillis" => float(),
-        "QueueTimeMillis" => float(),
-        "WorkUnitsGeneratedCount" => float()
-      }
-
-  """
-  @type planning_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_lake_formation_identity_center_configuration_request() :: %{
-        optional("ApplicationStatus") => list(any()),
-        optional("CatalogId") => String.t() | atom(),
-        optional("ExternalFiltering") => external_filtering_configuration(),
-        optional("ServiceIntegrations") => list(list()),
-        optional("ShareRecipients") => list(data_lake_principal())
-      }
-
-  """
-  @type update_lake_formation_identity_center_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      all_rows_wildcard() :: %{}
-
-  """
-  @type all_rows_wildcard() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_l_f_tag_expressions_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_l_f_tag_expressions_request() :: %{(String.t() | atom()) => any()}
+  @type update_l_f_tag_expression_response() :: %{}
 
   @typedoc """
 
@@ -449,276 +69,133 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      list_transactions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Transactions" => list(transaction_description())
-      }
-
-  """
-  @type list_transactions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_temporary_glue_partition_credentials_response() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t() | atom(),
-        "SessionToken" => String.t() | atom()
-      }
-
-  """
-  @type get_temporary_glue_partition_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_resource() :: %{
+      query_planning_context() :: %{
         "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "QueryAsOfTime" => non_neg_integer(),
+        "QueryParameters" => map(),
+        "TransactionId" => String.t() | atom()
+      }
+
+  """
+  @type query_planning_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      entity_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type entity_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_lake_formation_identity_center_configuration_response() :: %{
+        "ApplicationArn" => String.t() | atom()
+      }
+
+  """
+  @type create_lake_formation_identity_center_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_l_f_tag_expressions_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_l_f_tag_expressions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_table_objects_response() :: %{}
+
+  """
+  @type update_table_objects_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_revoke_permissions_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("Entries") => list(batch_permissions_request_entry())
+      }
+
+  """
+  @type batch_revoke_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_with_columns_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "ColumnNames" => list(String.t() | atom()),
+        "ColumnWildcard" => column_wildcard(),
+        "DatabaseName" => String.t() | atom(),
         "Name" => String.t() | atom()
       }
 
   """
-  @type database_resource() :: %{(String.t() | atom()) => any()}
+  @type table_with_columns_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_lake_formation_opt_in_request() :: %{
-        optional("Condition") => condition(),
-        required("Principal") => data_lake_principal(),
-        required("Resource") => resource()
-      }
-
-  """
-  @type delete_lake_formation_opt_in_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_l_f_tag_response() :: %{}
-
-  """
-  @type delete_l_f_tag_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_l_f_tag_expression_request() :: %{
+      put_data_lake_settings_request() :: %{
         optional("CatalogId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        required("Expression") => list(l_f_tag()),
-        required("Name") => String.t() | atom()
+        required("DataLakeSettings") => data_lake_settings()
       }
 
   """
-  @type create_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
+  @type put_data_lake_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tagged_table() :: %{
-        "LFTagOnDatabase" => list(l_f_tag_pair()),
-        "LFTagsOnColumns" => list(column_l_f_tag()),
-        "LFTagsOnTable" => list(l_f_tag_pair()),
-        "Table" => table_resource()
+      get_data_lake_principal_response() :: %{
+        "Identity" => String.t() | atom()
       }
 
   """
-  @type tagged_table() :: %{(String.t() | atom()) => any()}
+  @type get_data_lake_principal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      principal_resource_permissions() :: %{
-        "AdditionalDetails" => details_map(),
-        "Condition" => condition(),
-        "LastUpdated" => non_neg_integer(),
-        "LastUpdatedBy" => String.t() | atom(),
-        "Permissions" => list(list(any())()),
-        "PermissionsWithGrantOption" => list(list(any())()),
-        "Principal" => data_lake_principal(),
-        "Resource" => resource()
-      }
+      delete_l_f_tag_expression_response() :: %{}
 
   """
-  @type principal_resource_permissions() :: %{(String.t() | atom()) => any()}
+  @type delete_l_f_tag_expression_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_table_storage_optimizers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "StorageOptimizerList" => list(storage_optimizer())
+      external_filtering_configuration() :: %{
+        "AuthorizedTargets" => list(String.t() | atom()),
+        "Status" => list(any())
       }
 
   """
-  @type list_table_storage_optimizers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_tables_by_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Expression") => list(l_f_tag())
-      }
-
-  """
-  @type search_tables_by_l_f_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_l_f_tag_expression_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        required("Expression") => list(l_f_tag()),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transaction_canceled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type transaction_canceled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      partition_objects() :: %{
-        "Objects" => list(table_object()),
-        "PartitionValues" => list(String.t() | atom())
-      }
-
-  """
-  @type partition_objects() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_state_request() :: %{
-        required("QueryId") => String.t() | atom()
-      }
-
-  """
-  @type get_query_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_temporary_data_location_credentials_response() :: %{
-        "AccessibleDataLocations" => list(String.t() | atom()),
-        "Credentials" => temporary_credentials(),
-        "CredentialsScope" => list(any())
-      }
-
-  """
-  @type get_temporary_data_location_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_l_f_tag_response() :: %{
-        "CatalogId" => String.t() | atom(),
-        "TagKey" => String.t() | atom(),
-        "TagValues" => list(String.t() | atom())
-      }
-
-  """
-  @type get_l_f_tag_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_resource_response() :: %{}
-
-  """
-  @type deregister_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("TagKey") => String.t() | atom(),
-        required("TagValues") => list(String.t() | atom())
-      }
-
-  """
-  @type create_l_f_tag_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lake_formation_opt_ins_response() :: %{
-        "LakeFormationOptInsInfoList" => list(lake_formation_opt_ins_info()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_lake_formation_opt_ins_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_cells_filter_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Table") => table_resource()
-      }
-
-  """
-  @type list_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_number_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_number_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type external_filtering_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -736,86 +213,80 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      start_transaction_request() :: %{
-        optional("TransactionType") => list(any())
+      planning_statistics() :: %{
+        "EstimatedDataToScanBytes" => float(),
+        "PlanningTimeMillis" => float(),
+        "QueueTimeMillis" => float(),
+        "WorkUnitsGeneratedCount" => float()
       }
 
   """
-  @type start_transaction_request() :: %{(String.t() | atom()) => any()}
+  @type planning_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      transaction_commit_in_progress_exception() :: %{
+      extend_transaction_request() :: %{
+        optional("TransactionId") => String.t() | atom()
+      }
+
+  """
+  @type extend_transaction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrent_modification_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type transaction_commit_in_progress_exception() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_l_f_tag_expressions_response() :: %{
-        "LFTagExpressions" => list(l_f_tag_expression()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_l_f_tag_expressions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_transactions_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StatusFilter") => list(any())
-      }
-
-  """
-  @type list_transactions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extend_transaction_response() :: %{}
-
-  """
-  @type extend_transaction_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      query_planning_context() :: %{
+      describe_lake_formation_identity_center_configuration_response() :: %{
+        "ApplicationArn" => String.t() | atom(),
         "CatalogId" => String.t() | atom(),
-        "DatabaseName" => String.t() | atom(),
-        "QueryAsOfTime" => non_neg_integer(),
-        "QueryParameters" => map(),
-        "TransactionId" => String.t() | atom()
+        "ExternalFiltering" => external_filtering_configuration(),
+        "InstanceArn" => String.t() | atom(),
+        "ResourceShare" => String.t() | atom(),
+        "ServiceIntegrations" => list(list()),
+        "ShareRecipients" => list(data_lake_principal())
       }
 
   """
-  @type query_planning_context() :: %{(String.t() | atom()) => any()}
+  @type describe_lake_formation_identity_center_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      create_lake_formation_opt_in_request() :: %{
-        optional("Condition") => condition(),
-        required("Principal") => data_lake_principal(),
-        required("Resource") => resource()
+      batch_permissions_failure_entry() :: %{
+        "Error" => error_detail(),
+        "RequestEntry" => batch_permissions_request_entry()
       }
 
   """
-  @type create_lake_formation_opt_in_request() :: %{(String.t() | atom()) => any()}
+  @type batch_permissions_failure_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceInfoList" => list(resource_info())
+      }
+
+  """
+  @type list_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -839,280 +310,36 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      start_query_planning_request() :: %{
-        required("QueryPlanningContext") => query_planning_context(),
-        required("QueryString") => String.t() | atom()
-      }
-
-  """
-  @type start_query_planning_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_principal() :: %{
-        "DataLakePrincipalIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type data_lake_principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_l_f_tags_to_resource_response() :: %{
-        "Failures" => list(l_f_tag_error())
-      }
-
-  """
-  @type add_l_f_tags_to_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_cells_filter() :: %{
-        "ColumnNames" => list(String.t() | atom()),
-        "ColumnWildcard" => column_wildcard(),
-        "DatabaseName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RowFilter" => row_filter(),
-        "TableCatalogId" => String.t() | atom(),
-        "TableName" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type data_cells_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_l_f_tag_expression_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type delete_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_optimizer() :: %{
-        "Config" => map(),
-        "ErrorMessage" => String.t() | atom(),
-        "LastRunDetails" => String.t() | atom(),
-        "StorageOptimizerType" => list(any()),
-        "Warnings" => String.t() | atom()
-      }
-
-  """
-  @type storage_optimizer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_location_resource() :: %{
-        "CatalogId" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type data_location_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_cells_filter_response() :: %{}
-
-  """
-  @type delete_data_cells_filter_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      register_resource_response() :: %{}
-
-  """
-  @type register_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_data_lake_settings_response() :: %{}
-
-  """
-  @type put_data_lake_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      partition_value_list() :: %{
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type partition_value_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_work_unit_results_request() :: %{
-        required("QueryId") => String.t() | atom(),
-        required("WorkUnitId") => float(),
-        required("WorkUnitToken") => String.t() | atom()
-      }
-
-  """
-  @type get_work_unit_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_databases_by_l_f_tags_response() :: %{
-        "DatabaseList" => list(tagged_database()),
+      list_l_f_tag_expressions_response() :: %{
+        "LFTagExpressions" => list(l_f_tag_expression()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type search_databases_by_l_f_tags_response() :: %{(String.t() | atom()) => any()}
+  @type list_l_f_tag_expressions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_l_f_tag_response() :: %{}
-
-  """
-  @type update_l_f_tag_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_settings_request() :: %{
-        optional("CatalogId") => String.t() | atom()
+      get_l_f_tag_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("TagKey") => String.t() | atom()
       }
 
   """
-  @type get_data_lake_settings_request() :: %{(String.t() | atom()) => any()}
+  @type get_l_f_tag_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_temporary_glue_partition_credentials_request() :: %{
-        optional("AuditContext") => audit_context(),
-        optional("DurationSeconds") => integer(),
-        optional("Permissions") => list(list(any())()),
-        optional("SupportedPermissionTypes") => list(list(any())()),
-        required("Partition") => partition_value_list(),
-        required("TableArn") => String.t() | atom()
-      }
-
-  """
-  @type get_temporary_glue_partition_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_cells_filter_response() :: %{}
-
-  """
-  @type update_data_cells_filter_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      transaction_committed_exception() :: %{
+      access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type transaction_committed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column_wildcard() :: %{
-        "ExcludedColumnNames" => list(String.t() | atom())
-      }
-
-  """
-  @type column_wildcard() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_permissions_request_entry() :: %{
-        "Condition" => condition(),
-        "Id" => String.t() | atom(),
-        "Permissions" => list(list(any())()),
-        "PermissionsWithGrantOption" => list(list(any())()),
-        "Principal" => data_lake_principal(),
-        "Resource" => resource()
-      }
-
-  """
-  @type batch_permissions_request_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_table_objects_response() :: %{}
-
-  """
-  @type update_table_objects_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      commit_transaction_response() :: %{
-        "TransactionStatus" => list(any())
-      }
-
-  """
-  @type commit_transaction_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1127,21 +354,44 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      catalog_resource() :: %{
-        "Id" => String.t() | atom()
+      list_l_f_tags_response() :: %{
+        "LFTags" => list(l_f_tag_pair()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type catalog_resource() :: %{(String.t() | atom()) => any()}
+  @type list_l_f_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_resource_response() :: %{}
+      describe_lake_formation_identity_center_configuration_request() :: %{
+        optional("CatalogId") => String.t() | atom()
+      }
 
   """
-  @type update_resource_response() :: %{}
+  @type describe_lake_formation_identity_center_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lake_formation_identity_center_configuration_response() :: %{}
+
+  """
+  @type delete_lake_formation_identity_center_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_resource_response() :: %{}
+
+  """
+  @type deregister_resource_response() :: %{}
 
   @typedoc """
 
@@ -1160,6 +410,45 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      list_data_cells_filter_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Table") => table_resource()
+      }
+
+  """
+  @type list_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_operation() :: %{
+        "AddObject" => add_object_input(),
+        "DeleteObject" => delete_object_input()
+      }
+
+  """
+  @type write_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      temporary_credentials() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
+      }
+
+  """
+  @type temporary_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_transaction_request() :: %{
         required("TransactionId") => String.t() | atom()
       }
@@ -1171,38 +460,326 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      lake_formation_opt_ins_info() :: %{
-        "Condition" => condition(),
-        "LastModified" => non_neg_integer(),
-        "LastUpdatedBy" => String.t() | atom(),
-        "Principal" => data_lake_principal(),
-        "Resource" => resource()
+      get_query_state_request() :: %{
+        required("QueryId") => String.t() | atom()
       }
 
   """
-  @type lake_formation_opt_ins_info() :: %{(String.t() | atom()) => any()}
+  @type get_query_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remove_l_f_tags_from_resource_response() :: %{
-        "Failures" => list(l_f_tag_error())
+      list_permissions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PrincipalResourcePermissions" => list(principal_resource_permissions())
       }
 
   """
-  @type remove_l_f_tags_from_resource_response() :: %{(String.t() | atom()) => any()}
+  @type list_permissions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      details_map() :: %{
-        "ResourceShare" => list(String.t() | atom())
+      catalog_resource() :: %{
+        "Id" => String.t() | atom()
       }
 
   """
-  @type details_map() :: %{(String.t() | atom()) => any()}
+  @type catalog_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_encryption_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type glue_encryption_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_cells_filter_request() :: %{
+        optional("DatabaseName") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("TableCatalogId") => String.t() | atom(),
+        optional("TableName") => String.t() | atom()
+      }
+
+  """
+  @type delete_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_table_storage_optimizer_response() :: %{
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type update_table_storage_optimizer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lake_formation_identity_center_configuration_request() :: %{
+        optional("CatalogId") => String.t() | atom()
+      }
+
+  """
+  @type delete_lake_formation_identity_center_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      database_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type database_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_ready_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_lake_formation_identity_center_configuration_request() :: %{
+        optional("ApplicationStatus") => list(any()),
+        optional("CatalogId") => String.t() | atom(),
+        optional("ExternalFiltering") => external_filtering_configuration(),
+        optional("ServiceIntegrations") => list(list()),
+        optional("ShareRecipients") => list(data_lake_principal())
+      }
+
+  """
+  @type update_lake_formation_identity_center_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_l_f_tag_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("TagValuesToAdd") => list(String.t() | atom()),
+        optional("TagValuesToDelete") => list(String.t() | atom()),
+        required("TagKey") => String.t() | atom()
+      }
+
+  """
+  @type update_l_f_tag_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      operation_timeout_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type operation_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_condition() :: %{
+        "ComparisonOperator" => list(any()),
+        "Field" => list(any()),
+        "StringValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_lake_formation_opt_in_request() :: %{
+        optional("Condition") => condition(),
+        required("Principal") => data_lake_principal(),
+        required("Resource") => resource()
+      }
+
+  """
+  @type create_lake_formation_opt_in_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_settings_request() :: %{
+        optional("CatalogId") => String.t() | atom()
+      }
+
+  """
+  @type get_data_lake_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_cells_filter_response() :: %{}
+
+  """
+  @type update_data_cells_filter_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      register_resource_response() :: %{}
+
+  """
+  @type register_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_permissions_response() :: %{}
+
+  """
+  @type revoke_permissions_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_work_unit_results_request() :: %{
+        required("QueryId") => String.t() | atom(),
+        required("WorkUnitId") => float(),
+        required("WorkUnitToken") => String.t() | atom()
+      }
+
+  """
+  @type get_work_unit_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      l_f_tag_expression() :: %{
+        "CatalogId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Expression" => list(l_f_tag()),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type l_f_tag_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_cells_filter_resource() :: %{
+        "DatabaseName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TableCatalogId" => String.t() | atom(),
+        "TableName" => String.t() | atom()
+      }
+
+  """
+  @type data_cells_filter_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_l_f_tags_response() :: %{
+        "LFTagOnDatabase" => list(l_f_tag_pair()),
+        "LFTagsOnColumns" => list(column_l_f_tag()),
+        "LFTagsOnTable" => list(l_f_tag_pair())
+      }
+
+  """
+  @type get_resource_l_f_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_l_f_tag_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("TagKey") => String.t() | atom()
+      }
+
+  """
+  @type delete_l_f_tag_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_table_storage_optimizers_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StorageOptimizerType") => list(any()),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom()
+      }
+
+  """
+  @type list_table_storage_optimizers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permissions_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("IncludeRelated") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Principal") => data_lake_principal(),
+        optional("Resource") => resource(),
+        optional("ResourceType") => list(any())
+      }
+
+  """
+  @type list_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_table_storage_optimizer_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("StorageOptimizerConfig") => map(),
+        required("TableName") => String.t() | atom()
+      }
+
+  """
+  @type update_table_storage_optimizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1233,434 +810,153 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      add_object_input() :: %{
-        "ETag" => String.t() | atom(),
-        "PartitionValues" => list(String.t() | atom()),
-        "Size" => float(),
-        "Uri" => String.t() | atom()
-      }
-
-  """
-  @type add_object_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      l_f_tag_expression_resource() :: %{
-        "CatalogId" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type l_f_tag_expression_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transaction_description() :: %{
-        "TransactionEndTime" => non_neg_integer(),
-        "TransactionId" => String.t() | atom(),
-        "TransactionStartTime" => non_neg_integer(),
+      commit_transaction_response() :: %{
         "TransactionStatus" => list(any())
       }
 
   """
-  @type transaction_description() :: %{(String.t() | atom()) => any()}
+  @type commit_transaction_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("ShowAssignedLFTags") => boolean(),
-        required("Resource") => resource()
+      storage_optimizer() :: %{
+        "Config" => map(),
+        "ErrorMessage" => String.t() | atom(),
+        "LastRunDetails" => String.t() | atom(),
+        "StorageOptimizerType" => list(any()),
+        "Warnings" => String.t() | atom()
       }
 
   """
-  @type get_resource_l_f_tags_request() :: %{(String.t() | atom()) => any()}
+  @type storage_optimizer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_l_f_tag_expression_response() :: %{
-        "CatalogId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Expression" => list(l_f_tag()),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type get_l_f_tag_expression_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      row_filter() :: %{
-        "AllRowsWildcard" => all_rows_wildcard(),
-        "FilterExpression" => String.t() | atom()
-      }
-
-  """
-  @type row_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_input_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_objects_on_cancel_response() :: %{}
-
-  """
-  @type delete_objects_on_cancel_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_lake_settings_response() :: %{
-        "DataLakeSettings" => data_lake_settings()
-      }
-
-  """
-  @type get_data_lake_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_cells_filter_request() :: %{
-        required("TableData") => data_cells_filter()
-      }
-
-  """
-  @type update_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      write_operation() :: %{
-        "AddObject" => add_object_input(),
-        "DeleteObject" => delete_object_input()
-      }
-
-  """
-  @type write_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_temporary_glue_table_credentials_response() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t() | atom(),
-        "SessionToken" => String.t() | atom(),
-        "VendedS3Path" => list(String.t() | atom())
-      }
-
-  """
-  @type get_temporary_glue_table_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_lake_formation_identity_center_configuration_response() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "CatalogId" => String.t() | atom(),
-        "ExternalFiltering" => external_filtering_configuration(),
-        "InstanceArn" => String.t() | atom(),
-        "ResourceShare" => String.t() | atom(),
-        "ServiceIntegrations" => list(list()),
-        "ShareRecipients" => list(data_lake_principal())
-      }
-
-  """
-  @type describe_lake_formation_identity_center_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_state_response() :: %{
-        "Error" => String.t() | atom(),
-        "State" => list(any())
-      }
-
-  """
-  @type get_query_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      temporary_credentials() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t() | atom(),
-        "SessionToken" => String.t() | atom()
-      }
-
-  """
-  @type temporary_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      condition() :: %{
-        "Expression" => String.t() | atom()
-      }
-
-  """
-  @type condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      l_f_tag_pair() :: %{
+      get_l_f_tag_response() :: %{
         "CatalogId" => String.t() | atom(),
         "TagKey" => String.t() | atom(),
         "TagValues" => list(String.t() | atom())
       }
 
   """
-  @type l_f_tag_pair() :: %{(String.t() | atom()) => any()}
+  @type get_l_f_tag_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_l_f_tag_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("TagKey") => String.t() | atom()
+      already_exists_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type delete_l_f_tag_request() :: %{(String.t() | atom()) => any()}
+  @type already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_lake_formation_opt_ins_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Principal") => data_lake_principal(),
-        optional("Resource") => resource()
+      cancel_transaction_response() :: %{}
+
+  """
+  @type cancel_transaction_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      assume_decorated_role_with_saml_request() :: %{
+        optional("DurationSeconds") => integer(),
+        required("PrincipalArn") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("SAMLAssertion") => String.t() | atom()
       }
 
   """
-  @type list_lake_formation_opt_ins_request() :: %{(String.t() | atom()) => any()}
+  @type assume_decorated_role_with_saml_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_lake_formation_identity_center_configuration_request() :: %{
-        optional("CatalogId") => String.t() | atom()
-      }
+      delete_lake_formation_opt_in_response() :: %{}
 
   """
-  @type describe_lake_formation_identity_center_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type delete_lake_formation_opt_in_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_l_f_tag_response() :: %{}
-
-  """
-  @type create_l_f_tag_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_lake_formation_identity_center_configuration_response() :: %{}
-
-  """
-  @type delete_lake_formation_identity_center_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permissions_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("IncludeRelated") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Principal") => data_lake_principal(),
-        optional("Resource") => resource(),
-        optional("ResourceType") => list(any())
-      }
-
-  """
-  @type list_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_revoke_permissions_response() :: %{
-        "Failures" => list(batch_permissions_failure_entry())
-      }
-
-  """
-  @type batch_revoke_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_table_objects_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("TransactionId") => String.t() | atom(),
-        required("DatabaseName") => String.t() | atom(),
-        required("TableName") => String.t() | atom(),
-        required("WriteOperations") => list(write_operation())
-      }
-
-  """
-  @type update_table_objects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_lake_formation_identity_center_configuration_response() :: %{}
-
-  """
-  @type update_lake_formation_identity_center_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_cells_filter_response() :: %{
-        "DataCellsFilters" => list(data_cells_filter()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_cells_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_temporary_data_location_credentials_request() :: %{
-        optional("AuditContext") => audit_context(),
-        optional("CredentialsScope") => list(any()),
-        optional("DataLocations") => list(String.t() | atom()),
-        optional("DurationSeconds") => integer()
-      }
-
-  """
-  @type get_temporary_data_location_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_permissions_failure_entry() :: %{
+      l_f_tag_error() :: %{
         "Error" => error_detail(),
-        "RequestEntry" => batch_permissions_request_entry()
+        "LFTag" => l_f_tag_pair()
       }
 
   """
-  @type batch_permissions_failure_entry() :: %{(String.t() | atom()) => any()}
+  @type l_f_tag_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_effective_permissions_for_path_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Permissions" => list(principal_resource_permissions())
+      start_transaction_request() :: %{
+        optional("TransactionType") => list(any())
       }
 
   """
-  @type get_effective_permissions_for_path_response() :: %{(String.t() | atom()) => any()}
+  @type start_transaction_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_grant_permissions_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("Entries") => list(batch_permissions_request_entry())
+      get_data_cells_filter_response() :: %{
+        "DataCellsFilter" => data_cells_filter()
       }
 
   """
-  @type batch_grant_permissions_request() :: %{(String.t() | atom()) => any()}
+  @type get_data_cells_filter_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_table_storage_optimizer_response() :: %{
-        "Result" => String.t() | atom()
+      get_temporary_data_location_credentials_response() :: %{
+        "AccessibleDataLocations" => list(String.t() | atom()),
+        "Credentials" => temporary_credentials(),
+        "CredentialsScope" => list(any())
       }
 
   """
-  @type update_table_storage_optimizer_response() :: %{(String.t() | atom()) => any()}
+  @type get_temporary_data_location_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_l_f_tags_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceShareType") => list(any())
+      l_f_tag_policy_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "Expression" => list(l_f_tag()),
+        "ExpressionName" => String.t() | atom(),
+        "ResourceType" => list(any())
       }
 
   """
-  @type list_l_f_tags_request() :: %{(String.t() | atom()) => any()}
+  @type l_f_tag_policy_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      revoke_permissions_response() :: %{}
+      update_resource_response() :: %{}
 
   """
-  @type revoke_permissions_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_work_unit_results_response() :: %{
-        "ResultStream" => binary()
-      }
-
-  """
-  @type get_work_unit_results_response() :: %{(String.t() | atom()) => any()}
+  @type update_resource_response() :: %{}
 
   @typedoc """
 
@@ -1683,511 +979,94 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      delete_objects_on_cancel_request() :: %{
+      describe_resource_response() :: %{
+        "ResourceInfo" => resource_info()
+      }
+
+  """
+  @type describe_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      partition_value_list() :: %{
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type partition_value_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_l_f_tags_request() :: %{
         optional("CatalogId") => String.t() | atom(),
-        required("DatabaseName") => String.t() | atom(),
-        required("Objects") => list(virtual_object()),
-        required("TableName") => String.t() | atom(),
-        required("TransactionId") => String.t() | atom()
+        optional("ShowAssignedLFTags") => boolean(),
+        required("Resource") => resource()
       }
 
   """
-  @type delete_objects_on_cancel_request() :: %{(String.t() | atom()) => any()}
+  @type get_resource_l_f_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      error_detail() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom()
-      }
-
-  """
-  @type error_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_lake_formation_opt_in_response() :: %{}
-
-  """
-  @type create_lake_formation_opt_in_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_lake_settings() :: %{
-        "AllowExternalDataFiltering" => boolean(),
-        "AllowFullTableExternalDataAccess" => boolean(),
-        "AuthorizedSessionTagValueList" => list(String.t() | atom()),
-        "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
-        "CreateTableDefaultPermissions" => list(principal_permissions()),
-        "DataLakeAdmins" => list(data_lake_principal()),
-        "ExternalDataFilteringAllowList" => list(data_lake_principal()),
-        "Parameters" => map(),
-        "ReadOnlyAdmins" => list(data_lake_principal()),
-        "TrustedResourceOwners" => list(String.t() | atom())
-      }
-
-  """
-  @type data_lake_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
+      transaction_commit_in_progress_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type transaction_commit_in_progress_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      statistics_not_ready_yet_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type statistics_not_ready_yet_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assume_decorated_role_with_saml_request() :: %{
-        optional("DurationSeconds") => integer(),
-        required("PrincipalArn") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom(),
-        required("SAMLAssertion") => String.t() | atom()
-      }
-
-  """
-  @type assume_decorated_role_with_saml_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_grant_permissions_response() :: %{
-        "Failures" => list(batch_permissions_failure_entry())
-      }
-
-  """
-  @type batch_grant_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      external_filtering_configuration() :: %{
-        "AuthorizedTargets" => list(String.t() | atom()),
-        "Status" => list(any())
-      }
-
-  """
-  @type external_filtering_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_cells_filter_response() :: %{}
-
-  """
-  @type create_data_cells_filter_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_cells_filter_resource() :: %{
-        "DatabaseName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "TableCatalogId" => String.t() | atom(),
-        "TableName" => String.t() | atom()
-      }
-
-  """
-  @type data_cells_filter_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_statistics_request() :: %{
-        required("QueryId") => String.t() | atom()
-      }
-
-  """
-  @type get_query_statistics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      work_units_not_ready_yet_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type work_units_not_ready_yet_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_context() :: %{
-        "AdditionalAuditContext" => String.t() | atom()
-      }
-
-  """
-  @type audit_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_work_units_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "QueryId" => String.t() | atom(),
-        "WorkUnitRanges" => list(work_unit_range())
-      }
-
-  """
-  @type get_work_units_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tagged_database() :: %{
-        "Database" => database_resource(),
-        "LFTags" => list(l_f_tag_pair())
-      }
-
-  """
-  @type tagged_database() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_data_lake_settings_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("DataLakeSettings") => data_lake_settings()
-      }
-
-  """
-  @type put_data_lake_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_l_f_tag_expression_response() :: %{}
-
-  """
-  @type create_l_f_tag_expression_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_revoke_permissions_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("Entries") => list(batch_permissions_request_entry())
-      }
-
-  """
-  @type batch_revoke_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_cells_filter_request() :: %{
-        required("TableData") => data_cells_filter()
-      }
-
-  """
-  @type create_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permission_type_mismatch_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type permission_type_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_statistics() :: %{
-        "AverageExecutionTimeMillis" => float(),
-        "DataScannedBytes" => float(),
-        "WorkUnitsExecutedCount" => float()
-      }
-
-  """
-  @type execution_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_statistics_response() :: %{
-        "ExecutionStatistics" => execution_statistics(),
-        "PlanningStatistics" => planning_statistics(),
-        "QuerySubmissionTime" => non_neg_integer()
-      }
-
-  """
-  @type get_query_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_info() :: %{
-        "ExpectedResourceOwnerAccount" => String.t() | atom(),
-        "HybridAccessEnabled" => boolean(),
-        "LastModified" => non_neg_integer(),
-        "ResourceArn" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "VerificationStatus" => list(any()),
-        "WithFederation" => boolean(),
-        "WithPrivilegedAccess" => boolean()
-      }
-
-  """
-  @type resource_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type describe_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_table_objects_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Objects" => list(partition_objects())
-      }
-
-  """
-  @type get_table_objects_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extend_transaction_request() :: %{
-        optional("TransactionId") => String.t() | atom()
-      }
-
-  """
-  @type extend_transaction_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      table_with_columns_resource() :: %{
+      data_location_resource() :: %{
         "CatalogId" => String.t() | atom(),
-        "ColumnNames" => list(String.t() | atom()),
-        "ColumnWildcard" => column_wildcard(),
-        "DatabaseName" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type table_with_columns_resource() :: %{(String.t() | atom()) => any()}
+  @type data_location_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_resources_request() :: %{
-        optional("FilterConditionList") => list(filter_condition()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      list_table_storage_optimizers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "StorageOptimizerList" => list(storage_optimizer())
       }
 
   """
-  @type list_resources_request() :: %{(String.t() | atom()) => any()}
+  @type list_table_storage_optimizers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_l_f_tags_response() :: %{
-        "LFTags" => list(l_f_tag_pair()),
-        "NextToken" => String.t() | atom()
+      column_wildcard() :: %{
+        "ExcludedColumnNames" => list(String.t() | atom())
       }
 
   """
-  @type list_l_f_tags_response() :: %{(String.t() | atom()) => any()}
+  @type column_wildcard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      revoke_permissions_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("Condition") => condition(),
-        optional("PermissionsWithGrantOption") => list(list(any())()),
-        required("Permissions") => list(list(any())()),
-        required("Principal") => data_lake_principal(),
-        required("Resource") => resource()
+      list_transactions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Transactions" => list(transaction_description())
       }
 
   """
-  @type revoke_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_cells_filter_request() :: %{
-        optional("DatabaseName") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("TableCatalogId") => String.t() | atom(),
-        optional("TableName") => String.t() | atom()
-      }
-
-  """
-  @type delete_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_lake_formation_identity_center_configuration_request() :: %{
-        optional("CatalogId") => String.t() | atom()
-      }
-
-  """
-  @type delete_lake_formation_identity_center_configuration_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_connect() :: %{
-        "Authorization" => list(any())
-      }
-
-  """
-  @type redshift_connect() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_transaction_response() :: %{}
-
-  """
-  @type cancel_transaction_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_cells_filter_request() :: %{
-        required("DatabaseName") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("TableCatalogId") => String.t() | atom(),
-        required("TableName") => String.t() | atom()
-      }
-
-  """
-  @type get_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_temporary_glue_table_credentials_request() :: %{
-        optional("AuditContext") => audit_context(),
-        optional("DurationSeconds") => integer(),
-        optional("Permissions") => list(list(any())()),
-        optional("QuerySessionContext") => query_session_context(),
-        optional("S3Path") => String.t() | atom(),
-        optional("SupportedPermissionTypes") => list(list(any())()),
-        required("TableArn") => String.t() | atom()
-      }
-
-  """
-  @type get_temporary_glue_table_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_encryption_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type glue_encryption_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_l_f_tag_expression_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type get_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_l_f_tags_from_resource_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        required("LFTags") => list(l_f_tag_pair()),
-        required("Resource") => resource()
-      }
-
-  """
-  @type remove_l_f_tags_from_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_transactions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2220,122 +1099,115 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      get_data_lake_principal_response() :: %{
-        "Identity" => String.t() | atom()
-      }
-
-  """
-  @type get_data_lake_principal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_cells_filter_response() :: %{
-        "DataCellsFilter" => data_cells_filter()
-      }
-
-  """
-  @type get_data_cells_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_ready_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assume_decorated_role_with_saml_response() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "Expiration" => non_neg_integer(),
-        "SecretAccessKey" => String.t() | atom(),
-        "SessionToken" => String.t() | atom()
-      }
-
-  """
-  @type assume_decorated_role_with_saml_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type deregister_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_l_f_tag_expression_response() :: %{}
-
-  """
-  @type update_l_f_tag_expression_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_table_storage_optimizers_request() :: %{
-        optional("CatalogId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StorageOptimizerType") => list(any()),
+      get_data_cells_filter_request() :: %{
         required("DatabaseName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("TableCatalogId") => String.t() | atom(),
         required("TableName") => String.t() | atom()
       }
 
   """
-  @type list_table_storage_optimizers_request() :: %{(String.t() | atom()) => any()}
+  @type get_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_transaction_response() :: %{
-        "TransactionId" => String.t() | atom()
+      tagged_table() :: %{
+        "LFTagOnDatabase" => list(l_f_tag_pair()),
+        "LFTagsOnColumns" => list(column_l_f_tag()),
+        "LFTagsOnTable" => list(l_f_tag_pair()),
+        "Table" => table_resource()
       }
 
   """
-  @type start_transaction_response() :: %{(String.t() | atom()) => any()}
+  @type tagged_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_lake_formation_opt_in_response() :: %{}
+      get_query_statistics_request() :: %{
+        required("QueryId") => String.t() | atom()
+      }
 
   """
-  @type delete_lake_formation_opt_in_response() :: %{}
+  @type get_query_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      grant_permissions_response() :: %{}
+      delete_objects_on_cancel_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("Objects") => list(virtual_object()),
+        required("TableName") => String.t() | atom(),
+        required("TransactionId") => String.t() | atom()
+      }
 
   """
-  @type grant_permissions_response() :: %{}
+  @type delete_objects_on_cancel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_l_f_tag_expression_response() :: %{}
+      grant_permissions_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("Condition") => condition(),
+        optional("PermissionsWithGrantOption") => list(list(any())()),
+        required("Permissions") => list(list(any())()),
+        required("Principal") => data_lake_principal(),
+        required("Resource") => resource()
+      }
 
   """
-  @type delete_l_f_tag_expression_response() :: %{}
+  @type grant_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_l_f_tags_to_resource_response() :: %{
+        "Failures" => list(l_f_tag_error())
+      }
+
+  """
+  @type add_l_f_tags_to_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transaction_committed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type transaction_committed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lake_formation_opt_in_request() :: %{
+        optional("Condition") => condition(),
+        required("Principal") => data_lake_principal(),
+        required("Resource") => resource()
+      }
+
+  """
+  @type delete_lake_formation_opt_in_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_lake_formation_opt_in_response() :: %{}
+
+  """
+  @type create_lake_formation_opt_in_response() :: %{}
 
   @typedoc """
 
@@ -2354,12 +1226,16 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
-      start_query_planning_response() :: %{
-        "QueryId" => String.t() | atom()
+      query_session_context() :: %{
+        "AdditionalContext" => map(),
+        "ClusterId" => String.t() | atom(),
+        "QueryAuthorizationId" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "QueryStartTime" => non_neg_integer()
       }
 
   """
-  @type start_query_planning_response() :: %{(String.t() | atom()) => any()}
+  @type query_session_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2372,6 +1248,988 @@ defmodule AWS.LakeFormation do
 
   """
   @type column_l_f_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_cells_filter_request() :: %{
+        required("TableData") => data_cells_filter()
+      }
+
+  """
+  @type update_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_l_f_tag_response() :: %{}
+
+  """
+  @type update_l_f_tag_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_l_f_tag_expression_response() :: %{
+        "CatalogId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Expression" => list(l_f_tag()),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type get_l_f_tag_expression_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_state_response() :: %{
+        "Error" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type get_query_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lake_formation_opt_ins_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Principal") => data_lake_principal(),
+        optional("Resource") => resource()
+      }
+
+  """
+  @type list_lake_formation_opt_ins_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_transaction_request() :: %{
+        required("TransactionId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_transaction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_l_f_tags_from_resource_response() :: %{
+        "Failures" => list(l_f_tag_error())
+      }
+
+  """
+  @type remove_l_f_tags_from_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_databases_by_l_f_tags_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Expression") => list(l_f_tag())
+      }
+
+  """
+  @type search_databases_by_l_f_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_object_input() :: %{
+        "ETag" => String.t() | atom(),
+        "PartitionValues" => list(String.t() | atom()),
+        "Size" => float(),
+        "Uri" => String.t() | atom()
+      }
+
+  """
+  @type add_object_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_request() :: %{
+        optional("ExpectedResourceOwnerAccount") => String.t() | atom(),
+        optional("HybridAccessEnabled") => boolean(),
+        optional("WithFederation") => boolean(),
+        required("ResourceArn") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_revoke_permissions_response() :: %{
+        "Failures" => list(batch_permissions_failure_entry())
+      }
+
+  """
+  @type batch_revoke_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_l_f_tags_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceShareType") => list(any())
+      }
+
+  """
+  @type list_l_f_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_transactions_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => list(any())
+      }
+
+  """
+  @type list_transactions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      details_map() :: %{
+        "ResourceShare" => list(String.t() | atom())
+      }
+
+  """
+  @type details_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_planning_response() :: %{
+        "QueryId" => String.t() | atom()
+      }
+
+  """
+  @type start_query_planning_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition() :: %{
+        "Expression" => String.t() | atom()
+      }
+
+  """
+  @type condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_objects_on_cancel_response() :: %{}
+
+  """
+  @type delete_objects_on_cancel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type get_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_cells_filter_response() :: %{
+        "DataCellsFilters" => list(data_cells_filter()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_cells_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_transaction_response() :: %{
+        "TransactionDescription" => transaction_description()
+      }
+
+  """
+  @type describe_transaction_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_work_units_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueryId" => String.t() | atom(),
+        "WorkUnitRanges" => list(work_unit_range())
+      }
+
+  """
+  @type get_work_units_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_principal() :: %{
+        "DataLakePrincipalIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type data_lake_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_data_location_credentials_request() :: %{
+        optional("AuditContext") => audit_context(),
+        optional("CredentialsScope") => list(any()),
+        optional("DataLocations") => list(String.t() | atom()),
+        optional("DurationSeconds") => integer()
+      }
+
+  """
+  @type get_temporary_data_location_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      principal_resource_permissions() :: %{
+        "AdditionalDetails" => details_map(),
+        "Condition" => condition(),
+        "LastUpdated" => non_neg_integer(),
+        "LastUpdatedBy" => String.t() | atom(),
+        "Permissions" => list(list(any())()),
+        "PermissionsWithGrantOption" => list(list(any())()),
+        "Principal" => data_lake_principal(),
+        "Resource" => resource()
+      }
+
+  """
+  @type principal_resource_permissions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extend_transaction_response() :: %{}
+
+  """
+  @type extend_transaction_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      error_detail() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
+      }
+
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_info() :: %{
+        "ExpectedResourceOwnerAccount" => String.t() | atom(),
+        "HybridAccessEnabled" => boolean(),
+        "LastModified" => non_neg_integer(),
+        "ResourceArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "VerificationStatus" => list(any()),
+        "WithFederation" => boolean(),
+        "WithPrivilegedAccess" => boolean()
+      }
+
+  """
+  @type resource_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_effective_permissions_for_path_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Permissions" => list(principal_resource_permissions())
+      }
+
+  """
+  @type get_effective_permissions_for_path_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_glue_partition_credentials_response() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
+      }
+
+  """
+  @type get_temporary_glue_partition_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_principal_request() :: %{}
+
+  """
+  @type get_data_lake_principal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_l_f_tag_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("TagKey") => String.t() | atom(),
+        required("TagValues") => list(String.t() | atom())
+      }
+
+  """
+  @type create_l_f_tag_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_l_f_tag_expression_response() :: %{}
+
+  """
+  @type create_l_f_tag_expression_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      row_filter() :: %{
+        "AllRowsWildcard" => all_rows_wildcard(),
+        "FilterExpression" => String.t() | atom()
+      }
+
+  """
+  @type row_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_l_f_tags_from_resource_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("LFTags") => list(l_f_tag_pair()),
+        required("Resource") => resource()
+      }
+
+  """
+  @type remove_l_f_tags_from_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_glue_table_credentials_response() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom(),
+        "VendedS3Path" => list(String.t() | atom())
+      }
+
+  """
+  @type get_temporary_glue_table_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Expression") => list(l_f_tag()),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_transaction_response() :: %{
+        "TransactionId" => String.t() | atom()
+      }
+
+  """
+  @type start_transaction_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_planning_request() :: %{
+        required("QueryPlanningContext") => query_planning_context(),
+        required("QueryString") => String.t() | atom()
+      }
+
+  """
+  @type start_query_planning_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_l_f_tag_response() :: %{}
+
+  """
+  @type create_l_f_tag_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      partition_objects() :: %{
+        "Objects" => list(table_object()),
+        "PartitionValues" => list(String.t() | atom())
+      }
+
+  """
+  @type partition_objects() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_tables_by_l_f_tags_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Expression") => list(l_f_tag())
+      }
+
+  """
+  @type search_tables_by_l_f_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_statistics() :: %{
+        "AverageExecutionTimeMillis" => float(),
+        "DataScannedBytes" => float(),
+        "WorkUnitsExecutedCount" => float()
+      }
+
+  """
+  @type execution_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tagged_database() :: %{
+        "Database" => database_resource(),
+        "LFTags" => list(l_f_tag_pair())
+      }
+
+  """
+  @type tagged_database() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_input_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_lake_formation_identity_center_configuration_response() :: %{}
+
+  """
+  @type update_lake_formation_identity_center_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type describe_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_work_unit_results_response() :: %{
+        "ResultStream" => binary()
+      }
+
+  """
+  @type get_work_unit_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Expression") => list(l_f_tag()),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_data_lake_settings_response() :: %{}
+
+  """
+  @type put_data_lake_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      all_rows_wildcard() :: %{}
+
+  """
+  @type all_rows_wildcard() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      grant_permissions_response() :: %{}
+
+  """
+  @type grant_permissions_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      expired_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type expired_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_statistics_response() :: %{
+        "ExecutionStatistics" => execution_statistics(),
+        "PlanningStatistics" => planning_statistics(),
+        "QuerySubmissionTime" => non_neg_integer()
+      }
+
+  """
+  @type get_query_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_cells_filter_request() :: %{
+        required("TableData") => data_cells_filter()
+      }
+
+  """
+  @type create_data_cells_filter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_connect() :: %{
+        "Authorization" => list(any())
+      }
+
+  """
+  @type redshift_connect() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_request() :: %{
+        optional("FilterConditionList") => list(filter_condition()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type deregister_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      l_f_tag_pair() :: %{
+        "CatalogId" => String.t() | atom(),
+        "TagKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
+      }
+
+  """
+  @type l_f_tag_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transaction_canceled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type transaction_canceled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_table_objects_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("TransactionId") => String.t() | atom(),
+        required("DatabaseName") => String.t() | atom(),
+        required("TableName") => String.t() | atom(),
+        required("WriteOperations") => list(write_operation())
+      }
+
+  """
+  @type update_table_objects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_databases_by_l_f_tags_response() :: %{
+        "DatabaseList" => list(tagged_database()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_databases_by_l_f_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      l_f_tag_key_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "TagKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
+      }
+
+  """
+  @type l_f_tag_key_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      statistics_not_ready_yet_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type statistics_not_ready_yet_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_cells_filter_response() :: %{}
+
+  """
+  @type create_data_cells_filter_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_permissions_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        optional("Condition") => condition(),
+        optional("PermissionsWithGrantOption") => list(list(any())()),
+        required("Permissions") => list(list(any())()),
+        required("Principal") => data_lake_principal(),
+        required("Resource") => resource()
+      }
+
+  """
+  @type revoke_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_lake_settings() :: %{
+        "AllowExternalDataFiltering" => boolean(),
+        "AllowFullTableExternalDataAccess" => boolean(),
+        "AuthorizedSessionTagValueList" => list(String.t() | atom()),
+        "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()),
+        "DataLakeAdmins" => list(data_lake_principal()),
+        "ExternalDataFilteringAllowList" => list(data_lake_principal()),
+        "Parameters" => map(),
+        "ReadOnlyAdmins" => list(data_lake_principal()),
+        "TrustedResourceOwners" => list(String.t() | atom())
+      }
+
+  """
+  @type data_lake_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_lake_settings_response() :: %{
+        "DataLakeSettings" => data_lake_settings()
+      }
+
+  """
+  @type get_data_lake_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_type_mismatch_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type permission_type_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_grant_permissions_response() :: %{
+        "Failures" => list(batch_permissions_failure_entry())
+      }
+
+  """
+  @type batch_grant_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_number_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_number_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_glue_table_credentials_request() :: %{
+        optional("AuditContext") => audit_context(),
+        optional("DurationSeconds") => integer(),
+        optional("Permissions") => list(list(any())()),
+        optional("QuerySessionContext") => query_session_context(),
+        optional("S3Path") => String.t() | atom(),
+        optional("SupportedPermissionTypes") => list(list(any())()),
+        required("TableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_temporary_glue_table_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      work_units_not_ready_yet_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type work_units_not_ready_yet_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_context() :: %{
+        "AdditionalAuditContext" => String.t() | atom()
+      }
+
+  """
+  @type audit_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_grant_permissions_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("Entries") => list(batch_permissions_request_entry())
+      }
+
+  """
+  @type batch_grant_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      l_f_tag() :: %{
+        "TagKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
+      }
+
+  """
+  @type l_f_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_glue_partition_credentials_request() :: %{
+        optional("AuditContext") => audit_context(),
+        optional("DurationSeconds") => integer(),
+        optional("Permissions") => list(list(any())()),
+        optional("SupportedPermissionTypes") => list(list(any())()),
+        required("Partition") => partition_value_list(),
+        required("TableArn") => String.t() | atom()
+      }
+
+  """
+  @type get_temporary_glue_partition_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      commit_transaction_request() :: %{
+        required("TransactionId") => String.t() | atom()
+      }
+
+  """
+  @type commit_transaction_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_objects_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Objects" => list(partition_objects())
+      }
+
+  """
+  @type get_table_objects_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2392,19 +2250,161 @@ defmodule AWS.LakeFormation do
   """
   @type resource() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      data_cells_filter() :: %{
+        "ColumnNames" => list(String.t() | atom()),
+        "ColumnWildcard" => column_wildcard(),
+        "DatabaseName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RowFilter" => row_filter(),
+        "TableCatalogId" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type data_cells_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lake_formation_opt_ins_info() :: %{
+        "Condition" => condition(),
+        "LastModified" => non_neg_integer(),
+        "LastUpdatedBy" => String.t() | atom(),
+        "Principal" => data_lake_principal(),
+        "Resource" => resource()
+      }
+
+  """
+  @type lake_formation_opt_ins_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_input() :: %{
+        "ETag" => String.t() | atom(),
+        "PartitionValues" => list(String.t() | atom()),
+        "Uri" => String.t() | atom()
+      }
+
+  """
+  @type delete_object_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_l_f_tag_response() :: %{}
+
+  """
+  @type delete_l_f_tag_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      transaction_description() :: %{
+        "TransactionEndTime" => non_neg_integer(),
+        "TransactionId" => String.t() | atom(),
+        "TransactionStartTime" => non_neg_integer(),
+        "TransactionStatus" => list(any())
+      }
+
+  """
+  @type transaction_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      l_f_tag_expression_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type l_f_tag_expression_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_cells_filter_response() :: %{}
+
+  """
+  @type delete_data_cells_filter_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      principal_permissions() :: %{
+        "Permissions" => list(list(any())()),
+        "Principal" => data_lake_principal()
+      }
+
+  """
+  @type principal_permissions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assume_decorated_role_with_saml_response() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
+      }
+
+  """
+  @type assume_decorated_role_with_saml_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      table_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "TableWildcard" => table_wildcard()
+      }
+
+  """
+  @type table_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_l_f_tag_expression_request() :: %{
+        optional("CatalogId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type delete_l_f_tag_expression_request() :: %{(String.t() | atom()) => any()}
+
   @type add_l_f_tags_to_resource_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type assume_decorated_role_with_saml_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type batch_grant_permissions_errors() ::
@@ -2414,109 +2414,109 @@ defmodule AWS.LakeFormation do
           invalid_input_exception() | operation_timeout_exception()
 
   @type cancel_transaction_errors() ::
-          concurrent_modification_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | internal_service_exception()
           | transaction_committed_exception()
           | transaction_commit_in_progress_exception()
-          | internal_service_exception()
           | operation_timeout_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type commit_transaction_errors() ::
-          concurrent_modification_exception()
+          transaction_canceled_exception()
           | invalid_input_exception()
           | internal_service_exception()
-          | transaction_canceled_exception()
           | operation_timeout_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type create_data_cells_filter_errors() ::
-          access_denied_exception()
+          resource_number_limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | already_exists_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type create_l_f_tag_errors() ::
-          access_denied_exception()
+          resource_number_limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type create_l_f_tag_expression_errors() ::
-          access_denied_exception()
+          resource_number_limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type create_lake_formation_identity_center_configuration_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | already_exists_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
 
   @type create_lake_formation_opt_in_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
+          resource_number_limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type delete_data_cells_filter_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type delete_l_f_tag_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type delete_l_f_tag_expression_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type delete_lake_formation_identity_center_configuration_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type delete_lake_formation_opt_in_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type delete_objects_on_cancel_errors() ::
-          resource_not_ready_exception()
-          | concurrent_modification_exception()
+          transaction_canceled_exception()
           | invalid_input_exception()
-          | transaction_committed_exception()
           | internal_service_exception()
-          | transaction_canceled_exception()
+          | transaction_committed_exception()
           | operation_timeout_exception()
+          | resource_not_ready_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type deregister_resource_errors() ::
@@ -2526,10 +2526,10 @@ defmodule AWS.LakeFormation do
           | entity_not_found_exception()
 
   @type describe_lake_formation_identity_center_configuration_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type describe_resource_errors() ::
@@ -2545,23 +2545,23 @@ defmodule AWS.LakeFormation do
           | entity_not_found_exception()
 
   @type extend_transaction_errors() ::
-          invalid_input_exception()
+          transaction_canceled_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
           | transaction_committed_exception()
           | transaction_commit_in_progress_exception()
-          | internal_service_exception()
-          | transaction_canceled_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
 
   @type get_data_cells_filter_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type get_data_lake_principal_errors() ::
-          access_denied_exception() | internal_service_exception() | operation_timeout_exception()
+          internal_service_exception() | operation_timeout_exception() | access_denied_exception()
 
   @type get_data_lake_settings_errors() ::
           invalid_input_exception() | internal_service_exception() | entity_not_found_exception()
@@ -2573,116 +2573,116 @@ defmodule AWS.LakeFormation do
           | entity_not_found_exception()
 
   @type get_l_f_tag_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type get_l_f_tag_expression_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type get_query_state_errors() ::
-          access_denied_exception() | invalid_input_exception() | internal_service_exception()
+          invalid_input_exception() | internal_service_exception() | access_denied_exception()
 
   @type get_query_statistics_errors() ::
           statistics_not_ready_yet_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
           | throttled_exception()
-          | internal_service_exception()
           | expired_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type get_resource_l_f_tags_errors() ::
-          glue_encryption_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | glue_encryption_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type get_table_objects_errors() ::
-          resource_not_ready_exception()
+          transaction_canceled_exception()
           | invalid_input_exception()
-          | transaction_committed_exception()
           | internal_service_exception()
-          | transaction_canceled_exception()
+          | transaction_committed_exception()
           | operation_timeout_exception()
+          | resource_not_ready_exception()
           | entity_not_found_exception()
 
   @type get_temporary_data_location_credentials_errors() ::
-          glue_encryption_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
-          | conflict_exception()
+          invalid_input_exception()
           | internal_service_exception()
+          | conflict_exception()
           | operation_timeout_exception()
+          | glue_encryption_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type get_temporary_glue_partition_credentials_errors() ::
           permission_type_mismatch_exception()
-          | access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type get_temporary_glue_table_credentials_errors() ::
           permission_type_mismatch_exception()
-          | access_denied_exception()
           | invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type get_work_unit_results_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
-          | throttled_exception()
-          | internal_service_exception()
+          throttled_exception()
           | expired_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type get_work_units_errors() ::
           work_units_not_ready_yet_exception()
-          | access_denied_exception()
+          | expired_exception()
           | invalid_input_exception()
           | internal_service_exception()
-          | expired_exception()
+          | access_denied_exception()
 
   @type grant_permissions_errors() ::
-          concurrent_modification_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type list_data_cells_filter_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
 
   @type list_l_f_tag_expressions_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type list_l_f_tags_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type list_lake_formation_opt_ins_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
 
   @type list_permissions_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
@@ -2691,9 +2691,9 @@ defmodule AWS.LakeFormation do
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
   @type list_table_storage_optimizers_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type list_transactions_errors() ::
@@ -2703,82 +2703,82 @@ defmodule AWS.LakeFormation do
           invalid_input_exception() | internal_service_exception()
 
   @type register_resource_errors() ::
-          access_denied_exception()
+          resource_number_limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | already_exists_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type remove_l_f_tags_from_resource_errors() ::
-          glue_encryption_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | glue_encryption_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type revoke_permissions_errors() ::
-          concurrent_modification_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type search_databases_by_l_f_tags_errors() ::
-          glue_encryption_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | glue_encryption_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type search_tables_by_l_f_tags_errors() ::
-          glue_encryption_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | glue_encryption_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type start_query_planning_errors() ::
-          access_denied_exception()
+          throttled_exception()
           | invalid_input_exception()
-          | throttled_exception()
           | internal_service_exception()
+          | access_denied_exception()
 
   @type start_transaction_errors() :: internal_service_exception() | operation_timeout_exception()
 
   @type update_data_cells_filter_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type update_l_f_tag_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type update_l_f_tag_expression_errors() ::
-          access_denied_exception()
+          resource_number_limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_number_limit_exceeded_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   @type update_lake_formation_identity_center_configuration_errors() ::
-          concurrent_modification_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
           | operation_timeout_exception()
+          | access_denied_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type update_resource_errors() ::
@@ -2788,20 +2788,20 @@ defmodule AWS.LakeFormation do
           | entity_not_found_exception()
 
   @type update_table_objects_errors() ::
-          resource_not_ready_exception()
-          | concurrent_modification_exception()
+          transaction_canceled_exception()
           | invalid_input_exception()
+          | internal_service_exception()
           | transaction_committed_exception()
           | transaction_commit_in_progress_exception()
-          | internal_service_exception()
-          | transaction_canceled_exception()
           | operation_timeout_exception()
+          | resource_not_ready_exception()
+          | concurrent_modification_exception()
           | entity_not_found_exception()
 
   @type update_table_storage_optimizer_errors() ::
-          access_denied_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
           | internal_service_exception()
+          | access_denied_exception()
           | entity_not_found_exception()
 
   def metadata do

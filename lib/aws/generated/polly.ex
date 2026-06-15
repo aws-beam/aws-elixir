@@ -19,78 +19,31 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      synthesize_speech_input() :: %{
-        optional("Engine") => list(any()),
-        optional("LanguageCode") => list(any()),
-        optional("LexiconNames") => list(String.t() | atom()),
-        optional("SampleRate") => String.t() | atom(),
-        optional("SpeechMarkTypes") => list(list(any())()),
-        optional("TextType") => list(any()),
-        required("OutputFormat") => list(any()),
-        required("Text") => String.t() | atom(),
-        required("VoiceId") => list(any())
-      }
+      delete_lexicon_input() :: %{}
 
   """
-  @type synthesize_speech_input() :: %{(String.t() | atom()) => any()}
+  @type delete_lexicon_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      put_lexicon_input() :: %{
-        required("Content") => String.t() | atom()
+      get_lexicon_output() :: %{
+        "Lexicon" => lexicon(),
+        "LexiconAttributes" => lexicon_attributes()
       }
 
   """
-  @type put_lexicon_input() :: %{(String.t() | atom()) => any()}
+  @type get_lexicon_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_voices_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Voices" => list(voice())
-      }
+      close_stream_event() :: %{}
 
   """
-  @type describe_voices_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_event() :: %{
-        "FlushStreamConfiguration" => flush_stream_configuration(),
-        "Text" => String.t() | atom(),
-        "TextType" => list(any())
-      }
-
-  """
-  @type text_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      max_lexicons_number_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type max_lexicons_number_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_speech_synthesis_task_output() :: %{
-        "SynthesisTask" => synthesis_task()
-      }
-
-  """
-  @type start_speech_synthesis_task_output() :: %{(String.t() | atom()) => any()}
+  @type close_stream_event() :: %{}
 
   @typedoc """
 
@@ -107,57 +60,13 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      lexicon_size_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "throttlingReasons" => list(throttling_reason())
       }
 
   """
-  @type lexicon_size_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flush_stream_configuration() :: %{
-        "Force" => boolean()
-      }
-
-  """
-  @type flush_stream_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_failure_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_event() :: %{
-        "AudioChunk" => binary()
-      }
-
-  """
-  @type audio_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lexicons_output() :: %{
-        "Lexicons" => list(lexicon_description()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_lexicons_output() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -167,6 +76,15 @@ defmodule AWS.Polly do
 
   """
   @type get_lexicon_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_lexicon_output() :: %{}
+
+  """
+  @type put_lexicon_output() :: %{}
 
   @typedoc """
 
@@ -186,71 +104,13 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      list_speech_synthesis_tasks_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
+      list_lexicons_output() :: %{
+        "Lexicons" => list(lexicon_description()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_speech_synthesis_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_speech_synthesis_tasks_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "SynthesisTasks" => list(synthesis_task())
-      }
-
-  """
-  @type list_speech_synthesis_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lexicon_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type lexicon_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ssml_marks_not_supported_for_text_type_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type ssml_marks_not_supported_for_text_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      engine_not_supported_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type engine_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lexicon_output() :: %{
-        "Lexicon" => lexicon(),
-        "LexiconAttributes" => lexicon_attributes()
-      }
-
-  """
-  @type get_lexicon_output() :: %{(String.t() | atom()) => any()}
+  @type list_lexicons_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,21 +127,128 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      unsupported_pls_alphabet_exception() :: %{
-        "message" => String.t() | atom()
+      text_event() :: %{
+        "FlushStreamConfiguration" => flush_stream_configuration(),
+        "Text" => String.t() | atom(),
+        "TextType" => list(any())
       }
 
   """
-  @type unsupported_pls_alphabet_exception() :: %{(String.t() | atom()) => any()}
+  @type text_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_lexicon_input() :: %{}
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any())
+      }
 
   """
-  @type delete_lexicon_input() :: %{}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_speech_synthesis_task_output() :: %{
+        "SynthesisTask" => synthesis_task()
+      }
+
+  """
+  @type get_speech_synthesis_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type lexicon_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      marks_not_supported_for_format_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type marks_not_supported_for_format_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_voices_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Voices" => list(voice())
+      }
+
+  """
+  @type describe_voices_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_sns_topic_arn_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_sns_topic_arn_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      max_lexicons_number_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type max_lexicons_number_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_task_id_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_task_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_sample_rate_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_sample_rate_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon() :: %{
+        "Content" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type lexicon() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,83 +271,105 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      start_speech_synthesis_stream_output() :: %{
-        "EventStream" => list()
+      put_lexicon_input() :: %{
+        required("Content") => String.t() | atom()
       }
 
   """
-  @type start_speech_synthesis_stream_output() :: %{(String.t() | atom()) => any()}
+  @type put_lexicon_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_speech_synthesis_task_output() :: %{
-        "SynthesisTask" => synthesis_task()
-      }
-
-  """
-  @type get_speech_synthesis_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_s3_bucket_exception() :: %{
+      max_lexeme_length_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_s3_bucket_exception() :: %{(String.t() | atom()) => any()}
+  @type max_lexeme_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      close_stream_event() :: %{}
+      synthesize_speech_output() :: %{
+        "AudioStream" => binary(),
+        "ContentType" => String.t() | atom(),
+        "RequestCharacters" => integer()
+      }
 
   """
-  @type close_stream_event() :: %{}
+  @type synthesize_speech_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
+      unsupported_pls_language_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_pls_language_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_length_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type text_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_reason() :: %{
+        "reason" => String.t() | atom(),
+        "resource" => String.t() | atom()
+      }
+
+  """
+  @type throttling_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_description() :: %{
+        "Attributes" => lexicon_attributes(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type lexicon_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flush_stream_configuration() :: %{
+        "Force" => boolean()
+      }
+
+  """
+  @type flush_stream_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
         "message" => String.t() | atom(),
-        "quotaCode" => list(any()),
-        "serviceCode" => list(any())
+        "name" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lexicon_attributes() :: %{
-        "Alphabet" => String.t() | atom(),
-        "LanguageCode" => list(any()),
-        "LastModified" => non_neg_integer(),
-        "LexemesCount" => integer(),
-        "LexiconArn" => String.t() | atom(),
-        "Size" => integer()
-      }
-
-  """
-  @type lexicon_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_next_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -403,13 +392,32 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
+      get_speech_synthesis_task_input() :: %{}
+
+  """
+  @type get_speech_synthesis_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_next_token_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_speech_synthesis_stream_output() :: %{
+        "EventStream" => list()
+      }
+
+  """
+  @type start_speech_synthesis_stream_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,23 +448,86 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      max_lexeme_length_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      list_speech_synthesis_tasks_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
       }
 
   """
-  @type max_lexeme_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type list_speech_synthesis_tasks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      language_not_supported_exception() :: %{
+      service_failure_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type language_not_supported_exception() :: %{(String.t() | atom()) => any()}
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthesize_speech_input() :: %{
+        optional("Engine") => list(any()),
+        optional("LanguageCode") => list(any()),
+        optional("LexiconNames") => list(String.t() | atom()),
+        optional("SampleRate") => String.t() | atom(),
+        optional("SpeechMarkTypes") => list(list(any())()),
+        optional("TextType") => list(any()),
+        required("OutputFormat") => list(any()),
+        required("Text") => String.t() | atom(),
+        required("VoiceId") => list(any())
+      }
+
+  """
+  @type synthesize_speech_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_size_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type lexicon_size_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lexicon_output() :: %{}
+
+  """
+  @type delete_lexicon_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      synthesis_task_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type synthesis_task_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_speech_synthesis_task_output() :: %{
+        "SynthesisTask" => synthesis_task()
+      }
+
+  """
+  @type start_speech_synthesis_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -473,12 +544,39 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      invalid_task_id_exception() :: %{
+      invalid_s3_bucket_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_task_id_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_s3_bucket_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_event() :: %{
+        "AudioChunk" => binary()
+      }
+
+  """
+  @type audio_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lexicon_attributes() :: %{
+        "Alphabet" => String.t() | atom(),
+        "LanguageCode" => list(any()),
+        "LastModified" => non_neg_integer(),
+        "LexemesCount" => integer(),
+        "LexiconArn" => String.t() | atom(),
+        "Size" => integer()
+      }
+
+  """
+  @type lexicon_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -495,58 +593,46 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      validation_exception() :: %{
-        "fields" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_sns_topic_arn_exception() :: %{
+      ssml_marks_not_supported_for_text_type_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_sns_topic_arn_exception() :: %{(String.t() | atom()) => any()}
+  @type ssml_marks_not_supported_for_text_type_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lexicon_description() :: %{
-        "Attributes" => lexicon_attributes(),
-        "Name" => String.t() | atom()
+      list_speech_synthesis_tasks_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "SynthesisTasks" => list(synthesis_task())
       }
 
   """
-  @type lexicon_description() :: %{(String.t() | atom()) => any()}
+  @type list_speech_synthesis_tasks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_lexicon_output() :: %{}
-
-  """
-  @type put_lexicon_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "throttlingReasons" => list(throttling_reason())
+      engine_not_supported_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type engine_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      language_not_supported_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type language_not_supported_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -563,48 +649,25 @@ defmodule AWS.Polly do
 
   ## Example:
 
-      lexicon() :: %{
-        "Content" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => list(any()),
+        "serviceCode" => list(any())
       }
 
   """
-  @type lexicon() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_sample_rate_exception() :: %{
+      unsupported_pls_alphabet_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_sample_rate_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_pls_language_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_pls_language_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      synthesize_speech_output() :: %{
-        "AudioStream" => binary(),
-        "ContentType" => String.t() | atom(),
-        "RequestCharacters" => integer()
-      }
-
-  """
-  @type synthesize_speech_output() :: %{(String.t() | atom()) => any()}
+  @type unsupported_pls_alphabet_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,124 +691,61 @@ defmodule AWS.Polly do
   """
   @type start_speech_synthesis_task_input() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
+  @type delete_lexicon_errors() :: service_failure_exception() | lexicon_not_found_exception()
 
-  ## Example:
+  @type describe_voices_errors() :: service_failure_exception() | invalid_next_token_exception()
 
-      marks_not_supported_for_format_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type marks_not_supported_for_format_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      synthesis_task_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type synthesis_task_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_reason() :: %{
-        "reason" => String.t() | atom(),
-        "resource" => String.t() | atom()
-      }
-
-  """
-  @type throttling_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_speech_synthesis_task_input() :: %{}
-
-  """
-  @type get_speech_synthesis_task_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      text_length_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type text_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_lexicon_output() :: %{}
-
-  """
-  @type delete_lexicon_output() :: %{}
-
-  @type delete_lexicon_errors() :: lexicon_not_found_exception() | service_failure_exception()
-
-  @type describe_voices_errors() :: invalid_next_token_exception() | service_failure_exception()
-
-  @type get_lexicon_errors() :: lexicon_not_found_exception() | service_failure_exception()
+  @type get_lexicon_errors() :: service_failure_exception() | lexicon_not_found_exception()
 
   @type get_speech_synthesis_task_errors() ::
           synthesis_task_not_found_exception()
-          | invalid_task_id_exception()
           | service_failure_exception()
+          | invalid_task_id_exception()
 
-  @type list_lexicons_errors() :: invalid_next_token_exception() | service_failure_exception()
+  @type list_lexicons_errors() :: service_failure_exception() | invalid_next_token_exception()
 
   @type list_speech_synthesis_tasks_errors() ::
-          invalid_next_token_exception() | service_failure_exception()
+          service_failure_exception() | invalid_next_token_exception()
 
   @type put_lexicon_errors() ::
-          unsupported_pls_language_exception()
+          unsupported_pls_alphabet_exception()
           | invalid_lexicon_exception()
-          | max_lexeme_length_exceeded_exception()
-          | unsupported_pls_alphabet_exception()
-          | service_failure_exception()
           | lexicon_size_exceeded_exception()
+          | service_failure_exception()
+          | unsupported_pls_language_exception()
+          | max_lexeme_length_exceeded_exception()
           | max_lexicons_number_exceeded_exception()
 
   @type start_speech_synthesis_stream_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | service_failure_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_speech_synthesis_task_errors() ::
-          text_length_exceeded_exception()
-          | marks_not_supported_for_format_exception()
-          | invalid_sample_rate_exception()
-          | invalid_sns_topic_arn_exception()
-          | language_not_supported_exception()
-          | invalid_s3_bucket_exception()
-          | invalid_ssml_exception()
+          language_not_supported_exception()
           | engine_not_supported_exception()
           | ssml_marks_not_supported_for_text_type_exception()
-          | lexicon_not_found_exception()
+          | invalid_s3_bucket_exception()
           | service_failure_exception()
+          | text_length_exceeded_exception()
+          | invalid_sample_rate_exception()
+          | invalid_sns_topic_arn_exception()
+          | marks_not_supported_for_format_exception()
+          | lexicon_not_found_exception()
+          | invalid_ssml_exception()
           | invalid_s3_key_exception()
 
   @type synthesize_speech_errors() ::
-          text_length_exceeded_exception()
-          | marks_not_supported_for_format_exception()
-          | invalid_sample_rate_exception()
-          | language_not_supported_exception()
-          | invalid_ssml_exception()
+          language_not_supported_exception()
           | engine_not_supported_exception()
           | ssml_marks_not_supported_for_text_type_exception()
-          | lexicon_not_found_exception()
           | service_failure_exception()
+          | text_length_exceeded_exception()
+          | invalid_sample_rate_exception()
+          | marks_not_supported_for_format_exception()
+          | lexicon_not_found_exception()
+          | invalid_ssml_exception()
 
   def metadata do
     %{

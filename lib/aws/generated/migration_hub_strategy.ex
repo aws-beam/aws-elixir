@@ -25,23 +25,153 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      ip_address_based_remote_info() :: %{
-        "authType" => String.t() | atom(),
-        "ipAddressConfigurationTimeStamp" => String.t() | atom(),
-        "osType" => String.t() | atom()
-      }
+      get_portfolio_preferences_request() :: %{}
 
   """
-  @type ip_address_based_remote_info() :: %{(String.t() | atom()) => any()}
+  @type get_portfolio_preferences_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_latest_assessment_id_request() :: %{}
+      assessment_summary() :: %{
+        "antipatternReportS3Object" => s3_object(),
+        "antipatternReportStatus" => String.t() | atom(),
+        "antipatternReportStatusMessage" => String.t() | atom(),
+        "lastAnalyzedTimestamp" => non_neg_integer(),
+        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
+        "listApplicationComponentStatusSummary" => list(application_component_status_summary()),
+        "listApplicationComponentStrategySummary" => list(strategy_summary()),
+        "listApplicationComponentSummary" => list(application_component_summary()),
+        "listServerStatusSummary" => list(server_status_summary()),
+        "listServerStrategySummary" => list(strategy_summary()),
+        "listServerSummary" => list(server_summary())
+      }
 
   """
-  @type get_latest_assessment_id_request() :: %{}
+  @type assessment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_collection_details() :: %{
+        "completionTime" => non_neg_integer(),
+        "failed" => integer(),
+        "inProgress" => integer(),
+        "servers" => integer(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom(),
+        "success" => integer()
+      }
+
+  """
+  @type data_collection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_latest_assessment_id_response() :: %{
+        optional("id") => String.t() | atom()
+      }
+
+  """
+  @type get_latest_assessment_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      antipattern_report_result() :: %{
+        "analyzerName" => list(),
+        "antiPatternReportS3Object" => s3_object(),
+        "antipatternReportStatus" => String.t() | atom(),
+        "antipatternReportStatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type antipattern_report_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_file_task_request() :: %{}
+
+  """
+  @type get_import_file_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_target() :: %{
+        "condition" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type assessment_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_component_config_response() :: %{}
+
+  """
+  @type update_application_component_config_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_object() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3key" => String.t() | atom()
+      }
+
+  """
+  @type s3_object() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_error() :: %{
+        "serverErrorCategory" => String.t() | atom()
+      }
+
+  """
+  @type server_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portfolio_preferences_response() :: %{
+        optional("applicationMode") => String.t() | atom(),
+        optional("applicationPreferences") => application_preferences(),
+        optional("databasePreferences") => database_preferences(),
+        optional("prioritizeBusinessGoals") => prioritize_business_goals()
+      }
+
+  """
+  @type get_portfolio_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_unit_error() :: %{
+        "appUnitErrorCategory" => String.t() | atom()
+      }
+
+  """
+  @type app_unit_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -63,12 +193,137 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      get_latest_assessment_id_response() :: %{
-        optional("id") => String.t() | atom()
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type get_latest_assessment_id_response() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_file_task_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_import_file_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_server_config_response() :: %{}
+
+  """
+  @type update_server_config_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_components_response() :: %{
+        optional("applicationComponentInfos") => list(application_component_detail()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_application_components_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_set() :: %{
+        "strategy" => String.t() | atom(),
+        "targetDestination" => String.t() | atom(),
+        "transformationTool" => transformation_tool()
+      }
+
+  """
+  @type recommendation_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_manage_resources() :: %{
+        "targetDestination" => list(String.t() | atom())
+      }
+
+  """
+  @type self_manage_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_summary() :: %{
+        "ServerOsType" => String.t() | atom(),
+        "count" => integer()
+      }
+
+  """
+  @type server_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_linked_role_lock_client_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_linked_role_lock_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_info() :: %{
+        "interfaceName" => String.t() | atom(),
+        "ipAddress" => String.t() | atom(),
+        "macAddress" => String.t() | atom(),
+        "netMask" => String.t() | atom()
+      }
+
+  """
+  @type network_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_managed_resources() :: %{
+        "targetDestination" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_managed_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_request() :: %{}
+
+  """
+  @type get_assessment_request() :: %{}
 
   @typedoc """
 
@@ -85,60 +340,25 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      heterogeneous() :: %{
-        "targetDatabaseEngine" => list(String.t() | atom())
+      pipeline_info() :: %{
+        "pipelineConfigurationTimeStamp" => String.t() | atom(),
+        "pipelineType" => String.t() | atom()
       }
 
   """
-  @type heterogeneous() :: %{(String.t() | atom()) => any()}
+  @type pipeline_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dependency_exception() :: %{
-        "message" => String.t() | atom()
+      application_component_status_summary() :: %{
+        "count" => integer(),
+        "srcCodeOrDbAnalysisStatus" => String.t() | atom()
       }
 
   """
-  @type dependency_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collectors_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_file_task_response() :: %{
-        optional("id") => String.t() | atom()
-      }
-
-  """
-  @type start_import_file_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_component_details_response() :: %{
-        optional("applicationComponentDetail") => application_component_detail(),
-        optional("associatedApplications") => list(associated_application()),
-        optional("associatedServerIds") => list(String.t() | atom()),
-        optional("moreApplicationResource") => boolean()
-      }
-
-  """
-  @type get_application_component_details_response() :: %{(String.t() | atom()) => any()}
+  @type application_component_status_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -156,29 +376,6 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      o_s_info() :: %{
-        "type" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type o_s_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_unit_error() :: %{
-        "appUnitErrorCategory" => String.t() | atom()
-      }
-
-  """
-  @type app_unit_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       strategy_summary() :: %{
         "count" => integer(),
         "strategy" => String.t() | atom()
@@ -186,6 +383,149 @@ defmodule AWS.MigrationHubStrategy do
 
   """
   @type strategy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group() :: %{
+        "name" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dependency_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type dependency_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_server_strategies_response() :: %{
+        optional("serverStrategies") => list(server_strategy())
+      }
+
+  """
+  @type get_server_strategies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      antipattern_severity_summary() :: %{
+        "count" => integer(),
+        "severity" => String.t() | atom()
+      }
+
+  """
+  @type antipattern_severity_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_analyzable_servers_response() :: %{
+        "analyzableServers" => list(analyzable_server_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_analyzable_servers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portfolio_summary_request() :: %{}
+
+  """
+  @type get_portfolio_summary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      prioritize_business_goals() :: %{
+        "businessGoals" => business_goals()
+      }
+
+  """
+  @type prioritize_business_goals() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analyzable_server_summary() :: %{
+        "hostname" => String.t() | atom(),
+        "ipAddress" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "vmId" => String.t() | atom()
+      }
+
+  """
+  @type analyzable_server_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendation_report_details_request() :: %{}
+
+  """
+  @type get_recommendation_report_details_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_file_task_response() :: %{
+        optional("id") => String.t() | atom()
+      }
+
+  """
+  @type start_import_file_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_server_strategies_request() :: %{}
+
+  """
+  @type get_server_strategies_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_assessment_request() :: %{
+        required("assessmentId") => String.t() | atom()
+      }
+
+  """
+  @type stop_assessment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -209,335 +549,89 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      list_collectors_response() :: %{
-        optional("Collectors") => list(collector()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_info() :: %{
-        "cpuArchitecture" => String.t() | atom(),
-        "fileSystemType" => String.t() | atom(),
-        "networkInfoList" => list(network_info()),
-        "osInfo" => o_s_info()
-      }
-
-  """
-  @type system_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      homogeneous() :: %{
-        "targetDatabaseEngine" => list(String.t() | atom())
-      }
-
-  """
-  @type homogeneous() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_server_details_response() :: %{
-        optional("associatedApplications") => list(associated_application()),
-        optional("nextToken") => String.t() | atom(),
-        optional("serverDetail") => server_detail()
-      }
-
-  """
-  @type get_server_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_server_config_request() :: %{
-        optional("strategyOption") => strategy_option(),
-        required("serverId") => String.t() | atom()
-      }
-
-  """
-  @type update_server_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_assessment_request() :: %{
-        required("assessmentId") => String.t() | atom()
-      }
-
-  """
-  @type stop_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_servers_request() :: %{
-        optional("filterValue") => String.t() | atom(),
-        optional("groupIdFilter") => list(group()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("serverCriteria") => String.t() | atom(),
-        optional("sort") => String.t() | atom()
-      }
-
-  """
-  @type list_servers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      antipattern_severity_summary() :: %{
-        "count" => integer(),
-        "severity" => String.t() | atom()
-      }
-
-  """
-  @type antipattern_severity_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prioritize_business_goals() :: %{
-        "businessGoals" => business_goals()
-      }
-
-  """
-  @type prioritize_business_goals() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_file_task_response() :: %{
-        optional("completionTime") => non_neg_integer(),
-        optional("id") => String.t() | atom(),
-        optional("importName") => String.t() | atom(),
-        optional("inputS3Bucket") => String.t() | atom(),
-        optional("inputS3Key") => String.t() | atom(),
-        optional("numberOfRecordsFailed") => integer(),
-        optional("numberOfRecordsSuccess") => integer(),
-        optional("startTime") => non_neg_integer(),
-        optional("status") => String.t() | atom(),
-        optional("statusReportS3Bucket") => String.t() | atom(),
-        optional("statusReportS3Key") => String.t() | atom()
-      }
-
-  """
-  @type get_import_file_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_object() :: %{
+      recommendation_report_details() :: %{
+        "completionTime" => non_neg_integer(),
         "s3Bucket" => String.t() | atom(),
-        "s3key" => String.t() | atom()
+        "s3Keys" => list(String.t() | atom()),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type s3_object() :: %{(String.t() | atom()) => any()}
+  @type recommendation_report_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associated_application() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type associated_application() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portfolio_summary_request() :: %{}
-
-  """
-  @type get_portfolio_summary_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_components_request() :: %{
-        optional("applicationComponentCriteria") => String.t() | atom(),
-        optional("filterValue") => String.t() | atom(),
-        optional("groupIdFilter") => list(group()),
+      list_analyzable_servers_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         optional("sort") => String.t() | atom()
       }
 
   """
-  @type list_application_components_request() :: %{(String.t() | atom()) => any()}
+  @type list_analyzable_servers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_application_component_strategies_request() :: %{}
-
-  """
-  @type get_application_component_strategies_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      no_management_preference() :: %{
-        "targetDestination" => list(String.t() | atom())
-      }
-
-  """
-  @type no_management_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_summary() :: %{
-        "ipAddressBasedRemoteInfoList" => list(ip_address_based_remote_info()),
-        "pipelineInfoList" => list(pipeline_info()),
-        "remoteSourceCodeAnalysisServerInfo" => remote_source_code_analysis_server_info(),
-        "vcenterBasedRemoteInfoList" => list(vcenter_based_remote_info()),
-        "versionControlInfoList" => list(version_control_info())
-      }
-
-  """
-  @type configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_assessment_response() :: %{}
-
-  """
-  @type stop_assessment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      application_component_status_summary() :: %{
-        "count" => integer(),
-        "srcCodeOrDbAnalysisStatus" => String.t() | atom()
-      }
-
-  """
-  @type application_component_status_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_info() :: %{
-        "pipelineConfigurationTimeStamp" => String.t() | atom(),
-        "pipelineType" => String.t() | atom()
-      }
-
-  """
-  @type pipeline_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_analyzable_servers_response() :: %{
-        "analyzableServers" => list(analyzable_server_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_analyzable_servers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_error() :: %{
-        "serverErrorCategory" => String.t() | atom()
-      }
-
-  """
-  @type server_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_control_info() :: %{
-        "versionControlConfigurationTimeStamp" => String.t() | atom(),
-        "versionControlType" => String.t() | atom()
-      }
-
-  """
-  @type version_control_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_file_task_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_import_file_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_preferences() :: %{
-        "databaseManagementPreference" => String.t() | atom(),
-        "databaseMigrationPreference" => list()
-      }
-
-  """
-  @type database_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      strategy_option() :: %{
-        "isPreferred" => boolean(),
-        "strategy" => String.t() | atom(),
-        "targetDestination" => String.t() | atom(),
-        "toolName" => String.t() | atom()
-      }
-
-  """
-  @type strategy_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_component_strategy() :: %{
+        "isPreferred" => boolean(),
+        "recommendation" => recommendation_set(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type application_component_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_file_task_information() :: %{
+        "completionTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "importName" => String.t() | atom(),
+        "inputS3Bucket" => String.t() | atom(),
+        "inputS3Key" => String.t() | atom(),
+        "numberOfRecordsFailed" => integer(),
+        "numberOfRecordsSuccess" => integer(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "statusReportS3Bucket" => String.t() | atom(),
+        "statusReportS3Key" => String.t() | atom()
+      }
+
+  """
+  @type import_file_task_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_portfolio_preferences_request() :: %{
+        optional("applicationMode") => String.t() | atom(),
+        optional("applicationPreferences") => application_preferences(),
+        optional("databasePreferences") => database_preferences(),
+        optional("prioritizeBusinessGoals") => prioritize_business_goals()
+      }
+
+  """
+  @type put_portfolio_preferences_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -554,38 +648,45 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      recommendation_set() :: %{
-        "strategy" => String.t() | atom(),
-        "targetDestination" => String.t() | atom(),
-        "transformationTool" => transformation_tool()
-      }
+      stop_assessment_response() :: %{}
 
   """
-  @type recommendation_set() :: %{(String.t() | atom()) => any()}
+  @type stop_assessment_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      aws_managed_resources() :: %{
-        "targetDestination" => list(String.t() | atom())
+      start_recommendation_report_generation_response() :: %{
+        optional("id") => String.t() | atom()
       }
 
   """
-  @type aws_managed_resources() :: %{(String.t() | atom()) => any()}
+  @type start_recommendation_report_generation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      application_component_strategy() :: %{
-        "isPreferred" => boolean(),
-        "recommendation" => recommendation_set(),
-        "status" => String.t() | atom()
+      get_portfolio_summary_response() :: %{
+        optional("assessmentSummary") => assessment_summary()
       }
 
   """
-  @type application_component_strategy() :: %{(String.t() | atom()) => any()}
+  @type get_portfolio_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_assessment_response() :: %{
+        optional("assessmentTargets") => list(assessment_target()),
+        optional("dataCollectionDetails") => data_collection_details(),
+        optional("id") => String.t() | atom()
+      }
+
+  """
+  @type get_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -624,6 +725,440 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
+      update_server_config_request() :: %{
+        optional("strategyOption") => strategy_option(),
+        required("serverId") => String.t() | atom()
+      }
+
+  """
+  @type update_server_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_preferences() :: %{
+        "databaseManagementPreference" => String.t() | atom(),
+        "databaseMigrationPreference" => list()
+      }
+
+  """
+  @type database_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendation_report_details_response() :: %{
+        optional("id") => String.t() | atom(),
+        optional("recommendationReportDetails") => recommendation_report_details()
+      }
+
+  """
+  @type get_recommendation_report_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_info() :: %{
+        "cpuArchitecture" => String.t() | atom(),
+        "fileSystemType" => String.t() | atom(),
+        "networkInfoList" => list(network_info()),
+        "osInfo" => o_s_info()
+      }
+
+  """
+  @type system_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_management_preference() :: %{
+        "targetDestination" => list(String.t() | atom())
+      }
+
+  """
+  @type no_management_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      heterogeneous() :: %{
+        "targetDatabaseEngine" => list(String.t() | atom())
+      }
+
+  """
+  @type heterogeneous() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vcenter_based_remote_info() :: %{
+        "osType" => String.t() | atom(),
+        "vcenterConfigurationTimeStamp" => String.t() | atom()
+      }
+
+  """
+  @type vcenter_based_remote_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collectors_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_component_details_request() :: %{}
+
+  """
+  @type get_application_component_details_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      homogeneous() :: %{
+        "targetDatabaseEngine" => list(String.t() | atom())
+      }
+
+  """
+  @type homogeneous() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_components_request() :: %{
+        optional("applicationComponentCriteria") => String.t() | atom(),
+        optional("filterValue") => String.t() | atom(),
+        optional("groupIdFilter") => list(group()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sort") => String.t() | atom()
+      }
+
+  """
+  @type list_application_components_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collectors_response() :: %{
+        optional("Collectors") => list(collector()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_server_details_response() :: %{
+        optional("associatedApplications") => list(associated_application()),
+        optional("nextToken") => String.t() | atom(),
+        optional("serverDetail") => server_detail()
+      }
+
+  """
+  @type get_server_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transformation_tool() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "tranformationToolInstallationLink" => String.t() | atom()
+      }
+
+  """
+  @type transformation_tool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recommendation_report_generation_request() :: %{
+        optional("groupIdFilter") => list(group()),
+        optional("outputFormat") => String.t() | atom()
+      }
+
+  """
+  @type start_recommendation_report_generation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_assessment_request() :: %{
+        optional("assessmentDataSourceType") => String.t() | atom(),
+        optional("assessmentTargets") => list(assessment_target()),
+        optional("s3bucketForAnalysisData") => String.t() | atom(),
+        optional("s3bucketForReportData") => String.t() | atom()
+      }
+
+  """
+  @type start_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_address_based_remote_info() :: %{
+        "authType" => String.t() | atom(),
+        "ipAddressConfigurationTimeStamp" => String.t() | atom(),
+        "osType" => String.t() | atom()
+      }
+
+  """
+  @type ip_address_based_remote_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_server_details_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_server_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_component_config_request() :: %{
+        optional("appType") => String.t() | atom(),
+        optional("configureOnly") => boolean(),
+        optional("inclusionStatus") => String.t() | atom(),
+        optional("secretsManagerKey") => String.t() | atom(),
+        optional("sourceCodeList") => list(source_code()),
+        optional("strategyOption") => strategy_option(),
+        required("applicationComponentId") => String.t() | atom()
+      }
+
+  """
+  @type update_application_component_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_code_repository() :: %{
+        "branch" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "repository" => String.t() | atom(),
+        "versionControlType" => String.t() | atom()
+      }
+
+  """
+  @type source_code_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_file_task_response() :: %{
+        optional("completionTime") => non_neg_integer(),
+        optional("id") => String.t() | atom(),
+        optional("importName") => String.t() | atom(),
+        optional("inputS3Bucket") => String.t() | atom(),
+        optional("inputS3Key") => String.t() | atom(),
+        optional("numberOfRecordsFailed") => integer(),
+        optional("numberOfRecordsSuccess") => integer(),
+        optional("startTime") => non_neg_integer(),
+        optional("status") => String.t() | atom(),
+        optional("statusReportS3Bucket") => String.t() | atom(),
+        optional("statusReportS3Key") => String.t() | atom()
+      }
+
+  """
+  @type get_import_file_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_preferences() :: %{
+        "managementPreference" => list()
+      }
+
+  """
+  @type application_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_assessment_response() :: %{
+        optional("assessmentId") => String.t() | atom()
+      }
+
+  """
+  @type start_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      version_control_info() :: %{
+        "versionControlConfigurationTimeStamp" => String.t() | atom(),
+        "versionControlType" => String.t() | atom()
+      }
+
+  """
+  @type version_control_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_component_strategies_response() :: %{
+        optional("applicationComponentStrategies") => list(application_component_strategy())
+      }
+
+  """
+  @type get_application_component_strategies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_component_details_response() :: %{
+        optional("applicationComponentDetail") => application_component_detail(),
+        optional("associatedApplications") => list(associated_application()),
+        optional("associatedServerIds") => list(String.t() | atom()),
+        optional("moreApplicationResource") => boolean()
+      }
+
+  """
+  @type get_application_component_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_source_code_analysis_server_info() :: %{
+        "remoteSourceCodeAnalysisServerConfigurationTimestamp" => String.t() | atom()
+      }
+
+  """
+  @type remote_source_code_analysis_server_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_s_info() :: %{
+        "type" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type o_s_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_summary() :: %{
+        "ipAddressBasedRemoteInfoList" => list(ip_address_based_remote_info()),
+        "pipelineInfoList" => list(pipeline_info()),
+        "remoteSourceCodeAnalysisServerInfo" => remote_source_code_analysis_server_info(),
+        "vcenterBasedRemoteInfoList" => list(vcenter_based_remote_info()),
+        "versionControlInfoList" => list(version_control_info())
+      }
+
+  """
+  @type configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_code() :: %{
+        "location" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "sourceVersion" => String.t() | atom(),
+        "versionControl" => String.t() | atom()
+      }
+
+  """
+  @type source_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_strategy() :: %{
+        "isPreferred" => boolean(),
+        "numberOfApplicationComponents" => integer(),
+        "recommendation" => recommendation_set(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type server_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_portfolio_preferences_response() :: %{}
+
+  """
+  @type put_portfolio_preferences_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_servers_request() :: %{
+        optional("filterValue") => String.t() | atom(),
+        optional("groupIdFilter") => list(group()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("serverCriteria") => String.t() | atom(),
+        optional("sort") => String.t() | atom()
+      }
+
+  """
+  @type list_servers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       server_detail() :: %{
         "antipatternReportS3Object" => s3_object(),
         "antipatternReportStatus" => String.t() | atom(),
@@ -648,53 +1183,6 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_server_strategies_response() :: %{
-        optional("serverStrategies") => list(server_strategy())
-      }
-
-  """
-  @type get_server_strategies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_report_details() :: %{
-        "completionTime" => non_neg_integer(),
-        "s3Bucket" => String.t() | atom(),
-        "s3Keys" => list(String.t() | atom()),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type recommendation_report_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_server_strategies_request() :: %{}
-
-  """
-  @type get_server_strategies_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       result() :: %{
         "analysisStatus" => list(),
         "analysisType" => String.t() | atom(),
@@ -704,6 +1192,26 @@ defmodule AWS.MigrationHubStrategy do
 
   """
   @type result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      database_config_detail() :: %{
+        "secretName" => String.t() | atom()
+      }
+
+  """
+  @type database_config_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_component_strategies_request() :: %{}
+
+  """
+  @type get_application_component_strategies_request() :: %{}
 
   @typedoc """
 
@@ -723,146 +1231,6 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      server_strategy() :: %{
-        "isPreferred" => boolean(),
-        "numberOfApplicationComponents" => integer(),
-        "recommendation" => recommendation_set(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type server_strategy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_assessment_request() :: %{
-        optional("assessmentDataSourceType") => String.t() | atom(),
-        optional("assessmentTargets") => list(assessment_target()),
-        optional("s3bucketForAnalysisData") => String.t() | atom(),
-        optional("s3bucketForReportData") => String.t() | atom()
-      }
-
-  """
-  @type start_assessment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_component_strategies_response() :: %{
-        optional("applicationComponentStrategies") => list(application_component_strategy())
-      }
-
-  """
-  @type get_application_component_strategies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommendation_report_details_request() :: %{}
-
-  """
-  @type get_recommendation_report_details_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_file_task_response() :: %{
-        optional("nextToken") => String.t() | atom(),
-        optional("taskInfos") => list(import_file_task_information())
-      }
-
-  """
-  @type list_import_file_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_recommendation_report_generation_request() :: %{
-        optional("groupIdFilter") => list(group()),
-        optional("outputFormat") => String.t() | atom()
-      }
-
-  """
-  @type start_recommendation_report_generation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_info() :: %{
-        "interfaceName" => String.t() | atom(),
-        "ipAddress" => String.t() | atom(),
-        "macAddress" => String.t() | atom(),
-        "netMask" => String.t() | atom()
-      }
-
-  """
-  @type network_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_portfolio_preferences_response() :: %{}
-
-  """
-  @type put_portfolio_preferences_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_code_repository() :: %{
-        "branch" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "repository" => String.t() | atom(),
-        "versionControlType" => String.t() | atom()
-      }
-
-  """
-  @type source_code_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assessment_request() :: %{}
-
-  """
-  @type get_assessment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_preferences() :: %{
-        "managementPreference" => list()
-      }
-
-  """
-  @type application_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       application_component_summary() :: %{
         "appType" => String.t() | atom(),
         "count" => integer()
@@ -870,260 +1238,6 @@ defmodule AWS.MigrationHubStrategy do
 
   """
   @type application_component_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_summary() :: %{
-        "ServerOsType" => String.t() | atom(),
-        "count" => integer()
-      }
-
-  """
-  @type server_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      analyzable_server_summary() :: %{
-        "hostname" => String.t() | atom(),
-        "ipAddress" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "vmId" => String.t() | atom()
-      }
-
-  """
-  @type analyzable_server_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_component_config_request() :: %{
-        optional("appType") => String.t() | atom(),
-        optional("configureOnly") => boolean(),
-        optional("inclusionStatus") => String.t() | atom(),
-        optional("secretsManagerKey") => String.t() | atom(),
-        optional("sourceCodeList") => list(source_code()),
-        optional("strategyOption") => strategy_option(),
-        required("applicationComponentId") => String.t() | atom()
-      }
-
-  """
-  @type update_application_component_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_file_task_request() :: %{}
-
-  """
-  @type get_import_file_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      transformation_tool() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "tranformationToolInstallationLink" => String.t() | atom()
-      }
-
-  """
-  @type transformation_tool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_assessment_response() :: %{
-        optional("assessmentTargets") => list(assessment_target()),
-        optional("dataCollectionDetails") => data_collection_details(),
-        optional("id") => String.t() | atom()
-      }
-
-  """
-  @type get_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_component_details_request() :: %{}
-
-  """
-  @type get_application_component_details_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_server_details_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_server_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_collection_details() :: %{
-        "completionTime" => non_neg_integer(),
-        "failed" => integer(),
-        "inProgress" => integer(),
-        "servers" => integer(),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "statusMessage" => String.t() | atom(),
-        "success" => integer()
-      }
-
-  """
-  @type data_collection_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_components_response() :: %{
-        optional("applicationComponentInfos") => list(application_component_detail()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_application_components_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portfolio_preferences_response() :: %{
-        optional("applicationMode") => String.t() | atom(),
-        optional("applicationPreferences") => application_preferences(),
-        optional("databasePreferences") => database_preferences(),
-        optional("prioritizeBusinessGoals") => prioritize_business_goals()
-      }
-
-  """
-  @type get_portfolio_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portfolio_preferences_request() :: %{}
-
-  """
-  @type get_portfolio_preferences_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommendation_report_details_response() :: %{
-        optional("id") => String.t() | atom(),
-        optional("recommendationReportDetails") => recommendation_report_details()
-      }
-
-  """
-  @type get_recommendation_report_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      database_config_detail() :: %{
-        "secretName" => String.t() | atom()
-      }
-
-  """
-  @type database_config_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_linked_role_lock_client_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_linked_role_lock_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group() :: %{
-        "name" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_code() :: %{
-        "location" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "sourceVersion" => String.t() | atom(),
-        "versionControl" => String.t() | atom()
-      }
-
-  """
-  @type source_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_server_config_response() :: %{}
-
-  """
-  @type update_server_config_response() :: %{}
 
   @typedoc """
 
@@ -1141,303 +1255,189 @@ defmodule AWS.MigrationHubStrategy do
 
   ## Example:
 
-      start_recommendation_report_generation_response() :: %{
-        optional("id") => String.t() | atom()
-      }
-
-  """
-  @type start_recommendation_report_generation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_portfolio_preferences_request() :: %{
-        optional("applicationMode") => String.t() | atom(),
-        optional("applicationPreferences") => application_preferences(),
-        optional("databasePreferences") => database_preferences(),
-        optional("prioritizeBusinessGoals") => prioritize_business_goals()
-      }
-
-  """
-  @type put_portfolio_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_assessment_response() :: %{
-        optional("assessmentId") => String.t() | atom()
-      }
-
-  """
-  @type start_assessment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_analyzable_servers_request() :: %{
-        optional("maxResults") => integer(),
+      list_import_file_task_response() :: %{
         optional("nextToken") => String.t() | atom(),
-        optional("sort") => String.t() | atom()
+        optional("taskInfos") => list(import_file_task_information())
       }
 
   """
-  @type list_analyzable_servers_request() :: %{(String.t() | atom()) => any()}
+  @type list_import_file_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remote_source_code_analysis_server_info() :: %{
-        "remoteSourceCodeAnalysisServerConfigurationTimestamp" => String.t() | atom()
-      }
-
-  """
-  @type remote_source_code_analysis_server_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_component_config_response() :: %{}
-
-  """
-  @type update_application_component_config_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      vcenter_based_remote_info() :: %{
-        "osType" => String.t() | atom(),
-        "vcenterConfigurationTimeStamp" => String.t() | atom()
-      }
-
-  """
-  @type vcenter_based_remote_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      self_manage_resources() :: %{
-        "targetDestination" => list(String.t() | atom())
-      }
-
-  """
-  @type self_manage_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_target() :: %{
-        "condition" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type assessment_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      assessment_summary() :: %{
-        "antipatternReportS3Object" => s3_object(),
-        "antipatternReportStatus" => String.t() | atom(),
-        "antipatternReportStatusMessage" => String.t() | atom(),
-        "lastAnalyzedTimestamp" => non_neg_integer(),
-        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
-        "listApplicationComponentStatusSummary" => list(application_component_status_summary()),
-        "listApplicationComponentStrategySummary" => list(strategy_summary()),
-        "listApplicationComponentSummary" => list(application_component_summary()),
-        "listServerStatusSummary" => list(server_status_summary()),
-        "listServerStrategySummary" => list(strategy_summary()),
-        "listServerSummary" => list(server_summary())
-      }
-
-  """
-  @type assessment_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      antipattern_report_result() :: %{
-        "analyzerName" => list(),
-        "antiPatternReportS3Object" => s3_object(),
-        "antipatternReportStatus" => String.t() | atom(),
-        "antipatternReportStatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type antipattern_report_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_file_task_information() :: %{
-        "completionTime" => non_neg_integer(),
+      associated_application() :: %{
         "id" => String.t() | atom(),
-        "importName" => String.t() | atom(),
-        "inputS3Bucket" => String.t() | atom(),
-        "inputS3Key" => String.t() | atom(),
-        "numberOfRecordsFailed" => integer(),
-        "numberOfRecordsSuccess" => integer(),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "statusReportS3Bucket" => String.t() | atom(),
-        "statusReportS3Key" => String.t() | atom()
+        "name" => String.t() | atom()
       }
 
   """
-  @type import_file_task_information() :: %{(String.t() | atom()) => any()}
+  @type associated_application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_portfolio_summary_response() :: %{
-        optional("assessmentSummary") => assessment_summary()
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type get_portfolio_summary_response() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_latest_assessment_id_request() :: %{}
+
+  """
+  @type get_latest_assessment_id_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      strategy_option() :: %{
+        "isPreferred" => boolean(),
+        "strategy" => String.t() | atom(),
+        "targetDestination" => String.t() | atom(),
+        "toolName" => String.t() | atom()
+      }
+
+  """
+  @type strategy_option() :: %{(String.t() | atom()) => any()}
 
   @type get_application_component_details_errors() ::
-          throttling_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | throttling_exception()
 
   @type get_application_component_strategies_errors() ::
-          throttling_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | throttling_exception()
 
   @type get_assessment_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_import_file_task_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_latest_assessment_id_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          internal_server_exception()
+          | validation_exception()
           | dependency_exception()
+          | access_denied_exception()
 
   @type get_portfolio_preferences_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_portfolio_summary_errors() ::
-          throttling_exception() | access_denied_exception() | internal_server_exception()
+          internal_server_exception() | access_denied_exception() | throttling_exception()
 
   @type get_recommendation_report_details_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_server_details_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_server_strategies_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_analyzable_servers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_application_components_errors() ::
-          service_linked_role_lock_client_exception()
+          internal_server_exception()
           | validation_exception()
+          | service_linked_role_lock_client_exception()
           | access_denied_exception()
-          | internal_server_exception()
 
   @type list_collectors_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_import_file_task_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_servers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type put_portfolio_preferences_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_assessment_errors() ::
-          throttling_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_import_file_task_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type start_recommendation_report_generation_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_assessment_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_application_component_config_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_server_config_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   def metadata do
     %{

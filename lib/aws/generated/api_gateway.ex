@@ -20,287 +20,277 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      update_stage_request() :: %{
-        optional("patchOperations") => list(patch_operation())
+      create_documentation_part_request() :: %{
+        required("location") => documentation_part_location(),
+        required("properties") => String.t() | atom()
       }
 
   """
-  @type update_stage_request() :: %{(String.t() | atom()) => any()}
+  @type create_documentation_part_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      api_key_ids() :: %{
-        "ids" => list(String.t() | atom()),
+      usage_plans() :: %{
+        "items" => list(usage_plan()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type usage_plans() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_method_response_request() :: %{}
+
+  """
+  @type delete_method_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_link_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("targetArns") => list(String.t() | atom())
+      }
+
+  """
+  @type create_vpc_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_name_access_association_request() :: %{}
+
+  """
+  @type delete_domain_name_access_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_key_request() :: %{
+        optional("customerId") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("enabled") => boolean(),
+        optional("generateDistinctId") => boolean(),
+        optional("name") => String.t() | atom(),
+        optional("stageKeys") => list(stage_key()),
+        optional("tags") => map(),
+        optional("value") => String.t() | atom()
+      }
+
+  """
+  @type create_api_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      documentation_version() :: %{
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type documentation_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integration_response() :: %{
+        "contentHandling" => list(any()),
+        "responseParameters" => map(),
+        "responseTemplates" => map(),
+        "selectionPattern" => String.t() | atom(),
+        "statusCode" => String.t() | atom()
+      }
+
+  """
+  @type integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_request_validator_request() :: %{}
+
+  """
+  @type delete_request_validator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_names_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom(),
+        optional("resourceOwner") => list(any())
+      }
+
+  """
+  @type get_domain_names_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_usage_plan_key_request() :: %{}
+
+  """
+  @type delete_usage_plan_key_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      usage_plan() :: %{
+        "apiStages" => list(api_stage()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "productCode" => String.t() | atom(),
+        "quota" => quota_settings(),
+        "tags" => map(),
+        "throttle" => throttle_settings()
+      }
+
+  """
+  @type usage_plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rest_apis() :: %{
+        "items" => list(rest_api()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type rest_apis() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gateway_response_request() :: %{}
+
+  """
+  @type delete_gateway_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_rest_api_request() :: %{}
+
+  """
+  @type get_rest_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      api_keys() :: %{
+        "items" => list(api_key()),
+        "position" => String.t() | atom(),
         "warnings" => list(String.t() | atom())
       }
 
   """
-  @type api_key_ids() :: %{(String.t() | atom()) => any()}
+  @type api_keys() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      endpoint_configuration() :: %{
-        "ipAddressType" => list(any()),
-        "types" => list(list(any())()),
-        "vpcEndpointIds" => list(String.t() | atom())
+      delete_documentation_part_request() :: %{}
+
+  """
+  @type delete_documentation_part_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_gateway_response_request() :: %{
+        optional("responseParameters") => map(),
+        optional("responseTemplates") => map(),
+        optional("statusCode") => String.t() | atom()
       }
 
   """
-  @type endpoint_configuration() :: %{(String.t() | atom()) => any()}
+  @type put_gateway_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      import_api_keys_request() :: %{
-        optional("failOnWarnings") => boolean(),
-        required("body") => binary(),
-        required("format") => list(any())
+      get_base_path_mapping_request() :: %{
+        optional("domainNameId") => String.t() | atom()
       }
 
   """
-  @type import_api_keys_request() :: %{(String.t() | atom()) => any()}
+  @type get_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_stages_request() :: %{
-        optional("deploymentId") => String.t() | atom()
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
       }
 
   """
-  @type get_stages_request() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_sdk_types_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
+      get_method_response_request() :: %{}
+
+  """
+  @type get_method_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      test_invoke_authorizer_response() :: %{
+        "authorization" => map(),
+        "claims" => map(),
+        "clientStatus" => integer(),
+        "latency" => float(),
+        "log" => String.t() | atom(),
+        "policy" => String.t() | atom(),
+        "principalId" => String.t() | atom()
       }
 
   """
-  @type get_sdk_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      canary_settings() :: %{
-        "deploymentId" => String.t() | atom(),
-        "percentTraffic" => float(),
-        "stageVariableOverrides" => map(),
-        "useStageCache" => boolean()
-      }
-
-  """
-  @type canary_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      method_setting() :: %{
-        "cacheDataEncrypted" => boolean(),
-        "cacheTtlInSeconds" => integer(),
-        "cachingEnabled" => boolean(),
-        "dataTraceEnabled" => boolean(),
-        "loggingLevel" => String.t() | atom(),
-        "metricsEnabled" => boolean(),
-        "requireAuthorizationForCacheControl" => boolean(),
-        "throttlingBurstLimit" => integer(),
-        "throttlingRateLimit" => float(),
-        "unauthorizedCacheControlHeaderStrategy" => list(any())
-      }
-
-  """
-  @type method_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stage() :: %{
-        "accessLogSettings" => access_log_settings(),
-        "cacheClusterEnabled" => boolean(),
-        "cacheClusterSize" => list(any()),
-        "cacheClusterStatus" => list(any()),
-        "canarySettings" => canary_settings(),
-        "clientCertificateId" => String.t() | atom(),
-        "createdDate" => non_neg_integer(),
-        "deploymentId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "documentationVersion" => String.t() | atom(),
-        "lastUpdatedDate" => non_neg_integer(),
-        "methodSettings" => map(),
-        "stageName" => String.t() | atom(),
-        "tags" => map(),
-        "tracingEnabled" => boolean(),
-        "variables" => map(),
-        "webAclArn" => String.t() | atom()
-      }
-
-  """
-  @type stage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployments_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorizer() :: %{
-        "authType" => String.t() | atom(),
-        "authorizerCredentials" => String.t() | atom(),
-        "authorizerResultTtlInSeconds" => integer(),
-        "authorizerUri" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "identitySource" => String.t() | atom(),
-        "identityValidationExpression" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "providerARNs" => list(String.t() | atom()),
-        "type" => list(any())
-      }
-
-  """
-  @type authorizer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_usage_request() :: %{
-        optional("keyId") => String.t() | atom(),
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom(),
-        required("endDate") => String.t() | atom(),
-        required("startDate") => String.t() | atom()
-      }
-
-  """
-  @type get_usage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sdk_response() :: %{
-        "body" => binary(),
-        "contentDisposition" => String.t() | atom(),
-        "contentType" => String.t() | atom()
-      }
-
-  """
-  @type sdk_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_response() :: %{
-        "body" => binary(),
-        "contentDisposition" => String.t() | atom(),
-        "contentType" => String.t() | atom()
-      }
-
-  """
-  @type export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tags_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttle_settings() :: %{
-        "burstLimit" => integer(),
-        "rateLimit" => float()
-      }
-
-  """
-  @type throttle_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_request() :: %{}
-
-  """
-  @type delete_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment() :: %{
-        "apiSummary" => map(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type deployment() :: %{(String.t() | atom()) => any()}
+  @type test_invoke_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -333,231 +323,6 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      delete_client_certificate_request() :: %{}
-
-  """
-  @type delete_client_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_usage_plan_key_request() :: %{}
-
-  """
-  @type get_usage_plan_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_documentation_part_request() :: %{}
-
-  """
-  @type delete_documentation_part_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_documentation_parts_request() :: %{
-        optional("limit") => integer(),
-        optional("locationStatus") => list(any()),
-        optional("nameQuery") => String.t() | atom(),
-        optional("path") => String.t() | atom(),
-        optional("position") => String.t() | atom(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type get_documentation_parts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_method_response_request() :: %{}
-
-  """
-  @type get_method_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      test_invoke_authorizer_request() :: %{
-        optional("additionalContext") => map(),
-        optional("body") => String.t() | atom(),
-        optional("headers") => map(),
-        optional("multiValueHeaders") => map(),
-        optional("pathWithQueryString") => String.t() | atom(),
-        optional("stageVariables") => map()
-      }
-
-  """
-  @type test_invoke_authorizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_client_certificate_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_client_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_integration_response_request() :: %{}
-
-  """
-  @type delete_integration_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      patch_operation() :: %{
-        "from" => String.t() | atom(),
-        "op" => list(any()),
-        "path" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type patch_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mutual_tls_authentication() :: %{
-        "truststoreUri" => String.t() | atom(),
-        "truststoreVersion" => String.t() | atom(),
-        "truststoreWarnings" => list(String.t() | atom())
-      }
-
-  """
-  @type mutual_tls_authentication() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      base_path_mapping() :: %{
-        "basePath" => String.t() | atom(),
-        "restApiId" => String.t() | atom(),
-        "stage" => String.t() | atom()
-      }
-
-  """
-  @type base_path_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_documentation_version_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("stageName") => String.t() | atom(),
-        required("documentationVersion") => String.t() | atom()
-      }
-
-  """
-  @type create_documentation_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_response() :: %{
-        "defaultResponse" => boolean(),
-        "responseParameters" => map(),
-        "responseTemplates" => map(),
-        "responseType" => list(any()),
-        "statusCode" => String.t() | atom()
-      }
-
-  """
-  @type gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_rest_api_request() :: %{
-        optional("failOnWarnings") => boolean(),
-        optional("parameters") => map(),
-        required("body") => binary()
-      }
-
-  """
-  @type import_rest_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      documentation_versions() :: %{
-        "items" => list(documentation_version()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type documentation_versions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_key_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_api_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_links() :: %{
-        "items" => list(vpc_link()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type vpc_links() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_usage_plan_request() :: %{}
-
-  """
-  @type get_usage_plan_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      usage_plans() :: %{
-        "items" => list(usage_plan()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type usage_plans() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_deployment_request() :: %{
         optional("cacheClusterEnabled") => boolean(),
         optional("cacheClusterSize") => list(any()),
@@ -576,70 +341,141 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      get_base_path_mapping_request() :: %{
-        optional("domainNameId") => String.t() | atom()
+      reject_domain_name_access_association_request() :: %{
+        required("domainNameAccessAssociationArn") => String.t() | atom(),
+        required("domainNameArn") => String.t() | atom()
       }
 
   """
-  @type get_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
+  @type reject_domain_name_access_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_model_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("schema") => String.t() | atom(),
-        required("contentType") => String.t() | atom(),
-        required("name") => String.t() | atom()
+      get_request_validator_request() :: %{}
+
+  """
+  @type get_request_validator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deployment_request() :: %{
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type create_model_request() :: %{(String.t() | atom()) => any()}
+  @type update_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_domain_name_access_association_request() :: %{}
-
-  """
-  @type delete_domain_name_access_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_integration_request() :: %{
-        optional("cacheKeyParameters") => list(String.t() | atom()),
-        optional("cacheNamespace") => String.t() | atom(),
-        optional("connectionId") => String.t() | atom(),
-        optional("connectionType") => list(any()),
-        optional("contentHandling") => list(any()),
-        optional("credentials") => String.t() | atom(),
-        optional("integrationHttpMethod") => String.t() | atom(),
-        optional("integrationTarget") => String.t() | atom(),
-        optional("passthroughBehavior") => String.t() | atom(),
-        optional("requestParameters") => map(),
-        optional("requestTemplates") => map(),
-        optional("responseTransferMode") => list(any()),
-        optional("timeoutInMillis") => integer(),
-        optional("tlsConfig") => tls_config(),
-        optional("uri") => String.t() | atom(),
-        required("type") => list(any())
+      import_rest_api_request() :: %{
+        optional("failOnWarnings") => boolean(),
+        optional("parameters") => map(),
+        required("body") => binary()
       }
 
   """
-  @type put_integration_request() :: %{(String.t() | atom()) => any()}
+  @type import_rest_api_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_gateway_response_request() :: %{}
+      get_vpc_link_request() :: %{}
 
   """
-  @type get_gateway_response_request() :: %{}
+  @type get_vpc_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mutual_tls_authentication() :: %{
+        "truststoreUri" => String.t() | atom(),
+        "truststoreVersion" => String.t() | atom(),
+        "truststoreWarnings" => list(String.t() | atom())
+      }
+
+  """
+  @type mutual_tls_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_log_settings() :: %{
+        "destinationArn" => String.t() | atom(),
+        "format" => String.t() | atom()
+      }
+
+  """
+  @type access_log_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_link_request() :: %{}
+
+  """
+  @type delete_vpc_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_usage_request() :: %{
+        optional("keyId") => String.t() | atom(),
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom(),
+        required("endDate") => String.t() | atom(),
+        required("startDate") => String.t() | atom()
+      }
+
+  """
+  @type get_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_link_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_vpc_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment() :: %{
+        "apiSummary" => map(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -656,12 +492,119 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      update_model_request() :: %{
+      get_stages_request() :: %{
+        optional("deploymentId") => String.t() | atom()
+      }
+
+  """
+  @type get_stages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_name_request() :: %{
+        optional("domainNameId") => String.t() | atom()
+      }
+
+  """
+  @type delete_domain_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_key_request() :: %{
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_model_request() :: %{(String.t() | atom()) => any()}
+  @type update_api_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_rest_api_request() :: %{
+        optional("apiKeySource") => list(any()),
+        optional("binaryMediaTypes") => list(String.t() | atom()),
+        optional("cloneFrom") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("disableExecuteApiEndpoint") => boolean(),
+        optional("endpointAccessMode") => list(any()),
+        optional("endpointConfiguration") => endpoint_configuration(),
+        optional("minimumCompressionSize") => integer(),
+        optional("policy") => String.t() | atom(),
+        optional("securityPolicy") => list(any()),
+        optional("tags") => map(),
+        optional("version") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_rest_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizer() :: %{
+        "authType" => String.t() | atom(),
+        "authorizerCredentials" => String.t() | atom(),
+        "authorizerResultTtlInSeconds" => integer(),
+        "authorizerUri" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "identitySource" => String.t() | atom(),
+        "identityValidationExpression" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "providerARNs" => list(String.t() | atom()),
+        "type" => list(any())
+      }
+
+  """
+  @type authorizer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_usage_plan_request() :: %{}
+
+  """
+  @type delete_usage_plan_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_names() :: %{
+        "items" => list(domain_name()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type domain_names() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_usage_plan_key_request() :: %{}
+
+  """
+  @type get_usage_plan_key_request() :: %{}
 
   @typedoc """
 
@@ -693,132 +636,101 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      update_base_path_mapping_request() :: %{
-        optional("domainNameId") => String.t() | atom(),
+      get_usage_plan_keys_request() :: %{
+        optional("limit") => integer(),
+        optional("nameQuery") => String.t() | atom(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_usage_plan_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_authorizer_request() :: %{
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
+  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      usage_plan_keys() :: %{
-        "items" => list(usage_plan_key()),
-        "position" => String.t() | atom()
+      delete_rest_api_request() :: %{}
+
+  """
+  @type delete_rest_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_client_certificate_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type usage_plan_keys() :: %{(String.t() | atom()) => any()}
+  @type generate_client_certificate_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sdk_type() :: %{
-        "configurationProperties" => list(sdk_configuration_property()),
-        "description" => String.t() | atom(),
-        "friendlyName" => String.t() | atom(),
-        "id" => String.t() | atom()
+      put_method_response_request() :: %{
+        optional("responseModels") => map(),
+        optional("responseParameters") => map()
       }
 
   """
-  @type sdk_type() :: %{(String.t() | atom()) => any()}
+  @type put_method_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_link() :: %{
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "statusMessage" => String.t() | atom(),
-        "tags" => map(),
-        "targetArns" => list(String.t() | atom())
+      sdk_types() :: %{
+        "items" => list(sdk_type())
       }
 
   """
-  @type vpc_link() :: %{(String.t() | atom()) => any()}
+  @type sdk_types() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      get_tags_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type get_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_documentation_part_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
+      delete_api_key_request() :: %{}
 
   """
-  @type update_documentation_part_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_name_access_association() :: %{
-        "accessAssociationSource" => String.t() | atom(),
-        "accessAssociationSourceType" => list(any()),
-        "domainNameAccessAssociationArn" => String.t() | atom(),
-        "domainNameArn" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type domain_name_access_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_template_request() :: %{}
-
-  """
-  @type get_model_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_authorizer_request() :: %{}
-
-  """
-  @type delete_authorizer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_request_validator_request() :: %{}
-
-  """
-  @type delete_request_validator_request() :: %{}
+  @type delete_api_key_request() :: %{}
 
   @typedoc """
 
@@ -843,6 +755,17 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
+      get_model_request() :: %{
+        optional("flatten") => boolean()
+      }
+
+  """
+  @type get_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_stage_request() :: %{}
 
   """
@@ -852,45 +775,115 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      get_authorizer_request() :: %{}
+      delete_model_request() :: %{}
 
   """
-  @type get_authorizer_request() :: %{}
+  @type delete_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      stages() :: %{
-        "item" => list(stage())
+      request_validator() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "validateRequestBody" => boolean(),
+        "validateRequestParameters" => boolean()
       }
 
   """
-  @type stages() :: %{(String.t() | atom()) => any()}
+  @type request_validator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_usage_plan_keys_request() :: %{
-        optional("limit") => integer(),
-        optional("nameQuery") => String.t() | atom(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_usage_plan_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gateway_response_request() :: %{
+      update_rest_api_request() :: %{
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_gateway_response_request() :: %{(String.t() | atom()) => any()}
+  @type update_rest_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      base_path_mapping() :: %{
+        "basePath" => String.t() | atom(),
+        "restApiId" => String.t() | atom(),
+        "stage" => String.t() | atom()
+      }
+
+  """
+  @type base_path_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_api_keys_request() :: %{
+        optional("failOnWarnings") => boolean(),
+        required("body") => binary(),
+        required("format") => list(any())
+      }
+
+  """
+  @type import_api_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_usage_plan_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_usage_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stage_request() :: %{}
+
+  """
+  @type delete_stage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_method_request() :: %{}
+
+  """
+  @type delete_method_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mutual_tls_authentication_input() :: %{
+        "truststoreUri" => String.t() | atom(),
+        "truststoreVersion" => String.t() | atom()
+      }
+
+  """
+  @type mutual_tls_authentication_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_documentation_parts_request() :: %{
+        optional("failOnWarnings") => boolean(),
+        optional("mode") => list(any()),
+        required("body") => binary()
+      }
+
+  """
+  @type import_documentation_parts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -911,155 +904,117 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      gateway_responses() :: %{
-        "items" => list(gateway_response()),
-        "position" => String.t() | atom()
+      sdk_configuration_property() :: %{
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "friendlyName" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "required" => boolean()
       }
 
   """
-  @type gateway_responses() :: %{(String.t() | atom()) => any()}
+  @type sdk_configuration_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stage_key() :: %{
-        "restApiId" => String.t() | atom(),
-        "stageName" => String.t() | atom()
-      }
+      get_sdk_type_request() :: %{}
 
   """
-  @type stage_key() :: %{(String.t() | atom()) => any()}
+  @type get_sdk_type_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_method_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_method_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      client_certificates() :: %{
-        "items" => list(client_certificate()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type client_certificates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_usage_plan_key_request() :: %{}
-
-  """
-  @type delete_usage_plan_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_names() :: %{
-        "items" => list(domain_name()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type domain_names() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources() :: %{
-        "items" => list(resource()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_stage_request() :: %{}
-
-  """
-  @type delete_stage_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_authorizers_request() :: %{
+      get_base_path_mappings_request() :: %{
+        optional("domainNameId") => String.t() | atom(),
         optional("limit") => integer(),
         optional("position") => String.t() | atom()
       }
 
   """
-  @type get_authorizers_request() :: %{(String.t() | atom()) => any()}
+  @type get_base_path_mappings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_rest_api_request() :: %{}
-
-  """
-  @type delete_rest_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_documentation_version_request() :: %{}
-
-  """
-  @type delete_documentation_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_documentation_part_request() :: %{
-        required("location") => documentation_part_location(),
-        required("properties") => String.t() | atom()
-      }
-
-  """
-  @type create_documentation_part_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_validator() :: %{
+      model() :: %{
+        "contentType" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "validateRequestBody" => boolean(),
-        "validateRequestParameters" => boolean()
+        "schema" => String.t() | atom()
       }
 
   """
-  @type request_validator() :: %{(String.t() | atom()) => any()}
+  @type model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_method_request() :: %{}
+      tags() :: %{
+        "tags" => map()
+      }
 
   """
-  @type get_method_request() :: %{}
+  @type tags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_response() :: %{
+        "responseModels" => map(),
+        "responseParameters" => map(),
+        "statusCode" => String.t() | atom()
+      }
+
+  """
+  @type method_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_request() :: %{
+        required("pathPart") => String.t() | atom()
+      }
+
+  """
+  @type create_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_name_request() :: %{
+        optional("domainNameId") => String.t() | atom()
+      }
+
+  """
+  @type get_domain_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_client_certificate_request() :: %{}
+
+  """
+  @type get_client_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_request() :: %{}
+
+  """
+  @type delete_integration_request() :: %{}
 
   @typedoc """
 
@@ -1093,252 +1048,227 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      get_client_certificates_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
+      documentation_part() :: %{
+        "id" => String.t() | atom(),
+        "location" => documentation_part_location(),
+        "properties" => String.t() | atom()
       }
 
   """
-  @type get_client_certificates_request() :: %{(String.t() | atom()) => any()}
+  @type documentation_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resources_request() :: %{
-        optional("embed") => list(String.t() | atom()),
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
+      update_documentation_version_request() :: %{
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type get_resources_request() :: %{(String.t() | atom()) => any()}
+  @type update_documentation_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
+      update_integration_request() :: %{
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type update_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_gateway_responses_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
+      update_method_response_request() :: %{
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type get_gateway_responses_request() :: %{(String.t() | atom()) => any()}
+  @type update_method_response_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_integration_request() :: %{}
-
-  """
-  @type delete_integration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sdk_request() :: %{
-        optional("parameters") => map()
-      }
-
-  """
-  @type get_sdk_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_documentation_parts_request() :: %{
-        optional("failOnWarnings") => boolean(),
-        optional("mode") => list(any()),
-        required("body") => binary()
-      }
-
-  """
-  @type import_documentation_parts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_request_validator_request() :: %{
-        optional("name") => String.t() | atom(),
-        optional("validateRequestBody") => boolean(),
-        optional("validateRequestParameters") => boolean()
-      }
-
-  """
-  @type create_request_validator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sdk_configuration_property() :: %{
-        "defaultValue" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "friendlyName" => String.t() | atom(),
+      usage_plan_key() :: %{
+        "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "required" => boolean()
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type sdk_configuration_property() :: %{(String.t() | atom()) => any()}
+  @type usage_plan_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      base_path_mappings() :: %{
-        "items" => list(base_path_mapping()),
-        "position" => String.t() | atom()
-      }
+      delete_authorizer_request() :: %{}
 
   """
-  @type base_path_mappings() :: %{(String.t() | atom()) => any()}
+  @type delete_authorizer_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_deployment_request() :: %{
-        optional("embed") => list(String.t() | atom())
-      }
-
-  """
-  @type get_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vpc_link_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("targetArns") => list(String.t() | atom())
-      }
-
-  """
-  @type create_vpc_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_request_validators_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_request_validators_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_client_certificate_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type generate_client_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account() :: %{
-        "apiKeyVersion" => String.t() | atom(),
-        "cloudwatchRoleArn" => String.t() | atom(),
-        "features" => list(String.t() | atom()),
-        "throttleSettings" => throttle_settings()
-      }
-
-  """
-  @type account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flush_stage_authorizers_cache_request() :: %{}
-
-  """
-  @type flush_stage_authorizers_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tags() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type tags() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_domain_name_access_association_request() :: %{
-        required("domainNameAccessAssociationArn") => String.t() | atom(),
-        required("domainNameArn") => String.t() | atom()
-      }
-
-  """
-  @type reject_domain_name_access_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_names_request() :: %{
+      get_domain_name_access_associations_request() :: %{
         optional("limit") => integer(),
         optional("position") => String.t() | atom(),
         optional("resourceOwner") => list(any())
       }
 
   """
-  @type get_domain_names_request() :: %{(String.t() | atom()) => any()}
+  @type get_domain_name_access_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_usage_request() :: %{
+      get_documentation_version_request() :: %{}
+
+  """
+  @type get_documentation_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizer_request() :: %{}
+
+  """
+  @type get_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_client_certificate_request() :: %{
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_usage_request() :: %{(String.t() | atom()) => any()}
+  @type update_client_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      patch_operation() :: %{
+        "from" => String.t() | atom(),
+        "op" => list(any()),
+        "path" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type patch_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_models_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployments() :: %{
+        "items" => list(deployment()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type deployments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      models() :: %{
+        "items" => list(model()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type models() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_certificate() :: %{
+        "clientCertificateId" => String.t() | atom(),
+        "createdDate" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "expirationDate" => non_neg_integer(),
+        "pemEncodedCertificate" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type client_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_name_request() :: %{
+        optional("domainNameId") => String.t() | atom(),
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_domain_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_integration_request() :: %{
+        optional("cacheKeyParameters") => list(String.t() | atom()),
+        optional("cacheNamespace") => String.t() | atom(),
+        optional("connectionId") => String.t() | atom(),
+        optional("connectionType") => list(any()),
+        optional("contentHandling") => list(any()),
+        optional("credentials") => String.t() | atom(),
+        optional("integrationHttpMethod") => String.t() | atom(),
+        optional("integrationTarget") => String.t() | atom(),
+        optional("passthroughBehavior") => String.t() | atom(),
+        optional("requestParameters") => map(),
+        optional("requestTemplates") => map(),
+        optional("responseTransferMode") => list(any()),
+        optional("timeoutInMillis") => integer(),
+        optional("tlsConfig") => tls_config(),
+        optional("uri") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type put_integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1353,61 +1283,119 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => String.t() | atom()
+      method() :: %{
+        "apiKeyRequired" => boolean(),
+        "authorizationScopes" => list(String.t() | atom()),
+        "authorizationType" => String.t() | atom(),
+        "authorizerId" => String.t() | atom(),
+        "httpMethod" => String.t() | atom(),
+        "methodIntegration" => integration(),
+        "methodResponses" => map(),
+        "operationName" => String.t() | atom(),
+        "requestModels" => map(),
+        "requestParameters" => map(),
+        "requestValidatorId" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+  @type method() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_integration_response_request() :: %{
+      request_validators() :: %{
+        "items" => list(request_validator()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type request_validators() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_documentation_parts_request() :: %{
+        optional("limit") => integer(),
+        optional("locationStatus") => list(any()),
+        optional("nameQuery") => String.t() | atom(),
+        optional("path") => String.t() | atom(),
+        optional("position") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type get_documentation_parts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources() :: %{
+        "items" => list(resource()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_request() :: %{
+        optional("accepts") => String.t() | atom(),
+        optional("parameters") => map()
+      }
+
+  """
+  @type get_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_response_request() :: %{}
+
+  """
+  @type get_integration_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_documentation_part_request() :: %{
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_integration_response_request() :: %{(String.t() | atom()) => any()}
+  @type update_documentation_part_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      documentation_part_location() :: %{
-        "method" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "path" => String.t() | atom(),
-        "statusCode" => String.t() | atom(),
-        "type" => list(any())
+      create_usage_plan_key_request() :: %{
+        required("keyId") => String.t() | atom(),
+        required("keyType") => String.t() | atom()
       }
 
   """
-  @type documentation_part_location() :: %{(String.t() | atom()) => any()}
+  @type create_usage_plan_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_rest_api_request() :: %{
-        optional("patchOperations") => list(patch_operation())
+      get_resources_request() :: %{
+        optional("embed") => list(String.t() | atom()),
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
       }
 
   """
-  @type update_rest_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_integration_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_integration_request() :: %{(String.t() | atom()) => any()}
+  @type get_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1431,65 +1419,578 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      create_resource_request() :: %{
-        required("pathPart") => String.t() | atom()
+      sdk_type() :: %{
+        "configurationProperties" => list(sdk_configuration_property()),
+        "description" => String.t() | atom(),
+        "friendlyName" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type create_resource_request() :: %{(String.t() | atom()) => any()}
+  @type sdk_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_domain_name_request() :: %{
-        optional("domainNameId") => String.t() | atom(),
-        optional("patchOperations") => list(patch_operation())
+      domain_name_access_association() :: %{
+        "accessAssociationSource" => String.t() | atom(),
+        "accessAssociationSourceType" => list(any()),
+        "domainNameAccessAssociationArn" => String.t() | atom(),
+        "domainNameArn" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type update_domain_name_request() :: %{(String.t() | atom()) => any()}
+  @type domain_name_access_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rest_apis() :: %{
-        "items" => list(rest_api()),
+      documentation_versions() :: %{
+        "items" => list(documentation_version()),
         "position" => String.t() | atom()
       }
 
   """
-  @type rest_apis() :: %{(String.t() | atom()) => any()}
+  @type documentation_versions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_api_key_request() :: %{
-        optional("customerId") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("enabled") => boolean(),
-        optional("generateDistinctId") => boolean(),
-        optional("name") => String.t() | atom(),
-        optional("stageKeys") => list(stage_key()),
-        optional("tags") => map(),
-        optional("value") => String.t() | atom()
-      }
-
-  """
-  @type create_api_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_request() :: %{
+      update_resource_request() :: %{
         optional("patchOperations") => list(patch_operation())
       }
 
   """
-  @type update_account_request() :: %{(String.t() | atom()) => any()}
+  @type update_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_links() :: %{
+        "items" => list(vpc_link()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type vpc_links() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_stage() :: %{
+        "apiId" => String.t() | atom(),
+        "stage" => String.t() | atom(),
+        "throttle" => map()
+      }
+
+  """
+  @type api_stage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_configuration() :: %{
+        "ipAddressType" => list(any()),
+        "types" => list(list(any())()),
+        "vpcEndpointIds" => list(String.t() | atom())
+      }
+
+  """
+  @type endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_client_certificate_request() :: %{}
+
+  """
+  @type delete_client_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_responses() :: %{
+        "items" => list(gateway_response()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type gateway_responses() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_invoke_authorizer_request() :: %{
+        optional("additionalContext") => map(),
+        optional("body") => String.t() | atom(),
+        optional("headers") => map(),
+        optional("multiValueHeaders") => map(),
+        optional("pathWithQueryString") => String.t() | atom(),
+        optional("stageVariables") => map()
+      }
+
+  """
+  @type test_invoke_authorizer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_documentation_versions_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_documentation_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_stage_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_stage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizers() :: %{
+        "items" => list(authorizer()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type authorizers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      documentation_parts() :: %{
+        "items" => list(documentation_part()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type documentation_parts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flush_stage_authorizers_cache_request() :: %{}
+
+  """
+  @type flush_stage_authorizers_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      flush_stage_cache_request() :: %{}
+
+  """
+  @type flush_stage_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_canary_settings() :: %{
+        "percentTraffic" => float(),
+        "stageVariableOverrides" => map(),
+        "useStageCache" => boolean()
+      }
+
+  """
+  @type deployment_canary_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key() :: %{
+        "createdDate" => non_neg_integer(),
+        "customerId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "enabled" => boolean(),
+        "id" => String.t() | atom(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "stageKeys" => list(String.t() | atom()),
+        "tags" => map(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type api_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_request() :: %{
+        optional("embed") => list(String.t() | atom())
+      }
+
+  """
+  @type get_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quota_settings() :: %{
+        "limit" => integer(),
+        "offset" => integer(),
+        "period" => list(any())
+      }
+
+  """
+  @type quota_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_model_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_links_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_vpc_links_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_usage_plans_request() :: %{
+        optional("keyId") => String.t() | atom(),
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_usage_plans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sdk_response() :: %{
+        "body" => binary(),
+        "contentDisposition" => String.t() | atom(),
+        "contentType" => String.t() | atom()
+      }
+
+  """
+  @type sdk_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployments_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_certificates() :: %{
+        "items" => list(client_certificate()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type client_certificates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_response_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_integration_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_config() :: %{
+        "insecureSkipVerification" => boolean()
+      }
+
+  """
+  @type tls_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gateway_response_request() :: %{}
+
+  """
+  @type get_gateway_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      test_invoke_method_response() :: %{
+        "body" => String.t() | atom(),
+        "headers" => map(),
+        "latency" => float(),
+        "log" => String.t() | atom(),
+        "multiValueHeaders" => map(),
+        "status" => integer()
+      }
+
+  """
+  @type test_invoke_method_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_base_path_mapping_request() :: %{
+        optional("domainNameId") => String.t() | atom()
+      }
+
+  """
+  @type delete_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_response_request() :: %{}
+
+  """
+  @type delete_integration_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sdk_types_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_sdk_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      canary_settings() :: %{
+        "deploymentId" => String.t() | atom(),
+        "percentTraffic" => float(),
+        "stageVariableOverrides" => map(),
+        "useStageCache" => boolean()
+      }
+
+  """
+  @type canary_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("schema") => String.t() | atom(),
+        required("contentType") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_usage_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account() :: %{
+        "apiKeyVersion" => String.t() | atom(),
+        "cloudwatchRoleArn" => String.t() | atom(),
+        "features" => list(String.t() | atom()),
+        "throttleSettings" => throttle_settings()
+      }
+
+  """
+  @type account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sdk_request() :: %{
+        optional("parameters") => map()
+      }
+
+  """
+  @type get_sdk_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_method_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_method_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gateway_responses_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_gateway_responses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_ids() :: %{
+        "ids" => list(String.t() | atom()),
+        "warnings" => list(String.t() | atom())
+      }
+
+  """
+  @type api_key_ids() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gateway_response_request() :: %{
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_gateway_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_link() :: %{
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
+        "tags" => map(),
+        "targetArns" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_link() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_invoke_method_request() :: %{
+        optional("body") => String.t() | atom(),
+        optional("clientCertificateId") => String.t() | atom(),
+        optional("headers") => map(),
+        optional("multiValueHeaders") => map(),
+        optional("pathWithQueryString") => String.t() | atom(),
+        optional("stageVariables") => map()
+      }
+
+  """
+  @type test_invoke_method_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1502,6 +2003,490 @@ defmodule AWS.APIGateway do
 
   """
   @type domain_name_access_associations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      documentation_part_ids() :: %{
+        "ids" => list(String.t() | atom()),
+        "warnings" => list(String.t() | atom())
+      }
+
+  """
+  @type documentation_part_ids() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template() :: %{
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_rest_apis_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_rest_apis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      base_path_mappings() :: %{
+        "items" => list(base_path_mapping()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type base_path_mappings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stage() :: %{
+        "accessLogSettings" => access_log_settings(),
+        "cacheClusterEnabled" => boolean(),
+        "cacheClusterSize" => list(any()),
+        "cacheClusterStatus" => list(any()),
+        "canarySettings" => canary_settings(),
+        "clientCertificateId" => String.t() | atom(),
+        "createdDate" => non_neg_integer(),
+        "deploymentId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "documentationVersion" => String.t() | atom(),
+        "lastUpdatedDate" => non_neg_integer(),
+        "methodSettings" => map(),
+        "stageName" => String.t() | atom(),
+        "tags" => map(),
+        "tracingEnabled" => boolean(),
+        "variables" => map(),
+        "webAclArn" => String.t() | atom()
+      }
+
+  """
+  @type stage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_request() :: %{}
+
+  """
+  @type get_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_setting() :: %{
+        "cacheDataEncrypted" => boolean(),
+        "cacheTtlInSeconds" => integer(),
+        "cachingEnabled" => boolean(),
+        "dataTraceEnabled" => boolean(),
+        "loggingLevel" => String.t() | atom(),
+        "metricsEnabled" => boolean(),
+        "requireAuthorizationForCacheControl" => boolean(),
+        "throttlingBurstLimit" => integer(),
+        "throttlingRateLimit" => float(),
+        "unauthorizedCacheControlHeaderStrategy" => list(any())
+      }
+
+  """
+  @type method_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stage_request() :: %{
+        optional("cacheClusterEnabled") => boolean(),
+        optional("cacheClusterSize") => list(any()),
+        optional("canarySettings") => canary_settings(),
+        optional("description") => String.t() | atom(),
+        optional("documentationVersion") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("tracingEnabled") => boolean(),
+        optional("variables") => map(),
+        required("deploymentId") => String.t() | atom(),
+        required("stageName") => String.t() | atom()
+      }
+
+  """
+  @type create_stage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_deployment_request() :: %{}
+
+  """
+  @type delete_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      usage_plan_keys() :: %{
+        "items" => list(usage_plan_key()),
+        "position" => String.t() | atom()
+      }
+
+  """
+  @type usage_plan_keys() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttle_settings() :: %{
+        "burstLimit" => integer(),
+        "rateLimit" => float()
+      }
+
+  """
+  @type throttle_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_request() :: %{
+        optional("embed") => list(String.t() | atom())
+      }
+
+  """
+  @type get_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      documentation_part_location() :: %{
+        "method" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "path" => String.t() | atom(),
+        "statusCode" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type documentation_part_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_integration_response_request() :: %{
+        optional("contentHandling") => list(any()),
+        optional("responseParameters") => map(),
+        optional("responseTemplates") => map(),
+        optional("selectionPattern") => String.t() | atom()
+      }
+
+  """
+  @type put_integration_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_usage_plan_request() :: %{}
+
+  """
+  @type get_usage_plan_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_documentation_part_request() :: %{}
+
+  """
+  @type get_documentation_part_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_client_certificates_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_client_certificates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizers_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_authorizers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_response() :: %{
+        "defaultResponse" => boolean(),
+        "responseParameters" => map(),
+        "responseTemplates" => map(),
+        "responseType" => list(any()),
+        "statusCode" => String.t() | atom()
+      }
+
+  """
+  @type gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_request_validators_request() :: %{
+        optional("limit") => integer(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_request_validators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_method_request() :: %{}
+
+  """
+  @type get_method_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_base_path_mapping_request() :: %{
+        optional("basePath") => String.t() | atom(),
+        optional("domainNameId") => String.t() | atom(),
+        optional("stage") => String.t() | atom(),
+        required("restApiId") => String.t() | atom()
+      }
+
+  """
+  @type create_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_documentation_version_request() :: %{}
+
+  """
+  @type delete_documentation_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stages() :: %{
+        "item" => list(stage())
+      }
+
+  """
+  @type stages() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "id" => String.t() | atom(),
+        "parentId" => String.t() | atom(),
+        "path" => String.t() | atom(),
+        "pathPart" => String.t() | atom(),
+        "resourceMethods" => map()
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_name_access_association_request() :: %{
+        optional("tags") => map(),
+        required("accessAssociationSource") => String.t() | atom(),
+        required("accessAssociationSourceType") => list(any()),
+        required("domainNameArn") => String.t() | atom()
+      }
+
+  """
+  @type create_domain_name_access_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_keys_request() :: %{
+        optional("customerId") => String.t() | atom(),
+        optional("includeValues") => boolean(),
+        optional("limit") => integer(),
+        optional("nameQuery") => String.t() | atom(),
+        optional("position") => String.t() | atom()
+      }
+
+  """
+  @type get_api_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_base_path_mapping_request() :: %{
+        optional("domainNameId") => String.t() | atom(),
+        optional("patchOperations") => list(patch_operation())
+      }
+
+  """
+  @type update_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_snapshot() :: %{
+        "apiKeyRequired" => boolean(),
+        "authorizationType" => String.t() | atom()
+      }
+
+  """
+  @type method_snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_response() :: %{
+        "body" => binary(),
+        "contentDisposition" => String.t() | atom(),
+        "contentType" => String.t() | atom()
+      }
+
+  """
+  @type export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_rest_api_request() :: %{
+        optional("failOnWarnings") => boolean(),
+        optional("mode") => list(any()),
+        optional("parameters") => map(),
+        required("body") => binary()
+      }
+
+  """
+  @type put_rest_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_request() :: %{}
+
+  """
+  @type delete_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_documentation_version_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("stageName") => String.t() | atom(),
+        required("documentationVersion") => String.t() | atom()
+      }
+
+  """
+  @type create_documentation_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_template_request() :: %{}
+
+  """
+  @type get_model_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stage_key() :: %{
+        "restApiId" => String.t() | atom(),
+        "stageName" => String.t() | atom()
+      }
+
+  """
+  @type stage_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_usage_plan_request() :: %{
+        optional("apiStages") => list(api_stage()),
+        optional("description") => String.t() | atom(),
+        optional("quota") => quota_settings(),
+        optional("tags") => map(),
+        optional("throttle") => throttle_settings(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_usage_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_key_request() :: %{
+        optional("includeValue") => boolean()
+      }
+
+  """
+  @type get_api_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1540,1864 +2525,879 @@ defmodule AWS.APIGateway do
 
   ## Example:
 
-      create_stage_request() :: %{
-        optional("cacheClusterEnabled") => boolean(),
-        optional("cacheClusterSize") => list(any()),
-        optional("canarySettings") => canary_settings(),
-        optional("description") => String.t() | atom(),
-        optional("documentationVersion") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("tracingEnabled") => boolean(),
-        optional("variables") => map(),
-        required("deploymentId") => String.t() | atom(),
-        required("stageName") => String.t() | atom()
+      create_request_validator_request() :: %{
+        optional("name") => String.t() | atom(),
+        optional("validateRequestBody") => boolean(),
+        optional("validateRequestParameters") => boolean()
       }
 
   """
-  @type create_stage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_method_response_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_method_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_deployment_request() :: %{}
-
-  """
-  @type delete_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_method_response_request() :: %{}
-
-  """
-  @type delete_method_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      client_certificate() :: %{
-        "clientCertificateId" => String.t() | atom(),
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "expirationDate" => non_neg_integer(),
-        "pemEncodedCertificate" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type client_certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_keys_request() :: %{
-        optional("customerId") => String.t() | atom(),
-        optional("includeValues") => boolean(),
-        optional("limit") => integer(),
-        optional("nameQuery") => String.t() | atom(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_api_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mutual_tls_authentication_input() :: %{
-        "truststoreUri" => String.t() | atom(),
-        "truststoreVersion" => String.t() | atom()
-      }
-
-  """
-  @type mutual_tls_authentication_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_request() :: %{
-        optional("embed") => list(String.t() | atom())
-      }
-
-  """
-  @type get_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_canary_settings() :: %{
-        "percentTraffic" => float(),
-        "stageVariableOverrides" => map(),
-        "useStageCache" => boolean()
-      }
-
-  """
-  @type deployment_canary_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_method_request() :: %{}
-
-  """
-  @type delete_method_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      api_stage() :: %{
-        "apiId" => String.t() | atom(),
-        "stage" => String.t() | atom(),
-        "throttle" => map()
-      }
-
-  """
-  @type api_stage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_request() :: %{
-        optional("accepts") => String.t() | atom(),
-        optional("parameters") => map()
-      }
-
-  """
-  @type get_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_name_access_associations_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom(),
-        optional("resourceOwner") => list(any())
-      }
-
-  """
-  @type get_domain_name_access_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_model_request() :: %{}
-
-  """
-  @type delete_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tls_config() :: %{
-        "insecureSkipVerification" => boolean()
-      }
-
-  """
-  @type tls_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_documentation_part_request() :: %{}
-
-  """
-  @type get_documentation_part_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_log_settings() :: %{
-        "destinationArn" => String.t() | atom(),
-        "format" => String.t() | atom()
-      }
-
-  """
-  @type access_log_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      documentation_version() :: %{
-        "createdDate" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type documentation_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integration_response_request() :: %{}
-
-  """
-  @type get_integration_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_rest_api_request() :: %{}
-
-  """
-  @type get_rest_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      api_keys() :: %{
-        "items" => list(api_key()),
-        "position" => String.t() | atom(),
-        "warnings" => list(String.t() | atom())
-      }
-
-  """
-  @type api_keys() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_models_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_base_path_mapping_request() :: %{
-        optional("basePath") => String.t() | atom(),
-        optional("domainNameId") => String.t() | atom(),
-        optional("stage") => String.t() | atom(),
-        required("restApiId") => String.t() | atom()
-      }
-
-  """
-  @type create_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      method_response() :: %{
-        "responseModels" => map(),
-        "responseParameters" => map(),
-        "statusCode" => String.t() | atom()
-      }
-
-  """
-  @type method_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_vpc_link_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_vpc_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sdk_type_request() :: %{}
-
-  """
-  @type get_sdk_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      usage_plan() :: %{
-        "apiStages" => list(api_stage()),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "productCode" => String.t() | atom(),
-        "quota" => quota_settings(),
-        "tags" => map(),
-        "throttle" => throttle_settings()
-      }
-
-  """
-  @type usage_plan() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_name_request() :: %{
-        optional("domainNameId") => String.t() | atom()
-      }
-
-  """
-  @type get_domain_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_usage_plan_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_usage_plan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sdk_types() :: %{
-        "items" => list(sdk_type())
-      }
-
-  """
-  @type sdk_types() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_usage_plan_key_request() :: %{
-        required("keyId") => String.t() | atom(),
-        required("keyType") => String.t() | atom()
-      }
-
-  """
-  @type create_usage_plan_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_api_key_request() :: %{}
-
-  """
-  @type delete_api_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_request() :: %{
-        optional("flatten") => boolean()
-      }
-
-  """
-  @type get_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_documentation_version_request() :: %{}
-
-  """
-  @type get_documentation_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_usage_plans_request() :: %{
-        optional("keyId") => String.t() | atom(),
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_usage_plans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_usage_plan_request() :: %{
-        optional("apiStages") => list(api_stage()),
-        optional("description") => String.t() | atom(),
-        optional("quota") => quota_settings(),
-        optional("tags") => map(),
-        optional("throttle") => throttle_settings(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_usage_plan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_rest_apis_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_rest_apis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_client_certificate_request() :: %{}
-
-  """
-  @type get_client_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      documentation_part() :: %{
-        "id" => String.t() | atom(),
-        "location" => documentation_part_location(),
-        "properties" => String.t() | atom()
-      }
-
-  """
-  @type documentation_part() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      method_snapshot() :: %{
-        "apiKeyRequired" => boolean(),
-        "authorizationType" => String.t() | atom()
-      }
-
-  """
-  @type method_snapshot() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_method_response_request() :: %{
-        optional("responseModels") => map(),
-        optional("responseParameters") => map()
-      }
-
-  """
-  @type put_method_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_validators() :: %{
-        "items" => list(request_validator()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type request_validators() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      models() :: %{
-        "items" => list(model()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type models() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_base_path_mapping_request() :: %{
-        optional("domainNameId") => String.t() | atom()
-      }
-
-  """
-  @type delete_base_path_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_name_request() :: %{
-        optional("domainNameId") => String.t() | atom()
-      }
-
-  """
-  @type delete_domain_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      documentation_parts() :: %{
-        "items" => list(documentation_part()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type documentation_parts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_link_request() :: %{}
-
-  """
-  @type get_vpc_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      test_invoke_authorizer_response() :: %{
-        "authorization" => map(),
-        "claims" => map(),
-        "clientStatus" => integer(),
-        "latency" => float(),
-        "log" => String.t() | atom(),
-        "policy" => String.t() | atom(),
-        "principalId" => String.t() | atom()
-      }
-
-  """
-  @type test_invoke_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      documentation_part_ids() :: %{
-        "ids" => list(String.t() | atom()),
-        "warnings" => list(String.t() | atom())
-      }
-
-  """
-  @type documentation_part_ids() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_usage_plan_request() :: %{}
-
-  """
-  @type delete_usage_plan_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      method() :: %{
-        "apiKeyRequired" => boolean(),
-        "authorizationScopes" => list(String.t() | atom()),
-        "authorizationType" => String.t() | atom(),
-        "authorizerId" => String.t() | atom(),
-        "httpMethod" => String.t() | atom(),
-        "methodIntegration" => integration(),
-        "methodResponses" => map(),
-        "operationName" => String.t() | atom(),
-        "requestModels" => map(),
-        "requestParameters" => map(),
-        "requestValidatorId" => String.t() | atom()
-      }
-
-  """
-  @type method() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template() :: %{
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_invoke_method_request() :: %{
-        optional("body") => String.t() | atom(),
-        optional("clientCertificateId") => String.t() | atom(),
-        optional("headers") => map(),
-        optional("multiValueHeaders") => map(),
-        optional("pathWithQueryString") => String.t() | atom(),
-        optional("stageVariables") => map()
-      }
-
-  """
-  @type test_invoke_method_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_key_request() :: %{
-        optional("includeValue") => boolean()
-      }
-
-  """
-  @type get_api_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_links_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_vpc_links_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorizers() :: %{
-        "items" => list(authorizer()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type authorizers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_base_path_mappings_request() :: %{
-        optional("domainNameId") => String.t() | atom(),
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_base_path_mappings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_request_validator_request() :: %{}
-
-  """
-  @type get_request_validator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key() :: %{
-        "createdDate" => non_neg_integer(),
-        "customerId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "enabled" => boolean(),
-        "id" => String.t() | atom(),
-        "lastUpdatedDate" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "stageKeys" => list(String.t() | atom()),
-        "tags" => map(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type api_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_integration_response_request() :: %{
-        optional("contentHandling") => list(any()),
-        optional("responseParameters") => map(),
-        optional("responseTemplates") => map(),
-        optional("selectionPattern") => String.t() | atom()
-      }
-
-  """
-  @type put_integration_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_request() :: %{}
-
-  """
-  @type get_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      integration_response() :: %{
-        "contentHandling" => list(any()),
-        "responseParameters" => map(),
-        "responseTemplates" => map(),
-        "selectionPattern" => String.t() | atom(),
-        "statusCode" => String.t() | atom()
-      }
-
-  """
-  @type integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_invoke_method_response() :: %{
-        "body" => String.t() | atom(),
-        "headers" => map(),
-        "latency" => float(),
-        "log" => String.t() | atom(),
-        "multiValueHeaders" => map(),
-        "status" => integer()
-      }
-
-  """
-  @type test_invoke_method_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flush_stage_cache_request() :: %{}
-
-  """
-  @type flush_stage_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      model() :: %{
-        "contentType" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "schema" => String.t() | atom()
-      }
-
-  """
-  @type model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployments() :: %{
-        "items" => list(deployment()),
-        "position" => String.t() | atom()
-      }
-
-  """
-  @type deployments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_documentation_version_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_documentation_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_deployment_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_rest_api_request() :: %{
-        optional("failOnWarnings") => boolean(),
-        optional("mode") => list(any()),
-        optional("parameters") => map(),
-        required("body") => binary()
-      }
-
-  """
-  @type put_rest_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quota_settings() :: %{
-        "limit" => integer(),
-        "offset" => integer(),
-        "period" => list(any())
-      }
-
-  """
-  @type quota_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gateway_response_request() :: %{}
-
-  """
-  @type delete_gateway_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_documentation_versions_request() :: %{
-        optional("limit") => integer(),
-        optional("position") => String.t() | atom()
-      }
-
-  """
-  @type get_documentation_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_name_access_association_request() :: %{
-        optional("tags") => map(),
-        required("accessAssociationSource") => String.t() | atom(),
-        required("accessAssociationSourceType") => list(any()),
-        required("domainNameArn") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_name_access_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      usage_plan_key() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type usage_plan_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vpc_link_request() :: %{}
-
-  """
-  @type delete_vpc_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_authorizer_request() :: %{
-        optional("patchOperations") => list(patch_operation())
-      }
-
-  """
-  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_gateway_response_request() :: %{
-        optional("responseParameters") => map(),
-        optional("responseTemplates") => map(),
-        optional("statusCode") => String.t() | atom()
-      }
-
-  """
-  @type put_gateway_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_rest_api_request() :: %{
-        optional("apiKeySource") => list(any()),
-        optional("binaryMediaTypes") => list(String.t() | atom()),
-        optional("cloneFrom") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("disableExecuteApiEndpoint") => boolean(),
-        optional("endpointAccessMode") => list(any()),
-        optional("endpointConfiguration") => endpoint_configuration(),
-        optional("minimumCompressionSize") => integer(),
-        optional("policy") => String.t() | atom(),
-        optional("securityPolicy") => list(any()),
-        optional("tags") => map(),
-        optional("version") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_rest_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "id" => String.t() | atom(),
-        "parentId" => String.t() | atom(),
-        "path" => String.t() | atom(),
-        "pathPart" => String.t() | atom(),
-        "resourceMethods" => map()
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
+  @type create_request_validator_request() :: %{(String.t() | atom()) => any()}
 
   @type create_api_key_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_authorizer_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_base_path_mapping_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_deployment_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | service_unavailable_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
 
   @type create_documentation_part_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_documentation_version_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_domain_name_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_domain_name_access_association_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_model_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_request_validator_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_resource_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_rest_api_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_stage_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_usage_plan_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_usage_plan_key_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_vpc_link_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type delete_api_key_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_authorizer_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_base_path_mapping_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_client_certificate_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_deployment_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type delete_documentation_part_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_documentation_version_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_domain_name_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_domain_name_access_association_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_gateway_response_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_integration_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_integration_response_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_method_errors() ::
           not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_method_response_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_model_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_request_validator_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_resource_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_rest_api_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_stage_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type delete_usage_plan_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_usage_plan_key_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type delete_vpc_link_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type flush_stage_authorizers_cache_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type flush_stage_cache_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type generate_client_certificate_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type get_account_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_api_key_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_api_keys_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_authorizer_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_authorizers_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_base_path_mapping_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_base_path_mappings_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_client_certificate_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_client_certificates_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_deployment_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
 
   @type get_deployments_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
 
   @type get_documentation_part_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_documentation_parts_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_documentation_version_errors() ::
-          not_found_exception() | too_many_requests_exception() | unauthorized_exception()
+          not_found_exception() | unauthorized_exception() | too_many_requests_exception()
 
   @type get_documentation_versions_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_domain_name_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_domain_name_access_associations_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_domain_names_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_export_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type get_gateway_response_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_gateway_responses_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_integration_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_integration_response_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_method_errors() ::
-          not_found_exception() | too_many_requests_exception() | unauthorized_exception()
+          not_found_exception() | unauthorized_exception() | too_many_requests_exception()
 
   @type get_method_response_errors() ::
-          not_found_exception() | too_many_requests_exception() | unauthorized_exception()
+          not_found_exception() | unauthorized_exception() | too_many_requests_exception()
 
   @type get_model_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_model_template_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_models_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_request_validator_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_request_validators_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_resource_errors() ::
-          not_found_exception() | too_many_requests_exception() | unauthorized_exception()
+          not_found_exception() | unauthorized_exception() | too_many_requests_exception()
 
   @type get_resources_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_rest_api_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_rest_apis_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_sdk_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type get_sdk_type_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_sdk_types_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_stage_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type get_stages_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type get_tags_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_usage_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_usage_plan_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_usage_plan_key_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_usage_plan_keys_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_usage_plans_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_vpc_link_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type get_vpc_links_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type import_api_keys_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type import_documentation_parts_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type import_rest_api_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type put_gateway_response_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type put_integration_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type put_integration_response_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type put_method_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type put_method_response_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type put_rest_api_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type reject_domain_name_access_association_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type test_invoke_authorizer_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type test_invoke_method_errors() ::
           bad_request_exception()
           | not_found_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_account_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_api_key_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_authorizer_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_base_path_mapping_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_client_certificate_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_deployment_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | service_unavailable_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
 
   @type update_documentation_part_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_documentation_version_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_domain_name_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_gateway_response_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_integration_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_integration_response_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_method_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type update_method_response_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_model_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_request_validator_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_resource_errors() ::
           bad_request_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type update_rest_api_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_stage_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_usage_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_usage_plan_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type update_vpc_link_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
           | not_found_exception()
           | conflict_exception()
-          | too_many_requests_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   def metadata do
     %{

@@ -13,37 +13,57 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      update_stage_request() :: %{
-        optional("AccessLogSettings") => access_log_settings(),
-        optional("AutoDeploy") => boolean(),
-        optional("ClientCertificateId") => String.t() | atom(),
-        optional("DefaultRouteSettings") => route_settings(),
-        optional("DeploymentId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("RouteSettings") => map(),
-        optional("StageVariables") => map()
+      create_route_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t() | atom()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t() | atom(),
+        "ModelSelectionExpression" => String.t() | atom(),
+        "OperationName" => String.t() | atom(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t() | atom(),
+        "RouteKey" => String.t() | atom(),
+        "RouteResponseSelectionExpression" => String.t() | atom(),
+        "Target" => String.t() | atom()
       }
 
   """
-  @type update_stage_request() :: %{(String.t() | atom()) => any()}
+  @type create_route_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      display_content() :: %{
-        "Body" => String.t() | atom(),
-        "Title" => String.t() | atom()
+      portal_content() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Theme" => portal_theme()
       }
 
   """
-  @type display_content() :: %{(String.t() | atom()) => any()}
+  @type portal_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_integration_response_response() :: %{
+      create_vpc_link_request() :: %{
+        optional("SecurityGroupIds") => list(String.t() | atom()),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+
+  """
+  @type create_vpc_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integration_response() :: %{
         "ContentHandlingStrategy" => list(any()),
         "IntegrationResponseId" => String.t() | atom(),
         "IntegrationResponseKey" => String.t() | atom(),
@@ -53,13 +73,90 @@ defmodule AWS.ApiGatewayV2 do
       }
 
   """
-  @type update_integration_response_response() :: %{(String.t() | atom()) => any()}
+  @type integration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_product_page_response() :: %{
+      update_model_response() :: %{
+        "ContentType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ModelId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom()
+      }
+
+  """
+  @type update_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_response() :: %{
+        "ApiEndpoint" => String.t() | atom(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t() | atom(),
+        "ApiKeySelectionExpression" => String.t() | atom(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t() | atom()),
+        "IpAddressType" => list(any()),
+        "Name" => String.t() | atom(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t() | atom(),
+        "Tags" => map(),
+        "Version" => String.t() | atom(),
+        "Warnings" => list(String.t() | atom())
+      }
+
+  """
+  @type update_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview_portal_response() :: %{}
+
+  """
+  @type preview_portal_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_names_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_domain_names_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identifier_parts() :: %{
+        "Method" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "RestApiId" => String.t() | atom(),
+        "Stage" => String.t() | atom()
+      }
+
+  """
+  @type identifier_parts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_product_page_response() :: %{
         "DisplayContent" => display_content(),
         "LastModified" => non_neg_integer(),
         "ProductPageArn" => String.t() | atom(),
@@ -67,35 +164,7 @@ defmodule AWS.ApiGatewayV2 do
       }
 
   """
-  @type update_product_page_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stages_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_stages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_integration_response_response() :: %{
-        "ContentHandlingStrategy" => list(any()),
-        "IntegrationResponseId" => String.t() | atom(),
-        "IntegrationResponseKey" => String.t() | atom(),
-        "ResponseParameters" => map(),
-        "ResponseTemplates" => map(),
-        "TemplateSelectionExpression" => String.t() | atom()
-      }
-
-  """
-  @type create_integration_response_response() :: %{(String.t() | atom()) => any()}
+  @type get_product_page_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,66 +184,20 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      stage() :: %{
-        "AccessLogSettings" => access_log_settings(),
-        "ApiGatewayManaged" => boolean(),
-        "AutoDeploy" => boolean(),
-        "ClientCertificateId" => String.t() | atom(),
+      update_vpc_link_response() :: %{
         "CreatedDate" => non_neg_integer(),
-        "DefaultRouteSettings" => route_settings(),
-        "DeploymentId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastDeploymentStatusMessage" => String.t() | atom(),
-        "LastUpdatedDate" => non_neg_integer(),
-        "RouteSettings" => map(),
-        "StageName" => String.t() | atom(),
-        "StageVariables" => map(),
-        "Tags" => map()
+        "Name" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "Tags" => map(),
+        "VpcLinkId" => String.t() | atom(),
+        "VpcLinkStatus" => list(any()),
+        "VpcLinkStatusMessage" => String.t() | atom(),
+        "VpcLinkVersion" => list(any())
       }
 
   """
-  @type stage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployments_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      apigatewayv2_none() :: %{}
-
-  """
-  @type apigatewayv2_none() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portal_request() :: %{}
-
-  """
-  @type get_portal_request() :: %{}
+  @type update_vpc_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -186,60 +209,6 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type tls_config_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_product_rest_endpoint_pages_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceOwnerAccountId") => String.t() | atom()
-      }
-
-  """
-  @type list_product_rest_endpoint_pages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_routing_rule_request() :: %{
-        optional("DomainNameId") => String.t() | atom()
-      }
-
-  """
-  @type delete_routing_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_vpc_link_response() :: %{}
-
-  """
-  @type delete_vpc_link_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      authorizer() :: %{
-        "AuthorizerCredentialsArn" => String.t() | atom(),
-        "AuthorizerId" => String.t() | atom(),
-        "AuthorizerPayloadFormatVersion" => String.t() | atom(),
-        "AuthorizerResultTtlInSeconds" => integer(),
-        "AuthorizerType" => list(any()),
-        "AuthorizerUri" => String.t() | atom(),
-        "EnableSimpleResponses" => boolean(),
-        "IdentitySource" => list(String.t() | atom()),
-        "IdentityValidationExpression" => String.t() | atom(),
-        "JwtConfiguration" => j_w_t_configuration(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type authorizer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -266,134 +235,118 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      create_stage_response() :: %{
-        "AccessLogSettings" => access_log_settings(),
-        "ApiGatewayManaged" => boolean(),
-        "AutoDeploy" => boolean(),
-        "ClientCertificateId" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "DefaultRouteSettings" => route_settings(),
-        "DeploymentId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastDeploymentStatusMessage" => String.t() | atom(),
-        "LastUpdatedDate" => non_neg_integer(),
-        "RouteSettings" => map(),
-        "StageName" => String.t() | atom(),
-        "StageVariables" => map(),
-        "Tags" => map()
+      routing_rule_action_invoke_api() :: %{
+        "ApiId" => String.t() | atom(),
+        "Stage" => String.t() | atom(),
+        "StripBasePath" => boolean()
       }
 
   """
-  @type create_stage_response() :: %{(String.t() | atom()) => any()}
+  @type routing_rule_action_invoke_api() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_vpc_links_response() :: %{
-        "Items" => list(vpc_link()),
+      get_models_response() :: %{
+        "Items" => list(model()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_vpc_links_response() :: %{(String.t() | atom()) => any()}
+  @type get_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      routing_rule_action() :: %{
-        "InvokeApi" => routing_rule_action_invoke_api()
+      publish_portal_response() :: %{}
+
+  """
+  @type publish_portal_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_request() :: %{
+        optional("Authorization") => authorization(),
+        optional("EndpointConfiguration") => endpoint_configuration_request(),
+        optional("IncludedPortalProductArns") => list(String.t() | atom()),
+        optional("LogoUri") => String.t() | atom(),
+        optional("PortalContent") => portal_content(),
+        optional("RumAppMonitorName") => String.t() | atom()
       }
 
   """
-  @type routing_rule_action() :: %{(String.t() | atom()) => any()}
+  @type update_portal_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_tags_request() :: %{}
-
-  """
-  @type get_tags_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stage_response() :: %{
-        "AccessLogSettings" => access_log_settings(),
+      route() :: %{
         "ApiGatewayManaged" => boolean(),
-        "AutoDeploy" => boolean(),
-        "ClientCertificateId" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "DefaultRouteSettings" => route_settings(),
-        "DeploymentId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastDeploymentStatusMessage" => String.t() | atom(),
-        "LastUpdatedDate" => non_neg_integer(),
-        "RouteSettings" => map(),
-        "StageName" => String.t() | atom(),
-        "StageVariables" => map(),
-        "Tags" => map()
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t() | atom()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t() | atom(),
+        "ModelSelectionExpression" => String.t() | atom(),
+        "OperationName" => String.t() | atom(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t() | atom(),
+        "RouteKey" => String.t() | atom(),
+        "RouteResponseSelectionExpression" => String.t() | atom(),
+        "Target" => String.t() | atom()
       }
 
   """
-  @type get_stage_response() :: %{(String.t() | atom()) => any()}
+  @type route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_portal_product_response() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "DisplayOrder" => display_order(),
-        "LastModified" => non_neg_integer(),
-        "PortalProductArn" => String.t() | atom(),
-        "PortalProductId" => String.t() | atom(),
-        "Tags" => map()
+      get_product_rest_endpoint_page_request() :: %{
+        optional("IncludeRawDisplayContent") => String.t() | atom(),
+        optional("ResourceOwnerAccountId") => String.t() | atom()
       }
 
   """
-  @type get_portal_product_response() :: %{(String.t() | atom()) => any()}
+  @type get_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      parameter_constraints() :: %{
-        "Required" => boolean()
+      get_integrations_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type parameter_constraints() :: %{(String.t() | atom()) => any()}
+  @type get_integrations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deployment() :: %{
-        "AutoDeployed" => boolean(),
-        "CreatedDate" => non_neg_integer(),
-        "DeploymentId" => String.t() | atom(),
-        "DeploymentStatus" => list(any()),
-        "DeploymentStatusMessage" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
+      get_route_response_request() :: %{}
 
   """
-  @type deployment() :: %{(String.t() | atom()) => any()}
+  @type get_route_response_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_api_mapping_request() :: %{}
+      get_model_template_response() :: %{
+        "Value" => String.t() | atom()
+      }
 
   """
-  @type delete_api_mapping_request() :: %{}
+  @type get_model_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,6 +382,1951 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
+      create_deployment_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("StageName") => String.t() | atom()
+      }
+
+  """
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_link_response() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "Tags" => map(),
+        "VpcLinkId" => String.t() | atom(),
+        "VpcLinkStatus" => list(any()),
+        "VpcLinkStatusMessage" => String.t() | atom(),
+        "VpcLinkVersion" => list(any())
+      }
+
+  """
+  @type get_vpc_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_links_response() :: %{
+        "Items" => list(vpc_link()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_vpc_links_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_product_request() :: %{}
+
+  """
+  @type delete_portal_product_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deployment_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_product_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("DisplayOrder") => display_order()
+      }
+
+  """
+  @type update_portal_product_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_settings() :: %{
+        "DataTraceEnabled" => boolean(),
+        "DetailedMetricsEnabled" => boolean(),
+        "LoggingLevel" => list(any()),
+        "ThrottlingBurstLimit" => integer(),
+        "ThrottlingRateLimit" => float()
+      }
+
+  """
+  @type route_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_response_response() :: %{
+        "ContentHandlingStrategy" => list(any()),
+        "IntegrationResponseId" => String.t() | atom(),
+        "IntegrationResponseKey" => String.t() | atom(),
+        "ResponseParameters" => map(),
+        "ResponseTemplates" => map(),
+        "TemplateSelectionExpression" => String.t() | atom()
+      }
+
+  """
+  @type get_integration_response_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_link_request() :: %{}
+
+  """
+  @type get_vpc_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "LimitType" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t() | atom()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t() | atom(),
+        "ModelSelectionExpression" => String.t() | atom(),
+        "OperationName" => String.t() | atom(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t() | atom(),
+        "RouteKey" => String.t() | atom(),
+        "RouteResponseSelectionExpression" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type update_route_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_request() :: %{
+        optional("ApiKeyRequired") => boolean(),
+        optional("AuthorizationScopes") => list(String.t() | atom()),
+        optional("AuthorizationType") => list(any()),
+        optional("AuthorizerId") => String.t() | atom(),
+        optional("ModelSelectionExpression") => String.t() | atom(),
+        optional("OperationName") => String.t() | atom(),
+        optional("RequestModels") => map(),
+        optional("RequestParameters") => map(),
+        optional("RouteKey") => String.t() | atom(),
+        optional("RouteResponseSelectionExpression") => String.t() | atom(),
+        optional("Target") => String.t() | atom()
+      }
+
+  """
+  @type update_route_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_request() :: %{}
+
+  """
+  @type delete_route_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mutual_tls_authentication() :: %{
+        optional("TruststoreUri") => String.t() | atom(),
+        optional("TruststoreVersion") => String.t() | atom(),
+        optional("TruststoreWarnings") => list(String.t() | atom())
+      }
+
+  """
+  @type mutual_tls_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_log_settings() :: %{
+        "DestinationArn" => String.t() | atom(),
+        "Format" => String.t() | atom()
+      }
+
+  """
+  @type access_log_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_request() :: %{}
+
+  """
+  @type delete_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_link_request() :: %{}
+
+  """
+  @type delete_vpc_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      import_api_response() :: %{
+        "ApiEndpoint" => String.t() | atom(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t() | atom(),
+        "ApiKeySelectionExpression" => String.t() | atom(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t() | atom()),
+        "IpAddressType" => list(any()),
+        "Name" => String.t() | atom(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t() | atom(),
+        "Tags" => map(),
+        "Version" => String.t() | atom(),
+        "Warnings" => list(String.t() | atom())
+      }
+
+  """
+  @type import_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_response() :: %{
+        "ContentType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ModelId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom()
+      }
+
+  """
+  @type get_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_link_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_vpc_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment() :: %{
+        "AutoDeployed" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "DeploymentId" => String.t() | atom(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+
+  """
+  @type deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_vpc_link_response() :: %{}
+
+  """
+  @type delete_vpc_link_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_response() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "Preview" => preview(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_response_request() :: %{
+        optional("ModelSelectionExpression") => String.t() | atom(),
+        optional("ResponseModels") => map(),
+        optional("ResponseParameters") => map(),
+        required("RouteResponseKey") => String.t() | atom()
+      }
+
+  """
+  @type create_route_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stages_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_stages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_responses_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_route_responses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_condition() :: %{
+        "MatchBasePaths" => routing_rule_match_base_paths(),
+        "MatchHeaders" => routing_rule_match_headers()
+      }
+
+  """
+  @type routing_rule_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_name_request() :: %{}
+
+  """
+  @type delete_domain_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cors_configuration_request() :: %{}
+
+  """
+  @type delete_cors_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_response() :: %{
+        "ApiEndpoint" => String.t() | atom(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t() | atom(),
+        "ApiKeySelectionExpression" => String.t() | atom(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t() | atom()),
+        "IpAddressType" => list(any()),
+        "Name" => String.t() | atom(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t() | atom(),
+        "Tags" => map(),
+        "Version" => String.t() | atom(),
+        "Warnings" => list(String.t() | atom())
+      }
+
+  """
+  @type get_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_configuration_request() :: %{
+        "AcmManaged" => a_cm_managed(),
+        "None" => apigatewayv2_none()
+      }
+
+  """
+  @type endpoint_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_theme() :: %{
+        "CustomColors" => custom_colors(),
+        "LogoLastUploaded" => non_neg_integer()
+      }
+
+  """
+  @type portal_theme() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizers_response() :: %{
+        "Items" => list(authorizer()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_authorizers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule() :: %{
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t() | atom(),
+        "RoutingRuleId" => String.t() | atom()
+      }
+
+  """
+  @type routing_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_match_base_paths() :: %{
+        "AnyOf" => list(String.t() | atom())
+      }
+
+  """
+  @type routing_rule_match_base_paths() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apis_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_apis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorizer() :: %{
+        "AuthorizerCredentialsArn" => String.t() | atom(),
+        "AuthorizerId" => String.t() | atom(),
+        "AuthorizerPayloadFormatVersion" => String.t() | atom(),
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerType" => list(any()),
+        "AuthorizerUri" => String.t() | atom(),
+        "EnableSimpleResponses" => boolean(),
+        "IdentitySource" => list(String.t() | atom()),
+        "IdentityValidationExpression" => String.t() | atom(),
+        "JwtConfiguration" => j_w_t_configuration(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type authorizer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_request() :: %{
+        optional("ApiKeySelectionExpression") => String.t() | atom(),
+        optional("CorsConfiguration") => cors(),
+        optional("CredentialsArn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DisableExecuteApiEndpoint") => boolean(),
+        optional("DisableSchemaValidation") => boolean(),
+        optional("IpAddressType") => list(any()),
+        optional("RouteKey") => String.t() | atom(),
+        optional("RouteSelectionExpression") => String.t() | atom(),
+        optional("Tags") => map(),
+        optional("Target") => String.t() | atom(),
+        optional("Version") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("ProtocolType") => list(any())
+      }
+
+  """
+  @type create_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_link_response() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "Tags" => map(),
+        "VpcLinkId" => String.t() | atom(),
+        "VpcLinkStatus" => list(any()),
+        "VpcLinkStatusMessage" => String.t() | atom(),
+        "VpcLinkVersion" => list(any())
+      }
+
+  """
+  @type create_vpc_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_product_sharing_policy_request() :: %{}
+
+  """
+  @type delete_portal_product_sharing_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_name_request() :: %{
+        optional("DomainNameConfigurations") => list(domain_name_configuration()),
+        optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
+        optional("RoutingMode") => list(any()),
+        optional("Tags") => map(),
+        required("DomainName") => String.t() | atom()
+      }
+
+  """
+  @type create_domain_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_routing_rules_request() :: %{
+        optional("DomainNameId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_routing_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview_portal_request() :: %{}
+
+  """
+  @type preview_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_product_sharing_policy_response() :: %{
+        "PolicyDocument" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom()
+      }
+
+  """
+  @type get_portal_product_sharing_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_authorizer_request() :: %{
+        optional("AuthorizerCredentialsArn") => String.t() | atom(),
+        optional("AuthorizerPayloadFormatVersion") => String.t() | atom(),
+        optional("AuthorizerResultTtlInSeconds") => integer(),
+        optional("AuthorizerType") => list(any()),
+        optional("AuthorizerUri") => String.t() | atom(),
+        optional("EnableSimpleResponses") => boolean(),
+        optional("IdentitySource") => list(String.t() | atom()),
+        optional("IdentityValidationExpression") => String.t() | atom(),
+        optional("JwtConfiguration") => j_w_t_configuration(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_routing_rule_response() :: %{
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t() | atom(),
+        "RoutingRuleId" => String.t() | atom()
+      }
+
+  """
+  @type get_routing_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_request_parameter_request() :: %{}
+
+  """
+  @type delete_route_request_parameter_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tags_request() :: %{}
+
+  """
+  @type get_tags_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      section() :: %{
+        "ProductRestEndpointPageArns" => list(String.t() | atom()),
+        "SectionName" => String.t() | atom()
+      }
+
+  """
+  @type section() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_page_response() :: %{
+        "DisplayContent" => display_content(),
+        "LastModified" => non_neg_integer(),
+        "ProductPageArn" => String.t() | atom(),
+        "ProductPageId" => String.t() | atom()
+      }
+
+  """
+  @type update_product_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t() | atom(),
+        required("Actions") => list(routing_rule_action()),
+        required("Conditions") => list(routing_rule_condition()),
+        required("Priority") => integer()
+      }
+
+  """
+  @type create_routing_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ApiKeyRequired" => boolean(),
+        "AuthorizationScopes" => list(String.t() | atom()),
+        "AuthorizationType" => list(any()),
+        "AuthorizerId" => String.t() | atom(),
+        "ModelSelectionExpression" => String.t() | atom(),
+        "OperationName" => String.t() | atom(),
+        "RequestModels" => map(),
+        "RequestParameters" => map(),
+        "RouteId" => String.t() | atom(),
+        "RouteKey" => String.t() | atom(),
+        "RouteResponseSelectionExpression" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type get_route_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_request() :: %{}
+
+  """
+  @type get_route_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rest_endpoint_identifier() :: %{
+        "IdentifierParts" => identifier_parts()
+      }
+
+  """
+  @type rest_endpoint_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deployment_response() :: %{
+        "AutoDeployed" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "DeploymentId" => String.t() | atom(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+
+  """
+  @type update_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_authorizer_request() :: %{
+        optional("AuthorizerCredentialsArn") => String.t() | atom(),
+        optional("AuthorizerPayloadFormatVersion") => String.t() | atom(),
+        optional("AuthorizerResultTtlInSeconds") => integer(),
+        optional("AuthorizerUri") => String.t() | atom(),
+        optional("EnableSimpleResponses") => boolean(),
+        optional("IdentityValidationExpression") => String.t() | atom(),
+        optional("JwtConfiguration") => j_w_t_configuration(),
+        required("AuthorizerType") => list(any()),
+        required("IdentitySource") => list(String.t() | atom()),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_authorizer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_request() :: %{}
+
+  """
+  @type get_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stage_request() :: %{}
+
+  """
+  @type get_stage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_portal_product_sharing_policy_request() :: %{
+        required("PolicyDocument") => String.t() | atom()
+      }
+
+  """
+  @type put_portal_product_sharing_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_model_request() :: %{}
+
+  """
+  @type delete_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      route_response() :: %{
+        "ModelSelectionExpression" => String.t() | atom(),
+        "ResponseModels" => map(),
+        "ResponseParameters" => map(),
+        "RouteResponseId" => String.t() | atom(),
+        "RouteResponseKey" => String.t() | atom()
+      }
+
+  """
+  @type route_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_response_request() :: %{
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("ResponseParameters") => map(),
+        optional("ResponseTemplates") => map(),
+        optional("TemplateSelectionExpression") => String.t() | atom(),
+        required("IntegrationResponseKey") => String.t() | atom()
+      }
+
+  """
+  @type create_integration_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_response() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "Preview" => preview(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_portal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_portals_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_api_response() :: %{
+        "body" => binary()
+      }
+
+  """
+  @type export_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_response_response() :: %{
+        "ContentHandlingStrategy" => list(any()),
+        "IntegrationResponseId" => String.t() | atom(),
+        "IntegrationResponseKey" => String.t() | atom(),
+        "ResponseParameters" => map(),
+        "ResponseTemplates" => map(),
+        "TemplateSelectionExpression" => String.t() | atom()
+      }
+
+  """
+  @type update_integration_response_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stage_request() :: %{}
+
+  """
+  @type delete_stage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mutual_tls_authentication_input() :: %{
+        optional("TruststoreUri") => String.t() | atom(),
+        optional("TruststoreVersion") => String.t() | atom()
+      }
+
+  """
+  @type mutual_tls_authentication_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_portal_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type publish_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_responses_response() :: %{
+        "Items" => list(integration_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_integration_responses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portals_response() :: %{
+        "Items" => list(portal_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_portals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model() :: %{
+        "ContentType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ModelId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom()
+      }
+
+  """
+  @type model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_authorizers_cache_request() :: %{}
+
+  """
+  @type reset_authorizers_cache_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_name_request() :: %{}
+
+  """
+  @type get_domain_name_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_authorizer_response() :: %{
+        "AuthorizerCredentialsArn" => String.t() | atom(),
+        "AuthorizerId" => String.t() | atom(),
+        "AuthorizerPayloadFormatVersion" => String.t() | atom(),
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerType" => list(any()),
+        "AuthorizerUri" => String.t() | atom(),
+        "EnableSimpleResponses" => boolean(),
+        "IdentitySource" => list(String.t() | atom()),
+        "IdentityValidationExpression" => String.t() | atom(),
+        "JwtConfiguration" => j_w_t_configuration(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_authorizer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_portal_product_response() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "DisplayOrder" => display_order(),
+        "LastModified" => non_neg_integer(),
+        "PortalProductArn" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_portal_product_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_request() :: %{}
+
+  """
+  @type delete_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_product_page_request() :: %{}
+
+  """
+  @type delete_product_page_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_request() :: %{
+        optional("ConnectionId") => String.t() | atom(),
+        optional("ConnectionType") => list(any()),
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("CredentialsArn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("IntegrationMethod") => String.t() | atom(),
+        optional("IntegrationSubtype") => String.t() | atom(),
+        optional("IntegrationType") => list(any()),
+        optional("IntegrationUri") => String.t() | atom(),
+        optional("PassthroughBehavior") => list(any()),
+        optional("PayloadFormatVersion") => String.t() | atom(),
+        optional("RequestParameters") => map(),
+        optional("RequestTemplates") => map(),
+        optional("ResponseParameters") => map(),
+        optional("TemplateSelectionExpression") => String.t() | atom(),
+        optional("TimeoutInMillis") => integer(),
+        optional("TlsConfig") => tls_config_input()
+      }
+
+  """
+  @type update_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_responses_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_integration_responses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_settings_request() :: %{}
+
+  """
+  @type delete_route_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_authorizer_request() :: %{}
+
+  """
+  @type delete_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizer_request() :: %{}
+
+  """
+  @type get_authorizer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_stage_response() :: %{
+        "AccessLogSettings" => access_log_settings(),
+        "ApiGatewayManaged" => boolean(),
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastDeploymentStatusMessage" => String.t() | atom(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t() | atom(),
+        "StageVariables" => map(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_stage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_product_pages_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceOwnerAccountId") => String.t() | atom()
+      }
+
+  """
+  @type list_product_pages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      portal_summary() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "Preview" => preview(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
+      }
+
+  """
+  @type portal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_routing_rule_response() :: %{
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t() | atom(),
+        "RoutingRuleId" => String.t() | atom()
+      }
+
+  """
+  @type put_routing_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_request() :: %{
+        optional("IncludedPortalProductArns") => list(String.t() | atom()),
+        optional("LogoUri") => String.t() | atom(),
+        optional("RumAppMonitorName") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Authorization") => authorization(),
+        required("EndpointConfiguration") => endpoint_configuration_request(),
+        required("PortalContent") => portal_content()
+      }
+
+  """
+  @type create_portal_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_models_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_response_response() :: %{
+        "ModelSelectionExpression" => String.t() | atom(),
+        "ResponseModels" => map(),
+        "ResponseParameters" => map(),
+        "RouteResponseId" => String.t() | atom(),
+        "RouteResponseKey" => String.t() | atom()
+      }
+
+  """
+  @type update_route_response_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_match_headers() :: %{
+        "AnyOf" => list(routing_rule_match_header_value())
+      }
+
+  """
+  @type routing_rule_match_headers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_name_request() :: %{
+        optional("DomainNameConfigurations") => list(domain_name_configuration()),
+        optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
+        optional("RoutingMode") => list(any())
+      }
+
+  """
+  @type update_domain_name_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_request() :: %{
+        optional("ConnectionId") => String.t() | atom(),
+        optional("ConnectionType") => list(any()),
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("CredentialsArn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("IntegrationMethod") => String.t() | atom(),
+        optional("IntegrationSubtype") => String.t() | atom(),
+        optional("IntegrationUri") => String.t() | atom(),
+        optional("PassthroughBehavior") => list(any()),
+        optional("PayloadFormatVersion") => String.t() | atom(),
+        optional("RequestParameters") => map(),
+        optional("RequestTemplates") => map(),
+        optional("ResponseParameters") => map(),
+        optional("TemplateSelectionExpression") => String.t() | atom(),
+        optional("TimeoutInMillis") => integer(),
+        optional("TlsConfig") => tls_config_input(),
+        required("IntegrationType") => list(any())
+      }
+
+  """
+  @type create_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_product_rest_endpoint_page_response() :: %{
+        "DisplayContent" => endpoint_display_content_response(),
+        "LastModified" => non_neg_integer(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
+      }
+
+  """
+  @type create_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_request() :: %{}
+
+  """
+  @type get_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_colors() :: %{
+        "AccentColor" => String.t() | atom(),
+        "BackgroundColor" => String.t() | atom(),
+        "ErrorValidationColor" => String.t() | atom(),
+        "HeaderColor" => String.t() | atom(),
+        "NavigationColor" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
+      }
+
+  """
+  @type custom_colors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_product_page_request() :: %{
+        required("DisplayContent") => display_content()
+      }
+
+  """
+  @type create_product_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_response_request() :: %{}
+
+  """
+  @type get_integration_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_mapping_response() :: %{
+        "ApiId" => String.t() | atom(),
+        "ApiMappingId" => String.t() | atom(),
+        "ApiMappingKey" => String.t() | atom(),
+        "Stage" => String.t() | atom()
+      }
+
+  """
+  @type update_api_mapping_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_product_sharing_policy_request() :: %{}
+
+  """
+  @type get_portal_product_sharing_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reimport_api_response() :: %{
+        "ApiEndpoint" => String.t() | atom(),
+        "ApiGatewayManaged" => boolean(),
+        "ApiId" => String.t() | atom(),
+        "ApiKeySelectionExpression" => String.t() | atom(),
+        "CorsConfiguration" => cors(),
+        "CreatedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisableExecuteApiEndpoint" => boolean(),
+        "DisableSchemaValidation" => boolean(),
+        "ImportInfo" => list(String.t() | atom()),
+        "IpAddressType" => list(any()),
+        "Name" => String.t() | atom(),
+        "ProtocolType" => list(any()),
+        "RouteSelectionExpression" => String.t() | atom(),
+        "Tags" => map(),
+        "Version" => String.t() | atom(),
+        "Warnings" => list(String.t() | atom())
+      }
+
+  """
+  @type reimport_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_match_header_value() :: %{
+        "Header" => String.t() | atom(),
+        "ValueGlob" => String.t() | atom()
+      }
+
+  """
+  @type routing_rule_match_header_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_api_request() :: %{
+        optional("Basepath") => String.t() | atom(),
+        optional("FailOnWarnings") => boolean(),
+        required("Body") => String.t() | atom()
+      }
+
+  """
+  @type import_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_api_request() :: %{
+        optional("ApiKeySelectionExpression") => String.t() | atom(),
+        optional("CorsConfiguration") => cors(),
+        optional("CredentialsArn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DisableExecuteApiEndpoint") => boolean(),
+        optional("DisableSchemaValidation") => boolean(),
+        optional("IpAddressType") => list(any()),
+        optional("Name") => String.t() | atom(),
+        optional("RouteKey") => String.t() | atom(),
+        optional("RouteSelectionExpression") => String.t() | atom(),
+        optional("Target") => String.t() | atom(),
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type update_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_request() :: %{}
+
+  """
+  @type get_api_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_product_page_response() :: %{
+        "DisplayContent" => display_content(),
+        "LastModified" => non_neg_integer(),
+        "ProductPageArn" => String.t() | atom(),
+        "ProductPageId" => String.t() | atom()
+      }
+
+  """
+  @type create_product_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_mappings_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_api_mappings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_product_rest_endpoint_pages_response() :: %{
+        "Items" => list(product_rest_endpoint_page_summary_no_body()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_product_rest_endpoint_pages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      apigatewayv2_none() :: %{}
+
+  """
+  @type apigatewayv2_none() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t() | atom(),
+        required("Actions") => list(routing_rule_action()),
+        required("Conditions") => list(routing_rule_condition()),
+        required("Priority") => integer()
+      }
+
+  """
+  @type put_routing_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_stage_request() :: %{
+        optional("AccessLogSettings") => access_log_settings(),
+        optional("AutoDeploy") => boolean(),
+        optional("ClientCertificateId") => String.t() | atom(),
+        optional("DefaultRouteSettings") => route_settings(),
+        optional("DeploymentId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("RouteSettings") => map(),
+        optional("StageVariables") => map()
+      }
+
+  """
+  @type update_stage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_mapping_request() :: %{
+        optional("ApiMappingKey") => String.t() | atom(),
+        required("ApiId") => String.t() | atom(),
+        required("Stage") => String.t() | atom()
+      }
+
+  """
+  @type create_api_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_product_pages_response() :: %{
+        "Items" => list(product_page_summary_no_body()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_product_pages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_product_response() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "DisplayOrder" => display_order(),
+        "LastModified" => non_neg_integer(),
+        "PortalProductArn" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_portal_product_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t() | atom()
+      }
+
+  """
+  @type delete_routing_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployments_response() :: %{
+        "Items" => list(deployment()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_deployments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_model_request() :: %{
+        optional("ContentType") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Schema") => String.t() | atom()
+      }
+
+  """
+  @type update_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_response_response() :: %{
+        "ContentHandlingStrategy" => list(any()),
+        "IntegrationResponseId" => String.t() | atom(),
+        "IntegrationResponseKey" => String.t() | atom(),
+        "ResponseParameters" => map(),
+        "ResponseTemplates" => map(),
+        "TemplateSelectionExpression" => String.t() | atom()
+      }
+
+  """
+  @type create_integration_response_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_links_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_vpc_links_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_response() :: %{
+        "ContentType" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "ModelId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom()
+      }
+
+  """
+  @type create_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_constraints() :: %{
+        "Required" => boolean()
+      }
+
+  """
+  @type parameter_constraints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_name_response() :: %{
+        "ApiMappingSelectionExpression" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "DomainNameArn" => String.t() | atom(),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type update_domain_name_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployments_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_product_rest_endpoint_page_request() :: %{
+        optional("DisplayContent") => endpoint_display_content(),
+        optional("TryItState") => list(any()),
+        required("RestEndpointIdentifier") => rest_endpoint_identifier()
+      }
+
+  """
+  @type create_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_request() :: %{
+        optional("ApiKeyRequired") => boolean(),
+        optional("AuthorizationScopes") => list(String.t() | atom()),
+        optional("AuthorizationType") => list(any()),
+        optional("AuthorizerId") => String.t() | atom(),
+        optional("ModelSelectionExpression") => String.t() | atom(),
+        optional("OperationName") => String.t() | atom(),
+        optional("RequestModels") => map(),
+        optional("RequestParameters") => map(),
+        optional("RouteResponseSelectionExpression") => String.t() | atom(),
+        optional("Target") => String.t() | atom(),
+        required("RouteKey") => String.t() | atom()
+      }
+
+  """
+  @type create_route_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_display_content_response() :: %{
+        "Body" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "OperationName" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_display_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      display_content() :: %{
+        "Body" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type display_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorization() :: %{
+        "CognitoConfig" => cognito_config(),
+        "None" => apigatewayv2_none()
+      }
+
+  """
+  @type authorization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_routing_rule_response() :: %{
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
+        "Priority" => integer(),
+        "RoutingRuleArn" => String.t() | atom(),
+        "RoutingRuleId" => String.t() | atom()
+      }
+
+  """
+  @type create_routing_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integration_response_request() :: %{
+        optional("ContentHandlingStrategy") => list(any()),
+        optional("IntegrationResponseKey") => String.t() | atom(),
+        optional("ResponseParameters") => map(),
+        optional("ResponseTemplates") => map(),
+        optional("TemplateSelectionExpression") => String.t() | atom()
+      }
+
+  """
+  @type update_integration_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preview() :: %{
+        "PreviewStatus" => list(any()),
+        "PreviewUrl" => String.t() | atom(),
+        "StatusException" => status_exception()
+      }
+
+  """
+  @type preview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_names_response() :: %{
+        "Items" => list(domain_name()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_domain_names_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tls_config() :: %{
+        "ServerNameToVerify" => String.t() | atom()
+      }
+
+  """
+  @type tls_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_product_rest_endpoint_page_response() :: %{
+        "DisplayContent" => endpoint_display_content_response(),
+        "LastModified" => non_neg_integer(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RawDisplayContent" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
+      }
+
+  """
+  @type get_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stages_response() :: %{
+        "Items" => list(stage()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_stages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_api_mapping_request() :: %{
         optional("ApiMappingKey") => String.t() | atom(),
         optional("Stage") => String.t() | atom(),
@@ -437,6 +2335,76 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type update_api_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_response_request() :: %{}
+
+  """
+  @type delete_integration_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_request() :: %{
+        optional("ContentType") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Schema") => String.t() | atom()
+      }
+
+  """
+  @type create_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_portal_request() :: %{}
+
+  """
+  @type get_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_cm_managed() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "DomainName" => String.t() | atom()
+      }
+
+  """
+  @type a_cm_managed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_rest_endpoint_page_request() :: %{
+        optional("DisplayContent") => endpoint_display_content(),
+        optional("TryItState") => list(any())
+      }
+
+  """
+  @type update_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_api_mapping_response() :: %{
+        "ApiId" => String.t() | atom(),
+        "ApiMappingId" => String.t() | atom(),
+        "ApiMappingKey" => String.t() | atom(),
+        "Stage" => String.t() | atom()
+      }
+
+  """
+  @type create_api_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,124 +2440,52 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      get_authorizers_response() :: %{
-        "Items" => list(authorizer()),
+      j_w_t_configuration() :: %{
+        "Audience" => list(String.t() | atom()),
+        "Issuer" => String.t() | atom()
+      }
+
+  """
+  @type j_w_t_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_portal_products_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceOwner") => String.t() | atom()
+      }
+
+  """
+  @type list_portal_products_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_configuration_response() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "PortalDefaultDomainName" => String.t() | atom(),
+        "PortalDomainHostedZoneId" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_api_mappings_response() :: %{
+        "Items" => list(api_mapping()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_authorizers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_integration_response_request() :: %{}
-
-  """
-  @type delete_integration_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      route_settings() :: %{
-        "DataTraceEnabled" => boolean(),
-        "DetailedMetricsEnabled" => boolean(),
-        "LoggingLevel" => list(any()),
-        "ThrottlingBurstLimit" => integer(),
-        "ThrottlingRateLimit" => float()
-      }
-
-  """
-  @type route_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_routing_rules_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RoutingRules" => list(routing_rule())
-      }
-
-  """
-  @type list_routing_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_route_responses_response() :: %{
-        "Items" => list(route_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_route_responses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_product_rest_endpoint_page_request() :: %{
-        optional("DisplayContent") => endpoint_display_content(),
-        optional("TryItState") => list(any()),
-        required("RestEndpointIdentifier") => rest_endpoint_identifier()
-      }
-
-  """
-  @type create_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mutual_tls_authentication() :: %{
-        optional("TruststoreUri") => String.t() | atom(),
-        optional("TruststoreVersion") => String.t() | atom(),
-        optional("TruststoreWarnings") => list(String.t() | atom())
-      }
-
-  """
-  @type mutual_tls_authentication() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      preview_portal_response() :: %{}
-
-  """
-  @type preview_portal_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_route_response_request() :: %{
-        optional("ModelSelectionExpression") => String.t() | atom(),
-        optional("ResponseModels") => map(),
-        optional("ResponseParameters") => map(),
-        required("RouteResponseKey") => String.t() | atom()
-      }
-
-  """
-  @type create_route_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_mapping_response() :: %{
-        "ApiId" => String.t() | atom(),
-        "ApiMappingId" => String.t() | atom(),
-        "ApiMappingKey" => String.t() | atom(),
-        "Stage" => String.t() | atom()
-      }
-
-  """
-  @type update_api_mapping_response() :: %{(String.t() | atom()) => any()}
+  @type get_api_mappings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -610,258 +2506,80 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      create_deployment_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("StageName") => String.t() | atom()
+      display_order() :: %{
+        "Contents" => list(section()),
+        "OverviewPageArn" => String.t() | atom(),
+        "ProductPageArns" => list(String.t() | atom())
       }
 
   """
-  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
+  @type display_order() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_portal_response() :: %{
-        "Authorization" => authorization(),
-        "EndpointConfiguration" => endpoint_configuration_response(),
-        "IncludedPortalProductArns" => list(String.t() | atom()),
-        "LastModified" => non_neg_integer(),
-        "LastPublished" => non_neg_integer(),
-        "LastPublishedDescription" => String.t() | atom(),
-        "PortalArn" => String.t() | atom(),
-        "PortalContent" => portal_content(),
-        "PortalId" => String.t() | atom(),
-        "PublishStatus" => list(any()),
-        "RumAppMonitorName" => String.t() | atom(),
-        "StatusException" => status_exception(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_response() :: %{
-        "ApiEndpoint" => String.t() | atom(),
-        "ApiGatewayManaged" => boolean(),
-        "ApiId" => String.t() | atom(),
-        "ApiKeySelectionExpression" => String.t() | atom(),
-        "CorsConfiguration" => cors(),
+      create_deployment_response() :: %{
+        "AutoDeployed" => boolean(),
         "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisableExecuteApiEndpoint" => boolean(),
-        "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t() | atom()),
-        "IpAddressType" => list(any()),
-        "Name" => String.t() | atom(),
-        "ProtocolType" => list(any()),
-        "RouteSelectionExpression" => String.t() | atom(),
-        "Tags" => map(),
-        "Version" => String.t() | atom(),
-        "Warnings" => list(String.t() | atom())
-      }
-
-  """
-  @type create_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_model_request() :: %{
-        optional("ContentType") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Schema") => String.t() | atom()
-      }
-
-  """
-  @type create_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_route_result() :: %{
-        "ApiGatewayManaged" => boolean(),
-        "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t() | atom()),
-        "AuthorizationType" => list(any()),
-        "AuthorizerId" => String.t() | atom(),
-        "ModelSelectionExpression" => String.t() | atom(),
-        "OperationName" => String.t() | atom(),
-        "RequestModels" => map(),
-        "RequestParameters" => map(),
-        "RouteId" => String.t() | atom(),
-        "RouteKey" => String.t() | atom(),
-        "RouteResponseSelectionExpression" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-
-  """
-  @type update_route_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_cm_managed() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "DomainName" => String.t() | atom()
-      }
-
-  """
-  @type a_cm_managed() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_routing_rule_response() :: %{
-        "Actions" => list(routing_rule_action()),
-        "Conditions" => list(routing_rule_condition()),
-        "Priority" => integer(),
-        "RoutingRuleArn" => String.t() | atom(),
-        "RoutingRuleId" => String.t() | atom()
-      }
-
-  """
-  @type put_routing_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_model_request() :: %{
-        optional("ContentType") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Schema") => String.t() | atom()
-      }
-
-  """
-  @type update_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reimport_api_request() :: %{
-        optional("Basepath") => String.t() | atom(),
-        optional("FailOnWarnings") => boolean(),
-        required("Body") => String.t() | atom()
-      }
-
-  """
-  @type reimport_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cognito_config() :: %{
-        "AppClientId" => String.t() | atom(),
-        "UserPoolArn" => String.t() | atom(),
-        "UserPoolDomain" => String.t() | atom()
-      }
-
-  """
-  @type cognito_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_route_response_request() :: %{}
-
-  """
-  @type get_route_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      section() :: %{
-        "ProductRestEndpointPageArns" => list(String.t() | atom()),
-        "SectionName" => String.t() | atom()
-      }
-
-  """
-  @type section() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      publish_portal_request() :: %{
-        optional("Description") => String.t() | atom()
-      }
-
-  """
-  @type publish_portal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_name_request() :: %{
-        optional("DomainNameConfigurations") => list(domain_name_configuration()),
-        optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
-        optional("RoutingMode") => list(any()),
-        optional("Tags") => map(),
-        required("DomainName") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_stage_response() :: %{
-        "AccessLogSettings" => access_log_settings(),
-        "ApiGatewayManaged" => boolean(),
-        "AutoDeploy" => boolean(),
-        "ClientCertificateId" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "DefaultRouteSettings" => route_settings(),
         "DeploymentId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LastDeploymentStatusMessage" => String.t() | atom(),
-        "LastUpdatedDate" => non_neg_integer(),
-        "RouteSettings" => map(),
-        "StageName" => String.t() | atom(),
-        "StageVariables" => map(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+
+  """
+  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_routes_response() :: %{
+        "Items" => list(route()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_routes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_portal_product_sharing_policy_response() :: %{}
+
+  """
+  @type put_portal_product_sharing_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_name_response() :: %{
+        "ApiMappingSelectionExpression" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "DomainNameArn" => String.t() | atom(),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type update_stage_response() :: %{(String.t() | atom()) => any()}
+  @type create_domain_name_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_product_page_request() :: %{
-        optional("ResourceOwnerAccountId") => String.t() | atom()
+      get_route_responses_response() :: %{
+        "Items" => list(route_response()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_product_page_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      preview_portal_request() :: %{}
-
-  """
-  @type preview_portal_request() :: %{}
+  @type get_route_responses_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -886,1418 +2604,22 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      create_deployment_response() :: %{
-        "AutoDeployed" => boolean(),
-        "CreatedDate" => non_neg_integer(),
-        "DeploymentId" => String.t() | atom(),
-        "DeploymentStatus" => list(any()),
-        "DeploymentStatusMessage" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
-
-  """
-  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      routing_rule_condition() :: %{
-        "MatchBasePaths" => routing_rule_match_base_paths(),
-        "MatchHeaders" => routing_rule_match_headers()
-      }
-
-  """
-  @type routing_rule_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_product_page_response() :: %{
-        "DisplayContent" => display_content(),
-        "LastModified" => non_neg_integer(),
-        "ProductPageArn" => String.t() | atom(),
-        "ProductPageId" => String.t() | atom()
-      }
-
-  """
-  @type get_product_page_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_template_request() :: %{}
-
-  """
-  @type get_model_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      identifier_parts() :: %{
-        "Method" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "RestApiId" => String.t() | atom(),
-        "Stage" => String.t() | atom()
-      }
-
-  """
-  @type identifier_parts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_authorizer_request() :: %{}
-
-  """
-  @type delete_authorizer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "LimitType" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_authorizer_request() :: %{
-        optional("AuthorizerCredentialsArn") => String.t() | atom(),
-        optional("AuthorizerPayloadFormatVersion") => String.t() | atom(),
-        optional("AuthorizerResultTtlInSeconds") => integer(),
-        optional("AuthorizerUri") => String.t() | atom(),
-        optional("EnableSimpleResponses") => boolean(),
-        optional("IdentityValidationExpression") => String.t() | atom(),
-        optional("JwtConfiguration") => j_w_t_configuration(),
-        required("AuthorizerType") => list(any()),
-        required("IdentitySource") => list(String.t() | atom()),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_authorizer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stage_request() :: %{}
-
-  """
-  @type get_stage_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_product_rest_endpoint_page_request() :: %{}
-
-  """
-  @type delete_product_rest_endpoint_page_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_authorizer_request() :: %{}
-
-  """
-  @type get_authorizer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_portal_product_sharing_policy_request() :: %{}
-
-  """
-  @type delete_portal_product_sharing_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      product_rest_endpoint_page_summary_no_body() :: %{
-        "Endpoint" => String.t() | atom(),
-        "LastModified" => non_neg_integer(),
-        "OperationName" => String.t() | atom(),
-        "ProductRestEndpointPageArn" => String.t() | atom(),
-        "ProductRestEndpointPageId" => String.t() | atom(),
-        "RestEndpointIdentifier" => rest_endpoint_identifier(),
-        "Status" => list(any()),
-        "StatusException" => status_exception(),
-        "TryItState" => list(any())
-      }
-
-  """
-  @type product_rest_endpoint_page_summary_no_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integration_responses_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_integration_responses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_route_response_response() :: %{
-        "ModelSelectionExpression" => String.t() | atom(),
-        "ResponseModels" => map(),
-        "ResponseParameters" => map(),
-        "RouteResponseId" => String.t() | atom(),
-        "RouteResponseKey" => String.t() | atom()
-      }
-
-  """
-  @type update_route_response_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_product_page_response() :: %{
-        "DisplayContent" => display_content(),
-        "LastModified" => non_neg_integer(),
-        "ProductPageArn" => String.t() | atom(),
-        "ProductPageId" => String.t() | atom()
-      }
-
-  """
-  @type create_product_page_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_mapping_request() :: %{
-        optional("ApiMappingKey") => String.t() | atom(),
-        required("ApiId") => String.t() | atom(),
-        required("Stage") => String.t() | atom()
-      }
-
-  """
-  @type create_api_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorization() :: %{
-        "CognitoConfig" => cognito_config(),
-        "None" => apigatewayv2_none()
-      }
-
-  """
-  @type authorization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_authorizer_response() :: %{
-        "AuthorizerCredentialsArn" => String.t() | atom(),
-        "AuthorizerId" => String.t() | atom(),
-        "AuthorizerPayloadFormatVersion" => String.t() | atom(),
-        "AuthorizerResultTtlInSeconds" => integer(),
-        "AuthorizerType" => list(any()),
-        "AuthorizerUri" => String.t() | atom(),
-        "EnableSimpleResponses" => boolean(),
-        "IdentitySource" => list(String.t() | atom()),
-        "IdentityValidationExpression" => String.t() | atom(),
-        "JwtConfiguration" => j_w_t_configuration(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_route_request_parameter_request() :: %{}
-
-  """
-  @type delete_route_request_parameter_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_integration_result() :: %{
-        "ApiGatewayManaged" => boolean(),
-        "ConnectionId" => String.t() | atom(),
-        "ConnectionType" => list(any()),
-        "ContentHandlingStrategy" => list(any()),
-        "CredentialsArn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IntegrationId" => String.t() | atom(),
-        "IntegrationMethod" => String.t() | atom(),
-        "IntegrationResponseSelectionExpression" => String.t() | atom(),
-        "IntegrationSubtype" => String.t() | atom(),
-        "IntegrationType" => list(any()),
-        "IntegrationUri" => String.t() | atom(),
-        "PassthroughBehavior" => list(any()),
-        "PayloadFormatVersion" => String.t() | atom(),
-        "RequestParameters" => map(),
-        "RequestTemplates" => map(),
-        "ResponseParameters" => map(),
-        "TemplateSelectionExpression" => String.t() | atom(),
-        "TimeoutInMillis" => integer(),
-        "TlsConfig" => tls_config()
-      }
-
-  """
-  @type create_integration_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portal_product_sharing_policy_request() :: %{}
-
-  """
-  @type get_portal_product_sharing_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_stage_request() :: %{}
-
-  """
-  @type delete_stage_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_routing_rule_request() :: %{
-        optional("DomainNameId") => String.t() | atom(),
-        required("Actions") => list(routing_rule_action()),
-        required("Conditions") => list(routing_rule_condition()),
-        required("Priority") => integer()
-      }
-
-  """
-  @type put_routing_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_portal_product_sharing_policy_response() :: %{}
-
-  """
-  @type put_portal_product_sharing_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_authorizers_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_authorizers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portals_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_portals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_portal_request() :: %{}
-
-  """
-  @type delete_portal_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_integration_request() :: %{}
-
-  """
-  @type delete_integration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_colors() :: %{
-        "AccentColor" => String.t() | atom(),
-        "BackgroundColor" => String.t() | atom(),
-        "ErrorValidationColor" => String.t() | atom(),
-        "HeaderColor" => String.t() | atom(),
-        "NavigationColor" => String.t() | atom(),
-        "TextColor" => String.t() | atom()
-      }
-
-  """
-  @type custom_colors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_response() :: %{
-        "ApiEndpoint" => String.t() | atom(),
-        "ApiGatewayManaged" => boolean(),
-        "ApiId" => String.t() | atom(),
-        "ApiKeySelectionExpression" => String.t() | atom(),
-        "CorsConfiguration" => cors(),
-        "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisableExecuteApiEndpoint" => boolean(),
-        "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t() | atom()),
-        "IpAddressType" => list(any()),
-        "Name" => String.t() | atom(),
-        "ProtocolType" => list(any()),
-        "RouteSelectionExpression" => String.t() | atom(),
-        "Tags" => map(),
-        "Version" => String.t() | atom(),
-        "Warnings" => list(String.t() | atom())
-      }
-
-  """
-  @type get_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cors_configuration_request() :: %{}
-
-  """
-  @type delete_cors_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_product_page_request() :: %{
-        required("DisplayContent") => display_content()
-      }
-
-  """
-  @type create_product_page_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_response() :: %{
-        "ApiEndpoint" => String.t() | atom(),
-        "ApiGatewayManaged" => boolean(),
-        "ApiId" => String.t() | atom(),
-        "ApiKeySelectionExpression" => String.t() | atom(),
-        "CorsConfiguration" => cors(),
-        "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisableExecuteApiEndpoint" => boolean(),
-        "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t() | atom()),
-        "IpAddressType" => list(any()),
-        "Name" => String.t() | atom(),
-        "ProtocolType" => list(any()),
-        "RouteSelectionExpression" => String.t() | atom(),
-        "Tags" => map(),
-        "Version" => String.t() | atom(),
-        "Warnings" => list(String.t() | atom())
-      }
-
-  """
-  @type update_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portal_products_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceOwner") => String.t() | atom()
-      }
-
-  """
-  @type list_portal_products_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_portal_request() :: %{
-        optional("IncludedPortalProductArns") => list(String.t() | atom()),
-        optional("LogoUri") => String.t() | atom(),
-        optional("RumAppMonitorName") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Authorization") => authorization(),
-        required("EndpointConfiguration") => endpoint_configuration_request(),
-        required("PortalContent") => portal_content()
-      }
-
-  """
-  @type create_portal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_portal_response() :: %{
-        "Authorization" => authorization(),
-        "EndpointConfiguration" => endpoint_configuration_response(),
-        "IncludedPortalProductArns" => list(String.t() | atom()),
-        "LastModified" => non_neg_integer(),
-        "LastPublished" => non_neg_integer(),
-        "LastPublishedDescription" => String.t() | atom(),
-        "PortalArn" => String.t() | atom(),
-        "PortalContent" => portal_content(),
-        "PortalId" => String.t() | atom(),
-        "Preview" => preview(),
-        "PublishStatus" => list(any()),
-        "RumAppMonitorName" => String.t() | atom(),
-        "StatusException" => status_exception(),
-        "Tags" => map()
-      }
-
-  """
-  @type update_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_request() :: %{}
-
-  """
-  @type get_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      j_w_t_configuration() :: %{
-        "Audience" => list(String.t() | atom()),
-        "Issuer" => String.t() | atom()
-      }
-
-  """
-  @type j_w_t_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vpc_link_request() :: %{
-        optional("SecurityGroupIds") => list(String.t() | atom()),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-
-  """
-  @type create_vpc_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_api_request() :: %{
-        optional("Basepath") => String.t() | atom(),
-        optional("FailOnWarnings") => boolean(),
-        required("Body") => String.t() | atom()
-      }
-
-  """
-  @type import_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      routing_rule_match_headers() :: %{
-        "AnyOf" => list(routing_rule_match_header_value())
-      }
-
-  """
-  @type routing_rule_match_headers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vpc_link_response() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "Tags" => map(),
-        "VpcLinkId" => String.t() | atom(),
-        "VpcLinkStatus" => list(any()),
-        "VpcLinkStatusMessage" => String.t() | atom(),
-        "VpcLinkVersion" => list(any())
-      }
-
-  """
-  @type create_vpc_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_display_content_response() :: %{
-        "Body" => String.t() | atom(),
-        "Endpoint" => String.t() | atom(),
-        "OperationName" => String.t() | atom()
-      }
-
-  """
-  @type endpoint_display_content_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_template_response() :: %{
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type get_model_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integration_responses_response() :: %{
-        "Items" => list(integration_response()),
+      list_portal_products_response() :: %{
+        "Items" => list(portal_product_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_integration_responses_response() :: %{(String.t() | atom()) => any()}
+  @type list_portal_products_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
+      disable_portal_request() :: %{}
 
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route() :: %{
-        "ApiGatewayManaged" => boolean(),
-        "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t() | atom()),
-        "AuthorizationType" => list(any()),
-        "AuthorizerId" => String.t() | atom(),
-        "ModelSelectionExpression" => String.t() | atom(),
-        "OperationName" => String.t() | atom(),
-        "RequestModels" => map(),
-        "RequestParameters" => map(),
-        "RouteId" => String.t() | atom(),
-        "RouteKey" => String.t() | atom(),
-        "RouteResponseSelectionExpression" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-
-  """
-  @type route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_product_rest_endpoint_page_request() :: %{
-        optional("DisplayContent") => endpoint_display_content(),
-        optional("TryItState") => list(any())
-      }
-
-  """
-  @type update_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_display_content() :: %{
-        "None" => apigatewayv2_none(),
-        "Overrides" => display_content_overrides()
-      }
-
-  """
-  @type endpoint_display_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_mapping() :: %{
-        "ApiId" => String.t() | atom(),
-        "ApiMappingId" => String.t() | atom(),
-        "ApiMappingKey" => String.t() | atom(),
-        "Stage" => String.t() | atom()
-      }
-
-  """
-  @type api_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_tags_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type get_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_mapping_request() :: %{}
-
-  """
-  @type get_api_mapping_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_route_response_request() :: %{}
-
-  """
-  @type delete_route_response_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_name_response() :: %{
-        "ApiMappingSelectionExpression" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "DomainNameArn" => String.t() | atom(),
-        "DomainNameConfigurations" => list(domain_name_configuration()),
-        "MutualTlsAuthentication" => mutual_tls_authentication(),
-        "RoutingMode" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type update_domain_name_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_names_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_domain_names_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_log_settings_request() :: %{}
-
-  """
-  @type delete_access_log_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integrations_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_integrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integration_request() :: %{}
-
-  """
-  @type get_integration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_portal_product_sharing_policy_request() :: %{
-        required("PolicyDocument") => String.t() | atom()
-      }
-
-  """
-  @type put_portal_product_sharing_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_routes_response() :: %{
-        "Items" => list(route()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_routes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_integration_response_request() :: %{
-        optional("ContentHandlingStrategy") => list(any()),
-        optional("IntegrationResponseKey") => String.t() | atom(),
-        optional("ResponseParameters") => map(),
-        optional("ResponseTemplates") => map(),
-        optional("TemplateSelectionExpression") => String.t() | atom()
-      }
-
-  """
-  @type update_integration_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      display_order() :: %{
-        "Contents" => list(section()),
-        "OverviewPageArn" => String.t() | atom(),
-        "ProductPageArns" => list(String.t() | atom())
-      }
-
-  """
-  @type display_order() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_route_response_request() :: %{
-        optional("ModelSelectionExpression") => String.t() | atom(),
-        optional("ResponseModels") => map(),
-        optional("ResponseParameters") => map(),
-        optional("RouteResponseKey") => String.t() | atom()
-      }
-
-  """
-  @type update_route_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_portal_product_response() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "DisplayOrder" => display_order(),
-        "LastModified" => non_neg_integer(),
-        "PortalProductArn" => String.t() | atom(),
-        "PortalProductId" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type update_portal_product_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_integration_request() :: %{
-        optional("ConnectionId") => String.t() | atom(),
-        optional("ConnectionType") => list(any()),
-        optional("ContentHandlingStrategy") => list(any()),
-        optional("CredentialsArn") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("IntegrationMethod") => String.t() | atom(),
-        optional("IntegrationSubtype") => String.t() | atom(),
-        optional("IntegrationType") => list(any()),
-        optional("IntegrationUri") => String.t() | atom(),
-        optional("PassthroughBehavior") => list(any()),
-        optional("PayloadFormatVersion") => String.t() | atom(),
-        optional("RequestParameters") => map(),
-        optional("RequestTemplates") => map(),
-        optional("ResponseParameters") => map(),
-        optional("TemplateSelectionExpression") => String.t() | atom(),
-        optional("TimeoutInMillis") => integer(),
-        optional("TlsConfig") => tls_config_input()
-      }
-
-  """
-  @type update_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_product_rest_endpoint_page_response() :: %{
-        "DisplayContent" => endpoint_display_content_response(),
-        "LastModified" => non_neg_integer(),
-        "ProductRestEndpointPageArn" => String.t() | atom(),
-        "ProductRestEndpointPageId" => String.t() | atom(),
-        "RestEndpointIdentifier" => rest_endpoint_identifier(),
-        "Status" => list(any()),
-        "StatusException" => status_exception(),
-        "TryItState" => list(any())
-      }
-
-  """
-  @type update_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portal_product_sharing_policy_response() :: %{
-        "PolicyDocument" => String.t() | atom(),
-        "PortalProductId" => String.t() | atom()
-      }
-
-  """
-  @type get_portal_product_sharing_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_route_settings_request() :: %{}
-
-  """
-  @type delete_route_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_model_response() :: %{
-        "ContentType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "ModelId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Schema" => String.t() | atom()
-      }
-
-  """
-  @type update_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_model_response() :: %{
-        "ContentType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "ModelId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Schema" => String.t() | atom()
-      }
-
-  """
-  @type create_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reimport_api_response() :: %{
-        "ApiEndpoint" => String.t() | atom(),
-        "ApiGatewayManaged" => boolean(),
-        "ApiId" => String.t() | atom(),
-        "ApiKeySelectionExpression" => String.t() | atom(),
-        "CorsConfiguration" => cors(),
-        "CreatedDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisableExecuteApiEndpoint" => boolean(),
-        "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t() | atom()),
-        "IpAddressType" => list(any()),
-        "Name" => String.t() | atom(),
-        "ProtocolType" => list(any()),
-        "RouteSelectionExpression" => String.t() | atom(),
-        "Tags" => map(),
-        "Version" => String.t() | atom(),
-        "Warnings" => list(String.t() | atom())
-      }
-
-  """
-  @type reimport_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_route_request() :: %{
-        optional("ApiKeyRequired") => boolean(),
-        optional("AuthorizationScopes") => list(String.t() | atom()),
-        optional("AuthorizationType") => list(any()),
-        optional("AuthorizerId") => String.t() | atom(),
-        optional("ModelSelectionExpression") => String.t() | atom(),
-        optional("OperationName") => String.t() | atom(),
-        optional("RequestModels") => map(),
-        optional("RequestParameters") => map(),
-        optional("RouteKey") => String.t() | atom(),
-        optional("RouteResponseSelectionExpression") => String.t() | atom(),
-        optional("Target") => String.t() | atom()
-      }
-
-  """
-  @type update_route_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_product_page_request() :: %{}
-
-  """
-  @type delete_product_page_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_name_request() :: %{
-        optional("DomainNameConfigurations") => list(domain_name_configuration()),
-        optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
-        optional("RoutingMode") => list(any())
-      }
-
-  """
-  @type update_domain_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_route_responses_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_route_responses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_name() :: %{
-        "ApiMappingSelectionExpression" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "DomainNameArn" => String.t() | atom(),
-        "DomainNameConfigurations" => list(domain_name_configuration()),
-        "MutualTlsAuthentication" => mutual_tls_authentication(),
-        "RoutingMode" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type domain_name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_stage_request() :: %{
-        optional("AccessLogSettings") => access_log_settings(),
-        optional("AutoDeploy") => boolean(),
-        optional("ClientCertificateId") => String.t() | atom(),
-        optional("DefaultRouteSettings") => route_settings(),
-        optional("DeploymentId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("RouteSettings") => map(),
-        optional("StageVariables") => map(),
-        optional("Tags") => map(),
-        required("StageName") => String.t() | atom()
-      }
-
-  """
-  @type create_stage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_deployment_request() :: %{}
-
-  """
-  @type delete_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      preview() :: %{
-        "PreviewStatus" => list(any()),
-        "PreviewUrl" => String.t() | atom(),
-        "StatusException" => status_exception()
-      }
-
-  """
-  @type preview() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portals_response() :: %{
-        "Items" => list(portal_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_portals_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_names_response() :: %{
-        "Items" => list(domain_name()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_domain_names_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_integration_request() :: %{
-        optional("ConnectionId") => String.t() | atom(),
-        optional("ConnectionType") => list(any()),
-        optional("ContentHandlingStrategy") => list(any()),
-        optional("CredentialsArn") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("IntegrationMethod") => String.t() | atom(),
-        optional("IntegrationSubtype") => String.t() | atom(),
-        optional("IntegrationUri") => String.t() | atom(),
-        optional("PassthroughBehavior") => list(any()),
-        optional("PayloadFormatVersion") => String.t() | atom(),
-        optional("RequestParameters") => map(),
-        optional("RequestTemplates") => map(),
-        optional("ResponseParameters") => map(),
-        optional("TemplateSelectionExpression") => String.t() | atom(),
-        optional("TimeoutInMillis") => integer(),
-        optional("TlsConfig") => tls_config_input(),
-        required("IntegrationType") => list(any())
-      }
-
-  """
-  @type create_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_portal_product_response() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "DisplayOrder" => display_order(),
-        "LastModified" => non_neg_integer(),
-        "PortalProductArn" => String.t() | atom(),
-        "PortalProductId" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_portal_product_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_product_page_request() :: %{
-        optional("DisplayContent") => display_content()
-      }
-
-  """
-  @type update_product_page_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_mapping_response() :: %{
-        "ApiId" => String.t() | atom(),
-        "ApiMappingId" => String.t() | atom(),
-        "ApiMappingKey" => String.t() | atom(),
-        "Stage" => String.t() | atom()
-      }
-
-  """
-  @type get_api_mapping_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mutual_tls_authentication_input() :: %{
-        optional("TruststoreUri") => String.t() | atom(),
-        optional("TruststoreVersion") => String.t() | atom()
-      }
-
-  """
-  @type mutual_tls_authentication_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_name_configuration() :: %{
-        "ApiGatewayDomainName" => String.t() | atom(),
-        "CertificateArn" => String.t() | atom(),
-        "CertificateName" => String.t() | atom(),
-        "CertificateUploadDate" => non_neg_integer(),
-        "DomainNameStatus" => list(any()),
-        "DomainNameStatusMessage" => String.t() | atom(),
-        "EndpointType" => list(any()),
-        "HostedZoneId" => String.t() | atom(),
-        "IpAddressType" => list(any()),
-        "OwnershipVerificationCertificateArn" => String.t() | atom(),
-        "SecurityPolicy" => list(any())
-      }
-
-  """
-  @type domain_name_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_api_response() :: %{
-        "body" => binary()
-      }
-
-  """
-  @type export_api_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_mappings_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_api_mappings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_portal_product_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DisplayName") => String.t() | atom()
-      }
-
-  """
-  @type create_portal_product_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_model_request() :: %{}
-
-  """
-  @type delete_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_portal_product_request() :: %{
-        optional("ResourceOwnerAccountId") => String.t() | atom()
-      }
-
-  """
-  @type get_portal_product_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tls_config() :: %{
-        "ServerNameToVerify" => String.t() | atom()
-      }
-
-  """
-  @type tls_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_configuration_response() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "PortalDefaultDomainName" => String.t() | atom(),
-        "PortalDomainHostedZoneId" => String.t() | atom()
-      }
-
-  """
-  @type endpoint_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integrations_response() :: %{
-        "Items" => list(integration()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_integrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_log_settings() :: %{
-        "DestinationArn" => String.t() | atom(),
-        "Format" => String.t() | atom()
-      }
-
-  """
-  @type access_log_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_models_response() :: %{
-        "Items" => list(model()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_exception() :: %{
-        "Exception" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_route_result() :: %{
-        "ApiGatewayManaged" => boolean(),
-        "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t() | atom()),
-        "AuthorizationType" => list(any()),
-        "AuthorizerId" => String.t() | atom(),
-        "ModelSelectionExpression" => String.t() | atom(),
-        "OperationName" => String.t() | atom(),
-        "RequestModels" => map(),
-        "RequestParameters" => map(),
-        "RouteId" => String.t() | atom(),
-        "RouteKey" => String.t() | atom(),
-        "RouteResponseSelectionExpression" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-
-  """
-  @type get_route_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integration_response_request() :: %{}
-
-  """
-  @type get_integration_response_request() :: %{}
+  @type disable_portal_request() :: %{}
 
   @typedoc """
 
@@ -2319,61 +2641,96 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      get_stages_response() :: %{
-        "Items" => list(stage()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_stages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_product_pages_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
+      get_product_page_request() :: %{
         optional("ResourceOwnerAccountId") => String.t() | atom()
       }
 
   """
-  @type list_product_pages_request() :: %{(String.t() | atom()) => any()}
+  @type get_product_page_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_models_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
+      endpoint_display_content() :: %{
+        "None" => apigatewayv2_none(),
+        "Overrides" => display_content_overrides()
       }
 
   """
-  @type get_models_request() :: %{(String.t() | atom()) => any()}
+  @type endpoint_display_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_route_result() :: %{
+      get_routing_rule_request() :: %{
+        optional("DomainNameId") => String.t() | atom()
+      }
+
+  """
+  @type get_routing_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_action() :: %{
+        "InvokeApi" => routing_rule_action_invoke_api()
+      }
+
+  """
+  @type routing_rule_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_response_request() :: %{
+        optional("ModelSelectionExpression") => String.t() | atom(),
+        optional("ResponseModels") => map(),
+        optional("ResponseParameters") => map(),
+        optional("RouteResponseKey") => String.t() | atom()
+      }
+
+  """
+  @type update_route_response_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integrations_response() :: %{
+        "Items" => list(integration()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_integrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stage() :: %{
+        "AccessLogSettings" => access_log_settings(),
         "ApiGatewayManaged" => boolean(),
-        "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t() | atom()),
-        "AuthorizationType" => list(any()),
-        "AuthorizerId" => String.t() | atom(),
-        "ModelSelectionExpression" => String.t() | atom(),
-        "OperationName" => String.t() | atom(),
-        "RequestModels" => map(),
-        "RequestParameters" => map(),
-        "RouteId" => String.t() | atom(),
-        "RouteKey" => String.t() | atom(),
-        "RouteResponseSelectionExpression" => String.t() | atom(),
-        "Target" => String.t() | atom()
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastDeploymentStatusMessage" => String.t() | atom(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t() | atom(),
+        "StageVariables" => map(),
+        "Tags" => map()
       }
 
   """
-  @type create_route_result() :: %{(String.t() | atom()) => any()}
+  @type stage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2391,175 +2748,6 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_vpc_link_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_vpc_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_routing_rule_response() :: %{
-        "Actions" => list(routing_rule_action()),
-        "Conditions" => list(routing_rule_condition()),
-        "Priority" => integer(),
-        "RoutingRuleArn" => String.t() | atom(),
-        "RoutingRuleId" => String.t() | atom()
-      }
-
-  """
-  @type create_routing_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_routing_rule_request() :: %{
-        optional("DomainNameId") => String.t() | atom()
-      }
-
-  """
-  @type get_routing_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_name_request() :: %{}
-
-  """
-  @type get_domain_name_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_request() :: %{}
-
-  """
-  @type get_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_product_pages_response() :: %{
-        "Items" => list(product_page_summary_no_body()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_product_pages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_api_request() :: %{
-        optional("ApiKeySelectionExpression") => String.t() | atom(),
-        optional("CorsConfiguration") => cors(),
-        optional("CredentialsArn") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("DisableExecuteApiEndpoint") => boolean(),
-        optional("DisableSchemaValidation") => boolean(),
-        optional("IpAddressType") => list(any()),
-        optional("Name") => String.t() | atom(),
-        optional("RouteKey") => String.t() | atom(),
-        optional("RouteSelectionExpression") => String.t() | atom(),
-        optional("Target") => String.t() | atom(),
-        optional("Version") => String.t() | atom()
-      }
-
-  """
-  @type update_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_portal_product_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("DisplayOrder") => display_order()
-      }
-
-  """
-  @type update_portal_product_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_integration_response_request() :: %{
-        optional("ContentHandlingStrategy") => list(any()),
-        optional("ResponseParameters") => map(),
-        optional("ResponseTemplates") => map(),
-        optional("TemplateSelectionExpression") => String.t() | atom(),
-        required("IntegrationResponseKey") => String.t() | atom()
-      }
-
-  """
-  @type create_integration_response_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_portal_request() :: %{
-        optional("Authorization") => authorization(),
-        optional("EndpointConfiguration") => endpoint_configuration_request(),
-        optional("IncludedPortalProductArns") => list(String.t() | atom()),
-        optional("LogoUri") => String.t() | atom(),
-        optional("PortalContent") => portal_content(),
-        optional("RumAppMonitorName") => String.t() | atom()
-      }
-
-  """
-  @type update_portal_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_deployment_response() :: %{
-        "AutoDeployed" => boolean(),
-        "CreatedDate" => non_neg_integer(),
-        "DeploymentId" => String.t() | atom(),
-        "DeploymentStatus" => list(any()),
-        "DeploymentStatusMessage" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
-
-  """
-  @type update_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       display_content_overrides() :: %{
         "Body" => String.t() | atom(),
         "Endpoint" => String.t() | atom(),
@@ -2568,154 +2756,6 @@ defmodule AWS.ApiGatewayV2 do
 
   """
   @type display_content_overrides() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      portal_theme() :: %{
-        "CustomColors" => custom_colors(),
-        "LogoLastUploaded" => non_neg_integer()
-      }
-
-  """
-  @type portal_theme() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_product_rest_endpoint_page_response() :: %{
-        "DisplayContent" => endpoint_display_content_response(),
-        "LastModified" => non_neg_integer(),
-        "ProductRestEndpointPageArn" => String.t() | atom(),
-        "ProductRestEndpointPageId" => String.t() | atom(),
-        "RawDisplayContent" => String.t() | atom(),
-        "RestEndpointIdentifier" => rest_endpoint_identifier(),
-        "Status" => list(any()),
-        "StatusException" => status_exception(),
-        "TryItState" => list(any())
-      }
-
-  """
-  @type get_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_route_request() :: %{}
-
-  """
-  @type delete_route_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_response() :: %{
-        "AutoDeployed" => boolean(),
-        "CreatedDate" => non_neg_integer(),
-        "DeploymentId" => String.t() | atom(),
-        "DeploymentStatus" => list(any()),
-        "DeploymentStatusMessage" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
-
-  """
-  @type get_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_authorizer_response() :: %{
-        "AuthorizerCredentialsArn" => String.t() | atom(),
-        "AuthorizerId" => String.t() | atom(),
-        "AuthorizerPayloadFormatVersion" => String.t() | atom(),
-        "AuthorizerResultTtlInSeconds" => integer(),
-        "AuthorizerType" => list(any()),
-        "AuthorizerUri" => String.t() | atom(),
-        "EnableSimpleResponses" => boolean(),
-        "IdentitySource" => list(String.t() | atom()),
-        "IdentityValidationExpression" => String.t() | atom(),
-        "JwtConfiguration" => j_w_t_configuration(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type update_authorizer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_request() :: %{
-        optional("ApiKeySelectionExpression") => String.t() | atom(),
-        optional("CorsConfiguration") => cors(),
-        optional("CredentialsArn") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("DisableExecuteApiEndpoint") => boolean(),
-        optional("DisableSchemaValidation") => boolean(),
-        optional("IpAddressType") => list(any()),
-        optional("RouteKey") => String.t() | atom(),
-        optional("RouteSelectionExpression") => String.t() | atom(),
-        optional("Tags") => map(),
-        optional("Target") => String.t() | atom(),
-        optional("Version") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("ProtocolType") => list(any())
-      }
-
-  """
-  @type create_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_product_rest_endpoint_pages_response() :: %{
-        "Items" => list(product_rest_endpoint_page_summary_no_body()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_product_rest_endpoint_pages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_link_response() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "Tags" => map(),
-        "VpcLinkId" => String.t() | atom(),
-        "VpcLinkStatus" => list(any()),
-        "VpcLinkStatusMessage" => String.t() | atom(),
-        "VpcLinkVersion" => list(any())
-      }
-
-  """
-  @type get_vpc_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cors() :: %{
-        "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t() | atom()),
-        "AllowMethods" => list(String.t() | atom()),
-        "AllowOrigins" => list(String.t() | atom()),
-        "ExposeHeaders" => list(String.t() | atom()),
-        "MaxAge" => integer()
-      }
-
-  """
-  @type cors() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2748,25 +2788,177 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      portal_summary() :: %{
-        "Authorization" => authorization(),
-        "EndpointConfiguration" => endpoint_configuration_response(),
-        "IncludedPortalProductArns" => list(String.t() | atom()),
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_portal_product_response() :: %{
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "DisplayOrder" => display_order(),
         "LastModified" => non_neg_integer(),
-        "LastPublished" => non_neg_integer(),
-        "LastPublishedDescription" => String.t() | atom(),
-        "PortalArn" => String.t() | atom(),
-        "PortalContent" => portal_content(),
-        "PortalId" => String.t() | atom(),
-        "Preview" => preview(),
-        "PublishStatus" => list(any()),
-        "RumAppMonitorName" => String.t() | atom(),
-        "StatusException" => status_exception(),
+        "PortalProductArn" => String.t() | atom(),
+        "PortalProductId" => String.t() | atom(),
         "Tags" => map()
       }
 
   """
-  @type portal_summary() :: %{(String.t() | atom()) => any()}
+  @type create_portal_product_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stage_request() :: %{
+        optional("AccessLogSettings") => access_log_settings(),
+        optional("AutoDeploy") => boolean(),
+        optional("ClientCertificateId") => String.t() | atom(),
+        optional("DefaultRouteSettings") => route_settings(),
+        optional("DeploymentId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("RouteSettings") => map(),
+        optional("StageVariables") => map(),
+        optional("Tags") => map(),
+        required("StageName") => String.t() | atom()
+      }
+
+  """
+  @type create_stage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_page_request() :: %{
+        optional("DisplayContent") => display_content()
+      }
+
+  """
+  @type update_product_page_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_deployment_request() :: %{}
+
+  """
+  @type delete_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_name_response() :: %{
+        "ApiMappingSelectionExpression" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "DomainNameArn" => String.t() | atom(),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_domain_name_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cors() :: %{
+        "AllowCredentials" => boolean(),
+        "AllowHeaders" => list(String.t() | atom()),
+        "AllowMethods" => list(String.t() | atom()),
+        "AllowOrigins" => list(String.t() | atom()),
+        "ExposeHeaders" => list(String.t() | atom()),
+        "MaxAge" => integer()
+      }
+
+  """
+  @type cors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product_page_summary_no_body() :: %{
+        "LastModified" => non_neg_integer(),
+        "PageTitle" => String.t() | atom(),
+        "ProductPageArn" => String.t() | atom(),
+        "ProductPageId" => String.t() | atom()
+      }
+
+  """
+  @type product_page_summary_no_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_product_rest_endpoint_page_request() :: %{}
+
+  """
+  @type delete_product_rest_endpoint_page_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_request() :: %{}
+
+  """
+  @type get_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reimport_api_request() :: %{
+        optional("Basepath") => String.t() | atom(),
+        optional("FailOnWarnings") => boolean(),
+        required("Body") => String.t() | atom()
+      }
+
+  """
+  @type reimport_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_product_rest_endpoint_page_response() :: %{
+        "DisplayContent" => endpoint_display_content_response(),
+        "LastModified" => non_neg_integer(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
+      }
+
+  """
+  @type update_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_authorizers_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_authorizers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2787,163 +2979,49 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      routing_rule_match_header_value() :: %{
-        "Header" => String.t() | atom(),
-        "ValueGlob" => String.t() | atom()
+      domain_name_configuration() :: %{
+        "ApiGatewayDomainName" => String.t() | atom(),
+        "CertificateArn" => String.t() | atom(),
+        "CertificateName" => String.t() | atom(),
+        "CertificateUploadDate" => non_neg_integer(),
+        "DomainNameStatus" => list(any()),
+        "DomainNameStatusMessage" => String.t() | atom(),
+        "EndpointType" => list(any()),
+        "HostedZoneId" => String.t() | atom(),
+        "IpAddressType" => list(any()),
+        "OwnershipVerificationCertificateArn" => String.t() | atom(),
+        "SecurityPolicy" => list(any())
       }
 
   """
-  @type routing_rule_match_header_value() :: %{(String.t() | atom()) => any()}
+  @type domain_name_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_model_response() :: %{
-        "ContentType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "ModelId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Schema" => String.t() | atom()
+      update_authorizer_response() :: %{
+        "AuthorizerCredentialsArn" => String.t() | atom(),
+        "AuthorizerId" => String.t() | atom(),
+        "AuthorizerPayloadFormatVersion" => String.t() | atom(),
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerType" => list(any()),
+        "AuthorizerUri" => String.t() | atom(),
+        "EnableSimpleResponses" => boolean(),
+        "IdentitySource" => list(String.t() | atom()),
+        "IdentityValidationExpression" => String.t() | atom(),
+        "JwtConfiguration" => j_w_t_configuration(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type get_model_response() :: %{(String.t() | atom()) => any()}
+  @type update_authorizer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      portal_content() :: %{
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Theme" => portal_theme()
-      }
-
-  """
-  @type portal_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      routing_rule_action_invoke_api() :: %{
-        "ApiId" => String.t() | atom(),
-        "Stage" => String.t() | atom(),
-        "StripBasePath" => boolean()
-      }
-
-  """
-  @type routing_rule_action_invoke_api() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_api_mapping_response() :: %{
-        "ApiId" => String.t() | atom(),
-        "ApiMappingId" => String.t() | atom(),
-        "ApiMappingKey" => String.t() | atom(),
-        "Stage" => String.t() | atom()
-      }
-
-  """
-  @type create_api_mapping_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_name_request() :: %{}
-
-  """
-  @type delete_domain_name_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_vpc_link_response() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "Tags" => map(),
-        "VpcLinkId" => String.t() | atom(),
-        "VpcLinkStatus" => list(any()),
-        "VpcLinkStatusMessage" => String.t() | atom(),
-        "VpcLinkVersion" => list(any())
-      }
-
-  """
-  @type update_vpc_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_portal_products_response() :: %{
-        "Items" => list(portal_product_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_portal_products_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_name_response() :: %{
-        "ApiMappingSelectionExpression" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "DomainNameArn" => String.t() | atom(),
-        "DomainNameConfigurations" => list(domain_name_configuration()),
-        "MutualTlsAuthentication" => mutual_tls_authentication(),
-        "RoutingMode" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type create_domain_name_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_link_request() :: %{}
-
-  """
-  @type get_vpc_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployments_response() :: %{
-        "Items" => list(deployment()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_deployments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_api_response() :: %{
+      create_api_response() :: %{
         "ApiEndpoint" => String.t() | atom(),
         "ApiGatewayManaged" => boolean(),
         "ApiId" => String.t() | atom(),
@@ -2964,137 +3042,37 @@ defmodule AWS.ApiGatewayV2 do
       }
 
   """
-  @type import_api_response() :: %{(String.t() | atom()) => any()}
+  @type create_api_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_authorizers_cache_request() :: %{}
-
-  """
-  @type reset_authorizers_cache_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_mappings_response() :: %{
-        "Items" => list(api_mapping()),
-        "NextToken" => String.t() | atom()
+      get_deployment_response() :: %{
+        "AutoDeployed" => boolean(),
+        "CreatedDate" => non_neg_integer(),
+        "DeploymentId" => String.t() | atom(),
+        "DeploymentStatus" => list(any()),
+        "DeploymentStatusMessage" => String.t() | atom(),
+        "Description" => String.t() | atom()
       }
 
   """
-  @type get_api_mappings_response() :: %{(String.t() | atom()) => any()}
+  @type get_deployment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_portal_response() :: %{
-        "Authorization" => authorization(),
-        "EndpointConfiguration" => endpoint_configuration_response(),
-        "IncludedPortalProductArns" => list(String.t() | atom()),
-        "LastModified" => non_neg_integer(),
-        "LastPublished" => non_neg_integer(),
-        "LastPublishedDescription" => String.t() | atom(),
-        "PortalArn" => String.t() | atom(),
-        "PortalContent" => portal_content(),
-        "PortalId" => String.t() | atom(),
-        "Preview" => preview(),
-        "PublishStatus" => list(any()),
-        "RumAppMonitorName" => String.t() | atom(),
-        "StatusException" => status_exception(),
-        "Tags" => map()
+      get_api_mapping_response() :: %{
+        "ApiId" => String.t() | atom(),
+        "ApiMappingId" => String.t() | atom(),
+        "ApiMappingKey" => String.t() | atom(),
+        "Stage" => String.t() | atom()
       }
 
   """
-  @type get_portal_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_route_request() :: %{
-        optional("ApiKeyRequired") => boolean(),
-        optional("AuthorizationScopes") => list(String.t() | atom()),
-        optional("AuthorizationType") => list(any()),
-        optional("AuthorizerId") => String.t() | atom(),
-        optional("ModelSelectionExpression") => String.t() | atom(),
-        optional("OperationName") => String.t() | atom(),
-        optional("RequestModels") => map(),
-        optional("RequestParameters") => map(),
-        optional("RouteResponseSelectionExpression") => String.t() | atom(),
-        optional("Target") => String.t() | atom(),
-        required("RouteKey") => String.t() | atom()
-      }
-
-  """
-  @type create_route_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_product_rest_endpoint_page_response() :: %{
-        "DisplayContent" => endpoint_display_content_response(),
-        "LastModified" => non_neg_integer(),
-        "ProductRestEndpointPageArn" => String.t() | atom(),
-        "ProductRestEndpointPageId" => String.t() | atom(),
-        "RestEndpointIdentifier" => rest_endpoint_identifier(),
-        "Status" => list(any()),
-        "StatusException" => status_exception(),
-        "TryItState" => list(any())
-      }
-
-  """
-  @type create_product_rest_endpoint_page_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_links_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_vpc_links_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_portal_product_request() :: %{}
-
-  """
-  @type delete_portal_product_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rest_endpoint_identifier() :: %{
-        "IdentifierParts" => identifier_parts()
-      }
-
-  """
-  @type rest_endpoint_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_routing_rule_request() :: %{
-        optional("DomainNameId") => String.t() | atom(),
-        required("Actions") => list(routing_rule_action()),
-        required("Conditions") => list(routing_rule_condition()),
-        required("Priority") => integer()
-      }
-
-  """
-  @type create_routing_rule_request() :: %{(String.t() | atom()) => any()}
+  @type get_api_mapping_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3112,163 +3090,29 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      integration_response() :: %{
-        "ContentHandlingStrategy" => list(any()),
-        "IntegrationResponseId" => String.t() | atom(),
-        "IntegrationResponseKey" => String.t() | atom(),
-        "ResponseParameters" => map(),
-        "ResponseTemplates" => map(),
-        "TemplateSelectionExpression" => String.t() | atom()
-      }
+      get_api_mapping_request() :: %{}
 
   """
-  @type integration_response() :: %{(String.t() | atom()) => any()}
+  @type get_api_mapping_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      model() :: %{
-        "ContentType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "ModelId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Schema" => String.t() | atom()
-      }
-
-  """
-  @type model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      product_page_summary_no_body() :: %{
+      product_rest_endpoint_page_summary_no_body() :: %{
+        "Endpoint" => String.t() | atom(),
         "LastModified" => non_neg_integer(),
-        "PageTitle" => String.t() | atom(),
-        "ProductPageArn" => String.t() | atom(),
-        "ProductPageId" => String.t() | atom()
+        "OperationName" => String.t() | atom(),
+        "ProductRestEndpointPageArn" => String.t() | atom(),
+        "ProductRestEndpointPageId" => String.t() | atom(),
+        "RestEndpointIdentifier" => rest_endpoint_identifier(),
+        "Status" => list(any()),
+        "StatusException" => status_exception(),
+        "TryItState" => list(any())
       }
 
   """
-  @type product_page_summary_no_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_routing_rules_request() :: %{
-        optional("DomainNameId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_routing_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      routing_rule() :: %{
-        "Actions" => list(routing_rule_action()),
-        "Conditions" => list(routing_rule_condition()),
-        "Priority" => integer(),
-        "RoutingRuleArn" => String.t() | atom(),
-        "RoutingRuleId" => String.t() | atom()
-      }
-
-  """
-  @type routing_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_routing_rule_response() :: %{
-        "Actions" => list(routing_rule_action()),
-        "Conditions" => list(routing_rule_condition()),
-        "Priority" => integer(),
-        "RoutingRuleArn" => String.t() | atom(),
-        "RoutingRuleId" => String.t() | atom()
-      }
-
-  """
-  @type get_routing_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apis_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_apis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_deployment_request() :: %{
-        optional("Description") => String.t() | atom()
-      }
-
-  """
-  @type update_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integration_response_response() :: %{
-        "ContentHandlingStrategy" => list(any()),
-        "IntegrationResponseId" => String.t() | atom(),
-        "IntegrationResponseKey" => String.t() | atom(),
-        "ResponseParameters" => map(),
-        "ResponseTemplates" => map(),
-        "TemplateSelectionExpression" => String.t() | atom()
-      }
-
-  """
-  @type get_integration_response_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_portal_request() :: %{}
-
-  """
-  @type disable_portal_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_api_request() :: %{}
-
-  """
-  @type get_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_name_response() :: %{
-        "ApiMappingSelectionExpression" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "DomainNameArn" => String.t() | atom(),
-        "DomainNameConfigurations" => list(domain_name_configuration()),
-        "MutualTlsAuthentication" => mutual_tls_authentication(),
-        "RoutingMode" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type get_domain_name_response() :: %{(String.t() | atom()) => any()}
+  @type product_rest_endpoint_page_summary_no_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3304,107 +3148,263 @@ defmodule AWS.ApiGatewayV2 do
 
   ## Example:
 
-      delete_vpc_link_request() :: %{}
-
-  """
-  @type delete_vpc_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_authorizer_request() :: %{
-        optional("AuthorizerCredentialsArn") => String.t() | atom(),
-        optional("AuthorizerPayloadFormatVersion") => String.t() | atom(),
-        optional("AuthorizerResultTtlInSeconds") => integer(),
-        optional("AuthorizerType") => list(any()),
-        optional("AuthorizerUri") => String.t() | atom(),
-        optional("EnableSimpleResponses") => boolean(),
-        optional("IdentitySource") => list(String.t() | atom()),
-        optional("IdentityValidationExpression") => String.t() | atom(),
-        optional("JwtConfiguration") => j_w_t_configuration(),
-        optional("Name") => String.t() | atom()
+      create_integration_result() :: %{
+        "ApiGatewayManaged" => boolean(),
+        "ConnectionId" => String.t() | atom(),
+        "ConnectionType" => list(any()),
+        "ContentHandlingStrategy" => list(any()),
+        "CredentialsArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IntegrationId" => String.t() | atom(),
+        "IntegrationMethod" => String.t() | atom(),
+        "IntegrationResponseSelectionExpression" => String.t() | atom(),
+        "IntegrationSubtype" => String.t() | atom(),
+        "IntegrationType" => list(any()),
+        "IntegrationUri" => String.t() | atom(),
+        "PassthroughBehavior" => list(any()),
+        "PayloadFormatVersion" => String.t() | atom(),
+        "RequestParameters" => map(),
+        "RequestTemplates" => map(),
+        "ResponseParameters" => map(),
+        "TemplateSelectionExpression" => String.t() | atom(),
+        "TimeoutInMillis" => integer(),
+        "TlsConfig" => tls_config()
       }
 
   """
-  @type update_authorizer_request() :: %{(String.t() | atom()) => any()}
+  @type create_integration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_api_request() :: %{}
-
-  """
-  @type delete_api_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_configuration_request() :: %{
-        "AcmManaged" => a_cm_managed(),
-        "None" => apigatewayv2_none()
+      create_portal_response() :: %{
+        "Authorization" => authorization(),
+        "EndpointConfiguration" => endpoint_configuration_response(),
+        "IncludedPortalProductArns" => list(String.t() | atom()),
+        "LastModified" => non_neg_integer(),
+        "LastPublished" => non_neg_integer(),
+        "LastPublishedDescription" => String.t() | atom(),
+        "PortalArn" => String.t() | atom(),
+        "PortalContent" => portal_content(),
+        "PortalId" => String.t() | atom(),
+        "PublishStatus" => list(any()),
+        "RumAppMonitorName" => String.t() | atom(),
+        "StatusException" => status_exception(),
+        "Tags" => map()
       }
 
   """
-  @type endpoint_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type create_portal_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      routing_rule_match_base_paths() :: %{
-        "AnyOf" => list(String.t() | atom())
+      list_routing_rules_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RoutingRules" => list(routing_rule())
       }
 
   """
-  @type routing_rule_match_base_paths() :: %{(String.t() | atom()) => any()}
+  @type list_routing_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      publish_portal_response() :: %{}
+      create_portal_product_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DisplayName") => String.t() | atom()
+      }
 
   """
-  @type publish_portal_response() :: %{}
+  @type create_portal_product_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_route_request() :: %{}
+      get_model_template_request() :: %{}
 
   """
-  @type get_route_request() :: %{}
+  @type get_model_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_product_rest_endpoint_page_request() :: %{
-        optional("IncludeRawDisplayContent") => String.t() | atom(),
+      delete_access_log_settings_request() :: %{}
+
+  """
+  @type delete_access_log_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cognito_config() :: %{
+        "AppClientId" => String.t() | atom(),
+        "UserPoolArn" => String.t() | atom(),
+        "UserPoolDomain" => String.t() | atom()
+      }
+
+  """
+  @type cognito_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_portal_request() :: %{}
+
+  """
+  @type delete_portal_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_response_request() :: %{}
+
+  """
+  @type delete_route_response_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_product_rest_endpoint_pages_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
         optional("ResourceOwnerAccountId") => String.t() | atom()
       }
 
   """
-  @type get_product_rest_endpoint_page_request() :: %{(String.t() | atom()) => any()}
+  @type list_product_rest_endpoint_pages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      route_response() :: %{
-        "ModelSelectionExpression" => String.t() | atom(),
-        "ResponseModels" => map(),
-        "ResponseParameters" => map(),
-        "RouteResponseId" => String.t() | atom(),
-        "RouteResponseKey" => String.t() | atom()
+      get_portal_product_request() :: %{
+        optional("ResourceOwnerAccountId") => String.t() | atom()
       }
 
   """
-  @type route_response() :: %{(String.t() | atom()) => any()}
+  @type get_portal_product_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      status_exception() :: %{
+        "Exception" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stage_response() :: %{
+        "AccessLogSettings" => access_log_settings(),
+        "ApiGatewayManaged" => boolean(),
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastDeploymentStatusMessage" => String.t() | atom(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t() | atom(),
+        "StageVariables" => map(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_stage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_mapping() :: %{
+        "ApiId" => String.t() | atom(),
+        "ApiMappingId" => String.t() | atom(),
+        "ApiMappingKey" => String.t() | atom(),
+        "Stage" => String.t() | atom()
+      }
+
+  """
+  @type api_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_api_mapping_request() :: %{}
+
+  """
+  @type delete_api_mapping_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_name() :: %{
+        "ApiMappingSelectionExpression" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "DomainNameArn" => String.t() | atom(),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
+        "MutualTlsAuthentication" => mutual_tls_authentication(),
+        "RoutingMode" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type domain_name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_stage_response() :: %{
+        "AccessLogSettings" => access_log_settings(),
+        "ApiGatewayManaged" => boolean(),
+        "AutoDeploy" => boolean(),
+        "ClientCertificateId" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "DefaultRouteSettings" => route_settings(),
+        "DeploymentId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LastDeploymentStatusMessage" => String.t() | atom(),
+        "LastUpdatedDate" => non_neg_integer(),
+        "RouteSettings" => map(),
+        "StageName" => String.t() | atom(),
+        "StageVariables" => map(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_stage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_tags_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type get_tags_response() :: %{(String.t() | atom()) => any()}
 
   @type create_api_errors() ::
           bad_request_exception()
@@ -3432,9 +3432,9 @@ defmodule AWS.ApiGatewayV2 do
 
   @type create_domain_name_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
           | conflict_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type create_integration_errors() ::
@@ -3463,14 +3463,14 @@ defmodule AWS.ApiGatewayV2 do
 
   @type create_product_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type create_product_rest_endpoint_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type create_route_errors() ::
@@ -3528,26 +3528,26 @@ defmodule AWS.ApiGatewayV2 do
 
   @type delete_portal_product_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type delete_portal_product_sharing_policy_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type delete_product_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type delete_product_rest_endpoint_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type delete_route_errors() :: not_found_exception() | too_many_requests_exception()
@@ -3568,9 +3568,9 @@ defmodule AWS.ApiGatewayV2 do
 
   @type disable_portal_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
           | conflict_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type export_api_errors() ::
@@ -3621,32 +3621,32 @@ defmodule AWS.ApiGatewayV2 do
 
   @type get_portal_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type get_portal_product_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type get_portal_product_sharing_policy_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type get_product_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type get_product_rest_endpoint_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type get_route_errors() :: not_found_exception() | too_many_requests_exception()
@@ -3691,14 +3691,14 @@ defmodule AWS.ApiGatewayV2 do
 
   @type list_product_pages_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type list_product_rest_endpoint_pages_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type list_routing_rules_errors() ::
@@ -3706,22 +3706,22 @@ defmodule AWS.ApiGatewayV2 do
 
   @type preview_portal_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
           | conflict_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type publish_portal_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
           | conflict_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type put_portal_product_sharing_policy_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type put_routing_rule_errors() ::
@@ -3800,27 +3800,27 @@ defmodule AWS.ApiGatewayV2 do
 
   @type update_portal_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
           | conflict_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type update_portal_product_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type update_product_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type update_product_rest_endpoint_page_errors() ::
           bad_request_exception()
-          | access_denied_exception()
           | not_found_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type update_route_errors() ::

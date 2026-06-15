@@ -27,6 +27,66 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
+      update_ingestion_destination_request() :: %{
+        required("destinationConfiguration") => list()
+      }
+
+  """
+  @type update_ingestion_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingestion_destination_request() :: %{}
+
+  """
+  @type get_ingestion_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_ingestion_request() :: %{}
+
+  """
+  @type stop_ingestion_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_bundle_response() :: %{
+        "appBundle" => app_bundle()
+      }
+
+  """
+  @type create_app_bundle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_authorization_response() :: %{}
+
+  """
+  @type delete_app_authorization_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ingestion_response() :: %{
+        "ingestion" => ingestion()
+      }
+
+  """
+  @type create_ingestion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_ingestion_response() :: %{}
 
   """
@@ -36,66 +96,82 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      stop_ingestion_response() :: %{}
-
-  """
-  @type stop_ingestion_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => list(tag())
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => integer(),
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      app_bundle() :: %{
-        "arn" => String.t() | atom(),
-        "customerManagedKeyArn" => String.t() | atom()
+      start_user_access_tasks_request() :: %{
+        required("appBundleIdentifier") => String.t() | atom(),
+        required("email") => String.t() | atom()
       }
 
   """
-  @type app_bundle() :: %{(String.t() | atom()) => any()}
+  @type start_user_access_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_ingestions_response() :: %{
-        "ingestions" => list(ingestion_summary()),
-        "nextToken" => [String.t() | atom()]
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type list_ingestions_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ingestions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
+      batch_get_user_access_tasks_request() :: %{
+        required("appBundleIdentifier") => String.t() | atom(),
+        required("taskIdList") => list(String.t() | atom())
       }
 
   """
-  @type list_ingestions_request() :: %{(String.t() | atom()) => any()}
+  @type batch_get_user_access_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ingestion_destination_response() :: %{
+        "ingestionDestination" => ingestion_destination()
+      }
+
+  """
+  @type update_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_bundle_response() :: %{}
+
+  """
+  @type delete_app_bundle_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,47 +191,56 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      create_ingestion_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("app") => String.t() | atom(),
-        required("ingestionType") => list(any()),
-        required("tenantId") => String.t() | atom()
+      list_ingestions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type create_ingestion_request() :: %{(String.t() | atom()) => any()}
+  @type list_ingestions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_ingestion_request() :: %{}
+      start_user_access_tasks_response() :: %{
+        "userAccessTasksList" => list(user_access_task_item())
+      }
 
   """
-  @type stop_ingestion_request() :: %{}
+  @type start_user_access_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ingestion_destination_summary() :: %{
-        "arn" => String.t() | atom()
+      task_error() :: %{
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()]
       }
 
   """
-  @type ingestion_destination_summary() :: %{(String.t() | atom()) => any()}
+  @type task_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      app_bundle_summary() :: %{
-        "arn" => String.t() | atom()
+      delete_app_bundle_request() :: %{}
+
+  """
+  @type delete_app_bundle_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingestion_response() :: %{
+        "ingestion" => ingestion()
       }
 
   """
-  @type app_bundle_summary() :: %{(String.t() | atom()) => any()}
+  @type get_ingestion_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,6 +250,301 @@ defmodule AWS.AppFabric do
 
   """
   @type start_ingestion_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ingestions_response() :: %{
+        "ingestions" => list(ingestion_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_ingestions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_authorization_request() :: %{
+        optional("credential") => list(),
+        optional("tenant") => tenant()
+      }
+
+  """
+  @type update_app_authorization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingestion() :: %{
+        "app" => String.t() | atom(),
+        "appBundleArn" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "ingestionType" => list(any()),
+        "state" => list(any()),
+        "tenantId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type ingestion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_ingestion_response() :: %{}
+
+  """
+  @type start_ingestion_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      oauth2_credential() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom()
+      }
+
+  """
+  @type oauth2_credential() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_authorizations_response() :: %{
+        "appAuthorizationSummaryList" => list(app_authorization_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_app_authorizations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_bundle() :: %{
+        "arn" => String.t() | atom(),
+        "customerManagedKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type app_bundle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingestion_summary() :: %{
+        "app" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "state" => list(any()),
+        "tenantId" => String.t() | atom()
+      }
+
+  """
+  @type ingestion_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_app_authorization_response() :: %{
+        "appAuthorizationSummary" => app_authorization_summary()
+      }
+
+  """
+  @type connect_app_authorization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ingestion_destination_request() :: %{}
+
+  """
+  @type delete_ingestion_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_log_processing_configuration() :: %{
+        "format" => list(any()),
+        "schema" => list(any())
+      }
+
+  """
+  @type audit_log_processing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_credential() :: %{
+        "apiKey" => String.t() | atom()
+      }
+
+  """
+  @type api_key_credential() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_bundle_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("customerManagedKeyIdentifier") => String.t() | atom(),
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_app_bundle_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ingestion_request() :: %{}
+
+  """
+  @type delete_ingestion_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ingestion_destinations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_ingestion_destinations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_app_authorization_response() :: %{
+        "appAuthorization" => app_authorization()
+      }
+
+  """
+  @type update_app_authorization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_app_bundles_response() :: %{
+        "appBundleSummaryList" => list(app_bundle_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_app_bundles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_authorization_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("app") => String.t() | atom(),
+        required("authType") => list(any()),
+        required("credential") => list(),
+        required("tenant") => tenant()
+      }
+
+  """
+  @type create_app_authorization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingestion_destination_response() :: %{
+        "ingestionDestination" => ingestion_destination()
+      }
+
+  """
+  @type get_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_authorization_request() :: %{}
+
+  """
+  @type get_app_authorization_request() :: %{}
 
   @typedoc """
 
@@ -184,32 +564,76 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      start_ingestion_response() :: %{}
+      tenant() :: %{
+        "tenantDisplayName" => String.t() | atom(),
+        "tenantIdentifier" => String.t() | atom()
+      }
 
   """
-  @type start_ingestion_response() :: %{}
+  @type tenant() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_ingestion_response() :: %{
-        "ingestion" => ingestion()
-      }
+      delete_ingestion_destination_response() :: %{}
 
   """
-  @type create_ingestion_response() :: %{(String.t() | atom()) => any()}
+  @type delete_ingestion_destination_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_ingestion_response() :: %{
-        "ingestion" => ingestion()
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
       }
 
   """
-  @type get_ingestion_response() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_user_access_tasks_response() :: %{
+        "userAccessResultsList" => list(user_access_result_item())
+      }
+
+  """
+  @type batch_get_user_access_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_authorization_request() :: %{}
+
+  """
+  @type delete_app_authorization_request() :: %{}
 
   @typedoc """
 
@@ -226,73 +650,13 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      list_ingestion_destinations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()]
+      list_ingestion_destinations_response() :: %{
+        "ingestionDestinations" => list(ingestion_destination_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_ingestion_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_authorization_response() :: %{
-        "appAuthorization" => app_authorization()
-      }
-
-  """
-  @type get_app_authorization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firehose_stream() :: %{
-        "streamName" => String.t() | atom()
-      }
-
-  """
-  @type firehose_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_bundle_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("customerManagedKeyIdentifier") => String.t() | atom(),
-        optional("tags") => list(tag())
-      }
-
-  """
-  @type create_app_bundle_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_authorization_summary() :: %{
-        "app" => String.t() | atom(),
-        "appAuthorizationArn" => String.t() | atom(),
-        "appBundleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "tenant" => tenant(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type app_authorization_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_bundle_request() :: %{}
-
-  """
-  @type delete_app_bundle_request() :: %{}
+  @type list_ingestion_destinations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -309,13 +673,117 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      tenant() :: %{
-        "tenantDisplayName" => String.t() | atom(),
-        "tenantIdentifier" => String.t() | atom()
+      app_bundle_summary() :: %{
+        "arn" => String.t() | atom()
       }
 
   """
-  @type tenant() :: %{(String.t() | atom()) => any()}
+  @type app_bundle_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ingestion_destination_response() :: %{
+        "ingestionDestination" => ingestion_destination()
+      }
+
+  """
+  @type create_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_authorization() :: %{
+        "app" => String.t() | atom(),
+        "appAuthorizationArn" => String.t() | atom(),
+        "appBundleArn" => String.t() | atom(),
+        "authType" => list(any()),
+        "authUrl" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "persona" => list(any()),
+        "status" => list(any()),
+        "tenant" => tenant(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type app_authorization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_ingestion_response() :: %{}
+
+  """
+  @type stop_ingestion_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_log_destination_configuration() :: %{
+        "destination" => list()
+      }
+
+  """
+  @type audit_log_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_bucket() :: %{
+        "bucketName" => String.t() | atom(),
+        "prefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_bucket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firehose_stream() :: %{
+        "streamName" => String.t() | atom()
+      }
+
+  """
+  @type firehose_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_bundle_request() :: %{}
+
+  """
+  @type get_app_bundle_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_authorization_response() :: %{
+        "appAuthorization" => app_authorization()
+      }
+
+  """
+  @type get_app_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -343,45 +811,87 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      delete_ingestion_destination_request() :: %{}
-
-  """
-  @type delete_ingestion_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_bundle_response() :: %{}
-
-  """
-  @type delete_app_bundle_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      create_app_authorization_response() :: %{
+        "appAuthorization" => app_authorization()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type create_app_authorization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      list_app_bundles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type list_app_bundles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_bundle_response() :: %{
+        "appBundle" => app_bundle()
+      }
+
+  """
+  @type get_app_bundle_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ingestion_request() :: %{}
+
+  """
+  @type get_ingestion_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ingestion_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("app") => String.t() | atom(),
+        required("ingestionType") => list(any()),
+        required("tenantId") => String.t() | atom()
+      }
+
+  """
+  @type create_ingestion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auth_request() :: %{
+        "code" => String.t() | atom(),
+        "redirectUri" => String.t() | atom()
+      }
+
+  """
+  @type auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      app_authorization_summary() :: %{
+        "app" => String.t() | atom(),
+        "appAuthorizationArn" => String.t() | atom(),
+        "appBundleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tenant" => tenant(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type app_authorization_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -405,67 +915,22 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      list_app_bundles_response() :: %{
-        "appBundleSummaryList" => list(app_bundle_summary()),
-        "nextToken" => String.t() | atom()
+      list_app_authorizations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_app_bundles_response() :: %{(String.t() | atom()) => any()}
+  @type list_app_authorizations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ingestion() :: %{
-        "app" => String.t() | atom(),
-        "appBundleArn" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "ingestionType" => list(any()),
-        "state" => list(any()),
-        "tenantId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type ingestion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_bucket() :: %{
-        "bucketName" => String.t() | atom(),
-        "prefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_bucket() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_user_access_tasks_request() :: %{
-        required("appBundleIdentifier") => String.t() | atom(),
-        required("email") => String.t() | atom()
-      }
-
-  """
-  @type start_user_access_tasks_request() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -486,667 +951,202 @@ defmodule AWS.AppFabric do
 
   ## Example:
 
-      batch_get_user_access_tasks_request() :: %{
-        required("appBundleIdentifier") => String.t() | atom(),
-        required("taskIdList") => list(String.t() | atom())
+      ingestion_destination_summary() :: %{
+        "arn" => String.t() | atom()
       }
 
   """
-  @type batch_get_user_access_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_authorization_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("app") => String.t() | atom(),
-        required("authType") => list(any()),
-        required("credential") => list(),
-        required("tenant") => tenant()
-      }
-
-  """
-  @type create_app_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingestion_summary() :: %{
-        "app" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "state" => list(any()),
-        "tenantId" => String.t() | atom()
-      }
-
-  """
-  @type ingestion_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ingestion_destinations_response() :: %{
-        "ingestionDestinations" => list(ingestion_destination_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_ingestion_destinations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_authorization_request() :: %{
-        optional("credential") => list(),
-        optional("tenant") => tenant()
-      }
-
-  """
-  @type update_app_authorization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ingestion_destination_response() :: %{}
-
-  """
-  @type delete_ingestion_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_authorization_request() :: %{}
-
-  """
-  @type delete_app_authorization_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_log_destination_configuration() :: %{
-        "destination" => list()
-      }
-
-  """
-  @type audit_log_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_bundle_request() :: %{}
-
-  """
-  @type get_app_bundle_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => integer()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_bundles_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_app_bundles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_user_access_tasks_response() :: %{
-        "userAccessResultsList" => list(user_access_result_item())
-      }
-
-  """
-  @type batch_get_user_access_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ingestion_destination_response() :: %{
-        "ingestionDestination" => ingestion_destination()
-      }
-
-  """
-  @type get_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_authorization_request() :: %{}
-
-  """
-  @type get_app_authorization_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      auth_request() :: %{
-        "code" => String.t() | atom(),
-        "redirectUri" => String.t() | atom()
-      }
-
-  """
-  @type auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ingestion_destination_response() :: %{
-        "ingestionDestination" => ingestion_destination()
-      }
-
-  """
-  @type create_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audit_log_processing_configuration() :: %{
-        "format" => list(any()),
-        "schema" => list(any())
-      }
-
-  """
-  @type audit_log_processing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ingestion_request() :: %{}
-
-  """
-  @type get_ingestion_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_app_authorization_response() :: %{
-        "appAuthorization" => app_authorization()
-      }
-
-  """
-  @type update_app_authorization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_authorizations_response() :: %{
-        "appAuthorizationSummaryList" => list(app_authorization_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_app_authorizations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_user_access_tasks_response() :: %{
-        "userAccessTasksList" => list(user_access_task_item())
-      }
-
-  """
-  @type start_user_access_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_bundle_response() :: %{
-        "appBundle" => app_bundle()
-      }
-
-  """
-  @type create_app_bundle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ingestion_request() :: %{}
-
-  """
-  @type delete_ingestion_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_bundle_response() :: %{
-        "appBundle" => app_bundle()
-      }
-
-  """
-  @type get_app_bundle_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_app_authorizations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_app_authorizations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_app_authorization_response() :: %{
-        "appAuthorizationSummary" => app_authorization_summary()
-      }
-
-  """
-  @type connect_app_authorization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => integer(),
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      app_authorization() :: %{
-        "app" => String.t() | atom(),
-        "appAuthorizationArn" => String.t() | atom(),
-        "appBundleArn" => String.t() | atom(),
-        "authType" => list(any()),
-        "authUrl" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "persona" => list(any()),
-        "status" => list(any()),
-        "tenant" => tenant(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type app_authorization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task_error() :: %{
-        "errorCode" => [String.t() | atom()],
-        "errorMessage" => [String.t() | atom()]
-      }
-
-  """
-  @type task_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ingestion_destination_request() :: %{
-        required("destinationConfiguration") => list()
-      }
-
-  """
-  @type update_ingestion_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      oauth2_credential() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom()
-      }
-
-  """
-  @type oauth2_credential() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key_credential() :: %{
-        "apiKey" => String.t() | atom()
-      }
-
-  """
-  @type api_key_credential() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ingestion_destination_request() :: %{}
-
-  """
-  @type get_ingestion_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_app_authorization_response() :: %{
-        "appAuthorization" => app_authorization()
-      }
-
-  """
-  @type create_app_authorization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_authorization_response() :: %{}
-
-  """
-  @type delete_app_authorization_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_ingestion_destination_response() :: %{
-        "ingestionDestination" => ingestion_destination()
-      }
-
-  """
-  @type update_ingestion_destination_response() :: %{(String.t() | atom()) => any()}
+  @type ingestion_destination_summary() :: %{(String.t() | atom()) => any()}
 
   @type batch_get_user_access_tasks_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type connect_app_authorization_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_app_authorization_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_app_bundle_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_ingestion_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_ingestion_destination_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_app_authorization_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_app_bundle_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_ingestion_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_ingestion_destination_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_app_authorization_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_app_bundle_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_ingestion_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_ingestion_destination_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_app_authorizations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_app_bundles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_ingestion_destinations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_ingestions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type start_ingestion_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_user_access_tasks_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type stop_ingestion_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_app_authorization_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_ingestion_destination_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

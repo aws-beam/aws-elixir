@@ -172,7 +172,8 @@ defmodule AWS.BCMRecommendedActions do
           | {:error, term()}
           | {:error, list_recommended_actions_errors()}
   def list_recommended_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommendedActions", input, options)
   end

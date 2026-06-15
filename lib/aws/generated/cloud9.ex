@@ -85,13 +85,12 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
+      create_environment_membership_result() :: %{
+        "membership" => environment_member()
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_environment_membership_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -109,46 +108,86 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      describe_environments_result() :: %{
-        "environments" => list(environment())
-      }
+      update_environment_result() :: %{}
       
   """
-  @type describe_environments_result() :: %{(String.t() | atom()) => any()}
+  @type update_environment_result() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_membership_request() :: %{
-        required("environmentId") => String.t() | atom(),
-        required("userArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_environment_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      forbidden_exception() :: %{
+      too_many_requests_exception() :: %{
         "className" => String.t() | atom(),
         "code" => integer(),
         "message" => String.t() | atom()
       }
       
   """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_membership_request() :: %{
+        required("environmentId") => String.t() | atom(),
+        required("permissions") => list(any()),
+        required("userArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_environment_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_environment_memberships_result() :: %{
+        "memberships" => list(environment_member()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_environment_memberships_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      environment_lifecycle() :: %{
+        "failureResource" => String.t() | atom(),
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type environment_lifecycle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,6 +201,32 @@ defmodule AWS.Cloud9 do
       
   """
   @type create_environment_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_environments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("managedCredentialsAction") => list(any()),
+        optional("name") => String.t() | atom(),
+        required("environmentId") => String.t() | atom()
+      }
+      
+  """
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -182,44 +247,6 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_requests_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       describe_environment_status_result() :: %{
         "message" => String.t() | atom(),
         "status" => list(any())
@@ -232,13 +259,52 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      environment_member() :: %{
+        "environmentId" => String.t() | atom(),
+        "lastAccess" => non_neg_integer(),
+        "permissions" => list(any()),
+        "userArn" => String.t() | atom(),
+        "userId" => String.t() | atom()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type environment_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_environment_membership_result() :: %{
+        "membership" => environment_member()
+      }
+      
+  """
+  @type update_environment_membership_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_error_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,121 +329,10 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      not_found_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_result() :: %{}
-      
-  """
-  @type update_environment_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_environments_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_environment_membership_result() :: %{
-        "membership" => environment_member()
-      }
-      
-  """
-  @type create_environment_membership_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_request() :: %{
-        required("environmentId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       tag_resource_response() :: %{}
       
   """
   @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_environment_ec2_result() :: %{
-        "environmentId" => String.t() | atom()
-      }
-      
-  """
-  @type create_environment_ec2_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_result() :: %{}
-      
-  """
-  @type delete_environment_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_error_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -396,14 +351,10 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "className" => String.t() | atom(),
-        "code" => integer(),
-        "message" => String.t() | atom()
-      }
+      delete_environment_result() :: %{}
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_result() :: %{}
 
   @typedoc """
 
@@ -430,14 +381,91 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      bad_request_exception() :: %{
+      describe_environments_result() :: %{
+        "environments" => list(environment())
+      }
+      
+  """
+  @type describe_environments_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_environment_membership_request() :: %{
+        required("environmentId") => String.t() | atom(),
+        required("userArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_environment_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
         "className" => String.t() | atom(),
         "code" => integer(),
         "message" => String.t() | atom()
       }
       
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_found_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_environment_membership_result() :: %{}
+      
+  """
+  @type delete_environment_membership_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -454,75 +482,49 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      describe_environment_memberships_result() :: %{
-        "memberships" => list(environment_member()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_environment_memberships_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_environment_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("managedCredentialsAction") => list(any()),
-        optional("name") => String.t() | atom(),
+      delete_environment_request() :: %{
         required("environmentId") => String.t() | atom()
       }
       
   """
-  @type update_environment_request() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_environment_membership_request() :: %{
-        required("environmentId") => String.t() | atom(),
-        required("permissions") => list(any()),
-        required("userArn") => String.t() | atom()
+      forbidden_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type update_environment_membership_request() :: %{(String.t() | atom()) => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_environment_membership_result() :: %{
-        "membership" => environment_member()
+      bad_request_exception() :: %{
+        "className" => String.t() | atom(),
+        "code" => integer(),
+        "message" => String.t() | atom()
       }
       
   """
-  @type update_environment_membership_result() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      environment_member() :: %{
-        "environmentId" => String.t() | atom(),
-        "lastAccess" => non_neg_integer(),
-        "permissions" => list(any()),
-        "userArn" => String.t() | atom(),
-        "userId" => String.t() | atom()
+      create_environment_ec2_result() :: %{
+        "environmentId" => String.t() | atom()
       }
       
   """
-  @type environment_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_environment_membership_result() :: %{}
-      
-  """
-  @type delete_environment_membership_result() :: %{}
+  @type create_environment_ec2_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,119 +541,117 @@ defmodule AWS.Cloud9 do
 
   ## Example:
       
-      environment_lifecycle() :: %{
-        "failureResource" => String.t() | atom(),
-        "reason" => String.t() | atom(),
-        "status" => list(any())
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type environment_lifecycle() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @type create_environment_ec2_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type create_environment_membership_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type delete_environment_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type delete_environment_membership_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type describe_environment_memberships_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type describe_environment_status_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type describe_environments_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type list_environments_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception() | internal_server_error_exception() | not_found_exception()
+          bad_request_exception() | not_found_exception() | internal_server_error_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
+          | not_found_exception()
           | concurrent_access_exception()
           | internal_server_error_exception()
-          | not_found_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
+          | not_found_exception()
           | concurrent_access_exception()
           | internal_server_error_exception()
-          | not_found_exception()
 
   @type update_environment_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type update_environment_membership_errors() ::
           bad_request_exception()
-          | limit_exceeded_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   def metadata do
     %{
@@ -684,7 +684,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, create_environment_ec2_errors()}
   def create_environment_ec2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentEC2", input, options)
   end
@@ -702,7 +703,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, create_environment_membership_errors()}
   def create_environment_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentMembership", input, options)
   end
@@ -723,7 +725,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
@@ -741,7 +744,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, delete_environment_membership_errors()}
   def delete_environment_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentMembership", input, options)
   end
@@ -764,7 +768,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, describe_environment_memberships_errors()}
   def describe_environment_memberships(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentMemberships", input, options)
   end
@@ -782,7 +787,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, describe_environment_status_errors()}
   def describe_environment_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentStatus", input, options)
   end
@@ -800,7 +806,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, describe_environments_errors()}
   def describe_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
@@ -822,7 +829,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -840,7 +848,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -861,7 +870,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -879,7 +889,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -897,7 +908,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -916,7 +928,8 @@ defmodule AWS.Cloud9 do
           | {:error, term()}
           | {:error, update_environment_membership_errors()}
   def update_environment_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentMembership", input, options)
   end

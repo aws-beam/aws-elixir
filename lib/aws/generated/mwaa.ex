@@ -59,12 +59,128 @@ defmodule AWS.MWAA do
 
   ## Example:
 
-      get_environment_output() :: %{
-        optional("Environment") => environment()
+      create_environment_output() :: %{
+        optional("Arn") => String.t() | atom()
       }
 
   """
-  @type get_environment_output() :: %{(String.t() | atom()) => any()}
+  @type create_environment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rest_api_server_exception() :: %{
+        "RestApiResponse" => any(),
+        "RestApiStatusCode" => [integer()]
+      }
+
+  """
+  @type rest_api_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_rest_api_request() :: %{
+        optional("Body") => any(),
+        optional("QueryParameters") => [any()],
+        required("Method") => String.t() | atom(),
+        required("Path") => String.t() | atom()
+      }
+
+  """
+  @type invoke_rest_api_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      network_configuration() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type network_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_metrics_input() :: %{
+        "MetricData" => list(metric_datum())
+      }
+
+  """
+  @type publish_metrics_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_output() :: %{}
+
+  """
+  @type delete_environment_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_datum() :: %{
+        "Dimensions" => list(dimension()),
+        "MetricName" => [String.t() | atom()],
+        "StatisticValues" => statistic_set(),
+        "Timestamp" => [non_neg_integer()],
+        "Unit" => String.t() | atom(),
+        "Value" => [float()]
+      }
+
+  """
+  @type metric_datum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,6 +193,228 @@ defmodule AWS.MWAA do
 
   """
   @type invoke_rest_api_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_configuration() :: %{
+        "DagProcessingLogs" => module_logging_configuration(),
+        "SchedulerLogs" => module_logging_configuration(),
+        "TaskLogs" => module_logging_configuration(),
+        "WebserverLogs" => module_logging_configuration(),
+        "WorkerLogs" => module_logging_configuration()
+      }
+
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      last_update() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Error" => update_error(),
+        "Source" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "WorkerReplacementStrategy" => String.t() | atom()
+      }
+
+  """
+  @type last_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cli_token_request() :: %{}
+
+  """
+  @type create_cli_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_configuration_input() :: %{
+        "SecurityGroupIds" => list(String.t() | atom())
+      }
+
+  """
+  @type update_network_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rest_api_client_exception() :: %{
+        "RestApiResponse" => any(),
+        "RestApiStatusCode" => [integer()]
+      }
+
+  """
+  @type rest_api_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_output() :: %{
+        optional("Environment") => environment()
+      }
+
+  """
+  @type get_environment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment() :: %{
+        "WebserverUrl" => String.t() | atom(),
+        "NetworkConfiguration" => network_configuration(),
+        "WeeklyMaintenanceWindowStart" => String.t() | atom(),
+        "AirflowConfigurationOptions" => map(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "MinWorkers" => integer(),
+        "DagS3Path" => String.t() | atom(),
+        "EnvironmentClass" => String.t() | atom(),
+        "RequirementsS3ObjectVersion" => String.t() | atom(),
+        "WebserverAccessMode" => String.t() | atom(),
+        "AirflowVersion" => String.t() | atom(),
+        "MaxWorkers" => integer(),
+        "MinWebservers" => integer(),
+        "CreatedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "LastUpdate" => last_update(),
+        "RequirementsS3Path" => String.t() | atom(),
+        "PluginsS3ObjectVersion" => String.t() | atom(),
+        "LoggingConfiguration" => logging_configuration(),
+        "WebserverVpcEndpointService" => String.t() | atom(),
+        "MaxWebservers" => integer(),
+        "Status" => String.t() | atom(),
+        "ServiceRoleArn" => String.t() | atom(),
+        "StartupScriptS3Path" => [String.t() | atom()],
+        "CeleryExecutorQueue" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "StartupScriptS3ObjectVersion" => [String.t() | atom()],
+        "KmsKey" => String.t() | atom(),
+        "DatabaseVpcEndpointService" => String.t() | atom(),
+        "EndpointManagement" => String.t() | atom(),
+        "Tags" => map(),
+        "PluginsS3Path" => String.t() | atom(),
+        "Schedulers" => integer(),
+        "SourceBucketArn" => String.t() | atom()
+      }
+
+  """
+  @type environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_configuration_input() :: %{
+        "DagProcessingLogs" => module_logging_configuration_input(),
+        "SchedulerLogs" => module_logging_configuration_input(),
+        "TaskLogs" => module_logging_configuration_input(),
+        "WebserverLogs" => module_logging_configuration_input(),
+        "WorkerLogs" => module_logging_configuration_input()
+      }
+
+  """
+  @type logging_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
+      }
+
+  """
+  @type update_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_metrics_output() :: %{}
+
+  """
+  @type publish_metrics_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      statistic_set() :: %{
+        "Maximum" => [float()],
+        "Minimum" => [float()],
+        "SampleCount" => [integer()],
+        "Sum" => [float()]
+      }
+
+  """
+  @type statistic_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -116,228 +454,25 @@ defmodule AWS.MWAA do
 
   ## Example:
 
-      delete_environment_input() :: %{}
+      create_cli_token_response() :: %{
+        optional("CliToken") => String.t() | atom(),
+        optional("WebServerHostname") => String.t() | atom()
+      }
 
   """
-  @type delete_environment_input() :: %{}
+  @type create_cli_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      module_logging_configuration() :: %{
-        "CloudWatchLogGroupArn" => String.t() | atom(),
+      module_logging_configuration_input() :: %{
         "Enabled" => boolean(),
         "LogLevel" => String.t() | atom()
       }
 
   """
-  @type module_logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_configuration_input() :: %{
-        "DagProcessingLogs" => module_logging_configuration_input(),
-        "SchedulerLogs" => module_logging_configuration_input(),
-        "TaskLogs" => module_logging_configuration_input(),
-        "WebserverLogs" => module_logging_configuration_input(),
-        "WorkerLogs" => module_logging_configuration_input()
-      }
-
-  """
-  @type logging_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_input() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_environments_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_configuration_input() :: %{
-        "SecurityGroupIds" => list(String.t() | atom())
-      }
-
-  """
-  @type update_network_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_configuration() :: %{
-        "DagProcessingLogs" => module_logging_configuration(),
-        "SchedulerLogs" => module_logging_configuration(),
-        "TaskLogs" => module_logging_configuration(),
-        "WebserverLogs" => module_logging_configuration(),
-        "WorkerLogs" => module_logging_configuration()
-      }
-
-  """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_output() :: %{
-        optional("Arn") => String.t() | atom()
-      }
-
-  """
-  @type create_environment_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom()
-      }
-
-  """
-  @type update_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_datum() :: %{
-        "Dimensions" => list(dimension()),
-        "MetricName" => [String.t() | atom()],
-        "StatisticValues" => statistic_set(),
-        "Timestamp" => [non_neg_integer()],
-        "Unit" => String.t() | atom(),
-        "Value" => [float()]
-      }
-
-  """
-  @type metric_datum() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_output() :: %{
-        optional("Arn") => String.t() | atom()
-      }
-
-  """
-  @type update_environment_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      last_update() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Error" => update_error(),
-        "Source" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "WorkerReplacementStrategy" => String.t() | atom()
-      }
-
-  """
-  @type last_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment() :: %{
-        "EnvironmentClass" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "LastUpdate" => last_update(),
-        "MinWorkers" => integer(),
-        "AirflowVersion" => String.t() | atom(),
-        "ServiceRoleArn" => String.t() | atom(),
-        "MaxWebservers" => integer(),
-        "DatabaseVpcEndpointService" => String.t() | atom(),
-        "EndpointManagement" => String.t() | atom(),
-        "Tags" => map(),
-        "NetworkConfiguration" => network_configuration(),
-        "KmsKey" => String.t() | atom(),
-        "ExecutionRoleArn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "LoggingConfiguration" => logging_configuration(),
-        "WeeklyMaintenanceWindowStart" => String.t() | atom(),
-        "RequirementsS3ObjectVersion" => String.t() | atom(),
-        "WebserverUrl" => String.t() | atom(),
-        "StartupScriptS3ObjectVersion" => [String.t() | atom()],
-        "MinWebservers" => integer(),
-        "WebserverAccessMode" => String.t() | atom(),
-        "CeleryExecutorQueue" => String.t() | atom(),
-        "SourceBucketArn" => String.t() | atom(),
-        "RequirementsS3Path" => String.t() | atom(),
-        "Schedulers" => integer(),
-        "WebserverVpcEndpointService" => String.t() | atom(),
-        "AirflowConfigurationOptions" => map(),
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PluginsS3Path" => String.t() | atom(),
-        "MaxWorkers" => integer(),
-        "StartupScriptS3Path" => [String.t() | atom()],
-        "PluginsS3ObjectVersion" => String.t() | atom(),
-        "DagS3Path" => String.t() | atom()
-      }
-
-  """
-  @type environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_input() :: %{}
-
-  """
-  @type get_environment_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_output() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Environments") => list(String.t() | atom())
-      }
-
-  """
-  @type list_environments_output() :: %{(String.t() | atom()) => any()}
+  @type module_logging_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,170 +510,6 @@ defmodule AWS.MWAA do
 
   ## Example:
 
-      rest_api_client_exception() :: %{
-        "RestApiResponse" => any(),
-        "RestApiStatusCode" => [integer()]
-      }
-
-  """
-  @type rest_api_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_web_login_token_request() :: %{}
-
-  """
-  @type create_web_login_token_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_rest_api_request() :: %{
-        optional("Body") => any(),
-        optional("QueryParameters") => [any()],
-        required("Method") => String.t() | atom(),
-        required("Path") => String.t() | atom()
-      }
-
-  """
-  @type invoke_rest_api_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_environment_output() :: %{}
-
-  """
-  @type delete_environment_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cli_token_response() :: %{
-        optional("CliToken") => String.t() | atom(),
-        optional("WebServerHostname") => String.t() | atom()
-      }
-
-  """
-  @type create_cli_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_configuration() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type network_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cli_token_request() :: %{}
-
-  """
-  @type create_cli_token_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rest_api_server_exception() :: %{
-        "RestApiResponse" => any(),
-        "RestApiStatusCode" => [integer()]
-      }
-
-  """
-  @type rest_api_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_tags_for_resource_input() :: %{}
 
   """
@@ -548,10 +519,38 @@ defmodule AWS.MWAA do
 
   ## Example:
 
-      untag_resource_output() :: %{}
+      module_logging_configuration() :: %{
+        "CloudWatchLogGroupArn" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "LogLevel" => String.t() | atom()
+      }
 
   """
-  @type untag_resource_output() :: %{}
+  @type module_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environments_output() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Environments") => list(String.t() | atom())
+      }
+
+  """
+  @type list_environments_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dimension() :: %{
+        "Name" => [String.t() | atom()],
+        "Value" => [String.t() | atom()]
+      }
+
+  """
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,106 +570,107 @@ defmodule AWS.MWAA do
 
   ## Example:
 
-      dimension() :: %{
-        "Name" => [String.t() | atom()],
-        "Value" => [String.t() | atom()]
-      }
+      delete_environment_input() :: %{}
 
   """
-  @type dimension() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      publish_metrics_input() :: %{
-        "MetricData" => list(metric_datum())
-      }
+      get_environment_input() :: %{}
 
   """
-  @type publish_metrics_input() :: %{(String.t() | atom()) => any()}
+  @type get_environment_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      publish_metrics_output() :: %{}
+      untag_resource_output() :: %{}
 
   """
-  @type publish_metrics_output() :: %{}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      module_logging_configuration_input() :: %{
-        "Enabled" => boolean(),
-        "LogLevel" => String.t() | atom()
-      }
+      create_web_login_token_request() :: %{}
 
   """
-  @type module_logging_configuration_input() :: %{(String.t() | atom()) => any()}
+  @type create_web_login_token_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      statistic_set() :: %{
-        "Maximum" => [float()],
-        "Minimum" => [float()],
-        "SampleCount" => [integer()],
-        "Sum" => [float()]
+      list_environments_input() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type statistic_set() :: %{(String.t() | atom()) => any()}
+  @type list_environments_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_output() :: %{
+        optional("Arn") => String.t() | atom()
+      }
+
+  """
+  @type update_environment_output() :: %{(String.t() | atom()) => any()}
 
   @type create_cli_token_errors() :: resource_not_found_exception()
 
   @type create_environment_errors() ::
-          validation_exception() | internal_server_exception() | service_unavailable_exception()
+          internal_server_exception() | validation_exception() | service_unavailable_exception()
 
   @type create_web_login_token_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_environment_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
 
   @type get_environment_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type invoke_rest_api_errors() ::
-          validation_exception()
-          | rest_api_server_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | rest_api_client_exception()
+          rest_api_client_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | rest_api_server_exception()
 
-  @type list_environments_errors() :: validation_exception() | internal_server_exception()
+  @type list_environments_errors() :: internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
-  @type publish_metrics_errors() :: validation_exception() | internal_server_exception()
+  @type publish_metrics_errors() :: internal_server_exception() | validation_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type update_environment_errors() ::
-          validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
 
   def metadata do
     %{

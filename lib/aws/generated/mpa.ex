@@ -38,32 +38,384 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      policy_version_summary() :: %{
+      policy() :: %{
         "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "IsDefault" => [boolean()],
-        "LastUpdatedTime" => non_neg_integer(),
+        "DefaultVersion" => integer(),
         "Name" => String.t() | atom(),
-        "PolicyArn" => String.t() | atom(),
-        "PolicyType" => list(any()),
-        "Status" => list(any()),
-        "VersionId" => integer()
+        "PolicyType" => list(any())
       }
 
   """
-  @type policy_version_summary() :: %{(String.t() | atom()) => any()}
+  @type policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_policy_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PolicyVersions" => list(policy_version_summary())
+      start_active_approval_team_deletion_request() :: %{
+        optional("PendingWindowDays") => [integer()]
       }
 
   """
-  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
+  @type start_active_approval_team_deletion_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_approval_team_request() :: %{
+        optional("ApprovalStrategy") => list(),
+        optional("Approvers") => list(approval_team_request_approver()),
+        optional("Description") => String.t() | atom(),
+        optional("UpdateActions") => list(list(any())())
+      }
+
+  """
+  @type update_approval_team_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_source_parameters() :: %{
+        "IamIdentityCenter" => iam_identity_center()
+      }
+
+  """
+  @type identity_source_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inactive_approval_team_version_request() :: %{}
+
+  """
+  @type delete_inactive_approval_team_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_approval_team_baseline_request() :: %{
+        optional("ApproverIds") => list(String.t() | atom())
+      }
+
+  """
+  @type start_approval_team_baseline_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_sources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_identity_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_sources_response() :: %{
+        "IdentitySources" => list(identity_source_for_list()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_identity_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_reference() :: %{
+        "PolicyArn" => String.t() | atom()
+      }
+
+  """
+  @type policy_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_approval_team_response_approver() :: %{
+        "ApproverId" => String.t() | atom(),
+        "LastActivity" => list(any()),
+        "LastActivityTime" => non_neg_integer(),
+        "MfaMethods" => list(mfa_method()),
+        "PendingBaselineSessionArn" => String.t() | atom(),
+        "PrimaryIdentityId" => String.t() | atom(),
+        "PrimaryIdentitySourceArn" => String.t() | atom(),
+        "PrimaryIdentityStatus" => list(any()),
+        "ResponseTime" => non_neg_integer()
+      }
+
+  """
+  @type get_approval_team_response_approver() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_active_approval_team_deletion_response() :: %{
+        "DeletionCompletionTime" => non_neg_integer(),
+        "DeletionStartTime" => non_neg_integer()
+      }
+
+  """
+  @type start_active_approval_team_deletion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_approval_team_response() :: %{
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type update_approval_team_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_approval_team_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type create_approval_team_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_approval_teams_response_approval_team() :: %{
+        "ApprovalStrategy" => list(),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NumberOfApprovers" => [integer()],
+        "Status" => list(any()),
+        "StatusCode" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type list_approval_teams_response_approval_team() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_identity_center_for_get() :: %{
+        "ApprovalPortalUrl" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type iam_identity_center_for_get() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_approval_team_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ApprovalStrategy") => list(),
+        required("Approvers") => list(approval_team_request_approver()),
+        required("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Policies") => list(policy_reference())
+      }
+
+  """
+  @type create_approval_team_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_identity_center_for_list() :: %{
+        "ApprovalPortalUrl" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type iam_identity_center_for_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_approval_team_request() :: %{}
+
+  """
+  @type get_approval_team_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mof_n_approval_strategy() :: %{
+        "MinApprovalsRequired" => [integer()]
+      }
+
+  """
+  @type mof_n_approval_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{
+        required("PolicyName") => String.t() | atom(),
+        required("PolicyType") => list(any()),
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_response_session() :: %{
+        "ActionCompletionStrategy" => list(any()),
+        "ActionName" => String.t() | atom(),
+        "AdditionalSecurityRequirements" => list(list(any())()),
+        "ApprovalTeamArn" => String.t() | atom(),
+        "ApprovalTeamName" => String.t() | atom(),
+        "CompletionTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpirationTime" => non_neg_integer(),
+        "InitiationTime" => non_neg_integer(),
+        "ProtectedResourceArn" => String.t() | atom(),
+        "RequesterAccountId" => String.t() | atom(),
+        "RequesterPrincipalArn" => String.t() | atom(),
+        "RequesterRegion" => String.t() | atom(),
+        "RequesterServicePrincipal" => String.t() | atom(),
+        "SessionArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusCode" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type list_sessions_response_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pending_update() :: %{
+        "ApprovalStrategy" => list(),
+        "Approvers" => list(get_approval_team_response_approver()),
+        "Description" => String.t() | atom(),
+        "NumberOfApprovers" => [integer()],
+        "Status" => list(any()),
+        "StatusCode" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "UpdateInitiationTime" => non_neg_integer(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type pending_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -80,12 +432,63 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      get_policy_version_response() :: %{
-        "PolicyVersion" => policy_version()
+      get_session_request() :: %{}
+
+  """
+  @type get_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_identity_center() :: %{
+        "InstanceArn" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
+  @type iam_identity_center() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_version() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Document" => String.t() | atom(),
+        "IsDefault" => [boolean()],
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "PolicyArn" => String.t() | atom(),
+        "PolicyType" => list(any()),
+        "Status" => list(any()),
+        "VersionId" => integer()
+      }
+
+  """
+  @type policy_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      approval_team_request_approver() :: %{
+        "PrimaryIdentityId" => String.t() | atom(),
+        "PrimaryIdentitySourceArn" => String.t() | atom()
+      }
+
+  """
+  @type approval_team_request_approver() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -106,13 +509,55 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      start_active_approval_team_deletion_response() :: %{
-        "DeletionCompletionTime" => non_neg_integer(),
-        "DeletionStartTime" => non_neg_integer()
+      list_approval_teams_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type start_active_approval_team_deletion_response() :: %{(String.t() | atom()) => any()}
+  @type list_approval_teams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_approval_team_response() :: %{
+        "ApprovalStrategy" => list(),
+        "Approvers" => list(get_approval_team_response_approver()),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LastUpdateTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "NumberOfApprovers" => [integer()],
+        "PendingUpdate" => pending_update(),
+        "Policies" => list(policy_reference()),
+        "Status" => list(any()),
+        "StatusCode" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "UpdateSessionArn" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type get_approval_team_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_source_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "IdentitySourceArn" => String.t() | atom(),
+        "IdentitySourceParameters" => list(),
+        "IdentitySourceType" => list(any()),
+        "Status" => list(any()),
+        "StatusCode" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type get_identity_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -152,33 +597,12 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      start_approval_team_baseline_request() :: %{
-        optional("ApproverIds") => list(String.t() | atom())
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type start_approval_team_baseline_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_version_request() :: %{}
-
-  """
-  @type get_policy_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Policies" => list(policy())
-      }
-
-  """
-  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,71 +612,6 @@ defmodule AWS.MPA do
 
   """
   @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_identity_source_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "IdentitySourceArn" => String.t() | atom(),
-        "IdentitySourceParameters" => list(),
-        "IdentitySourceType" => list(any()),
-        "Status" => list(any()),
-        "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type get_identity_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_approval_team_response() :: %{
-        "ApprovalStrategy" => list(),
-        "Approvers" => list(get_approval_team_response_approver()),
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "LastUpdateTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "NumberOfApprovers" => [integer()],
-        "PendingUpdate" => pending_update(),
-        "Policies" => list(policy_reference()),
-        "Status" => list(any()),
-        "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "UpdateSessionArn" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type get_approval_team_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_approval_team_response() :: %{
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type update_approval_team_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -273,22 +632,13 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      mfa_method() :: %{
-        "SyncStatus" => list(any()),
-        "Type" => list(any())
+      list_policy_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PolicyVersions" => list(policy_version_summary())
       }
 
   """
-  @type mfa_method() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_inactive_approval_team_version_request() :: %{}
-
-  """
-  @type delete_inactive_approval_team_version_request() :: %{}
+  @type list_policy_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -300,98 +650,6 @@ defmodule AWS.MPA do
 
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_session_response() :: %{}
-
-  """
-  @type cancel_session_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_session_request() :: %{}
-
-  """
-  @type get_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_identity_center() :: %{
-        "InstanceArn" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type iam_identity_center() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_session_request() :: %{}
-
-  """
-  @type cancel_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_identity_source_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "IdentitySourceArn" => String.t() | atom(),
-        "IdentitySourceType" => list(any())
-      }
-
-  """
-  @type create_identity_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_version() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Document" => String.t() | atom(),
-        "IsDefault" => [boolean()],
-        "LastUpdatedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "PolicyArn" => String.t() | atom(),
-        "PolicyType" => list(any()),
-        "Status" => list(any()),
-        "VersionId" => integer()
-      }
-
-  """
-  @type policy_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_identity_source_request() :: %{}
-
-  """
-  @type get_identity_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_approval_team_baseline_response() :: %{
-        "BaselineSessionArn" => String.t() | atom()
-      }
-
-  """
-  @type start_approval_team_baseline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,6 +672,26 @@ defmodule AWS.MPA do
 
   ## Example:
 
+      get_policy_version_response() :: %{
+        "PolicyVersion" => policy_version()
+      }
+
+  """
+  @type get_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_session_response() :: %{}
+
+  """
+  @type cancel_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       list_sessions_response() :: %{
         "NextToken" => String.t() | atom(),
         "Sessions" => list(list_sessions_response_session())
@@ -426,88 +704,50 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
+      policy_version_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "IsDefault" => [boolean()],
+        "LastUpdatedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "PolicyArn" => String.t() | atom(),
+        "PolicyType" => list(any()),
+        "Status" => list(any()),
+        "VersionId" => integer()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type policy_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      delete_identity_source_request() :: %{}
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_identity_source_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      policy_reference() :: %{
-        "PolicyArn" => String.t() | atom()
+      list_resource_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourcePolicies" => list(list_resource_policies_response_resource_policy())
       }
 
   """
-  @type policy_reference() :: %{(String.t() | atom()) => any()}
+  @type list_resource_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      get_policy_version_request() :: %{}
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_sources_response() :: %{
-        "IdentitySources" => list(identity_source_for_list()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_identity_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_approval_team_response_approver() :: %{
-        "ApproverId" => String.t() | atom(),
-        "LastActivity" => list(any()),
-        "LastActivityTime" => non_neg_integer(),
-        "MfaMethods" => list(mfa_method()),
-        "PendingBaselineSessionArn" => String.t() | atom(),
-        "PrimaryIdentityId" => String.t() | atom(),
-        "PrimaryIdentitySourceArn" => String.t() | atom(),
-        "PrimaryIdentityStatus" => list(any()),
-        "ResponseTime" => non_neg_integer()
-      }
-
-  """
-  @type get_approval_team_response_approver() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      approval_team_request_approver() :: %{
-        "PrimaryIdentityId" => String.t() | atom(),
-        "PrimaryIdentitySourceArn" => String.t() | atom()
-      }
-
-  """
-  @type approval_team_request_approver() :: %{(String.t() | atom()) => any()}
+  @type get_policy_version_request() :: %{}
 
   @typedoc """
 
@@ -536,286 +776,10 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      list_sessions_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      cancel_session_request() :: %{}
 
   """
-  @type list_sessions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_request() :: %{
-        required("PolicyName") => String.t() | atom(),
-        required("PolicyType") => list(any()),
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "FieldName" => list(any()),
-        "Operator" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_active_approval_team_deletion_request() :: %{
-        optional("PendingWindowDays") => [integer()]
-      }
-
-  """
-  @type start_active_approval_team_deletion_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_policy_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_approval_teams_response() :: %{
-        "ApprovalTeams" => list(list_approval_teams_response_approval_team()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_approval_teams_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_identity_center_for_list() :: %{
-        "ApprovalPortalUrl" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type iam_identity_center_for_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_approval_team_request() :: %{}
-
-  """
-  @type get_approval_team_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_approval_teams_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_approval_teams_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_policies_response_resource_policy() :: %{
-        "PolicyArn" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "PolicyType" => list(any())
-      }
-
-  """
-  @type list_resource_policies_response_resource_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy() :: %{
-        "Arn" => String.t() | atom(),
-        "DefaultVersion" => integer(),
-        "Name" => String.t() | atom(),
-        "PolicyType" => list(any())
-      }
-
-  """
-  @type policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_approval_team_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type create_approval_team_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_approval_team_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ApprovalStrategy") => list(),
-        required("Approvers") => list(approval_team_request_approver()),
-        required("Description") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Policies") => list(policy_reference())
-      }
-
-  """
-  @type create_approval_team_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_identity_center_for_get() :: %{
-        "ApprovalPortalUrl" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type iam_identity_center_for_get() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_policies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourcePolicies" => list(list_resource_policies_response_resource_policy())
-      }
-
-  """
-  @type list_resource_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_inactive_approval_team_version_response() :: %{}
-
-  """
-  @type delete_inactive_approval_team_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_sources_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_identity_sources_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_session_request() :: %{}
 
   @typedoc """
 
@@ -834,92 +798,6 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      list_approval_teams_response_approval_team() :: %{
-        "ApprovalStrategy" => list(),
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NumberOfApprovers" => [integer()],
-        "Status" => list(any()),
-        "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type list_approval_teams_response_approval_team() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sessions_response_session() :: %{
-        "ActionCompletionStrategy" => list(any()),
-        "ActionName" => String.t() | atom(),
-        "AdditionalSecurityRequirements" => list(list(any())()),
-        "ApprovalTeamArn" => String.t() | atom(),
-        "ApprovalTeamName" => String.t() | atom(),
-        "CompletionTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ExpirationTime" => non_neg_integer(),
-        "InitiationTime" => non_neg_integer(),
-        "ProtectedResourceArn" => String.t() | atom(),
-        "RequesterAccountId" => String.t() | atom(),
-        "RequesterPrincipalArn" => String.t() | atom(),
-        "RequesterRegion" => String.t() | atom(),
-        "RequesterServicePrincipal" => String.t() | atom(),
-        "SessionArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type list_sessions_response_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_source_parameters() :: %{
-        "IamIdentityCenter" => iam_identity_center()
-      }
-
-  """
-  @type identity_source_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_identity_source_request() :: %{}
-
-  """
-  @type delete_identity_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pending_update() :: %{
-        "ApprovalStrategy" => list(),
-        "Approvers" => list(get_approval_team_response_approver()),
-        "Description" => String.t() | atom(),
-        "NumberOfApprovers" => [integer()],
-        "Status" => list(any()),
-        "StatusCode" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "UpdateInitiationTime" => non_neg_integer(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type pending_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       too_many_tags_exception() :: %{
         "Message" => String.t() | atom(),
         "ResourceName" => String.t() | atom()
@@ -932,184 +810,306 @@ defmodule AWS.MPA do
 
   ## Example:
 
-      update_approval_team_request() :: %{
-        optional("ApprovalStrategy") => list(),
-        optional("Approvers") => list(approval_team_request_approver()),
-        optional("Description") => String.t() | atom(),
-        optional("UpdateActions") => list(list(any())())
+      start_approval_team_baseline_response() :: %{
+        "BaselineSessionArn" => String.t() | atom()
       }
 
   """
-  @type update_approval_team_request() :: %{(String.t() | atom()) => any()}
+  @type start_approval_team_baseline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      mof_n_approval_strategy() :: %{
-        "MinApprovalsRequired" => [integer()]
+      list_policy_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type mof_n_approval_strategy() :: %{(String.t() | atom()) => any()}
+  @type list_policy_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_identity_source_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "IdentitySourceArn" => String.t() | atom(),
+        "IdentitySourceType" => list(any())
+      }
+
+  """
+  @type create_identity_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_approval_teams_response() :: %{
+        "ApprovalTeams" => list(list_approval_teams_response_approval_team()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_approval_teams_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_source_request() :: %{}
+
+  """
+  @type get_identity_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Policies" => list(policy())
+      }
+
+  """
+  @type list_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "FieldName" => list(any()),
+        "Operator" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inactive_approval_team_version_response() :: %{}
+
+  """
+  @type delete_inactive_approval_team_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_policies_response_resource_policy() :: %{
+        "PolicyArn" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyType" => list(any())
+      }
+
+  """
+  @type list_resource_policies_response_resource_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mfa_method() :: %{
+        "SyncStatus" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type mfa_method() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @type cancel_session_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_approval_team_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_identity_source_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | throttling_exception()
 
   @type delete_identity_source_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_inactive_approval_team_version_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_approval_team_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_identity_source_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_policy_version_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_policy_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_session_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_approval_teams_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_identity_sources_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_policies_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_policy_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_resource_policies_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_sessions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type start_active_approval_team_deletion_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_approval_team_baseline_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception()
-          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_approval_team_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

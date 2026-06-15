@@ -17,152 +17,36 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
+      sync_resource_response() :: %{
+        "actionTaken" => list(any()),
+        "applicationArn" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type sync_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_associated_resource_response() :: %{
+        "applicationTagResult" => application_tag_result(),
+        "options" => list(list(any())()),
+        "resource" => resource()
+      }
+
+  """
+  @type get_associated_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_attribute_group_request() :: %{}
 
   """
   @type delete_attribute_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_list_item() :: %{
-        "errorMessage" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type resources_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_attribute_group_response() :: %{
-        "attributeGroup" => attribute_group()
-      }
-
-  """
-  @type create_attribute_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_resources_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resources" => list(resource_info())
-      }
-
-  """
-  @type list_associated_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_tag_result() :: %{
-        "applicationTagStatus" => list(any()),
-        "errorMessage" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "resources" => list(resources_list_item())
-      }
-
-  """
-  @type application_tag_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attribute_groups_for_application_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_attribute_groups_for_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_attribute_groups_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_associated_attribute_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_query_configuration() :: %{
-        "tagKey" => String.t() | atom()
-      }
-
-  """
-  @type tag_query_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_attribute_groups_response() :: %{
-        "attributeGroups" => list(String.t() | atom()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_associated_attribute_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_attribute_group_request() :: %{
-        optional("attributes") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_attribute_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,75 +59,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   """
   @type list_attribute_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_response() :: %{
-        "applicationArn" => String.t() | atom(),
-        "options" => list(list(any())()),
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_response() :: %{
-        "configuration" => app_registry_configuration()
-      }
-
-  """
-  @type get_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_associated_resources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_associated_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,104 +83,48 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      application() :: %{
-        "applicationTag" => map(),
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "tags" => map()
+      list_associated_attribute_groups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type application() :: %{(String.t() | atom()) => any()}
+  @type list_associated_attribute_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_attribute_group_request() :: %{}
+      create_attribute_group_response() :: %{
+        "attributeGroup" => attribute_group()
+      }
 
   """
-  @type get_attribute_group_request() :: %{}
+  @type create_attribute_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_integrations() :: %{
-        "resourceGroup" => resource_group()
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
       }
 
   """
-  @type resource_integrations() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      attribute_group_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdBy" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdateTime" => non_neg_integer(),
-        "name" => String.t() | atom()
+      list_associated_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type attribute_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_response() :: %{
-        "applicationArn" => String.t() | atom(),
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type disassociate_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_response() :: %{
-        "application" => application()
-      }
-
-  """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
+  @type list_associated_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,99 +141,36 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      sync_resource_request() :: %{}
-
-  """
-  @type sync_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_attribute_group_request() :: %{}
-
-  """
-  @type associate_attribute_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_request() :: %{}
-
-  """
-  @type disassociate_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_group() :: %{
-        "arn" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "state" => list(any())
+      list_associated_resources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resources" => list(resource_info())
       }
 
   """
-  @type resource_group() :: %{(String.t() | atom()) => any()}
+  @type list_associated_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_application_response() :: %{
-        "application" => application_summary()
+      get_configuration_response() :: %{
+        "configuration" => app_registry_configuration()
       }
 
   """
-  @type delete_application_response() :: %{(String.t() | atom()) => any()}
+  @type get_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sync_resource_response() :: %{
-        "actionTaken" => list(any()),
-        "applicationArn" => String.t() | atom(),
-        "resourceArn" => String.t() | atom()
+      list_attribute_groups_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type sync_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_response() :: %{
-        "application" => application()
-      }
-
-  """
-  @type update_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type list_attribute_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -500,41 +196,83 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      attribute_group() :: %{
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_attribute_group_response() :: %{
+        "attributeGroup" => attribute_group()
+      }
+
+  """
+  @type update_attribute_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_group_details() :: %{
         "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
+        "createdBy" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "lastUpdateTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "tags" => map()
+        "name" => String.t() | atom()
       }
 
   """
-  @type attribute_group() :: %{(String.t() | atom()) => any()}
+  @type attribute_group_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_applications_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
+      get_application_request() :: %{}
 
   """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+  @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      app_registry_configuration() :: %{
-        "tagQueryConfiguration" => tag_query_configuration()
+      disassociate_resource_request() :: %{}
+
+  """
+  @type disassociate_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_list_item() :: %{
+        "errorMessage" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type app_registry_configuration() :: %{(String.t() | atom()) => any()}
+  @type resources_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -552,79 +290,12 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attribute_groups_for_application_response() :: %{
-        "attributeGroupsDetails" => list(attribute_group_details()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_attribute_groups_for_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attribute_groups_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_attribute_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_associated_resource_response() :: %{
-        "applicationTagResult" => application_tag_result(),
-        "options" => list(list(any())()),
-        "resource" => resource()
-      }
-
-  """
-  @type get_associated_resource_response() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -642,6 +313,227 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        "applications" => list(application_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_attribute_group_response() :: %{
+        "applicationArn" => String.t() | atom(),
+        "attributeGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_attribute_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attribute_groups_for_application_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_attribute_groups_for_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      app_registry_configuration() :: %{
+        "tagQueryConfiguration" => tag_query_configuration()
+      }
+
+  """
+  @type app_registry_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_response() :: %{
+        "application" => application()
+      }
+
+  """
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_query_configuration() :: %{
+        "tagKey" => String.t() | atom()
+      }
+
+  """
+  @type tag_query_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_response() :: %{
+        "application" => application_summary()
+      }
+
+  """
+  @type delete_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_attribute_group_request() :: %{}
+
+  """
+  @type get_attribute_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_associated_resource_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceTagStatus") => list(list(any())())
+      }
+
+  """
+  @type get_associated_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_attribute_group_request() :: %{}
+
+  """
+  @type disassociate_attribute_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_resource_request() :: %{}
+
+  """
+  @type sync_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      application() :: %{
+        "applicationTag" => map(),
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type application() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_info() :: %{
         "arn" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -652,6 +544,91 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   """
   @type resource_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_attribute_group_response() :: %{
+        "attributeGroup" => attribute_group_summary()
+      }
+
+  """
+  @type delete_attribute_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_tag_result() :: %{
+        "applicationTagStatus" => list(any()),
+        "errorMessage" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "resources" => list(resources_list_item())
+      }
+
+  """
+  @type application_tag_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attribute_groups_for_application_response() :: %{
+        "attributeGroupsDetails" => list(attribute_group_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_attribute_groups_for_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_response() :: %{
+        "application" => application()
+      }
+
+  """
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_integrations() :: %{
+        "resourceGroup" => resource_group()
+      }
+
+  """
+  @type resource_integrations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_resource_response() :: %{
+        "applicationArn" => String.t() | atom(),
+        "options" => list(list(any())()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type associate_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_attribute_group_request() :: %{
+        optional("attributes") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_attribute_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,30 +650,6 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      associate_attribute_group_response() :: %{
-        "applicationArn" => String.t() | atom(),
-        "attributeGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type associate_attribute_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_response() :: %{
-        "applications" => list(application_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       put_configuration_request() :: %{
         required("configuration") => app_registry_configuration()
       }
@@ -708,12 +661,104 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      update_attribute_group_response() :: %{
-        "attributeGroup" => attribute_group()
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
       }
 
   """
-  @type update_attribute_group_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_attribute_group_request() :: %{}
+
+  """
+  @type associate_attribute_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_response() :: %{
+        "applicationArn" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type disassociate_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_associated_attribute_groups_response() :: %{
+        "attributeGroups" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_associated_attribute_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_group_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdBy" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateTime" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type attribute_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_group() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdateTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type attribute_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_group() :: %{
+        "arn" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type resource_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -730,12 +775,24 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      delete_attribute_group_response() :: %{
-        "attributeGroup" => attribute_group_summary()
+      resource() :: %{
+        "arn" => String.t() | atom(),
+        "associationTime" => non_neg_integer(),
+        "integrations" => resource_integrations(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type delete_attribute_group_response() :: %{(String.t() | atom()) => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -756,174 +813,117 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
   ## Example:
 
-      get_application_request() :: %{}
-
-  """
-  @type get_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_group_details() :: %{
-        "arn" => String.t() | atom(),
-        "createdBy" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type attribute_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_associated_resource_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceTagStatus") => list(list(any())())
-      }
-
-  """
-  @type get_associated_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_request() :: %{}
-
-  """
-  @type delete_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "arn" => String.t() | atom(),
-        "associationTime" => non_neg_integer(),
-        "integrations" => resource_integrations(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_attribute_group_request() :: %{}
-
-  """
-  @type disassociate_attribute_group_request() :: %{}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @type associate_attribute_group_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type associate_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_application_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_attribute_group_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type delete_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type delete_attribute_group_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type disassociate_attribute_group_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type disassociate_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_application_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_associated_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type get_attribute_group_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type get_configuration_errors() :: internal_server_exception()
 
-  @type list_applications_errors() :: validation_exception() | internal_server_exception()
+  @type list_applications_errors() :: internal_server_exception() | validation_exception()
 
   @type list_associated_attribute_groups_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_associated_resources_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
-  @type list_attribute_groups_errors() :: validation_exception() | internal_server_exception()
+  @type list_attribute_groups_errors() :: internal_server_exception() | validation_exception()
 
   @type list_attribute_groups_for_application_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type put_configuration_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   @type sync_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type update_application_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_attribute_group_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   def metadata do
     %{

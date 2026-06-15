@@ -20,211 +20,67 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      function_definition_version() :: %{
-        "DefaultConfig" => function_default_config(),
-        "Functions" => list(function())
+      runtime_configuration() :: %{
+        "TelemetryConfiguration" => telemetry_configuration()
       }
 
   """
-  @type function_definition_version() :: %{(String.t() | atom()) => any()}
+  @type runtime_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_connector_definition_response() :: %{}
-
-  """
-  @type delete_connector_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_device_definition_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_device_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector() :: %{
-        "ConnectorArn" => String.t() | atom(),
+      create_connector_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "Parameters" => map()
-      }
-
-  """
-  @type connector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("Resources") => list(resource())
-      }
-
-  """
-  @type create_resource_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_role_to_group_response() :: %{
-        "AssociatedAt" => String.t() | atom()
-      }
-
-  """
-  @type associate_role_to_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_execution_config() :: %{
-        "IsolationMode" => list(any()),
-        "RunAs" => function_run_as_config()
-      }
-
-  """
-  @type function_execution_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      local_volume_resource_data() :: %{
-        "DestinationPath" => String.t() | atom(),
-        "GroupOwnerSetting" => group_owner_setting(),
-        "SourcePath" => String.t() | atom()
-      }
-
-  """
-  @type local_volume_resource_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_service_role_from_account_response() :: %{
-        "DisassociatedAt" => String.t() | atom()
-      }
-
-  """
-  @type disassociate_service_role_from_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_logger_definitions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_logger_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployments_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connectivity_info_response() :: %{
-        "Message" => String.t() | atom(),
         "Version" => String.t() | atom()
       }
 
   """
-  @type update_connectivity_info_response() :: %{(String.t() | atom()) => any()}
+  @type create_connector_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_function_definition_request() :: %{}
-
-  """
-  @type delete_function_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_device_definition_response() :: %{}
-
-  """
-  @type delete_device_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_definition_request() :: %{}
-
-  """
-  @type get_subscription_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_logger_definition_response() :: %{}
-
-  """
-  @type delete_logger_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_logger_definition_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
+      update_group_certificate_configuration_response() :: %{
+        "CertificateAuthorityExpiryInMilliseconds" => String.t() | atom(),
+        "CertificateExpiryInMilliseconds" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
       }
 
   """
-  @type list_logger_definition_versions_response() :: %{(String.t() | atom()) => any()}
+  @type update_group_certificate_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_resource_definition_request() :: %{
-        optional("Name") => String.t() | atom()
+      create_core_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type update_resource_definition_request() :: %{(String.t() | atom()) => any()}
+  @type create_core_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_runtime_configuration_request() :: %{
+        optional("TelemetryConfiguration") => telemetry_configuration_update()
+      }
+
+  """
+  @type update_thing_runtime_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,50 +100,254 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      deployment() :: %{
-        "CreatedAt" => String.t() | atom(),
+      reset_deployments_response() :: %{
         "DeploymentArn" => String.t() | atom(),
-        "DeploymentId" => String.t() | atom(),
-        "DeploymentType" => list(any()),
-        "GroupArn" => String.t() | atom()
+        "DeploymentId" => String.t() | atom()
       }
 
   """
-  @type deployment() :: %{(String.t() | atom()) => any()}
+  @type reset_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_logger_definition_request() :: %{}
+      get_connectivity_info_response() :: %{
+        "ConnectivityInfo" => list(connectivity_info()),
+        "Message" => String.t() | atom()
+      }
 
   """
-  @type get_logger_definition_request() :: %{}
+  @type get_connectivity_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      secrets_manager_secret_resource_data() :: %{
-        "ARN" => String.t() | atom(),
-        "AdditionalStagingLabelsToDownload" => list(String.t() | atom())
+      get_device_definition_version_request() :: %{
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type secrets_manager_secret_resource_data() :: %{(String.t() | atom()) => any()}
+  @type get_device_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_group_certificate_authority_response() :: %{
-        "GroupCertificateAuthorityArn" => String.t() | atom(),
-        "GroupCertificateAuthorityId" => String.t() | atom(),
-        "PemEncodedCertificate" => String.t() | atom()
+      disassociate_service_role_from_account_request() :: %{}
+
+  """
+  @type disassociate_service_role_from_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type get_group_certificate_authority_response() :: %{(String.t() | atom()) => any()}
+  @type get_device_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_logger_definition_request() :: %{}
+
+  """
+  @type delete_logger_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connectivity_info_request() :: %{}
+
+  """
+  @type get_connectivity_info_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_bulk_deployment_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        required("InputFileUri") => String.t() | atom()
+      }
+
+  """
+  @type start_bulk_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("InitialVersion") => group_version(),
+        optional("tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_device_definition_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("InitialVersion") => device_definition_version(),
+        optional("Name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_device_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_associated_role_request() :: %{}
+
+  """
+  @type get_associated_role_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_definition_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("InitialVersion") => connector_definition_version(),
+        optional("Name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_connector_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_core_definition_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("InitialVersion") => core_definition_version(),
+        optional("Name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_core_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_run_as_config() :: %{
+        "Gid" => integer(),
+        "Uid" => integer()
+      }
+
+  """
+  @type function_run_as_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_definition_version_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("DefaultConfig") => function_default_config(),
+        optional("Functions") => list(function())
+      }
+
+  """
+  @type create_function_definition_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_group_certificate_configuration_request() :: %{
+        optional("CertificateExpiryInMilliseconds") => String.t() | atom()
+      }
+
+  """
+  @type update_group_certificate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_logger_definition_response() :: %{}
+
+  """
+  @type delete_logger_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_definitions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("DeploymentId") => String.t() | atom(),
+        optional("GroupVersionId") => String.t() | atom(),
+        required("DeploymentType") => list(any())
+      }
+
+  """
+  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription_definition_version() :: %{
+        "Subscriptions" => list(subscription())
+      }
+
+  """
+  @type subscription_definition_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_access_policy() :: %{
+        "Permission" => list(any()),
+        "ResourceId" => String.t() | atom()
+      }
+
+  """
+  @type resource_access_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,257 +383,113 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      get_subscription_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "tags" => map()
+      function_configuration() :: %{
+        "EncodingType" => list(any()),
+        "Environment" => function_configuration_environment(),
+        "ExecArgs" => String.t() | atom(),
+        "Executable" => String.t() | atom(),
+        "FunctionRuntimeOverride" => String.t() | atom(),
+        "MemorySize" => integer(),
+        "Pinned" => boolean(),
+        "Timeout" => integer()
       }
 
   """
-  @type get_subscription_definition_response() :: %{(String.t() | atom()) => any()}
+  @type function_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_thing_runtime_configuration_request() :: %{
-        optional("TelemetryConfiguration") => telemetry_configuration_update()
-      }
+      update_core_definition_response() :: %{}
 
   """
-  @type update_thing_runtime_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type update_core_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_subscription_definition_version_response() :: %{
+      get_connector_definition_version_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
-        "Definition" => subscription_definition_version(),
+        "Definition" => connector_definition_version(),
         "Id" => String.t() | atom(),
         "NextToken" => String.t() | atom(),
         "Version" => String.t() | atom()
       }
 
   """
-  @type get_subscription_definition_version_response() :: %{(String.t() | atom()) => any()}
+  @type get_connector_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_resource_definitions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
+      update_device_definition_response() :: %{}
 
   """
-  @type list_resource_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type update_device_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_bulk_deployment_detailed_reports_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_bulk_deployment_detailed_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("InitialVersion") => connector_definition_version(),
-        optional("Name") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_connector_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployments_response() :: %{
-        "Deployments" => list(deployment()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_core_definition_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_core_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_certificate_authorities_request() :: %{}
-
-  """
-  @type list_group_certificate_authorities_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_definitions_response() :: %{
-        "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connector_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("DefaultConfig") => function_default_config(),
-        optional("Functions") => list(function())
-      }
-
-  """
-  @type create_function_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_core_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("InitialVersion") => core_definition_version(),
-        optional("Name") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_core_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_associated_role_request() :: %{}
-
-  """
-  @type get_associated_role_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_definition_version() :: %{
-        "Resources" => list(resource())
-      }
-
-  """
-  @type resource_definition_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_logger_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
+      get_bulk_deployment_status_response() :: %{
+        "BulkDeploymentMetrics" => bulk_deployment_metrics(),
+        "BulkDeploymentStatus" => list(any()),
+        "CreatedAt" => String.t() | atom(),
+        "ErrorDetails" => list(error_detail()),
+        "ErrorMessage" => String.t() | atom(),
         "tags" => map()
       }
 
   """
-  @type get_logger_definition_response() :: %{(String.t() | atom()) => any()}
+  @type get_bulk_deployment_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      function_default_config() :: %{
-        "Execution" => function_default_execution_config()
-      }
-
-  """
-  @type function_default_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Definition" => function_definition_version(),
+      logger() :: %{
+        "Component" => list(any()),
         "Id" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Version" => String.t() | atom()
+        "Level" => list(any()),
+        "Space" => integer(),
+        "Type" => list(any())
       }
 
   """
-  @type get_function_definition_version_response() :: %{(String.t() | atom()) => any()}
+  @type logger() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      group_owner_setting() :: %{
-        "AutoAddGroupOwner" => boolean(),
-        "GroupOwner" => String.t() | atom()
-      }
+      delete_function_definition_response() :: %{}
 
   """
-  @type group_owner_setting() :: %{(String.t() | atom()) => any()}
+  @type delete_function_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_device_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("InitialVersion") => device_definition_version(),
-        optional("Name") => String.t() | atom(),
-        optional("tags") => map()
+      create_group_certificate_authority_response() :: %{
+        "GroupCertificateAuthorityArn" => String.t() | atom()
       }
 
   """
-  @type create_device_definition_request() :: %{(String.t() | atom()) => any()}
+  @type create_group_certificate_authority_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      runtime_configuration() :: %{
-        "TelemetryConfiguration" => telemetry_configuration()
-      }
+      delete_device_definition_request() :: %{}
 
   """
-  @type runtime_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_device_definition_request() :: %{}
 
   @typedoc """
 
@@ -591,71 +507,34 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      create_deployment_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("DeploymentId") => String.t() | atom(),
-        optional("GroupVersionId") => String.t() | atom(),
-        required("DeploymentType") => list(any())
+      device_definition_version() :: %{
+        "Devices" => list(device())
       }
 
   """
-  @type create_deployment_request() :: %{(String.t() | atom()) => any()}
+  @type device_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_device_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("Devices") => list(device())
+      get_group_certificate_configuration_response() :: %{
+        "CertificateAuthorityExpiryInMilliseconds" => String.t() | atom(),
+        "CertificateExpiryInMilliseconds" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
       }
 
   """
-  @type create_device_definition_version_request() :: %{(String.t() | atom()) => any()}
+  @type get_group_certificate_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      function_run_as_config() :: %{
-        "Gid" => integer(),
-        "Uid" => integer()
-      }
+      update_subscription_definition_response() :: %{}
 
   """
-  @type function_run_as_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      telemetry_configuration_update() :: %{
-        "Telemetry" => list(any())
-      }
-
-  """
-  @type telemetry_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_subscription_definition_request() :: %{}
-
-  """
-  @type delete_subscription_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bulk_deployments_response() :: %{
-        "BulkDeployments" => list(bulk_deployment()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bulk_deployments_response() :: %{(String.t() | atom()) => any()}
+  @type update_subscription_definition_response() :: %{}
 
   @typedoc """
 
@@ -675,57 +554,656 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      list_resource_definitions_response() :: %{
+      list_core_definitions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_core_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connectivity_info_response() :: %{
+        "Message" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type update_connectivity_info_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription() :: %{
+        "Id" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_associated_role_response() :: %{
+        "AssociatedAt" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type get_associated_role_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_definition_version() :: %{
+        "Resources" => list(resource())
+      }
+
+  """
+  @type resource_definition_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment() :: %{
+        "CreatedAt" => String.t() | atom(),
+        "DeploymentArn" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom(),
+        "DeploymentType" => list(any()),
+        "GroupArn" => String.t() | atom()
+      }
+
+  """
+  @type deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logger_definition_version() :: %{
+        "Loggers" => list(logger())
+      }
+
+  """
+  @type logger_definition_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_deployments_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("Force") => boolean()
+      }
+
+  """
+  @type reset_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_definitions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_function_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_definitions_response() :: %{
         "Definitions" => list(definition_information()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_resource_definitions_response() :: %{(String.t() | atom()) => any()}
+  @type list_subscription_definitions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subscription_definition_version() :: %{
-        "Subscriptions" => list(subscription())
+      delete_resource_definition_request() :: %{}
+
+  """
+  @type delete_resource_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      telemetry_configuration() :: %{
+        "ConfigurationSyncStatus" => list(any()),
+        "Telemetry" => list(any())
       }
 
   """
-  @type subscription_definition_version() :: %{(String.t() | atom()) => any()}
+  @type telemetry_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_group_certificate_configuration_request() :: %{
-        optional("CertificateExpiryInMilliseconds") => String.t() | atom()
+      get_group_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Definition" => group_version(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type update_group_certificate_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type get_group_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_function_definition_request() :: %{}
-
-  """
-  @type get_function_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_software_update_job_response() :: %{
-        "IotJobArn" => String.t() | atom(),
-        "IotJobId" => String.t() | atom(),
-        "PlatformSoftwareVersion" => String.t() | atom()
+      device() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "SyncShadow" => boolean(),
+        "ThingArn" => String.t() | atom()
       }
 
   """
-  @type create_software_update_job_response() :: %{(String.t() | atom()) => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_logger_definition_response() :: %{}
+
+  """
+  @type update_logger_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      group_owner_setting() :: %{
+        "AutoAddGroupOwner" => boolean(),
+        "GroupOwner" => String.t() | atom()
+      }
+
+  """
+  @type group_owner_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_role_from_group_response() :: %{
+        "DisassociatedAt" => String.t() | atom()
+      }
+
+  """
+  @type disassociate_role_from_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bulk_deployment_detailed_reports_response() :: %{
+        "Deployments" => list(bulk_deployment_result()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bulk_deployment_detailed_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_group_versions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_group_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_device_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type create_device_definition_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logger_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type create_logger_definition_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logger_definition_version_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("Loggers") => list(logger())
+      }
+
+  """
+  @type create_logger_definition_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_definitions_response() :: %{
+        "Definitions" => list(definition_information()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_device_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logger_definition_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("InitialVersion") => logger_definition_version(),
+        optional("Name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_logger_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_device_definition_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_device_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_core_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type create_core_definition_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_device_definition_version_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("Devices") => list(device())
+      }
+
+  """
+  @type create_device_definition_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_definition_request() :: %{}
+
+  """
+  @type delete_connector_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_definition_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
+      }
+
+  """
+  @type list_subscription_definition_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_connector_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_bulk_deployment_request() :: %{}
+
+  """
+  @type stop_bulk_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_runtime_configuration_request() :: %{}
+
+  """
+  @type get_thing_runtime_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connectivity_info() :: %{
+        "HostAddress" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "PortNumber" => integer()
+      }
+
+  """
+  @type connectivity_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_logger_definition_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
+      }
+
+  """
+  @type list_logger_definition_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_certificate_authority_request() :: %{
+        optional("AmznClientToken") => String.t() | atom()
+      }
+
+  """
+  @type create_group_certificate_authority_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_definition_versions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_definition_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_group_certificate_authorities_response() :: %{
+        "GroupCertificateAuthorities" => list(group_certificate_authority_properties())
+      }
+
+  """
+  @type list_group_certificate_authorities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_definition_version_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("Connectors") => list(connector())
+      }
+
+  """
+  @type create_connector_definition_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_definitions_response() :: %{
+        "Definitions" => list(definition_information()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connector_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type get_subscription_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_definition_request() :: %{}
+
+  """
+  @type get_resource_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_logger_definition_versions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_logger_definition_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_definition_response() :: %{}
+
+  """
+  @type delete_connector_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      telemetry_configuration_update() :: %{
+        "Telemetry" => list(any())
+      }
+
+  """
+  @type telemetry_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_status_response() :: %{
+        "DeploymentStatus" => String.t() | atom(),
+        "DeploymentType" => list(any()),
+        "ErrorDetails" => list(error_detail()),
+        "ErrorMessage" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom()
+      }
+
+  """
+  @type get_deployment_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_definition_versions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_device_definition_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_bulk_deployment_response() :: %{
+        "BulkDeploymentArn" => String.t() | atom(),
+        "BulkDeploymentId" => String.t() | atom()
+      }
+
+  """
+  @type start_bulk_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bulk_deployment() :: %{
+        "BulkDeploymentArn" => String.t() | atom(),
+        "BulkDeploymentId" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom()
+      }
+
+  """
+  @type bulk_deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_definition_version() :: %{
+        "Connectors" => list(connector())
+      }
+
+  """
+  @type connector_definition_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_definition_version() :: %{
+        "DefaultConfig" => function_default_config(),
+        "Functions" => list(function())
+      }
+
+  """
+  @type function_definition_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_group_certificate_authorities_request() :: %{}
+
+  """
+  @type list_group_certificate_authorities_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_definitions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_device_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscription_definition_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_subscription_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -749,741 +1227,33 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      create_deployment_response() :: %{
-        "DeploymentArn" => String.t() | atom(),
-        "DeploymentId" => String.t() | atom()
-      }
+      disassociate_role_from_group_request() :: %{}
 
   """
-  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
+  @type disassociate_role_from_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_definition_version() :: %{
-        "Connectors" => list(connector())
-      }
-
-  """
-  @type connector_definition_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_configuration_environment() :: %{
-        "AccessSysfs" => boolean(),
-        "Execution" => function_execution_config(),
-        "ResourceAccessPolicies" => list(resource_access_policy()),
-        "Variables" => map()
-      }
-
-  """
-  @type function_configuration_environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Definition" => device_definition_version(),
-        "Id" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type get_device_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_definition_request() :: %{}
-
-  """
-  @type delete_resource_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_role_for_account_request() :: %{}
-
-  """
-  @type get_service_role_for_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_function_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_definition_version() :: %{
-        "Cores" => list(core())
-      }
-
-  """
-  @type core_definition_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_associated_role_response() :: %{
-        "AssociatedAt" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type get_associated_role_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_function_definition_response() :: %{}
-
-  """
-  @type delete_function_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connectivity_info_request() :: %{
-        optional("ConnectivityInfo") => list(connectivity_info())
-      }
-
-  """
-  @type update_connectivity_info_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_core_definition_request() :: %{}
-
-  """
-  @type delete_core_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connector_definition_request() :: %{}
-
-  """
-  @type delete_connector_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_role_from_group_response() :: %{
-        "DisassociatedAt" => String.t() | atom()
-      }
-
-  """
-  @type disassociate_role_from_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_core_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type get_core_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Definition" => resource_definition_version(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_core_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_core_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connector_definition_request() :: %{}
-
-  """
-  @type get_connector_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      telemetry_configuration() :: %{
-        "ConfigurationSyncStatus" => list(any()),
-        "Telemetry" => list(any())
-      }
-
-  """
-  @type telemetry_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_download_owner_setting() :: %{
-        "GroupOwner" => String.t() | atom(),
-        "GroupPermission" => list(any())
-      }
-
-  """
-  @type resource_download_owner_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_definition_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
-      }
-
-  """
-  @type list_core_definition_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_subscription_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bulk_deployment_detailed_reports_response() :: %{
-        "Deployments" => list(bulk_deployment_result()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bulk_deployment_detailed_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connectivity_info() :: %{
-        "HostAddress" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Metadata" => String.t() | atom(),
-        "PortNumber" => integer()
-      }
-
-  """
-  @type connectivity_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connectivity_info_response() :: %{
-        "ConnectivityInfo" => list(connectivity_info()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type get_connectivity_info_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_connector_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_definition_version() :: %{
-        "Devices" => list(device())
-      }
-
-  """
-  @type device_definition_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_function_definitions_response() :: %{
-        "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_function_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_bulk_deployment_request() :: %{}
-
-  """
-  @type stop_bulk_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
-      }
-
-  """
-  @type list_group_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_connector_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_definition_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
-      }
-
-  """
-  @type list_subscription_definition_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_definitions_request() :: %{
+      list_bulk_deployment_detailed_reports_request() :: %{
         optional("MaxResults") => String.t() | atom(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_connector_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type list_bulk_deployment_detailed_reports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_logger_definition_request() :: %{
-        optional("Name") => String.t() | atom()
+      tag_resource_request() :: %{
+        optional("tags") => map()
       }
 
   """
-  @type update_logger_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_certificate_authority_request() :: %{}
-
-  """
-  @type get_group_certificate_authority_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_data_container() :: %{
-        "LocalDeviceResourceData" => local_device_resource_data(),
-        "LocalVolumeResourceData" => local_volume_resource_data(),
-        "S3MachineLearningModelResourceData" => s3_machine_learning_model_resource_data(),
-        "SageMakerMachineLearningModelResourceData" => sage_maker_machine_learning_model_resource_data(),
-        "SecretsManagerSecretResourceData" => secrets_manager_secret_resource_data()
-      }
-
-  """
-  @type resource_data_container() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_certificate_authority_response() :: %{
-        "GroupCertificateAuthorityArn" => String.t() | atom()
-      }
-
-  """
-  @type create_group_certificate_authority_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_function_definition_response() :: %{}
-
-  """
-  @type update_function_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_subscription_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_device_definition_request() :: %{}
-
-  """
-  @type delete_device_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscription_definition_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_subscription_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_certificate_authorities_response() :: %{
-        "GroupCertificateAuthorities" => list(group_certificate_authority_properties())
-      }
-
-  """
-  @type list_group_certificate_authorities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      local_device_resource_data() :: %{
-        "GroupOwnerSetting" => group_owner_setting(),
-        "SourcePath" => String.t() | atom()
-      }
-
-  """
-  @type local_device_resource_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_core_definition_version_request() :: %{}
-
-  """
-  @type get_core_definition_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connector_definition_version_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_connector_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_deployments_response() :: %{
-        "DeploymentArn" => String.t() | atom(),
-        "DeploymentId" => String.t() | atom()
-      }
-
-  """
-  @type reset_deployments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_definition_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
-      }
-
-  """
-  @type list_resource_definition_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_status_response() :: %{
-        "DeploymentStatus" => String.t() | atom(),
-        "DeploymentType" => list(any()),
-        "ErrorDetails" => list(error_detail()),
-        "ErrorMessage" => String.t() | atom(),
-        "UpdatedAt" => String.t() | atom()
-      }
-
-  """
-  @type get_deployment_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_certificate_authority_properties() :: %{
-        "GroupCertificateAuthorityArn" => String.t() | atom(),
-        "GroupCertificateAuthorityId" => String.t() | atom()
-      }
-
-  """
-  @type group_certificate_authority_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_core_definition_response() :: %{}
-
-  """
-  @type update_core_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_information() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type group_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logger_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("Loggers") => list(logger())
-      }
-
-  """
-  @type create_logger_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_definition_version_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_function_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_certificate_configuration_request() :: %{}
-
-  """
-  @type get_group_certificate_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      bulk_deployment() :: %{
-        "BulkDeploymentArn" => String.t() | atom(),
-        "BulkDeploymentId" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom()
-      }
-
-  """
-  @type bulk_deployment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_definition_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_connector_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      greengrass_function() :: %{
-        "FunctionArn" => String.t() | atom(),
-        "FunctionConfiguration" => function_configuration(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type greengrass_function() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("InitialVersion") => group_version(),
-        optional("tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_role_from_group_request() :: %{}
-
-  """
-  @type disassociate_role_from_group_request() :: %{}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1502,61 +1272,104 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      get_thing_runtime_configuration_response() :: %{
-        "RuntimeConfiguration" => runtime_configuration()
+      list_device_definition_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
       }
 
   """
-  @type get_thing_runtime_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_device_definition_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_connectivity_info_request() :: %{}
-
-  """
-  @type get_connectivity_info_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_definition_version_request() :: %{}
-
-  """
-  @type get_resource_definition_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
+      internal_server_error_exception() :: %{
+        "ErrorDetails" => list(error_detail()),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type create_resource_definition_version_response() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_service_role_to_account_request() :: %{
+      get_core_definition_version_request() :: %{}
+
+  """
+  @type get_core_definition_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_definition_response() :: %{}
+
+  """
+  @type update_connector_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscription_definition_response() :: %{}
+
+  """
+  @type delete_subscription_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_core_definition_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_core_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      greengrass_function() :: %{
+        "FunctionArn" => String.t() | atom(),
+        "FunctionConfiguration" => function_configuration(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type greengrass_function() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_role_to_group_request() :: %{
         required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type associate_service_role_to_account_request() :: %{(String.t() | atom()) => any()}
+  @type associate_role_to_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_device_definition_response() :: %{
+      associate_service_role_to_account_response() :: %{
+        "AssociatedAt" => String.t() | atom()
+      }
+
+  """
+  @type associate_service_role_to_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_logger_definition_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -1568,79 +1381,21 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type get_device_definition_response() :: %{(String.t() | atom()) => any()}
+  @type get_logger_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_deployments_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("Force") => boolean()
+      create_function_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type reset_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bulk_deployments_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_bulk_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_logger_definition_version_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_logger_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_certificate_configuration_response() :: %{
-        "CertificateAuthorityExpiryInMilliseconds" => String.t() | atom(),
-        "CertificateExpiryInMilliseconds" => String.t() | atom(),
-        "GroupId" => String.t() | atom()
-      }
-
-  """
-  @type update_group_certificate_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_definitions_response() :: %{
-        "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_device_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_definition_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
-      }
-
-  """
-  @type list_device_definition_versions_response() :: %{(String.t() | atom()) => any()}
+  @type create_function_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1664,255 +1419,60 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      get_group_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Definition" => group_version(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type get_group_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logger() :: %{
-        "Component" => list(any()),
-        "Id" => String.t() | atom(),
-        "Level" => list(any()),
-        "Space" => integer(),
-        "Type" => list(any())
-      }
-
-  """
-  @type logger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logger_definition_response() :: %{
+      get_resource_definition_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "LastUpdatedTimestamp" => String.t() | atom(),
         "LatestVersion" => String.t() | atom(),
         "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type create_logger_definition_response() :: %{(String.t() | atom()) => any()}
+  @type get_resource_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_function_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("InitialVersion") => function_definition_version(),
-        optional("Name") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_function_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_version() :: %{
-        "ConnectorDefinitionVersionArn" => String.t() | atom(),
-        "CoreDefinitionVersionArn" => String.t() | atom(),
-        "DeviceDefinitionVersionArn" => String.t() | atom(),
-        "FunctionDefinitionVersionArn" => String.t() | atom(),
-        "LoggerDefinitionVersionArn" => String.t() | atom(),
-        "ResourceDefinitionVersionArn" => String.t() | atom(),
-        "SubscriptionDefinitionVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type group_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_detail() :: %{
-        "DetailedErrorCode" => String.t() | atom(),
-        "DetailedErrorMessage" => String.t() | atom()
-      }
-
-  """
-  @type error_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_default_execution_config() :: %{
-        "IsolationMode" => list(any()),
-        "RunAs" => function_run_as_config()
-      }
-
-  """
-  @type function_default_execution_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logger_definition_version() :: %{
-        "Loggers" => list(logger())
-      }
-
-  """
-  @type logger_definition_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_definition_versions_request() :: %{
+      list_deployments_request() :: %{
         optional("MaxResults") => String.t() | atom(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_device_definition_versions_request() :: %{(String.t() | atom()) => any()}
+  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_group_response() :: %{}
-
-  """
-  @type delete_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      core() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "SyncShadow" => boolean(),
-        "ThingArn" => String.t() | atom()
-      }
-
-  """
-  @type core() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_status_request() :: %{}
-
-  """
-  @type get_deployment_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logger_definition_version_response() :: %{
+      get_device_definition_version_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
+        "Definition" => device_definition_version(),
         "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_logger_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_function_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_resource_definition_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_core_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("Cores") => list(core())
-      }
-
-  """
-  @type create_core_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_definition_request() :: %{}
-
-  """
-  @type get_device_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_definition_version_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("Subscriptions") => list(subscription())
-      }
-
-  """
-  @type create_subscription_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_definition_versions_response() :: %{
         "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
+        "Version" => String.t() | atom()
       }
 
   """
-  @type list_connector_definition_versions_response() :: %{(String.t() | atom()) => any()}
+  @type get_device_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_logger_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
+      s3_machine_learning_model_resource_data() :: %{
+        "DestinationPath" => String.t() | atom(),
+        "OwnerSetting" => resource_download_owner_setting(),
+        "S3Uri" => String.t() | atom()
       }
 
   """
-  @type list_logger_definition_versions_request() :: %{(String.t() | atom()) => any()}
+  @type s3_machine_learning_model_resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1933,181 +1493,86 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      update_function_definition_request() :: %{
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_function_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_certificate_configuration_response() :: %{
-        "CertificateAuthorityExpiryInMilliseconds" => String.t() | atom(),
-        "CertificateExpiryInMilliseconds" => String.t() | atom(),
-        "GroupId" => String.t() | atom()
-      }
-
-  """
-  @type get_group_certificate_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_configuration() :: %{
-        "EncodingType" => list(any()),
-        "Environment" => function_configuration_environment(),
-        "ExecArgs" => String.t() | atom(),
-        "Executable" => String.t() | atom(),
-        "FunctionRuntimeOverride" => String.t() | atom(),
-        "MemorySize" => integer(),
-        "Pinned" => boolean(),
-        "Timeout" => integer()
-      }
-
-  """
-  @type function_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_bulk_deployment_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("ExecutionRoleArn") => String.t() | atom(),
-        required("InputFileUri") => String.t() | atom()
-      }
-
-  """
-  @type start_bulk_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_certificate_authority_request() :: %{
-        optional("AmznClientToken") => String.t() | atom()
-      }
-
-  """
-  @type create_group_certificate_authority_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bulk_deployment_status_request() :: %{}
-
-  """
-  @type get_bulk_deployment_status_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "ErrorDetails" => list(error_detail()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_bulk_deployment_response() :: %{
-        "BulkDeploymentArn" => String.t() | atom(),
-        "BulkDeploymentId" => String.t() | atom()
-      }
-
-  """
-  @type start_bulk_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_version_request() :: %{}
-
-  """
-  @type get_group_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_function_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_function_definition_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_response() :: %{
+      get_function_definition_version_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
+        "Definition" => function_definition_version(),
         "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "tags" => map()
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
       }
 
   """
-  @type get_group_response() :: %{(String.t() | atom()) => any()}
+  @type get_function_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_connector_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
+      create_resource_definition_version_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("Resources") => list(resource())
       }
 
   """
-  @type list_connector_definition_versions_request() :: %{(String.t() | atom()) => any()}
+  @type create_resource_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subscription() :: %{
-        "Id" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "Subject" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
+      delete_group_response() :: %{}
 
   """
-  @type subscription() :: %{(String.t() | atom()) => any()}
+  @type delete_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_device_definition_response() :: %{
+      get_group_certificate_authority_request() :: %{}
+
+  """
+  @type get_group_certificate_authority_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_secret_resource_data() :: %{
+        "ARN" => String.t() | atom(),
+        "AdditionalStagingLabelsToDownload" => list(String.t() | atom())
+      }
+
+  """
+  @type secrets_manager_secret_resource_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_execution_config() :: %{
+        "IsolationMode" => list(any()),
+        "RunAs" => function_run_as_config()
+      }
+
+  """
+  @type function_execution_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscription_definition_request() :: %{}
+
+  """
+  @type delete_subscription_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_definition_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -2118,74 +1583,7 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type create_device_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_thing_runtime_configuration_response() :: %{}
-
-  """
-  @type update_thing_runtime_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_versions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_group_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_group_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_device_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_device_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_group_request() :: %{}
-
-  """
-  @type delete_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_definition_request() :: %{}
-
-  """
-  @type get_resource_definition_request() :: %{}
+  @type create_function_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2209,123 +1607,74 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      create_resource_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_resource_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_definitions_response() :: %{
-        "Definitions" => list(definition_information()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_core_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_definition_version_request() :: %{
+      list_function_definition_versions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_device_definition_version_request() :: %{(String.t() | atom()) => any()}
+  @type list_function_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bulk_deployment_metrics() :: %{
-        "InvalidInputRecords" => integer(),
-        "RecordsProcessed" => integer(),
-        "RetryAttempts" => integer()
+      core_definition_version() :: %{
+        "Cores" => list(core())
       }
 
   """
-  @type bulk_deployment_metrics() :: %{(String.t() | atom()) => any()}
+  @type core_definition_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
-        "ErrorDetails" => list(error_detail()),
-        "Message" => String.t() | atom()
+      list_core_definition_versions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type list_core_definition_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_resource_definition_response() :: %{}
-
-  """
-  @type delete_resource_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_definitions_response() :: %{
-        "Definitions" => list(definition_information()),
+      list_deployments_response() :: %{
+        "Deployments" => list(deployment()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_subscription_definitions_response() :: %{(String.t() | atom()) => any()}
+  @type list_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_core_definition_version_response() :: %{
+      get_resource_definition_version_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
-        "Definition" => core_definition_version(),
+        "Definition" => resource_definition_version(),
         "Id" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
         "Version" => String.t() | atom()
       }
 
   """
-  @type get_core_definition_version_response() :: %{(String.t() | atom()) => any()}
+  @type get_resource_definition_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_subscription_definition_version_request() :: %{
+      get_logger_definition_version_request() :: %{
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_subscription_definition_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_definition_response() :: %{}
-
-  """
-  @type update_connector_definition_response() :: %{}
+  @type get_logger_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2349,7 +1698,74 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      device() :: %{
+      get_service_role_for_account_response() :: %{
+        "AssociatedAt" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type get_service_role_for_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_service_role_to_account_request() :: %{
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_service_role_to_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_definitions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_subscription_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_definition_request() :: %{}
+
+  """
+  @type get_function_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_definition_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
+      }
+
+  """
+  @type list_function_definition_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core() :: %{
         "CertificateArn" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "SyncShadow" => boolean(),
@@ -2357,22 +1773,205 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type device() :: %{(String.t() | atom()) => any()}
+  @type core() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_subscription_definition_response() :: %{}
+      delete_resource_definition_response() :: %{}
 
   """
-  @type delete_subscription_definition_response() :: %{}
+  @type delete_resource_definition_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_core_definition_response() :: %{
+      get_subscription_definition_version_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_subscription_definition_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_definition_version_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_connector_definition_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type get_core_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_definition_versions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connector_definition_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_detail() :: %{
+        "DetailedErrorCode" => String.t() | atom(),
+        "DetailedErrorMessage" => String.t() | atom()
+      }
+
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_status_request() :: %{}
+
+  """
+  @type get_deployment_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_download_owner_setting() :: %{
+        "GroupOwner" => String.t() | atom(),
+        "GroupPermission" => list(any())
+      }
+
+  """
+  @type resource_download_owner_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_definition_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
+      }
+
+  """
+  @type list_resource_definition_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bulk_deployments_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_bulk_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_definition_request() :: %{}
+
+  """
+  @type get_connector_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bulk_deployment_status_request() :: %{}
+
+  """
+  @type get_bulk_deployment_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_group_response() :: %{}
+
+  """
+  @type update_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      function_default_execution_config() :: %{
+        "IsolationMode" => list(any()),
+        "RunAs" => function_run_as_config()
+      }
+
+  """
+  @type function_default_execution_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_definitions_response() :: %{
+        "Definitions" => list(definition_information()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_resource_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_definition_response() :: %{}
+
+  """
+  @type update_function_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type create_resource_definition_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_information() :: %{
         "Arn" => String.t() | atom(),
         "CreationTimestamp" => String.t() | atom(),
         "Id" => String.t() | atom(),
@@ -2383,16 +1982,170 @@ defmodule AWS.Greengrass do
       }
 
   """
-  @type create_core_definition_response() :: %{(String.t() | atom()) => any()}
+  @type group_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_bulk_deployment_response() :: %{}
+      list_group_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
+      }
 
   """
-  @type stop_bulk_deployment_response() :: %{}
+  @type list_group_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_definition_request() :: %{}
+
+  """
+  @type delete_core_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_logger_definition_request() :: %{}
+
+  """
+  @type get_logger_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_certificate_authority_response() :: %{
+        "GroupCertificateAuthorityArn" => String.t() | atom(),
+        "GroupCertificateAuthorityId" => String.t() | atom(),
+        "PemEncodedCertificate" => String.t() | atom()
+      }
+
+  """
+  @type get_group_certificate_authority_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_data_container() :: %{
+        "LocalDeviceResourceData" => local_device_resource_data(),
+        "LocalVolumeResourceData" => local_volume_resource_data(),
+        "S3MachineLearningModelResourceData" => s3_machine_learning_model_resource_data(),
+        "SageMakerMachineLearningModelResourceData" => sage_maker_machine_learning_model_resource_data(),
+        "SecretsManagerSecretResourceData" => secrets_manager_secret_resource_data()
+      }
+
+  """
+  @type resource_data_container() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_definitions_request() :: %{
+        optional("MaxResults") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connector_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_thing_runtime_configuration_response() :: %{}
+
+  """
+  @type update_thing_runtime_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_certificate_authority_properties() :: %{
+        "GroupCertificateAuthorityArn" => String.t() | atom(),
+        "GroupCertificateAuthorityId" => String.t() | atom()
+      }
+
+  """
+  @type group_certificate_authority_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_deployment_response() :: %{
+        "DeploymentArn" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom()
+      }
+
+  """
+  @type create_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_device_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_device_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_default_config() :: %{
+        "Execution" => function_default_execution_config()
+      }
+
+  """
+  @type function_default_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_definition_request() :: %{}
+
+  """
+  @type get_device_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_core_definition_version_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("Cores") => list(core())
+      }
+
+  """
+  @type create_core_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2415,13 +2168,180 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      create_connector_definition_version_request() :: %{
+      create_subscription_definition_request() :: %{
         optional("AmznClientToken") => String.t() | atom(),
-        optional("Connectors") => list(connector())
+        optional("InitialVersion") => subscription_definition_version(),
+        optional("Name") => String.t() | atom(),
+        optional("tags") => map()
       }
 
   """
-  @type create_connector_definition_version_request() :: %{(String.t() | atom()) => any()}
+  @type create_subscription_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_definition_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_resource_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_certificate_configuration_request() :: %{}
+
+  """
+  @type get_group_certificate_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Definition" => subscription_definition_version(),
+        "Id" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type get_subscription_definition_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_version() :: %{
+        "ConnectorDefinitionVersionArn" => String.t() | atom(),
+        "CoreDefinitionVersionArn" => String.t() | atom(),
+        "DeviceDefinitionVersionArn" => String.t() | atom(),
+        "FunctionDefinitionVersionArn" => String.t() | atom(),
+        "LoggerDefinitionVersionArn" => String.t() | atom(),
+        "ResourceDefinitionVersionArn" => String.t() | atom(),
+        "SubscriptionDefinitionVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type group_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connectivity_info_request() :: %{
+        optional("ConnectivityInfo") => list(connectivity_info())
+      }
+
+  """
+  @type update_connectivity_info_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_definition_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("InitialVersion") => function_definition_version(),
+        optional("Name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_function_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_logger_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_logger_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type create_group_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "ErrorDetails" => list(error_detail()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_definition_version_request() :: %{}
+
+  """
+  @type get_resource_definition_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_bulk_deployment_response() :: %{}
+
+  """
+  @type stop_bulk_deployment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_definition_request() :: %{}
+
+  """
+  @type delete_function_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_resource_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2439,88 +2359,385 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      get_group_request() :: %{}
-
-  """
-  @type get_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_definitions_request() :: %{
+      list_logger_definitions_request() :: %{
         optional("MaxResults") => String.t() | atom(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_subscription_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type list_logger_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_service_role_for_account_response() :: %{
-        "AssociatedAt" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
+      local_volume_resource_data() :: %{
+        "DestinationPath" => String.t() | atom(),
+        "GroupOwnerSetting" => group_owner_setting(),
+        "SourcePath" => String.t() | atom()
       }
 
   """
-  @type get_service_role_for_account_response() :: %{(String.t() | atom()) => any()}
+  @type local_volume_resource_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_core_definitions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
+      function_configuration_environment() :: %{
+        "AccessSysfs" => boolean(),
+        "Execution" => function_execution_config(),
+        "ResourceAccessPolicies" => list(resource_access_policy()),
+        "Variables" => map()
+      }
+
+  """
+  @type function_configuration_environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_thing_runtime_configuration_response() :: %{
+        "RuntimeConfiguration" => runtime_configuration()
+      }
+
+  """
+  @type get_thing_runtime_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_definition_version_request() :: %{
+        optional("AmznClientToken") => String.t() | atom(),
+        optional("Subscriptions") => list(subscription())
+      }
+
+  """
+  @type create_subscription_definition_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_role_for_account_request() :: %{}
+
+  """
+  @type get_service_role_for_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_definition_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_connector_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_group_request() :: %{}
+
+  """
+  @type delete_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_logger_definition_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_logger_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_service_role_from_account_response() :: %{
+        "DisassociatedAt" => String.t() | atom()
+      }
+
+  """
+  @type disassociate_service_role_from_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_definitions_response() :: %{
+        "Definitions" => list(definition_information()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_function_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_definition_request() :: %{}
+
+  """
+  @type get_core_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_definition_response() :: %{}
+
+  """
+  @type delete_core_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_definition_request() :: %{}
+
+  """
+  @type get_subscription_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ResourceDataContainer" => resource_data_container()
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_definition_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_function_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_definition_response() :: %{}
+
+  """
+  @type update_resource_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_subscription_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_definition_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
+      }
+
+  """
+  @type list_core_definition_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_device_definition_response() :: %{}
+
+  """
+  @type delete_device_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_definition_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_information())
+      }
+
+  """
+  @type list_connector_definition_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Definition" => core_definition_version(),
+        "Id" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type get_core_definition_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedTimestamp" => String.t() | atom(),
+        "LatestVersion" => String.t() | atom(),
+        "LatestVersionArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type get_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_definitions_response() :: %{
+        "Definitions" => list(definition_information()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_core_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      local_device_resource_data() :: %{
+        "GroupOwnerSetting" => group_owner_setting(),
+        "SourcePath" => String.t() | atom()
+      }
+
+  """
+  @type local_device_resource_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_definition_version_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTimestamp" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type create_subscription_definition_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_group_request() :: %{
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector() :: %{
+        "ConnectorArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Parameters" => map()
+      }
+
+  """
+  @type connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_role_to_group_response() :: %{
+        "AssociatedAt" => String.t() | atom()
+      }
+
+  """
+  @type associate_role_to_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bulk_deployment_metrics() :: %{
+        "InvalidInputRecords" => integer(),
+        "RecordsProcessed" => integer(),
+        "RetryAttempts" => integer()
+      }
+
+  """
+  @type bulk_deployment_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_version_request() :: %{}
+
+  """
+  @type get_group_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_definition_version_request() :: %{
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_core_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscription_definition_response() :: %{}
-
-  """
-  @type update_subscription_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_function_definitions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_function_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_definition_versions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_core_definition_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_thing_runtime_configuration_request() :: %{}
-
-  """
-  @type get_thing_runtime_configuration_request() :: %{}
+  @type get_function_definition_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2538,252 +2755,35 @@ defmodule AWS.Greengrass do
 
   ## Example:
 
-      list_function_definition_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_information())
+      list_bulk_deployments_response() :: %{
+        "BulkDeployments" => list(bulk_deployment()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_function_definition_versions_response() :: %{(String.t() | atom()) => any()}
+  @type list_bulk_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "tags" => map()
+      get_group_request() :: %{}
+
+  """
+  @type get_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_software_update_job_response() :: %{
+        "IotJobArn" => String.t() | atom(),
+        "IotJobId" => String.t() | atom(),
+        "PlatformSoftwareVersion" => String.t() | atom()
       }
 
   """
-  @type get_resource_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bulk_deployment_status_response() :: %{
-        "BulkDeploymentMetrics" => bulk_deployment_metrics(),
-        "BulkDeploymentStatus" => list(any()),
-        "CreatedAt" => String.t() | atom(),
-        "ErrorDetails" => list(error_detail()),
-        "ErrorMessage" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type get_bulk_deployment_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_logger_definition_response() :: %{}
-
-  """
-  @type update_logger_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_response() :: %{}
-
-  """
-  @type update_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_service_role_to_account_response() :: %{
-        "AssociatedAt" => String.t() | atom()
-      }
-
-  """
-  @type associate_service_role_to_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_access_policy() :: %{
-        "Permission" => list(any()),
-        "ResourceId" => String.t() | atom()
-      }
-
-  """
-  @type resource_access_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("InitialVersion") => subscription_definition_version(),
-        optional("Name") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_subscription_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_core_definition_response() :: %{}
-
-  """
-  @type delete_core_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_machine_learning_model_resource_data() :: %{
-        "DestinationPath" => String.t() | atom(),
-        "OwnerSetting" => resource_download_owner_setting(),
-        "S3Uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_machine_learning_model_resource_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connector_definition_version_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Definition" => connector_definition_version(),
-        "Id" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type get_connector_definition_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_logger_definition_request() :: %{}
-
-  """
-  @type delete_logger_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_service_role_from_account_request() :: %{}
-
-  """
-  @type disassociate_service_role_from_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTimestamp" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedTimestamp" => String.t() | atom(),
-        "LatestVersion" => String.t() | atom(),
-        "LatestVersionArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_device_definition_response() :: %{}
-
-  """
-  @type update_device_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_role_to_group_request() :: %{
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_role_to_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_definition_response() :: %{}
-
-  """
-  @type update_resource_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_definitions_request() :: %{
-        optional("MaxResults") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_device_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_core_definition_request() :: %{}
-
-  """
-  @type get_core_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_logger_definition_request() :: %{
-        optional("AmznClientToken") => String.t() | atom(),
-        optional("InitialVersion") => logger_definition_version(),
-        optional("Name") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_logger_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ResourceDataContainer" => resource_data_container()
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
+  @type create_software_update_job_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_role_to_group_errors() ::
           bad_request_exception() | internal_server_error_exception()

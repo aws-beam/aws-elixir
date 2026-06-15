@@ -32,148 +32,31 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      create_anomaly_monitor_request() :: %{
-        optional("ResourceTags") => list(resource_tag()),
-        required("AnomalyMonitor") => anomaly_monitor()
+      anomaly_score() :: %{
+        "CurrentScore" => float(),
+        "MaxScore" => float()
       }
       
   """
-  @type create_anomaly_monitor_request() :: %{(String.t() | atom()) => any()}
+  @type anomaly_score() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      instance_details() :: %{
-        "EC2InstanceDetails" => ec2_instance_details(),
-        "ESInstanceDetails" => e_s_instance_details(),
-        "ElastiCacheInstanceDetails" => elasti_cache_instance_details(),
-        "MemoryDBInstanceDetails" => memory_db_instance_details(),
-        "RDSInstanceDetails" => rds_instance_details(),
-        "RedshiftInstanceDetails" => redshift_instance_details()
+      reservation_coverage_group() :: %{
+        "Attributes" => map(),
+        "Coverage" => coverage()
       }
       
   """
-  @type instance_details() :: %{(String.t() | atom()) => any()}
+  @type reservation_coverage_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      savings_plans_amortized_commitment() :: %{
-        "AmortizedRecurringCommitment" => String.t() | atom(),
-        "AmortizedUpfrontCommitment" => String.t() | atom(),
-        "TotalAmortizedCommitment" => String.t() | atom()
-      }
-      
-  """
-  @type savings_plans_amortized_commitment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cost_allocation_tags_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any()),
-        optional("TagKeys") => list(String.t() | atom()),
-        optional("Type") => list(any())
-      }
-      
-  """
-  @type list_cost_allocation_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cost_category_definitions_request() :: %{
-        optional("EffectiveOn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SupportedResourceTypes") => list(String.t() | atom())
-      }
-      
-  """
-  @type list_cost_category_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reservation_purchase_recommendation_summary() :: %{
-        "CurrencyCode" => String.t() | atom(),
-        "TotalEstimatedMonthlySavingsAmount" => String.t() | atom(),
-        "TotalEstimatedMonthlySavingsPercentage" => String.t() | atom()
-      }
-      
-  """
-  @type reservation_purchase_recommendation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_purchase_recommendation_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AccountScope") => list(any()),
-        optional("Filter") => expression(),
-        optional("LookbackPeriodInDays") => list(any()),
-        optional("NextPageToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("PaymentOption") => list(any()),
-        optional("ServiceSpecification") => service_specification(),
-        optional("TermInYears") => list(any()),
-        required("Service") => String.t() | atom()
-      }
-      
-  """
-  @type get_reservation_purchase_recommendation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("ResourceTags") => list(resource_tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_allocation_tag_status_entry() :: %{
-        "Status" => list(any()),
-        "TagKey" => String.t() | atom()
-      }
-      
-  """
-  @type cost_allocation_tag_status_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_savings_plans_utilization_details_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SavingsPlansUtilizationDetails" => list(savings_plans_utilization_detail()),
-        "TimePeriod" => date_interval(),
-        "Total" => savings_plans_utilization_aggregates()
-      }
-      
-  """
-  @type get_savings_plans_utilization_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cost_and_usage_response() :: %{
+      get_cost_and_usage_with_resources_response() :: %{
         "DimensionValueAttributes" => list(dimension_values_with_attributes()),
         "GroupDefinitions" => list(group_definition()),
         "NextPageToken" => String.t() | atom(),
@@ -181,19 +64,56 @@ defmodule AWS.CostExplorer do
       }
       
   """
-  @type get_cost_and_usage_response() :: %{(String.t() | atom()) => any()}
+  @type get_cost_and_usage_with_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_anomaly_subscriptions_response() :: %{
-        "AnomalySubscriptions" => list(anomaly_subscription()),
-        "NextPageToken" => String.t() | atom()
+      reservation_purchase_recommendation_detail() :: %{
+        "AccountId" => String.t() | atom(),
+        "AverageNormalizedUnitsUsedPerHour" => String.t() | atom(),
+        "AverageNumberOfCapacityUnitsUsedPerHour" => String.t() | atom(),
+        "AverageNumberOfInstancesUsedPerHour" => String.t() | atom(),
+        "AverageUtilization" => String.t() | atom(),
+        "CurrencyCode" => String.t() | atom(),
+        "EstimatedBreakEvenInMonths" => String.t() | atom(),
+        "EstimatedMonthlyOnDemandCost" => String.t() | atom(),
+        "EstimatedMonthlySavingsAmount" => String.t() | atom(),
+        "EstimatedMonthlySavingsPercentage" => String.t() | atom(),
+        "EstimatedReservationCostForLookbackPeriod" => String.t() | atom(),
+        "InstanceDetails" => instance_details(),
+        "MaximumNormalizedUnitsUsedPerHour" => String.t() | atom(),
+        "MaximumNumberOfCapacityUnitsUsedPerHour" => String.t() | atom(),
+        "MaximumNumberOfInstancesUsedPerHour" => String.t() | atom(),
+        "MinimumNormalizedUnitsUsedPerHour" => String.t() | atom(),
+        "MinimumNumberOfCapacityUnitsUsedPerHour" => String.t() | atom(),
+        "MinimumNumberOfInstancesUsedPerHour" => String.t() | atom(),
+        "RecommendedNormalizedUnitsToPurchase" => String.t() | atom(),
+        "RecommendedNumberOfCapacityUnitsToPurchase" => String.t() | atom(),
+        "RecommendedNumberOfInstancesToPurchase" => String.t() | atom(),
+        "RecurringStandardMonthlyCost" => String.t() | atom(),
+        "ReservedCapacityDetails" => reserved_capacity_details(),
+        "UpfrontCost" => String.t() | atom()
       }
       
   """
-  @type get_anomaly_subscriptions_response() :: %{(String.t() | atom()) => any()}
+  @type reservation_purchase_recommendation_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_allocation_tag_backfill_request() :: %{
+        "BackfillFrom" => String.t() | atom(),
+        "BackfillStatus" => list(any()),
+        "CompletedAt" => String.t() | atom(),
+        "LastUpdatedAt" => String.t() | atom(),
+        "RequestedAt" => String.t() | atom()
+      }
+      
+  """
+  @type cost_allocation_tag_backfill_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -210,188 +130,57 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      coverage_by_time() :: %{
-        "Groups" => list(reservation_coverage_group()),
-        "TimePeriod" => date_interval(),
-        "Total" => coverage()
+      list_cost_category_resource_associations_response() :: %{
+        "CostCategoryResourceAssociations" => list(cost_category_resource_association()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type coverage_by_time() :: %{(String.t() | atom()) => any()}
+  @type list_cost_category_resource_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_utilization() :: %{
-        "EC2ResourceUtilization" => ec2_resource_utilization()
+      elasti_cache_instance_details() :: %{
+        "CurrentGeneration" => boolean(),
+        "Family" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
+        "ProductDescription" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "SizeFlexEligible" => boolean()
       }
       
   """
-  @type resource_utilization() :: %{(String.t() | atom()) => any()}
+  @type elasti_cache_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cost_category_resource_association() :: %{
-        "CostCategoryArn" => String.t() | atom(),
-        "CostCategoryName" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type cost_category_resource_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_tags_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("Filter") => expression(),
+      get_anomaly_subscriptions_request() :: %{
         optional("MaxResults") => integer(),
+        optional("MonitorArn") => String.t() | atom(),
         optional("NextPageToken") => String.t() | atom(),
-        optional("SearchString") => String.t() | atom(),
-        optional("SortBy") => list(sort_definition()),
-        optional("TagKey") => String.t() | atom(),
-        required("TimePeriod") => date_interval()
+        optional("SubscriptionArnList") => list(String.t() | atom())
       }
       
   """
-  @type get_tags_request() :: %{(String.t() | atom()) => any()}
+  @type get_anomaly_subscriptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_cost_and_usage_with_resources_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("GroupBy") => list(group_definition()),
-        optional("Metrics") => list(String.t() | atom()),
-        optional("NextPageToken") => String.t() | atom(),
-        required("Filter") => expression(),
-        required("Granularity") => list(any()),
-        required("TimePeriod") => date_interval()
+      ebs_resource_utilization() :: %{
+        "EbsReadBytesPerSecond" => String.t() | atom(),
+        "EbsReadOpsPerSecond" => String.t() | atom(),
+        "EbsWriteBytesPerSecond" => String.t() | atom(),
+        "EbsWriteOpsPerSecond" => String.t() | atom()
       }
       
   """
-  @type get_cost_and_usage_with_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_anomaly_subscription_request() :: %{
-        optional("ResourceTags") => list(resource_tag()),
-        required("AnomalySubscription") => anomaly_subscription()
-      }
-      
-  """
-  @type create_anomaly_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_savings_plans_purchase_recommendation_request() :: %{
-        optional("AccountScope") => list(any()),
-        optional("Filter") => expression(),
-        optional("NextPageToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        required("LookbackPeriodInDays") => list(any()),
-        required("PaymentOption") => list(any()),
-        required("SavingsPlansType") => list(any()),
-        required("TermInYears") => list(any())
-      }
-      
-  """
-  @type get_savings_plans_purchase_recommendation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anomaly_subscription() :: %{
-        "AccountId" => String.t() | atom(),
-        "Frequency" => list(any()),
-        "MonitorArnList" => list(String.t() | atom()),
-        "Subscribers" => list(subscriber()),
-        "SubscriptionArn" => String.t() | atom(),
-        "SubscriptionName" => String.t() | atom(),
-        "Threshold" => float(),
-        "ThresholdExpression" => expression()
-      }
-      
-  """
-  @type anomaly_subscription() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_anomaly_monitors_response() :: %{
-        "AnomalyMonitors" => list(anomaly_monitor()),
-        "NextPageToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_anomaly_monitors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      coverage_cost() :: %{
-        "OnDemandCost" => String.t() | atom()
-      }
-      
-  """
-  @type coverage_cost() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_anomaly_monitor_response() :: %{}
-      
-  """
-  @type delete_anomaly_monitor_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cost_forecast_response() :: %{
-        "ForecastResultsByTime" => list(forecast_result()),
-        "Total" => metric_value()
-      }
-      
-  """
-  @type get_cost_forecast_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rightsizing_recommendation_summary() :: %{
-        "EstimatedTotalMonthlySavingsAmount" => String.t() | atom(),
-        "SavingsCurrencyCode" => String.t() | atom(),
-        "SavingsPercentage" => String.t() | atom(),
-        "TotalRecommendationCount" => String.t() | atom()
-      }
-      
-  """
-  @type rightsizing_recommendation_summary() :: %{(String.t() | atom()) => any()}
+  @type ebs_resource_utilization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -414,73 +203,373 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      get_cost_and_usage_with_resources_response() :: %{
-        "DimensionValueAttributes" => list(dimension_values_with_attributes()),
-        "GroupDefinitions" => list(group_definition()),
-        "NextPageToken" => String.t() | atom(),
-        "ResultsByTime" => list(result_by_time())
+      savings_plans() :: %{
+        "InstanceFamily" => String.t() | atom(),
+        "OfferingId" => String.t() | atom(),
+        "PaymentOption" => list(any()),
+        "Region" => String.t() | atom(),
+        "SavingsPlansCommitment" => float(),
+        "SavingsPlansType" => list(any()),
+        "TermInYears" => list(any())
       }
       
   """
-  @type get_cost_and_usage_with_resources_response() :: %{(String.t() | atom()) => any()}
+  @type savings_plans() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      date_interval() :: %{
-        "End" => String.t() | atom(),
-        "Start" => String.t() | atom()
+      root_cause_impact() :: %{
+        "Contribution" => float()
       }
       
   """
-  @type date_interval() :: %{(String.t() | atom()) => any()}
+  @type root_cause_impact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      savings_plans_purchase_recommendation_summary() :: %{
-        "CurrencyCode" => String.t() | atom(),
-        "CurrentOnDemandSpend" => String.t() | atom(),
-        "DailyCommitmentToPurchase" => String.t() | atom(),
-        "EstimatedMonthlySavingsAmount" => String.t() | atom(),
-        "EstimatedOnDemandCostWithCurrentCommitment" => String.t() | atom(),
-        "EstimatedROI" => String.t() | atom(),
-        "EstimatedSavingsAmount" => String.t() | atom(),
-        "EstimatedSavingsPercentage" => String.t() | atom(),
-        "EstimatedTotalCost" => String.t() | atom(),
-        "HourlyCommitmentToPurchase" => String.t() | atom(),
-        "TotalRecommendationCount" => String.t() | atom()
+      bill_expiration_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type savings_plans_purchase_recommendation_summary() :: %{(String.t() | atom()) => any()}
+  @type bill_expiration_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_cost_comparison_drivers_response() :: %{
-        "CostComparisonDrivers" => list(cost_comparison_driver()),
-        "NextPageToken" => String.t() | atom()
+      commitment_purchase_analysis_configuration() :: %{
+        "SavingsPlansPurchaseAnalysisConfiguration" => savings_plans_purchase_analysis_configuration()
       }
       
   """
-  @type get_cost_comparison_drivers_response() :: %{(String.t() | atom()) => any()}
+  @type commitment_purchase_analysis_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_values() :: %{
+      savings_plans_utilization_by_time() :: %{
+        "AmortizedCommitment" => savings_plans_amortized_commitment(),
+        "Savings" => savings_plans_savings(),
+        "TimePeriod" => date_interval(),
+        "Utilization" => savings_plans_utilization()
+      }
+      
+  """
+  @type savings_plans_utilization_by_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_allocation_tag_status_entry() :: %{
+        "Status" => list(any()),
+        "TagKey" => String.t() | atom()
+      }
+      
+  """
+  @type cost_allocation_tag_status_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_values() :: %{
         "Key" => String.t() | atom(),
         "MatchOptions" => list(list(any())()),
         "Values" => list(String.t() | atom())
       }
       
   """
-  @type tag_values() :: %{(String.t() | atom()) => any()}
+  @type cost_category_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_comparison_driver() :: %{
+        "CostDrivers" => list(cost_driver()),
+        "CostSelector" => expression(),
+        "Metrics" => map()
+      }
+      
+  """
+  @type cost_comparison_driver() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_forecast_response() :: %{
+        "ForecastResultsByTime" => list(forecast_result()),
+        "Total" => metric_value()
+      }
+      
+  """
+  @type get_cost_forecast_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_coverage_response() :: %{
+        "CoveragesByTime" => list(coverage_by_time()),
+        "NextPageToken" => String.t() | atom(),
+        "Total" => coverage()
+      }
+      
+  """
+  @type get_reservation_coverage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dimension_values_with_attributes() :: %{
+        "Attributes" => map(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type dimension_values_with_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_details() :: %{
+        "SavingsPlansPurchaseAnalysisDetails" => savings_plans_purchase_analysis_details()
+      }
+      
+  """
+  @type analysis_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_instance_details() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "CurrentGeneration" => boolean(),
+        "Family" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "SizeFlexEligible" => boolean(),
+        "Tenancy" => String.t() | atom()
+      }
+      
+  """
+  @type ec2_instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cost_category_definition_response() :: %{
+        "CostCategory" => cost_category()
+      }
+      
+  """
+  @type describe_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_savings_plan_purchase_recommendation_details_request() :: %{
+        required("RecommendationDetailId") => String.t() | atom()
+      }
+      
+  """
+  @type get_savings_plan_purchase_recommendation_details_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_anomalies_response() :: %{
+        "Anomalies" => list(anomaly()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_anomalies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_savings_plans_coverage_request() :: %{
+        optional("Filter") => expression(),
+        optional("Granularity") => list(any()),
+        optional("GroupBy") => list(group_definition()),
+        optional("MaxResults") => integer(),
+        optional("Metrics") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => sort_definition(),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_savings_plans_coverage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_savings_plans_utilization_response() :: %{
+        "SavingsPlansUtilizationsByTime" => list(savings_plans_utilization_by_time()),
+        "Total" => savings_plans_utilization_aggregates()
+      }
+      
+  """
+  @type get_savings_plans_utilization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unknown_monitor_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unknown_monitor_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_anomaly_monitor_response() :: %{
+        "MonitorArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_anomaly_monitor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_anomaly_subscription_response() :: %{
+        "SubscriptionArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_anomaly_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_utilization_response() :: %{
+        "NextPageToken" => String.t() | atom(),
+        "Total" => reservation_aggregates(),
+        "UtilizationsByTime" => list(utilization_by_time())
+      }
+      
+  """
+  @type get_reservation_utilization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_anomaly_subscription_response() :: %{}
+      
+  """
+  @type delete_anomaly_subscription_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_coverage_request() :: %{
+        optional("Filter") => expression(),
+        optional("Granularity") => list(any()),
+        optional("GroupBy") => list(group_definition()),
+        optional("MaxResults") => integer(),
+        optional("Metrics") => list(String.t() | atom()),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("SortBy") => sort_definition(),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_reservation_coverage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cost_category_definitions_request() :: %{
+        optional("EffectiveOn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SupportedResourceTypes") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_cost_category_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backfill_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type backfill_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_details() :: %{
+        "InstanceFamily" => String.t() | atom(),
+        "OfferingId" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+      
+  """
+  @type savings_plans_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_details() :: %{
+        "EC2InstanceDetails" => ec2_instance_details(),
+        "ESInstanceDetails" => e_s_instance_details(),
+        "ElastiCacheInstanceDetails" => elasti_cache_instance_details(),
+        "MemoryDBInstanceDetails" => memory_db_instance_details(),
+        "RDSInstanceDetails" => rds_instance_details(),
+        "RedshiftInstanceDetails" => redshift_instance_details()
+      }
+      
+  """
+  @type instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -525,6 +614,155 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      savings_plans_amortized_commitment() :: %{
+        "AmortizedRecurringCommitment" => String.t() | atom(),
+        "AmortizedUpfrontCommitment" => String.t() | atom(),
+        "TotalAmortizedCommitment" => String.t() | atom()
+      }
+      
+  """
+  @type savings_plans_amortized_commitment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rightsizing_recommendation_configuration() :: %{
+        "BenefitsConsidered" => boolean(),
+        "RecommendationTarget" => list(any())
+      }
+      
+  """
+  @type rightsizing_recommendation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_commitment_purchase_analysis_response() :: %{
+        "AnalysisId" => String.t() | atom(),
+        "AnalysisStartedTime" => String.t() | atom(),
+        "EstimatedCompletionTime" => String.t() | atom()
+      }
+      
+  """
+  @type start_commitment_purchase_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expression() :: %{
+        "And" => list(expression()),
+        "CostCategories" => cost_category_values(),
+        "Dimensions" => dimension_values(),
+        "Not" => expression(),
+        "Or" => list(expression()),
+        "Tags" => tag_values()
+      }
+      
+  """
+  @type expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group() :: %{
+        "Keys" => list(String.t() | atom()),
+        "Metrics" => map()
+      }
+      
+  """
+  @type group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cost_category_definitions_response() :: %{
+        "CostCategoryReferences" => list(cost_category_reference()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cost_category_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_savings_plans_utilization_request() :: %{
+        optional("Filter") => expression(),
+        optional("Granularity") => list(any()),
+        optional("SortBy") => sort_definition(),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_savings_plans_utilization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rightsizing_recommendation_response() :: %{
+        "Configuration" => rightsizing_recommendation_configuration(),
+        "Metadata" => rightsizing_recommendation_metadata(),
+        "NextPageToken" => String.t() | atom(),
+        "RightsizingRecommendations" => list(rightsizing_recommendation()),
+        "Summary" => rightsizing_recommendation_summary()
+      }
+      
+  """
+  @type get_rightsizing_recommendation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cost_category_definition_request() :: %{
+        optional("DefaultValue") => String.t() | atom(),
+        optional("EffectiveStart") => String.t() | atom(),
+        optional("SplitChargeRules") => list(cost_category_split_charge_rule()),
+        required("CostCategoryArn") => String.t() | atom(),
+        required("RuleVersion") => list(any()),
+        required("Rules") => list(cost_category_rule())
+      }
+      
+  """
+  @type update_cost_category_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_recommendation_detail() :: %{
+        "TargetInstances" => list(target_instance())
+      }
+      
+  """
+  @type modify_recommendation_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      impact() :: %{
+        "MaxImpact" => float(),
+        "TotalActualSpend" => float(),
+        "TotalExpectedSpend" => float(),
+        "TotalImpact" => float(),
+        "TotalImpactPercentage" => float()
+      }
+      
+  """
+  @type impact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_anomaly_monitor_response() :: %{
         "MonitorArn" => String.t() | atom()
       }
@@ -536,56 +774,111 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      cost_and_usage_comparison() :: %{
-        "CostAndUsageSelector" => expression(),
-        "Metrics" => map()
+      cost_category_split_charge_rule_parameter() :: %{
+        "Type" => list(any()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type cost_and_usage_comparison() :: %{(String.t() | atom()) => any()}
+  @type cost_category_split_charge_rule_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_savings_plans_utilization_details_request() :: %{
-        optional("DataType") => list(list(any())()),
+      cost_category_split_charge_rule() :: %{
+        "Method" => list(any()),
+        "Parameters" => list(cost_category_split_charge_rule_parameter()),
+        "Source" => String.t() | atom(),
+        "Targets" => list(String.t() | atom())
+      }
+      
+  """
+  @type cost_category_split_charge_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_commitment_purchase_analysis_response() :: %{
+        "AnalysisCompletionTime" => String.t() | atom(),
+        "AnalysisDetails" => analysis_details(),
+        "AnalysisId" => String.t() | atom(),
+        "AnalysisStartedTime" => String.t() | atom(),
+        "AnalysisStatus" => list(any()),
+        "CommitmentPurchaseAnalysisConfiguration" => commitment_purchase_analysis_configuration(),
+        "ErrorCode" => list(any()),
+        "EstimatedCompletionTime" => String.t() | atom()
+      }
+      
+  """
+  @type get_commitment_purchase_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_purchase_analysis_configuration() :: %{
+        "AccountId" => String.t() | atom(),
+        "AccountScope" => list(any()),
+        "AnalysisType" => list(any()),
+        "LookBackTimePeriod" => date_interval(),
+        "SavingsPlansTargetCoverage" => integer(),
+        "SavingsPlansToAdd" => list(savings_plans()),
+        "SavingsPlansToExclude" => list(String.t() | atom())
+      }
+      
+  """
+  @type savings_plans_purchase_analysis_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tags_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
         optional("Filter") => expression(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => sort_definition(),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("SearchString") => String.t() | atom(),
+        optional("SortBy") => list(sort_definition()),
+        optional("TagKey") => String.t() | atom(),
         required("TimePeriod") => date_interval()
       }
       
   """
-  @type get_savings_plans_utilization_details_request() :: %{(String.t() | atom()) => any()}
+  @type get_tags_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_cost_category_definition_response() :: %{
-        "CostCategoryArn" => String.t() | atom(),
-        "EffectiveStart" => String.t() | atom()
+      sort_definition() :: %{
+        "Key" => String.t() | atom(),
+        "SortOrder" => list(any())
       }
       
   """
-  @type update_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
+  @type sort_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      e_s_instance_details() :: %{
-        "CurrentGeneration" => boolean(),
-        "InstanceClass" => String.t() | atom(),
-        "InstanceSize" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "SizeFlexEligible" => boolean()
+      anomaly() :: %{
+        "AnomalyEndDate" => String.t() | atom(),
+        "AnomalyId" => String.t() | atom(),
+        "AnomalyScore" => anomaly_score(),
+        "AnomalyStartDate" => String.t() | atom(),
+        "DimensionValue" => String.t() | atom(),
+        "Feedback" => list(any()),
+        "Impact" => impact(),
+        "MonitorArn" => String.t() | atom(),
+        "RootCauses" => list(root_cause())
       }
       
   """
-  @type e_s_instance_details() :: %{(String.t() | atom()) => any()}
+  @type anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -603,28 +896,82 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      utilization_by_time() :: %{
-        "Groups" => list(reservation_utilization_group()),
-        "TimePeriod" => date_interval(),
-        "Total" => reservation_aggregates()
+      root_cause() :: %{
+        "Impact" => root_cause_impact(),
+        "LinkedAccount" => String.t() | atom(),
+        "LinkedAccountName" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "Service" => String.t() | atom(),
+        "UsageType" => String.t() | atom()
       }
       
   """
-  @type utilization_by_time() :: %{(String.t() | atom()) => any()}
+  @type root_cause() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      reservation_utilization_group() :: %{
-        "Attributes" => map(),
-        "Key" => String.t() | atom(),
-        "Utilization" => reservation_aggregates(),
-        "Value" => String.t() | atom()
+      update_cost_allocation_tags_status_request() :: %{
+        required("CostAllocationTagsStatus") => list(cost_allocation_tag_status_entry())
       }
       
   """
-  @type reservation_utilization_group() :: %{(String.t() | atom()) => any()}
+  @type update_cost_allocation_tags_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_resource_association() :: %{
+        "CostCategoryArn" => String.t() | atom(),
+        "CostCategoryName" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type cost_category_resource_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_reservation_utilization_request() :: %{
+        optional("Filter") => expression(),
+        optional("Granularity") => list(any()),
+        optional("GroupBy") => list(group_definition()),
+        optional("MaxResults") => integer(),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("SortBy") => sort_definition(),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_reservation_utilization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_processing_status() :: %{
+        "Component" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type cost_category_processing_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_recommendation_detail() :: %{
+        "CurrencyCode" => String.t() | atom(),
+        "EstimatedMonthlySavings" => String.t() | atom()
+      }
+      
+  """
+  @type terminate_recommendation_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -647,54 +994,20 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      create_cost_category_definition_response() :: %{
-        "CostCategoryArn" => String.t() | atom(),
-        "EffectiveStart" => String.t() | atom()
-      }
-      
-  """
-  @type create_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cost_category_definitions_response() :: %{
-        "CostCategoryReferences" => list(cost_category_reference()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_cost_category_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_coverage_request() :: %{
+      get_dimension_values_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
+        optional("Context") => list(any()),
         optional("Filter") => expression(),
-        optional("Granularity") => list(any()),
-        optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
-        optional("Metrics") => list(String.t() | atom()),
         optional("NextPageToken") => String.t() | atom(),
-        optional("SortBy") => sort_definition(),
+        optional("SearchString") => String.t() | atom(),
+        optional("SortBy") => list(sort_definition()),
+        required("Dimension") => list(any()),
         required("TimePeriod") => date_interval()
       }
       
   """
-  @type get_reservation_coverage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_specification() :: %{
-        "OfferingClass" => list(any())
-      }
-      
-  """
-  @type ec2_specification() :: %{(String.t() | atom()) => any()}
+  @type get_dimension_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -706,145 +1019,6 @@ defmodule AWS.CostExplorer do
       
   """
   @type start_cost_allocation_tag_backfill_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cost_category_definition_request() :: %{
-        optional("EffectiveOn") => String.t() | atom(),
-        required("CostCategoryArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_cost_category_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_category_split_charge_rule_parameter() :: %{
-        "Type" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type cost_category_split_charge_rule_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rightsizing_recommendation_metadata() :: %{
-        "AdditionalMetadata" => String.t() | atom(),
-        "GenerationTimestamp" => String.t() | atom(),
-        "LookbackPeriodInDays" => list(any()),
-        "RecommendationId" => String.t() | atom()
-      }
-      
-  """
-  @type rightsizing_recommendation_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans_utilization() :: %{
-        "TotalCommitment" => String.t() | atom(),
-        "UnusedCommitment" => String.t() | atom(),
-        "UsedCommitment" => String.t() | atom(),
-        "UtilizationPercentage" => String.t() | atom()
-      }
-      
-  """
-  @type savings_plans_utilization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_instance_details() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "CurrentGeneration" => boolean(),
-        "Family" => String.t() | atom(),
-        "InstanceType" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "SizeFlexEligible" => boolean(),
-        "Tenancy" => String.t() | atom()
-      }
-      
-  """
-  @type ec2_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rightsizing_recommendation() :: %{
-        "AccountId" => String.t() | atom(),
-        "CurrentInstance" => current_instance(),
-        "FindingReasonCodes" => list(list(any())()),
-        "ModifyRecommendationDetail" => modify_recommendation_detail(),
-        "RightsizingType" => list(any()),
-        "TerminateRecommendationDetail" => terminate_recommendation_detail()
-      }
-      
-  """
-  @type rightsizing_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_approximate_usage_records_response() :: %{
-        "LookbackPeriod" => date_interval(),
-        "Services" => map(),
-        "TotalRecords" => float()
-      }
-      
-  """
-  @type get_approximate_usage_records_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("ResourceTagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminate_recommendation_detail() :: %{
-        "CurrencyCode" => String.t() | atom(),
-        "EstimatedMonthlySavings" => String.t() | atom()
-      }
-      
-  """
-  @type terminate_recommendation_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cost_forecast_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("Filter") => expression(),
-        optional("PredictionIntervalLevel") => integer(),
-        required("Granularity") => list(any()),
-        required("Metric") => list(any()),
-        required("TimePeriod") => date_interval()
-      }
-      
-  """
-  @type get_cost_forecast_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,376 +1056,139 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      savings_plans_savings() :: %{
-        "NetSavings" => String.t() | atom(),
-        "OnDemandCostEquivalent" => String.t() | atom()
+      result_by_time() :: %{
+        "Estimated" => boolean(),
+        "Groups" => list(group()),
+        "TimePeriod" => date_interval(),
+        "Total" => map()
       }
       
   """
-  @type savings_plans_savings() :: %{(String.t() | atom()) => any()}
+  @type result_by_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      generation_summary() :: %{
-        "EstimatedCompletionTime" => String.t() | atom(),
-        "GenerationCompletionTime" => String.t() | atom(),
-        "GenerationStartedTime" => String.t() | atom(),
-        "GenerationStatus" => list(any()),
+      network_resource_utilization() :: %{
+        "NetworkInBytesPerSecond" => String.t() | atom(),
+        "NetworkOutBytesPerSecond" => String.t() | atom(),
+        "NetworkPacketsInPerSecond" => String.t() | atom(),
+        "NetworkPacketsOutPerSecond" => String.t() | atom()
+      }
+      
+  """
+  @type network_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_purchase_recommendation() :: %{
+        "AccountScope" => list(any()),
+        "LookbackPeriodInDays" => list(any()),
+        "PaymentOption" => list(any()),
+        "SavingsPlansPurchaseRecommendationDetails" => list(savings_plans_purchase_recommendation_detail()),
+        "SavingsPlansPurchaseRecommendationSummary" => savings_plans_purchase_recommendation_summary(),
+        "SavingsPlansType" => list(any()),
+        "TermInYears" => list(any())
+      }
+      
+  """
+  @type savings_plans_purchase_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_anomaly_monitor_request() :: %{
+        optional("MonitorName") => String.t() | atom(),
+        required("MonitorArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_anomaly_monitor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_purchase_recommendation_metadata() :: %{
+        "AdditionalMetadata" => String.t() | atom(),
+        "GenerationTimestamp" => String.t() | atom(),
         "RecommendationId" => String.t() | atom()
       }
       
   """
-  @type generation_summary() :: %{(String.t() | atom()) => any()}
+  @type savings_plans_purchase_recommendation_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dimension_values_with_attributes() :: %{
-        "Attributes" => map(),
+      metric_value() :: %{
+        "Amount" => String.t() | atom(),
+        "Unit" => String.t() | atom()
+      }
+      
+  """
+  @type metric_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_utilization() :: %{
+        "EC2ResourceUtilization" => ec2_resource_utilization()
+      }
+      
+  """
+  @type resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_utilization_aggregates() :: %{
+        "AmortizedCommitment" => savings_plans_amortized_commitment(),
+        "Savings" => savings_plans_savings(),
+        "Utilization" => savings_plans_utilization()
+      }
+      
+  """
+  @type savings_plans_utilization_aggregates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      anomaly_subscription() :: %{
+        "AccountId" => String.t() | atom(),
+        "Frequency" => list(any()),
+        "MonitorArnList" => list(String.t() | atom()),
+        "Subscribers" => list(subscriber()),
+        "SubscriptionArn" => String.t() | atom(),
+        "SubscriptionName" => String.t() | atom(),
+        "Threshold" => float(),
+        "ThresholdExpression" => expression()
+      }
+      
+  """
+  @type anomaly_subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_rule() :: %{
+        "InheritedValue" => cost_category_inherited_value_dimension(),
+        "Rule" => expression(),
+        "Type" => list(any()),
         "Value" => String.t() | atom()
       }
       
   """
-  @type dimension_values_with_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_definition() :: %{
-        "Key" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type group_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_utilization_response() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "Total" => reservation_aggregates(),
-        "UtilizationsByTime" => list(utilization_by_time())
-      }
-      
-  """
-  @type get_reservation_utilization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cost_category_resource_associations_request() :: %{
-        optional("CostCategoryArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_cost_category_resource_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_commitment_purchase_analysis_response() :: %{
-        "AnalysisId" => String.t() | atom(),
-        "AnalysisStartedTime" => String.t() | atom(),
-        "EstimatedCompletionTime" => String.t() | atom()
-      }
-      
-  """
-  @type start_commitment_purchase_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_comparison_driver() :: %{
-        "CostDrivers" => list(cost_driver()),
-        "CostSelector" => expression(),
-        "Metrics" => map()
-      }
-      
-  """
-  @type cost_comparison_driver() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rightsizing_recommendation_request() :: %{
-        optional("Configuration") => rightsizing_recommendation_configuration(),
-        optional("Filter") => expression(),
-        optional("NextPageToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        required("Service") => String.t() | atom()
-      }
-      
-  """
-  @type get_rightsizing_recommendation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_anomaly_subscription_response() :: %{}
-      
-  """
-  @type delete_anomaly_subscription_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      disk_resource_utilization() :: %{
-        "DiskReadBytesPerSecond" => String.t() | atom(),
-        "DiskReadOpsPerSecond" => String.t() | atom(),
-        "DiskWriteBytesPerSecond" => String.t() | atom(),
-        "DiskWriteOpsPerSecond" => String.t() | atom()
-      }
-      
-  """
-  @type disk_resource_utilization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      total_impact_filter() :: %{
-        "EndValue" => float(),
-        "NumericOperator" => list(any()),
-        "StartValue" => float()
-      }
-      
-  """
-  @type total_impact_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_anomaly_subscription_request() :: %{
-        optional("Frequency") => list(any()),
-        optional("MonitorArnList") => list(String.t() | atom()),
-        optional("Subscribers") => list(subscriber()),
-        optional("SubscriptionName") => String.t() | atom(),
-        optional("Threshold") => float(),
-        optional("ThresholdExpression") => expression(),
-        required("SubscriptionArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_anomaly_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      forecast_result() :: %{
-        "MeanValue" => String.t() | atom(),
-        "PredictionIntervalLowerBound" => String.t() | atom(),
-        "PredictionIntervalUpperBound" => String.t() | atom(),
-        "TimePeriod" => date_interval()
-      }
-      
-  """
-  @type forecast_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sort_definition() :: %{
-        "Key" => String.t() | atom(),
-        "SortOrder" => list(any())
-      }
-      
-  """
-  @type sort_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_savings_plans_coverage_request() :: %{
-        optional("Filter") => expression(),
-        optional("Granularity") => list(any()),
-        optional("GroupBy") => list(group_definition()),
-        optional("MaxResults") => integer(),
-        optional("Metrics") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => sort_definition(),
-        required("TimePeriod") => date_interval()
-      }
-      
-  """
-  @type get_savings_plans_coverage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_allocation_tag_backfill_request() :: %{
-        "BackfillFrom" => String.t() | atom(),
-        "BackfillStatus" => list(any()),
-        "CompletedAt" => String.t() | atom(),
-        "LastUpdatedAt" => String.t() | atom(),
-        "RequestedAt" => String.t() | atom()
-      }
-      
-  """
-  @type cost_allocation_tag_backfill_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_changed_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type request_changed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_specification() :: %{
-        "EC2Specification" => ec2_specification()
-      }
-      
-  """
-  @type service_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dimension_values() :: %{
-        "Key" => list(any()),
-        "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type dimension_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rightsizing_recommendation_configuration() :: %{
-        "BenefitsConsidered" => boolean(),
-        "RecommendationTarget" => list(any())
-      }
-      
-  """
-  @type rightsizing_recommendation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ebs_resource_utilization() :: %{
-        "EbsReadBytesPerSecond" => String.t() | atom(),
-        "EbsReadOpsPerSecond" => String.t() | atom(),
-        "EbsWriteBytesPerSecond" => String.t() | atom(),
-        "EbsWriteOpsPerSecond" => String.t() | atom()
-      }
-      
-  """
-  @type ebs_resource_utilization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_commitment_purchase_analysis_response() :: %{
-        "AnalysisCompletionTime" => String.t() | atom(),
-        "AnalysisDetails" => analysis_details(),
-        "AnalysisId" => String.t() | atom(),
-        "AnalysisStartedTime" => String.t() | atom(),
-        "AnalysisStatus" => list(any()),
-        "CommitmentPurchaseAnalysisConfiguration" => commitment_purchase_analysis_configuration(),
-        "ErrorCode" => list(any()),
-        "EstimatedCompletionTime" => String.t() | atom()
-      }
-      
-  """
-  @type get_commitment_purchase_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_reservation_coverage_response() :: %{
-        "CoveragesByTime" => list(coverage_by_time()),
-        "NextPageToken" => String.t() | atom(),
-        "Total" => coverage()
-      }
-      
-  """
-  @type get_reservation_coverage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_category_split_charge_rule() :: %{
-        "Method" => list(any()),
-        "Parameters" => list(cost_category_split_charge_rule_parameter()),
-        "Source" => String.t() | atom(),
-        "Targets" => list(String.t() | atom())
-      }
-      
-  """
-  @type cost_category_split_charge_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cost_category_definition_request() :: %{
-        required("CostCategoryArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cost_category_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_savings_plans_purchase_recommendation_generation_request() :: %{
-        optional("GenerationStatus") => list(any()),
-        optional("NextPageToken") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("RecommendationIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type list_savings_plans_purchase_recommendation_generation_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type cost_category_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1274,40 +1211,55 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      get_usage_forecast_response() :: %{
-        "ForecastResultsByTime" => list(forecast_result()),
-        "Total" => metric_value()
-      }
-      
-  """
-  @type get_usage_forecast_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      root_cause() :: %{
-        "Impact" => root_cause_impact(),
-        "LinkedAccount" => String.t() | atom(),
-        "LinkedAccountName" => String.t() | atom(),
+      rds_instance_details() :: %{
+        "CurrentGeneration" => boolean(),
+        "DatabaseEdition" => String.t() | atom(),
+        "DatabaseEngine" => String.t() | atom(),
+        "DeploymentModel" => String.t() | atom(),
+        "DeploymentOption" => String.t() | atom(),
+        "Family" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
         "Region" => String.t() | atom(),
-        "Service" => String.t() | atom(),
-        "UsageType" => String.t() | atom()
+        "SizeFlexEligible" => boolean()
       }
       
   """
-  @type root_cause() :: %{(String.t() | atom()) => any()}
+  @type rds_instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_specification() :: %{
+        "EC2Specification" => ec2_specification()
+      }
+      
+  """
+  @type service_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_commitment_purchase_analysis_request() :: %{
+        required("CommitmentPurchaseAnalysisConfiguration") => commitment_purchase_analysis_configuration()
+      }
+      
+  """
+  @type start_commitment_purchase_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1327,47 +1279,19 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      get_anomalies_request() :: %{
-        optional("Feedback") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("MonitorArn") => String.t() | atom(),
-        optional("NextPageToken") => String.t() | atom(),
-        optional("TotalImpact") => total_impact_filter(),
-        required("DateInterval") => anomaly_date_interval()
+      describe_cost_category_definition_request() :: %{
+        optional("EffectiveOn") => String.t() | atom(),
+        required("CostCategoryArn") => String.t() | atom()
       }
       
   """
-  @type get_anomalies_request() :: %{(String.t() | atom()) => any()}
+  @type describe_cost_category_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      savings_plans_utilization_aggregates() :: %{
-        "AmortizedCommitment" => savings_plans_amortized_commitment(),
-        "Savings" => savings_plans_savings(),
-        "Utilization" => savings_plans_utilization()
-      }
-      
-  """
-  @type savings_plans_utilization_aggregates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      memory_db_instance_details() :: %{
+      redshift_instance_details() :: %{
         "CurrentGeneration" => boolean(),
         "Family" => String.t() | atom(),
         "NodeType" => String.t() | atom(),
@@ -1376,30 +1300,461 @@ defmodule AWS.CostExplorer do
       }
       
   """
-  @type memory_db_instance_details() :: %{(String.t() | atom()) => any()}
+  @type redshift_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      billing_view_health_status_exception() :: %{
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("ResourceTags") => list(resource_tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_approximate_usage_records_request() :: %{
+        optional("Services") => list(String.t() | atom()),
+        required("ApproximationDimension") => list(any()),
+        required("Granularity") => list(any())
+      }
+      
+  """
+  @type get_approximate_usage_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_definition() :: %{
+        "Key" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type group_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_anomaly_subscription_response() :: %{
+        "SubscriptionArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_anomaly_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unknown_subscription_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
+  @type unknown_subscription_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_cost_category_definition_response() :: %{
-        "CostCategoryArn" => String.t() | atom(),
-        "EffectiveEnd" => String.t() | atom()
+      get_reservation_purchase_recommendation_response() :: %{
+        "Metadata" => reservation_purchase_recommendation_metadata(),
+        "NextPageToken" => String.t() | atom(),
+        "Recommendations" => list(reservation_purchase_recommendation())
       }
       
   """
-  @type delete_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
+  @type get_reservation_purchase_recommendation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_resource_utilization() :: %{
+        "DiskResourceUtilization" => disk_resource_utilization(),
+        "EBSResourceUtilization" => ebs_resource_utilization(),
+        "MaxCpuUtilizationPercentage" => String.t() | atom(),
+        "MaxMemoryUtilizationPercentage" => String.t() | atom(),
+        "MaxStorageUtilizationPercentage" => String.t() | atom(),
+        "NetworkResourceUtilization" => network_resource_utilization()
+      }
+      
+  """
+  @type ec2_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cost_category_definition_response() :: %{
+        "CostCategoryArn" => String.t() | atom(),
+        "EffectiveStart" => String.t() | atom()
+      }
+      
+  """
+  @type update_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscriber() :: %{
+        "Address" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type subscriber() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_savings_plans_utilization_details_request() :: %{
+        optional("DataType") => list(list(any())()),
+        optional("Filter") => expression(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => sort_definition(),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_savings_plans_utilization_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_and_usage_response() :: %{
+        "DimensionValueAttributes" => list(dimension_values_with_attributes()),
+        "GroupDefinitions" => list(group_definition()),
+        "NextPageToken" => String.t() | atom(),
+        "ResultsByTime" => list(result_by_time())
+      }
+      
+  """
+  @type get_cost_and_usage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recommendation_detail_hourly_metrics() :: %{
+        "CurrentCoverage" => String.t() | atom(),
+        "EstimatedCoverage" => String.t() | atom(),
+        "EstimatedNewCommitmentUtilization" => String.t() | atom(),
+        "EstimatedOnDemandCost" => String.t() | atom(),
+        "StartTime" => String.t() | atom()
+      }
+      
+  """
+  @type recommendation_detail_hourly_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rightsizing_recommendation_request() :: %{
+        optional("Configuration") => rightsizing_recommendation_configuration(),
+        optional("Filter") => expression(),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        required("Service") => String.t() | atom()
+      }
+      
+  """
+  @type get_rightsizing_recommendation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_approximate_usage_records_response() :: %{
+        "LookbackPeriod" => date_interval(),
+        "Services" => map(),
+        "TotalRecords" => float()
+      }
+      
+  """
+  @type get_approximate_usage_records_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_anomaly_monitors_response() :: %{
+        "AnomalyMonitors" => list(anomaly_monitor()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_anomaly_monitors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_utilization_detail() :: %{
+        "AmortizedCommitment" => savings_plans_amortized_commitment(),
+        "Attributes" => map(),
+        "Savings" => savings_plans_savings(),
+        "SavingsPlanArn" => String.t() | atom(),
+        "Utilization" => savings_plans_utilization()
+      }
+      
+  """
+  @type savings_plans_utilization_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_resource_details() :: %{
+        "HourlyOnDemandRate" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "Memory" => String.t() | atom(),
+        "NetworkPerformance" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "Sku" => String.t() | atom(),
+        "Storage" => String.t() | atom(),
+        "Vcpu" => String.t() | atom()
+      }
+      
+  """
+  @type ec2_resource_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_commitment_purchase_analysis_request() :: %{
+        required("AnalysisId") => String.t() | atom()
+      }
+      
+  """
+  @type get_commitment_purchase_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_utilization() :: %{
+        "TotalCommitment" => String.t() | atom(),
+        "UnusedCommitment" => String.t() | atom(),
+        "UsedCommitment" => String.t() | atom(),
+        "UtilizationPercentage" => String.t() | atom()
+      }
+      
+  """
+  @type savings_plans_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_forecast_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
+        optional("Filter") => expression(),
+        optional("PredictionIntervalLevel") => integer(),
+        required("Granularity") => list(any()),
+        required("Metric") => list(any()),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_usage_forecast_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      comparison_metric_value() :: %{
+        "BaselineTimePeriodAmount" => String.t() | atom(),
+        "ComparisonTimePeriodAmount" => String.t() | atom(),
+        "Difference" => String.t() | atom(),
+        "Unit" => String.t() | atom()
+      }
+      
+  """
+  @type comparison_metric_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_savings_plans_purchase_recommendation_generation_response() :: %{
+        "EstimatedCompletionTime" => String.t() | atom(),
+        "GenerationStartedTime" => String.t() | atom(),
+        "RecommendationId" => String.t() | atom()
+      }
+      
+  """
+  @type start_savings_plans_purchase_recommendation_generation_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation_purchase_recommendation() :: %{
+        "AccountScope" => list(any()),
+        "LookbackPeriodInDays" => list(any()),
+        "PaymentOption" => list(any()),
+        "RecommendationDetails" => list(reservation_purchase_recommendation_detail()),
+        "RecommendationSummary" => reservation_purchase_recommendation_summary(),
+        "ServiceSpecification" => service_specification(),
+        "TermInYears" => list(any())
+      }
+      
+  """
+  @type reservation_purchase_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation_purchase_recommendation_metadata() :: %{
+        "AdditionalMetadata" => String.t() | atom(),
+        "GenerationTimestamp" => String.t() | atom(),
+        "RecommendationId" => String.t() | atom()
+      }
+      
+  """
+  @type reservation_purchase_recommendation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provide_anomaly_feedback_request() :: %{
+        required("AnomalyId") => String.t() | atom(),
+        required("Feedback") => list(any())
+      }
+      
+  """
+  @type provide_anomaly_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_anomaly_subscriptions_response() :: %{
+        "AnomalySubscriptions" => list(anomaly_subscription()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_anomaly_subscriptions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      coverage() :: %{
+        "CoverageCost" => coverage_cost(),
+        "CoverageHours" => coverage_hours(),
+        "CoverageNormalizedUnits" => coverage_normalized_units()
+      }
+      
+  """
+  @type coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_purchase_recommendation_summary() :: %{
+        "CurrencyCode" => String.t() | atom(),
+        "CurrentOnDemandSpend" => String.t() | atom(),
+        "DailyCommitmentToPurchase" => String.t() | atom(),
+        "EstimatedMonthlySavingsAmount" => String.t() | atom(),
+        "EstimatedOnDemandCostWithCurrentCommitment" => String.t() | atom(),
+        "EstimatedROI" => String.t() | atom(),
+        "EstimatedSavingsAmount" => String.t() | atom(),
+        "EstimatedSavingsPercentage" => String.t() | atom(),
+        "EstimatedTotalCost" => String.t() | atom(),
+        "HourlyCommitmentToPurchase" => String.t() | atom(),
+        "TotalRecommendationCount" => String.t() | atom()
+      }
+      
+  """
+  @type savings_plans_purchase_recommendation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reservation_purchase_recommendation_summary() :: %{
+        "CurrencyCode" => String.t() | atom(),
+        "TotalEstimatedMonthlySavingsAmount" => String.t() | atom(),
+        "TotalEstimatedMonthlySavingsPercentage" => String.t() | atom()
+      }
+      
+  """
+  @type reservation_purchase_recommendation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_savings_plans_purchase_recommendation_generation_request() :: %{}
+      
+  """
+  @type start_savings_plans_purchase_recommendation_generation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_category_inherited_value_dimension() :: %{
+        "DimensionKey" => String.t() | atom(),
+        "DimensionName" => list(any())
+      }
+      
+  """
+  @type cost_category_inherited_value_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
@@ -1419,137 +1774,315 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      get_dimension_values_response() :: %{
-        "DimensionValues" => list(dimension_values_with_attributes()),
-        "NextPageToken" => String.t() | atom(),
-        "ReturnSize" => integer(),
-        "TotalSize" => integer()
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("ResourceTagKeys") => list(String.t() | atom())
       }
       
   """
-  @type get_dimension_values_response() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cost_category_reference() :: %{
-        "CostCategoryArn" => String.t() | atom(),
-        "DefaultValue" => String.t() | atom(),
-        "EffectiveEnd" => String.t() | atom(),
-        "EffectiveStart" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NumberOfRules" => integer(),
-        "ProcessingStatus" => list(cost_category_processing_status()),
-        "SupportedResourceTypes" => list(String.t() | atom()),
-        "Values" => list(String.t() | atom())
+      coverage_cost() :: %{
+        "OnDemandCost" => String.t() | atom()
       }
       
   """
-  @type cost_category_reference() :: %{(String.t() | atom()) => any()}
+  @type coverage_cost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_anomaly_subscription_response() :: %{
-        "SubscriptionArn" => String.t() | atom()
+      current_instance() :: %{
+        "CurrencyCode" => String.t() | atom(),
+        "InstanceName" => String.t() | atom(),
+        "MonthlyCost" => String.t() | atom(),
+        "OnDemandHoursInLookbackPeriod" => String.t() | atom(),
+        "ReservationCoveredHoursInLookbackPeriod" => String.t() | atom(),
+        "ResourceDetails" => resource_details(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceUtilization" => resource_utilization(),
+        "SavingsPlansCoveredHoursInLookbackPeriod" => String.t() | atom(),
+        "Tags" => list(tag_values()),
+        "TotalRunningHoursInLookbackPeriod" => String.t() | atom()
       }
       
   """
-  @type update_anomaly_subscription_response() :: %{(String.t() | atom()) => any()}
+  @type current_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unknown_monitor_exception() :: %{
+      list_cost_allocation_tag_backfill_history_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_cost_allocation_tag_backfill_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_savings_plans_purchase_recommendation_generation_request() :: %{
+        optional("GenerationStatus") => list(any()),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("RecommendationIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_savings_plans_purchase_recommendation_generation_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      data_unavailable_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type unknown_monitor_exception() :: %{(String.t() | atom()) => any()}
+  @type data_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_anomaly_subscriptions_request() :: %{
+      get_cost_and_usage_comparisons_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
+        optional("Filter") => expression(),
+        optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
-        optional("MonitorArn") => String.t() | atom(),
         optional("NextPageToken") => String.t() | atom(),
-        optional("SubscriptionArnList") => list(String.t() | atom())
+        required("BaselineTimePeriod") => date_interval(),
+        required("ComparisonTimePeriod") => date_interval(),
+        required("MetricForComparison") => String.t() | atom()
       }
       
   """
-  @type get_anomaly_subscriptions_request() :: %{(String.t() | atom()) => any()}
+  @type get_cost_and_usage_comparisons_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      provide_anomaly_feedback_request() :: %{
-        required("AnomalyId") => String.t() | atom(),
-        required("Feedback") => list(any())
+      get_cost_and_usage_with_resources_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
+        optional("GroupBy") => list(group_definition()),
+        optional("Metrics") => list(String.t() | atom()),
+        optional("NextPageToken") => String.t() | atom(),
+        required("Filter") => expression(),
+        required("Granularity") => list(any()),
+        required("TimePeriod") => date_interval()
       }
       
   """
-  @type provide_anomaly_feedback_request() :: %{(String.t() | atom()) => any()}
+  @type get_cost_and_usage_with_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_tags_response() :: %{
-        "NextPageToken" => String.t() | atom(),
-        "ReturnSize" => integer(),
-        "Tags" => list(String.t() | atom()),
-        "TotalSize" => integer()
+      delete_cost_category_definition_response() :: %{
+        "CostCategoryArn" => String.t() | atom(),
+        "EffectiveEnd" => String.t() | atom()
       }
       
   """
-  @type get_tags_response() :: %{(String.t() | atom()) => any()}
+  @type delete_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_cost_allocation_tags_status_error() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "TagKey" => String.t() | atom()
-      }
+      delete_anomaly_monitor_response() :: %{}
       
   """
-  @type update_cost_allocation_tags_status_error() :: %{(String.t() | atom()) => any()}
+  @type delete_anomaly_monitor_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      coverage() :: %{
-        "CoverageCost" => coverage_cost(),
-        "CoverageHours" => coverage_hours(),
-        "CoverageNormalizedUnits" => coverage_normalized_units()
+      list_cost_allocation_tags_response() :: %{
+        "CostAllocationTags" => list(cost_allocation_tag()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type coverage() :: %{(String.t() | atom()) => any()}
+  @type list_cost_allocation_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      recommendation_detail_hourly_metrics() :: %{
-        "CurrentCoverage" => String.t() | atom(),
-        "EstimatedCoverage" => String.t() | atom(),
-        "EstimatedNewCommitmentUtilization" => String.t() | atom(),
-        "EstimatedOnDemandCost" => String.t() | atom(),
-        "StartTime" => String.t() | atom()
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type recommendation_detail_hourly_metrics() :: %{(String.t() | atom()) => any()}
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_anomaly_subscription_request() :: %{
+        required("SubscriptionArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_anomaly_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cost_category_definition_response() :: %{
+        "CostCategoryArn" => String.t() | atom(),
+        "EffectiveStart" => String.t() | atom()
+      }
+      
+  """
+  @type create_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      date_interval() :: %{
+        "End" => String.t() | atom(),
+        "Start" => String.t() | atom()
+      }
+      
+  """
+  @type date_interval() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_savings_plans_utilization_details_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SavingsPlansUtilizationDetails" => list(savings_plans_utilization_detail()),
+        "TimePeriod" => date_interval(),
+        "Total" => savings_plans_utilization_aggregates()
+      }
+      
+  """
+  @type get_savings_plans_utilization_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_commitment_purchase_analyses_response() :: %{
+        "AnalysisSummaryList" => list(analysis_summary()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_commitment_purchase_analyses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      anomaly_monitor() :: %{
+        "CreationDate" => String.t() | atom(),
+        "DimensionalValueCount" => integer(),
+        "LastEvaluatedDate" => String.t() | atom(),
+        "LastUpdatedDate" => String.t() | atom(),
+        "MonitorArn" => String.t() | atom(),
+        "MonitorDimension" => list(any()),
+        "MonitorName" => String.t() | atom(),
+        "MonitorSpecification" => expression(),
+        "MonitorType" => list(any())
+      }
+      
+  """
+  @type anomaly_monitor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_categories_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
+        optional("CostCategoryName") => String.t() | atom(),
+        optional("Filter") => expression(),
+        optional("MaxResults") => integer(),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("SearchString") => String.t() | atom(),
+        optional("SortBy") => list(sort_definition()),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_cost_categories_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_instance() :: %{
+        "CurrencyCode" => String.t() | atom(),
+        "DefaultTargetInstance" => boolean(),
+        "EstimatedMonthlyCost" => String.t() | atom(),
+        "EstimatedMonthlySavings" => String.t() | atom(),
+        "ExpectedResourceUtilization" => resource_utilization(),
+        "PlatformDifferences" => list(list(any())()),
+        "ResourceDetails" => resource_details()
+      }
+      
+  """
+  @type target_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disk_resource_utilization() :: %{
+        "DiskReadBytesPerSecond" => String.t() | atom(),
+        "DiskReadOpsPerSecond" => String.t() | atom(),
+        "DiskWriteBytesPerSecond" => String.t() | atom(),
+        "DiskWriteOpsPerSecond" => String.t() | atom()
+      }
+      
+  """
+  @type disk_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "ResourceTags" => list(resource_tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_comparison_drivers_response() :: %{
+        "CostComparisonDrivers" => list(cost_comparison_driver()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_cost_comparison_drivers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1582,292 +2115,13 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      list_commitment_purchase_analyses_response() :: %{
-        "AnalysisSummaryList" => list(analysis_summary()),
-        "NextPageToken" => String.t() | atom()
+      create_anomaly_monitor_request() :: %{
+        optional("ResourceTags") => list(resource_tag()),
+        required("AnomalyMonitor") => anomaly_monitor()
       }
       
   """
-  @type list_commitment_purchase_analyses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "ResourceTags" => list(resource_tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscriber() :: %{
-        "Address" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type subscriber() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_savings_plans_utilization_request() :: %{
-        optional("Filter") => expression(),
-        optional("Granularity") => list(any()),
-        optional("SortBy") => sort_definition(),
-        required("TimePeriod") => date_interval()
-      }
-      
-  """
-  @type get_savings_plans_utilization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      result_by_time() :: %{
-        "Estimated" => boolean(),
-        "Groups" => list(group()),
-        "TimePeriod" => date_interval(),
-        "Total" => map()
-      }
-      
-  """
-  @type result_by_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_resource_details() :: %{
-        "HourlyOnDemandRate" => String.t() | atom(),
-        "InstanceType" => String.t() | atom(),
-        "Memory" => String.t() | atom(),
-        "NetworkPerformance" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "Sku" => String.t() | atom(),
-        "Storage" => String.t() | atom(),
-        "Vcpu" => String.t() | atom()
-      }
-      
-  """
-  @type ec2_resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cost_comparison_drivers_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("Filter") => expression(),
-        optional("GroupBy") => list(group_definition()),
-        optional("MaxResults") => integer(),
-        optional("NextPageToken") => String.t() | atom(),
-        required("BaselineTimePeriod") => date_interval(),
-        required("ComparisonTimePeriod") => date_interval(),
-        required("MetricForComparison") => String.t() | atom()
-      }
-      
-  """
-  @type get_cost_comparison_drivers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cost_allocation_tags_status_request() :: %{
-        required("CostAllocationTagsStatus") => list(cost_allocation_tag_status_entry())
-      }
-      
-  """
-  @type update_cost_allocation_tags_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_usage_forecast_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("Filter") => expression(),
-        optional("PredictionIntervalLevel") => integer(),
-        required("Granularity") => list(any()),
-        required("Metric") => list(any()),
-        required("TimePeriod") => date_interval()
-      }
-      
-  """
-  @type get_usage_forecast_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      coverage_normalized_units() :: %{
-        "CoverageNormalizedUnitsPercentage" => String.t() | atom(),
-        "OnDemandNormalizedUnits" => String.t() | atom(),
-        "ReservedNormalizedUnits" => String.t() | atom(),
-        "TotalRunningNormalizedUnits" => String.t() | atom()
-      }
-      
-  """
-  @type coverage_normalized_units() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans_purchase_recommendation_metadata() :: %{
-        "AdditionalMetadata" => String.t() | atom(),
-        "GenerationTimestamp" => String.t() | atom(),
-        "RecommendationId" => String.t() | atom()
-      }
-      
-  """
-  @type savings_plans_purchase_recommendation_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      comparison_metric_value() :: %{
-        "BaselineTimePeriodAmount" => String.t() | atom(),
-        "ComparisonTimePeriodAmount" => String.t() | atom(),
-        "Difference" => String.t() | atom(),
-        "Unit" => String.t() | atom()
-      }
-      
-  """
-  @type comparison_metric_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cost_category_definition_request() :: %{
-        optional("DefaultValue") => String.t() | atom(),
-        optional("EffectiveStart") => String.t() | atom(),
-        optional("SplitChargeRules") => list(cost_category_split_charge_rule()),
-        required("CostCategoryArn") => String.t() | atom(),
-        required("RuleVersion") => list(any()),
-        required("Rules") => list(cost_category_rule())
-      }
-      
-  """
-  @type update_cost_category_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_category_rule() :: %{
-        "InheritedValue" => cost_category_inherited_value_dimension(),
-        "Rule" => expression(),
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type cost_category_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans_details() :: %{
-        "InstanceFamily" => String.t() | atom(),
-        "OfferingId" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-      
-  """
-  @type savings_plans_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_commitment_purchase_analysis_request() :: %{
-        required("CommitmentPurchaseAnalysisConfiguration") => commitment_purchase_analysis_configuration()
-      }
-      
-  """
-  @type start_commitment_purchase_analysis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reservation_purchase_recommendation_detail() :: %{
-        "AccountId" => String.t() | atom(),
-        "AverageNormalizedUnitsUsedPerHour" => String.t() | atom(),
-        "AverageNumberOfCapacityUnitsUsedPerHour" => String.t() | atom(),
-        "AverageNumberOfInstancesUsedPerHour" => String.t() | atom(),
-        "AverageUtilization" => String.t() | atom(),
-        "CurrencyCode" => String.t() | atom(),
-        "EstimatedBreakEvenInMonths" => String.t() | atom(),
-        "EstimatedMonthlyOnDemandCost" => String.t() | atom(),
-        "EstimatedMonthlySavingsAmount" => String.t() | atom(),
-        "EstimatedMonthlySavingsPercentage" => String.t() | atom(),
-        "EstimatedReservationCostForLookbackPeriod" => String.t() | atom(),
-        "InstanceDetails" => instance_details(),
-        "MaximumNormalizedUnitsUsedPerHour" => String.t() | atom(),
-        "MaximumNumberOfCapacityUnitsUsedPerHour" => String.t() | atom(),
-        "MaximumNumberOfInstancesUsedPerHour" => String.t() | atom(),
-        "MinimumNormalizedUnitsUsedPerHour" => String.t() | atom(),
-        "MinimumNumberOfCapacityUnitsUsedPerHour" => String.t() | atom(),
-        "MinimumNumberOfInstancesUsedPerHour" => String.t() | atom(),
-        "RecommendedNormalizedUnitsToPurchase" => String.t() | atom(),
-        "RecommendedNumberOfCapacityUnitsToPurchase" => String.t() | atom(),
-        "RecommendedNumberOfInstancesToPurchase" => String.t() | atom(),
-        "RecurringStandardMonthlyCost" => String.t() | atom(),
-        "ReservedCapacityDetails" => reserved_capacity_details(),
-        "UpfrontCost" => String.t() | atom()
-      }
-      
-  """
-  @type reservation_purchase_recommendation_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      current_instance() :: %{
-        "CurrencyCode" => String.t() | atom(),
-        "InstanceName" => String.t() | atom(),
-        "MonthlyCost" => String.t() | atom(),
-        "OnDemandHoursInLookbackPeriod" => String.t() | atom(),
-        "ReservationCoveredHoursInLookbackPeriod" => String.t() | atom(),
-        "ResourceDetails" => resource_details(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceUtilization" => resource_utilization(),
-        "SavingsPlansCoveredHoursInLookbackPeriod" => String.t() | atom(),
-        "Tags" => list(tag_values()),
-        "TotalRunningHoursInLookbackPeriod" => String.t() | atom()
-      }
-      
-  """
-  @type current_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_savings_plan_purchase_recommendation_details_request() :: %{
-        required("RecommendationDetailId") => String.t() | atom()
-      }
-      
-  """
-  @type get_savings_plan_purchase_recommendation_details_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type create_anomaly_monitor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1888,291 +2142,107 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      reservation_coverage_group() :: %{
-        "Attributes" => map(),
-        "Coverage" => coverage()
+      rightsizing_recommendation_summary() :: %{
+        "EstimatedTotalMonthlySavingsAmount" => String.t() | atom(),
+        "SavingsCurrencyCode" => String.t() | atom(),
+        "SavingsPercentage" => String.t() | atom(),
+        "TotalRecommendationCount" => String.t() | atom()
       }
       
   """
-  @type reservation_coverage_group() :: %{(String.t() | atom()) => any()}
+  @type rightsizing_recommendation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_anomaly_subscription_request() :: %{
-        required("SubscriptionArn") => String.t() | atom()
+      total_impact_filter() :: %{
+        "EndValue" => float(),
+        "NumericOperator" => list(any()),
+        "StartValue" => float()
       }
       
   """
-  @type delete_anomaly_subscription_request() :: %{(String.t() | atom()) => any()}
+  @type total_impact_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      impact() :: %{
-        "MaxImpact" => float(),
-        "TotalActualSpend" => float(),
-        "TotalExpectedSpend" => float(),
-        "TotalImpact" => float(),
-        "TotalImpactPercentage" => float()
-      }
-      
-  """
-  @type impact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anomaly() :: %{
-        "AnomalyEndDate" => String.t() | atom(),
-        "AnomalyId" => String.t() | atom(),
-        "AnomalyScore" => anomaly_score(),
-        "AnomalyStartDate" => String.t() | atom(),
-        "DimensionValue" => String.t() | atom(),
-        "Feedback" => list(any()),
-        "Impact" => impact(),
-        "MonitorArn" => String.t() | atom(),
-        "RootCauses" => list(root_cause())
-      }
-      
-  """
-  @type anomaly() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_anomaly_subscription_response() :: %{
-        "SubscriptionArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_anomaly_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans_utilization_detail() :: %{
-        "AmortizedCommitment" => savings_plans_amortized_commitment(),
-        "Attributes" => map(),
-        "Savings" => savings_plans_savings(),
-        "SavingsPlanArn" => String.t() | atom(),
-        "Utilization" => savings_plans_utilization()
-      }
-      
-  """
-  @type savings_plans_utilization_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_savings_plans_coverage_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SavingsPlansCoverages" => list(savings_plans_coverage())
-      }
-      
-  """
-  @type get_savings_plans_coverage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_category_processing_status() :: %{
-        "Component" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type cost_category_processing_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cost_category_resource_associations_response() :: %{
-        "CostCategoryResourceAssociations" => list(cost_category_resource_association()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_cost_category_resource_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_category_values() :: %{
-        "Key" => String.t() | atom(),
-        "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type cost_category_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type data_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_recommendation_detail() :: %{
-        "TargetInstances" => list(target_instance())
-      }
-      
-  """
-  @type modify_recommendation_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cost_allocation_tags_status_response() :: %{
-        "Errors" => list(update_cost_allocation_tags_status_error())
-      }
-      
-  """
-  @type update_cost_allocation_tags_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reservation_purchase_recommendation() :: %{
-        "AccountScope" => list(any()),
-        "LookbackPeriodInDays" => list(any()),
-        "PaymentOption" => list(any()),
-        "RecommendationDetails" => list(reservation_purchase_recommendation_detail()),
-        "RecommendationSummary" => reservation_purchase_recommendation_summary(),
-        "ServiceSpecification" => service_specification(),
-        "TermInYears" => list(any())
-      }
-      
-  """
-  @type reservation_purchase_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      bill_expiration_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type bill_expiration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_cost_allocation_tag_backfill_response() :: %{
-        "BackfillRequest" => cost_allocation_tag_backfill_request()
-      }
-      
-  """
-  @type start_cost_allocation_tag_backfill_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_savings_plans_purchase_recommendation_generation_response() :: %{
-        "EstimatedCompletionTime" => String.t() | atom(),
-        "GenerationStartedTime" => String.t() | atom(),
-        "RecommendationId" => String.t() | atom()
-      }
-      
-  """
-  @type start_savings_plans_purchase_recommendation_generation_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      get_approximate_usage_records_request() :: %{
-        optional("Services") => list(String.t() | atom()),
-        required("ApproximationDimension") => list(any()),
-        required("Granularity") => list(any())
-      }
-      
-  """
-  @type get_approximate_usage_records_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_anomaly_monitor_request() :: %{
-        optional("MonitorName") => String.t() | atom(),
+      delete_anomaly_monitor_request() :: %{
         required("MonitorArn") => String.t() | atom()
       }
       
   """
-  @type update_anomaly_monitor_request() :: %{(String.t() | atom()) => any()}
+  @type delete_anomaly_monitor_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_anomaly_monitors_request() :: %{
+      list_cost_category_resource_associations_request() :: %{
+        optional("CostCategoryArn") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("MonitorArnList") => list(String.t() | atom()),
-        optional("NextPageToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_anomaly_monitors_request() :: %{(String.t() | atom()) => any()}
+  @type list_cost_category_resource_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_anomalies_response() :: %{
-        "Anomalies" => list(anomaly()),
-        "NextPageToken" => String.t() | atom()
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
       }
       
   """
-  @type get_anomalies_response() :: %{(String.t() | atom()) => any()}
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_forecast_response() :: %{
+        "ForecastResultsByTime" => list(forecast_result()),
+        "Total" => metric_value()
+      }
+      
+  """
+  @type get_usage_forecast_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_categories_response() :: %{
+        "CostCategoryNames" => list(String.t() | atom()),
+        "CostCategoryValues" => list(String.t() | atom()),
+        "NextPageToken" => String.t() | atom(),
+        "ReturnSize" => integer(),
+        "TotalSize" => integer()
+      }
+      
+  """
+  @type get_cost_categories_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rightsizing_recommendation() :: %{
+        "AccountId" => String.t() | atom(),
+        "CurrentInstance" => current_instance(),
+        "FindingReasonCodes" => list(list(any())()),
+        "ModifyRecommendationDetail" => modify_recommendation_detail(),
+        "RightsizingType" => list(any()),
+        "TerminateRecommendationDetail" => terminate_recommendation_detail()
+      }
+      
+  """
+  @type rightsizing_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2191,75 +2261,100 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      get_commitment_purchase_analysis_request() :: %{
-        required("AnalysisId") => String.t() | atom()
+      get_savings_plans_purchase_recommendation_response() :: %{
+        "Metadata" => savings_plans_purchase_recommendation_metadata(),
+        "NextPageToken" => String.t() | atom(),
+        "SavingsPlansPurchaseRecommendation" => savings_plans_purchase_recommendation()
       }
       
   """
-  @type get_commitment_purchase_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type get_savings_plans_purchase_recommendation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      metric_value() :: %{
-        "Amount" => String.t() | atom(),
-        "Unit" => String.t() | atom()
+      update_cost_allocation_tags_status_response() :: %{
+        "Errors" => list(update_cost_allocation_tags_status_error())
       }
       
   """
-  @type metric_value() :: %{(String.t() | atom()) => any()}
+  @type update_cost_allocation_tags_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      redshift_instance_details() :: %{
+      get_savings_plans_coverage_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SavingsPlansCoverages" => list(savings_plans_coverage())
+      }
+      
+  """
+  @type get_savings_plans_coverage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_dimension_values_response() :: %{
+        "DimensionValues" => list(dimension_values_with_attributes()),
+        "NextPageToken" => String.t() | atom(),
+        "ReturnSize" => integer(),
+        "TotalSize" => integer()
+      }
+      
+  """
+  @type get_dimension_values_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_anomalies_request() :: %{
+        optional("Feedback") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("MonitorArn") => String.t() | atom(),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("TotalImpact") => total_impact_filter(),
+        required("DateInterval") => anomaly_date_interval()
+      }
+      
+  """
+  @type get_anomalies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      e_s_instance_details() :: %{
         "CurrentGeneration" => boolean(),
-        "Family" => String.t() | atom(),
-        "NodeType" => String.t() | atom(),
+        "InstanceClass" => String.t() | atom(),
+        "InstanceSize" => String.t() | atom(),
         "Region" => String.t() | atom(),
         "SizeFlexEligible" => boolean()
       }
       
   """
-  @type redshift_instance_details() :: %{(String.t() | atom()) => any()}
+  @type e_s_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      root_cause_impact() :: %{
-        "Contribution" => float()
+      get_savings_plans_purchase_recommendation_request() :: %{
+        optional("AccountScope") => list(any()),
+        optional("Filter") => expression(),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        required("LookbackPeriodInDays") => list(any()),
+        required("PaymentOption") => list(any()),
+        required("SavingsPlansType") => list(any()),
+        required("TermInYears") => list(any())
       }
       
   """
-  @type root_cause_impact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      network_resource_utilization() :: %{
-        "NetworkInBytesPerSecond" => String.t() | atom(),
-        "NetworkOutBytesPerSecond" => String.t() | atom(),
-        "NetworkPacketsInPerSecond" => String.t() | atom(),
-        "NetworkPacketsOutPerSecond" => String.t() | atom()
-      }
-      
-  """
-  @type network_resource_utilization() :: %{(String.t() | atom()) => any()}
+  @type get_savings_plans_purchase_recommendation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2278,14 +2373,45 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      get_savings_plans_purchase_recommendation_response() :: %{
-        "Metadata" => savings_plans_purchase_recommendation_metadata(),
-        "NextPageToken" => String.t() | atom(),
-        "SavingsPlansPurchaseRecommendation" => savings_plans_purchase_recommendation()
+      get_reservation_purchase_recommendation_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AccountScope") => list(any()),
+        optional("Filter") => expression(),
+        optional("LookbackPeriodInDays") => list(any()),
+        optional("NextPageToken") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("PaymentOption") => list(any()),
+        optional("ServiceSpecification") => service_specification(),
+        optional("TermInYears") => list(any()),
+        required("Service") => String.t() | atom()
       }
       
   """
-  @type get_savings_plans_purchase_recommendation_response() :: %{(String.t() | atom()) => any()}
+  @type get_reservation_purchase_recommendation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_view_health_status_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type billing_view_health_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      utilization_by_time() :: %{
+        "Groups" => list(reservation_utilization_group()),
+        "TimePeriod" => date_interval(),
+        "Total" => reservation_aggregates()
+      }
+      
+  """
+  @type utilization_by_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2302,103 +2428,15 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      group() :: %{
-        "Keys" => list(String.t() | atom()),
-        "Metrics" => map()
+      reservation_utilization_group() :: %{
+        "Attributes" => map(),
+        "Key" => String.t() | atom(),
+        "Utilization" => reservation_aggregates(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_instance() :: %{
-        "CurrencyCode" => String.t() | atom(),
-        "DefaultTargetInstance" => boolean(),
-        "EstimatedMonthlyCost" => String.t() | atom(),
-        "EstimatedMonthlySavings" => String.t() | atom(),
-        "ExpectedResourceUtilization" => resource_utilization(),
-        "PlatformDifferences" => list(list(any())()),
-        "ResourceDetails" => resource_details()
-      }
-      
-  """
-  @type target_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anomaly_score() :: %{
-        "CurrentScore" => float(),
-        "MaxScore" => float()
-      }
-      
-  """
-  @type anomaly_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expression() :: %{
-        "And" => list(expression()),
-        "CostCategories" => cost_category_values(),
-        "Dimensions" => dimension_values(),
-        "Not" => expression(),
-        "Or" => list(expression()),
-        "Tags" => tag_values()
-      }
-      
-  """
-  @type expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      commitment_purchase_analysis_configuration() :: %{
-        "SavingsPlansPurchaseAnalysisConfiguration" => savings_plans_purchase_analysis_configuration()
-      }
-      
-  """
-  @type commitment_purchase_analysis_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analysis_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type analysis_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_anomaly_monitor_response() :: %{
-        "MonitorArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_anomaly_monitor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cost_allocation_tags_response() :: %{
-        "CostAllocationTags" => list(cost_allocation_tag()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_cost_allocation_tags_response() :: %{(String.t() | atom()) => any()}
+  @type reservation_utilization_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2423,36 +2461,39 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
+      tag_values() :: %{
+        "Key" => String.t() | atom(),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_cost_allocation_tag_backfill_history_response() :: %{
-        "BackfillRequests" => list(cost_allocation_tag_backfill_request()),
-        "NextToken" => String.t() | atom()
+      forecast_result() :: %{
+        "MeanValue" => String.t() | atom(),
+        "PredictionIntervalLowerBound" => String.t() | atom(),
+        "PredictionIntervalUpperBound" => String.t() | atom(),
+        "TimePeriod" => date_interval()
       }
       
   """
-  @type list_cost_allocation_tag_backfill_history_response() :: %{(String.t() | atom()) => any()}
+  @type forecast_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_cost_allocation_tag_backfill_history_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      ec2_specification() :: %{
+        "OfferingClass" => list(any())
       }
       
   """
-  @type list_cost_allocation_tag_backfill_history_request() :: %{(String.t() | atom()) => any()}
+  @type ec2_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2467,6 +2508,55 @@ defmodule AWS.CostExplorer do
   @type get_savings_plan_purchase_recommendation_details_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      cost_and_usage_comparison() :: %{
+        "CostAndUsageSelector" => expression(),
+        "Metrics" => map()
+      }
+      
+  """
+  @type cost_and_usage_comparison() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cost_category_definition_request() :: %{
+        required("CostCategoryArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cost_category_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_savings_plans_purchase_recommendation_generation_response() :: %{
+        "GenerationSummaryList" => list(generation_summary()),
+        "NextPageToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_savings_plans_purchase_recommendation_generation_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cost_allocation_tag_backfill_history_response() :: %{
+        "BackfillRequests" => list(cost_allocation_tag_backfill_request()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cost_allocation_tag_backfill_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2499,6 +2589,88 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
+      list_cost_allocation_tags_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any()),
+        optional("TagKeys") => list(String.t() | atom()),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type list_cost_allocation_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cost_forecast_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
+        optional("Filter") => expression(),
+        optional("PredictionIntervalLevel") => integer(),
+        required("Granularity") => list(any()),
+        required("Metric") => list(any()),
+        required("TimePeriod") => date_interval()
+      }
+      
+  """
+  @type get_cost_forecast_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_anomaly_subscription_request() :: %{
+        optional("ResourceTags") => list(resource_tag()),
+        required("AnomalySubscription") => anomaly_subscription()
+      }
+      
+  """
+  @type create_anomaly_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generation_summary() :: %{
+        "EstimatedCompletionTime" => String.t() | atom(),
+        "GenerationCompletionTime" => String.t() | atom(),
+        "GenerationStartedTime" => String.t() | atom(),
+        "GenerationStatus" => list(any()),
+        "RecommendationId" => String.t() | atom()
+      }
+      
+  """
+  @type generation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_anomaly_monitors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MonitorArnList") => list(String.t() | atom()),
+        optional("NextPageToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_anomaly_monitors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_cost_allocation_tag_backfill_response() :: %{
+        "BackfillRequest" => cost_allocation_tag_backfill_request()
+      }
+      
+  """
+  @type start_cost_allocation_tag_backfill_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_commitment_purchase_analyses_request() :: %{
         optional("AnalysisIds") => list(String.t() | atom()),
         optional("AnalysisStatus") => list(any()),
@@ -2513,62 +2685,208 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      savings_plans_purchase_analysis_configuration() :: %{
-        "AccountId" => String.t() | atom(),
-        "AccountScope" => list(any()),
-        "AnalysisType" => list(any()),
-        "LookBackTimePeriod" => date_interval(),
-        "SavingsPlansTargetCoverage" => integer(),
-        "SavingsPlansToAdd" => list(savings_plans()),
-        "SavingsPlansToExclude" => list(String.t() | atom())
+      memory_db_instance_details() :: %{
+        "CurrentGeneration" => boolean(),
+        "Family" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "SizeFlexEligible" => boolean()
       }
       
   """
-  @type savings_plans_purchase_analysis_configuration() :: %{(String.t() | atom()) => any()}
+  @type memory_db_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_reservation_purchase_recommendation_response() :: %{
-        "Metadata" => reservation_purchase_recommendation_metadata(),
-        "NextPageToken" => String.t() | atom(),
-        "Recommendations" => list(reservation_purchase_recommendation())
+      cost_category_reference() :: %{
+        "CostCategoryArn" => String.t() | atom(),
+        "DefaultValue" => String.t() | atom(),
+        "EffectiveEnd" => String.t() | atom(),
+        "EffectiveStart" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NumberOfRules" => integer(),
+        "ProcessingStatus" => list(cost_category_processing_status()),
+        "SupportedResourceTypes" => list(String.t() | atom()),
+        "Values" => list(String.t() | atom())
       }
       
   """
-  @type get_reservation_purchase_recommendation_response() :: %{(String.t() | atom()) => any()}
+  @type cost_category_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      savings_plans_utilization_by_time() :: %{
-        "AmortizedCommitment" => savings_plans_amortized_commitment(),
-        "Savings" => savings_plans_savings(),
-        "TimePeriod" => date_interval(),
-        "Utilization" => savings_plans_utilization()
+      resource_details() :: %{
+        "EC2ResourceDetails" => ec2_resource_details()
       }
       
   """
-  @type savings_plans_utilization_by_time() :: %{(String.t() | atom()) => any()}
+  @type resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_reservation_utilization_request() :: %{
+      get_cost_comparison_drivers_request() :: %{
+        optional("BillingViewArn") => String.t() | atom(),
         optional("Filter") => expression(),
-        optional("Granularity") => list(any()),
         optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t() | atom(),
-        optional("SortBy") => sort_definition(),
-        required("TimePeriod") => date_interval()
+        required("BaselineTimePeriod") => date_interval(),
+        required("ComparisonTimePeriod") => date_interval(),
+        required("MetricForComparison") => String.t() | atom()
       }
       
   """
-  @type get_reservation_utilization_request() :: %{(String.t() | atom()) => any()}
+  @type get_cost_comparison_drivers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rightsizing_recommendation_metadata() :: %{
+        "AdditionalMetadata" => String.t() | atom(),
+        "GenerationTimestamp" => String.t() | atom(),
+        "LookbackPeriodInDays" => list(any()),
+        "RecommendationId" => String.t() | atom()
+      }
+      
+  """
+  @type rightsizing_recommendation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_changed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type request_changed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      savings_plans_savings() :: %{
+        "NetSavings" => String.t() | atom(),
+        "OnDemandCostEquivalent" => String.t() | atom()
+      }
+      
+  """
+  @type savings_plans_savings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      coverage_by_time() :: %{
+        "Groups" => list(reservation_coverage_group()),
+        "TimePeriod" => date_interval(),
+        "Total" => coverage()
+      }
+      
+  """
+  @type coverage_by_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reserved_capacity_details() :: %{
+        "DynamoDBCapacityDetails" => dynamo_db_capacity_details()
+      }
+      
+  """
+  @type reserved_capacity_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provide_anomaly_feedback_response() :: %{
+        "AnomalyId" => String.t() | atom()
+      }
+      
+  """
+  @type provide_anomaly_feedback_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dimension_values() :: %{
+        "Key" => list(any()),
+        "MatchOptions" => list(list(any())()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type dimension_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type analysis_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dynamo_db_capacity_details() :: %{
+        "CapacityUnits" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+      
+  """
+  @type dynamo_db_capacity_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      coverage_normalized_units() :: %{
+        "CoverageNormalizedUnitsPercentage" => String.t() | atom(),
+        "OnDemandNormalizedUnits" => String.t() | atom(),
+        "ReservedNormalizedUnits" => String.t() | atom(),
+        "TotalRunningNormalizedUnits" => String.t() | atom()
+      }
+      
+  """
+  @type coverage_normalized_units() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2587,363 +2905,45 @@ defmodule AWS.CostExplorer do
 
   ## Example:
       
-      get_cost_and_usage_comparisons_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("Filter") => expression(),
-        optional("GroupBy") => list(group_definition()),
-        optional("MaxResults") => integer(),
-        optional("NextPageToken") => String.t() | atom(),
-        required("BaselineTimePeriod") => date_interval(),
-        required("ComparisonTimePeriod") => date_interval(),
-        required("MetricForComparison") => String.t() | atom()
+      update_anomaly_subscription_request() :: %{
+        optional("Frequency") => list(any()),
+        optional("MonitorArnList") => list(String.t() | atom()),
+        optional("Subscribers") => list(subscriber()),
+        optional("SubscriptionName") => String.t() | atom(),
+        optional("Threshold") => float(),
+        optional("ThresholdExpression") => expression(),
+        required("SubscriptionArn") => String.t() | atom()
       }
       
   """
-  @type get_cost_and_usage_comparisons_request() :: %{(String.t() | atom()) => any()}
+  @type update_anomaly_subscription_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_cost_category_definition_response() :: %{
-        "CostCategory" => cost_category()
-      }
-      
-  """
-  @type describe_cost_category_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unknown_subscription_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unknown_subscription_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_resource_utilization() :: %{
-        "DiskResourceUtilization" => disk_resource_utilization(),
-        "EBSResourceUtilization" => ebs_resource_utilization(),
-        "MaxCpuUtilizationPercentage" => String.t() | atom(),
-        "MaxMemoryUtilizationPercentage" => String.t() | atom(),
-        "MaxStorageUtilizationPercentage" => String.t() | atom(),
-        "NetworkResourceUtilization" => network_resource_utilization()
-      }
-      
-  """
-  @type ec2_resource_utilization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_details() :: %{
-        "EC2ResourceDetails" => ec2_resource_details()
-      }
-      
-  """
-  @type resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backfill_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type backfill_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_savings_plans_utilization_response() :: %{
-        "SavingsPlansUtilizationsByTime" => list(savings_plans_utilization_by_time()),
-        "Total" => savings_plans_utilization_aggregates()
-      }
-      
-  """
-  @type get_savings_plans_utilization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analysis_details() :: %{
-        "SavingsPlansPurchaseAnalysisDetails" => savings_plans_purchase_analysis_details()
-      }
-      
-  """
-  @type analysis_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rightsizing_recommendation_response() :: %{
-        "Configuration" => rightsizing_recommendation_configuration(),
-        "Metadata" => rightsizing_recommendation_metadata(),
-        "NextPageToken" => String.t() | atom(),
-        "RightsizingRecommendations" => list(rightsizing_recommendation()),
-        "Summary" => rightsizing_recommendation_summary()
-      }
-      
-  """
-  @type get_rightsizing_recommendation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_dimension_values_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("Context") => list(any()),
-        optional("Filter") => expression(),
-        optional("MaxResults") => integer(),
-        optional("NextPageToken") => String.t() | atom(),
-        optional("SearchString") => String.t() | atom(),
-        optional("SortBy") => list(sort_definition()),
-        required("Dimension") => list(any()),
-        required("TimePeriod") => date_interval()
-      }
-      
-  """
-  @type get_dimension_values_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans_purchase_recommendation() :: %{
-        "AccountScope" => list(any()),
-        "LookbackPeriodInDays" => list(any()),
-        "PaymentOption" => list(any()),
-        "SavingsPlansPurchaseRecommendationDetails" => list(savings_plans_purchase_recommendation_detail()),
-        "SavingsPlansPurchaseRecommendationSummary" => savings_plans_purchase_recommendation_summary(),
-        "SavingsPlansType" => list(any()),
-        "TermInYears" => list(any())
-      }
-      
-  """
-  @type savings_plans_purchase_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_savings_plans_purchase_recommendation_generation_request() :: %{}
-      
-  """
-  @type start_savings_plans_purchase_recommendation_generation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_anomaly_monitor_request() :: %{
-        required("MonitorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_anomaly_monitor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      savings_plans() :: %{
-        "InstanceFamily" => String.t() | atom(),
-        "OfferingId" => String.t() | atom(),
-        "PaymentOption" => list(any()),
-        "Region" => String.t() | atom(),
-        "SavingsPlansCommitment" => float(),
-        "SavingsPlansType" => list(any()),
-        "TermInYears" => list(any())
-      }
-      
-  """
-  @type savings_plans() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
+      update_cost_allocation_tags_status_error() :: %{
+        "Code" => String.t() | atom(),
         "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
+        "TagKey" => String.t() | atom()
       }
       
   """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type update_cost_allocation_tags_status_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      provide_anomaly_feedback_response() :: %{
-        "AnomalyId" => String.t() | atom()
-      }
-      
-  """
-  @type provide_anomaly_feedback_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      elasti_cache_instance_details() :: %{
-        "CurrentGeneration" => boolean(),
-        "Family" => String.t() | atom(),
-        "NodeType" => String.t() | atom(),
-        "ProductDescription" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "SizeFlexEligible" => boolean()
-      }
-      
-  """
-  @type elasti_cache_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dynamo_db_capacity_details() :: %{
-        "CapacityUnits" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-      
-  """
-  @type dynamo_db_capacity_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_savings_plans_purchase_recommendation_generation_response() :: %{
-        "GenerationSummaryList" => list(generation_summary()),
-        "NextPageToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_savings_plans_purchase_recommendation_generation_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cost_categories_request() :: %{
-        optional("BillingViewArn") => String.t() | atom(),
-        optional("CostCategoryName") => String.t() | atom(),
-        optional("Filter") => expression(),
-        optional("MaxResults") => integer(),
-        optional("NextPageToken") => String.t() | atom(),
-        optional("SearchString") => String.t() | atom(),
-        optional("SortBy") => list(sort_definition()),
-        required("TimePeriod") => date_interval()
-      }
-      
-  """
-  @type get_cost_categories_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reserved_capacity_details() :: %{
-        "DynamoDBCapacityDetails" => dynamo_db_capacity_details()
-      }
-      
-  """
-  @type reserved_capacity_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reservation_purchase_recommendation_metadata() :: %{
-        "AdditionalMetadata" => String.t() | atom(),
-        "GenerationTimestamp" => String.t() | atom(),
-        "RecommendationId" => String.t() | atom()
-      }
-      
-  """
-  @type reservation_purchase_recommendation_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cost_category_inherited_value_dimension() :: %{
-        "DimensionKey" => String.t() | atom(),
-        "DimensionName" => list(any())
-      }
-      
-  """
-  @type cost_category_inherited_value_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anomaly_monitor() :: %{
-        "CreationDate" => String.t() | atom(),
-        "DimensionalValueCount" => integer(),
-        "LastEvaluatedDate" => String.t() | atom(),
-        "LastUpdatedDate" => String.t() | atom(),
-        "MonitorArn" => String.t() | atom(),
-        "MonitorDimension" => list(any()),
-        "MonitorName" => String.t() | atom(),
-        "MonitorSpecification" => expression(),
-        "MonitorType" => list(any())
-      }
-      
-  """
-  @type anomaly_monitor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_instance_details() :: %{
-        "CurrentGeneration" => boolean(),
-        "DatabaseEdition" => String.t() | atom(),
-        "DatabaseEngine" => String.t() | atom(),
-        "DeploymentModel" => String.t() | atom(),
-        "DeploymentOption" => String.t() | atom(),
-        "Family" => String.t() | atom(),
-        "InstanceType" => String.t() | atom(),
-        "LicenseModel" => String.t() | atom(),
-        "Region" => String.t() | atom(),
-        "SizeFlexEligible" => boolean()
-      }
-      
-  """
-  @type rds_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cost_categories_response() :: %{
-        "CostCategoryNames" => list(String.t() | atom()),
-        "CostCategoryValues" => list(String.t() | atom()),
+      get_tags_response() :: %{
         "NextPageToken" => String.t() | atom(),
         "ReturnSize" => integer(),
+        "Tags" => list(String.t() | atom()),
         "TotalSize" => integer()
       }
       
   """
-  @type get_cost_categories_response() :: %{(String.t() | atom()) => any()}
+  @type get_tags_response() :: %{(String.t() | atom()) => any()}
 
   @type create_anomaly_monitor_errors() :: limit_exceeded_exception()
 
@@ -2951,7 +2951,7 @@ defmodule AWS.CostExplorer do
           limit_exceeded_exception() | unknown_monitor_exception()
 
   @type create_cost_category_definition_errors() ::
-          limit_exceeded_exception() | service_quota_exceeded_exception()
+          service_quota_exceeded_exception() | limit_exceeded_exception()
 
   @type delete_anomaly_monitor_errors() ::
           limit_exceeded_exception() | unknown_monitor_exception()
@@ -2960,185 +2960,185 @@ defmodule AWS.CostExplorer do
           unknown_subscription_exception() | limit_exceeded_exception()
 
   @type delete_cost_category_definition_errors() ::
-          limit_exceeded_exception() | resource_not_found_exception()
+          resource_not_found_exception() | limit_exceeded_exception()
 
   @type describe_cost_category_definition_errors() ::
-          limit_exceeded_exception() | resource_not_found_exception()
+          resource_not_found_exception() | limit_exceeded_exception()
 
-  @type get_anomalies_errors() :: limit_exceeded_exception() | invalid_next_token_exception()
+  @type get_anomalies_errors() :: invalid_next_token_exception() | limit_exceeded_exception()
 
   @type get_anomaly_monitors_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
+          | limit_exceeded_exception()
           | unknown_monitor_exception()
-          | invalid_next_token_exception()
 
   @type get_anomaly_subscriptions_errors() ::
-          unknown_subscription_exception()
+          invalid_next_token_exception()
+          | unknown_subscription_exception()
           | limit_exceeded_exception()
-          | invalid_next_token_exception()
 
   @type get_approximate_usage_records_errors() ::
-          limit_exceeded_exception() | data_unavailable_exception()
+          data_unavailable_exception() | limit_exceeded_exception()
 
   @type get_commitment_purchase_analysis_errors() ::
-          limit_exceeded_exception()
-          | analysis_not_found_exception()
+          analysis_not_found_exception()
           | data_unavailable_exception()
+          | limit_exceeded_exception()
 
   @type get_cost_and_usage_errors() ::
-          limit_exceeded_exception()
-          | bill_expiration_exception()
-          | data_unavailable_exception()
+          request_changed_exception()
           | billing_view_health_status_exception()
           | invalid_next_token_exception()
-          | request_changed_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | bill_expiration_exception()
 
   @type get_cost_and_usage_comparisons_errors() ::
-          limit_exceeded_exception()
-          | data_unavailable_exception()
-          | billing_view_health_status_exception()
+          billing_view_health_status_exception()
           | invalid_next_token_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type get_cost_and_usage_with_resources_errors() ::
-          limit_exceeded_exception()
-          | bill_expiration_exception()
-          | data_unavailable_exception()
+          request_changed_exception()
           | billing_view_health_status_exception()
           | invalid_next_token_exception()
-          | request_changed_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | bill_expiration_exception()
 
   @type get_cost_categories_errors() ::
-          limit_exceeded_exception()
-          | bill_expiration_exception()
-          | data_unavailable_exception()
+          request_changed_exception()
           | billing_view_health_status_exception()
           | invalid_next_token_exception()
-          | request_changed_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | bill_expiration_exception()
 
   @type get_cost_comparison_drivers_errors() ::
-          limit_exceeded_exception()
-          | data_unavailable_exception()
-          | billing_view_health_status_exception()
+          billing_view_health_status_exception()
           | invalid_next_token_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type get_cost_forecast_errors() ::
-          limit_exceeded_exception()
+          billing_view_health_status_exception()
           | data_unavailable_exception()
-          | billing_view_health_status_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type get_dimension_values_errors() ::
-          limit_exceeded_exception()
-          | bill_expiration_exception()
-          | data_unavailable_exception()
+          request_changed_exception()
           | billing_view_health_status_exception()
           | invalid_next_token_exception()
-          | request_changed_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | bill_expiration_exception()
 
   @type get_reservation_coverage_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
           | data_unavailable_exception()
-          | invalid_next_token_exception()
+          | limit_exceeded_exception()
 
   @type get_reservation_purchase_recommendation_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
           | data_unavailable_exception()
-          | invalid_next_token_exception()
+          | limit_exceeded_exception()
 
   @type get_reservation_utilization_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
           | data_unavailable_exception()
-          | invalid_next_token_exception()
+          | limit_exceeded_exception()
 
   @type get_rightsizing_recommendation_errors() ::
-          limit_exceeded_exception() | invalid_next_token_exception()
+          invalid_next_token_exception() | limit_exceeded_exception()
 
   @type get_savings_plan_purchase_recommendation_details_errors() ::
-          limit_exceeded_exception() | data_unavailable_exception()
+          data_unavailable_exception() | limit_exceeded_exception()
 
   @type get_savings_plans_coverage_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
           | data_unavailable_exception()
-          | invalid_next_token_exception()
+          | limit_exceeded_exception()
 
   @type get_savings_plans_purchase_recommendation_errors() ::
-          limit_exceeded_exception() | invalid_next_token_exception()
+          invalid_next_token_exception() | limit_exceeded_exception()
 
   @type get_savings_plans_utilization_errors() ::
-          limit_exceeded_exception() | data_unavailable_exception()
+          data_unavailable_exception() | limit_exceeded_exception()
 
   @type get_savings_plans_utilization_details_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
           | data_unavailable_exception()
-          | invalid_next_token_exception()
+          | limit_exceeded_exception()
 
   @type get_tags_errors() ::
-          limit_exceeded_exception()
-          | bill_expiration_exception()
-          | data_unavailable_exception()
+          request_changed_exception()
           | billing_view_health_status_exception()
           | invalid_next_token_exception()
-          | request_changed_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | bill_expiration_exception()
 
   @type get_usage_forecast_errors() ::
-          limit_exceeded_exception()
-          | unresolvable_usage_unit_exception()
-          | data_unavailable_exception()
+          unresolvable_usage_unit_exception()
           | billing_view_health_status_exception()
+          | data_unavailable_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type list_commitment_purchase_analyses_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
           | data_unavailable_exception()
-          | invalid_next_token_exception()
+          | limit_exceeded_exception()
 
   @type list_cost_allocation_tag_backfill_history_errors() ::
-          limit_exceeded_exception() | invalid_next_token_exception()
+          invalid_next_token_exception() | limit_exceeded_exception()
 
   @type list_cost_allocation_tags_errors() ::
-          limit_exceeded_exception() | invalid_next_token_exception()
+          invalid_next_token_exception() | limit_exceeded_exception()
 
   @type list_cost_category_definitions_errors() :: limit_exceeded_exception()
 
   @type list_cost_category_resource_associations_errors() ::
-          limit_exceeded_exception() | resource_not_found_exception()
+          resource_not_found_exception() | limit_exceeded_exception()
 
   @type list_savings_plans_purchase_recommendation_generation_errors() ::
-          limit_exceeded_exception()
+          invalid_next_token_exception()
           | data_unavailable_exception()
-          | invalid_next_token_exception()
+          | limit_exceeded_exception()
 
   @type list_tags_for_resource_errors() ::
-          limit_exceeded_exception() | resource_not_found_exception()
+          resource_not_found_exception() | limit_exceeded_exception()
 
   @type provide_anomaly_feedback_errors() :: limit_exceeded_exception()
 
   @type start_commitment_purchase_analysis_errors() ::
-          limit_exceeded_exception()
+          service_quota_exceeded_exception()
           | data_unavailable_exception()
-          | service_quota_exceeded_exception()
+          | limit_exceeded_exception()
           | generation_exists_exception()
 
   @type start_cost_allocation_tag_backfill_errors() ::
-          backfill_limit_exceeded_exception() | limit_exceeded_exception()
+          limit_exceeded_exception() | backfill_limit_exceeded_exception()
 
   @type start_savings_plans_purchase_recommendation_generation_errors() ::
-          limit_exceeded_exception()
+          service_quota_exceeded_exception()
           | data_unavailable_exception()
-          | service_quota_exceeded_exception()
+          | limit_exceeded_exception()
           | generation_exists_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception() | limit_exceeded_exception() | resource_not_found_exception()
+          too_many_tags_exception() | resource_not_found_exception() | limit_exceeded_exception()
 
-  @type untag_resource_errors() :: limit_exceeded_exception() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | limit_exceeded_exception()
 
   @type update_anomaly_monitor_errors() ::
           limit_exceeded_exception() | unknown_monitor_exception()
@@ -3151,9 +3151,9 @@ defmodule AWS.CostExplorer do
   @type update_cost_allocation_tags_status_errors() :: limit_exceeded_exception()
 
   @type update_cost_category_definition_errors() ::
-          limit_exceeded_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   def metadata do
     %{
@@ -3181,7 +3181,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_anomaly_monitor_errors()}
   def create_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAnomalyMonitor", input, options)
   end
@@ -3201,7 +3202,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_anomaly_subscription_errors()}
   def create_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAnomalySubscription", input, options)
   end
@@ -3215,7 +3217,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_cost_category_definition_errors()}
   def create_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCostCategoryDefinition", input, options)
   end
@@ -3229,7 +3232,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_anomaly_monitor_errors()}
   def delete_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnomalyMonitor", input, options)
   end
@@ -3243,7 +3247,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_anomaly_subscription_errors()}
   def delete_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnomalySubscription", input, options)
   end
@@ -3260,7 +3265,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_cost_category_definition_errors()}
   def delete_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCostCategoryDefinition", input, options)
   end
@@ -3286,7 +3292,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, describe_cost_category_definition_errors()}
   def describe_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCostCategoryDefinition", input, options)
   end
@@ -3305,7 +3312,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomalies_errors()}
   def get_anomalies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnomalies", input, options)
   end
@@ -3322,7 +3330,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomaly_monitors_errors()}
   def get_anomaly_monitors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnomalyMonitors", input, options)
   end
@@ -3339,7 +3348,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomaly_subscriptions_errors()}
   def get_anomaly_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnomalySubscriptions", input, options)
   end
@@ -3355,7 +3365,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_approximate_usage_records_errors()}
   def get_approximate_usage_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApproximateUsageRecords", input, options)
   end
@@ -3374,7 +3385,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_commitment_purchase_analysis_errors()}
   def get_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCommitmentPurchaseAnalysis", input, options)
   end
@@ -3401,7 +3413,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_errors()}
   def get_cost_and_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostAndUsage", input, options)
   end
@@ -3421,7 +3434,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_comparisons_errors()}
   def get_cost_and_usage_comparisons(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostAndUsageComparisons", input, options)
   end
@@ -3461,7 +3475,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_with_resources_errors()}
   def get_cost_and_usage_with_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostAndUsageWithResources", input, options)
   end
@@ -3479,7 +3494,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_categories_errors()}
   def get_cost_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostCategories", input, options)
   end
@@ -3498,7 +3514,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_comparison_drivers_errors()}
   def get_cost_comparison_drivers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostComparisonDrivers", input, options)
   end
@@ -3514,7 +3531,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_forecast_errors()}
   def get_cost_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostForecast", input, options)
   end
@@ -3532,7 +3550,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_dimension_values_errors()}
   def get_dimension_values(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDimensionValues", input, options)
   end
@@ -3596,7 +3615,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_coverage_errors()}
   def get_reservation_coverage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservationCoverage", input, options)
   end
@@ -3645,7 +3665,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_purchase_recommendation_errors()}
   def get_reservation_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservationPurchaseRecommendation", input, options)
   end
@@ -3665,7 +3686,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_utilization_errors()}
   def get_reservation_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservationUtilization", input, options)
   end
@@ -3688,7 +3710,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_rightsizing_recommendation_errors()}
   def get_rightsizing_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRightsizingRecommendation", input, options)
   end
@@ -3709,7 +3732,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plan_purchase_recommendation_details_errors()}
   def get_savings_plan_purchase_recommendation_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3757,7 +3781,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_coverage_errors()}
   def get_savings_plans_coverage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansCoverage", input, options)
   end
@@ -3781,7 +3806,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_purchase_recommendation_errors()}
   def get_savings_plans_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansPurchaseRecommendation", input, options)
   end
@@ -3804,7 +3830,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_utilization_errors()}
   def get_savings_plans_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansUtilization", input, options)
   end
@@ -3834,7 +3861,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_utilization_details_errors()}
   def get_savings_plans_utilization_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansUtilizationDetails", input, options)
   end
@@ -3851,7 +3879,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -3866,7 +3895,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_usage_forecast_errors()}
   def get_usage_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUsageForecast", input, options)
   end
@@ -3884,7 +3914,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_commitment_purchase_analyses_errors()}
   def list_commitment_purchase_analyses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCommitmentPurchaseAnalyses", input, options)
   end
@@ -3903,7 +3934,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_allocation_tag_backfill_history_errors()}
   def list_cost_allocation_tag_backfill_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCostAllocationTagBackfillHistory", input, options)
   end
@@ -3920,7 +3952,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_allocation_tags_errors()}
   def list_cost_allocation_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCostAllocationTags", input, options)
   end
@@ -3946,7 +3979,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_category_definitions_errors()}
   def list_cost_category_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCostCategoryDefinitions", input, options)
   end
@@ -3968,7 +4002,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_category_resource_associations_errors()}
   def list_cost_category_resource_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCostCategoryResourceAssociations", input, options)
   end
@@ -3992,7 +4027,8 @@ defmodule AWS.CostExplorer do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4014,7 +4050,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4028,7 +4065,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, provide_anomaly_feedback_errors()}
   def provide_anomaly_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvideAnomalyFeedback", input, options)
   end
@@ -4051,7 +4089,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, start_commitment_purchase_analysis_errors()}
   def start_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCommitmentPurchaseAnalysis", input, options)
   end
@@ -4075,7 +4114,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, start_cost_allocation_tag_backfill_errors()}
   def start_cost_allocation_tag_backfill(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCostAllocationTagBackfill", input, options)
   end
@@ -4107,7 +4147,8 @@ defmodule AWS.CostExplorer do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4139,7 +4180,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4156,7 +4198,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4173,7 +4216,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_anomaly_monitor_errors()}
   def update_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAnomalyMonitor", input, options)
   end
@@ -4194,7 +4238,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_anomaly_subscription_errors()}
   def update_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAnomalySubscription", input, options)
   end
@@ -4219,7 +4264,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_cost_allocation_tags_status_errors()}
   def update_cost_allocation_tags_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCostAllocationTagsStatus", input, options)
   end
@@ -4238,7 +4284,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_cost_category_definition_errors()}
   def update_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCostCategoryDefinition", input, options)
   end

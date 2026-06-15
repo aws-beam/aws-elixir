@@ -13,83 +13,20 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      recommendation_resource_exclusion() :: %{
+      recommendation_resource_summary() :: %{
         "arn" => String.t() | atom(),
-        "isExcluded" => [boolean()]
-      }
-
-  """
-  @type recommendation_resource_exclusion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_pillar_specific_aggregates() :: %{
-        "costOptimizing" => recommendation_cost_optimizing_aggregates()
-      }
-
-  """
-  @type recommendation_pillar_specific_aggregates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_recommendation_accounts_response() :: %{
-        "accountRecommendationLifecycleSummaries" => list(account_recommendation_lifecycle_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_organization_recommendation_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_checks_response() :: %{
-        "checkSummaries" => list(check_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_checks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommendation_request() :: %{
-        optional("language") => list(any())
-      }
-
-  """
-  @type get_recommendation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      organization_recommendation_summary() :: %{
-        "arn" => String.t() | atom(),
-        "awsServices" => list(String.t() | atom()),
-        "checkArn" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
+        "awsResourceId" => [String.t() | atom()],
+        "exclusionStatus" => list(any()),
         "id" => [String.t() | atom()],
         "lastUpdatedAt" => [non_neg_integer()],
-        "lifecycleStage" => list(any()),
-        "name" => [String.t() | atom()],
-        "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
-        "pillars" => list(list(any())()),
-        "resourcesAggregates" => recommendation_resources_aggregates(),
-        "source" => list(any()),
-        "status" => list(any()),
-        "type" => list(any())
+        "metadata" => map(),
+        "recommendationArn" => String.t() | atom(),
+        "regionCode" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type organization_recommendation_summary() :: %{(String.t() | atom()) => any()}
+  @type recommendation_resource_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -108,14 +45,215 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      batch_update_recommendation_resource_exclusion_request() :: %{
-        required("recommendationResourceExclusions") => list(recommendation_resource_exclusion())
+      list_recommendation_resources_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "recommendationResourceSummaries" => list(recommendation_resource_summary())
       }
 
   """
-  @type batch_update_recommendation_resource_exclusion_request() :: %{
+  @type list_recommendation_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendation_request() :: %{
+        optional("language") => list(any())
+      }
+
+  """
+  @type get_recommendation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_cost_optimizing_aggregates() :: %{
+        "estimatedMonthlySavings" => [float()],
+        "estimatedPercentMonthlySavings" => [float()]
+      }
+
+  """
+  @type recommendation_cost_optimizing_aggregates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_resource_exclusion() :: %{
+        "arn" => String.t() | atom(),
+        "isExcluded" => [boolean()]
+      }
+
+  """
+  @type recommendation_resource_exclusion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_checks_request() :: %{
+        optional("awsService") => String.t() | atom(),
+        optional("language") => list(any()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("pillar") => list(any()),
+        optional("source") => list(any())
+      }
+
+  """
+  @type list_checks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_summary() :: %{
+        "arn" => String.t() | atom(),
+        "awsServices" => list(String.t() | atom()),
+        "checkArn" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "id" => [String.t() | atom()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "lifecycleStage" => list(any()),
+        "name" => [String.t() | atom()],
+        "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
+        "pillars" => list(list(any())()),
+        "resourcesAggregates" => recommendation_resources_aggregates(),
+        "source" => list(any()),
+        "status" => list(any()),
+        "statusReason" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_recommendation_accounts_response() :: %{
+        "accountRecommendationLifecycleSummaries" => list(account_recommendation_lifecycle_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_organization_recommendation_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organization_recommendation() :: %{
+        "arn" => String.t() | atom(),
+        "awsServices" => list(String.t() | atom()),
+        "checkArn" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "lifecycleStage" => list(any()),
+        "name" => [String.t() | atom()],
+        "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
+        "pillars" => list(list(any())()),
+        "resolvedAt" => [non_neg_integer()],
+        "resourcesAggregates" => recommendation_resources_aggregates(),
+        "source" => list(any()),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updateReason" => String.t() | atom(),
+        "updateReasonCode" => list(any()),
+        "updatedOnBehalfOf" => [String.t() | atom()],
+        "updatedOnBehalfOfJobTitle" => [String.t() | atom()]
+      }
+
+  """
+  @type organization_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_recommendation_resource_exclusion_response() :: %{
+        "batchUpdateRecommendationResourceExclusionErrors" => list(update_recommendation_resource_exclusion_error())
+      }
+
+  """
+  @type batch_update_recommendation_resource_exclusion_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      update_organization_recommendation_lifecycle_request() :: %{
+        optional("updateReason") => String.t() | atom(),
+        optional("updateReasonCode") => list(any()),
+        required("lifecycleStage") => list(any())
+      }
+
+  """
+  @type update_organization_recommendation_lifecycle_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,6 +273,94 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
+      list_organization_recommendations_request() :: %{
+        optional("afterLastUpdatedAt") => [non_neg_integer()],
+        optional("awsService") => String.t() | atom(),
+        optional("beforeLastUpdatedAt") => [non_neg_integer()],
+        optional("checkIdentifier") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("pillar") => list(any()),
+        optional("source") => list(any()),
+        optional("status") => list(any()),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_organization_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_recommendation_resources_request() :: %{
+        optional("affectedAccountId") => String.t() | atom(),
+        optional("exclusionStatus") => list(any()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("regionCode") => [String.t() | atom()],
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_organization_recommendation_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendations_request() :: %{
+        optional("afterLastUpdatedAt") => [non_neg_integer()],
+        optional("awsService") => String.t() | atom(),
+        optional("beforeLastUpdatedAt") => [non_neg_integer()],
+        optional("checkIdentifier") => String.t() | atom(),
+        optional("language") => list(any()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("pillar") => list(any()),
+        optional("source") => list(any()),
+        optional("status") => list(any()),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_organization_recommendation_response() :: %{
+        "organizationRecommendation" => organization_recommendation()
+      }
+
+  """
+  @type get_organization_recommendation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organization_recommendation_resource_summary() :: %{
+        "accountId" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "awsResourceId" => [String.t() | atom()],
+        "exclusionStatus" => list(any()),
+        "id" => [String.t() | atom()],
+        "lastUpdatedAt" => [non_neg_integer()],
+        "metadata" => map(),
+        "recommendationArn" => String.t() | atom(),
+        "regionCode" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type organization_recommendation_resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -146,24 +372,88 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
+      list_recommendations_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "recommendationSummaries" => list(recommendation_summary())
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_recommendation_resources_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "recommendationResourceSummaries" => list(recommendation_resource_summary())
+      account_recommendation_lifecycle_summary() :: %{
+        "accountId" => String.t() | atom(),
+        "accountRecommendationArn" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "lifecycleStage" => list(any()),
+        "updateReason" => String.t() | atom(),
+        "updateReasonCode" => list(any()),
+        "updatedOnBehalfOf" => [String.t() | atom()],
+        "updatedOnBehalfOfJobTitle" => [String.t() | atom()]
       }
 
   """
-  @type list_recommendation_resources_response() :: %{(String.t() | atom()) => any()}
+  @type account_recommendation_lifecycle_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_pillar_specific_aggregates() :: %{
+        "costOptimizing" => recommendation_cost_optimizing_aggregates()
+      }
+
+  """
+  @type recommendation_pillar_specific_aggregates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_organization_recommendation_request() :: %{}
+
+  """
+  @type get_organization_recommendation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_recommendation_resources_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "organizationRecommendationResourceSummaries" => list(organization_recommendation_resource_summary())
+      }
+
+  """
+  @type list_organization_recommendation_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_recommendations_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "organizationRecommendationSummaries" => list(organization_recommendation_summary())
+      }
+
+  """
+  @type list_organization_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_recommendation_accounts_request() :: %{
+        optional("affectedAccountId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_organization_recommendation_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,221 +491,6 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      list_checks_request() :: %{
-        optional("awsService") => String.t() | atom(),
-        optional("language") => list(any()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("pillar") => list(any()),
-        optional("source") => list(any())
-      }
-
-  """
-  @type list_checks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_recommendation_lifecycle_summary() :: %{
-        "accountId" => String.t() | atom(),
-        "accountRecommendationArn" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "lifecycleStage" => list(any()),
-        "updateReason" => String.t() | atom(),
-        "updateReasonCode" => list(any()),
-        "updatedOnBehalfOf" => [String.t() | atom()],
-        "updatedOnBehalfOfJobTitle" => [String.t() | atom()]
-      }
-
-  """
-  @type account_recommendation_lifecycle_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_organization_recommendation_request() :: %{}
-
-  """
-  @type get_organization_recommendation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_recommendations_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "organizationRecommendationSummaries" => list(organization_recommendation_summary())
-      }
-
-  """
-  @type list_organization_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_recommendation_accounts_request() :: %{
-        optional("affectedAccountId") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_organization_recommendation_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_recommendation_resource_exclusion_response() :: %{
-        "batchUpdateRecommendationResourceExclusionErrors" => list(update_recommendation_resource_exclusion_error())
-      }
-
-  """
-  @type batch_update_recommendation_resource_exclusion_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommendation_resources_request() :: %{
-        optional("exclusionStatus") => list(any()),
-        optional("language") => list(any()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("regionCode") => [String.t() | atom()],
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_recommendation_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_recommendation_resources_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "organizationRecommendationResourceSummaries" => list(organization_recommendation_resource_summary())
-      }
-
-  """
-  @type list_organization_recommendation_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_organization_recommendation_lifecycle_request() :: %{
-        optional("updateReason") => String.t() | atom(),
-        optional("updateReasonCode") => list(any()),
-        required("lifecycleStage") => list(any())
-      }
-
-  """
-  @type update_organization_recommendation_lifecycle_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_organization_recommendation_response() :: %{
-        "organizationRecommendation" => organization_recommendation()
-      }
-
-  """
-  @type get_organization_recommendation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_recommendation_resources_request() :: %{
-        optional("affectedAccountId") => String.t() | atom(),
-        optional("exclusionStatus") => list(any()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("regionCode") => [String.t() | atom()],
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_organization_recommendation_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_recommendations_request() :: %{
-        optional("afterLastUpdatedAt") => [non_neg_integer()],
-        optional("awsService") => String.t() | atom(),
-        optional("beforeLastUpdatedAt") => [non_neg_integer()],
-        optional("checkIdentifier") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("pillar") => list(any()),
-        optional("source") => list(any()),
-        optional("status") => list(any()),
-        optional("type") => list(any())
-      }
-
-  """
-  @type list_organization_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       check_summary() :: %{
         "arn" => String.t() | atom(),
         "awsServices" => list(String.t() | atom()),
@@ -434,31 +509,6 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      recommendation_summary() :: %{
-        "arn" => String.t() | atom(),
-        "awsServices" => list(String.t() | atom()),
-        "checkArn" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "id" => [String.t() | atom()],
-        "lastUpdatedAt" => [non_neg_integer()],
-        "lifecycleStage" => list(any()),
-        "name" => [String.t() | atom()],
-        "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
-        "pillars" => list(list(any())()),
-        "resourcesAggregates" => recommendation_resources_aggregates(),
-        "source" => list(any()),
-        "status" => list(any()),
-        "statusReason" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       update_recommendation_resource_exclusion_error() :: %{
         "arn" => String.t() | atom(),
         "errorCode" => [String.t() | atom()],
@@ -472,45 +522,26 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      organization_recommendation_resource_summary() :: %{
-        "accountId" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "awsResourceId" => [String.t() | atom()],
-        "exclusionStatus" => list(any()),
-        "id" => [String.t() | atom()],
-        "lastUpdatedAt" => [non_neg_integer()],
-        "metadata" => map(),
-        "recommendationArn" => String.t() | atom(),
-        "regionCode" => String.t() | atom(),
-        "status" => list(any())
+      list_checks_response() :: %{
+        "checkSummaries" => list(check_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type organization_recommendation_resource_summary() :: %{(String.t() | atom()) => any()}
+  @type list_checks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_recommendations_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "recommendationSummaries" => list(recommendation_summary())
+      batch_update_recommendation_resource_exclusion_request() :: %{
+        required("recommendationResourceExclusions") => list(recommendation_resource_exclusion())
       }
 
   """
-  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_cost_optimizing_aggregates() :: %{
-        "estimatedMonthlySavings" => [float()],
-        "estimatedPercentMonthlySavings" => [float()]
-      }
-
-  """
-  @type recommendation_cost_optimizing_aggregates() :: %{(String.t() | atom()) => any()}
+  @type batch_update_recommendation_resource_exclusion_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -527,148 +558,117 @@ defmodule AWS.TrustedAdvisor do
 
   ## Example:
 
-      organization_recommendation() :: %{
+      organization_recommendation_summary() :: %{
         "arn" => String.t() | atom(),
         "awsServices" => list(String.t() | atom()),
         "checkArn" => [String.t() | atom()],
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "description" => [String.t() | atom()],
         "id" => [String.t() | atom()],
         "lastUpdatedAt" => [non_neg_integer()],
         "lifecycleStage" => list(any()),
         "name" => [String.t() | atom()],
         "pillarSpecificAggregates" => recommendation_pillar_specific_aggregates(),
         "pillars" => list(list(any())()),
-        "resolvedAt" => [non_neg_integer()],
         "resourcesAggregates" => recommendation_resources_aggregates(),
         "source" => list(any()),
         "status" => list(any()),
-        "type" => list(any()),
-        "updateReason" => String.t() | atom(),
-        "updateReasonCode" => list(any()),
-        "updatedOnBehalfOf" => [String.t() | atom()],
-        "updatedOnBehalfOfJobTitle" => [String.t() | atom()]
+        "type" => list(any())
       }
 
   """
-  @type organization_recommendation() :: %{(String.t() | atom()) => any()}
+  @type organization_recommendation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recommendation_resource_summary() :: %{
-        "arn" => String.t() | atom(),
-        "awsResourceId" => [String.t() | atom()],
-        "exclusionStatus" => list(any()),
-        "id" => [String.t() | atom()],
-        "lastUpdatedAt" => [non_neg_integer()],
-        "metadata" => map(),
-        "recommendationArn" => String.t() | atom(),
-        "regionCode" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type recommendation_resource_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommendations_request() :: %{
-        optional("afterLastUpdatedAt") => [non_neg_integer()],
-        optional("awsService") => String.t() | atom(),
-        optional("beforeLastUpdatedAt") => [non_neg_integer()],
-        optional("checkIdentifier") => String.t() | atom(),
+      list_recommendation_resources_request() :: %{
+        optional("exclusionStatus") => list(any()),
         optional("language") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()],
-        optional("pillar") => list(any()),
-        optional("source") => list(any()),
-        optional("status") => list(any()),
-        optional("type") => list(any())
+        optional("regionCode") => [String.t() | atom()],
+        optional("status") => list(any())
       }
 
   """
-  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type list_recommendation_resources_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_update_recommendation_resource_exclusion_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_organization_recommendation_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_recommendation_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_checks_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_organization_recommendation_accounts_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_organization_recommendation_resources_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_organization_recommendations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_recommendation_resources_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_recommendations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_organization_recommendation_lifecycle_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_recommendation_lifecycle_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

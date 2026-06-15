@@ -15,348 +15,12 @@ defmodule AWS.Route53Profiles do
 
   ## Example:
 
-      profile() :: %{
-        "Arn" => String.t() | atom(),
-        "ClientToken" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "ModificationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ShareStatus" => list(any()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_request() :: %{}
-
-  """
-  @type delete_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profiles_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_response() :: %{
-        "Profile" => profile()
-      }
-
-  """
-  @type delete_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_profile_request() :: %{
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("ProfileId") => String.t() | atom(),
-        required("ResourceId") => String.t() | atom()
-      }
-
-  """
-  @type associate_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_resource_associations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom()
-      }
-
-  """
-  @type list_profile_resource_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_to_profile_request() :: %{
-        optional("ResourceProperties") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("ProfileId") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_resource_to_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_from_profile_request() :: %{}
-
-  """
-  @type disassociate_resource_from_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_profile_resource_association_response() :: %{
-        "ProfileResourceAssociation" => profile_resource_association()
-      }
-
-  """
-  @type update_profile_resource_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_profile_resource_association_request() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("ResourceProperties") => String.t() | atom()
-      }
-
-  """
-  @type update_profile_resource_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_association_request() :: %{}
-
-  """
-  @type get_profile_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_associations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProfileId") => String.t() | atom(),
-        optional("ResourceId") => String.t() | atom()
-      }
-
-  """
-  @type list_profile_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_to_profile_response() :: %{
-        "ProfileResourceAssociation" => profile_resource_association()
-      }
-
-  """
-  @type associate_resource_to_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_resource_association_response() :: %{
-        "ProfileResourceAssociation" => profile_resource_association()
-      }
-
-  """
-  @type get_profile_resource_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_profile_request() :: %{
-        optional("Tags") => list(tag()),
-        required("ClientToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       disassociate_profile_response() :: %{
         "ProfileAssociation" => profile_association()
       }
 
   """
   @type disassociate_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_from_profile_response() :: %{
-        "ProfileResourceAssociation" => profile_resource_association()
-      }
-
-  """
-  @type disassociate_resource_from_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_profile_response() :: %{
-        "ProfileAssociation" => profile_association()
-      }
-
-  """
-  @type associate_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_response() :: %{
-        "Profile" => profile()
-      }
-
-  """
-  @type get_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_profile_response() :: %{
-        "Profile" => profile()
-      }
-
-  """
-  @type create_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_associations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProfileAssociations" => list(profile_association())
-      }
-
-  """
-  @type list_profile_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_profile_request() :: %{}
-
-  """
-  @type disassociate_profile_request() :: %{}
 
   @typedoc """
 
@@ -374,45 +38,23 @@ defmodule AWS.Route53Profiles do
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
+      get_profile_resource_association_response() :: %{
+        "ProfileResourceAssociation" => profile_resource_association()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type get_profile_resource_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      profile_resource_association() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "ModificationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "ProfileId" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceProperties" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type profile_resource_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_exists_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,31 +71,25 @@ defmodule AWS.Route53Profiles do
 
   ## Example:
 
-      invalid_parameter_exception() :: %{
-        "FieldName" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
 
   """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_resource_association_request() :: %{}
-
-  """
-  @type get_profile_resource_association_request() :: %{}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -487,13 +123,10 @@ defmodule AWS.Route53Profiles do
 
   ## Example:
 
-      list_profiles_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProfileSummaries" => list(profile_summary())
-      }
+      get_profile_resource_association_request() :: %{}
 
   """
-  @type list_profiles_response() :: %{(String.t() | atom()) => any()}
+  @type get_profile_resource_association_request() :: %{}
 
   @typedoc """
 
@@ -510,6 +143,385 @@ defmodule AWS.Route53Profiles do
 
   ## Example:
 
+      delete_profile_request() :: %{}
+
+  """
+  @type delete_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      profile() :: %{
+        "Arn" => String.t() | atom(),
+        "ClientToken" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "ModificationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ShareStatus" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProfileId") => String.t() | atom(),
+        optional("ResourceId") => String.t() | atom()
+      }
+
+  """
+  @type list_profile_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_profile_request() :: %{}
+
+  """
+  @type disassociate_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProfileAssociations" => list(profile_association())
+      }
+
+  """
+  @type list_profile_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_resource_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type list_profile_resource_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_from_profile_request() :: %{}
+
+  """
+  @type disassociate_resource_from_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_response() :: %{
+        "Profile" => profile()
+      }
+
+  """
+  @type get_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_error_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_from_profile_response() :: %{
+        "ProfileResourceAssociation" => profile_resource_association()
+      }
+
+  """
+  @type disassociate_resource_from_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_resource_association() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "ModificationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceProperties" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type profile_resource_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_profile_resource_association_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("ResourceProperties") => String.t() | atom()
+      }
+
+  """
+  @type update_profile_resource_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_profile_resource_association_response() :: %{
+        "ProfileResourceAssociation" => profile_resource_association()
+      }
+
+  """
+  @type update_profile_resource_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_resource_to_profile_response() :: %{
+        "ProfileResourceAssociation" => profile_resource_association()
+      }
+
+  """
+  @type associate_resource_to_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profiles_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProfileSummaries" => list(profile_summary())
+      }
+
+  """
+  @type list_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_association_response() :: %{
+        "ProfileAssociation" => profile_association()
+      }
+
+  """
+  @type get_profile_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_resource_to_profile_request() :: %{
+        optional("ResourceProperties") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_resource_to_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_profile_response() :: %{
+        "ProfileAssociation" => profile_association()
+      }
+
+  """
+  @type associate_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_exists_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "FieldName" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_association_request() :: %{}
+
+  """
+  @type get_profile_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_profile_request() :: %{
+        optional("Tags") => list(tag()),
+        required("ClientToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_profile_request() :: %{
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("ResourceId") => String.t() | atom()
+      }
+
+  """
+  @type associate_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{}
 
   """
@@ -519,24 +531,12 @@ defmodule AWS.Route53Profiles do
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
+      delete_profile_response() :: %{
+        "Profile" => profile()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -556,136 +556,136 @@ defmodule AWS.Route53Profiles do
 
   ## Example:
 
-      get_profile_association_response() :: %{
-        "ProfileAssociation" => profile_association()
+      create_profile_response() :: %{
+        "Profile" => profile()
       }
 
   """
-  @type get_profile_association_response() :: %{(String.t() | atom()) => any()}
+  @type create_profile_response() :: %{(String.t() | atom()) => any()}
 
   @type associate_profile_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | resource_exists_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type associate_resource_to_profile_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          invalid_parameter_exception()
           | conflict_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_profile_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          invalid_parameter_exception()
           | validation_exception()
-          | invalid_parameter_exception()
+          | limit_exceeded_exception()
           | access_denied_exception()
+          | throttling_exception()
 
   @type delete_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_profile_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type disassociate_resource_from_profile_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          invalid_parameter_exception()
           | conflict_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_profile_association_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_profile_resource_association_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profile_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | invalid_next_token_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profile_resource_associations_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | invalid_next_token_exception()
-          | resource_not_found_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profiles_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
+          invalid_parameter_exception()
           | invalid_next_token_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_profile_resource_association_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | resource_not_found_exception()
+          invalid_parameter_exception()
           | conflict_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   def metadata do
     %{

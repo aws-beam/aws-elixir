@@ -47,6 +47,23 @@ defmodule AWS.DynamoDBStreams do
 
   ## Example:
       
+      dynamodbstreams_record() :: %{
+        "awsRegion" => String.t() | atom(),
+        "dynamodb" => stream_record(),
+        "eventID" => String.t() | atom(),
+        "eventName" => list(any()),
+        "eventSource" => String.t() | atom(),
+        "eventVersion" => String.t() | atom(),
+        "userIdentity" => identity()
+      }
+      
+  """
+  @type dynamodbstreams_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       expired_iterator_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -173,23 +190,6 @@ defmodule AWS.DynamoDBStreams do
       
   """
   @type list_streams_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      record() :: %{
-        "awsRegion" => String.t() | atom(),
-        "dynamodb" => stream_record(),
-        "eventID" => String.t() | atom(),
-        "eventName" => list(any()),
-        "eventSource" => String.t() | atom(),
-        "eventVersion" => String.t() | atom(),
-        "userIdentity" => identity()
-      }
-      
-  """
-  @type record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -351,7 +351,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStream", input, options)
   end
@@ -376,7 +377,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecords", input, options)
   end
@@ -398,7 +400,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetShardIterator", input, options)
   end
@@ -419,7 +422,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStreams", input, options)
   end

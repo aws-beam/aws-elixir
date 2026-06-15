@@ -50,380 +50,12 @@ defmodule AWS.SecretsManager do
 
   ## Example:
       
-      describe_secret_response() :: %{
-        "ARN" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "DeletedDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ExternalSecretRotationMetadata" => list(external_secret_rotation_metadata_item()),
-        "ExternalSecretRotationRoleArn" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "LastAccessedDate" => non_neg_integer(),
-        "LastChangedDate" => non_neg_integer(),
-        "LastRotatedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "NextRotationDate" => non_neg_integer(),
-        "OwningService" => String.t() | atom(),
-        "PrimaryRegion" => String.t() | atom(),
-        "ReplicationStatus" => list(replication_status_type()),
-        "RotationEnabled" => boolean(),
-        "RotationLambdaARN" => String.t() | atom(),
-        "RotationRules" => rotation_rules_type(),
-        "Tags" => list(tag()),
-        "Type" => String.t() | atom(),
-        "VersionIdsToStages" => map()
-      }
-      
-  """
-  @type describe_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_errors_entry() :: %{
-        "CheckName" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom()
-      }
-      
-  """
-  @type validation_errors_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("SecretId") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      external_secret_rotation_metadata_item() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type external_secret_rotation_metadata_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_regions_from_replication_response() :: %{
-        "ARN" => String.t() | atom(),
-        "ReplicationStatus" => list(replication_status_type())
-      }
-      
-  """
-  @type remove_regions_from_replication_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_secret_version_stage_request() :: %{
-        optional("MoveToVersionId") => String.t() | atom(),
-        optional("RemoveFromVersionId") => String.t() | atom(),
-        required("SecretId") => String.t() | atom(),
-        required("VersionStage") => String.t() | atom()
-      }
-      
-  """
-  @type update_secret_version_stage_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_secret_request() :: %{
-        optional("ForceDeleteWithoutRecovery") => boolean(),
-        optional("RecoveryWindowInDays") => float(),
+      describe_secret_request() :: %{
         required("SecretId") => String.t() | atom()
       }
       
   """
-  @type delete_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      decryption_failure() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type decryption_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_rotate_secret_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-      
-  """
-  @type cancel_rotate_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encryption_failure() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type encryption_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_secrets_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("IncludePlannedDeletion") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => list(any()),
-        optional("SortOrder") => list(any())
-      }
-      
-  """
-  @type list_secrets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ResourcePolicy" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_secret_version_stage_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type update_secret_version_stage_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_secrets_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SecretList" => list(secret_list_entry())
-      }
-      
-  """
-  @type list_secrets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_random_password_response() :: %{
-        "RandomPassword" => String.t() | atom()
-      }
-      
-  """
-  @type get_random_password_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("SecretId") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_resource_policy_request() :: %{
-        optional("SecretId") => String.t() | atom(),
-        required("ResourcePolicy") => String.t() | atom()
-      }
-      
-  """
-  @type validate_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_secret_response() :: %{
-        "ARN" => String.t() | atom(),
-        "DeletionDate" => non_neg_integer(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type delete_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_secret_value_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SecretIdList") => list(String.t() | atom())
-      }
-      
-  """
-  @type batch_get_secret_value_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_resource_policy_response() :: %{
-        "PolicyValidationPassed" => boolean(),
-        "ValidationErrors" => list(validation_errors_entry())
-      }
-      
-  """
-  @type validate_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_secret_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type restore_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_rotate_secret_request() :: %{
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type cancel_rotate_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotate_secret_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("ExternalSecretRotationMetadata") => list(external_secret_rotation_metadata_item()),
-        optional("ExternalSecretRotationRoleArn") => String.t() | atom(),
-        optional("RotateImmediately") => boolean(),
-        optional("RotationLambdaARN") => String.t() | atom(),
-        optional("RotationRules") => rotation_rules_type(),
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type rotate_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_secret_value_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "VersionId" => String.t() | atom(),
-        "VersionStages" => list(String.t() | atom())
-      }
-      
-  """
-  @type put_secret_value_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_secret_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -436,173 +68,6 @@ defmodule AWS.SecretsManager do
       
   """
   @type remove_regions_from_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_replication_to_replica_request() :: %{
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_replication_to_replica_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_secret_request() :: %{
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_secret_version_ids_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(secret_versions_list_entry())
-      }
-      
-  """
-  @type list_secret_version_ids_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_secret_value_response() :: %{
-        "Errors" => list(api_error_type()),
-        "NextToken" => String.t() | atom(),
-        "SecretValues" => list(secret_value_entry())
-      }
-      
-  """
-  @type batch_get_secret_value_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_secret_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-      
-  """
-  @type update_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_request() :: %{
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_secret_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("SecretBinary") => binary(),
-        optional("SecretString") => String.t() | atom(),
-        optional("Type") => String.t() | atom(),
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type update_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replicate_secret_to_regions_response() :: %{
-        "ARN" => String.t() | atom(),
-        "ReplicationStatus" => list(replication_status_type())
-      }
-      
-  """
-  @type replicate_secret_to_regions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "Key" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replication_status_type() :: %{
-        "KmsKeyId" => String.t() | atom(),
-        "LastAccessedDate" => non_neg_integer(),
-        "Region" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type replication_status_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_secret_value_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("RotationToken") => String.t() | atom(),
-        optional("SecretBinary") => binary(),
-        optional("SecretString") => String.t() | atom(),
-        optional("VersionStages") => list(String.t() | atom()),
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type put_secret_value_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_replication_to_replica_response() :: %{
-        "ARN" => String.t() | atom()
-      }
-      
-  """
-  @type stop_replication_to_replica_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -621,143 +86,6 @@ defmodule AWS.SecretsManager do
 
   ## Example:
       
-      replica_region_type() :: %{
-        "KmsKeyId" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-      
-  """
-  @type replica_region_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_random_password_request() :: %{
-        optional("ExcludeCharacters") => String.t() | atom(),
-        optional("ExcludeLowercase") => boolean(),
-        optional("ExcludeNumbers") => boolean(),
-        optional("ExcludePunctuation") => boolean(),
-        optional("ExcludeUppercase") => boolean(),
-        optional("IncludeSpace") => boolean(),
-        optional("PasswordLength") => float(),
-        optional("RequireEachIncludedType") => boolean()
-      }
-      
-  """
-  @type get_random_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_secret_value_request() :: %{
-        optional("VersionId") => String.t() | atom(),
-        optional("VersionStage") => String.t() | atom(),
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type get_secret_value_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_secret_value_response() :: %{
-        "ARN" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "SecretBinary" => binary(),
-        "SecretString" => String.t() | atom(),
-        "VersionId" => String.t() | atom(),
-        "VersionStages" => list(String.t() | atom())
-      }
-      
-  """
-  @type get_secret_value_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      api_error_type() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "SecretId" => String.t() | atom()
-      }
-      
-  """
-  @type api_error_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_service_error() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_service_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      secret_value_entry() :: %{
-        "ARN" => String.t() | atom(),
-        "CreatedDate" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "SecretBinary" => binary(),
-        "SecretString" => String.t() | atom(),
-        "VersionId" => String.t() | atom(),
-        "VersionStages" => list(String.t() | atom())
-      }
-      
-  """
-  @type secret_value_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_secret_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ReplicationStatus" => list(replication_status_type()),
-        "VersionId" => String.t() | atom()
-      }
-      
-  """
-  @type create_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      malformed_policy_document_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_secret_version_ids_request() :: %{
         optional("IncludeDeprecated") => boolean(),
         optional("MaxResults") => integer(),
@@ -767,6 +95,17 @@ defmodule AWS.SecretsManager do
       
   """
   @type list_secret_version_ids_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      public_policy_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type public_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -802,122 +141,13 @@ defmodule AWS.SecretsManager do
 
   ## Example:
       
-      secret_versions_list_entry() :: %{
-        "CreatedDate" => non_neg_integer(),
-        "KmsKeyIds" => list(String.t() | atom()),
-        "LastAccessedDate" => non_neg_integer(),
-        "VersionId" => String.t() | atom(),
-        "VersionStages" => list(String.t() | atom())
+      validation_errors_entry() :: %{
+        "CheckName" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
       }
       
   """
-  @type secret_versions_list_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotation_rules_type() :: %{
-        "AutomaticallyAfterDays" => float(),
-        "Duration" => String.t() | atom(),
-        "ScheduleExpression" => String.t() | atom()
-      }
-      
-  """
-  @type rotation_rules_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      public_policy_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type public_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_request() :: %{
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_secret_request() :: %{
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type restore_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      precondition_not_met_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type precondition_not_met_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rotate_secret_response() :: %{
-        "ARN" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-      
-  """
-  @type rotate_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      replicate_secret_to_regions_request() :: %{
-        optional("ForceOverwriteReplicaSecret") => boolean(),
-        required("AddReplicaRegions") => list(replica_region_type()),
-        required("SecretId") => String.t() | atom()
-      }
-      
-  """
-  @type replicate_secret_to_regions_request() :: %{(String.t() | atom()) => any()}
+  @type validation_errors_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -939,13 +169,783 @@ defmodule AWS.SecretsManager do
   """
   @type create_secret_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      rotate_secret_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("ExternalSecretRotationMetadata") => list(external_secret_rotation_metadata_item()),
+        optional("ExternalSecretRotationRoleArn") => String.t() | atom(),
+        optional("RotateImmediately") => boolean(),
+        optional("RotationLambdaARN") => String.t() | atom(),
+        optional("RotationRules") => rotation_rules_type(),
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type rotate_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_secret_version_ids_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(secret_versions_list_entry())
+      }
+      
+  """
+  @type list_secret_version_ids_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_secret_rotation_metadata_item() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type external_secret_rotation_metadata_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_secret_response() :: %{
+        "ARN" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "DeletedDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExternalSecretRotationMetadata" => list(external_secret_rotation_metadata_item()),
+        "ExternalSecretRotationRoleArn" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "LastAccessedDate" => non_neg_integer(),
+        "LastChangedDate" => non_neg_integer(),
+        "LastRotatedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "NextRotationDate" => non_neg_integer(),
+        "OwningService" => String.t() | atom(),
+        "PrimaryRegion" => String.t() | atom(),
+        "ReplicationStatus" => list(replication_status_type()),
+        "RotationEnabled" => boolean(),
+        "RotationLambdaARN" => String.t() | atom(),
+        "RotationRules" => rotation_rules_type(),
+        "Tags" => list(tag()),
+        "Type" => String.t() | atom(),
+        "VersionIdsToStages" => map()
+      }
+      
+  """
+  @type describe_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replicate_secret_to_regions_request() :: %{
+        optional("ForceOverwriteReplicaSecret") => boolean(),
+        required("AddReplicaRegions") => list(replica_region_type()),
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type replicate_secret_to_regions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_rotate_secret_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+      
+  """
+  @type cancel_rotate_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_rotate_secret_request() :: %{
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_rotate_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_status_type() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "LastAccessedDate" => non_neg_integer(),
+        "Region" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type replication_status_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_secret_request() :: %{
+        optional("ForceDeleteWithoutRecovery") => boolean(),
+        optional("RecoveryWindowInDays") => float(),
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_request() :: %{
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replica_region_type() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+      
+  """
+  @type replica_region_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_random_password_request() :: %{
+        optional("ExcludeCharacters") => String.t() | atom(),
+        optional("ExcludeLowercase") => boolean(),
+        optional("ExcludeNumbers") => boolean(),
+        optional("ExcludePunctuation") => boolean(),
+        optional("ExcludeUppercase") => boolean(),
+        optional("IncludeSpace") => boolean(),
+        optional("PasswordLength") => float(),
+        optional("RequireEachIncludedType") => boolean()
+      }
+      
+  """
+  @type get_random_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_resource_policy_request() :: %{
+        optional("SecretId") => String.t() | atom(),
+        required("ResourcePolicy") => String.t() | atom()
+      }
+      
+  """
+  @type validate_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_resource_policy_response() :: %{
+        "PolicyValidationPassed" => boolean(),
+        "ValidationErrors" => list(validation_errors_entry())
+      }
+      
+  """
+  @type validate_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_secrets_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SecretList" => list(secret_list_entry())
+      }
+      
+  """
+  @type list_secrets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("SecretId") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_secret_value_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "VersionId" => String.t() | atom(),
+        "VersionStages" => list(String.t() | atom())
+      }
+      
+  """
+  @type put_secret_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_regions_from_replication_response() :: %{
+        "ARN" => String.t() | atom(),
+        "ReplicationStatus" => list(replication_status_type())
+      }
+      
+  """
+  @type remove_regions_from_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_replication_to_replica_response() :: %{
+        "ARN" => String.t() | atom()
+      }
+      
+  """
+  @type stop_replication_to_replica_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_secret_value_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("RotationToken") => String.t() | atom(),
+        optional("SecretBinary") => binary(),
+        optional("SecretString") => String.t() | atom(),
+        optional("VersionStages") => list(String.t() | atom()),
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type put_secret_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      malformed_policy_document_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      api_error_type() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "SecretId" => String.t() | atom()
+      }
+      
+  """
+  @type api_error_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_secret_request() :: %{
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type restore_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_secret_response() :: %{
+        "ARN" => String.t() | atom(),
+        "DeletionDate" => non_neg_integer(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type delete_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("SecretId") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_secret_version_stage_request() :: %{
+        optional("MoveToVersionId") => String.t() | atom(),
+        optional("RemoveFromVersionId") => String.t() | atom(),
+        required("SecretId") => String.t() | atom(),
+        required("VersionStage") => String.t() | atom()
+      }
+      
+  """
+  @type update_secret_version_stage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_replication_to_replica_request() :: %{
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_replication_to_replica_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_secret_value_response() :: %{
+        "Errors" => list(api_error_type()),
+        "NextToken" => String.t() | atom(),
+        "SecretValues" => list(secret_value_entry())
+      }
+      
+  """
+  @type batch_get_secret_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_secret_value_response() :: %{
+        "ARN" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "SecretBinary" => binary(),
+        "SecretString" => String.t() | atom(),
+        "VersionId" => String.t() | atom(),
+        "VersionStages" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_secret_value_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_secret_value_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SecretIdList") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_secret_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replicate_secret_to_regions_response() :: %{
+        "ARN" => String.t() | atom(),
+        "ReplicationStatus" => list(replication_status_type())
+      }
+      
+  """
+  @type replicate_secret_to_regions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_secret_version_stage_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type update_secret_version_stage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rotate_secret_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+      
+  """
+  @type rotate_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_secret_value_request() :: %{
+        optional("VersionId") => String.t() | atom(),
+        optional("VersionStage") => String.t() | atom(),
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type get_secret_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_secrets_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("IncludePlannedDeletion") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any())
+      }
+      
+  """
+  @type list_secrets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_random_password_response() :: %{
+        "RandomPassword" => String.t() | atom()
+      }
+      
+  """
+  @type get_random_password_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_secret_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReplicationStatus" => list(replication_status_type()),
+        "VersionId" => String.t() | atom()
+      }
+      
+  """
+  @type create_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_secret_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type restore_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secret_versions_list_entry() :: %{
+        "CreatedDate" => non_neg_integer(),
+        "KmsKeyIds" => list(String.t() | atom()),
+        "LastAccessedDate" => non_neg_integer(),
+        "VersionId" => String.t() | atom(),
+        "VersionStages" => list(String.t() | atom())
+      }
+      
+  """
+  @type secret_versions_list_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_secret_response() :: %{
+        "ARN" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+      
+  """
+  @type update_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      secret_value_entry() :: %{
+        "ARN" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "SecretBinary" => binary(),
+        "SecretString" => String.t() | atom(),
+        "VersionId" => String.t() | atom(),
+        "VersionStages" => list(String.t() | atom())
+      }
+      
+  """
+  @type secret_value_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_failure() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter() :: %{
+        "Key" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_secret_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("SecretBinary") => binary(),
+        optional("SecretString") => String.t() | atom(),
+        optional("Type") => String.t() | atom(),
+        required("SecretId") => String.t() | atom()
+      }
+      
+  """
+  @type update_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decryption_failure() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type decryption_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rotation_rules_type() :: %{
+        "AutomaticallyAfterDays" => float(),
+        "Duration" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom()
+      }
+      
+  """
+  @type rotation_rules_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      precondition_not_met_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type precondition_not_met_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_service_error() :: %{(String.t() | atom()) => any()}
+
   @type batch_get_secret_value_errors() ::
           internal_service_error()
-          | invalid_parameter_exception()
-          | invalid_next_token_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
           | decryption_failure()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | invalid_next_token_exception()
+          | resource_not_found_exception()
 
   @type cancel_rotate_secret_errors() ::
           internal_service_error()
@@ -954,16 +954,16 @@ defmodule AWS.SecretsManager do
           | resource_not_found_exception()
 
   @type create_secret_errors() ::
-          precondition_not_met_exception()
-          | limit_exceeded_exception()
-          | malformed_policy_document_exception()
-          | internal_service_error()
-          | invalid_parameter_exception()
-          | resource_exists_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | encryption_failure()
+          internal_service_error()
+          | precondition_not_met_exception()
           | decryption_failure()
+          | encryption_failure()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_exists_exception()
+          | malformed_policy_document_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type delete_resource_policy_errors() ::
           internal_service_error()
@@ -993,10 +993,10 @@ defmodule AWS.SecretsManager do
 
   @type get_secret_value_errors() ::
           internal_service_error()
+          | decryption_failure()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
-          | decryption_failure()
 
   @type list_secret_version_ids_errors() ::
           internal_service_error()
@@ -1007,26 +1007,26 @@ defmodule AWS.SecretsManager do
   @type list_secrets_errors() ::
           internal_service_error()
           | invalid_parameter_exception()
-          | invalid_next_token_exception()
           | invalid_request_exception()
+          | invalid_next_token_exception()
 
   @type put_resource_policy_errors() ::
-          public_policy_exception()
-          | malformed_policy_document_exception()
-          | internal_service_error()
+          internal_service_error()
           | invalid_parameter_exception()
           | invalid_request_exception()
+          | malformed_policy_document_exception()
           | resource_not_found_exception()
+          | public_policy_exception()
 
   @type put_secret_value_errors() ::
-          limit_exceeded_exception()
-          | internal_service_error()
-          | invalid_parameter_exception()
-          | resource_exists_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | encryption_failure()
+          internal_service_error()
           | decryption_failure()
+          | encryption_failure()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_exists_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type remove_regions_from_replication_errors() ::
           internal_service_error()
@@ -1071,29 +1071,29 @@ defmodule AWS.SecretsManager do
           | resource_not_found_exception()
 
   @type update_secret_errors() ::
-          precondition_not_met_exception()
-          | limit_exceeded_exception()
-          | malformed_policy_document_exception()
-          | internal_service_error()
-          | invalid_parameter_exception()
-          | resource_exists_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | encryption_failure()
+          internal_service_error()
+          | precondition_not_met_exception()
           | decryption_failure()
+          | encryption_failure()
+          | invalid_parameter_exception()
+          | invalid_request_exception()
+          | resource_exists_exception()
+          | malformed_policy_document_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type update_secret_version_stage_errors() ::
-          limit_exceeded_exception()
-          | internal_service_error()
+          internal_service_error()
           | invalid_parameter_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type validate_resource_policy_errors() ::
-          malformed_policy_document_exception()
-          | internal_service_error()
+          internal_service_error()
           | invalid_parameter_exception()
           | invalid_request_exception()
+          | malformed_policy_document_exception()
           | resource_not_found_exception()
 
   def metadata do
@@ -1149,7 +1149,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, batch_get_secret_value_errors()}
   def batch_get_secret_value(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetSecretValue", input, options)
   end
@@ -1189,7 +1190,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, cancel_rotate_secret_errors()}
   def cancel_rotate_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelRotateSecret", input, options)
   end
@@ -1273,7 +1275,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, create_secret_errors()}
   def create_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecret", input, options)
   end
@@ -1302,7 +1305,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -1370,7 +1374,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, delete_secret_errors()}
   def delete_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecret", input, options)
   end
@@ -1399,7 +1404,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, describe_secret_errors()}
   def describe_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSecret", input, options)
   end
@@ -1431,7 +1437,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, get_random_password_errors()}
   def get_random_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRandomPassword", input, options)
   end
@@ -1461,7 +1468,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -1502,7 +1510,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, get_secret_value_errors()}
   def get_secret_value(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecretValue", input, options)
   end
@@ -1534,7 +1543,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, list_secret_version_ids_errors()}
   def list_secret_version_ids(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSecretVersionIds", input, options)
   end
@@ -1578,7 +1588,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, list_secrets_errors()}
   def list_secrets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSecrets", input, options)
   end
@@ -1611,7 +1622,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -1678,7 +1690,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, put_secret_value_errors()}
   def put_secret_value(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSecretValue", input, options)
   end
@@ -1707,7 +1720,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, remove_regions_from_replication_errors()}
   def remove_regions_from_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRegionsFromReplication", input, options)
   end
@@ -1740,7 +1754,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, replicate_secret_to_regions_errors()}
   def replicate_secret_to_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplicateSecretToRegions", input, options)
   end
@@ -1769,7 +1784,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, restore_secret_errors()}
   def restore_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreSecret", input, options)
   end
@@ -1817,7 +1833,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, rotate_secret_errors()}
   def rotate_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RotateSecret", input, options)
   end
@@ -1849,7 +1866,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, stop_replication_to_replica_errors()}
   def stop_replication_to_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopReplicationToReplica", input, options)
   end
@@ -1889,7 +1907,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1926,7 +1945,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1999,7 +2019,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, update_secret_errors()}
   def update_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSecret", input, options)
   end
@@ -2048,7 +2069,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, update_secret_version_stage_errors()}
   def update_secret_version_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSecretVersionStage", input, options)
   end
@@ -2094,7 +2116,8 @@ defmodule AWS.SecretsManager do
           | {:error, term()}
           | {:error, validate_resource_policy_errors()}
   def validate_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateResourcePolicy", input, options)
   end

@@ -54,13 +54,20 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
-      list_application_dependencies_response() :: %{
-        "Dependencies" => list(application_dependency_summary()),
-        "NextToken" => String.t() | atom()
+      version() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "ParameterDefinitions" => list(parameter_definition()),
+        "RequiredCapabilities" => list(list(any())()),
+        "ResourcesSupported" => boolean(),
+        "SemanticVersion" => String.t() | atom(),
+        "SourceCodeArchiveUrl" => String.t() | atom(),
+        "SourceCodeUrl" => String.t() | atom(),
+        "TemplateUrl" => String.t() | atom()
       }
 
   """
-  @type list_application_dependencies_response() :: %{(String.t() | atom()) => any()}
+  @type version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -83,6 +90,240 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
+      get_application_policy_request() :: %{}
+
+  """
+  @type get_application_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_dependencies_request() :: %{
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SemanticVersion") => String.t() | atom()
+      }
+
+  """
+  @type list_application_dependencies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_formation_template_request() :: %{
+        optional("SemanticVersion") => String.t() | atom()
+      }
+
+  """
+  @type create_cloud_formation_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Author" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "HomePageUrl" => String.t() | atom(),
+        "IsVerifiedAuthor" => boolean(),
+        "Labels" => list(String.t() | atom()),
+        "LicenseUrl" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReadmeUrl" => String.t() | atom(),
+        "SpdxLicenseId" => String.t() | atom(),
+        "VerifiedAuthorUrl" => String.t() | atom(),
+        "Version" => version()
+      }
+
+  """
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("HomePageUrl") => String.t() | atom(),
+        optional("Labels") => list(String.t() | atom()),
+        optional("LicenseBody") => String.t() | atom(),
+        optional("LicenseUrl") => String.t() | atom(),
+        optional("ReadmeBody") => String.t() | atom(),
+        optional("ReadmeUrl") => String.t() | atom(),
+        optional("SemanticVersion") => String.t() | atom(),
+        optional("SourceCodeArchiveUrl") => String.t() | atom(),
+        optional("SourceCodeUrl") => String.t() | atom(),
+        optional("SpdxLicenseId") => String.t() | atom(),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateUrl") => String.t() | atom(),
+        required("Author") => String.t() | atom(),
+        required("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_versions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Versions" => list(version_summary())
+      }
+
+  """
+  @type list_application_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_version_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "ParameterDefinitions" => list(parameter_definition()),
+        "RequiredCapabilities" => list(list(any())()),
+        "ResourcesSupported" => boolean(),
+        "SemanticVersion" => String.t() | atom(),
+        "SourceCodeArchiveUrl" => String.t() | atom(),
+        "SourceCodeUrl" => String.t() | atom(),
+        "TemplateUrl" => String.t() | atom()
+      }
+
+  """
+  @type create_application_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_trigger() :: %{
+        "Arn" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type rollback_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_request() :: %{
+        optional("SemanticVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_application_policy_request() :: %{
+        required("Statements") => list(application_policy_statement())
+      }
+
+  """
+  @type put_application_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_formation_change_set_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "ChangeSetId" => String.t() | atom(),
+        "SemanticVersion" => String.t() | atom(),
+        "StackId" => String.t() | atom()
+      }
+
+  """
+  @type create_cloud_formation_change_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        "Applications" => list(application_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      version_summary() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "SemanticVersion" => String.t() | atom(),
+        "SourceCodeUrl" => String.t() | atom()
+      }
+
+  """
+  @type version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_dependencies_response() :: %{
+        "Dependencies" => list(application_dependency_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_application_dependencies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       application_dependency_summary() :: %{
         "ApplicationId" => String.t() | atom(),
         "SemanticVersion" => String.t() | atom()
@@ -90,18 +331,6 @@ defmodule AWS.ServerlessApplicationRepository do
 
   """
   @type application_dependency_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -139,243 +368,10 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
-      create_application_version_request() :: %{
-        optional("SourceCodeArchiveUrl") => String.t() | atom(),
-        optional("SourceCodeUrl") => String.t() | atom(),
-        optional("TemplateBody") => String.t() | atom(),
-        optional("TemplateUrl") => String.t() | atom()
-      }
+      delete_application_request() :: %{}
 
   """
-  @type create_application_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_version_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "ParameterDefinitions" => list(parameter_definition()),
-        "RequiredCapabilities" => list(list(any())()),
-        "ResourcesSupported" => boolean(),
-        "SemanticVersion" => String.t() | atom(),
-        "SourceCodeArchiveUrl" => String.t() | atom(),
-        "SourceCodeUrl" => String.t() | atom(),
-        "TemplateUrl" => String.t() | atom()
-      }
-
-  """
-  @type create_application_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_policy_response() :: %{
-        "Statements" => list(application_policy_statement())
-      }
-
-  """
-  @type get_application_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version_summary() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "SemanticVersion" => String.t() | atom(),
-        "SourceCodeUrl" => String.t() | atom()
-      }
-
-  """
-  @type version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parameter_value() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type parameter_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_application_policy_request() :: %{
-        required("Statements") => list(application_policy_statement())
-      }
-
-  """
-  @type put_application_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_request() :: %{
-        optional("HomePageUrl") => String.t() | atom(),
-        optional("Labels") => list(String.t() | atom()),
-        optional("LicenseBody") => String.t() | atom(),
-        optional("LicenseUrl") => String.t() | atom(),
-        optional("ReadmeBody") => String.t() | atom(),
-        optional("ReadmeUrl") => String.t() | atom(),
-        optional("SemanticVersion") => String.t() | atom(),
-        optional("SourceCodeArchiveUrl") => String.t() | atom(),
-        optional("SourceCodeUrl") => String.t() | atom(),
-        optional("SpdxLicenseId") => String.t() | atom(),
-        optional("TemplateBody") => String.t() | atom(),
-        optional("TemplateUrl") => String.t() | atom(),
-        required("Author") => String.t() | atom(),
-        required("Description") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cloud_formation_template_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "ExpirationTime" => String.t() | atom(),
-        "SemanticVersion" => String.t() | atom(),
-        "Status" => list(any()),
-        "TemplateId" => String.t() | atom(),
-        "TemplateUrl" => String.t() | atom()
-      }
-
-  """
-  @type create_cloud_formation_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "Author" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "HomePageUrl" => String.t() | atom(),
-        "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t() | atom()),
-        "LicenseUrl" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ReadmeUrl" => String.t() | atom(),
-        "SpdxLicenseId" => String.t() | atom(),
-        "VerifiedAuthorUrl" => String.t() | atom(),
-        "Version" => version()
-      }
-
-  """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_dependencies_request() :: %{
-        optional("MaxItems") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SemanticVersion") => String.t() | atom()
-      }
-
-  """
-  @type list_application_dependencies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      version() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "ParameterDefinitions" => list(parameter_definition()),
-        "RequiredCapabilities" => list(list(any())()),
-        "ResourcesSupported" => boolean(),
-        "SemanticVersion" => String.t() | atom(),
-        "SourceCodeArchiveUrl" => String.t() | atom(),
-        "SourceCodeUrl" => String.t() | atom(),
-        "TemplateUrl" => String.t() | atom()
-      }
-
-  """
-  @type version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_request() :: %{
-        optional("Author") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("HomePageUrl") => String.t() | atom(),
-        optional("Labels") => list(String.t() | atom()),
-        optional("ReadmeBody") => String.t() | atom(),
-        optional("ReadmeUrl") => String.t() | atom()
-      }
-
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
+  @type delete_application_request() :: %{}
 
   @typedoc """
 
@@ -404,24 +400,12 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
-      get_application_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "Author" => String.t() | atom(),
-        "CreationTime" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "HomePageUrl" => String.t() | atom(),
-        "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t() | atom()),
-        "LicenseUrl" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ReadmeUrl" => String.t() | atom(),
-        "SpdxLicenseId" => String.t() | atom(),
-        "VerifiedAuthorUrl" => String.t() | atom(),
-        "Version" => version()
+      get_application_policy_response() :: %{
+        "Statements" => list(application_policy_statement())
       }
 
   """
-  @type get_application_response() :: %{(String.t() | atom()) => any()}
+  @type get_application_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,70 +423,48 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
-      get_application_policy_request() :: %{}
-
-  """
-  @type get_application_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cloud_formation_change_set_request() :: %{
-        optional("Capabilities") => list(String.t() | atom()),
-        optional("ChangeSetName") => String.t() | atom(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("NotificationArns") => list(String.t() | atom()),
-        optional("ParameterOverrides") => list(parameter_value()),
-        optional("ResourceTypes") => list(String.t() | atom()),
-        optional("RollbackConfiguration") => rollback_configuration(),
-        optional("SemanticVersion") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TemplateId") => String.t() | atom(),
-        required("StackName") => String.t() | atom()
-      }
-
-  """
-  @type create_cloud_formation_change_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
+      conflict_exception() :: %{
         "ErrorCode" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      application_policy_statement() :: %{
-        "Actions" => list(String.t() | atom()),
-        "PrincipalOrgIDs" => list(String.t() | atom()),
-        "Principals" => list(String.t() | atom()),
-        "StatementId" => String.t() | atom()
+      not_found_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type application_policy_statement() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_application_versions_request() :: %{
-        optional("MaxItems") => integer(),
-        optional("NextToken") => String.t() | atom()
+      create_application_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Author" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "HomePageUrl" => String.t() | atom(),
+        "IsVerifiedAuthor" => boolean(),
+        "Labels" => list(String.t() | atom()),
+        "LicenseUrl" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReadmeUrl" => String.t() | atom(),
+        "SpdxLicenseId" => String.t() | atom(),
+        "VerifiedAuthorUrl" => String.t() | atom(),
+        "Version" => version()
       }
 
   """
-  @type list_application_versions_request() :: %{(String.t() | atom()) => any()}
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -537,25 +499,51 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
-      list_applications_response() :: %{
-        "Applications" => list(application_summary()),
-        "NextToken" => String.t() | atom()
+      rollback_configuration() :: %{
+        "MonitoringTimeInMinutes" => integer(),
+        "RollbackTriggers" => list(rollback_trigger())
       }
 
   """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+  @type rollback_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_application_versions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Versions" => list(version_summary())
+      create_application_version_request() :: %{
+        optional("SourceCodeArchiveUrl") => String.t() | atom(),
+        optional("SourceCodeUrl") => String.t() | atom(),
+        optional("TemplateBody") => String.t() | atom(),
+        optional("TemplateUrl") => String.t() | atom()
       }
 
   """
-  @type list_application_versions_response() :: %{(String.t() | atom()) => any()}
+  @type create_application_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_value() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type parameter_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -573,30 +561,6 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
-      rollback_configuration() :: %{
-        "MonitoringTimeInMinutes" => integer(),
-        "RollbackTriggers" => list(rollback_trigger())
-      }
-
-  """
-  @type rollback_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rollback_trigger() :: %{
-        "Arn" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type rollback_trigger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       put_application_policy_response() :: %{
         "Statements" => list(application_policy_statement())
       }
@@ -608,144 +572,180 @@ defmodule AWS.ServerlessApplicationRepository do
 
   ## Example:
 
-      get_application_request() :: %{
-        optional("SemanticVersion") => String.t() | atom()
+      update_application_request() :: %{
+        optional("Author") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("HomePageUrl") => String.t() | atom(),
+        optional("Labels") => list(String.t() | atom()),
+        optional("ReadmeBody") => String.t() | atom(),
+        optional("ReadmeUrl") => String.t() | atom()
       }
 
   """
-  @type get_application_request() :: %{(String.t() | atom()) => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_cloud_formation_template_request() :: %{
-        optional("SemanticVersion") => String.t() | atom()
-      }
-
-  """
-  @type create_cloud_formation_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_request() :: %{}
-
-  """
-  @type delete_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cloud_formation_change_set_response() :: %{
+      create_cloud_formation_template_response() :: %{
         "ApplicationId" => String.t() | atom(),
-        "ChangeSetId" => String.t() | atom(),
+        "CreationTime" => String.t() | atom(),
+        "ExpirationTime" => String.t() | atom(),
         "SemanticVersion" => String.t() | atom(),
-        "StackId" => String.t() | atom()
+        "Status" => list(any()),
+        "TemplateId" => String.t() | atom(),
+        "TemplateUrl" => String.t() | atom()
       }
 
   """
-  @type create_cloud_formation_change_set_response() :: %{(String.t() | atom()) => any()}
+  @type create_cloud_formation_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_policy_statement() :: %{
+        "Actions" => list(String.t() | atom()),
+        "PrincipalOrgIDs" => list(String.t() | atom()),
+        "Principals" => list(String.t() | atom()),
+        "StatementId" => String.t() | atom()
+      }
+
+  """
+  @type application_policy_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_formation_change_set_request() :: %{
+        optional("Capabilities") => list(String.t() | atom()),
+        optional("ChangeSetName") => String.t() | atom(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("NotificationArns") => list(String.t() | atom()),
+        optional("ParameterOverrides") => list(parameter_value()),
+        optional("ResourceTypes") => list(String.t() | atom()),
+        optional("RollbackConfiguration") => rollback_configuration(),
+        optional("SemanticVersion") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TemplateId") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
+      }
+
+  """
+  @type create_cloud_formation_change_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_versions_request() :: %{
+        optional("MaxItems") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_application_versions_request() :: %{(String.t() | atom()) => any()}
 
   @type create_application_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type create_application_version_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type create_cloud_formation_change_set_errors() ::
           bad_request_exception()
+          | forbidden_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type create_cloud_formation_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type delete_application_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type get_application_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type get_application_policy_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type get_cloud_formation_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_application_dependencies_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_application_versions_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_applications_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type put_application_policy_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type unshare_application_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type update_application_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   def metadata do
     %{

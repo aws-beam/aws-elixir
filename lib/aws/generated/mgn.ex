@@ -13,249 +13,457 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      list_network_migration_deployer_job_filters() :: %{
-        "jobIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_deployer_job_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_cutover_response() :: %{
-        optional("job") => job()
-      }
-
-  """
-  @type start_cutover_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_code_generations_request() :: %{
-        optional("filters") => list_network_migration_code_generations_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_code_generations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_job_log_items_request() :: %{
+      disassociate_source_servers_request() :: %{
         optional("accountID") => String.t() | atom(),
+        required("applicationID") => String.t() | atom(),
+        required("sourceServerIDs") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_source_servers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_request_filters() :: %{
+        "applicationIDs" => list(String.t() | atom()),
+        "isArchived" => [boolean()],
+        "lifeCycleStates" => list(String.t() | atom()),
+        "replicationTypes" => list(String.t() | atom()),
+        "sourceServerIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type describe_source_servers_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ssm_document() :: %{
+        "actionName" => String.t() | atom(),
+        "externalParameters" => map(),
+        "mustSucceedForCutover" => [boolean()],
+        "parameters" => map(),
+        "ssmDocumentName" => String.t() | atom(),
+        "timeoutSeconds" => integer()
+      }
+
+  """
+  @type ssm_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_update_construct() :: %{
+        "constructID" => String.t() | atom(),
+        "constructType" => String.t() | atom(),
+        "operation" => list(),
+        "segmentID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_update_construct() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_configuration() :: %{
+        "sourceEnvironment" => String.t() | atom(),
+        "sourceS3Configuration" => source_s3_configuration()
+      }
+
+  """
+  @type source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_file_enrichment_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_import_file_enrichment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_template_action_request() :: %{
+        optional("active") => [boolean()],
+        optional("category") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("documentVersion") => String.t() | atom(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("operatingSystem") => String.t() | atom(),
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer(),
+        required("actionID") => String.t() | atom(),
+        required("actionName") => String.t() | atom(),
+        required("documentIdentifier") => String.t() | atom(),
+        required("launchConfigurationTemplateID") => String.t() | atom(),
+        required("order") => integer()
+      }
+
+  """
+  @type put_template_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_analyses_request() :: %{
+        optional("filters") => list_network_migration_analyses_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        required("jobID") => String.t() | atom()
-      }
-
-  """
-  @type describe_job_log_items_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      change_server_life_cycle_state_source_server_lifecycle() :: %{
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type change_server_life_cycle_state_source_server_lifecycle() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_code_generation_segment() :: %{
-        "artifacts" => list(network_migration_code_generation_artifact()),
-        "createdAt" => [non_neg_integer()],
-        "jobID" => String.t() | atom(),
-        "logicalID" => String.t() | atom(),
-        "mapperSegmentID" => String.t() | atom(),
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "networkMigrationExecutionID" => String.t() | atom(),
-        "referencedSegments" => list(String.t() | atom()),
-        "segmentID" => String.t() | atom(),
-        "segmentType" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_code_generation_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector() :: %{
-        "arn" => String.t() | atom(),
-        "connectorID" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "ssmCommandConfig" => connector_ssm_command_config(),
-        "ssmInstanceID" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type connector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_servers_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("filters") => describe_source_servers_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_source_servers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_migration_mapper_segment_construct_response() :: %{
-        "construct" => network_migration_mapper_segment_construct()
-      }
-
-  """
-  @type get_network_migration_mapper_segment_construct_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_analysis_request() :: %{
         required("networkMigrationDefinitionID") => String.t() | atom(),
         required("networkMigrationExecutionID") => String.t() | atom()
       }
 
   """
-  @type start_network_migration_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type list_network_migration_analyses_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_network_migration_mapping_updates_request() :: %{
-        optional("filters") => list_network_migration_mapping_updates_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_mapping_updates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_mapping_update_segment() :: %{
-        "scopeTags" => map(),
-        "segmentID" => String.t() | atom(),
-        "targetAccount" => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_mapping_update_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_vcenter_clients_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_vcenter_clients_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_mapping_request() :: %{
-        optional("securityGroupMappingStrategy") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle() :: %{
-        "addedToServiceDateTime" => String.t() | atom(),
-        "elapsedReplicationDuration" => String.t() | atom(),
-        "firstByteDateTime" => String.t() | atom(),
-        "lastCutover" => life_cycle_last_cutover(),
-        "lastSeenByServiceDateTime" => String.t() | atom(),
-        "lastTest" => life_cycle_last_test(),
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_network_update() :: %{
-        "inboundCidr" => String.t() | atom(),
-        "inspectionCidr" => String.t() | atom(),
-        "outboundCidr" => String.t() | atom(),
-        "topology" => String.t() | atom()
-      }
-
-  """
-  @type target_network_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_migration_mapper_segment_construct_request() :: %{
-        required("constructID") => String.t() | atom(),
+      update_network_migration_mapper_segment_request() :: %{
+        optional("scopeTags") => map(),
         required("networkMigrationDefinitionID") => String.t() | atom(),
         required("networkMigrationExecutionID") => String.t() | atom(),
         required("segmentID") => String.t() | atom()
       }
 
   """
-  @type get_network_migration_mapper_segment_construct_request() :: %{
+  @type update_network_migration_mapper_segment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_definitions_request_filters() :: %{
+        "networkMigrationDefinitionIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_definitions_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_from_service_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type disconnect_from_service_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_account() :: %{
+        "accountId" => String.t() | atom()
+      }
+
+  """
+  @type managed_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_definitions_request() :: %{
+        optional("filters") => list_network_migration_definitions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_post_launch_actions_launch_status() :: %{
+        "executionID" => String.t() | atom(),
+        "executionStatus" => String.t() | atom(),
+        "failureReason" => String.t() | atom(),
+        "ssmDocument" => ssm_document(),
+        "ssmDocumentType" => String.t() | atom()
+      }
+
+  """
+  @type job_post_launch_actions_launch_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_task_summary() :: %{
+        "applications" => import_task_summary_applications(),
+        "servers" => import_task_summary_servers(),
+        "waves" => import_task_summary_waves()
+      }
+
+  """
+  @type import_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_request() :: %{
+        required("connectorID") => String.t() | atom()
+      }
+
+  """
+  @type delete_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initialize_service_response() :: %{}
+
+  """
+  @type initialize_service_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_request() :: %{
+        optional("name") => String.t() | atom(),
+        optional("ssmCommandConfig") => connector_ssm_command_config(),
+        required("connectorID") => String.t() | atom()
+      }
+
+  """
+  @type update_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enrichment_source_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type enrichment_source_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_launch_configuration_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type get_launch_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_server_actions_request_filters() :: %{
+        "actionIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type source_server_actions_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_source_servers_response() :: %{}
+
+  """
+  @type disassociate_source_servers_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_template_request() :: %{
+        optional("associatePublicIpAddress") => [boolean()],
+        optional("bootMode") => String.t() | atom(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("enableParametersEncryption") => [boolean()],
+        optional("largeVolumeConf") => launch_template_disk_conf(),
+        optional("launchDisposition") => String.t() | atom(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t() | atom(),
+        optional("parametersEncryptionKey") => String.t() | atom(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("smallVolumeConf") => launch_template_disk_conf(),
+        optional("smallVolumeMaxSize") => float(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom(),
+        required("launchConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type update_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_test_reverted() :: %{
+        "apiCallDateTime" => String.t() | atom()
+      }
+
+  """
+  @type life_cycle_last_test_reverted() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launched_instance() :: %{
+        "ec2InstanceID" => String.t() | atom(),
+        "firstBoot" => String.t() | atom(),
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type launched_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_log() :: %{
+        "event" => String.t() | atom(),
+        "eventData" => job_log_event_data(),
+        "logDateTime" => String.t() | atom()
+      }
+
+  """
+  @type job_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_test_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("tags") => map(),
+        required("sourceServerIDs") => list(String.t() | atom())
+      }
+
+  """
+  @type start_test_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_mapper_segment_construct() :: %{
+        "constructID" => String.t() | atom(),
+        "constructType" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "excluded" => [boolean()],
+        "logicalID" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "properties" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type network_migration_mapper_segment_construct() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_generation_output_format_status_details() :: %{
+        "status" => String.t() | atom(),
+        "statusDetailList" => String.t() | atom()
+      }
+
+  """
+  @type code_generation_output_format_status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_file_enrichment_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("ipAssignmentStrategy") => String.t() | atom(),
+        required("s3BucketSource") => enrichment_source_s3_configuration(),
+        required("s3BucketTarget") => enrichment_target_s3_configuration()
+      }
+
+  """
+  @type start_import_file_enrichment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_deployer_job_response() :: %{
+        optional("items") => list(network_migration_deployer_job_details()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_test_finalized() :: %{
+        "apiCallDateTime" => String.t() | atom()
+      }
+
+  """
+  @type life_cycle_last_test_finalized() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generation_segments_filters() :: %{
+        "segmentIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_code_generation_segments_filters() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -263,108 +471,233 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      list_exports_request_filters() :: %{
-        "exportIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_exports_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_operation() :: %{
-        "excluded" => [boolean()],
-        "name" => String.t() | atom(),
-        "properties" => map()
-      }
-
-  """
-  @type update_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unarchive_application_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("applicationID") => String.t() | atom()
-      }
-
-  """
-  @type unarchive_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_code_generations_filters() :: %{
-        "jobIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_code_generations_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_response() :: %{
-        "items" => list(connector()),
+      list_import_file_enrichments_response() :: %{
+        "items" => list(import_file_enrichment()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
+  @type list_import_file_enrichments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_waves_request_filters() :: %{
-        "isArchived" => [boolean()],
-        "waveIDs" => list(String.t() | atom())
+      data_replication_info() :: %{
+        "dataReplicationError" => data_replication_error(),
+        "dataReplicationInitiation" => data_replication_initiation(),
+        "dataReplicationState" => String.t() | atom(),
+        "etaDateTime" => String.t() | atom(),
+        "lagDuration" => String.t() | atom(),
+        "lastSnapshotDateTime" => String.t() | atom(),
+        "replicatedDisks" => list(data_replication_info_replicated_disk()),
+        "replicatorId" => String.t() | atom()
       }
 
   """
-  @type list_waves_request_filters() :: %{(String.t() | atom()) => any()}
+  @type data_replication_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_network_migration_analyses_filters() :: %{
+      replication_configuration_replicated_disk() :: %{
+        "deviceName" => String.t() | atom(),
+        "iops" => float(),
+        "isBootDisk" => [boolean()],
+        "stagingDiskType" => String.t() | atom(),
+        "throughput" => float()
+      }
+
+  """
+  @type replication_configuration_replicated_disk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_task_summary_servers() :: %{
+        "createdCount" => float(),
+        "modifiedCount" => float()
+      }
+
+  """
+  @type import_task_summary_servers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mappings_filters() :: %{
         "jobIDs" => list(String.t() | atom())
       }
 
   """
-  @type list_network_migration_analyses_filters() :: %{(String.t() | atom()) => any()}
+  @type list_network_migration_mappings_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_source_server_request() :: %{
+      access_denied_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_deployer_job_details() :: %{
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_deployer_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_response() :: %{
+        optional("items") => list(source_server()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_source_servers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_server_action_document() :: %{
+        optional("actionID") => String.t() | atom(),
+        optional("actionName") => String.t() | atom(),
+        optional("active") => [boolean()],
+        optional("category") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("documentIdentifier") => String.t() | atom(),
+        optional("documentVersion") => String.t() | atom(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("order") => integer(),
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer()
+      }
+
+  """
+  @type source_server_action_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configuration_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("replicationConfigurationTemplateIDs") => list(String.t() | atom())
+      }
+
+  """
+  @type describe_replication_configuration_templates_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_configuration_template_response() :: %{}
+
+  """
+  @type delete_launch_configuration_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapper_segment_constructs_request() :: %{
+        optional("filters") => list_network_migration_mapper_segment_constructs_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom(),
+        required("segmentID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapper_segment_constructs_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      merge_operation() :: %{
+        "mergeConstructs" => list(merge_construct())
+      }
+
+  """
+  @type merge_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pause_replication_request() :: %{
         optional("accountID") => String.t() | atom(),
-        optional("connectorAction") => source_server_connector_action(),
         required("sourceServerID") => String.t() | atom()
       }
 
   """
-  @type update_source_server_request() :: %{(String.t() | atom()) => any()}
+  @type pause_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      archive_wave_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("waveID") => String.t() | atom()
+      c_p_u() :: %{
+        "cores" => float(),
+        "modelName" => String.t() | atom()
       }
 
   """
-  @type archive_wave_request() :: %{(String.t() | atom()) => any()}
+  @type c_p_u() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finalize_cutover_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type finalize_cutover_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_waves_response() :: %{
+        optional("items") => list(wave()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_waves_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -379,160 +712,6 @@ defmodule AWS.Mgn do
   @type list_network_migration_mapper_segment_constructs_response() :: %{
           (String.t() | atom()) => any()
         }
-
-  @typedoc """
-
-  ## Example:
-
-      describe_launch_configuration_templates_request() :: %{
-        optional("launchConfigurationTemplateIDs") => list(String.t() | atom()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_launch_configuration_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_source_server_response() :: %{}
-
-  """
-  @type delete_source_server_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_source_server_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type delete_source_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_aggregated_status() :: %{
-        "healthStatus" => String.t() | atom(),
-        "lastUpdateDateTime" => String.t() | atom(),
-        "progressStatus" => String.t() | atom(),
-        "totalSourceServers" => float()
-      }
-
-  """
-  @type application_aggregated_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_configuration_template() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("associateDefaultSecurityGroup") => [boolean()],
-        optional("bandwidthThrottling") => float(),
-        optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t() | atom(),
-        optional("defaultLargeStagingDiskType") => String.t() | atom(),
-        optional("ebsEncryption") => String.t() | atom(),
-        optional("ebsEncryptionKeyArn") => String.t() | atom(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("replicationServerInstanceType") => String.t() | atom(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
-        optional("stagingAreaSubnetId") => String.t() | atom(),
-        optional("stagingAreaTags") => map(),
-        optional("storeSnapshotOnLocalZone") => [boolean()],
-        optional("tags") => map(),
-        optional("useDedicatedReplicationServer") => [boolean()],
-        optional("useFipsEndpoint") => [boolean()],
-        required("replicationConfigurationTemplateID") => String.t() | atom()
-      }
-
-  """
-  @type replication_configuration_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resume_replication_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type resume_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_waves_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("filters") => list_waves_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_waves_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_file_enrichments_request() :: %{
-        optional("filters") => list_import_file_enrichments_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_import_file_enrichments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_replication_configuration_template_request() :: %{
-        optional("arn") => String.t() | atom(),
-        optional("associateDefaultSecurityGroup") => [boolean()],
-        optional("bandwidthThrottling") => float(),
-        optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t() | atom(),
-        optional("defaultLargeStagingDiskType") => String.t() | atom(),
-        optional("ebsEncryption") => String.t() | atom(),
-        optional("ebsEncryptionKeyArn") => String.t() | atom(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("replicationServerInstanceType") => String.t() | atom(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
-        optional("stagingAreaSubnetId") => String.t() | atom(),
-        optional("stagingAreaTags") => map(),
-        optional("storeSnapshotOnLocalZone") => [boolean()],
-        optional("useDedicatedReplicationServer") => [boolean()],
-        optional("useFipsEndpoint") => [boolean()],
-        required("replicationConfigurationTemplateID") => String.t() | atom()
-      }
-
-  """
-  @type update_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_s3_configuration_update() :: %{
-        "s3Bucket" => String.t() | atom(),
-        "s3BucketOwner" => String.t() | atom()
-      }
-
-  """
-  @type target_s3_configuration_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,573 +739,60 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      replication_configuration_replicated_disk() :: %{
-        "deviceName" => String.t() | atom(),
-        "iops" => float(),
-        "isBootDisk" => [boolean()],
-        "stagingDiskType" => String.t() | atom(),
-        "throughput" => float()
+      delete_vcenter_client_request() :: %{
+        required("vcenterClientID") => String.t() | atom()
       }
 
   """
-  @type replication_configuration_replicated_disk() :: %{(String.t() | atom()) => any()}
+  @type delete_vcenter_client_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_applications_response() :: %{}
-
-  """
-  @type associate_applications_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_request() :: %{
-        optional("name") => String.t() | atom(),
-        optional("ssmCommandConfig") => connector_ssm_command_config(),
-        required("connectorID") => String.t() | atom()
-      }
-
-  """
-  @type update_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pause_replication_request() :: %{
+      describe_jobs_request() :: %{
         optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type pause_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mapper_segments_response() :: %{
-        "items" => list(network_migration_mapper_segment()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_mapper_segments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_file_enrichment_response() :: %{
-        "jobID" => String.t() | atom()
-      }
-
-  """
-  @type start_import_file_enrichment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mappings_request() :: %{
-        optional("filters") => list_network_migration_mappings_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_mappings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mapper_segments_filters() :: %{
-        "segmentIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_mapper_segments_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_mapping_update_job_details() :: %{
-        "createdAt" => [non_neg_integer()],
-        "endedAt" => [non_neg_integer()],
-        "jobID" => String.t() | atom(),
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "networkMigrationExecutionID" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusDetails" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_mapping_update_job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_code_generation_segments_filters() :: %{
-        "segmentIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_code_generation_segments_filters() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      network_interface() :: %{
-        "ips" => list(String.t() | atom()),
-        "isPrimary" => [boolean()],
-        "macAddress" => String.t() | atom()
-      }
-
-  """
-  @type network_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_test_finalized() :: %{
-        "apiCallDateTime" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_test_finalized() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_failed_resource_details() :: %{
-        "logicalID" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusReason" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_failed_resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_replication_configuration_template_request() :: %{
-        optional("ebsEncryptionKeyArn") => String.t() | atom(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("storeSnapshotOnLocalZone") => [boolean()],
-        optional("tags") => map(),
-        optional("useFipsEndpoint") => [boolean()],
-        required("associateDefaultSecurityGroup") => [boolean()],
-        required("bandwidthThrottling") => float(),
-        required("createPublicIP") => [boolean()],
-        required("dataPlaneRouting") => String.t() | atom(),
-        required("defaultLargeStagingDiskType") => String.t() | atom(),
-        required("ebsEncryption") => String.t() | atom(),
-        required("replicationServerInstanceType") => String.t() | atom(),
-        required("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
-        required("stagingAreaSubnetId") => String.t() | atom(),
-        required("stagingAreaTags") => map(),
-        required("useDedicatedReplicationServer") => [boolean()]
-      }
-
-  """
-  @type create_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_applications_response() :: %{}
-
-  """
-  @type disassociate_applications_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      import_file_enrichment() :: %{
-        "checksum" => checksum(),
-        "createdAt" => [non_neg_integer()],
-        "endedAt" => [non_neg_integer()],
-        "jobID" => String.t() | atom(),
-        "s3BucketTarget" => enrichment_target_s3_configuration(),
-        "status" => String.t() | atom(),
-        "statusDetails" => String.t() | atom()
-      }
-
-  """
-  @type import_file_enrichment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_analysis_job_details() :: %{
-        "createdAt" => [non_neg_integer()],
-        "endedAt" => [non_neg_integer()],
-        "jobID" => String.t() | atom(),
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "networkMigrationExecutionID" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusDetails" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_analysis_job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_source_server_action_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("actionID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type remove_source_server_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_applications_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("applicationIDs") => list(String.t() | atom()),
-        required("waveID") => String.t() | atom()
-      }
-
-  """
-  @type associate_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_executions_request() :: %{
-        optional("filters") => list_network_migration_execution_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_file_enrichments_response() :: %{
-        "items" => list(import_file_enrichment()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_import_file_enrichments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_server_connector_action() :: %{
-        "connectorArn" => String.t() | atom(),
-        "credentialsSecretArn" => String.t() | atom()
-      }
-
-  """
-  @type source_server_connector_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_mapping_update_construct() :: %{
-        "constructID" => String.t() | atom(),
-        "constructType" => String.t() | atom(),
-        "operation" => list(),
-        "segmentID" => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_mapping_update_construct() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_deployer_job_response() :: %{
-        optional("jobID") => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_deployer_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_migration_definition_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("scopeTags") => map(),
-        optional("sourceConfigurations") => list(source_configuration()),
-        optional("targetDeployment") => String.t() | atom(),
-        optional("targetNetwork") => target_network_update(),
-        optional("targetS3Configuration") => target_s3_configuration_update(),
-        required("networkMigrationDefinitionID") => String.t() | atom()
-      }
-
-  """
-  @type update_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_request_filters() :: %{
-        "applicationIDs" => list(String.t() | atom()),
-        "isArchived" => [boolean()],
-        "waveIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_applications_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_definition_summary() :: %{
-        "arn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "scopeTags" => map(),
-        "sourceEnvironment" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type network_migration_definition_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_definitions_request() :: %{
-        optional("filters") => list_network_migration_definitions_request_filters(),
+        optional("filters") => describe_jobs_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_network_migration_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type describe_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      connector_ssm_command_config() :: %{
-        "cloudWatchLogGroupName" => String.t() | atom(),
-        "cloudWatchOutputEnabled" => [boolean()],
-        "outputS3BucketName" => String.t() | atom(),
-        "s3OutputEnabled" => [boolean()]
+      import_task_summary_applications() :: %{
+        "createdCount" => float(),
+        "modifiedCount" => float()
       }
 
   """
-  @type connector_ssm_command_config() :: %{(String.t() | atom()) => any()}
+  @type import_task_summary_applications() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      import_task_error() :: %{
-        "errorData" => import_error_data(),
-        "errorDateTime" => String.t() | atom(),
-        "errorType" => String.t() | atom()
+      licensing() :: %{
+        "osByol" => [boolean()]
       }
 
   """
-  @type import_task_error() :: %{(String.t() | atom()) => any()}
+  @type licensing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      launched_instance() :: %{
-        "ec2InstanceID" => String.t() | atom(),
-        "firstBoot" => String.t() | atom(),
-        "jobID" => String.t() | atom()
+      start_import_response() :: %{
+        "importTask" => import_task()
       }
 
   """
-  @type launched_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_definitions_response() :: %{
-        "items" => list(network_migration_definition_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_test_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t() | atom())
-      }
-
-  """
-  @type start_test_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_request() :: %{
-        optional("filters") => list_connectors_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_action_document() :: %{
-        optional("actionID") => String.t() | atom(),
-        optional("actionName") => String.t() | atom(),
-        optional("active") => [boolean()],
-        optional("category") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("documentIdentifier") => String.t() | atom(),
-        optional("documentVersion") => String.t() | atom(),
-        optional("externalParameters") => map(),
-        optional("mustSucceedForCutover") => [boolean()],
-        optional("operatingSystem") => String.t() | atom(),
-        optional("order") => integer(),
-        optional("parameters") => map(),
-        optional("timeoutSeconds") => integer()
-      }
-
-  """
-  @type template_action_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retry_data_replication_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type retry_data_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_replication_configuration_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type get_replication_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_replication_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type start_replication_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_test_reverted() :: %{
-        "apiCallDateTime" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_test_reverted() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_template_actions_response() :: %{
-        optional("items") => list(template_action_document()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_template_actions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vcenter_client() :: %{
-        "arn" => String.t() | atom(),
-        "datacenterName" => String.t() | atom(),
-        "hostname" => String.t() | atom(),
-        "lastSeenDatetime" => String.t() | atom(),
-        "sourceServerTags" => map(),
-        "tags" => map(),
-        "vcenterClientID" => String.t() | atom(),
-        "vcenterUUID" => String.t() | atom()
-      }
-
-  """
-  @type vcenter_client() :: %{(String.t() | atom()) => any()}
+  @type start_import_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1147,26 +813,238 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      stop_replication_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
+      start_network_migration_mapping_update_response() :: %{
+        "jobID" => String.t() | atom()
       }
 
   """
-  @type stop_replication_request() :: %{(String.t() | atom()) => any()}
+  @type start_network_migration_mapping_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_exports_request() :: %{
-        "filters" => list_exports_request_filters(),
-        "maxResults" => integer(),
+      create_launch_configuration_template_request() :: %{
+        optional("associatePublicIpAddress") => [boolean()],
+        optional("bootMode") => String.t() | atom(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("enableParametersEncryption") => [boolean()],
+        optional("largeVolumeConf") => launch_template_disk_conf(),
+        optional("launchDisposition") => String.t() | atom(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t() | atom(),
+        optional("parametersEncryptionKey") => String.t() | atom(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("smallVolumeConf") => launch_template_disk_conf(),
+        optional("smallVolumeMaxSize") => float(),
+        optional("tags") => map(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
+      }
+
+  """
+  @type create_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_request() :: %{
+        optional("filters") => list_connectors_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_analyses_response() :: %{
+        "items" => list(network_migration_analysis_job_details()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_exports_request() :: %{(String.t() | atom()) => any()}
+  @type list_network_migration_analyses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_aggregated_status() :: %{
+        "healthStatus" => String.t() | atom(),
+        "lastUpdateDateTime" => String.t() | atom(),
+        "progressStatus" => String.t() | atom(),
+        "totalSourceServers" => float()
+      }
+
+  """
+  @type application_aggregated_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checksum() :: %{
+        "encryptionAlgorithm" => String.t() | atom(),
+        "hash" => String.t() | atom()
+      }
+
+  """
+  @type checksum() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_source_server_action_response() :: %{}
+
+  """
+  @type remove_source_server_action_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      source_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type source_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_server_connector_action() :: %{
+        "connectorArn" => String.t() | atom(),
+        "credentialsSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type source_server_connector_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generations_request() :: %{
+        optional("filters") => list_network_migration_code_generations_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_code_generations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enrichment_target_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type enrichment_target_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      merge_construct() :: %{
+        "constructID" => String.t() | atom(),
+        "segmentID" => String.t() | atom()
+      }
+
+  """
+  @type merge_construct() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_code_generation_segment() :: %{
+        "artifacts" => list(network_migration_code_generation_artifact()),
+        "createdAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "logicalID" => String.t() | atom(),
+        "mapperSegmentID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "referencedSegments" => list(String.t() | atom()),
+        "segmentID" => String.t() | atom(),
+        "segmentType" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_code_generation_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_properties() :: %{
+        "cpus" => list(c_p_u()),
+        "disks" => list(disk()),
+        "identificationHints" => identification_hints(),
+        "lastUpdatedDateTime" => String.t() | atom(),
+        "networkInterfaces" => list(network_interface()),
+        "os" => o_s(),
+        "ramBytes" => float(),
+        "recommendedInstanceType" => String.t() | atom()
+      }
+
+  """
+  @type source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_server_response() :: %{}
+
+  """
+  @type delete_source_server_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapping_updates_request() :: %{
+        optional("filters") => list_network_migration_mapping_updates_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapping_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_jobs_request_filters() :: %{
+        "fromDate" => String.t() | atom(),
+        "jobIDs" => list(String.t() | atom()),
+        "toDate" => String.t() | atom()
+      }
+
+  """
+  @type describe_jobs_request_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,47 +1062,76 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      network_migration_mapper_segment_construct() :: %{
-        "constructID" => String.t() | atom(),
-        "constructType" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "excluded" => [boolean()],
-        "logicalID" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "properties" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type network_migration_mapper_segment_construct() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unarchive_wave_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("waveID") => String.t() | atom()
-      }
-
-  """
-  @type unarchive_wave_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_server_actions_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("filters") => source_server_actions_request_filters(),
+      list_template_actions_request() :: %{
+        optional("filters") => template_actions_request_filters(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
+        required("launchConfigurationTemplateID") => String.t() | atom()
       }
 
   """
-  @type list_source_server_actions_request() :: %{(String.t() | atom()) => any()}
+  @type list_template_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_source_servers_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("applicationID") => String.t() | atom(),
+        required("sourceServerIDs") => list(String.t() | atom())
+      }
+
+  """
+  @type associate_source_servers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_applications_response() :: %{}
+
+  """
+  @type associate_applications_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("jobID") => String.t() | atom()
+      }
+
+  """
+  @type delete_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_deployments_request() :: %{
+        optional("filters") => list_network_migration_deployer_job_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_errors_response() :: %{
+        "items" => list(export_task_error()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_export_errors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1259,730 +1166,15 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      network_migration_analysis_result() :: %{
-        "analysisResult" => [String.t() | atom()],
-        "analyzerType" => String.t() | atom(),
-        "jobID" => String.t() | atom(),
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "networkMigrationExecutionID" => String.t() | atom(),
-        "source" => network_migration_analysis_result_source(),
-        "status" => String.t() | atom(),
-        "target" => network_migration_analysis_result_target()
-      }
-
-  """
-  @type network_migration_analysis_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      licensing() :: %{
-        "osByol" => [boolean()]
-      }
-
-  """
-  @type licensing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_execution_request_filters() :: %{
-        "networkMigrationExecutionIDs" => list(String.t() | atom()),
-        "networkMigrationExecutionStatuses" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_execution_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_export_response() :: %{
-        "exportTask" => export_task()
-      }
-
-  """
-  @type start_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_task_summary() :: %{
-        "applicationsCount" => float(),
-        "serversCount" => float(),
-        "wavesCount" => float()
-      }
-
-  """
-  @type export_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_imports_response() :: %{
-        "items" => list(import_task()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_imports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_network() :: %{
-        "inboundCidr" => String.t() | atom(),
-        "inspectionCidr" => String.t() | atom(),
-        "outboundCidr" => String.t() | atom(),
-        "topology" => String.t() | atom()
-      }
-
-  """
-  @type target_network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_code_generation_request() :: %{
-        optional("codeGenerationOutputFormatTypes") => list(String.t() | atom()),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_code_generation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identification_hints() :: %{
-        "awsInstanceID" => String.t() | atom(),
-        "fqdn" => String.t() | atom(),
-        "hostname" => String.t() | atom(),
-        "vmPath" => String.t() | atom(),
-        "vmWareUuid" => String.t() | atom()
-      }
-
-  """
-  @type identification_hints() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_server_actions_request_filters() :: %{
-        "actionIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type source_server_actions_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_cutover() :: %{
-        "finalized" => life_cycle_last_cutover_finalized(),
-        "initiated" => life_cycle_last_cutover_initiated(),
-        "reverted" => life_cycle_last_cutover_reverted()
-      }
-
-  """
-  @type life_cycle_last_cutover() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_properties() :: %{
-        "cpus" => list(c_p_u()),
-        "disks" => list(disk()),
-        "identificationHints" => identification_hints(),
-        "lastUpdatedDateTime" => String.t() | atom(),
-        "networkInterfaces" => list(network_interface()),
-        "os" => o_s(),
-        "ramBytes" => float(),
-        "recommendedInstanceType" => String.t() | atom()
-      }
-
-  """
-  @type source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_servers_response() :: %{
-        optional("items") => list(source_server()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_source_servers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_replication_configuration_templates_response() :: %{
-        optional("items") => list(replication_configuration_template()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_replication_configuration_templates_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_cutover_reverted() :: %{
-        "apiCallDateTime" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_cutover_reverted() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_replication_configuration_template_response() :: %{}
-
-  """
-  @type delete_replication_configuration_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_wave_response() :: %{}
-
-  """
-  @type delete_wave_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_source_servers_response() :: %{}
-
-  """
-  @type disassociate_source_servers_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mapper_segment_constructs_filters() :: %{
-        "constructIDs" => list(String.t() | atom()),
-        "constructTypes" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_mapper_segment_constructs_filters() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_test_initiated() :: %{
-        "apiCallDateTime" => String.t() | atom(),
-        "jobID" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_test_initiated() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_source_server_action_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("active") => [boolean()],
-        optional("category") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("documentVersion") => String.t() | atom(),
-        optional("externalParameters") => map(),
-        optional("mustSucceedForCutover") => [boolean()],
-        optional("parameters") => map(),
-        optional("timeoutSeconds") => integer(),
-        required("actionID") => String.t() | atom(),
-        required("actionName") => String.t() | atom(),
-        required("documentIdentifier") => String.t() | atom(),
-        required("order") => integer(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type put_source_server_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replication_configuration() :: %{
-        optional("associateDefaultSecurityGroup") => [boolean()],
-        optional("bandwidthThrottling") => float(),
-        optional("createPublicIP") => [boolean()],
-        optional("dataPlaneRouting") => String.t() | atom(),
-        optional("defaultLargeStagingDiskType") => String.t() | atom(),
-        optional("ebsEncryption") => String.t() | atom(),
-        optional("ebsEncryptionKeyArn") => String.t() | atom(),
-        optional("internetProtocol") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
-        optional("replicationServerInstanceType") => String.t() | atom(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
-        optional("sourceServerID") => String.t() | atom(),
-        optional("stagingAreaSubnetId") => String.t() | atom(),
-        optional("stagingAreaTags") => map(),
-        optional("storeSnapshotOnLocalZone") => [boolean()],
-        optional("useDedicatedReplicationServer") => [boolean()],
-        optional("useFipsEndpoint") => [boolean()]
-      }
-
-  """
-  @type replication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      validation_exception() :: %{
         "code" => String.t() | atom(),
-        "errors" => list(error_details()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
+        "reason" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_operation() :: %{}
-
-  """
-  @type delete_operation() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_analyses_response() :: %{
-        "items" => list(network_migration_analysis_job_details()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_analyses_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_mapping_job_details() :: %{
-        "createdAt" => [non_neg_integer()],
-        "endedAt" => [non_neg_integer()],
-        "jobID" => String.t() | atom(),
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "networkMigrationExecutionID" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusDetails" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_mapping_job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_error() :: %{
-        "error" => String.t() | atom(),
-        "rawError" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_applications_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("applicationIDs") => list(String.t() | atom()),
-        required("waveID") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_task_error() :: %{
-        "errorData" => export_error_data(),
-        "errorDateTime" => String.t() | atom()
-      }
-
-  """
-  @type export_task_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_source_server_replication_type_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("replicationType") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type update_source_server_replication_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      post_launch_actions() :: %{
-        "cloudWatchLogGroupName" => String.t() | atom(),
-        "deployment" => String.t() | atom(),
-        "s3LogBucket" => String.t() | atom(),
-        "s3OutputKeyPrefix" => String.t() | atom(),
-        "ssmDocuments" => list(ssm_document())
-      }
-
-  """
-  @type post_launch_actions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      merge_operation() :: %{
-        "mergeConstructs" => list(merge_construct())
-      }
-
-  """
-  @type merge_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_execution() :: %{
-        "activity" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "networkMigrationExecutionID" => String.t() | atom(),
-        "stage" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type network_migration_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_analysis_result_source() :: %{
-        "subnetID" => String.t() | atom(),
-        "vpcID" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_analysis_result_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_wave_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("waveID") => String.t() | atom()
-      }
-
-  """
-  @type delete_wave_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "quotaValue" => integer(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      post_launch_actions_status() :: %{
-        "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()),
-        "ssmAgentDiscoveryDatetime" => String.t() | atom()
-      }
-
-  """
-  @type post_launch_actions_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_mapping_response() :: %{
-        "jobID" => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_mapping_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_wave_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_wave_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_wave_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        required("waveID") => String.t() | atom()
-      }
-
-  """
-  @type update_wave_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_template_action_response() :: %{}
-
-  """
-  @type remove_template_action_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_file_enrichment_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("ipAssignmentStrategy") => String.t() | atom(),
-        required("s3BucketSource") => enrichment_source_s3_configuration(),
-        required("s3BucketTarget") => enrichment_target_s3_configuration()
-      }
-
-  """
-  @type start_import_file_enrichment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_deployer_job_response() :: %{
-        optional("items") => list(network_migration_deployer_job_details()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_deployer_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      c_p_u() :: %{
-        "cores" => float(),
-        "modelName" => String.t() | atom()
-      }
-
-  """
-  @type c_p_u() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      uninitialized_account_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type uninitialized_account_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mappings_filters() :: %{
-        "jobIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_mappings_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application() :: %{
-        "applicationAggregatedStatus" => application_aggregated_status(),
-        "applicationID" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "creationDateTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "isArchived" => [boolean()],
-        "lastModifiedDateTime" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "tags" => map(),
-        "waveID" => String.t() | atom()
-      }
-
-  """
-  @type application() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_analysis_result_target() :: %{
-        "subnetID" => String.t() | atom(),
-        "vpcID" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_analysis_result_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initialize_service_request() :: %{}
-
-  """
-  @type initialize_service_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_launch_configuration_template_request() :: %{
-        optional("associatePublicIpAddress") => [boolean()],
-        optional("bootMode") => String.t() | atom(),
-        optional("copyPrivateIp") => [boolean()],
-        optional("copyTags") => [boolean()],
-        optional("enableMapAutoTagging") => [boolean()],
-        optional("enableParametersEncryption") => [boolean()],
-        optional("largeVolumeConf") => launch_template_disk_conf(),
-        optional("launchDisposition") => String.t() | atom(),
-        optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t() | atom(),
-        optional("parametersEncryptionKey") => String.t() | atom(),
-        optional("postLaunchActions") => post_launch_actions(),
-        optional("smallVolumeConf") => launch_template_disk_conf(),
-        optional("smallVolumeMaxSize") => float(),
-        optional("tags") => map(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
-      }
-
-  """
-  @type create_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_details() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom()
-      }
-
-  """
-  @type error_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_mapping_update_response() :: %{
-        "jobID" => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_mapping_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2002,492 +1194,39 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      managed_account() :: %{
-        "accountId" => String.t() | atom()
-      }
-
-  """
-  @type managed_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_configuration() :: %{
-        "sourceEnvironment" => String.t() | atom(),
-        "sourceS3Configuration" => source_s3_configuration()
-      }
-
-  """
-  @type source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_template_actions_request() :: %{
-        optional("filters") => template_actions_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("launchConfigurationTemplateID") => String.t() | atom()
-      }
-
-  """
-  @type list_template_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_info() :: %{
-        "dataReplicationError" => data_replication_error(),
-        "dataReplicationInitiation" => data_replication_initiation(),
-        "dataReplicationState" => String.t() | atom(),
-        "etaDateTime" => String.t() | atom(),
-        "lagDuration" => String.t() | atom(),
-        "lastSnapshotDateTime" => String.t() | atom(),
-        "replicatedDisks" => list(data_replication_info_replicated_disk()),
-        "replicatorId" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_analysis_response() :: %{
-        "jobID" => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_source_servers_request_filters() :: %{
-        "applicationIDs" => list(String.t() | atom()),
-        "isArchived" => [boolean()],
-        "lifeCycleStates" => list(String.t() | atom()),
-        "replicationTypes" => list(String.t() | atom()),
-        "sourceServerIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type describe_source_servers_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mapping_updates_response() :: %{
-        "items" => list(network_migration_mapping_update_job_details()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_mapping_updates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_source_servers_request() :: %{
+      resume_replication_request() :: %{
         optional("accountID") => String.t() | atom(),
-        required("applicationID") => String.t() | atom(),
-        required("sourceServerIDs") => list(String.t() | atom())
+        required("sourceServerID") => String.t() | atom()
       }
 
   """
-  @type associate_source_servers_request() :: %{(String.t() | atom()) => any()}
+  @type resume_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_vcenter_client_request() :: %{
-        required("vcenterClientID") => String.t() | atom()
-      }
-
-  """
-  @type delete_vcenter_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_deployed_stacks_response() :: %{
-        "items" => list(network_migration_deployed_stack_details()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_deployed_stacks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      terminate_target_instances_request() :: %{
-        optional("accountID") => String.t() | atom(),
+      create_replication_configuration_template_request() :: %{
+        optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t() | atom())
+        optional("useFipsEndpoint") => [boolean()],
+        required("associateDefaultSecurityGroup") => [boolean()],
+        required("bandwidthThrottling") => float(),
+        required("createPublicIP") => [boolean()],
+        required("dataPlaneRouting") => String.t() | atom(),
+        required("defaultLargeStagingDiskType") => String.t() | atom(),
+        required("ebsEncryption") => String.t() | atom(),
+        required("replicationServerInstanceType") => String.t() | atom(),
+        required("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
+        required("stagingAreaSubnetId") => String.t() | atom(),
+        required("stagingAreaTags") => map(),
+        required("useDedicatedReplicationServer") => [boolean()]
       }
 
   """
-  @type terminate_target_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_s3_configuration() :: %{
-        "s3Bucket" => String.t() | atom(),
-        "s3BucketOwner" => String.t() | atom(),
-        "s3Key" => String.t() | atom()
-      }
-
-  """
-  @type source_s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_info_replicated_disk() :: %{
-        "backloggedStorageBytes" => float(),
-        "deviceName" => String.t() | atom(),
-        "replicatedStorageBytes" => float(),
-        "rescannedStorageBytes" => float(),
-        "totalStorageBytes" => float()
-      }
-
-  """
-  @type data_replication_info_replicated_disk() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_task() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => String.t() | atom(),
-        "endDateTime" => String.t() | atom(),
-        "importID" => String.t() | atom(),
-        "progressPercentage" => [float()],
-        "s3BucketSource" => s3_bucket_source(),
-        "status" => String.t() | atom(),
-        "summary" => import_task_summary(),
-        "tags" => map()
-      }
-
-  """
-  @type import_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initialize_service_response() :: %{}
-
-  """
-  @type initialize_service_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_source_server_action_response() :: %{}
-
-  """
-  @type remove_source_server_action_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      import_task_summary() :: %{
-        "applications" => import_task_summary_applications(),
-        "servers" => import_task_summary_servers(),
-        "waves" => import_task_summary_waves()
-      }
-
-  """
-  @type import_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mark_as_archived_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type mark_as_archived_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_response() :: %{}
-
-  """
-  @type delete_application_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_vcenter_clients_response() :: %{
-        optional("items") => list(vcenter_client()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_vcenter_clients_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_executions_response() :: %{
-        "items" => list(network_migration_execution()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_code_generations_response() :: %{
-        "items" => list(network_migration_code_generation_job_details()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_code_generations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wave() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "isArchived" => [boolean()],
-        "lastModifiedDateTime" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "tags" => map(),
-        "waveAggregatedStatus" => wave_aggregated_status(),
-        "waveID" => String.t() | atom()
-      }
-
-  """
-  @type wave() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_jobs_request_filters() :: %{
-        "fromDate" => String.t() | atom(),
-        "jobIDs" => list(String.t() | atom()),
-        "toDate" => String.t() | atom()
-      }
-
-  """
-  @type describe_jobs_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_initiation() :: %{
-        "nextAttemptDateTime" => String.t() | atom(),
-        "startDateTime" => String.t() | atom(),
-        "steps" => list(data_replication_initiation_step())
-      }
-
-  """
-  @type data_replication_initiation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_managed_accounts_response() :: %{
-        "items" => list(managed_account()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_managed_accounts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_task() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => String.t() | atom(),
-        "endDateTime" => String.t() | atom(),
-        "exportID" => String.t() | atom(),
-        "progressPercentage" => [float()],
-        "s3Bucket" => String.t() | atom(),
-        "s3BucketOwner" => String.t() | atom(),
-        "s3Key" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "summary" => export_task_summary(),
-        "tags" => map()
-      }
-
-  """
-  @type export_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      merge_construct() :: %{
-        "constructID" => String.t() | atom(),
-        "segmentID" => String.t() | atom()
-      }
-
-  """
-  @type merge_construct() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_launch_configuration_templates_response() :: %{
-        optional("items") => list(launch_configuration_template()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_launch_configuration_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        required("applicationID") => String.t() | atom()
-      }
-
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_launch_configuration_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type get_launch_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_cutover_finalized() :: %{
-        "apiCallDateTime" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_cutover_finalized() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => float()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      participating_server() :: %{
-        "launchStatus" => String.t() | atom(),
-        "launchedEc2InstanceID" => String.t() | atom(),
-        "postLaunchActionsStatus" => post_launch_actions_status(),
-        "sourceServerID" => String.t() | atom()
-      }
-
-  """
-  @type participating_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      checksum() :: %{
-        "encryptionAlgorithm" => String.t() | atom(),
-        "hash" => String.t() | atom()
-      }
-
-  """
-  @type checksum() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_errors_request() :: %{
-        "importID" => String.t() | atom(),
-        "maxResults" => integer(),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_import_errors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_initiation_step() :: %{
-        "name" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_initiation_step() :: %{(String.t() | atom()) => any()}
+  @type create_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2507,110 +1246,6 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      network_migration_deployer_job_details() :: %{
-        "createdAt" => [non_neg_integer()],
-        "endedAt" => [non_neg_integer()],
-        "jobID" => String.t() | atom(),
-        "networkMigrationDefinitionID" => String.t() | atom(),
-        "networkMigrationExecutionID" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusDetails" => String.t() | atom()
-      }
-
-  """
-  @type network_migration_deployer_job_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_task_summary_applications() :: %{
-        "createdCount" => float(),
-        "modifiedCount" => float()
-      }
-
-  """
-  @type import_task_summary_applications() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disconnect_from_service_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("sourceServerID") => String.t() | atom()
-      }
-
-  """
-  @type disconnect_from_service_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_network_migration_definition_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("scopeTags") => map(),
-        optional("sourceConfigurations") => list(source_configuration()),
-        optional("tags") => map(),
-        optional("targetDeployment") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("targetNetwork") => target_network(),
-        required("targetS3Configuration") => target_s3_configuration()
-      }
-
-  """
-  @type create_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_code_generation_segments_request() :: %{
-        optional("filters") => list_network_migration_code_generation_segments_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_code_generation_segments_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_test() :: %{
-        "finalized" => life_cycle_last_test_finalized(),
-        "initiated" => life_cycle_last_test_initiated(),
-        "reverted" => life_cycle_last_test_reverted()
-      }
-
-  """
-  @type life_cycle_last_test() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_analysis_results_request() :: %{
-        optional("filters") => list_network_migration_analysis_results_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_analysis_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       import_task_summary_waves() :: %{
         "createdCount" => float(),
         "modifiedCount" => float()
@@ -2623,139 +1258,101 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      list_applications_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        optional("filters") => list_applications_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_mapper_segment() :: %{
-        optional("checksum") => checksum(),
-        optional("createdAt") => [non_neg_integer()],
-        optional("description") => String.t() | atom(),
-        optional("jobID") => String.t() | atom(),
-        optional("logicalID") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("networkMigrationDefinitionID") => String.t() | atom(),
-        optional("networkMigrationExecutionID") => String.t() | atom(),
-        optional("outputS3Configuration") => s3_configuration(),
-        optional("referencedSegments") => list(String.t() | atom()),
-        optional("scopeTags") => map(),
-        optional("segmentID") => String.t() | atom(),
-        optional("segmentType") => String.t() | atom(),
-        optional("targetAccount") => String.t() | atom(),
-        optional("updatedAt") => [non_neg_integer()]
-      }
-
-  """
-  @type network_migration_mapper_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_export_errors_request() :: %{
-        "exportID" => String.t() | atom(),
-        "maxResults" => integer(),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_export_errors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_deployed_stacks_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
+      start_network_migration_code_generation_request() :: %{
+        optional("codeGenerationOutputFormatTypes") => list(String.t() | atom()),
         required("networkMigrationDefinitionID") => String.t() | atom(),
         required("networkMigrationExecutionID") => String.t() | atom()
       }
 
   """
-  @type list_network_migration_deployed_stacks_request() :: %{(String.t() | atom()) => any()}
+  @type start_network_migration_code_generation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "code" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_request() :: %{
-        optional("ssmCommandConfig") => connector_ssm_command_config(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("ssmInstanceID") => String.t() | atom()
-      }
-
-  """
-  @type create_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_template_action_request() :: %{
-        required("actionID") => String.t() | atom(),
-        required("launchConfigurationTemplateID") => String.t() | atom()
-      }
-
-  """
-  @type remove_template_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mapping_updates_filters() :: %{
+      list_import_file_enrichments_filters() :: %{
         "jobIDs" => list(String.t() | atom())
       }
 
   """
-  @type list_network_migration_mapping_updates_filters() :: %{(String.t() | atom()) => any()}
+  @type list_import_file_enrichments_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      export_error_data() :: %{
-        "rawError" => String.t() | atom()
+      life_cycle_last_cutover_finalized() :: %{
+        "apiCallDateTime" => String.t() | atom()
       }
 
   """
-  @type export_error_data() :: %{(String.t() | atom()) => any()}
+  @type life_cycle_last_cutover_finalized() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_export_errors_response() :: %{
-        "items" => list(export_task_error()),
-        "nextToken" => String.t() | atom()
+      life_cycle_last_cutover_initiated() :: %{
+        "apiCallDateTime" => String.t() | atom(),
+        "jobID" => String.t() | atom()
       }
 
   """
-  @type list_export_errors_response() :: %{(String.t() | atom()) => any()}
+  @type life_cycle_last_cutover_initiated() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_cutover_reverted() :: %{
+        "apiCallDateTime" => String.t() | atom()
+      }
+
+  """
+  @type life_cycle_last_cutover_reverted() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_definition_summary() :: %{
+        "arn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "scopeTags" => map(),
+        "sourceEnvironment" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type network_migration_definition_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_executions_request() :: %{
+        optional("filters") => list_network_migration_execution_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom()
+      }
+
+  """
+  @type target_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2774,72 +1371,14 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      archive_application_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("applicationID") => String.t() | atom()
+      network_migration_failed_resource_details() :: %{
+        "logicalID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom()
       }
 
   """
-  @type archive_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_request() :: %{
-        optional("accountID") => String.t() | atom(),
-        required("jobID") => String.t() | atom()
-      }
-
-  """
-  @type delete_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_test_response() :: %{
-        optional("job") => job()
-      }
-
-  """
-  @type start_test_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ssm_parameter_store_parameter() :: %{
-        "parameterName" => String.t() | atom(),
-        "parameterType" => String.t() | atom()
-      }
-
-  """
-  @type ssm_parameter_store_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_jobs_response() :: %{
-        optional("items") => list(job()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disk() :: %{
-        "bytes" => float(),
-        "deviceName" => String.t() | atom()
-      }
-
-  """
-  @type disk() :: %{(String.t() | atom()) => any()}
+  @type network_migration_failed_resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2867,217 +1406,59 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      validation_exception() :: %{
-        "code" => String.t() | atom(),
-        "fieldList" => list(validation_exception_field()),
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_replication_configuration_template_request() :: %{
+      update_replication_configuration_template_request() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t() | atom(),
+        optional("defaultLargeStagingDiskType") => String.t() | atom(),
+        optional("ebsEncryption") => String.t() | atom(),
+        optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("replicationServerInstanceType") => String.t() | atom(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
+        optional("stagingAreaSubnetId") => String.t() | atom(),
+        optional("stagingAreaTags") => map(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
+        optional("useDedicatedReplicationServer") => [boolean()],
+        optional("useFipsEndpoint") => [boolean()],
         required("replicationConfigurationTemplateID") => String.t() | atom()
       }
 
   """
-  @type delete_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
+  @type update_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      job() :: %{
-        "arn" => String.t() | atom(),
-        "creationDateTime" => String.t() | atom(),
-        "endDateTime" => String.t() | atom(),
-        "initiatedBy" => String.t() | atom(),
-        "jobID" => String.t() | atom(),
-        "participatingServers" => list(participating_server()),
-        "status" => String.t() | atom(),
-        "tags" => map(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_template_disk_conf() :: %{
-        "iops" => float(),
-        "throughput" => float(),
-        "volumeType" => String.t() | atom()
-      }
-
-  """
-  @type launch_template_disk_conf() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      split_construct() :: %{
-        "cidrBlock" => String.t() | atom()
-      }
-
-  """
-  @type split_construct() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_analysis_results_filters() :: %{
-        "vpcIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_network_migration_analysis_results_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_task_summary_servers() :: %{
-        "createdCount" => float(),
-        "modifiedCount" => float()
-      }
-
-  """
-  @type import_task_summary_servers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_deployments_request() :: %{
-        optional("filters") => list_network_migration_deployer_job_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
+      start_network_migration_mapping_request() :: %{
+        optional("securityGroupMappingStrategy") => String.t() | atom(),
         required("networkMigrationDefinitionID") => String.t() | atom(),
         required("networkMigrationExecutionID") => String.t() | atom()
       }
 
   """
-  @type list_network_migration_deployments_request() :: %{(String.t() | atom()) => any()}
+  @type start_network_migration_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "retryAfterSeconds" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
+      list_network_migration_mapping_updates_response() :: %{
+        "items" => list(network_migration_mapping_update_job_details()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type list_network_migration_mapping_updates_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_network_migration_definition_response() :: %{}
-
-  """
-  @type delete_network_migration_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mapper_segment_constructs_request() :: %{
-        optional("filters") => list_network_migration_mapper_segment_constructs_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom(),
-        required("segmentID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_mapper_segment_constructs_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      ssm_document() :: %{
-        "actionName" => String.t() | atom(),
-        "externalParameters" => map(),
-        "mustSucceedForCutover" => [boolean()],
-        "parameters" => map(),
-        "ssmDocumentName" => String.t() | atom(),
-        "timeoutSeconds" => integer()
-      }
-
-  """
-  @type ssm_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_template_action_request() :: %{
-        optional("active") => [boolean()],
-        optional("category") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("documentVersion") => String.t() | atom(),
-        optional("externalParameters") => map(),
-        optional("mustSucceedForCutover") => [boolean()],
-        optional("operatingSystem") => String.t() | atom(),
-        optional("parameters") => map(),
-        optional("timeoutSeconds") => integer(),
-        required("actionID") => String.t() | atom(),
-        required("actionName") => String.t() | atom(),
-        required("documentIdentifier") => String.t() | atom(),
-        required("launchConfigurationTemplateID") => String.t() | atom(),
-        required("order") => integer()
-      }
-
-  """
-  @type put_template_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enrichment_source_s3_configuration() :: %{
-        "s3Bucket" => String.t() | atom(),
-        "s3BucketOwner" => String.t() | atom(),
-        "s3Key" => String.t() | atom()
-      }
-
-  """
-  @type enrichment_source_s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_code_generation_job_details() :: %{
-        "codeGenerationOutputFormatStatusDetailsMap" => map(),
+      network_migration_analysis_job_details() :: %{
         "createdAt" => [non_neg_integer()],
         "endedAt" => [non_neg_integer()],
         "jobID" => String.t() | atom(),
@@ -3088,67 +1469,136 @@ defmodule AWS.Mgn do
       }
 
   """
-  @type network_migration_code_generation_job_details() :: %{(String.t() | atom()) => any()}
+  @type network_migration_analysis_job_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_imports_request() :: %{
-        "filters" => list_imports_request_filters(),
-        "maxResults" => integer(),
+      template_action_document() :: %{
+        optional("actionID") => String.t() | atom(),
+        optional("actionName") => String.t() | atom(),
+        optional("active") => [boolean()],
+        optional("category") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("documentIdentifier") => String.t() | atom(),
+        optional("documentVersion") => String.t() | atom(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("operatingSystem") => String.t() | atom(),
+        optional("order") => integer(),
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer()
+      }
+
+  """
+  @type template_action_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_server_actions_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("filters") => source_server_actions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type list_source_server_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_launch_configuration_templates_request() :: %{
+        optional("launchConfigurationTemplateIDs") => list(String.t() | atom()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_launch_configuration_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_vcenter_clients_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_vcenter_clients_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_server_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type delete_source_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => float()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_mapping_update_job_details() :: %{
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_mapping_update_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_source_server_action_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("actionID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type remove_source_server_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_accounts_response() :: %{
+        "items" => list(managed_account()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_imports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_configuration() :: %{
-        "s3Bucket" => String.t() | atom(),
-        "s3BucketOwner" => String.t() | atom(),
-        "s3Key" => String.t() | atom()
-      }
-
-  """
-  @type s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_imports_request_filters() :: %{
-        "importIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type list_imports_request_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      split_operation() :: %{
-        "splitConstructs" => list(split_construct())
-      }
-
-  """
-  @type split_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_mappings_response() :: %{
-        "items" => list(network_migration_mapping_job_details()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_mappings_response() :: %{(String.t() | atom()) => any()}
+  @type list_managed_accounts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3170,65 +1620,81 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      list_managed_accounts_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      o_s() :: %{
+        "fullString" => String.t() | atom()
       }
 
   """
-  @type list_managed_accounts_request() :: %{(String.t() | atom()) => any()}
+  @type o_s() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      job_log_event_data() :: %{
-        "attemptCount" => integer(),
-        "conversionServerID" => String.t() | atom(),
-        "maxAttemptsCount" => integer(),
-        "rawError" => String.t() | atom(),
-        "sourceServerID" => String.t() | atom(),
-        "targetInstanceID" => String.t() | atom()
+      create_network_migration_definition_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("scopeTags") => map(),
+        optional("sourceConfigurations") => list(source_configuration()),
+        optional("tags") => map(),
+        optional("targetDeployment") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("targetNetwork") => target_network(),
+        required("targetS3Configuration") => target_s3_configuration()
       }
 
   """
-  @type job_log_event_data() :: %{(String.t() | atom()) => any()}
+  @type create_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_jobs_request() :: %{
+      update_wave_request() :: %{
         optional("accountID") => String.t() | atom(),
-        optional("filters") => describe_jobs_request_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("waveID") => String.t() | atom()
       }
 
   """
-  @type describe_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type update_wave_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      launch_configuration() :: %{
-        optional("bootMode") => String.t() | atom(),
-        optional("copyPrivateIp") => [boolean()],
-        optional("copyTags") => [boolean()],
-        optional("ec2LaunchTemplateID") => String.t() | atom(),
-        optional("enableMapAutoTagging") => [boolean()],
-        optional("launchDisposition") => String.t() | atom(),
-        optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("postLaunchActions") => post_launch_actions(),
-        optional("sourceServerID") => String.t() | atom(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
+      ssm_parameter_store_parameter() :: %{
+        "parameterName" => String.t() | atom(),
+        "parameterType" => String.t() | atom()
       }
 
   """
-  @type launch_configuration() :: %{(String.t() | atom()) => any()}
+  @type ssm_parameter_store_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_analysis_results_filters() :: %{
+        "vpcIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_analysis_results_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3246,33 +1712,161 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      job_post_launch_actions_launch_status() :: %{
-        "executionID" => String.t() | atom(),
-        "executionStatus" => String.t() | atom(),
-        "failureReason" => String.t() | atom(),
-        "ssmDocument" => ssm_document(),
-        "ssmDocumentType" => String.t() | atom()
+      launch_template_disk_conf() :: %{
+        "iops" => float(),
+        "throughput" => float(),
+        "volumeType" => String.t() | atom()
       }
 
   """
-  @type job_post_launch_actions_launch_status() :: %{(String.t() | atom()) => any()}
+  @type launch_template_disk_conf() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      import_error_data() :: %{
-        "accountID" => String.t() | atom(),
-        "applicationID" => String.t() | atom(),
-        "ec2LaunchTemplateID" => String.t() | atom(),
-        "rawError" => String.t() | atom(),
-        "rowNumber" => float(),
-        "sourceServerID" => String.t() | atom(),
-        "waveID" => String.t() | atom()
+      list_applications_request_filters() :: %{
+        "applicationIDs" => list(String.t() | atom()),
+        "isArchived" => [boolean()],
+        "waveIDs" => list(String.t() | atom())
       }
 
   """
-  @type import_error_data() :: %{(String.t() | atom()) => any()}
+  @type list_applications_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_migration_definition_request() :: %{
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type get_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_interface() :: %{
+        "ips" => list(String.t() | atom()),
+        "isPrimary" => [boolean()],
+        "macAddress" => String.t() | atom()
+      }
+
+  """
+  @type network_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_cutover_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type start_cutover_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_template_response() :: %{}
+
+  """
+  @type delete_replication_configuration_template_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      unarchive_application_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("applicationID") => String.t() | atom()
+      }
+
+  """
+  @type unarchive_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_migration_mapper_segment_construct_response() :: %{
+        "construct" => network_migration_mapper_segment_construct()
+      }
+
+  """
+  @type get_network_migration_mapper_segment_construct_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      split_operation() :: %{
+        "splitConstructs" => list(split_construct())
+      }
+
+  """
+  @type split_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_exports_request_filters() :: %{
+        "exportIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_exports_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_operation() :: %{}
+
+  """
+  @type delete_operation() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generations_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_code_generations_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapper_segments_response() :: %{
+        "items" => list(network_migration_mapper_segment()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mapper_segments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3307,305 +1901,220 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      list_network_migration_analyses_request() :: %{
-        optional("filters") => list_network_migration_analyses_filters(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_analyses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connector_request() :: %{
-        required("connectorID") => String.t() | atom()
-      }
-
-  """
-  @type delete_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_server() :: %{
-        "applicationID" => String.t() | atom(),
-        "arn" => String.t() | atom(),
-        "connectorAction" => source_server_connector_action(),
-        "dataReplicationInfo" => data_replication_info(),
-        "fqdnForActionFramework" => String.t() | atom(),
-        "isArchived" => [boolean()],
-        "launchedInstance" => launched_instance(),
-        "lifeCycle" => life_cycle(),
-        "replicationType" => String.t() | atom(),
-        "sourceProperties" => source_properties(),
-        "sourceServerID" => String.t() | atom(),
-        "tags" => map(),
-        "userProvidedID" => String.t() | atom(),
-        "vcenterClientID" => String.t() | atom()
-      }
-
-  """
-  @type source_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_network_migration_analysis_results_response() :: %{
-        "items" => list(network_migration_analysis_result()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_network_migration_analysis_results_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_migration_definition_request() :: %{
-        required("networkMigrationDefinitionID") => String.t() | atom()
-      }
-
-  """
-  @type get_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wave_aggregated_status() :: %{
-        "healthStatus" => String.t() | atom(),
-        "lastUpdateDateTime" => String.t() | atom(),
-        "progressStatus" => String.t() | atom(),
-        "replicationStartedDateTime" => String.t() | atom(),
-        "totalApplications" => float()
-      }
-
-  """
-  @type wave_aggregated_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_errors_response() :: %{
-        "items" => list(import_task_error()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_import_errors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_migration_code_generation_artifact() :: %{
-        "artifactID" => String.t() | atom(),
-        "artifactSubType" => String.t() | atom(),
-        "artifactType" => String.t() | atom(),
-        "checksum" => checksum(),
-        "createdAt" => [non_neg_integer()],
-        "logicalID" => String.t() | atom(),
-        "outputS3Configuration" => s3_configuration()
-      }
-
-  """
-  @type network_migration_code_generation_artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_network_migration_mapping_update_request() :: %{
-        optional("constructs") => list(start_network_migration_mapping_update_construct()),
-        optional("segments") => list(start_network_migration_mapping_update_segment()),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom()
-      }
-
-  """
-  @type start_network_migration_mapping_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_migration_mapper_segment_request() :: %{
-        optional("scopeTags") => map(),
-        required("networkMigrationDefinitionID") => String.t() | atom(),
-        required("networkMigrationExecutionID") => String.t() | atom(),
-        required("segmentID") => String.t() | atom()
-      }
-
-  """
-  @type update_network_migration_mapper_segment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_waves_response() :: %{
-        optional("items") => list(wave()),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_waves_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enrichment_target_s3_configuration() :: %{
-        "s3Bucket" => String.t() | atom(),
-        "s3BucketOwner" => String.t() | atom(),
-        "s3Key" => String.t() | atom()
-      }
-
-  """
-  @type enrichment_target_s3_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_server_action_document() :: %{
-        optional("actionID") => String.t() | atom(),
-        optional("actionName") => String.t() | atom(),
-        optional("active") => [boolean()],
-        optional("category") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("documentIdentifier") => String.t() | atom(),
-        optional("documentVersion") => String.t() | atom(),
-        optional("externalParameters") => map(),
-        optional("mustSucceedForCutover") => [boolean()],
-        optional("order") => integer(),
-        optional("parameters") => map(),
-        optional("timeoutSeconds") => integer()
-      }
-
-  """
-  @type source_server_action_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finalize_cutover_request() :: %{
+      mark_as_archived_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("sourceServerID") => String.t() | atom()
       }
 
   """
-  @type finalize_cutover_request() :: %{(String.t() | atom()) => any()}
+  @type mark_as_archived_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_network_migration_code_generation_response() :: %{
-        "jobID" => String.t() | atom()
+      export_error_data() :: %{
+        "rawError" => String.t() | atom()
       }
 
   """
-  @type start_network_migration_code_generation_response() :: %{(String.t() | atom()) => any()}
+  @type export_error_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_source_servers_response() :: %{}
-
-  """
-  @type associate_source_servers_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      life_cycle_last_cutover_initiated() :: %{
-        "apiCallDateTime" => String.t() | atom(),
-        "jobID" => String.t() | atom()
-      }
-
-  """
-  @type life_cycle_last_cutover_initiated() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_launch_configuration_template_response() :: %{}
-
-  """
-  @type delete_launch_configuration_template_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_job_response() :: %{}
-
-  """
-  @type delete_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_source_servers_request() :: %{
+      delete_application_request() :: %{
         optional("accountID") => String.t() | atom(),
-        required("applicationID") => String.t() | atom(),
-        required("sourceServerIDs") => list(String.t() | atom())
+        required("applicationID") => String.t() | atom()
       }
 
   """
-  @type disassociate_source_servers_request() :: %{(String.t() | atom()) => any()}
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_replication_configuration_templates_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("replicationConfigurationTemplateIDs") => list(String.t() | atom())
+      list_import_errors_request() :: %{
+        "importID" => String.t() | atom(),
+        "maxResults" => integer(),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type describe_replication_configuration_templates_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_import_errors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      o_s() :: %{
-        "fullString" => String.t() | atom()
+      list_imports_response() :: %{
+        "items" => list(import_task()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type o_s() :: %{(String.t() | atom()) => any()}
+  @type list_imports_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_connectors_request_filters() :: %{
-        "connectorIDs" => list(String.t() | atom())
+      wave() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "isArchived" => [boolean()],
+        "lastModifiedDateTime" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "tags" => map(),
+        "waveAggregatedStatus" => wave_aggregated_status(),
+        "waveID" => String.t() | atom()
       }
 
   """
-  @type list_connectors_request_filters() :: %{(String.t() | atom()) => any()}
+  @type wave() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_launch_actions_status() :: %{
+        "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()),
+        "ssmAgentDiscoveryDatetime" => String.t() | atom()
+      }
+
+  """
+  @type post_launch_actions_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_analysis_result_target() :: %{
+        "subnetID" => String.t() | atom(),
+        "vpcID" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_analysis_result_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_launch_configuration_templates_response() :: %{
+        optional("items") => list(launch_configuration_template()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_launch_configuration_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_ssm_command_config() :: %{
+        "cloudWatchLogGroupName" => String.t() | atom(),
+        "cloudWatchOutputEnabled" => [boolean()],
+        "outputS3BucketName" => String.t() | atom(),
+        "s3OutputEnabled" => [boolean()]
+      }
+
+  """
+  @type connector_ssm_command_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_code_generation_job_details() :: %{
+        "codeGenerationOutputFormatStatusDetailsMap" => map(),
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_code_generation_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_test() :: %{
+        "finalized" => life_cycle_last_test_finalized(),
+        "initiated" => life_cycle_last_test_initiated(),
+        "reverted" => life_cycle_last_test_reverted()
+      }
+
+  """
+  @type life_cycle_last_test() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_replication_configuration_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type get_replication_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mappings_response() :: %{
+        "items" => list(network_migration_mapping_job_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mappings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_response() :: %{}
+
+  """
+  @type delete_application_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_executions_response() :: %{
+        "items" => list(network_migration_execution()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_wave_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_wave_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3623,74 +2132,78 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      terminate_target_instances_response() :: %{
-        optional("job") => job()
+      list_applications_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("filters") => list_applications_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type terminate_target_instances_response() :: %{(String.t() | atom()) => any()}
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      target_s3_configuration() :: %{
-        "s3Bucket" => String.t() | atom(),
-        "s3BucketOwner" => String.t() | atom()
+      describe_jobs_response() :: %{
+        optional("items") => list(job()),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type target_s3_configuration() :: %{(String.t() | atom()) => any()}
+  @type describe_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_network_migration_definitions_request_filters() :: %{
-        "networkMigrationDefinitionIDs" => list(String.t() | atom())
+      list_import_errors_response() :: %{
+        "items" => list(import_task_error()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_network_migration_definitions_request_filters() :: %{(String.t() | atom()) => any()}
+  @type list_import_errors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_import_request() :: %{
-        "clientToken" => String.t() | atom(),
-        "s3BucketSource" => s3_bucket_source(),
-        "tags" => map()
+      conflict_exception() :: %{
+        "code" => String.t() | atom(),
+        "errors" => list(error_details()),
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
       }
 
   """
-  @type start_import_request() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_launch_configuration_template_request() :: %{
-        optional("associatePublicIpAddress") => [boolean()],
-        optional("bootMode") => String.t() | atom(),
-        optional("copyPrivateIp") => [boolean()],
-        optional("copyTags") => [boolean()],
-        optional("enableMapAutoTagging") => [boolean()],
-        optional("enableParametersEncryption") => [boolean()],
-        optional("largeVolumeConf") => launch_template_disk_conf(),
-        optional("launchDisposition") => String.t() | atom(),
-        optional("licensing") => licensing(),
-        optional("mapAutoTaggingMpeID") => String.t() | atom(),
-        optional("parametersEncryptionKey") => String.t() | atom(),
-        optional("postLaunchActions") => post_launch_actions(),
-        optional("smallVolumeConf") => launch_template_disk_conf(),
-        optional("smallVolumeMaxSize") => float(),
-        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom(),
-        required("launchConfigurationTemplateID") => String.t() | atom()
+      put_source_server_action_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("active") => [boolean()],
+        optional("category") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("documentVersion") => String.t() | atom(),
+        optional("externalParameters") => map(),
+        optional("mustSucceedForCutover") => [boolean()],
+        optional("parameters") => map(),
+        optional("timeoutSeconds") => integer(),
+        required("actionID") => String.t() | atom(),
+        required("actionName") => String.t() | atom(),
+        required("documentIdentifier") => String.t() | atom(),
+        required("order") => integer(),
+        required("sourceServerID") => String.t() | atom()
       }
 
   """
-  @type update_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+  @type put_source_server_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3709,12 +2222,214 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      start_import_response() :: %{
-        "importTask" => import_task()
+      list_network_migration_code_generation_segments_request() :: %{
+        optional("filters") => list_network_migration_code_generation_segments_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
       }
 
   """
-  @type start_import_response() :: %{(String.t() | atom()) => any()}
+  @type list_network_migration_code_generation_segments_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      launch_configuration() :: %{
+        optional("bootMode") => String.t() | atom(),
+        optional("copyPrivateIp") => [boolean()],
+        optional("copyTags") => [boolean()],
+        optional("ec2LaunchTemplateID") => String.t() | atom(),
+        optional("enableMapAutoTagging") => [boolean()],
+        optional("launchDisposition") => String.t() | atom(),
+        optional("licensing") => licensing(),
+        optional("mapAutoTaggingMpeID") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("postLaunchActions") => post_launch_actions(),
+        optional("sourceServerID") => String.t() | atom(),
+        optional("targetInstanceTypeRightSizingMethod") => String.t() | atom()
+      }
+
+  """
+  @type launch_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_definitions_response() :: %{
+        "items" => list(network_migration_definition_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_task_error() :: %{
+        "errorData" => import_error_data(),
+        "errorDateTime" => String.t() | atom(),
+        "errorType" => String.t() | atom()
+      }
+
+  """
+  @type import_task_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_analyses_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_analyses_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_target_instances_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type terminate_target_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_imports_request() :: %{
+        "filters" => list_imports_request_filters(),
+        "maxResults" => integer(),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_imports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_network() :: %{
+        "inboundCidr" => String.t() | atom(),
+        "inspectionCidr" => String.t() | atom(),
+        "outboundCidr" => String.t() | atom(),
+        "topology" => String.t() | atom()
+      }
+
+  """
+  @type target_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_job_response() :: %{}
+
+  """
+  @type delete_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_file_enrichment() :: %{
+        "checksum" => checksum(),
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "s3BucketTarget" => enrichment_target_s3_configuration(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type import_file_enrichment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_export_response() :: %{
+        "exportTask" => export_task()
+      }
+
+  """
+  @type start_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration_template() :: %{
+        optional("arn") => String.t() | atom(),
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t() | atom(),
+        optional("defaultLargeStagingDiskType") => String.t() | atom(),
+        optional("ebsEncryption") => String.t() | atom(),
+        optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("replicationServerInstanceType") => String.t() | atom(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
+        optional("stagingAreaSubnetId") => String.t() | atom(),
+        optional("stagingAreaTags") => map(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
+        optional("tags") => map(),
+        optional("useDedicatedReplicationServer") => [boolean()],
+        optional("useFipsEndpoint") => [boolean()],
+        required("replicationConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type replication_configuration_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_managed_accounts_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_managed_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3745,36 +2460,39 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      delete_network_migration_definition_request() :: %{
-        required("networkMigrationDefinitionID") => String.t() | atom()
+      application() :: %{
+        "applicationAggregatedStatus" => application_aggregated_status(),
+        "applicationID" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "creationDateTime" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "isArchived" => [boolean()],
+        "lastModifiedDateTime" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "tags" => map(),
+        "waveID" => String.t() | atom()
       }
 
   """
-  @type delete_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
+  @type application() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      job_log() :: %{
-        "event" => String.t() | atom(),
-        "eventData" => job_log_event_data(),
-        "logDateTime" => String.t() | atom()
+      network_migration_analysis_result() :: %{
+        "analysisResult" => [String.t() | atom()],
+        "analyzerType" => String.t() | atom(),
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "source" => network_migration_analysis_result_source(),
+        "status" => String.t() | atom(),
+        "target" => network_migration_analysis_result_target()
       }
 
   """
-  @type job_log() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_actions_request_filters() :: %{
-        "actionIDs" => list(String.t() | atom())
-      }
-
-  """
-  @type template_actions_request_filters() :: %{(String.t() | atom()) => any()}
+  @type network_migration_analysis_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3794,13 +2512,370 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      delete_application_request() :: %{
+      list_network_migration_mapping_updates_filters() :: %{
+        "jobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_mapping_updates_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_info_replicated_disk() :: %{
+        "backloggedStorageBytes" => float(),
+        "deviceName" => String.t() | atom(),
+        "replicatedStorageBytes" => float(),
+        "rescannedStorageBytes" => float(),
+        "totalStorageBytes" => float()
+      }
+
+  """
+  @type data_replication_info_replicated_disk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_execution_request_filters() :: %{
+        "networkMigrationExecutionIDs" => list(String.t() | atom()),
+        "networkMigrationExecutionStatuses" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_execution_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_request_filters() :: %{
+        "connectorIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_connectors_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_cutover() :: %{
+        "finalized" => life_cycle_last_cutover_finalized(),
+        "initiated" => life_cycle_last_cutover_initiated(),
+        "reverted" => life_cycle_last_cutover_reverted()
+      }
+
+  """
+  @type life_cycle_last_cutover() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wave_aggregated_status() :: %{
+        "healthStatus" => String.t() | atom(),
+        "lastUpdateDateTime" => String.t() | atom(),
+        "progressStatus" => String.t() | atom(),
+        "replicationStartedDateTime" => String.t() | atom(),
+        "totalApplications" => float()
+      }
+
+  """
+  @type wave_aggregated_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_launch_configuration_template_request() :: %{
+        required("launchConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type delete_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_migration_definition_response() :: %{}
+
+  """
+  @type delete_network_migration_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_application_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("applicationID") => String.t() | atom()
       }
 
   """
-  @type delete_application_request() :: %{(String.t() | atom()) => any()}
+  @type archive_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_operation() :: %{
+        "excluded" => [boolean()],
+        "name" => String.t() | atom(),
+        "properties" => map()
+      }
+
+  """
+  @type update_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_code_generations_response() :: %{
+        "items" => list(network_migration_code_generation_job_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_code_generations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_data_replication_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type retry_data_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      split_construct() :: %{
+        "cidrBlock" => String.t() | atom()
+      }
+
+  """
+  @type split_construct() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_analysis_request() :: %{
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_migration_mapper_segment_construct_request() :: %{
+        required("constructID") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom(),
+        required("segmentID") => String.t() | atom()
+      }
+
+  """
+  @type get_network_migration_mapper_segment_construct_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      replication_configuration() :: %{
+        optional("associateDefaultSecurityGroup") => [boolean()],
+        optional("bandwidthThrottling") => float(),
+        optional("createPublicIP") => [boolean()],
+        optional("dataPlaneRouting") => String.t() | atom(),
+        optional("defaultLargeStagingDiskType") => String.t() | atom(),
+        optional("ebsEncryption") => String.t() | atom(),
+        optional("ebsEncryptionKeyArn") => String.t() | atom(),
+        optional("internetProtocol") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
+        optional("replicationServerInstanceType") => String.t() | atom(),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
+        optional("sourceServerID") => String.t() | atom(),
+        optional("stagingAreaSubnetId") => String.t() | atom(),
+        optional("stagingAreaTags") => map(),
+        optional("storeSnapshotOnLocalZone") => [boolean()],
+        optional("useDedicatedReplicationServer") => [boolean()],
+        optional("useFipsEndpoint") => [boolean()]
+      }
+
+  """
+  @type replication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle() :: %{
+        "addedToServiceDateTime" => String.t() | atom(),
+        "elapsedReplicationDuration" => String.t() | atom(),
+        "firstByteDateTime" => String.t() | atom(),
+        "lastCutover" => life_cycle_last_cutover(),
+        "lastSeenByServiceDateTime" => String.t() | atom(),
+        "lastTest" => life_cycle_last_test(),
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type life_cycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_migration_definition_request() :: %{
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type delete_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_exports_request() :: %{
+        "filters" => list_exports_request_filters(),
+        "maxResults" => integer(),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_exports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_mapping_job_details() :: %{
+        "createdAt" => [non_neg_integer()],
+        "endedAt" => [non_neg_integer()],
+        "jobID" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusDetails" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_mapping_job_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_migration_definition_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("scopeTags") => map(),
+        optional("sourceConfigurations") => list(source_configuration()),
+        optional("targetDeployment") => String.t() | atom(),
+        optional("targetNetwork") => target_network_update(),
+        optional("targetS3Configuration") => target_s3_configuration_update(),
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type update_network_migration_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_applications_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("applicationIDs") => list(String.t() | atom()),
+        required("waveID") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_log_event_data() :: %{
+        "attemptCount" => integer(),
+        "conversionServerID" => String.t() | atom(),
+        "maxAttemptsCount" => integer(),
+        "rawError" => String.t() | atom(),
+        "sourceServerID" => String.t() | atom(),
+        "targetInstanceID" => String.t() | atom()
+      }
+
+  """
+  @type job_log_event_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapper_segment_constructs_filters() :: %{
+        "constructIDs" => list(String.t() | atom()),
+        "constructTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_mapper_segment_constructs_filters() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_initiation() :: %{
+        "nextAttemptDateTime" => String.t() | atom(),
+        "startDateTime" => String.t() | atom(),
+        "steps" => list(data_replication_initiation_step())
+      }
+
+  """
+  @type data_replication_initiation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_analysis_result_source() :: %{
+        "subnetID" => String.t() | atom(),
+        "vpcID" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_analysis_result_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_replication_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type stop_replication_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3818,182 +2893,1107 @@ defmodule AWS.Mgn do
 
   ## Example:
 
-      code_generation_output_format_status_details() :: %{
-        "status" => String.t() | atom(),
-        "statusDetailList" => String.t() | atom()
+      network_migration_code_generation_artifact() :: %{
+        "artifactID" => String.t() | atom(),
+        "artifactSubType" => String.t() | atom(),
+        "artifactType" => String.t() | atom(),
+        "checksum" => checksum(),
+        "createdAt" => [non_neg_integer()],
+        "logicalID" => String.t() | atom(),
+        "outputS3Configuration" => s3_configuration()
       }
 
   """
-  @type code_generation_output_format_status_details() :: %{(String.t() | atom()) => any()}
+  @type network_migration_code_generation_artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_launch_configuration_template_request() :: %{
+      list_tags_for_resource_response() :: %{
+        optional("tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_network_update() :: %{
+        "inboundCidr" => String.t() | atom(),
+        "inspectionCidr" => String.t() | atom(),
+        "outboundCidr" => String.t() | atom(),
+        "topology" => String.t() | atom()
+      }
+
+  """
+  @type target_network_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_replication_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type start_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_error_data() :: %{
+        "accountID" => String.t() | atom(),
+        "applicationID" => String.t() | atom(),
+        "ec2LaunchTemplateID" => String.t() | atom(),
+        "rawError" => String.t() | atom(),
+        "rowNumber" => float(),
+        "sourceServerID" => String.t() | atom(),
+        "waveID" => String.t() | atom()
+      }
+
+  """
+  @type import_error_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_analysis_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mappings_request() :: %{
+        optional("filters") => list_network_migration_mappings_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_mappings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_template_action_request() :: %{
+        required("actionID") => String.t() | atom(),
         required("launchConfigurationTemplateID") => String.t() | atom()
       }
 
   """
-  @type delete_launch_configuration_template_request() :: %{(String.t() | atom()) => any()}
+  @type remove_template_action_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_import_file_enrichments_filters() :: %{
+      list_network_migration_deployer_job_filters() :: %{
         "jobIDs" => list(String.t() | atom())
       }
 
   """
-  @type list_import_file_enrichments_filters() :: %{(String.t() | atom()) => any()}
+  @type list_network_migration_deployer_job_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      life_cycle_last_test_initiated() :: %{
+        "apiCallDateTime" => String.t() | atom(),
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type life_cycle_last_test_initiated() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_file_enrichments_request() :: %{
+        optional("filters") => list_import_file_enrichments_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_import_file_enrichments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_server_life_cycle_state_source_server_lifecycle() :: %{
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type change_server_life_cycle_state_source_server_lifecycle() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_mapper_segments_filters() :: %{
+        "segmentIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_mapper_segments_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_template_action_response() :: %{}
+
+  """
+  @type remove_template_action_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_request() :: %{
+        optional("ssmCommandConfig") => connector_ssm_command_config(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("ssmInstanceID") => String.t() | atom()
+      }
+
+  """
+  @type create_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => String.t() | atom(),
+        "endDateTime" => String.t() | atom(),
+        "initiatedBy" => String.t() | atom(),
+        "jobID" => String.t() | atom(),
+        "participatingServers" => list(participating_server()),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_actions_request_filters() :: %{
+        "actionIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type template_actions_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_wave_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("waveID") => String.t() | atom()
+      }
+
+  """
+  @type archive_wave_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_update_request() :: %{
+        optional("constructs") => list(start_network_migration_mapping_update_construct()),
+        optional("segments") => list(start_network_migration_mapping_update_segment()),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initialize_service_request() :: %{}
+
+  """
+  @type initialize_service_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vcenter_client() :: %{
+        "arn" => String.t() | atom(),
+        "datacenterName" => String.t() | atom(),
+        "hostname" => String.t() | atom(),
+        "lastSeenDatetime" => String.t() | atom(),
+        "sourceServerTags" => map(),
+        "tags" => map(),
+        "vcenterClientID" => String.t() | atom(),
+        "vcenterUUID" => String.t() | atom()
+      }
+
+  """
+  @type vcenter_client() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_source_server_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("connectorAction") => source_server_connector_action(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type update_source_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_vcenter_clients_response() :: %{
+        optional("items") => list(vcenter_client()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_vcenter_clients_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_template_actions_response() :: %{
+        optional("items") => list(template_action_document()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_template_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_replication_configuration_templates_response() :: %{
+        optional("items") => list(replication_configuration_template()),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_replication_configuration_templates_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      export_task_error() :: %{
+        "errorData" => export_error_data(),
+        "errorDateTime" => String.t() | atom()
+      }
+
+  """
+  @type export_task_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_s3_configuration_update() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom()
+      }
+
+  """
+  @type target_s3_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_waves_request_filters() :: %{
+        "isArchived" => [boolean()],
+        "waveIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_waves_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disk() :: %{
+        "bytes" => float(),
+        "deviceName" => String.t() | atom()
+      }
+
+  """
+  @type disk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_applications_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("applicationIDs") => list(String.t() | atom()),
+        required("waveID") => String.t() | atom()
+      }
+
+  """
+  @type associate_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_analysis_results_request() :: %{
+        optional("filters") => list_network_migration_analysis_results_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_analysis_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_test_response() :: %{
+        optional("job") => job()
+      }
+
+  """
+  @type start_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_task() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => String.t() | atom(),
+        "endDateTime" => String.t() | atom(),
+        "importID" => String.t() | atom(),
+        "progressPercentage" => [float()],
+        "s3BucketSource" => s3_bucket_source(),
+        "status" => String.t() | atom(),
+        "summary" => import_task_summary(),
+        "tags" => map()
+      }
+
+  """
+  @type import_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_task_summary() :: %{
+        "applicationsCount" => float(),
+        "serversCount" => float(),
+        "wavesCount" => float()
+      }
+
+  """
+  @type export_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_deployed_stacks_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom(),
+        required("networkMigrationExecutionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployed_stacks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_initiation_step() :: %{
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type data_replication_initiation_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_errors_request() :: %{
+        "exportID" => String.t() | atom(),
+        "maxResults" => integer(),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_export_errors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      uninitialized_account_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type uninitialized_account_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_launch_actions() :: %{
+        "cloudWatchLogGroupName" => String.t() | atom(),
+        "deployment" => String.t() | atom(),
+        "s3LogBucket" => String.t() | atom(),
+        "s3OutputKeyPrefix" => String.t() | atom(),
+        "ssmDocuments" => list(ssm_document())
+      }
+
+  """
+  @type post_launch_actions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_configuration() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom()
+      }
+
+  """
+  @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_details() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom()
+      }
+
+  """
+  @type error_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_execution() :: %{
+        "activity" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "stage" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type network_migration_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_imports_request_filters() :: %{
+        "importIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_imports_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("applicationID") => String.t() | atom()
+      }
+
+  """
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_job_log_items_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("jobID") => String.t() | atom()
+      }
+
+  """
+  @type describe_job_log_items_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_request() :: %{
+        "clientToken" => String.t() | atom(),
+        "s3BucketSource" => s3_bucket_source(),
+        "tags" => map()
+      }
+
+  """
+  @type start_import_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_source_server_replication_type_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("replicationType") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type update_source_server_replication_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unarchive_wave_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("waveID") => String.t() | atom()
+      }
+
+  """
+  @type unarchive_wave_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_replication_configuration_template_request() :: %{
+        required("replicationConfigurationTemplateID") => String.t() | atom()
+      }
+
+  """
+  @type delete_replication_configuration_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_task() :: %{
+        "arn" => String.t() | atom(),
+        "creationDateTime" => String.t() | atom(),
+        "endDateTime" => String.t() | atom(),
+        "exportID" => String.t() | atom(),
+        "progressPercentage" => [float()],
+        "s3Bucket" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom(),
+        "s3Key" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "summary" => export_task_summary(),
+        "tags" => map()
+      }
+
+  """
+  @type export_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_server() :: %{
+        "applicationID" => String.t() | atom(),
+        "arn" => String.t() | atom(),
+        "connectorAction" => source_server_connector_action(),
+        "dataReplicationInfo" => data_replication_info(),
+        "fqdnForActionFramework" => String.t() | atom(),
+        "isArchived" => [boolean()],
+        "launchedInstance" => launched_instance(),
+        "lifeCycle" => life_cycle(),
+        "replicationType" => String.t() | atom(),
+        "sourceProperties" => source_properties(),
+        "sourceServerID" => String.t() | atom(),
+        "tags" => map(),
+        "userProvidedID" => String.t() | atom(),
+        "vcenterClientID" => String.t() | atom()
+      }
+
+  """
+  @type source_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_deployer_job_response() :: %{
+        optional("jobID") => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_deployer_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_waves_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("filters") => list_waves_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_waves_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_error() :: %{
+        "error" => String.t() | atom(),
+        "rawError" => String.t() | atom()
+      }
+
+  """
+  @type data_replication_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      participating_server() :: %{
+        "launchStatus" => String.t() | atom(),
+        "launchedEc2InstanceID" => String.t() | atom(),
+        "postLaunchActionsStatus" => post_launch_actions_status(),
+        "sourceServerID" => String.t() | atom()
+      }
+
+  """
+  @type participating_server() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_analysis_results_response() :: %{
+        "items" => list(network_migration_analysis_result()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_analysis_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_source_servers_response() :: %{}
+
+  """
+  @type associate_source_servers_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      identification_hints() :: %{
+        "awsInstanceID" => String.t() | atom(),
+        "fqdn" => String.t() | atom(),
+        "hostname" => String.t() | atom(),
+        "vmPath" => String.t() | atom(),
+        "vmWareUuid" => String.t() | atom()
+      }
+
+  """
+  @type identification_hints() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_mapping_update_segment() :: %{
+        "scopeTags" => map(),
+        "segmentID" => String.t() | atom(),
+        "targetAccount" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_mapping_update_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_source_servers_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("filters") => describe_source_servers_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_source_servers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wave_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("waveID") => String.t() | atom()
+      }
+
+  """
+  @type delete_wave_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_migration_mapper_segment() :: %{
+        optional("checksum") => checksum(),
+        optional("createdAt") => [non_neg_integer()],
+        optional("description") => String.t() | atom(),
+        optional("jobID") => String.t() | atom(),
+        optional("logicalID") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("networkMigrationDefinitionID") => String.t() | atom(),
+        optional("networkMigrationExecutionID") => String.t() | atom(),
+        optional("outputS3Configuration") => s3_configuration(),
+        optional("referencedSegments") => list(String.t() | atom()),
+        optional("scopeTags") => map(),
+        optional("segmentID") => String.t() | atom(),
+        optional("segmentType") => String.t() | atom(),
+        optional("targetAccount") => String.t() | atom(),
+        optional("updatedAt") => [non_neg_integer()]
+      }
+
+  """
+  @type network_migration_mapper_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_deployed_stacks_response() :: %{
+        "items" => list(network_migration_deployed_stack_details()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_deployed_stacks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_network_migration_code_generation_response() :: %{
+        "jobID" => String.t() | atom()
+      }
+
+  """
+  @type start_network_migration_code_generation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector() :: %{
+        "arn" => String.t() | atom(),
+        "connectorID" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "ssmCommandConfig" => connector_ssm_command_config(),
+        "ssmInstanceID" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      terminate_target_instances_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("tags") => map(),
+        required("sourceServerIDs") => list(String.t() | atom())
+      }
+
+  """
+  @type terminate_target_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_applications_response() :: %{}
+
+  """
+  @type disassociate_applications_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "quotaValue" => integer(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wave_response() :: %{}
+
+  """
+  @type delete_wave_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_response() :: %{
+        "items" => list(connector()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @type archive_application_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type archive_wave_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type associate_applications_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type associate_source_servers_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type change_server_life_cycle_state_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type create_application_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | conflict_exception()
 
-  @type create_connector_errors() :: validation_exception() | uninitialized_account_exception()
+  @type create_connector_errors() :: uninitialized_account_exception() | validation_exception()
 
   @type create_launch_configuration_template_errors() ::
-          validation_exception() | access_denied_exception() | uninitialized_account_exception()
+          uninitialized_account_exception() | validation_exception() | access_denied_exception()
 
   @type create_network_migration_definition_errors() ::
-          validation_exception() | service_quota_exceeded_exception()
+          service_quota_exceeded_exception() | validation_exception()
 
   @type create_replication_configuration_template_errors() ::
-          validation_exception() | access_denied_exception() | uninitialized_account_exception()
+          uninitialized_account_exception() | validation_exception() | access_denied_exception()
 
   @type create_wave_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | conflict_exception()
 
   @type delete_application_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_connector_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type delete_job_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_launch_configuration_template_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_network_migration_definition_errors() ::
-          access_denied_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type delete_replication_configuration_template_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_source_server_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type delete_vcenter_client_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type delete_wave_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type describe_job_log_items_errors() ::
-          validation_exception() | uninitialized_account_exception()
+          uninitialized_account_exception() | validation_exception()
 
-  @type describe_jobs_errors() :: validation_exception() | uninitialized_account_exception()
+  @type describe_jobs_errors() :: uninitialized_account_exception() | validation_exception()
 
   @type describe_launch_configuration_templates_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type describe_replication_configuration_templates_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type describe_source_servers_errors() ::
-          validation_exception() | uninitialized_account_exception()
+          uninitialized_account_exception() | validation_exception()
 
   @type describe_vcenter_clients_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type disassociate_applications_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type disassociate_source_servers_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type disconnect_from_service_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type finalize_cutover_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type get_launch_configuration_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
 
   @type get_network_migration_definition_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
   @type get_network_migration_mapper_segment_construct_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_replication_configuration_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
@@ -4002,95 +4002,95 @@ defmodule AWS.Mgn do
 
   @type list_applications_errors() :: uninitialized_account_exception()
 
-  @type list_connectors_errors() :: validation_exception() | uninitialized_account_exception()
+  @type list_connectors_errors() :: uninitialized_account_exception() | validation_exception()
 
-  @type list_export_errors_errors() :: validation_exception() | uninitialized_account_exception()
+  @type list_export_errors_errors() :: uninitialized_account_exception() | validation_exception()
 
   @type list_exports_errors() :: uninitialized_account_exception()
 
-  @type list_import_errors_errors() :: validation_exception() | uninitialized_account_exception()
+  @type list_import_errors_errors() :: uninitialized_account_exception() | validation_exception()
 
   @type list_import_file_enrichments_errors() :: validation_exception()
 
-  @type list_imports_errors() :: validation_exception() | uninitialized_account_exception()
+  @type list_imports_errors() :: uninitialized_account_exception() | validation_exception()
 
   @type list_managed_accounts_errors() ::
-          validation_exception() | uninitialized_account_exception()
+          uninitialized_account_exception() | validation_exception()
 
   @type list_network_migration_analyses_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_analysis_results_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_code_generation_segments_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_code_generations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_definitions_errors() :: access_denied_exception()
 
   @type list_network_migration_deployed_stacks_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_deployments_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_executions_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
   @type list_network_migration_mapper_segment_constructs_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_mapper_segments_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_mapping_updates_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_migration_mappings_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_source_server_actions_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_template_actions_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
@@ -4099,212 +4099,212 @@ defmodule AWS.Mgn do
 
   @type mark_as_archived_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type pause_replication_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type put_source_server_action_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type put_template_action_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type remove_source_server_action_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type remove_template_action_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type resume_replication_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type retry_data_replication_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type start_cutover_errors() ::
-          validation_exception() | uninitialized_account_exception() | conflict_exception()
+          uninitialized_account_exception() | conflict_exception() | validation_exception()
 
   @type start_export_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
+          | validation_exception()
 
   @type start_import_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type start_import_file_enrichment_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_network_migration_analysis_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_network_migration_code_generation_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_network_migration_deployment_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_network_migration_mapping_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_network_migration_mapping_update_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_replication_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type start_test_errors() ::
-          validation_exception() | uninitialized_account_exception() | conflict_exception()
+          uninitialized_account_exception() | conflict_exception() | validation_exception()
 
   @type stop_replication_errors() ::
-          validation_exception()
+          service_quota_exceeded_exception()
           | uninitialized_account_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type terminate_target_instances_errors() ::
-          validation_exception() | uninitialized_account_exception() | conflict_exception()
+          uninitialized_account_exception() | conflict_exception() | validation_exception()
 
   @type unarchive_application_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | resource_not_found_exception()
 
   @type unarchive_wave_errors() ::
-          uninitialized_account_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | uninitialized_account_exception()
           | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_application_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type update_connector_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
 
   @type update_launch_configuration_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type update_launch_configuration_template_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type update_network_migration_definition_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type update_network_migration_mapper_segment_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type update_replication_configuration_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type update_replication_configuration_template_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | uninitialized_account_exception()
+          uninitialized_account_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type update_source_server_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   @type update_source_server_replication_type_errors() ::
-          validation_exception()
-          | uninitialized_account_exception()
-          | resource_not_found_exception()
+          uninitialized_account_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type update_wave_errors() ::
           uninitialized_account_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
 
   def metadata do
     %{

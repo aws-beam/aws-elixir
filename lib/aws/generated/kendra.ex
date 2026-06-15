@@ -13,103 +13,209 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      one_drive_users() :: %{
-        "OneDriveUserList" => list(String.t() | atom()),
-        "OneDriveUserS3Path" => s3_path()
+      resource_already_exist_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type one_drive_users() :: %{(String.t() | atom()) => any()}
+  @type resource_already_exist_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      saa_s_configuration() :: %{
-        "HostUrl" => String.t() | atom(),
-        "OrganizationName" => String.t() | atom()
+      table_excerpt() :: %{
+        "Rows" => list(table_row()),
+        "TotalNumberOfRows" => integer()
       }
       
   """
-  @type saa_s_configuration() :: %{(String.t() | atom()) => any()}
+  @type table_excerpt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_experience_request() :: %{
+      text_document_statistics() :: %{
+        "IndexedTextBytes" => float(),
+        "IndexedTextDocumentsCount" => integer()
+      }
+      
+  """
+  @type text_document_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_path() :: %{
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom()
+      }
+      
+  """
+  @type s3_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attribute_suggestions_update_config() :: %{
+        "AttributeSuggestionsMode" => list(any()),
+        "SuggestableConfigList" => list(suggestable_config())
+      }
+      
+  """
+  @type attribute_suggestions_update_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authentication_configuration() :: %{
+        "BasicAuthentication" => list(basic_authentication_configuration())
+      }
+      
+  """
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_info() :: %{
+        "Attributes" => list(document_attribute()),
+        "DocumentId" => String.t() | atom()
+      }
+      
+  """
+  @type document_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_faq_request() :: %{
         required("Id") => String.t() | atom(),
         required("IndexId") => String.t() | atom()
       }
       
   """
-  @type delete_experience_request() :: %{(String.t() | atom()) => any()}
+  @type delete_faq_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      salesforce_knowledge_article_configuration() :: %{
-        "CustomKnowledgeArticleTypeConfigurations" => list(salesforce_custom_knowledge_article_type_configuration()),
-        "IncludedStates" => list(list(any())()),
-        "StandardKnowledgeArticleTypeConfiguration" => salesforce_standard_knowledge_article_type_configuration()
+      batch_put_document_request() :: %{
+        optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
+        optional("RoleArn") => String.t() | atom(),
+        required("Documents") => list(document()),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type salesforce_knowledge_article_configuration() :: %{(String.t() | atom()) => any()}
+  @type batch_put_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      entity_persona_configuration() :: %{
-        "EntityId" => String.t() | atom(),
-        "Persona" => list(any())
+      describe_query_suggestions_block_list_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "FileSizeBytes" => float(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "ItemCount" => integer(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SourceS3Path" => s3_path(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type entity_persona_configuration() :: %{(String.t() | atom()) => any()}
+  @type describe_query_suggestions_block_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_control_configuration_summary() :: %{
+      proxy_configuration() :: %{
+        "Credentials" => String.t() | atom(),
+        "Host" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_featured_results_set_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("FeaturedDocuments") => list(featured_document()),
+        optional("FeaturedResultsSetName") => String.t() | atom(),
+        optional("QueryTexts") => list(String.t() | atom()),
+        optional("Status") => list(any()),
+        required("FeaturedResultsSetId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type update_featured_results_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      quip_configuration() :: %{
+        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()),
+        "CrawlAttachments" => boolean(),
+        "CrawlChatRooms" => boolean(),
+        "CrawlFileComments" => boolean(),
+        "Domain" => String.t() | atom(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "FolderIds" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "MessageFieldMappings" => list(data_source_to_index_field_mapping()),
+        "SecretArn" => String.t() | atom(),
+        "ThreadFieldMappings" => list(data_source_to_index_field_mapping()),
+        "VpcConfiguration" => data_source_vpc_configuration()
+      }
+      
+  """
+  @type quip_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_query_suggestions_block_list_response() :: %{
         "Id" => String.t() | atom()
       }
       
   """
-  @type access_control_configuration_summary() :: %{(String.t() | atom()) => any()}
+  @type create_query_suggestions_block_list_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      suggestion_value() :: %{
-        "Text" => suggestion_text_with_highlights()
+      list_groups_older_than_ordering_id_request() :: %{
+        optional("DataSourceId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
+        required("OrderingId") => float()
       }
       
   """
-  @type suggestion_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featured_results_item() :: %{
-        "AdditionalAttributes" => list(additional_result_attribute()),
-        "DocumentAttributes" => list(document_attribute()),
-        "DocumentExcerpt" => text_with_highlights(),
-        "DocumentId" => String.t() | atom(),
-        "DocumentTitle" => text_with_highlights(),
-        "DocumentURI" => String.t() | atom(),
-        "FeedbackToken" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type featured_results_item() :: %{(String.t() | atom()) => any()}
+  @type list_groups_older_than_ordering_id_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,6 +237,1560 @@ defmodule AWS.Kendra do
 
   ## Example:
       
+      update_data_source_request() :: %{
+        optional("Configuration") => data_source_configuration(),
+        optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("LanguageCode") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("Schedule") => String.t() | atom(),
+        optional("VpcConfiguration") => data_source_vpc_configuration(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      salesforce_custom_knowledge_article_type_configuration() :: %{
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type salesforce_custom_knowledge_article_type_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_featured_results_set_error() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type batch_delete_featured_results_set_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      experience_endpoint() :: %{
+        "Endpoint" => String.t() | atom(),
+        "EndpointType" => list(any())
+      }
+      
+  """
+  @type experience_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_featured_results_set_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("FeaturedDocuments") => list(featured_document()),
+        optional("QueryTexts") => list(String.t() | atom()),
+        optional("Status") => list(any()),
+        optional("Tags") => list(tag()),
+        required("FeaturedResultsSetName") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type create_featured_results_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suggestable_config() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Suggestable" => boolean()
+      }
+      
+  """
+  @type suggestable_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_configuration() :: %{
+        "AttachmentConfiguration" => confluence_attachment_configuration(),
+        "AuthenticationType" => list(any()),
+        "BlogConfiguration" => confluence_blog_configuration(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "PageConfiguration" => confluence_page_configuration(),
+        "ProxyConfiguration" => proxy_configuration(),
+        "SecretArn" => String.t() | atom(),
+        "ServerUrl" => String.t() | atom(),
+        "SpaceConfiguration" => confluence_space_configuration(),
+        "Version" => list(any()),
+        "VpcConfiguration" => data_source_vpc_configuration()
+      }
+      
+  """
+  @type confluence_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_now_knowledge_article_configuration() :: %{
+        "CrawlAttachments" => boolean(),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "FilterQuery" => String.t() | atom(),
+        "IncludeAttachmentFilePatterns" => list(String.t() | atom())
+      }
+      
+  """
+  @type service_now_knowledge_article_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expand_configuration() :: %{
+        "MaxExpandedResultsPerItem" => integer(),
+        "MaxResultItemsToExpand" => integer()
+      }
+      
+  """
+  @type expand_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_side_encryption_configuration() :: %{
+        "KmsKeyId" => String.t() | atom()
+      }
+      
+  """
+  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featured_document_with_metadata() :: %{
+        "Id" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "URI" => String.t() | atom()
+      }
+      
+  """
+  @type featured_document_with_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_featured_results_set_response() :: %{
+        "CreationTimestamp" => float(),
+        "Description" => String.t() | atom(),
+        "FeaturedDocumentsMissing" => list(featured_document_missing()),
+        "FeaturedDocumentsWithMetadata" => list(featured_document_with_metadata()),
+        "FeaturedResultsSetId" => String.t() | atom(),
+        "FeaturedResultsSetName" => String.t() | atom(),
+        "LastUpdatedTimestamp" => float(),
+        "QueryTexts" => list(String.t() | atom()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type describe_featured_results_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_page_configuration() :: %{
+        "PageFieldMappings" => list(confluence_page_to_index_field_mapping())
+      }
+      
+  """
+  @type confluence_page_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      clear_query_suggestions_request() :: %{
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type clear_query_suggestions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suggestion_value() :: %{
+        "Text" => suggestion_text_with_highlights()
+      }
+      
+  """
+  @type suggestion_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_source_sync_job_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type start_data_source_sync_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_token_type_configuration() :: %{
+        "ClaimRegex" => String.t() | atom(),
+        "GroupAttributeField" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "KeyLocation" => list(any()),
+        "SecretManagerArn" => String.t() | atom(),
+        "URL" => String.t() | atom(),
+        "UserNameAttributeField" => String.t() | atom()
+      }
+      
+  """
+  @type jwt_token_type_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spell_correction_configuration() :: %{
+        "IncludeQuerySpellCheckSuggestions" => boolean()
+      }
+      
+  """
+  @type spell_correction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search() :: %{
+        "Displayable" => boolean(),
+        "Facetable" => boolean(),
+        "Searchable" => boolean(),
+        "Sortable" => boolean()
+      }
+      
+  """
+  @type search() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_source_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_document_request() :: %{
+        optional("DataSourceSyncJobMetricTarget") => data_source_sync_job_metric_target(),
+        required("DocumentIdList") => list(String.t() | atom()),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type batch_delete_document_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_query_suggestions_response() :: %{
+        "QuerySuggestionsId" => String.t() | atom(),
+        "Suggestions" => list(suggestion())
+      }
+      
+  """
+  @type get_query_suggestions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_data_source_configuration() :: %{
+        "AccessControlListConfiguration" => access_control_list_configuration(),
+        "BucketName" => String.t() | atom(),
+        "DocumentsMetadataConfiguration" => documents_metadata_configuration(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "InclusionPrefixes" => list(String.t() | atom())
+      }
+      
+  """
+  @type s3_data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_thesaurus_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("SourceS3Path") => s3_path(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type update_thesaurus_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fsx_configuration() :: %{
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "FileSystemId" => String.t() | atom(),
+        "FileSystemType" => list(any()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom(),
+        "VpcConfiguration" => data_source_vpc_configuration()
+      }
+      
+  """
+  @type fsx_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      entity_configuration() :: %{
+        "EntityId" => String.t() | atom(),
+        "EntityType" => list(any())
+      }
+      
+  """
+  @type entity_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_faqs_response() :: %{
+        "FaqSummaryItems" => list(faq_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_faqs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_space_configuration() :: %{
+        "CrawlArchivedSpaces" => boolean(),
+        "CrawlPersonalSpaces" => boolean(),
+        "ExcludeSpaces" => list(String.t() | atom()),
+        "IncludeSpaces" => list(String.t() | atom()),
+        "SpaceFieldMappings" => list(confluence_space_to_index_field_mapping())
+      }
+      
+  """
+  @type confluence_space_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      template_configuration() :: %{
+        "Template" => any()
+      }
+      
+  """
+  @type template_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_query_suggestions_block_list_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_control_configuration_summary() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type access_control_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_entities_to_experience_response() :: %{
+        "FailedEntityList" => list(failed_entity())
+      }
+      
+  """
+  @type associate_entities_to_experience_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_page_to_index_field_mapping() :: %{
+        "DataSourceFieldName" => list(any()),
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
+      }
+      
+  """
+  @type confluence_page_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      on_premise_configuration() :: %{
+        "HostUrl" => String.t() | atom(),
+        "OrganizationName" => String.t() | atom(),
+        "SslCertificateS3Path" => s3_path()
+      }
+      
+  """
+  @type on_premise_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_snapshots_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
+        required("Interval") => list(any()),
+        required("MetricType") => list(any())
+      }
+      
+  """
+  @type get_snapshots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_now_configuration() :: %{
+        "AuthenticationType" => list(any()),
+        "HostUrl" => String.t() | atom(),
+        "KnowledgeArticleConfiguration" => service_now_knowledge_article_configuration(),
+        "SecretArn" => String.t() | atom(),
+        "ServiceCatalogConfiguration" => service_now_service_catalog_configuration(),
+        "ServiceNowBuildVersion" => list(any())
+      }
+      
+  """
+  @type service_now_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      site_maps_configuration() :: %{
+        "SiteMaps" => list(String.t() | atom())
+      }
+      
+  """
+  @type site_maps_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inline_custom_document_enrichment_configuration() :: %{
+        "Condition" => document_attribute_condition(),
+        "DocumentContentDeletion" => boolean(),
+        "Target" => document_attribute_target()
+      }
+      
+  """
+  @type inline_custom_document_enrichment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      member_group() :: %{
+        "DataSourceId" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
+      }
+      
+  """
+  @type member_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_token_configuration() :: %{
+        "JsonTokenTypeConfiguration" => json_token_type_configuration(),
+        "JwtTokenTypeConfiguration" => jwt_token_type_configuration()
+      }
+      
+  """
+  @type user_token_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_configuration() :: %{
+        "QueryIdentifiersEnclosingOption" => list(any())
+      }
+      
+  """
+  @type sql_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_personas_from_entities_request() :: %{
+        required("EntityIds") => list(String.t() | atom()),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_personas_from_entities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_access_control_configuration_request() :: %{
+        optional("AccessControlList") => list(principal()),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_indices_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_indices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sorting_configuration() :: %{
+        "DocumentAttributeKey" => String.t() | atom(),
+        "SortOrder" => list(any())
+      }
+      
+  """
+  @type sorting_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_source_response() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_control_configuration_response() :: %{}
+      
+  """
+  @type update_access_control_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_entities_from_experience_request() :: %{
+        required("EntityList") => list(entity_configuration()),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_entities_from_experience_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_space_to_index_field_mapping() :: %{
+        "DataSourceFieldName" => list(any()),
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
+      }
+      
+  """
+  @type confluence_space_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_entity_personas_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SummaryItems" => list(personas_summary())
+      }
+      
+  """
+  @type list_entity_personas_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_thesaurus_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("SourceS3Path") => s3_path()
+      }
+      
+  """
+  @type create_thesaurus_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      salesforce_standard_object_attachment_configuration() :: %{
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "FieldMappings" => list(data_source_to_index_field_mapping())
+      }
+      
+  """
+  @type salesforce_standard_object_attachment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_group_resolution_configuration() :: %{
+        "UserGroupResolutionMode" => list(any())
+      }
+      
+  """
+  @type user_group_resolution_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_data_source_sync_job_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_data_source_sync_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hierarchical_principal() :: %{
+        "PrincipalList" => list(principal())
+      }
+      
+  """
+  @type hierarchical_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      table_cell() :: %{
+        "Header" => boolean(),
+        "Highlighted" => boolean(),
+        "TopAnswer" => boolean(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type table_cell() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      salesforce_chatter_feed_configuration() :: %{
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "IncludeFilterTypes" => list(list(any())())
+      }
+      
+  """
+  @type salesforce_chatter_feed_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attribute_suggestions_get_config() :: %{
+        "AdditionalResponseAttributes" => list(String.t() | atom()),
+        "AttributeFilter" => attribute_filter(),
+        "SuggestionAttributes" => list(String.t() | atom()),
+        "UserContext" => user_context()
+      }
+      
+  """
+  @type attribute_suggestions_get_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_units_configuration() :: %{
+        "QueryCapacityUnits" => integer(),
+        "StorageCapacityUnits" => integer()
+      }
+      
+  """
+  @type capacity_units_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_access_control_configuration_request() :: %{
+        optional("AccessControlList") => list(principal()),
+        optional("Description") => String.t() | atom(),
+        optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
+        optional("Name") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type update_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_featured_results_set_response() :: %{
+        "FeaturedResultsSet" => featured_results_set()
+      }
+      
+  """
+  @type update_featured_results_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      collapsed_result_detail() :: %{
+        "DocumentAttribute" => document_attribute(),
+        "ExpandedResults" => list(expanded_result_item())
+      }
+      
+  """
+  @type collapsed_result_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_thesauri_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_thesauri_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_access_control_configuration_response() :: %{}
+      
+  """
+  @type delete_access_control_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_featured_results_sets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_featured_results_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_members() :: %{
+        "MemberGroups" => list(member_group()),
+        "MemberUsers" => list(member_user()),
+        "S3PathforGroupMembers" => s3_path()
+      }
+      
+  """
+  @type group_members() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relevance_feedback() :: %{
+        "RelevanceValue" => list(any()),
+        "ResultId" => String.t() | atom()
+      }
+      
+  """
+  @type relevance_feedback() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_index_response() :: %{
+        "CapacityUnits" => capacity_units_configuration(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DocumentMetadataConfigurations" => list(document_metadata_configuration()),
+        "Edition" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IndexStatistics" => index_statistics(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "ServerSideEncryptionConfiguration" => server_side_encryption_configuration(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer(),
+        "UserContextPolicy" => list(any()),
+        "UserGroupResolutionConfiguration" => user_group_resolution_configuration(),
+        "UserTokenConfigurations" => list(user_token_configuration())
+      }
+      
+  """
+  @type describe_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_attribute_condition() :: %{
+        "ConditionDocumentAttributeKey" => String.t() | atom(),
+        "ConditionOnValue" => document_attribute_value(),
+        "Operator" => list(any())
+      }
+      
+  """
+  @type document_attribute_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_entities_from_experience_response() :: %{
+        "FailedEntityList" => list(failed_entity())
+      }
+      
+  """
+  @type disassociate_entities_from_experience_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_faq_response() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type create_faq_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_access_control_configuration_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      seed_url_configuration() :: %{
+        "SeedUrls" => list(String.t() | atom()),
+        "WebCrawlerMode" => list(any())
+      }
+      
+  """
+  @type seed_url_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_faq_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "FileFormat" => list(any()),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "S3Path" => s3_path(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type describe_faq_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      saa_s_configuration() :: %{
+        "HostUrl" => String.t() | atom(),
+        "OrganizationName" => String.t() | atom()
+      }
+      
+  """
+  @type saa_s_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_query_suggestions_block_list_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_snapshots_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SnapShotTimeFilter" => time_range(),
+        "SnapshotsData" => list(list(String.t() | atom())()),
+        "SnapshotsDataHeader" => list(String.t() | atom())
+      }
+      
+  """
+  @type get_snapshots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_featured_results_set_request() :: %{
+        required("FeaturedResultsSetId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_featured_results_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_access_control_configuration_response() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type create_access_control_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_experience_entities_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_experience_entities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_document() :: %{
+        "AdditionalAttributes" => list(document_attribute()),
+        "DocumentId" => String.t() | atom(),
+        "SuggestionAttributes" => list(String.t() | atom())
+      }
+      
+  """
+  @type source_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_delete_featured_results_set_response() :: %{
+        "Errors" => list(batch_delete_featured_results_set_error())
+      }
+      
+  """
+  @type batch_delete_featured_results_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      one_drive_users() :: %{
+        "OneDriveUserList" => list(String.t() | atom()),
+        "OneDriveUserS3Path" => s3_path()
+      }
+      
+  """
+  @type one_drive_users() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      principal() :: %{
+        "Access" => list(any()),
+        "DataSourceId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_metadata_configuration() :: %{
+        "Name" => String.t() | atom(),
+        "Relevance" => relevance(),
+        "Search" => search(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type document_metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      urls() :: %{
+        "SeedUrlConfiguration" => seed_url_configuration(),
+        "SiteMapsConfiguration" => site_maps_configuration()
+      }
+      
+  """
+  @type urls() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_summary() :: %{
+        "GroupId" => String.t() | atom(),
+        "OrderingId" => float()
+      }
+      
+  """
+  @type group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_access_control_configuration_response() :: %{
+        "AccessControlList" => list(principal()),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "HierarchicalAccessControlList" => list(hierarchical_principal()),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type describe_access_control_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      experiences_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Endpoints" => list(experience_endpoint()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type experiences_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alfresco_configuration() :: %{
+        "BlogFieldMappings" => list(data_source_to_index_field_mapping()),
+        "CrawlComments" => boolean(),
+        "CrawlSystemFolders" => boolean(),
+        "DocumentLibraryFieldMappings" => list(data_source_to_index_field_mapping()),
+        "EntityFilter" => list(list(any())()),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
+        "SiteUrl" => String.t() | atom(),
+        "SslCertificateS3Path" => s3_path(),
+        "VpcConfiguration" => data_source_vpc_configuration(),
+        "WikiFieldMappings" => list(data_source_to_index_field_mapping())
+      }
+      
+  """
+  @type alfresco_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_index_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Edition") => list(any()),
+        optional("ServerSideEncryptionConfiguration") => server_side_encryption_configuration(),
+        optional("Tags") => list(tag()),
+        optional("UserContextPolicy") => list(any()),
+        optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
+        optional("UserTokenConfigurations") => list(user_token_configuration()),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_index_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_principal_mapping_request() :: %{
+        optional("DataSourceId") => String.t() | atom(),
+        optional("OrderingId") => float(),
+        required("GroupId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_principal_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failed_entity() :: %{
+        "EntityId" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
+      }
+      
+  """
+  @type failed_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_query_suggestions_config_request() :: %{
+        optional("AttributeSuggestionsConfig") => attribute_suggestions_update_config(),
+        optional("IncludeQueriesWithoutUserInformation") => boolean(),
+        optional("MinimumNumberOfQueryingUsers") => integer(),
+        optional("MinimumQueryCount") => integer(),
+        optional("Mode") => list(any()),
+        optional("QueryLogLookBackWindowInDays") => integer(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type update_query_suggestions_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_put_document_response_failed_document() :: %{
+        "DataSourceId" => String.t() | atom(),
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type batch_put_document_response_failed_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflicting_item() :: %{
+        "QueryText" => String.t() | atom(),
+        "SetId" => String.t() | atom(),
+        "SetName" => String.t() | atom()
+      }
+      
+  """
+  @type conflicting_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_experience_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Configuration") => experience_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_experience_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_faq_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_faq_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_attribute_value() :: %{
+        "DateValue" => non_neg_integer(),
+        "LongValue" => float(),
+        "StringListValue" => list(String.t() | atom()),
+        "StringValue" => String.t() | atom()
+      }
+      
+  """
+  @type document_attribute_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_thesaurus_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_thesaurus_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_document_status_request() :: %{
+        required("DocumentInfoList") => list(document_info()),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type batch_get_document_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_personas_to_entities_response() :: %{
+        "FailedEntityList" => list(failed_entity())
+      }
+      
+  """
+  @type associate_personas_to_entities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_faqs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_faqs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suggestion_text_with_highlights() :: %{
+        "Highlights" => list(suggestion_highlight()),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type suggestion_text_with_highlights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featured_document() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type featured_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_attachment_configuration() :: %{
+        "AttachmentFieldMappings" => list(confluence_attachment_to_index_field_mapping()),
+        "CrawlAttachments" => boolean()
+      }
+      
+  """
+  @type confluence_attachment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_relevance_configuration() :: %{
+        "Name" => String.t() | atom(),
+        "Relevance" => relevance()
+      }
+      
+  """
+  @type document_relevance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      content_source_configuration() :: %{
+        "DataSourceIds" => list(String.t() | atom()),
+        "DirectPutContent" => boolean(),
+        "FaqIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type content_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      faq_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "FileFormat" => list(any()),
+        "Id" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type faq_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      json_token_type_configuration() :: %{
+        "GroupAttributeField" => String.t() | atom(),
+        "UserNameAttributeField" => String.t() | atom()
+      }
+      
+  """
+  @type json_token_type_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       retrieve_result_item() :: %{
         "Content" => String.t() | atom(),
         "DocumentAttributes" => list(document_attribute()),
@@ -143,6 +1803,339 @@ defmodule AWS.Kendra do
       
   """
   @type retrieve_result_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      member_user() :: %{
+        "UserId" => String.t() | atom()
+      }
+      
+  """
+  @type member_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_document_status_response_error() :: %{
+        "DataSourceId" => String.t() | atom(),
+        "DocumentId" => String.t() | atom(),
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom()
+      }
+      
+  """
+  @type batch_get_document_status_response_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_entities_to_experience_request() :: %{
+        required("EntityList") => list(entity_configuration()),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_entities_to_experience_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      correction() :: %{
+        "BeginOffset" => integer(),
+        "CorrectedTerm" => String.t() | atom(),
+        "EndOffset" => integer(),
+        "Term" => String.t() | atom()
+      }
+      
+  """
+  @type correction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_result_item() :: %{
+        "AdditionalAttributes" => list(additional_result_attribute()),
+        "CollapsedResultDetail" => collapsed_result_detail(),
+        "DocumentAttributes" => list(document_attribute()),
+        "DocumentExcerpt" => text_with_highlights(),
+        "DocumentId" => String.t() | atom(),
+        "DocumentTitle" => text_with_highlights(),
+        "DocumentURI" => String.t() | atom(),
+        "FeedbackToken" => String.t() | atom(),
+        "Format" => list(any()),
+        "Id" => String.t() | atom(),
+        "ScoreAttributes" => score_attributes(),
+        "TableExcerpt" => table_excerpt(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type query_result_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_ordering_id_summary() :: %{
+        "FailureReason" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "OrderingId" => float(),
+        "ReceivedAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type group_ordering_id_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retrieve_request() :: %{
+        optional("AttributeFilter") => attribute_filter(),
+        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()),
+        optional("PageNumber") => integer(),
+        optional("PageSize") => integer(),
+        optional("RequestedDocumentAttributes") => list(String.t() | atom()),
+        optional("UserContext") => user_context(),
+        required("IndexId") => String.t() | atom(),
+        required("QueryText") => String.t() | atom()
+      }
+      
+  """
+  @type retrieve_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_principal_mapping_request() :: %{
+        optional("DataSourceId") => String.t() | atom(),
+        optional("OrderingId") => float(),
+        optional("RoleArn") => String.t() | atom(),
+        required("GroupId") => String.t() | atom(),
+        required("GroupMembers") => group_members(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type put_principal_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attribute_suggestions_describe_config() :: %{
+        "AttributeSuggestionsMode" => list(any()),
+        "SuggestableConfigList" => list(suggestable_config())
+      }
+      
+  """
+  @type attribute_suggestions_describe_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_principal_mapping_response() :: %{
+        "DataSourceId" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "GroupOrderingIdSummaries" => list(group_ordering_id_summary()),
+        "IndexId" => String.t() | atom()
+      }
+      
+  """
+  @type describe_principal_mapping_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      thesaurus_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type thesaurus_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_result() :: %{
+        "FacetResults" => list(facet_result()),
+        "FeaturedResultsItems" => list(featured_results_item()),
+        "QueryId" => String.t() | atom(),
+        "ResultItems" => list(query_result_item()),
+        "SpellCorrectedQueries" => list(spell_corrected_query()),
+        "TotalNumberOfResults" => integer(),
+        "Warnings" => list(warning())
+      }
+      
+  """
+  @type query_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_access_control_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_access_control_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      experience_entities_summary() :: %{
+        "DisplayData" => entity_display_data(),
+        "EntityId" => String.t() | atom(),
+        "EntityType" => list(any())
+      }
+      
+  """
+  @type experience_entities_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_sources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      one_drive_configuration() :: %{
+        "DisableLocalGroups" => boolean(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "OneDriveUsers" => one_drive_users(),
+        "SecretArn" => String.t() | atom(),
+        "TenantDomain" => String.t() | atom()
+      }
+      
+  """
+  @type one_drive_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_data_source_sync_job_response() :: %{
+        "ExecutionId" => String.t() | atom()
+      }
+      
+  """
+  @type start_data_source_sync_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      relevance() :: %{
+        "Duration" => String.t() | atom(),
+        "Freshness" => boolean(),
+        "Importance" => integer(),
+        "RankOrder" => list(any()),
+        "ValueImportanceMap" => map()
+      }
+      
+  """
+  @type relevance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      salesforce_configuration() :: %{
+        "ChatterFeedConfiguration" => salesforce_chatter_feed_configuration(),
+        "CrawlAttachments" => boolean(),
+        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
+        "IncludeAttachmentFilePatterns" => list(String.t() | atom()),
+        "KnowledgeArticleConfiguration" => salesforce_knowledge_article_configuration(),
+        "SecretArn" => String.t() | atom(),
+        "ServerUrl" => String.t() | atom(),
+        "StandardObjectAttachmentConfiguration" => salesforce_standard_object_attachment_configuration(),
+        "StandardObjectConfigurations" => list(salesforce_standard_object_configuration())
+      }
+      
+  """
+  @type salesforce_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_sync_job() :: %{
+        "DataSourceErrorCode" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "ExecutionId" => String.t() | atom(),
+        "Metrics" => data_source_sync_job_metrics(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type data_source_sync_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -171,89 +2164,225 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_access_control_configuration_request() :: %{
-        optional("AccessControlList") => list(principal()),
-        optional("Description") => String.t() | atom(),
-        optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
-        optional("Name") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
+      describe_principal_mapping_request() :: %{
+        optional("DataSourceId") => String.t() | atom(),
+        required("GroupId") => String.t() | atom(),
         required("IndexId") => String.t() | atom()
       }
       
   """
-  @type update_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type describe_principal_mapping_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      data_source_vpc_configuration() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
+      associate_personas_to_entities_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom(),
+        required("Personas") => list(entity_persona_configuration())
       }
       
   """
-  @type data_source_vpc_configuration() :: %{(String.t() | atom()) => any()}
+  @type associate_personas_to_entities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_data_source_request() :: %{
-        required("Id") => String.t() | atom(),
+      batch_delete_document_response() :: %{
+        "FailedDocuments" => list(batch_delete_document_response_failed_document())
+      }
+      
+  """
+  @type batch_delete_document_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_source_response() :: %{
+        "Configuration" => data_source_configuration(),
+        "CreatedAt" => non_neg_integer(),
+        "CustomDocumentEnrichmentConfiguration" => custom_document_enrichment_configuration(),
+        "Description" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Schedule" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "UpdatedAt" => non_neg_integer(),
+        "VpcConfiguration" => data_source_vpc_configuration()
+      }
+      
+  """
+  @type describe_data_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_query_suggestions_block_lists_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
         required("IndexId") => String.t() | atom()
       }
       
   """
-  @type describe_data_source_request() :: %{(String.t() | atom()) => any()}
+  @type list_query_suggestions_block_lists_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_path() :: %{
-        "Bucket" => String.t() | atom(),
-        "Key" => String.t() | atom()
+      index_statistics() :: %{
+        "FaqStatistics" => faq_statistics(),
+        "TextDocumentStatistics" => text_document_statistics()
       }
       
   """
-  @type s3_path() :: %{(String.t() | atom()) => any()}
+  @type index_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      data_source_sync_job_metric_target() :: %{
-        "DataSourceId" => String.t() | atom(),
-        "DataSourceSyncJobId" => String.t() | atom()
+      list_experience_entities_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SummaryItems" => list(experience_entities_summary())
       }
       
   """
-  @type data_source_sync_job_metric_target() :: %{(String.t() | atom()) => any()}
+  @type list_experience_entities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      document_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => document_attribute_value()
+      additional_result_attribute_value() :: %{
+        "TextWithHighlightsValue" => text_with_highlights()
       }
       
   """
-  @type document_attribute() :: %{(String.t() | atom()) => any()}
+  @type additional_result_attribute_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      status() :: %{
+        "DocumentId" => String.t() | atom(),
+        "DocumentStatus" => list(any()),
+        "FailureCode" => String.t() | atom(),
+        "FailureReason" => String.t() | atom()
+      }
+      
+  """
+  @type status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_access_control_configurations_response() :: %{
+        "AccessControlConfigurations" => list(access_control_configuration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_access_control_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      score_attributes() :: %{
+        "ScoreConfidence" => list(any())
+      }
+      
+  """
+  @type score_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      basic_authentication_configuration() :: %{
+        "Credentials" => String.t() | atom(),
+        "Host" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type basic_authentication_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      attribute_filter() :: %{
+        "AndAllFilters" => list(attribute_filter()),
+        "ContainsAll" => document_attribute(),
+        "ContainsAny" => document_attribute(),
+        "EqualsTo" => document_attribute(),
+        "GreaterThan" => document_attribute(),
+        "GreaterThanOrEquals" => document_attribute(),
+        "LessThan" => document_attribute(),
+        "LessThanOrEquals" => document_attribute(),
+        "NotFilter" => attribute_filter(),
+        "OrAllFilters" => list(attribute_filter())
+      }
+      
+  """
+  @type attribute_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suggestion() :: %{
+        "Id" => String.t() | atom(),
+        "SourceDocuments" => list(source_document()),
+        "Value" => suggestion_value()
+      }
+      
+  """
+  @type suggestion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_index_request() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type describe_index_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -271,26 +2400,619 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      text_with_highlights() :: %{
-        "Highlights" => list(highlight()),
-        "Text" => String.t() | atom()
+      collapse_configuration() :: %{
+        "DocumentAttributeKey" => String.t() | atom(),
+        "Expand" => boolean(),
+        "ExpandConfiguration" => expand_configuration(),
+        "MissingAttributeKeyStrategy" => list(any()),
+        "SortingConfigurations" => list(sorting_configuration())
       }
       
   """
-  @type text_with_highlights() :: %{(String.t() | atom()) => any()}
+  @type collapse_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      proxy_configuration() :: %{
-        "Credentials" => String.t() | atom(),
-        "Host" => String.t() | atom(),
-        "Port" => integer()
+      entity_persona_configuration() :: %{
+        "EntityId" => String.t() | atom(),
+        "Persona" => list(any())
       }
       
   """
-  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
+  @type entity_persona_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      spell_corrected_query() :: %{
+        "Corrections" => list(correction()),
+        "SuggestedQueryText" => String.t() | atom()
+      }
+      
+  """
+  @type spell_corrected_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      salesforce_standard_knowledge_article_type_configuration() :: %{
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "FieldMappings" => list(data_source_to_index_field_mapping())
+      }
+      
+  """
+  @type salesforce_standard_knowledge_article_type_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_experience_response() :: %{}
+      
+  """
+  @type delete_experience_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      personas_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "EntityId" => String.t() | atom(),
+        "Persona" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type personas_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_group() :: %{
+        "DataSourceId" => String.t() | atom(),
+        "GroupId" => String.t() | atom()
+      }
+      
+  """
+  @type data_source_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      warning() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type warning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      click_feedback() :: %{
+        "ClickTime" => non_neg_integer(),
+        "ResultId" => String.t() | atom()
+      }
+      
+  """
+  @type click_feedback() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_sync_job_metric_target() :: %{
+        "DataSourceId" => String.t() | atom(),
+        "DataSourceSyncJobId" => String.t() | atom()
+      }
+      
+  """
+  @type data_source_sync_job_metric_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_attribute_target() :: %{
+        "TargetDocumentAttributeKey" => String.t() | atom(),
+        "TargetDocumentAttributeValue" => document_attribute_value(),
+        "TargetDocumentAttributeValueDeletion" => boolean()
+      }
+      
+  """
+  @type document_attribute_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      facet_result() :: %{
+        "DocumentAttributeKey" => String.t() | atom(),
+        "DocumentAttributeValueCountPairs" => list(document_attribute_value_count_pair()),
+        "DocumentAttributeValueType" => list(any())
+      }
+      
+  """
+  @type facet_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_sources_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SummaryItems" => list(data_source_summary())
+      }
+      
+  """
+  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_blog_to_index_field_mapping() :: %{
+        "DataSourceFieldName" => list(any()),
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
+      }
+      
+  """
+  @type confluence_blog_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_featured_results_sets_response() :: %{
+        "FeaturedResultsSetSummaryItems" => list(featured_results_set_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_featured_results_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_experience_response() :: %{
+        "Configuration" => experience_configuration(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Endpoints" => list(experience_endpoint()),
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IndexId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type describe_experience_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      faq_statistics() :: %{
+        "IndexedQuestionAnswersCount" => integer()
+      }
+      
+  """
+  @type faq_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      facet() :: %{
+        "DocumentAttributeKey" => String.t() | atom(),
+        "Facets" => list(facet()),
+        "MaxResults" => integer()
+      }
+      
+  """
+  @type facet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_entity_personas_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_entity_personas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_query_suggestions_config_request() :: %{
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_query_suggestions_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hook_configuration() :: %{
+        "InvocationCondition" => document_attribute_condition(),
+        "LambdaArn" => String.t() | atom(),
+        "S3Bucket" => String.t() | atom()
+      }
+      
+  """
+  @type hook_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      index_configuration_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Edition" => list(any()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type index_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_data_source_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_data_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_configuration() :: %{
+        "DatabaseHost" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "DatabasePort" => integer(),
+        "SecretArn" => String.t() | atom(),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type connection_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featured_results_conflict_exception() :: %{
+        "ConflictingItems" => list(conflicting_item()),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type featured_results_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      retrieve_result() :: %{
+        "QueryId" => String.t() | atom(),
+        "ResultItems" => list(retrieve_result_item())
+      }
+      
+  """
+  @type retrieve_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_attachment_to_index_field_mapping() :: %{
+        "DataSourceFieldName" => list(any()),
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
+      }
+      
+  """
+  @type confluence_attachment_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featured_results_item() :: %{
+        "AdditionalAttributes" => list(additional_result_attribute()),
+        "DocumentAttributes" => list(document_attribute()),
+        "DocumentExcerpt" => text_with_highlights(),
+        "DocumentId" => String.t() | atom(),
+        "DocumentTitle" => text_with_highlights(),
+        "DocumentURI" => String.t() | atom(),
+        "FeedbackToken" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type featured_results_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suggestion_highlight() :: %{
+        "BeginOffset" => integer(),
+        "EndOffset" => integer()
+      }
+      
+  """
+  @type suggestion_highlight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featured_results_set() :: %{
+        "CreationTimestamp" => float(),
+        "Description" => String.t() | atom(),
+        "FeaturedDocuments" => list(featured_document()),
+        "FeaturedResultsSetId" => String.t() | atom(),
+        "FeaturedResultsSetName" => String.t() | atom(),
+        "LastUpdatedTimestamp" => float(),
+        "QueryTexts" => list(String.t() | atom()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type featured_results_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      documents_metadata_configuration() :: %{
+        "S3Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type documents_metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_now_service_catalog_configuration() :: %{
+        "CrawlAttachments" => boolean(),
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "IncludeAttachmentFilePatterns" => list(String.t() | atom())
+      }
+      
+  """
+  @type service_now_service_catalog_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_experiences_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SummaryItems" => list(experiences_summary())
+      }
+      
+  """
+  @type list_experiences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_to_index_field_mapping() :: %{
+        "DataSourceFieldName" => String.t() | atom(),
+        "DateFieldFormat" => String.t() | atom(),
+        "IndexFieldName" => String.t() | atom()
+      }
+      
+  """
+  @type data_source_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_suggestions_block_list_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "ItemCount" => integer(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type query_suggestions_block_list_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_featured_results_set_response() :: %{
+        "FeaturedResultsSet" => featured_results_set()
+      }
+      
+  """
+  @type create_featured_results_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_faq_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("FileFormat") => list(any()),
+        optional("LanguageCode") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("S3Path") => s3_path()
+      }
+      
+  """
+  @type create_faq_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_index_request() :: %{
+        optional("CapacityUnits") => capacity_units_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("DocumentMetadataConfigurationUpdates") => list(document_metadata_configuration()),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("UserContextPolicy") => list(any()),
+        optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
+        optional("UserTokenConfigurations") => list(user_token_configuration()),
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type update_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document() :: %{
+        "AccessControlConfigurationId" => String.t() | atom(),
+        "AccessControlList" => list(principal()),
+        "Attributes" => list(document_attribute()),
+        "Blob" => binary(),
+        "ContentType" => list(any()),
+        "HierarchicalAccessControlList" => list(hierarchical_principal()),
+        "Id" => String.t() | atom(),
+        "S3Path" => s3_path(),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_control_list_configuration() :: %{
+        "KeyPath" => String.t() | atom()
+      }
+      
+  """
+  @type access_control_list_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_experience_response() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type create_experience_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_query_suggestions_request() :: %{
+        optional("AttributeSuggestionsConfig") => attribute_suggestions_get_config(),
+        optional("MaxSuggestionsCount") => integer(),
+        optional("SuggestionTypes") => list(list(any())()),
+        required("IndexId") => String.t() | atom(),
+        required("QueryText") => String.t() | atom()
+      }
+      
+  """
+  @type get_query_suggestions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_index_response() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type create_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -318,25 +3040,233 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      confluence_page_to_index_field_mapping() :: %{
-        "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | atom(),
-        "IndexFieldName" => String.t() | atom()
+      batch_get_document_status_response() :: %{
+        "DocumentStatusList" => list(status()),
+        "Errors" => list(batch_get_document_status_response_error())
       }
       
   """
-  @type confluence_page_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
+  @type batch_get_document_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      site_maps_configuration() :: %{
-        "SiteMaps" => list(String.t() | atom())
+      expanded_result_item() :: %{
+        "DocumentAttributes" => list(document_attribute()),
+        "DocumentExcerpt" => text_with_highlights(),
+        "DocumentId" => String.t() | atom(),
+        "DocumentTitle" => text_with_highlights(),
+        "DocumentURI" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
       
   """
-  @type site_maps_configuration() :: %{(String.t() | atom()) => any()}
+  @type expanded_result_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confluence_blog_configuration() :: %{
+        "BlogFieldMappings" => list(confluence_blog_to_index_field_mapping())
+      }
+      
+  """
+  @type confluence_blog_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      share_point_configuration() :: %{
+        "AuthenticationType" => list(any()),
+        "CrawlAttachments" => boolean(),
+        "DisableLocalGroups" => boolean(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "ProxyConfiguration" => proxy_configuration(),
+        "SecretArn" => String.t() | atom(),
+        "SharePointVersion" => list(any()),
+        "SslCertificateS3Path" => s3_path(),
+        "Urls" => list(String.t() | atom()),
+        "UseChangeLog" => boolean(),
+        "VpcConfiguration" => data_source_vpc_configuration()
+      }
+      
+  """
+  @type share_point_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      additional_result_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => additional_result_attribute_value(),
+        "ValueType" => list(any())
+      }
+      
+  """
+  @type additional_result_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_document_enrichment_configuration() :: %{
+        "InlineConfigurations" => list(inline_custom_document_enrichment_configuration()),
+        "PostExtractionHookConfiguration" => hook_configuration(),
+        "PreExtractionHookConfiguration" => hook_configuration(),
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type custom_document_enrichment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_vpc_configuration() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type data_source_vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => document_attribute_value()
+      }
+      
+  """
+  @type document_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_source_sync_jobs_response() :: %{
+        "History" => list(data_source_sync_job()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_data_source_sync_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_indices_response() :: %{
+        "IndexConfigurationSummaryItems" => list(index_configuration_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_indices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      work_docs_configuration() :: %{
+        "CrawlComments" => boolean(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "OrganizationId" => String.t() | atom(),
+        "UseChangeLog" => boolean()
+      }
+      
+  """
+  @type work_docs_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_crawler_configuration() :: %{
+        "AuthenticationConfiguration" => authentication_configuration(),
+        "CrawlDepth" => integer(),
+        "MaxContentSizePerPageInMegaBytes" => float(),
+        "MaxLinksPerPage" => integer(),
+        "MaxUrlsPerMinuteCrawlRate" => integer(),
+        "ProxyConfiguration" => proxy_configuration(),
+        "UrlExclusionPatterns" => list(String.t() | atom()),
+        "UrlInclusionPatterns" => list(String.t() | atom()),
+        "Urls" => urls()
+      }
+      
+  """
+  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_experiences_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type list_experiences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acl_configuration() :: %{
+        "AllowedGroupsColumnName" => String.t() | atom()
+      }
+      
+  """
+  @type acl_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      slack_configuration() :: %{
+        "CrawlBotMessage" => boolean(),
+        "ExcludeArchived" => boolean(),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "LookBackPeriod" => integer(),
+        "PrivateChannelFilter" => list(String.t() | atom()),
+        "PublicChannelFilter" => list(String.t() | atom()),
+        "SecretArn" => String.t() | atom(),
+        "SinceCrawlDate" => String.t() | atom(),
+        "SlackEntityList" => list(list(any())()),
+        "TeamId" => String.t() | atom(),
+        "UseChangeLog" => boolean(),
+        "VpcConfiguration" => data_source_vpc_configuration()
+      }
+      
+  """
+  @type slack_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -370,62 +3300,319 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      content_source_configuration() :: %{
-        "DataSourceIds" => list(String.t() | atom()),
-        "DirectPutContent" => boolean(),
-        "FaqIds" => list(String.t() | atom())
+      data_source_sync_job_metrics() :: %{
+        "DocumentsAdded" => String.t() | atom(),
+        "DocumentsDeleted" => String.t() | atom(),
+        "DocumentsFailed" => String.t() | atom(),
+        "DocumentsModified" => String.t() | atom(),
+        "DocumentsScanned" => String.t() | atom()
       }
       
   """
-  @type content_source_configuration() :: %{(String.t() | atom()) => any()}
+  @type data_source_sync_job_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_thesauri_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ThesaurusSummaryItems" => list(thesaurus_summary())
+      query_request() :: %{
+        optional("AttributeFilter") => attribute_filter(),
+        optional("CollapseConfiguration") => collapse_configuration(),
+        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()),
+        optional("Facets") => list(facet()),
+        optional("PageNumber") => integer(),
+        optional("PageSize") => integer(),
+        optional("QueryResultTypeFilter") => list(any()),
+        optional("QueryText") => String.t() | atom(),
+        optional("RequestedDocumentAttributes") => list(String.t() | atom()),
+        optional("SortingConfiguration") => sorting_configuration(),
+        optional("SortingConfigurations") => list(sorting_configuration()),
+        optional("SpellCorrectionConfiguration") => spell_correction_configuration(),
+        optional("UserContext") => user_context(),
+        optional("VisitorId") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type list_thesauri_response() :: %{(String.t() | atom()) => any()}
+  @type query_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_response() :: %{}
+      entity_display_data() :: %{
+        "FirstName" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "IdentifiedUserName" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
       
   """
-  @type untag_resource_response() :: %{}
+  @type entity_display_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      conflicting_item() :: %{
-        "QueryText" => String.t() | atom(),
-        "SetId" => String.t() | atom(),
-        "SetName" => String.t() | atom()
+      batch_delete_featured_results_set_request() :: %{
+        required("FeaturedResultsSetIds") => list(String.t() | atom()),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type conflicting_item() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_featured_results_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      custom_document_enrichment_configuration() :: %{
-        "InlineConfigurations" => list(inline_custom_document_enrichment_configuration()),
-        "PostExtractionHookConfiguration" => hook_configuration(),
-        "PreExtractionHookConfiguration" => hook_configuration(),
-        "RoleArn" => String.t() | atom()
+      list_data_source_sync_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTimeFilter") => time_range(),
+        optional("StatusFilter") => list(any()),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type custom_document_enrichment_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_data_source_sync_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_older_than_ordering_id_response() :: %{
+        "GroupsSummaries" => list(group_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_groups_older_than_ordering_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_context() :: %{
+        "DataSourceGroups" => list(data_source_group()),
+        "Groups" => list(String.t() | atom()),
+        "Token" => String.t() | atom(),
+        "UserId" => String.t() | atom()
+      }
+      
+  """
+  @type user_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_query_suggestions_block_list_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("IndexId") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("SourceS3Path") => s3_path()
+      }
+      
+  """
+  @type create_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      salesforce_standard_object_configuration() :: %{
+        "DocumentDataFieldName" => String.t() | atom(),
+        "DocumentTitleFieldName" => String.t() | atom(),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "Name" => list(any())
+      }
+      
+  """
+  @type salesforce_standard_object_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      highlight() :: %{
+        "BeginOffset" => integer(),
+        "EndOffset" => integer(),
+        "TopAnswer" => boolean(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type highlight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jira_configuration() :: %{
+        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()),
+        "CommentFieldMappings" => list(data_source_to_index_field_mapping()),
+        "ExclusionPatterns" => list(String.t() | atom()),
+        "InclusionPatterns" => list(String.t() | atom()),
+        "IssueFieldMappings" => list(data_source_to_index_field_mapping()),
+        "IssueSubEntityFilter" => list(list(any())()),
+        "IssueType" => list(String.t() | atom()),
+        "JiraAccountUrl" => String.t() | atom(),
+        "Project" => list(String.t() | atom()),
+        "ProjectFieldMappings" => list(data_source_to_index_field_mapping()),
+        "SecretArn" => String.t() | atom(),
+        "Status" => list(String.t() | atom()),
+        "UseChangeLog" => boolean(),
+        "VpcConfiguration" => data_source_vpc_configuration(),
+        "WorkLogFieldMappings" => list(data_source_to_index_field_mapping())
+      }
+      
+  """
+  @type jira_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_experience_request() :: %{
+        optional("Configuration") => experience_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type update_experience_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_range() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      database_configuration() :: %{
+        "AclConfiguration" => acl_configuration(),
+        "ColumnConfiguration" => column_configuration(),
+        "ConnectionConfiguration" => connection_configuration(),
+        "DatabaseEngineType" => list(any()),
+        "SqlConfiguration" => sql_configuration(),
+        "VpcConfiguration" => data_source_vpc_configuration()
+      }
+      
+  """
+  @type database_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_put_document_response() :: %{
+        "FailedDocuments" => list(batch_put_document_response_failed_document())
+      }
+      
+  """
+  @type batch_put_document_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_personas_from_entities_response() :: %{
+        "FailedEntityList" => list(failed_entity())
+      }
+      
+  """
+  @type disassociate_personas_from_entities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_attribute_value_count_pair() :: %{
+        "Count" => integer(),
+        "DocumentAttributeValue" => document_attribute_value(),
+        "FacetResults" => list(facet_result())
+      }
+      
+  """
+  @type document_attribute_value_count_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_thesaurus_response() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type create_thesaurus_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      git_hub_document_crawl_properties() :: %{
+        "CrawlIssue" => boolean(),
+        "CrawlIssueComment" => boolean(),
+        "CrawlIssueCommentAttachment" => boolean(),
+        "CrawlPullRequest" => boolean(),
+        "CrawlPullRequestComment" => boolean(),
+        "CrawlPullRequestCommentAttachment" => boolean(),
+        "CrawlRepositoryDocuments" => boolean()
+      }
+      
+  """
+  @type git_hub_document_crawl_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      experience_configuration() :: %{
+        "ContentSourceConfiguration" => content_source_configuration(),
+        "UserIdentityConfiguration" => user_identity_configuration()
+      }
+      
+  """
+  @type experience_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_query_suggestions_config_response() :: %{
+        "AttributeSuggestionsConfig" => attribute_suggestions_describe_config(),
+        "IncludeQueriesWithoutUserInformation" => boolean(),
+        "LastClearTime" => non_neg_integer(),
+        "LastSuggestionsBuildTime" => non_neg_integer(),
+        "MinimumNumberOfQueryingUsers" => integer(),
+        "MinimumQueryCount" => integer(),
+        "Mode" => list(any()),
+        "QueryLogLookBackWindowInDays" => integer(),
+        "Status" => list(any()),
+        "TotalSuggestionsCount" => integer()
+      }
+      
+  """
+  @type describe_query_suggestions_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,1378 +3650,43 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      member_group() :: %{
-        "DataSourceId" => String.t() | atom(),
-        "GroupId" => String.t() | atom()
-      }
-      
-  """
-  @type member_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      json_token_type_configuration() :: %{
-        "GroupAttributeField" => String.t() | atom(),
-        "UserNameAttributeField" => String.t() | atom()
-      }
-      
-  """
-  @type json_token_type_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      highlight() :: %{
-        "BeginOffset" => integer(),
-        "EndOffset" => integer(),
-        "TopAnswer" => boolean(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type highlight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_query_suggestions_config_response() :: %{
-        "AttributeSuggestionsConfig" => attribute_suggestions_describe_config(),
-        "IncludeQueriesWithoutUserInformation" => boolean(),
-        "LastClearTime" => non_neg_integer(),
-        "LastSuggestionsBuildTime" => non_neg_integer(),
-        "MinimumNumberOfQueryingUsers" => integer(),
-        "MinimumQueryCount" => integer(),
-        "Mode" => list(any()),
-        "QueryLogLookBackWindowInDays" => integer(),
-        "Status" => list(any()),
-        "TotalSuggestionsCount" => integer()
-      }
-      
-  """
-  @type describe_query_suggestions_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_index_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type delete_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      index_configuration_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Edition" => list(any()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type index_configuration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_access_control_configuration_response() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type create_access_control_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      faq_statistics() :: %{
-        "IndexedQuestionAnswersCount" => integer()
-      }
-      
-  """
-  @type faq_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_group_resolution_configuration() :: %{
-        "UserGroupResolutionMode" => list(any())
-      }
-      
-  """
-  @type user_group_resolution_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_suggestions_request() :: %{
-        optional("AttributeSuggestionsConfig") => attribute_suggestions_get_config(),
-        optional("MaxSuggestionsCount") => integer(),
-        optional("SuggestionTypes") => list(list(any())()),
-        required("IndexId") => String.t() | atom(),
-        required("QueryText") => String.t() | atom()
-      }
-      
-  """
-  @type get_query_suggestions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_experience_response() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type create_experience_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_attribute_target() :: %{
-        "TargetDocumentAttributeKey" => String.t() | atom(),
-        "TargetDocumentAttributeValue" => document_attribute_value(),
-        "TargetDocumentAttributeValueDeletion" => boolean()
-      }
-      
-  """
-  @type document_attribute_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      click_feedback() :: %{
-        "ClickTime" => non_neg_integer(),
-        "ResultId" => String.t() | atom()
-      }
-      
-  """
-  @type click_feedback() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_query_suggestions_block_list_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_source_group() :: %{
-        "DataSourceId" => String.t() | atom(),
-        "GroupId" => String.t() | atom()
-      }
-      
-  """
-  @type data_source_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_query_suggestions_block_list_response() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type create_query_suggestions_block_list_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_source_sync_job_metrics() :: %{
-        "DocumentsAdded" => String.t() | atom(),
-        "DocumentsDeleted" => String.t() | atom(),
-        "DocumentsFailed" => String.t() | atom(),
-        "DocumentsModified" => String.t() | atom(),
-        "DocumentsScanned" => String.t() | atom()
-      }
-      
-  """
-  @type data_source_sync_job_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      connection_configuration() :: %{
-        "DatabaseHost" => String.t() | atom(),
-        "DatabaseName" => String.t() | atom(),
-        "DatabasePort" => integer(),
-        "SecretArn" => String.t() | atom(),
-        "TableName" => String.t() | atom()
-      }
-      
-  """
-  @type connection_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_featured_results_set_error() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type batch_delete_featured_results_set_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      salesforce_standard_knowledge_article_type_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | atom(),
-        "DocumentTitleFieldName" => String.t() | atom(),
+      column_configuration() :: %{
+        "ChangeDetectingColumns" => list(String.t() | atom()),
+        "DocumentDataColumnName" => String.t() | atom(),
+        "DocumentIdColumnName" => String.t() | atom(),
+        "DocumentTitleColumnName" => String.t() | atom(),
         "FieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
-  @type salesforce_standard_knowledge_article_type_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type column_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      clear_query_suggestions_request() :: %{
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type clear_query_suggestions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_access_control_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_access_control_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      salesforce_standard_object_attachment_configuration() :: %{
-        "DocumentTitleFieldName" => String.t() | atom(),
-        "FieldMappings" => list(data_source_to_index_field_mapping())
-      }
-      
-  """
-  @type salesforce_standard_object_attachment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failed_entity() :: %{
-        "EntityId" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom()
-      }
-      
-  """
-  @type failed_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      git_hub_document_crawl_properties() :: %{
-        "CrawlIssue" => boolean(),
-        "CrawlIssueComment" => boolean(),
-        "CrawlIssueCommentAttachment" => boolean(),
-        "CrawlPullRequest" => boolean(),
-        "CrawlPullRequestComment" => boolean(),
-        "CrawlPullRequestCommentAttachment" => boolean(),
-        "CrawlRepositoryDocuments" => boolean()
-      }
-      
-  """
-  @type git_hub_document_crawl_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_experience_entities_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SummaryItems" => list(experience_entities_summary())
-      }
-      
-  """
-  @type list_experience_entities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      salesforce_standard_object_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | atom(),
-        "DocumentTitleFieldName" => String.t() | atom(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "Name" => list(any())
-      }
-      
-  """
-  @type salesforce_standard_object_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_metadata_configuration() :: %{
-        "Name" => String.t() | atom(),
-        "Relevance" => relevance(),
-        "Search" => search(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type document_metadata_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_space_to_index_field_mapping() :: %{
-        "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | atom(),
-        "IndexFieldName" => String.t() | atom()
-      }
-      
-  """
-  @type confluence_space_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_result() :: %{
-        "FacetResults" => list(facet_result()),
-        "FeaturedResultsItems" => list(featured_results_item()),
-        "QueryId" => String.t() | atom(),
-        "ResultItems" => list(query_result_item()),
-        "SpellCorrectedQueries" => list(spell_corrected_query()),
-        "TotalNumberOfResults" => integer(),
-        "Warnings" => list(warning())
-      }
-      
-  """
-  @type query_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_attachment_configuration() :: %{
-        "AttachmentFieldMappings" => list(confluence_attachment_to_index_field_mapping()),
-        "CrawlAttachments" => boolean()
-      }
-      
-  """
-  @type confluence_attachment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_featured_results_set_response() :: %{
+      featured_results_set_summary() :: %{
         "CreationTimestamp" => float(),
-        "Description" => String.t() | atom(),
-        "FeaturedDocumentsMissing" => list(featured_document_missing()),
-        "FeaturedDocumentsWithMetadata" => list(featured_document_with_metadata()),
         "FeaturedResultsSetId" => String.t() | atom(),
         "FeaturedResultsSetName" => String.t() | atom(),
         "LastUpdatedTimestamp" => float(),
-        "QueryTexts" => list(String.t() | atom()),
         "Status" => list(any())
       }
       
   """
-  @type describe_featured_results_set_response() :: %{(String.t() | atom()) => any()}
+  @type featured_results_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      principal() :: %{
-        "Access" => list(any()),
-        "DataSourceId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_query_suggestions_block_list_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "FileSizeBytes" => float(),
-        "Id" => String.t() | atom(),
-        "IndexId" => String.t() | atom(),
-        "ItemCount" => integer(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "SourceS3Path" => s3_path(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type describe_query_suggestions_block_list_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_experience_response() :: %{}
-      
-  """
-  @type delete_experience_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_index_request() :: %{
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type describe_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      on_premise_configuration() :: %{
-        "HostUrl" => String.t() | atom(),
-        "OrganizationName" => String.t() | atom(),
-        "SslCertificateS3Path" => s3_path()
-      }
-      
-  """
-  @type on_premise_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_experience_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Configuration") => experience_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        required("IndexId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_experience_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_attribute_value_count_pair() :: %{
-        "Count" => integer(),
-        "DocumentAttributeValue" => document_attribute_value(),
-        "FacetResults" => list(facet_result())
-      }
-      
-  """
-  @type document_attribute_value_count_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_index_response() :: %{
-        "CapacityUnits" => capacity_units_configuration(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DocumentMetadataConfigurations" => list(document_metadata_configuration()),
-        "Edition" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "IndexStatistics" => index_statistics(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "ServerSideEncryptionConfiguration" => server_side_encryption_configuration(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer(),
-        "UserContextPolicy" => list(any()),
-        "UserGroupResolutionConfiguration" => user_group_resolution_configuration(),
-        "UserTokenConfigurations" => list(user_token_configuration())
-      }
-      
-  """
-  @type describe_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_already_exist_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_already_exist_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table_row() :: %{
-        "Cells" => list(table_cell())
-      }
-      
-  """
-  @type table_row() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_entities_from_experience_response() :: %{
-        "FailedEntityList" => list(failed_entity())
-      }
-      
-  """
-  @type disassociate_entities_from_experience_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_attachment_to_index_field_mapping() :: %{
-        "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | atom(),
-        "IndexFieldName" => String.t() | atom()
-      }
-      
-  """
-  @type confluence_attachment_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_identity_configuration() :: %{
-        "IdentityAttributeName" => String.t() | atom()
-      }
-      
-  """
-  @type user_identity_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_attribute_condition() :: %{
-        "ConditionDocumentAttributeKey" => String.t() | atom(),
-        "ConditionOnValue" => document_attribute_value(),
-        "Operator" => list(any())
-      }
-      
-  """
-  @type document_attribute_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_indices_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_indices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      salesforce_configuration() :: %{
-        "ChatterFeedConfiguration" => salesforce_chatter_feed_configuration(),
-        "CrawlAttachments" => boolean(),
-        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
-        "IncludeAttachmentFilePatterns" => list(String.t() | atom()),
-        "KnowledgeArticleConfiguration" => salesforce_knowledge_article_configuration(),
-        "SecretArn" => String.t() | atom(),
-        "ServerUrl" => String.t() | atom(),
-        "StandardObjectAttachmentConfiguration" => salesforce_standard_object_attachment_configuration(),
-        "StandardObjectConfigurations" => list(salesforce_standard_object_configuration())
-      }
-      
-  """
-  @type salesforce_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sorting_configuration() :: %{
-        "DocumentAttributeKey" => String.t() | atom(),
-        "SortOrder" => list(any())
-      }
-      
-  """
-  @type sorting_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      thesaurus_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type thesaurus_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_thesauri_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_thesauri_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      additional_result_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => additional_result_attribute_value(),
-        "ValueType" => list(any())
-      }
-      
-  """
-  @type additional_result_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_data_source_response() :: %{
-        "Configuration" => data_source_configuration(),
-        "CreatedAt" => non_neg_integer(),
-        "CustomDocumentEnrichmentConfiguration" => custom_document_enrichment_configuration(),
-        "Description" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "IndexId" => String.t() | atom(),
-        "LanguageCode" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Schedule" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "UpdatedAt" => non_neg_integer(),
-        "VpcConfiguration" => data_source_vpc_configuration()
-      }
-      
-  """
-  @type describe_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_configuration() :: %{
-        "AttachmentConfiguration" => confluence_attachment_configuration(),
-        "AuthenticationType" => list(any()),
-        "BlogConfiguration" => confluence_blog_configuration(),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "PageConfiguration" => confluence_page_configuration(),
-        "ProxyConfiguration" => proxy_configuration(),
-        "SecretArn" => String.t() | atom(),
-        "ServerUrl" => String.t() | atom(),
-        "SpaceConfiguration" => confluence_space_configuration(),
-        "Version" => list(any()),
-        "VpcConfiguration" => data_source_vpc_configuration()
-      }
-      
-  """
-  @type confluence_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_configuration() :: %{
-        "QueryIdentifiersEnclosingOption" => list(any())
-      }
-      
-  """
-  @type sql_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_featured_results_set_request() :: %{
-        required("FeaturedResultsSetId") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_featured_results_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search() :: %{
-        "Displayable" => boolean(),
-        "Facetable" => boolean(),
-        "Searchable" => boolean(),
-        "Sortable" => boolean()
-      }
-      
-  """
-  @type search() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      collapse_configuration() :: %{
-        "DocumentAttributeKey" => String.t() | atom(),
-        "Expand" => boolean(),
-        "ExpandConfiguration" => expand_configuration(),
-        "MissingAttributeKeyStrategy" => list(any()),
-        "SortingConfigurations" => list(sorting_configuration())
-      }
-      
-  """
-  @type collapse_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      experiences_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Endpoints" => list(experience_endpoint()),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type experiences_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity_display_data() :: %{
-        "FirstName" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "IdentifiedUserName" => String.t() | atom(),
-        "LastName" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type entity_display_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      basic_authentication_configuration() :: %{
-        "Credentials" => String.t() | atom(),
-        "Host" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type basic_authentication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_older_than_ordering_id_request() :: %{
-        optional("DataSourceId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom(),
-        required("OrderingId") => float()
-      }
-      
-  """
-  @type list_groups_older_than_ordering_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      slack_configuration() :: %{
-        "CrawlBotMessage" => boolean(),
-        "ExcludeArchived" => boolean(),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "LookBackPeriod" => integer(),
-        "PrivateChannelFilter" => list(String.t() | atom()),
-        "PublicChannelFilter" => list(String.t() | atom()),
-        "SecretArn" => String.t() | atom(),
-        "SinceCrawlDate" => String.t() | atom(),
-        "SlackEntityList" => list(list(any())()),
-        "TeamId" => String.t() | atom(),
-        "UseChangeLog" => boolean(),
-        "VpcConfiguration" => data_source_vpc_configuration()
-      }
-      
-  """
-  @type slack_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_data_sources_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_data_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_experiences_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_experiences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_suggestions_block_list_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "ItemCount" => integer(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type query_suggestions_block_list_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_access_control_configuration_response() :: %{}
-      
-  """
-  @type update_access_control_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_query_suggestions_block_list_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      personas_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "EntityId" => String.t() | atom(),
-        "Persona" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type personas_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      relevance_feedback() :: %{
-        "RelevanceValue" => list(any()),
-        "ResultId" => String.t() | atom()
-      }
-      
-  """
-  @type relevance_feedback() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_data_source_sync_job_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type start_data_source_sync_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featured_document() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type featured_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      work_docs_configuration() :: %{
-        "CrawlComments" => boolean(),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "OrganizationId" => String.t() | atom(),
-        "UseChangeLog" => boolean()
-      }
-      
-  """
-  @type work_docs_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_principal_mapping_request() :: %{
-        optional("DataSourceId") => String.t() | atom(),
-        optional("OrderingId") => float(),
-        required("GroupId") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_principal_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_data_source_sync_job_response() :: %{
-        "ExecutionId" => String.t() | atom()
-      }
-      
-  """
-  @type start_data_source_sync_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attribute_suggestions_describe_config() :: %{
-        "AttributeSuggestionsMode" => list(any()),
-        "SuggestableConfigList" => list(suggestable_config())
-      }
-      
-  """
-  @type attribute_suggestions_describe_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_access_control_configuration_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_units_configuration() :: %{
-        "QueryCapacityUnits" => integer(),
-        "StorageCapacityUnits" => integer()
-      }
-      
-  """
-  @type capacity_units_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_snapshots_response() :: %{
+      list_thesauri_response() :: %{
         "NextToken" => String.t() | atom(),
-        "SnapShotTimeFilter" => time_range(),
-        "SnapshotsData" => list(list(String.t() | atom())()),
-        "SnapshotsDataHeader" => list(String.t() | atom())
+        "ThesaurusSummaryItems" => list(thesaurus_summary())
       }
       
   """
-  @type get_snapshots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      salesforce_custom_knowledge_article_type_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | atom(),
-        "DocumentTitleFieldName" => String.t() | atom(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type salesforce_custom_knowledge_article_type_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_document_response() :: %{
-        "FailedDocuments" => list(batch_delete_document_response_failed_document())
-      }
-      
-  """
-  @type batch_delete_document_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_query_suggestions_response() :: %{
-        "QuerySuggestionsId" => String.t() | atom(),
-        "Suggestions" => list(suggestion())
-      }
-      
-  """
-  @type get_query_suggestions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      member_user() :: %{
-        "UserId" => String.t() | atom()
-      }
-      
-  """
-  @type member_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      experience_configuration() :: %{
-        "ContentSourceConfiguration" => content_source_configuration(),
-        "UserIdentityConfiguration" => user_identity_configuration()
-      }
-      
-  """
-  @type experience_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table_excerpt() :: %{
-        "Rows" => list(table_row()),
-        "TotalNumberOfRows" => integer()
-      }
-      
-  """
-  @type table_excerpt() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      salesforce_chatter_feed_configuration() :: %{
-        "DocumentDataFieldName" => String.t() | atom(),
-        "DocumentTitleFieldName" => String.t() | atom(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "IncludeFilterTypes" => list(list(any())())
-      }
-      
-  """
-  @type salesforce_chatter_feed_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_control_list_configuration() :: %{
-        "KeyPath" => String.t() | atom()
-      }
-      
-  """
-  @type access_control_list_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featured_results_conflict_exception() :: %{
-        "ConflictingItems" => list(conflicting_item()),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type featured_results_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_query_suggestions_block_list_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("IndexId") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom(),
-        required("SourceS3Path") => s3_path()
-      }
-      
-  """
-  @type create_query_suggestions_block_list_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_ordering_id_summary() :: %{
-        "FailureReason" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "OrderingId" => float(),
-        "ReceivedAt" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type group_ordering_id_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_featured_results_set_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("FeaturedDocuments") => list(featured_document()),
-        optional("FeaturedResultsSetName") => String.t() | atom(),
-        optional("QueryTexts") => list(String.t() | atom()),
-        optional("Status") => list(any()),
-        required("FeaturedResultsSetId") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type update_featured_results_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inline_custom_document_enrichment_configuration() :: %{
-        "Condition" => document_attribute_condition(),
-        "DocumentContentDeletion" => boolean(),
-        "Target" => document_attribute_target()
-      }
-      
-  """
-  @type inline_custom_document_enrichment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_data_sources_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SummaryItems" => list(data_source_summary())
-      }
-      
-  """
-  @type list_data_sources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_data_source_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_data_source_request() :: %{(String.t() | atom()) => any()}
+  @type list_thesauri_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1857,41 +3709,6 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      update_featured_results_set_response() :: %{
-        "FeaturedResultsSet" => featured_results_set()
-      }
-      
-  """
-  @type update_featured_results_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      seed_url_configuration() :: %{
-        "SeedUrls" => list(String.t() | atom()),
-        "WebCrawlerMode" => list(any())
-      }
-      
-  """
-  @type seed_url_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retrieve_result() :: %{
-        "QueryId" => String.t() | atom(),
-        "ResultItems" => list(retrieve_result_item())
-      }
-      
-  """
-  @type retrieve_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       delete_thesaurus_request() :: %{
         required("Id") => String.t() | atom(),
         required("IndexId") => String.t() | atom()
@@ -1904,222 +3721,162 @@ defmodule AWS.Kendra do
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_access_control_configurations_response() :: %{
-        "AccessControlConfigurations" => list(access_control_configuration_summary()),
+      list_query_suggestions_block_lists_response() :: %{
+        "BlockListSummaryItems" => list(query_suggestions_block_list_summary()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_access_control_configurations_response() :: %{(String.t() | atom()) => any()}
+  @type list_query_suggestions_block_lists_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      experience_entities_summary() :: %{
-        "DisplayData" => entity_display_data(),
-        "EntityId" => String.t() | atom(),
-        "EntityType" => list(any())
+      user_identity_configuration() :: %{
+        "IdentityAttributeName" => String.t() | atom()
       }
       
   """
-  @type experience_entities_summary() :: %{(String.t() | atom()) => any()}
+  @type user_identity_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      share_point_configuration() :: %{
-        "AuthenticationType" => list(any()),
-        "CrawlAttachments" => boolean(),
-        "DisableLocalGroups" => boolean(),
-        "DocumentTitleFieldName" => String.t() | atom(),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "ProxyConfiguration" => proxy_configuration(),
-        "SecretArn" => String.t() | atom(),
-        "SharePointVersion" => list(any()),
-        "SslCertificateS3Path" => s3_path(),
-        "Urls" => list(String.t() | atom()),
-        "UseChangeLog" => boolean(),
-        "VpcConfiguration" => data_source_vpc_configuration()
+      describe_access_control_configuration_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
       }
       
   """
-  @type share_point_configuration() :: %{(String.t() | atom()) => any()}
+  @type describe_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      suggestable_config() :: %{
-        "AttributeName" => String.t() | atom(),
-        "Suggestable" => boolean()
-      }
-      
-  """
-  @type suggestable_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_thesaurus_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("IndexId") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom(),
-        required("SourceS3Path") => s3_path()
-      }
-      
-  """
-  @type create_thesaurus_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hook_configuration() :: %{
-        "InvocationCondition" => document_attribute_condition(),
-        "LambdaArn" => String.t() | atom(),
-        "S3Bucket" => String.t() | atom()
-      }
-      
-  """
-  @type hook_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_source_to_index_field_mapping() :: %{
-        "DataSourceFieldName" => String.t() | atom(),
-        "DateFieldFormat" => String.t() | atom(),
-        "IndexFieldName" => String.t() | atom()
-      }
-      
-  """
-  @type data_source_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      spell_corrected_query() :: %{
-        "Corrections" => list(correction()),
-        "SuggestedQueryText" => String.t() | atom()
-      }
-      
-  """
-  @type spell_corrected_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_featured_results_set_response() :: %{
-        "FeaturedResultsSet" => featured_results_set()
-      }
-      
-  """
-  @type create_featured_results_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      urls() :: %{
-        "SeedUrlConfiguration" => seed_url_configuration(),
-        "SiteMapsConfiguration" => site_maps_configuration()
-      }
-      
-  """
-  @type urls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expanded_result_item() :: %{
-        "DocumentAttributes" => list(document_attribute()),
-        "DocumentExcerpt" => text_with_highlights(),
-        "DocumentId" => String.t() | atom(),
-        "DocumentTitle" => text_with_highlights(),
-        "DocumentURI" => String.t() | atom(),
+      batch_delete_document_response_failed_document() :: %{
+        "DataSourceId" => String.t() | atom(),
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
         "Id" => String.t() | atom()
       }
       
   """
-  @type expanded_result_item() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_document_response_failed_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_indices_response() :: %{
-        "IndexConfigurationSummaryItems" => list(index_configuration_summary()),
-        "NextToken" => String.t() | atom()
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
       }
       
   """
-  @type list_indices_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      user_token_configuration() :: %{
-        "JsonTokenTypeConfiguration" => json_token_type_configuration(),
-        "JwtTokenTypeConfiguration" => jwt_token_type_configuration()
+      table_row() :: %{
+        "Cells" => list(table_cell())
       }
       
   """
-  @type user_token_configuration() :: %{(String.t() | atom()) => any()}
+  @type table_row() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      data_source_sync_job() :: %{
-        "DataSourceErrorCode" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "ExecutionId" => String.t() | atom(),
-        "Metrics" => data_source_sync_job_metrics(),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any())
+      salesforce_knowledge_article_configuration() :: %{
+        "CustomKnowledgeArticleTypeConfigurations" => list(salesforce_custom_knowledge_article_type_configuration()),
+        "IncludedStates" => list(list(any())()),
+        "StandardKnowledgeArticleTypeConfiguration" => salesforce_standard_knowledge_article_type_configuration()
       }
       
   """
-  @type data_source_sync_job() :: %{(String.t() | atom()) => any()}
+  @type salesforce_knowledge_article_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      featured_document_with_metadata() :: %{
+      featured_document_missing() :: %{
+        "Id" => String.t() | atom()
+      }
+      
+  """
+  @type featured_document_missing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_experience_request() :: %{
+        required("Id") => String.t() | atom(),
+        required("IndexId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_experience_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      text_with_highlights() :: %{
+        "Highlights" => list(highlight()),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type text_with_highlights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      submit_feedback_request() :: %{
+        optional("ClickFeedbackItems") => list(click_feedback()),
+        optional("RelevanceFeedbackItems") => list(relevance_feedback()),
+        required("IndexId") => String.t() | atom(),
+        required("QueryId") => String.t() | atom()
+      }
+      
+  """
+  @type submit_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
         "Id" => String.t() | atom(),
-        "Title" => String.t() | atom(),
-        "URI" => String.t() | atom()
+        "LanguageCode" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "UpdatedAt" => non_neg_integer()
       }
       
   """
-  @type featured_document_with_metadata() :: %{(String.t() | atom()) => any()}
+  @type data_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2144,2277 +3901,520 @@ defmodule AWS.Kendra do
   """
   @type describe_thesaurus_response() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_featured_results_set_response() :: %{
-        "Errors" => list(batch_delete_featured_results_set_error())
-      }
-      
-  """
-  @type batch_delete_featured_results_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      server_side_encryption_configuration() :: %{
-        "KmsKeyId" => String.t() | atom()
-      }
-      
-  """
-  @type server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_data_source_sync_job_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_data_source_sync_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_faq_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_faq_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      suggestion_text_with_highlights() :: %{
-        "Highlights" => list(suggestion_highlight()),
-        "Text" => String.t() | atom()
-      }
-      
-  """
-  @type suggestion_text_with_highlights() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fsx_configuration() :: %{
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "FileSystemId" => String.t() | atom(),
-        "FileSystemType" => list(any()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "SecretArn" => String.t() | atom(),
-        "VpcConfiguration" => data_source_vpc_configuration()
-      }
-      
-  """
-  @type fsx_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      score_attributes() :: %{
-        "ScoreConfidence" => list(any())
-      }
-      
-  """
-  @type score_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_principal_mapping_request() :: %{
-        optional("DataSourceId") => String.t() | atom(),
-        required("GroupId") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_principal_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_document() :: %{
-        "AdditionalAttributes" => list(document_attribute()),
-        "DocumentId" => String.t() | atom(),
-        "SuggestionAttributes" => list(String.t() | atom())
-      }
-      
-  """
-  @type source_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_faq_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_faq_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_document_response_failed_document() :: %{
-        "DataSourceId" => String.t() | atom(),
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type batch_delete_document_response_failed_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_now_configuration() :: %{
-        "AuthenticationType" => list(any()),
-        "HostUrl" => String.t() | atom(),
-        "KnowledgeArticleConfiguration" => service_now_knowledge_article_configuration(),
-        "SecretArn" => String.t() | atom(),
-        "ServiceCatalogConfiguration" => service_now_service_catalog_configuration(),
-        "ServiceNowBuildVersion" => list(any())
-      }
-      
-  """
-  @type service_now_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_now_service_catalog_configuration() :: %{
-        "CrawlAttachments" => boolean(),
-        "DocumentDataFieldName" => String.t() | atom(),
-        "DocumentTitleFieldName" => String.t() | atom(),
-        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "IncludeAttachmentFilePatterns" => list(String.t() | atom())
-      }
-      
-  """
-  @type service_now_service_catalog_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attribute_suggestions_update_config() :: %{
-        "AttributeSuggestionsMode" => list(any()),
-        "SuggestableConfigList" => list(suggestable_config())
-      }
-      
-  """
-  @type attribute_suggestions_update_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_crawler_configuration() :: %{
-        "AuthenticationConfiguration" => authentication_configuration(),
-        "CrawlDepth" => integer(),
-        "MaxContentSizePerPageInMegaBytes" => float(),
-        "MaxLinksPerPage" => integer(),
-        "MaxUrlsPerMinuteCrawlRate" => integer(),
-        "ProxyConfiguration" => proxy_configuration(),
-        "UrlExclusionPatterns" => list(String.t() | atom()),
-        "UrlInclusionPatterns" => list(String.t() | atom()),
-        "Urls" => urls()
-      }
-      
-  """
-  @type web_crawler_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      additional_result_attribute_value() :: %{
-        "TextWithHighlightsValue" => text_with_highlights()
-      }
-      
-  """
-  @type additional_result_attribute_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      facet_result() :: %{
-        "DocumentAttributeKey" => String.t() | atom(),
-        "DocumentAttributeValueCountPairs" => list(document_attribute_value_count_pair()),
-        "DocumentAttributeValueType" => list(any())
-      }
-      
-  """
-  @type facet_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_experiences_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SummaryItems" => list(experiences_summary())
-      }
-      
-  """
-  @type list_experiences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_data_source_response() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type create_data_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_document_request() :: %{
-        optional("DataSourceSyncJobMetricTarget") => data_source_sync_job_metric_target(),
-        required("DocumentIdList") => list(String.t() | atom()),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type batch_delete_document_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_source_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "LanguageCode" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type data_source_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_put_document_response() :: %{
-        "FailedDocuments" => list(batch_put_document_response_failed_document())
-      }
-      
-  """
-  @type batch_put_document_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_entity_personas_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_entity_personas_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      suggestion() :: %{
-        "Id" => String.t() | atom(),
-        "SourceDocuments" => list(source_document()),
-        "Value" => suggestion_value()
-      }
-      
-  """
-  @type suggestion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_delete_featured_results_set_request() :: %{
-        required("FeaturedResultsSetIds") => list(String.t() | atom()),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type batch_delete_featured_results_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_index_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Edition") => list(any()),
-        optional("ServerSideEncryptionConfiguration") => server_side_encryption_configuration(),
-        optional("Tags") => list(tag()),
-        optional("UserContextPolicy") => list(any()),
-        optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
-        optional("UserTokenConfigurations") => list(user_token_configuration()),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_index_request() :: %{
-        optional("CapacityUnits") => capacity_units_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("DocumentMetadataConfigurationUpdates") => list(document_metadata_configuration()),
-        optional("Name") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("UserContextPolicy") => list(any()),
-        optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
-        optional("UserTokenConfigurations") => list(user_token_configuration()),
-        required("Id") => String.t() | atom()
-      }
-      
-  """
-  @type update_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      column_configuration() :: %{
-        "ChangeDetectingColumns" => list(String.t() | atom()),
-        "DocumentDataColumnName" => String.t() | atom(),
-        "DocumentIdColumnName" => String.t() | atom(),
-        "DocumentTitleColumnName" => String.t() | atom(),
-        "FieldMappings" => list(data_source_to_index_field_mapping())
-      }
-      
-  """
-  @type column_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hierarchical_principal() :: %{
-        "PrincipalList" => list(principal())
-      }
-      
-  """
-  @type hierarchical_principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      warning() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type warning() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_range() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_now_knowledge_article_configuration() :: %{
-        "CrawlAttachments" => boolean(),
-        "DocumentDataFieldName" => String.t() | atom(),
-        "DocumentTitleFieldName" => String.t() | atom(),
-        "ExcludeAttachmentFilePatterns" => list(String.t() | atom()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "FilterQuery" => String.t() | atom(),
-        "IncludeAttachmentFilePatterns" => list(String.t() | atom())
-      }
-      
-  """
-  @type service_now_knowledge_article_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_access_control_configuration_response() :: %{}
-      
-  """
-  @type delete_access_control_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_principal_mapping_request() :: %{
-        optional("DataSourceId") => String.t() | atom(),
-        optional("OrderingId") => float(),
-        optional("RoleArn") => String.t() | atom(),
-        required("GroupId") => String.t() | atom(),
-        required("GroupMembers") => group_members(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type put_principal_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_thesaurus_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_thesaurus_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_attribute_value() :: %{
-        "DateValue" => non_neg_integer(),
-        "LongValue" => float(),
-        "StringListValue" => list(String.t() | atom()),
-        "StringValue" => String.t() | atom()
-      }
-      
-  """
-  @type document_attribute_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_faq_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("FileFormat") => list(any()),
-        optional("LanguageCode") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("IndexId") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom(),
-        required("S3Path") => s3_path()
-      }
-      
-  """
-  @type create_faq_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      experience_endpoint() :: %{
-        "Endpoint" => String.t() | atom(),
-        "EndpointType" => list(any())
-      }
-      
-  """
-  @type experience_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      correction() :: %{
-        "BeginOffset" => integer(),
-        "CorrectedTerm" => String.t() | atom(),
-        "EndOffset" => integer(),
-        "Term" => String.t() | atom()
-      }
-      
-  """
-  @type correction() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      entity_configuration() :: %{
-        "EntityId" => String.t() | atom(),
-        "EntityType" => list(any())
-      }
-      
-  """
-  @type entity_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      suggestion_highlight() :: %{
-        "BeginOffset" => integer(),
-        "EndOffset" => integer()
-      }
-      
-  """
-  @type suggestion_highlight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      relevance() :: %{
-        "Duration" => String.t() | atom(),
-        "Freshness" => boolean(),
-        "Importance" => integer(),
-        "RankOrder" => list(any()),
-        "ValueImportanceMap" => map()
-      }
-      
-  """
-  @type relevance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featured_document_missing() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type featured_document_missing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_personas_from_entities_response() :: %{
-        "FailedEntityList" => list(failed_entity())
-      }
-      
-  """
-  @type disassociate_personas_from_entities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      documents_metadata_configuration() :: %{
-        "S3Prefix" => String.t() | atom()
-      }
-      
-  """
-  @type documents_metadata_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_snapshots_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom(),
-        required("Interval") => list(any()),
-        required("MetricType") => list(any())
-      }
-      
-  """
-  @type get_snapshots_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_featured_results_sets_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_featured_results_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_experience_response() :: %{
-        "Configuration" => experience_configuration(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Endpoints" => list(experience_endpoint()),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "IndexId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type describe_experience_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_entities_to_experience_request() :: %{
-        required("EntityList") => list(entity_configuration()),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type associate_entities_to_experience_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      jwt_token_type_configuration() :: %{
-        "ClaimRegex" => String.t() | atom(),
-        "GroupAttributeField" => String.t() | atom(),
-        "Issuer" => String.t() | atom(),
-        "KeyLocation" => list(any()),
-        "SecretManagerArn" => String.t() | atom(),
-        "URL" => String.t() | atom(),
-        "UserNameAttributeField" => String.t() | atom()
-      }
-      
-  """
-  @type jwt_token_type_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_access_control_configuration_response() :: %{
-        "AccessControlList" => list(principal()),
-        "Description" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "HierarchicalAccessControlList" => list(hierarchical_principal()),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type describe_access_control_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      template_configuration() :: %{
-        "Template" => any()
-      }
-      
-  """
-  @type template_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      facet() :: %{
-        "DocumentAttributeKey" => String.t() | atom(),
-        "Facets" => list(facet()),
-        "MaxResults" => integer()
-      }
-      
-  """
-  @type facet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_data_source_request() :: %{
-        optional("Configuration") => data_source_configuration(),
-        optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("LanguageCode") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("Schedule") => String.t() | atom(),
-        optional("VpcConfiguration") => data_source_vpc_configuration(),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type update_data_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expand_configuration() :: %{
-        "MaxExpandedResultsPerItem" => integer(),
-        "MaxResultItemsToExpand" => integer()
-      }
-      
-  """
-  @type expand_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_put_document_request() :: %{
-        optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
-        optional("RoleArn") => String.t() | atom(),
-        required("Documents") => list(document()),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type batch_put_document_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_experience_entities_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_experience_entities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_members() :: %{
-        "MemberGroups" => list(member_group()),
-        "MemberUsers" => list(member_user()),
-        "S3PathforGroupMembers" => s3_path()
-      }
-      
-  """
-  @type group_members() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_blog_to_index_field_mapping() :: %{
-        "DataSourceFieldName" => list(any()),
-        "DateFieldFormat" => String.t() | atom(),
-        "IndexFieldName" => String.t() | atom()
-      }
-      
-  """
-  @type confluence_blog_to_index_field_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_faq_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "FileFormat" => list(any()),
-        "Id" => String.t() | atom(),
-        "IndexId" => String.t() | atom(),
-        "LanguageCode" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "S3Path" => s3_path(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type describe_faq_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_data_source_sync_jobs_response() :: %{
-        "History" => list(data_source_sync_job()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_data_source_sync_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      submit_feedback_request() :: %{
-        optional("ClickFeedbackItems") => list(click_feedback()),
-        optional("RelevanceFeedbackItems") => list(relevance_feedback()),
-        required("IndexId") => String.t() | atom(),
-        required("QueryId") => String.t() | atom()
-      }
-      
-  """
-  @type submit_feedback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      jira_configuration() :: %{
-        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()),
-        "CommentFieldMappings" => list(data_source_to_index_field_mapping()),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "IssueFieldMappings" => list(data_source_to_index_field_mapping()),
-        "IssueSubEntityFilter" => list(list(any())()),
-        "IssueType" => list(String.t() | atom()),
-        "JiraAccountUrl" => String.t() | atom(),
-        "Project" => list(String.t() | atom()),
-        "ProjectFieldMappings" => list(data_source_to_index_field_mapping()),
-        "SecretArn" => String.t() | atom(),
-        "Status" => list(String.t() | atom()),
-        "UseChangeLog" => boolean(),
-        "VpcConfiguration" => data_source_vpc_configuration(),
-        "WorkLogFieldMappings" => list(data_source_to_index_field_mapping())
-      }
-      
-  """
-  @type jira_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      quip_configuration() :: %{
-        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()),
-        "CrawlAttachments" => boolean(),
-        "CrawlChatRooms" => boolean(),
-        "CrawlFileComments" => boolean(),
-        "Domain" => String.t() | atom(),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "FolderIds" => list(String.t() | atom()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "MessageFieldMappings" => list(data_source_to_index_field_mapping()),
-        "SecretArn" => String.t() | atom(),
-        "ThreadFieldMappings" => list(data_source_to_index_field_mapping()),
-        "VpcConfiguration" => data_source_vpc_configuration()
-      }
-      
-  """
-  @type quip_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_older_than_ordering_id_response() :: %{
-        "GroupsSummaries" => list(group_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_groups_older_than_ordering_id_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_space_configuration() :: %{
-        "CrawlArchivedSpaces" => boolean(),
-        "CrawlPersonalSpaces" => boolean(),
-        "ExcludeSpaces" => list(String.t() | atom()),
-        "IncludeSpaces" => list(String.t() | atom()),
-        "SpaceFieldMappings" => list(confluence_space_to_index_field_mapping())
-      }
-      
-  """
-  @type confluence_space_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_personas_to_entities_response() :: %{
-        "FailedEntityList" => list(failed_entity())
-      }
-      
-  """
-  @type associate_personas_to_entities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_document_status_response_error() :: %{
-        "DataSourceId" => String.t() | atom(),
-        "DocumentId" => String.t() | atom(),
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom()
-      }
-      
-  """
-  @type batch_get_document_status_response_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attribute_filter() :: %{
-        "AndAllFilters" => list(attribute_filter()),
-        "ContainsAll" => document_attribute(),
-        "ContainsAny" => document_attribute(),
-        "EqualsTo" => document_attribute(),
-        "GreaterThan" => document_attribute(),
-        "GreaterThanOrEquals" => document_attribute(),
-        "LessThan" => document_attribute(),
-        "LessThanOrEquals" => document_attribute(),
-        "NotFilter" => attribute_filter(),
-        "OrAllFilters" => list(attribute_filter())
-      }
-      
-  """
-  @type attribute_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_data_source_sync_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartTimeFilter") => time_range(),
-        optional("StatusFilter") => list(any()),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_data_source_sync_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_principal_mapping_response() :: %{
-        "DataSourceId" => String.t() | atom(),
-        "GroupId" => String.t() | atom(),
-        "GroupOrderingIdSummaries" => list(group_ordering_id_summary()),
-        "IndexId" => String.t() | atom()
-      }
-      
-  """
-  @type describe_principal_mapping_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featured_results_set() :: %{
-        "CreationTimestamp" => float(),
-        "Description" => String.t() | atom(),
-        "FeaturedDocuments" => list(featured_document()),
-        "FeaturedResultsSetId" => String.t() | atom(),
-        "FeaturedResultsSetName" => String.t() | atom(),
-        "LastUpdatedTimestamp" => float(),
-        "QueryTexts" => list(String.t() | atom()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type featured_results_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_access_control_configuration_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      collapsed_result_detail() :: %{
-        "DocumentAttribute" => document_attribute(),
-        "ExpandedResults" => list(expanded_result_item())
-      }
-      
-  """
-  @type collapsed_result_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_query_suggestions_block_lists_response() :: %{
-        "BlockListSummaryItems" => list(query_suggestions_block_list_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_query_suggestions_block_lists_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attribute_suggestions_get_config() :: %{
-        "AdditionalResponseAttributes" => list(String.t() | atom()),
-        "AttributeFilter" => attribute_filter(),
-        "SuggestionAttributes" => list(String.t() | atom()),
-        "UserContext" => user_context()
-      }
-      
-  """
-  @type attribute_suggestions_get_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_request() :: %{
-        optional("AttributeFilter") => attribute_filter(),
-        optional("CollapseConfiguration") => collapse_configuration(),
-        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()),
-        optional("Facets") => list(facet()),
-        optional("PageNumber") => integer(),
-        optional("PageSize") => integer(),
-        optional("QueryResultTypeFilter") => list(any()),
-        optional("QueryText") => String.t() | atom(),
-        optional("RequestedDocumentAttributes") => list(String.t() | atom()),
-        optional("SortingConfiguration") => sorting_configuration(),
-        optional("SortingConfigurations") => list(sorting_configuration()),
-        optional("SpellCorrectionConfiguration") => spell_correction_configuration(),
-        optional("UserContext") => user_context(),
-        optional("VisitorId") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type query_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_context() :: %{
-        "DataSourceGroups" => list(data_source_group()),
-        "Groups" => list(String.t() | atom()),
-        "Token" => String.t() | atom(),
-        "UserId" => String.t() | atom()
-      }
-      
-  """
-  @type user_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_summary() :: %{
-        "GroupId" => String.t() | atom(),
-        "OrderingId" => float()
-      }
-      
-  """
-  @type group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      one_drive_configuration() :: %{
-        "DisableLocalGroups" => boolean(),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "OneDriveUsers" => one_drive_users(),
-        "SecretArn" => String.t() | atom(),
-        "TenantDomain" => String.t() | atom()
-      }
-      
-  """
-  @type one_drive_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_result_item() :: %{
-        "AdditionalAttributes" => list(additional_result_attribute()),
-        "CollapsedResultDetail" => collapsed_result_detail(),
-        "DocumentAttributes" => list(document_attribute()),
-        "DocumentExcerpt" => text_with_highlights(),
-        "DocumentId" => String.t() | atom(),
-        "DocumentTitle" => text_with_highlights(),
-        "DocumentURI" => String.t() | atom(),
-        "FeedbackToken" => String.t() | atom(),
-        "Format" => list(any()),
-        "Id" => String.t() | atom(),
-        "ScoreAttributes" => score_attributes(),
-        "TableExcerpt" => table_excerpt(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type query_result_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_entities_to_experience_response() :: %{
-        "FailedEntityList" => list(failed_entity())
-      }
-      
-  """
-  @type associate_entities_to_experience_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_index_response() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type create_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_blog_configuration() :: %{
-        "BlogFieldMappings" => list(confluence_blog_to_index_field_mapping())
-      }
-      
-  """
-  @type confluence_blog_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_query_suggestions_config_request() :: %{
-        optional("AttributeSuggestionsConfig") => attribute_suggestions_update_config(),
-        optional("IncludeQueriesWithoutUserInformation") => boolean(),
-        optional("MinimumNumberOfQueryingUsers") => integer(),
-        optional("MinimumQueryCount") => integer(),
-        optional("Mode") => list(any()),
-        optional("QueryLogLookBackWindowInDays") => integer(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type update_query_suggestions_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_query_suggestions_block_lists_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_query_suggestions_block_lists_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      status() :: %{
-        "DocumentId" => String.t() | atom(),
-        "DocumentStatus" => list(any()),
-        "FailureCode" => String.t() | atom(),
-        "FailureReason" => String.t() | atom()
-      }
-      
-  """
-  @type status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authentication_configuration() :: %{
-        "BasicAuthentication" => list(basic_authentication_configuration())
-      }
-      
-  """
-  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_faq_response() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type create_faq_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      alfresco_configuration() :: %{
-        "BlogFieldMappings" => list(data_source_to_index_field_mapping()),
-        "CrawlComments" => boolean(),
-        "CrawlSystemFolders" => boolean(),
-        "DocumentLibraryFieldMappings" => list(data_source_to_index_field_mapping()),
-        "EntityFilter" => list(list(any())()),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "SecretArn" => String.t() | atom(),
-        "SiteId" => String.t() | atom(),
-        "SiteUrl" => String.t() | atom(),
-        "SslCertificateS3Path" => s3_path(),
-        "VpcConfiguration" => data_source_vpc_configuration(),
-        "WikiFieldMappings" => list(data_source_to_index_field_mapping())
-      }
-      
-  """
-  @type alfresco_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_document_status_response() :: %{
-        "DocumentStatusList" => list(status()),
-        "Errors" => list(batch_get_document_status_response_error())
-      }
-      
-  """
-  @type batch_get_document_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confluence_page_configuration() :: %{
-        "PageFieldMappings" => list(confluence_page_to_index_field_mapping())
-      }
-      
-  """
-  @type confluence_page_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_personas_from_entities_request() :: %{
-        required("EntityIds") => list(String.t() | atom()),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_personas_from_entities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      text_document_statistics() :: %{
-        "IndexedTextBytes" => float(),
-        "IndexedTextDocumentsCount" => integer()
-      }
-      
-  """
-  @type text_document_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_experience_request() :: %{
-        optional("Configuration") => experience_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type update_experience_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      retrieve_request() :: %{
-        optional("AttributeFilter") => attribute_filter(),
-        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()),
-        optional("PageNumber") => integer(),
-        optional("PageSize") => integer(),
-        optional("RequestedDocumentAttributes") => list(String.t() | atom()),
-        optional("UserContext") => user_context(),
-        required("IndexId") => String.t() | atom(),
-        required("QueryText") => String.t() | atom()
-      }
-      
-  """
-  @type retrieve_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_featured_results_sets_response() :: %{
-        "FeaturedResultsSetSummaryItems" => list(featured_results_set_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_featured_results_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      acl_configuration() :: %{
-        "AllowedGroupsColumnName" => String.t() | atom()
-      }
-      
-  """
-  @type acl_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_thesaurus_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("SourceS3Path") => s3_path(),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type update_thesaurus_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      table_cell() :: %{
-        "Header" => boolean(),
-        "Highlighted" => boolean(),
-        "TopAnswer" => boolean(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type table_cell() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_access_control_configuration_request() :: %{
-        optional("AccessControlList") => list(principal()),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
-        required("IndexId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_access_control_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_info() :: %{
-        "Attributes" => list(document_attribute()),
-        "DocumentId" => String.t() | atom()
-      }
-      
-  """
-  @type document_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_entity_personas_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SummaryItems" => list(personas_summary())
-      }
-      
-  """
-  @type list_entity_personas_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_faqs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type list_faqs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_thesaurus_response() :: %{
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type create_thesaurus_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document() :: %{
-        "AccessControlConfigurationId" => String.t() | atom(),
-        "AccessControlList" => list(principal()),
-        "Attributes" => list(document_attribute()),
-        "Blob" => binary(),
-        "ContentType" => list(any()),
-        "HierarchicalAccessControlList" => list(hierarchical_principal()),
-        "Id" => String.t() | atom(),
-        "S3Path" => s3_path(),
-        "Title" => String.t() | atom()
-      }
-      
-  """
-  @type document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_faqs_response() :: %{
-        "FaqSummaryItems" => list(faq_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_faqs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      database_configuration() :: %{
-        "AclConfiguration" => acl_configuration(),
-        "ColumnConfiguration" => column_configuration(),
-        "ConnectionConfiguration" => connection_configuration(),
-        "DatabaseEngineType" => list(any()),
-        "SqlConfiguration" => sql_configuration(),
-        "VpcConfiguration" => data_source_vpc_configuration()
-      }
-      
-  """
-  @type database_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_get_document_status_request() :: %{
-        required("DocumentInfoList") => list(document_info()),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type batch_get_document_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_entities_from_experience_request() :: %{
-        required("EntityList") => list(entity_configuration()),
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_entities_from_experience_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_featured_results_set_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("FeaturedDocuments") => list(featured_document()),
-        optional("QueryTexts") => list(String.t() | atom()),
-        optional("Status") => list(any()),
-        optional("Tags") => list(tag()),
-        required("FeaturedResultsSetName") => String.t() | atom(),
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type create_featured_results_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featured_results_set_summary() :: %{
-        "CreationTimestamp" => float(),
-        "FeaturedResultsSetId" => String.t() | atom(),
-        "FeaturedResultsSetName" => String.t() | atom(),
-        "LastUpdatedTimestamp" => float(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type featured_results_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      faq_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "FileFormat" => list(any()),
-        "Id" => String.t() | atom(),
-        "LanguageCode" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type faq_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_data_source_configuration() :: %{
-        "AccessControlListConfiguration" => access_control_list_configuration(),
-        "BucketName" => String.t() | atom(),
-        "DocumentsMetadataConfiguration" => documents_metadata_configuration(),
-        "ExclusionPatterns" => list(String.t() | atom()),
-        "InclusionPatterns" => list(String.t() | atom()),
-        "InclusionPrefixes" => list(String.t() | atom())
-      }
-      
-  """
-  @type s3_data_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      index_statistics() :: %{
-        "FaqStatistics" => faq_statistics(),
-        "TextDocumentStatistics" => text_document_statistics()
-      }
-      
-  """
-  @type index_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_relevance_configuration() :: %{
-        "Name" => String.t() | atom(),
-        "Relevance" => relevance()
-      }
-      
-  """
-  @type document_relevance_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_personas_to_entities_request() :: %{
-        required("Id") => String.t() | atom(),
-        required("IndexId") => String.t() | atom(),
-        required("Personas") => list(entity_persona_configuration())
-      }
-      
-  """
-  @type associate_personas_to_entities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_query_suggestions_config_request() :: %{
-        required("IndexId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_query_suggestions_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      spell_correction_configuration() :: %{
-        "IncludeQuerySpellCheckSuggestions" => boolean()
-      }
-      
-  """
-  @type spell_correction_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_put_document_response_failed_document() :: %{
-        "DataSourceId" => String.t() | atom(),
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-      
-  """
-  @type batch_put_document_response_failed_document() :: %{(String.t() | atom()) => any()}
-
   @type associate_entities_to_experience_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
           | resource_already_exist_exception()
 
   @type associate_personas_to_entities_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
           | resource_already_exist_exception()
 
   @type batch_delete_document_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_delete_featured_results_set_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_get_document_status_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_put_document_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type clear_query_suggestions_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_access_control_configuration_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_data_source_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
           | resource_already_exist_exception()
 
   @type create_experience_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_faq_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_featured_results_set_errors() ::
-          throttling_exception()
+          featured_results_conflict_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | featured_results_conflict_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_index_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
           | resource_already_exist_exception()
 
   @type create_query_suggestions_block_list_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_thesaurus_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_access_control_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_data_source_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_experience_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_faq_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_index_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_principal_mapping_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_query_suggestions_block_list_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_thesaurus_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_access_control_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_data_source_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_experience_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_faq_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_featured_results_set_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_index_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_principal_mapping_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_query_suggestions_block_list_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_query_suggestions_config_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_thesaurus_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_entities_from_experience_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_personas_from_entities_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_query_suggestions_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_snapshots_errors() ::
-          access_denied_exception()
-          | internal_server_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_access_control_configurations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_data_source_sync_jobs_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_data_sources_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_entity_personas_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_experience_entities_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_experiences_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_faqs_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_featured_results_sets_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_groups_older_than_ordering_id_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_indices_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_query_suggestions_block_lists_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_unavailable_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_unavailable_exception()
+          | throttling_exception()
 
   @type list_thesauri_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type put_principal_mapping_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type query_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type retrieve_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_data_source_sync_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type stop_data_source_sync_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type submit_feedback_errors() ::
-          throttling_exception()
+          resource_unavailable_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | resource_unavailable_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_unavailable_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_unavailable_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_unavailable_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_unavailable_exception()
+          | throttling_exception()
 
   @type update_access_control_configuration_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_data_source_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_experience_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_featured_results_set_errors() ::
-          throttling_exception()
+          featured_results_conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | featured_results_conflict_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_index_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_query_suggestions_block_list_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_query_suggestions_config_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_thesaurus_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -4451,7 +4451,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, associate_entities_to_experience_errors()}
   def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateEntitiesToExperience", input, options)
   end
@@ -4471,7 +4472,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, associate_personas_to_entities_errors()}
   def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociatePersonasToEntities", input, options)
   end
@@ -4500,7 +4502,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_delete_document_errors()}
   def batch_delete_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteDocument", input, options)
   end
@@ -4522,7 +4525,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_delete_featured_results_set_errors()}
   def batch_delete_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteFeaturedResultsSet", input, options)
   end
@@ -4550,7 +4554,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_get_document_status_errors()}
   def batch_get_document_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDocumentStatus", input, options)
   end
@@ -4582,7 +4587,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_put_document_errors()}
   def batch_put_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchPutDocument", input, options)
   end
@@ -4606,7 +4612,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, clear_query_suggestions_errors()}
   def clear_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ClearQuerySuggestions", input, options)
   end
@@ -4664,7 +4671,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_access_control_configuration_errors()}
   def create_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccessControlConfiguration", input, options)
   end
@@ -4691,7 +4699,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSource", input, options)
   end
@@ -4711,7 +4720,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_experience_errors()}
   def create_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExperience", input, options)
   end
@@ -4732,7 +4742,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_faq_errors()}
   def create_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFaq", input, options)
   end
@@ -4755,7 +4766,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_featured_results_set_errors()}
   def create_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFeaturedResultsSet", input, options)
   end
@@ -4783,7 +4795,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIndex", input, options)
   end
@@ -4818,7 +4831,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_query_suggestions_block_list_errors()}
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQuerySuggestionsBlockList", input, options)
   end
@@ -4839,7 +4853,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_thesaurus_errors()}
   def create_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateThesaurus", input, options)
   end
@@ -4864,7 +4879,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_access_control_configuration_errors()}
   def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccessControlConfiguration", input, options)
   end
@@ -4890,7 +4906,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
@@ -4908,7 +4925,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_experience_errors()}
   def delete_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExperience", input, options)
   end
@@ -4922,7 +4940,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_faq_errors()}
   def delete_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFaq", input, options)
   end
@@ -4941,7 +4960,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIndex", input, options)
   end
@@ -4974,7 +4994,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_principal_mapping_errors()}
   def delete_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePrincipalMapping", input, options)
   end
@@ -4999,7 +5020,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_query_suggestions_block_list_errors()}
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQuerySuggestionsBlockList", input, options)
   end
@@ -5013,7 +5035,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_thesaurus_errors()}
   def delete_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteThesaurus", input, options)
   end
@@ -5037,7 +5060,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_access_control_configuration_errors()}
   def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccessControlConfiguration", input, options)
   end
@@ -5051,7 +5075,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_data_source_errors()}
   def describe_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSource", input, options)
   end
@@ -5070,7 +5095,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_experience_errors()}
   def describe_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExperience", input, options)
   end
@@ -5084,7 +5110,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_faq_errors()}
   def describe_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFaq", input, options)
   end
@@ -5103,7 +5130,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_featured_results_set_errors()}
   def describe_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeaturedResultsSet", input, options)
   end
@@ -5117,7 +5145,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_index_errors()}
   def describe_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIndex", input, options)
   end
@@ -5143,7 +5172,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_principal_mapping_errors()}
   def describe_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePrincipalMapping", input, options)
   end
@@ -5168,7 +5198,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_query_suggestions_block_list_errors()}
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsBlockList", input, options)
   end
@@ -5192,7 +5223,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_query_suggestions_config_errors()}
   def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsConfig", input, options)
   end
@@ -5206,7 +5238,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_thesaurus_errors()}
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeThesaurus", input, options)
   end
@@ -5230,7 +5263,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, disassociate_entities_from_experience_errors()}
   def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateEntitiesFromExperience", input, options)
   end
@@ -5254,7 +5288,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, disassociate_personas_from_entities_errors()}
   def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociatePersonasFromEntities", input, options)
   end
@@ -5271,7 +5306,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, get_query_suggestions_errors()}
   def get_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQuerySuggestions", input, options)
   end
@@ -5288,7 +5324,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, get_snapshots_errors()}
   def get_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshots", input, options)
   end
@@ -5312,7 +5349,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_access_control_configurations_errors()}
   def list_access_control_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccessControlConfigurations", input, options)
   end
@@ -5326,7 +5364,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_data_source_sync_jobs_errors()}
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataSourceSyncJobs", input, options)
   end
@@ -5340,7 +5379,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataSources", input, options)
   end
@@ -5355,7 +5395,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_entity_personas_errors()}
   def list_entity_personas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntityPersonas", input, options)
   end
@@ -5375,7 +5416,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_experience_entities_errors()}
   def list_experience_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperienceEntities", input, options)
   end
@@ -5394,7 +5436,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_experiences_errors()}
   def list_experiences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperiences", input, options)
   end
@@ -5408,7 +5451,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_faqs_errors()}
   def list_faqs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFaqs", input, options)
   end
@@ -5428,7 +5472,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_featured_results_sets_errors()}
   def list_featured_results_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFeaturedResultsSets", input, options)
   end
@@ -5450,7 +5495,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_groups_older_than_ordering_id_errors()}
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupsOlderThanOrderingId", input, options)
   end
@@ -5464,7 +5510,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_indices_errors()}
   def list_indices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIndices", input, options)
   end
@@ -5488,7 +5535,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_query_suggestions_block_lists_errors()}
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQuerySuggestionsBlockLists", input, options)
   end
@@ -5505,7 +5553,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5519,7 +5568,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_thesauri_errors()}
   def list_thesauri(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListThesauri", input, options)
   end
@@ -5554,7 +5604,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, put_principal_mapping_errors()}
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPrincipalMapping", input, options)
   end
@@ -5612,7 +5663,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
@@ -5674,7 +5726,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, retrieve_errors()}
   def retrieve(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Retrieve", input, options)
   end
@@ -5697,7 +5750,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, start_data_source_sync_job_errors()}
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataSourceSyncJob", input, options)
   end
@@ -5714,7 +5768,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, stop_data_source_sync_job_errors()}
   def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDataSourceSyncJob", input, options)
   end
@@ -5732,7 +5787,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, submit_feedback_errors()}
   def submit_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitFeedback", input, options)
   end
@@ -5750,7 +5806,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5764,7 +5821,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5820,7 +5878,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_access_control_configuration_errors()}
   def update_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccessControlConfiguration", input, options)
   end
@@ -5834,7 +5893,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
@@ -5852,7 +5912,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_experience_errors()}
   def update_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExperience", input, options)
   end
@@ -5874,7 +5935,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_featured_results_set_errors()}
   def update_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeaturedResultsSet", input, options)
   end
@@ -5888,7 +5950,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_index_errors()}
   def update_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIndex", input, options)
   end
@@ -5919,7 +5982,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_query_suggestions_block_list_errors()}
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsBlockList", input, options)
   end
@@ -5948,7 +6012,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_query_suggestions_config_errors()}
   def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsConfig", input, options)
   end
@@ -5962,7 +6027,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_thesaurus_errors()}
   def update_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateThesaurus", input, options)
   end

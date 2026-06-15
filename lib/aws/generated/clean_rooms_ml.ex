@@ -27,26 +27,313 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      update_configured_audience_model_response() :: %{
-        "configuredAudienceModelArn" => String.t() | atom()
+      ml_input_channel_summary() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "payerConfiguration" => payer_configuration(),
+        "protectedQueryIdentifier" => String.t() | atom(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type update_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
+  @type ml_input_channel_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_trained_model_inference_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("trainedModelArn") => String.t() | atom(),
-        optional("trainedModelVersionIdentifier") => String.t() | atom()
+      glue_data_source() :: %{
+        "catalogId" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "tableName" => String.t() | atom()
       }
 
   """
-  @type list_trained_model_inference_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type glue_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_trained_model_inference_jobs_response() :: %{
+        "collaborationTrainedModelInferenceJobs" => list(collaboration_trained_model_inference_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_trained_model_inference_jobs_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_model_algorithm_association_response() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "privacyConfiguration" => privacy_configuration(),
+        "tags" => map(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_configured_model_algorithm_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incremental_training_data_channel() :: %{
+        "channelName" => String.t() | atom(),
+        "trainedModelArn" => String.t() | atom(),
+        "versionIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type incremental_training_data_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_model_algorithm_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("inferenceContainerConfig") => inference_container_config(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("trainingContainerConfig") => container_config(),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_configured_model_algorithm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_ml_input_channel_response() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "numberOfRecords" => [float()],
+        "payerConfiguration" => payer_configuration(),
+        "privacyBudgets" => list(),
+        "retentionInDays" => [integer()],
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "syntheticDataConfiguration" => synthetic_data_configuration(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_collaboration_ml_input_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_trained_model_inference_job_summary() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "logsStatus" => list(any()),
+        "logsStatusDetails" => [String.t() | atom()],
+        "membershipIdentifier" => String.t() | atom(),
+        "metricsStatus" => list(any()),
+        "metricsStatusDetails" => [String.t() | atom()],
+        "mlModelInferencePayerAccountId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputConfiguration" => inference_output_configuration(),
+        "status" => list(any()),
+        "trainedModelArn" => String.t() | atom(),
+        "trainedModelInferenceJobArn" => String.t() | atom(),
+        "trainedModelVersionIdentifier" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_trained_model_inference_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_model_request() :: %{}
+
+  """
+  @type get_audience_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_generation_jobs_request() :: %{
+        optional("collaborationId") => String.t() | atom(),
+        optional("configuredAudienceModelArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_audience_generation_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_generation_job_summary() :: %{
+        "audienceGenerationJobArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "startedBy" => String.t() | atom(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type audience_generation_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthetic_data_configuration() :: %{
+        "syntheticDataEvaluationScores" => synthetic_data_evaluation_scores(),
+        "syntheticDataParameters" => ml_synthetic_data_parameters()
+      }
+
+  """
+  @type synthetic_data_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trained_models_configuration_policy() :: %{
+        "containerLogs" => list(logs_configuration_policy()),
+        "containerMetrics" => metrics_configuration_policy(),
+        "maxArtifactSize" => trained_model_artifact_max_size()
+      }
+
+  """
+  @type trained_models_configuration_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_ml_input_channel_summary() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "payerConfiguration" => payer_configuration(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_ml_input_channel_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_audience_models_response() :: %{
+        "configuredAudienceModels" => list(configured_audience_model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configured_audience_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trained_model_versions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "trainedModels" => list(trained_model_summary())
+      }
+
+  """
+  @type list_trained_model_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ml_configuration_request() :: %{}
+
+  """
+  @type delete_ml_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_model_algorithm_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_model_algorithm_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      logs_configuration_policy() :: %{
+        "allowedAccountIds" => list([String.t() | atom()]()),
+        "filterPattern" => [String.t() | atom()],
+        "logRedactionConfiguration" => log_redaction_configuration(),
+        "logType" => list(any())
+      }
+
+  """
+  @type logs_configuration_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -74,48 +361,33 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      start_trained_model_inference_job_response() :: %{
-        "trainedModelInferenceJobArn" => String.t() | atom()
+      list_ml_input_channels_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type start_trained_model_inference_job_response() :: %{(String.t() | atom()) => any()}
+  @type list_ml_input_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_configured_model_algorithm_associations_response() :: %{
-        "configuredModelAlgorithmAssociations" => list(configured_model_algorithm_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
+      delete_audience_generation_job_request() :: %{}
 
   """
-  @type list_configured_model_algorithm_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type delete_audience_generation_job_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_audience_model_response() :: %{
-        "audienceModelArn" => String.t() | atom()
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type create_audience_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -133,167 +405,80 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      start_audience_generation_job_response() :: %{
-        "audienceGenerationJobArn" => String.t() | atom()
-      }
+      delete_configured_audience_model_request() :: %{}
 
   """
-  @type start_audience_generation_job_response() :: %{(String.t() | atom()) => any()}
+  @type delete_configured_audience_model_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      trained_model_exports_max_size() :: %{
-        "unit" => list(any()),
-        "value" => float()
+      list_trained_models_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "trainedModels" => list(trained_model_summary())
       }
 
   """
-  @type trained_model_exports_max_size() :: %{(String.t() | atom()) => any()}
+  @type list_trained_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_configured_model_algorithm_association_response() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmArn" => String.t() | atom(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "privacyConfiguration" => privacy_configuration(),
-        "tags" => map(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_configured_model_algorithm_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_audience_generation_job_response() :: %{
-        "audienceGenerationJobArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "includeSeedInOutput" => [boolean()],
-        "metrics" => audience_quality_metrics(),
-        "name" => String.t() | atom(),
-        "protectedQueryIdentifier" => [String.t() | atom()],
-        "seedAudience" => audience_generation_job_data_source(),
-        "startedBy" => String.t() | atom(),
-        "status" => list(any()),
-        "statusDetails" => status_details(),
-        "tags" => map(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_audience_generation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_model_algorithms_response() :: %{
-        "configuredModelAlgorithms" => list(configured_model_algorithm_summary()),
+      list_collaboration_ml_input_channels_response() :: %{
+        "collaborationMLInputChannelsList" => list(collaboration_ml_input_channel_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_configured_model_algorithms_response() :: %{(String.t() | atom()) => any()}
+  @type list_collaboration_ml_input_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_ml_input_channel_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("payerConfiguration") => payer_configuration(),
-        optional("tags") => map(),
-        required("configuredModelAlgorithmAssociations") => list(String.t() | atom()),
-        required("inputChannel") => input_channel(),
-        required("name") => String.t() | atom(),
-        required("retentionInDays") => [integer()]
+      get_configured_audience_model_policy_request() :: %{}
+
+  """
+  @type get_configured_audience_model_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_configured_model_algorithm_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type create_ml_input_channel_request() :: %{(String.t() | atom()) => any()}
+  @type list_collaboration_configured_model_algorithm_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      get_trained_model_request() :: %{
-        optional("versionIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_trained_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_budget() :: %{
-        "aggregateRemainingBudget" => integer(),
-        "details" => list(access_budget_details()),
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type access_budget() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_redaction_configuration() :: %{
-        "customEntityConfig" => custom_entity_config(),
-        "entitiesToRedact" => list(list(any())())
-      }
-
-  """
-  @type log_redaction_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_training_dataset_response() :: %{
+      collaboration_trained_model_summary() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
         "description" => String.t() | atom(),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
+        "membershipIdentifier" => String.t() | atom(),
+        "mlModelTrainingPayerAccountId" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
         "status" => list(any()),
-        "tags" => map(),
-        "trainingData" => list(dataset()),
-        "trainingDatasetArn" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
+        "trainedModelArn" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()],
+        "versionIdentifier" => String.t() | atom()
       }
 
   """
-  @type get_training_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trained_models_configuration_policy() :: %{
-        "containerLogs" => list(logs_configuration_policy()),
-        "containerMetrics" => metrics_configuration_policy(),
-        "maxArtifactSize" => trained_model_artifact_max_size()
-      }
-
-  """
-  @type trained_models_configuration_policy() :: %{(String.t() | atom()) => any()}
+  @type collaboration_trained_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,21 +511,389 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      create_configured_audience_model_response() :: %{
-        "configuredAudienceModelArn" => String.t() | atom()
+      privacy_configuration_policies() :: %{
+        "trainedModelExports" => trained_model_exports_configuration_policy(),
+        "trainedModelInferenceJobs" => trained_model_inference_jobs_configuration_policy(),
+        "trainedModels" => trained_models_configuration_policy()
       }
 
   """
-  @type create_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
+  @type privacy_configuration_policies() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      create_audience_model_response() :: %{
+        "audienceModelArn" => String.t() | atom()
+      }
 
   """
-  @type untag_resource_response() :: %{}
+  @type create_audience_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ml_configuration_request() :: %{}
+
+  """
+  @type get_ml_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      model_inference_data_source() :: %{
+        "mlInputChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type model_inference_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trained_model_exports_max_size() :: %{
+        "unit" => list(any()),
+        "value" => float()
+      }
+
+  """
+  @type trained_model_exports_max_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_input_config() :: %{
+        "dataSource" => data_source(),
+        "schema" => list(column_schema())
+      }
+
+  """
+  @type dataset_input_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_generation_job_response() :: %{
+        "audienceGenerationJobArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "includeSeedInOutput" => [boolean()],
+        "metrics" => audience_quality_metrics(),
+        "name" => String.t() | atom(),
+        "protectedQueryIdentifier" => [String.t() | atom()],
+        "seedAudience" => audience_generation_job_data_source(),
+        "startedBy" => String.t() | atom(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "tags" => map(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_audience_generation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      synthetic_data_evaluation_scores() :: %{
+        "dataPrivacyScores" => data_privacy_scores()
+      }
+
+  """
+  @type synthetic_data_evaluation_scores() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trained_model_export_output_configuration() :: %{
+        "members" => list(trained_model_export_receiver_member())
+      }
+
+  """
+  @type trained_model_export_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_container_execution_parameters() :: %{
+        "maxPayloadInMB" => [integer()]
+      }
+
+  """
+  @type inference_container_execution_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trained_model_inference_jobs_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "trainedModelInferenceJobs" => list(trained_model_inference_job_summary())
+      }
+
+  """
+  @type list_trained_model_inference_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_export_job_summary() :: %{
+        "audienceGenerationJobArn" => String.t() | atom(),
+        "audienceSize" => audience_size(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputLocation" => String.t() | atom(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type audience_export_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ml_input_channel_response() :: %{
+        "mlInputChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type create_ml_input_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_trained_model_output_request() :: %{
+        optional("versionIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type delete_trained_model_output_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_trained_model_request() :: %{
+        optional("versionIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type cancel_trained_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trained_model_inference_max_output_size() :: %{
+        "unit" => list(any()),
+        "value" => float()
+      }
+
+  """
+  @type trained_model_inference_max_output_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_model_algorithm_response() :: %{
+        "configuredModelAlgorithmArn" => String.t() | atom()
+      }
+
+  """
+  @type create_configured_model_algorithm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trained_model_inference_job_request() :: %{}
+
+  """
+  @type get_trained_model_inference_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_ml_input_channel_request() :: %{}
+
+  """
+  @type get_collaboration_ml_input_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_ml_input_channel_data_request() :: %{}
+
+  """
+  @type delete_ml_input_channel_data_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_definition() :: %{
+        "name" => String.t() | atom(),
+        "regex" => String.t() | atom()
+      }
+
+  """
+  @type metric_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source() :: %{
+        "glueDataSource" => glue_data_source()
+      }
+
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_model_algorithm_request() :: %{}
+
+  """
+  @type delete_configured_model_algorithm_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      input_channel() :: %{
+        "dataSource" => list(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type input_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_training_data_channel() :: %{
+        "channelName" => String.t() | atom(),
+        "mlInputChannelArn" => String.t() | atom(),
+        "s3DataDistributionType" => list(any())
+      }
+
+  """
+  @type model_training_data_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trained_model_export_job_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("outputConfiguration") => trained_model_export_output_configuration()
+      }
+
+  """
+  @type start_trained_model_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_generation_job_request() :: %{}
+
+  """
+  @type get_audience_generation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_audience_model_request() :: %{}
+
+  """
+  @type delete_audience_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      training_dataset_summary() :: %{
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "trainingDatasetArn" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type training_dataset_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trained_model_inference_jobs_configuration_policy() :: %{
+        "containerLogs" => list(logs_configuration_policy()),
+        "maxOutputSize" => trained_model_inference_max_output_size()
+      }
+
+  """
+  @type trained_model_inference_jobs_configuration_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_model_algorithm_response() :: %{
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "inferenceContainerConfig" => inference_container_config(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "tags" => map(),
+        "trainingContainerConfig" => container_config(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_configured_model_algorithm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -352,6 +905,295 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type trained_model_export_receiver_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_configured_model_algorithm_associations_response() :: %{
+        "collaborationConfiguredModelAlgorithmAssociations" => list(collaboration_configured_model_algorithm_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_configured_model_algorithm_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_ml_input_channels_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_ml_input_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_trained_model_export_jobs_response() :: %{
+        "collaborationTrainedModelExportJobs" => list(collaboration_trained_model_export_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_trained_model_export_jobs_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      audience_generation_job_data_source() :: %{
+        "dataSource" => s3_config_map(),
+        "roleArn" => String.t() | atom(),
+        "sqlComputeConfiguration" => list(),
+        "sqlParameters" => protected_query_s_q_l_parameters()
+      }
+
+  """
+  @type audience_generation_job_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audience_generation_job_response() :: %{
+        "audienceGenerationJobArn" => String.t() | atom()
+      }
+
+  """
+  @type start_audience_generation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_trained_model_export_job_summary() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputConfiguration" => trained_model_export_output_configuration(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "trainedModelArn" => String.t() | atom(),
+        "trainedModelVersionIdentifier" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_trained_model_export_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audience_generation_job_request() :: %{
+        optional("collaborationId") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("includeSeedInOutput") => [boolean()],
+        optional("tags") => map(),
+        required("configuredAudienceModelArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("seedAudience") => audience_generation_job_data_source()
+      }
+
+  """
+  @type start_audience_generation_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_redaction_configuration() :: %{
+        "customEntityConfig" => custom_entity_config(),
+        "entitiesToRedact" => list(list(any())())
+      }
+
+  """
+  @type log_redaction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_budget_details() :: %{
+        "autoRefresh" => list(any()),
+        "budget" => integer(),
+        "budgetType" => list(any()),
+        "endTime" => [non_neg_integer()],
+        "remainingBudget" => integer(),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type access_budget_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trained_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_trained_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_export_jobs_response() :: %{
+        "audienceExportJobs" => list(audience_export_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_audience_export_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_audience_model_response() :: %{
+        "audienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "tags" => map(),
+        "trainingDataEndTime" => [non_neg_integer()],
+        "trainingDataStartTime" => [non_neg_integer()],
+        "trainingDatasetArn" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_audience_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_schema() :: %{
+        "columnName" => String.t() | atom(),
+        "columnTypes" => list(list(any())())
+      }
+
+  """
+  @type column_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_audience_model_response() :: %{
+        "configuredAudienceModelArn" => String.t() | atom()
+      }
+
+  """
+  @type create_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "s3Destination" => s3_config_map()
+      }
+
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_ml_configuration_request() :: %{
+        required("defaultOutputLocation") => ml_output_configuration()
+      }
+
+  """
+  @type put_ml_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_trained_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_trained_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_model_algorithms_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_model_algorithms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metrics_configuration_policy() :: %{
+        "noiseLevel" => list(any())
+      }
+
+  """
+  @type metrics_configuration_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -382,18 +1224,6 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      list_configured_audience_models_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configured_audience_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_training_datasets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -406,10 +1236,243 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      get_configured_model_algorithm_association_request() :: %{}
+      create_trained_model_response() :: %{
+        "trainedModelArn" => String.t() | atom(),
+        "versionIdentifier" => String.t() | atom()
+      }
 
   """
-  @type get_configured_model_algorithm_association_request() :: %{}
+  @type create_trained_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_privacy_scores() :: %{
+        "membershipInferenceAttackScores" => list(membership_inference_attack_score())
+      }
+
+  """
+  @type data_privacy_scores() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      status_details() :: %{
+        "message" => [String.t() | atom()],
+        "statusCode" => [String.t() | atom()]
+      }
+
+  """
+  @type status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_ml_input_channel_request() :: %{}
+
+  """
+  @type get_ml_input_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_request() :: %{}
+
+  """
+  @type get_configured_audience_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_audience_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configured_audience_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_ml_input_channels_response() :: %{
+        "mlInputChannelsList" => list(ml_input_channel_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_ml_input_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_size_config() :: %{
+        "audienceSizeBins" => list(integer()),
+        "audienceSizeType" => list(any())
+      }
+
+  """
+  @type audience_size_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_generation_jobs_response() :: %{
+        "audienceGenerationJobs" => list(audience_generation_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_audience_generation_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incremental_training_data_channel_output() :: %{
+        "channelName" => String.t() | atom(),
+        "modelName" => String.t() | atom(),
+        "versionIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type incremental_training_data_channel_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_model_algorithm_summary() :: %{
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_model_algorithm_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_size() :: %{
+        "type" => list(any()),
+        "value" => integer()
+      }
+
+  """
+  @type audience_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configured_audience_model_policy_request() :: %{}
+
+  """
+  @type delete_configured_audience_model_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      synthetic_data_column_properties() :: %{
+        "columnName" => String.t() | atom(),
+        "columnType" => list(any()),
+        "isPredictiveValue" => [boolean()]
+      }
+
+  """
+  @type synthetic_data_column_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configured_model_algorithm_associations_response() :: %{
+        "configuredModelAlgorithmAssociations" => list(configured_model_algorithm_association_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configured_model_algorithm_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      protected_query_s_q_l_parameters() :: %{
+        "analysisTemplateArn" => String.t() | atom(),
+        "parameters" => map(),
+        "queryString" => [String.t() | atom()]
+      }
+
+  """
+  @type protected_query_s_q_l_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_audience_model_output_config() :: %{
+        "destination" => audience_destination(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type configured_audience_model_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_training_dataset_request() :: %{}
+
+  """
+  @type get_training_dataset_request() :: %{}
 
   @typedoc """
 
@@ -432,21 +1495,196 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      put_ml_configuration_request() :: %{
-        required("defaultOutputLocation") => ml_output_configuration()
+      start_trained_model_inference_job_response() :: %{
+        "trainedModelInferenceJobArn" => String.t() | atom()
       }
 
   """
-  @type put_ml_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type start_trained_model_inference_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_training_dataset_request() :: %{}
+      create_audience_model_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("trainingDataEndTime") => [non_neg_integer()],
+        optional("trainingDataStartTime") => [non_neg_integer()],
+        required("name") => String.t() | atom(),
+        required("trainingDatasetArn") => String.t() | atom()
+      }
 
   """
-  @type get_training_dataset_request() :: %{}
+  @type create_audience_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      worker_compute_configuration() :: %{
+        "number" => [integer()],
+        "properties" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type worker_compute_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_trained_model_request() :: %{
+        optional("versionIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_collaboration_trained_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_model_summary() :: %{
+        "audienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "trainingDatasetArn" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type audience_model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_audience_model_summary() :: %{
+        "audienceModelArn" => String.t() | atom(),
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputConfig" => configured_audience_model_output_config(),
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type configured_audience_model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trained_model_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_trained_model_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_export_jobs_request() :: %{
+        optional("audienceGenerationJobArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_audience_export_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trained_model_inference_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("trainedModelArn") => String.t() | atom(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_trained_model_inference_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_model_algorithm_association_request() :: %{}
+
+  """
+  @type get_configured_model_algorithm_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_models_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_audience_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payer_configuration() :: %{
+        "computePayerAccountId" => String.t() | atom(),
+        "syntheticDataPayerAccountId" => String.t() | atom()
+      }
+
+  """
+  @type payer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_resource_config() :: %{
+        "instanceCount" => [integer()],
+        "instanceType" => list(any())
+      }
+
+  """
+  @type inference_resource_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trained_model_artifact_max_size() :: %{
+        "unit" => list(any()),
+        "value" => float()
+      }
+
+  """
+  @type trained_model_artifact_max_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stopping_condition() :: %{
+        "maxRuntimeInSeconds" => [integer()]
+      }
+
+  """
+  @type stopping_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,210 +1721,63 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      get_ml_configuration_request() :: %{}
-
-  """
-  @type get_ml_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_input_channels_response() :: %{
-        "mlInputChannelsList" => list(ml_input_channel_summary()),
-        "nextToken" => String.t() | atom()
+      dataset() :: %{
+        "inputConfig" => dataset_input_config(),
+        "type" => list(any())
       }
 
   """
-  @type list_ml_input_channels_response() :: %{(String.t() | atom()) => any()}
+  @type dataset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      relevance_metric() :: %{
-        "audienceSize" => audience_size(),
-        "score" => [float()]
+      privacy_configuration() :: %{
+        "policies" => privacy_configuration_policies()
       }
 
   """
-  @type relevance_metric() :: %{(String.t() | atom()) => any()}
+  @type privacy_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_collaboration_trained_model_response() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
-        "logsStatus" => list(any()),
-        "logsStatusDetails" => [String.t() | atom()],
-        "membershipIdentifier" => String.t() | atom(),
-        "metricsStatus" => list(any()),
-        "metricsStatusDetails" => [String.t() | atom()],
-        "mlModelTrainingPayerAccountId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourceConfig" => resource_config(),
-        "status" => list(any()),
-        "statusDetails" => status_details(),
-        "stoppingCondition" => stopping_condition(),
-        "trainedModelArn" => String.t() | atom(),
-        "trainingContainerImageDigest" => [String.t() | atom()],
-        "trainingInputMode" => list(any()),
-        "updateTime" => [non_neg_integer()],
-        "versionIdentifier" => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
       }
 
   """
-  @type get_collaboration_trained_model_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_configured_audience_model_request() :: %{
-        optional("audienceSizeConfig") => audience_size_config(),
-        optional("childResourceTagOnCreatePolicy") => list(any()),
+      access_budget() :: %{
+        "aggregateRemainingBudget" => integer(),
+        "details" => list(access_budget_details()),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type access_budget() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_training_dataset_request() :: %{
         optional("description") => String.t() | atom(),
-        optional("minMatchingSeedSize") => integer(),
         optional("tags") => map(),
-        required("audienceModelArn") => String.t() | atom(),
         required("name") => String.t() | atom(),
-        required("outputConfig") => configured_audience_model_output_config(),
-        required("sharedAudienceMetrics") => list(list(any())())
+        required("roleArn") => String.t() | atom(),
+        required("trainingData") => list(dataset())
       }
 
   """
-  @type create_configured_audience_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_ml_input_channel_summary() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "mlInputChannelArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "payerConfiguration" => payer_configuration(),
-        "status" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_ml_input_channel_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ml_input_channel_summary() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "mlInputChannelArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "payerConfiguration" => payer_configuration(),
-        "protectedQueryIdentifier" => String.t() | atom(),
-        "status" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type ml_input_channel_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_model_algorithm_association_response() :: %{
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom()
-      }
-
-  """
-  @type create_configured_model_algorithm_association_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      metric_definition() :: %{
-        "name" => String.t() | atom(),
-        "regex" => String.t() | atom()
-      }
-
-  """
-  @type metric_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_audience_model_request() :: %{}
-
-  """
-  @type delete_configured_audience_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ml_input_channel_request() :: %{}
-
-  """
-  @type get_ml_input_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_trained_model_export_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("trainedModelVersionIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_trained_model_export_jobs_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_configured_model_algorithm_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_configured_model_algorithm_associations_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type create_training_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -728,1054 +1819,12 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_trained_model_export_job_summary() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "outputConfiguration" => trained_model_export_output_configuration(),
-        "status" => list(any()),
-        "statusDetails" => status_details(),
-        "trainedModelArn" => String.t() | atom(),
-        "trainedModelVersionIdentifier" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_trained_model_export_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trained_model_versions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "trainedModels" => list(trained_model_summary())
-      }
-
-  """
-  @type list_trained_model_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_details() :: %{
-        "message" => [String.t() | atom()],
-        "statusCode" => [String.t() | atom()]
-      }
-
-  """
-  @type status_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_audience_export_job_request() :: %{
-        optional("description") => String.t() | atom(),
-        required("audienceGenerationJobArn") => String.t() | atom(),
-        required("audienceSize") => audience_size(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type start_audience_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_training_dataset_request() :: %{}
-
-  """
-  @type delete_training_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_ml_input_channels_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_ml_input_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_model_algorithm_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("inferenceContainerConfig") => inference_container_config(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("trainingContainerConfig") => container_config(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_configured_model_algorithm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audience_models_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_audience_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_ml_input_channels_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_ml_input_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset() :: %{
-        "inputConfig" => dataset_input_config(),
-        "type" => list(any())
-      }
-
-  """
-  @type dataset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metrics_configuration_policy() :: %{
-        "noiseLevel" => list(any())
-      }
-
-  """
-  @type metrics_configuration_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_privacy_scores() :: %{
-        "membershipInferenceAttackScores" => list(membership_inference_attack_score())
-      }
-
-  """
-  @type data_privacy_scores() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_entity_config() :: %{
-        "customDataIdentifiers" => list(String.t() | atom())
-      }
-
-  """
-  @type custom_entity_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audience_size() :: %{
-        "type" => list(any()),
-        "value" => integer()
-      }
-
-  """
-  @type audience_size() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_audience_generation_job_request() :: %{
-        optional("collaborationId") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("includeSeedInOutput") => [boolean()],
-        optional("tags") => map(),
-        required("configuredAudienceModelArn") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("seedAudience") => audience_generation_job_data_source()
-      }
-
-  """
-  @type start_audience_generation_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_training_data_channel() :: %{
-        "channelName" => String.t() | atom(),
-        "mlInputChannelArn" => String.t() | atom(),
-        "s3DataDistributionType" => list(any())
-      }
-
-  """
-  @type model_training_data_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audience_generation_job_summary() :: %{
-        "audienceGenerationJobArn" => String.t() | atom(),
-        "collaborationId" => String.t() | atom(),
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "startedBy" => String.t() | atom(),
-        "status" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type audience_generation_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trained_model_inference_jobs_configuration_policy() :: %{
-        "containerLogs" => list(logs_configuration_policy()),
-        "maxOutputSize" => trained_model_inference_max_output_size()
-      }
-
-  """
-  @type trained_model_inference_jobs_configuration_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      internal_service_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_config() :: %{
-        "arguments" => list(String.t() | atom()),
-        "entrypoint" => list(String.t() | atom()),
-        "imageUri" => String.t() | atom(),
-        "metricDefinitions" => list(metric_definition())
-      }
-
-  """
-  @type container_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payer_configuration() :: %{
-        "computePayerAccountId" => String.t() | atom(),
-        "syntheticDataPayerAccountId" => String.t() | atom()
-      }
-
-  """
-  @type payer_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_audience_model_request() :: %{}
-
-  """
-  @type get_audience_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trained_model_inference_jobs_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "trainedModelInferenceJobs" => list(trained_model_inference_job_summary())
-      }
-
-  """
-  @type list_trained_model_inference_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_audience_model_output_config() :: %{
-        "destination" => audience_destination(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type configured_audience_model_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_configured_model_algorithm_association_request() :: %{}
-
-  """
-  @type get_collaboration_configured_model_algorithm_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_model_algorithm_summary() :: %{
-        "configuredModelAlgorithmArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_model_algorithm_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      incremental_training_data_channel() :: %{
-        "channelName" => String.t() | atom(),
-        "trainedModelArn" => String.t() | atom(),
-        "versionIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type incremental_training_data_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trained_model_inference_max_output_size() :: %{
-        "unit" => list(any()),
-        "value" => float()
-      }
-
-  """
-  @type trained_model_inference_max_output_size() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_trained_model_request() :: %{
-        optional("versionIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_collaboration_trained_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_resource_config() :: %{
-        "instanceCount" => [integer()],
-        "instanceType" => list(any())
-      }
-
-  """
-  @type inference_resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaName" => [String.t() | atom()],
-        "quotaValue" => [float()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_audience_model_response() :: %{
-        "audienceModelArn" => String.t() | atom(),
-        "audienceSizeConfig" => audience_size_config(),
-        "childResourceTagOnCreatePolicy" => list(any()),
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "minMatchingSeedSize" => integer(),
-        "name" => String.t() | atom(),
-        "outputConfig" => configured_audience_model_output_config(),
-        "sharedAudienceMetrics" => list(list(any())()),
-        "status" => list(any()),
-        "tags" => map(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audience_model_summary() :: %{
-        "audienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "trainingDatasetArn" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type audience_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ml_output_configuration() :: %{
-        "destination" => destination(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type ml_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_audience_generation_job_request() :: %{}
-
-  """
-  @type delete_audience_generation_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_ml_configuration_response() :: %{
-        "createTime" => [non_neg_integer()],
-        "defaultOutputLocation" => ml_output_configuration(),
-        "membershipIdentifier" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_ml_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stopping_condition() :: %{
-        "maxRuntimeInSeconds" => [integer()]
-      }
-
-  """
-  @type stopping_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_trained_model_export_jobs_response() :: %{
-        "collaborationTrainedModelExportJobs" => list(collaboration_trained_model_export_job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_trained_model_export_jobs_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_trained_model_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("environment") => map(),
-        optional("hyperparameters") => map(),
-        optional("incrementalTrainingDataChannels") => list(incremental_training_data_channel()),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("mlModelTrainingPayerAccountId") => String.t() | atom(),
-        optional("stoppingCondition") => stopping_condition(),
-        optional("tags") => map(),
-        optional("trainingInputMode") => list(any()),
-        required("configuredModelAlgorithmAssociationArn") => String.t() | atom(),
-        required("dataChannels") => list(model_training_data_channel()),
-        required("name") => String.t() | atom(),
-        required("resourceConfig") => resource_config()
-      }
-
-  """
-  @type create_trained_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_training_datasets_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "trainingDatasets" => list(training_dataset_summary())
-      }
-
-  """
-  @type list_training_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_trained_model_summary() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
-        "membershipIdentifier" => String.t() | atom(),
-        "mlModelTrainingPayerAccountId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "trainedModelArn" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()],
-        "versionIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type collaboration_trained_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_container_config() :: %{
-        "imageUri" => String.t() | atom()
-      }
-
-  """
-  @type inference_container_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_model_algorithms_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configured_model_algorithms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ml_synthetic_data_parameters() :: %{
-        "columnClassification" => column_classification_details(),
-        "epsilon" => [float()],
-        "maxMembershipInferenceAttackScore" => [float()]
-      }
-
-  """
-  @type ml_synthetic_data_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_model_algorithm_association_summary() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmArn" => String.t() | atom(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_model_algorithm_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audience_export_job_summary() :: %{
-        "audienceGenerationJobArn" => String.t() | atom(),
-        "audienceSize" => audience_size(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "outputLocation" => String.t() | atom(),
-        "status" => list(any()),
-        "statusDetails" => status_details(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type audience_export_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_audience_model_request() :: %{}
-
-  """
-  @type delete_audience_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      trained_model_exports_configuration_policy() :: %{
-        "filesToExport" => list(list(any())()),
-        "maxSize" => trained_model_exports_max_size()
-      }
-
-  """
-  @type trained_model_exports_configuration_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_model_algorithm_associations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configured_model_algorithm_associations_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_training_dataset_response() :: %{
-        "trainingDatasetArn" => String.t() | atom()
-      }
-
-  """
-  @type create_training_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_audience_model_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("trainingDataEndTime") => [non_neg_integer()],
-        optional("trainingDataStartTime") => [non_neg_integer()],
-        required("name") => String.t() | atom(),
-        required("trainingDatasetArn") => String.t() | atom()
-      }
-
-  """
-  @type create_audience_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      privacy_configuration() :: %{
-        "policies" => privacy_configuration_policies()
-      }
-
-  """
-  @type privacy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_trained_model_inference_job_request() :: %{
-        optional("configuredModelAlgorithmAssociationArn") => String.t() | atom(),
-        optional("containerExecutionParameters") => inference_container_execution_parameters(),
-        optional("description") => String.t() | atom(),
-        optional("environment") => map(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("mlModelInferencePayerAccountId") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("trainedModelVersionIdentifier") => String.t() | atom(),
-        required("dataSource") => model_inference_data_source(),
-        required("name") => String.t() | atom(),
-        required("outputConfiguration") => inference_output_configuration(),
-        required("resourceConfig") => inference_resource_config(),
-        required("trainedModelArn") => String.t() | atom()
-      }
-
-  """
-  @type start_trained_model_inference_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trained_model_artifact_max_size() :: %{
-        "unit" => list(any()),
-        "value" => float()
-      }
-
-  """
-  @type trained_model_artifact_max_size() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_receiver_member() :: %{
-        "accountId" => String.t() | atom()
-      }
-
-  """
-  @type inference_receiver_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      synthetic_data_column_properties() :: %{
-        "columnName" => String.t() | atom(),
-        "columnType" => list(any()),
-        "isPredictiveValue" => [boolean()]
-      }
-
-  """
-  @type synthetic_data_column_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_configured_model_algorithm_association_summary() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmArn" => String.t() | atom(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_configured_model_algorithm_association_summary() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_ml_input_channel_response() :: %{
-        "mlInputChannelArn" => String.t() | atom()
-      }
-
-  """
-  @type create_ml_input_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_trained_model_inference_job_request() :: %{}
-
-  """
-  @type get_trained_model_inference_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configured_audience_models_response() :: %{
-        "configuredAudienceModels" => list(configured_audience_model_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configured_audience_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column_classification_details() :: %{
-        "columnMapping" => list(synthetic_data_column_properties())
-      }
-
-  """
-  @type column_classification_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_config() :: %{
-        "instanceCount" => [integer()],
-        "instanceType" => list(any()),
-        "volumeSizeInGB" => [integer()]
-      }
-
-  """
-  @type resource_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_configured_model_algorithm_association_response() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmArn" => String.t() | atom(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "privacyConfiguration" => privacy_configuration(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_collaboration_configured_model_algorithm_association_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      s3_config_map() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_config_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audience_export_jobs_response() :: %{
-        "audienceExportJobs" => list(audience_export_job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_audience_export_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      incremental_training_data_channel_output() :: %{
-        "channelName" => String.t() | atom(),
-        "modelName" => String.t() | atom(),
-        "versionIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type incremental_training_data_channel_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ml_input_channel_data_request() :: %{}
-
-  """
-  @type delete_ml_input_channel_data_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trained_models_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "trainedModels" => list(trained_model_summary())
-      }
-
-  """
-  @type list_trained_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      synthetic_data_evaluation_scores() :: %{
-        "dataPrivacyScores" => data_privacy_scores()
-      }
-
-  """
-  @type synthetic_data_evaluation_scores() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logs_configuration_policy() :: %{
-        "allowedAccountIds" => list([String.t() | atom()]()),
-        "filterPattern" => [String.t() | atom()],
-        "logRedactionConfiguration" => log_redaction_configuration(),
-        "logType" => list(any())
-      }
-
-  """
-  @type logs_configuration_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_trained_model_response() :: %{
-        "trainedModelArn" => String.t() | atom(),
-        "versionIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type create_trained_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_trained_model_export_job_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("trainedModelVersionIdentifier") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("outputConfiguration") => trained_model_export_output_configuration()
-      }
-
-  """
-  @type start_trained_model_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      worker_compute_configuration() :: %{
-        "number" => [integer()],
-        "properties" => list(),
-        "type" => list(any())
-      }
-
-  """
-  @type worker_compute_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_audience_model_request() :: %{}
-
-  """
-  @type get_configured_audience_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      input_channel() :: %{
-        "dataSource" => list(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type input_channel() :: %{(String.t() | atom()) => any()}
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1785,468 +1834,6 @@ defmodule AWS.CleanRoomsML do
 
   """
   @type cancel_trained_model_inference_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_trained_model_request() :: %{
-        optional("versionIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type cancel_trained_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trained_model_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_trained_model_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_trained_models_response() :: %{
-        "collaborationTrainedModels" => list(collaboration_trained_model_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_trained_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      configured_audience_model_summary() :: %{
-        "audienceModelArn" => String.t() | atom(),
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "outputConfig" => configured_audience_model_output_config(),
-        "status" => list(any()),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type configured_audience_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_trained_models_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_trained_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination() :: %{
-        "s3Destination" => s3_config_map()
-      }
-
-  """
-  @type destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_audience_model_policy_response() :: %{
-        "configuredAudienceModelArn" => String.t() | atom(),
-        "configuredAudienceModelPolicy" => String.t() | atom(),
-        "policyHash" => String.t() | atom()
-      }
-
-  """
-  @type get_configured_audience_model_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_ml_input_channels_response() :: %{
-        "collaborationMLInputChannelsList" => list(collaboration_ml_input_channel_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_ml_input_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      privacy_configuration_policies() :: %{
-        "trainedModelExports" => trained_model_exports_configuration_policy(),
-        "trainedModelInferenceJobs" => trained_model_inference_jobs_configuration_policy(),
-        "trainedModels" => trained_models_configuration_policy()
-      }
-
-  """
-  @type privacy_configuration_policies() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_data_source() :: %{
-        "catalogId" => String.t() | atom(),
-        "databaseName" => String.t() | atom(),
-        "tableName" => String.t() | atom()
-      }
-
-  """
-  @type glue_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      protected_query_s_q_l_parameters() :: %{
-        "analysisTemplateArn" => String.t() | atom(),
-        "parameters" => map(),
-        "queryString" => [String.t() | atom()]
-      }
-
-  """
-  @type protected_query_s_q_l_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      collaboration_trained_model_inference_job_summary() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "logsStatus" => list(any()),
-        "logsStatusDetails" => [String.t() | atom()],
-        "membershipIdentifier" => String.t() | atom(),
-        "metricsStatus" => list(any()),
-        "metricsStatusDetails" => [String.t() | atom()],
-        "mlModelInferencePayerAccountId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "outputConfiguration" => inference_output_configuration(),
-        "status" => list(any()),
-        "trainedModelArn" => String.t() | atom(),
-        "trainedModelInferenceJobArn" => String.t() | atom(),
-        "trainedModelVersionIdentifier" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type collaboration_trained_model_inference_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_ml_configuration_request() :: %{}
-
-  """
-  @type delete_ml_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configured_audience_model_policy_response() :: %{
-        "configuredAudienceModelPolicy" => String.t() | atom(),
-        "policyHash" => String.t() | atom()
-      }
-
-  """
-  @type put_configured_audience_model_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_inference_attack_score() :: %{
-        "attackVersion" => list(any()),
-        "score" => [float()]
-      }
-
-  """
-  @type membership_inference_attack_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_ml_input_channel_response() :: %{
-        "collaborationIdentifier" => String.t() | atom(),
-        "configuredModelAlgorithmAssociations" => list(String.t() | atom()),
-        "createTime" => [non_neg_integer()],
-        "creatorAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "membershipIdentifier" => String.t() | atom(),
-        "mlInputChannelArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "numberOfRecords" => [float()],
-        "payerConfiguration" => payer_configuration(),
-        "privacyBudgets" => list(),
-        "retentionInDays" => [integer()],
-        "status" => list(any()),
-        "statusDetails" => status_details(),
-        "syntheticDataConfiguration" => synthetic_data_configuration(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_collaboration_ml_input_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_model_algorithm_request() :: %{}
-
-  """
-  @type get_configured_model_algorithm_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      model_inference_data_source() :: %{
-        "mlInputChannelArn" => String.t() | atom()
-      }
-
-  """
-  @type model_inference_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_training_dataset_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("trainingData") => list(dataset())
-      }
-
-  """
-  @type create_training_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_model_algorithm_association_request() :: %{}
-
-  """
-  @type delete_configured_model_algorithm_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      training_dataset_summary() :: %{
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "trainingDatasetArn" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type training_dataset_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column_schema() :: %{
-        "columnName" => String.t() | atom(),
-        "columnTypes" => list(list(any())())
-      }
-
-  """
-  @type column_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_trained_model_inference_jobs_response() :: %{
-        "collaborationTrainedModelInferenceJobs" => list(collaboration_trained_model_inference_job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_trained_model_inference_jobs_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_audience_model_response() :: %{
-        "audienceModelArn" => String.t() | atom(),
-        "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "statusDetails" => status_details(),
-        "tags" => map(),
-        "trainingDataEndTime" => [non_neg_integer()],
-        "trainingDataStartTime" => [non_neg_integer()],
-        "trainingDatasetArn" => String.t() | atom(),
-        "updateTime" => [non_neg_integer()]
-      }
-
-  """
-  @type get_audience_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_model_algorithm_request() :: %{}
-
-  """
-  @type delete_configured_model_algorithm_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_input_config() :: %{
-        "dataSource" => data_source(),
-        "schema" => list(column_schema())
-      }
-
-  """
-  @type dataset_input_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configured_model_algorithm_response() :: %{
-        "configuredModelAlgorithmArn" => String.t() | atom()
-      }
-
-  """
-  @type create_configured_model_algorithm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_configured_audience_model_policy_request() :: %{
-        optional("policyExistenceCondition") => list(any()),
-        optional("previousPolicyHash") => String.t() | atom(),
-        required("configuredAudienceModelPolicy") => String.t() | atom()
-      }
-
-  """
-  @type put_configured_audience_model_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source() :: %{
-        "glueDataSource" => glue_data_source()
-      }
-
-  """
-  @type data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audience_size_config() :: %{
-        "audienceSizeBins" => list(integer()),
-        "audienceSizeType" => list(any())
-      }
-
-  """
-  @type audience_size_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audience_destination() :: %{
-        "s3Destination" => s3_config_map()
-      }
-
-  """
-  @type audience_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_budget_details() :: %{
-        "autoRefresh" => list(any()),
-        "budget" => integer(),
-        "budgetType" => list(any()),
-        "endTime" => [non_neg_integer()],
-        "remainingBudget" => integer(),
-        "startTime" => [non_neg_integer()]
-      }
-
-  """
-  @type access_budget_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2286,197 +1873,69 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      inference_container_execution_parameters() :: %{
-        "maxPayloadInMB" => [integer()]
+      trained_model_exports_configuration_policy() :: %{
+        "filesToExport" => list(list(any())()),
+        "maxSize" => trained_model_exports_max_size()
       }
 
   """
-  @type inference_container_execution_parameters() :: %{(String.t() | atom()) => any()}
+  @type trained_model_exports_configuration_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audience_generation_job_data_source() :: %{
-        "dataSource" => s3_config_map(),
-        "roleArn" => String.t() | atom(),
-        "sqlComputeConfiguration" => list(),
-        "sqlParameters" => protected_query_s_q_l_parameters()
+      put_configured_audience_model_policy_response() :: %{
+        "configuredAudienceModelPolicy" => String.t() | atom(),
+        "policyHash" => String.t() | atom()
       }
 
   """
-  @type audience_generation_job_data_source() :: %{(String.t() | atom()) => any()}
+  @type put_configured_audience_model_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_audience_generation_jobs_request() :: %{
-        optional("collaborationId") => String.t() | atom(),
-        optional("configuredAudienceModelArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_audience_generation_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_collaboration_configured_model_algorithm_associations_response() :: %{
-        "collaborationConfiguredModelAlgorithmAssociations" => list(collaboration_configured_model_algorithm_association_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_collaboration_configured_model_algorithm_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_model_algorithm_response() :: %{
-        "configuredModelAlgorithmArn" => String.t() | atom(),
+      get_ml_configuration_response() :: %{
         "createTime" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "inferenceContainerConfig" => inference_container_config(),
-        "kmsKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "tags" => map(),
-        "trainingContainerConfig" => container_config(),
+        "defaultOutputLocation" => ml_output_configuration(),
+        "membershipIdentifier" => String.t() | atom(),
         "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type get_configured_model_algorithm_response() :: %{(String.t() | atom()) => any()}
+  @type get_ml_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      trained_model_export_output_configuration() :: %{
-        "members" => list(trained_model_export_receiver_member())
-      }
+      get_collaboration_configured_model_algorithm_association_request() :: %{}
 
   """
-  @type trained_model_export_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_collaboration_configured_model_algorithm_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_audience_generation_jobs_response() :: %{
-        "audienceGenerationJobs" => list(audience_generation_job_summary()),
+      list_configured_model_algorithms_response() :: %{
+        "configuredModelAlgorithms" => list(configured_model_algorithm_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_audience_generation_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type list_configured_model_algorithms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_audience_models_response() :: %{
-        "audienceModels" => list(audience_model_summary()),
-        "nextToken" => String.t() | atom()
-      }
+      delete_training_dataset_request() :: %{}
 
   """
-  @type list_audience_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_audience_export_jobs_request() :: %{
-        optional("audienceGenerationJobArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_audience_export_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configured_audience_model_policy_request() :: %{}
-
-  """
-  @type delete_configured_audience_model_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_collaboration_ml_input_channel_request() :: %{}
-
-  """
-  @type get_collaboration_ml_input_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trained_models_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_trained_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configured_audience_model_policy_request() :: %{}
-
-  """
-  @type get_configured_audience_model_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configured_audience_model_request() :: %{
-        optional("audienceModelArn") => String.t() | atom(),
-        optional("audienceSizeConfig") => audience_size_config(),
-        optional("description") => String.t() | atom(),
-        optional("minMatchingSeedSize") => integer(),
-        optional("outputConfig") => configured_audience_model_output_config(),
-        optional("sharedAudienceMetrics") => list(list(any())())
-      }
-
-  """
-  @type update_configured_audience_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_trained_model_output_request() :: %{
-        optional("versionIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type delete_trained_model_output_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_audience_generation_job_request() :: %{}
-
-  """
-  @type get_audience_generation_job_request() :: %{}
+  @type delete_training_dataset_request() :: %{}
 
   @typedoc """
 
@@ -2498,201 +1957,742 @@ defmodule AWS.CleanRoomsML do
 
   ## Example:
 
-      synthetic_data_configuration() :: %{
-        "syntheticDataEvaluationScores" => synthetic_data_evaluation_scores(),
-        "syntheticDataParameters" => ml_synthetic_data_parameters()
+      delete_configured_model_algorithm_association_request() :: %{}
+
+  """
+  @type delete_configured_model_algorithm_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configured_model_algorithm_association_summary() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
       }
 
   """
-  @type synthetic_data_configuration() :: %{(String.t() | atom()) => any()}
+  @type configured_model_algorithm_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_training_dataset_response() :: %{
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "trainingData" => list(dataset()),
+        "trainingDatasetArn" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_training_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_audience_model_request() :: %{
+        optional("audienceModelArn") => String.t() | atom(),
+        optional("audienceSizeConfig") => audience_size_config(),
+        optional("description") => String.t() | atom(),
+        optional("minMatchingSeedSize") => integer(),
+        optional("outputConfig") => configured_audience_model_output_config(),
+        optional("sharedAudienceMetrics") => list(list(any())())
+      }
+
+  """
+  @type update_configured_audience_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_config_map() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_config_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ml_synthetic_data_parameters() :: %{
+        "columnClassification" => column_classification_details(),
+        "epsilon" => [float()],
+        "maxMembershipInferenceAttackScore" => [float()]
+      }
+
+  """
+  @type ml_synthetic_data_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ml_input_channel_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("payerConfiguration") => payer_configuration(),
+        optional("tags") => map(),
+        required("configuredModelAlgorithmAssociations") => list(String.t() | atom()),
+        required("inputChannel") => input_channel(),
+        required("name") => String.t() | atom(),
+        required("retentionInDays") => [integer()]
+      }
+
+  """
+  @type create_ml_input_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      relevance_metric() :: %{
+        "audienceSize" => audience_size(),
+        "score" => [float()]
+      }
+
+  """
+  @type relevance_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_config() :: %{
+        "instanceCount" => [integer()],
+        "instanceType" => list(any()),
+        "volumeSizeInGB" => [integer()]
+      }
+
+  """
+  @type resource_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_trained_model_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("environment") => map(),
+        optional("hyperparameters") => map(),
+        optional("incrementalTrainingDataChannels") => list(incremental_training_data_channel()),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("mlModelTrainingPayerAccountId") => String.t() | atom(),
+        optional("stoppingCondition") => stopping_condition(),
+        optional("tags") => map(),
+        optional("trainingInputMode") => list(any()),
+        required("configuredModelAlgorithmAssociationArn") => String.t() | atom(),
+        required("dataChannels") => list(model_training_data_channel()),
+        required("name") => String.t() | atom(),
+        required("resourceConfig") => resource_config()
+      }
+
+  """
+  @type create_trained_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_trained_model_response() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
+        "logsStatus" => list(any()),
+        "logsStatusDetails" => [String.t() | atom()],
+        "membershipIdentifier" => String.t() | atom(),
+        "metricsStatus" => list(any()),
+        "metricsStatusDetails" => [String.t() | atom()],
+        "mlModelTrainingPayerAccountId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "resourceConfig" => resource_config(),
+        "status" => list(any()),
+        "statusDetails" => status_details(),
+        "stoppingCondition" => stopping_condition(),
+        "trainedModelArn" => String.t() | atom(),
+        "trainingContainerImageDigest" => [String.t() | atom()],
+        "trainingInputMode" => list(any()),
+        "updateTime" => [non_neg_integer()],
+        "versionIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type get_collaboration_trained_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_training_datasets_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "trainingDatasets" => list(training_dataset_summary())
+      }
+
+  """
+  @type list_training_datasets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_container_config() :: %{
+        "imageUri" => String.t() | atom()
+      }
+
+  """
+  @type inference_container_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trained_model_request() :: %{
+        optional("versionIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_trained_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_receiver_member() :: %{
+        "accountId" => String.t() | atom()
+      }
+
+  """
+  @type inference_receiver_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_audience_models_response() :: %{
+        "audienceModels" => list(audience_model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_audience_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ml_output_configuration() :: %{
+        "destination" => destination(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type ml_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_training_dataset_response() :: %{
+        "trainingDatasetArn" => String.t() | atom()
+      }
+
+  """
+  @type create_training_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_model_algorithm_association_response() :: %{
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom()
+      }
+
+  """
+  @type create_configured_model_algorithm_association_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_model_algorithm_request() :: %{}
+
+  """
+  @type get_configured_model_algorithm_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      membership_inference_attack_score() :: %{
+        "attackVersion" => list(any()),
+        "score" => [float()]
+      }
+
+  """
+  @type membership_inference_attack_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configured_audience_model_response() :: %{
+        "configuredAudienceModelArn" => String.t() | atom()
+      }
+
+  """
+  @type update_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_configured_audience_model_policy_request() :: %{
+        optional("policyExistenceCondition") => list(any()),
+        optional("previousPolicyHash") => String.t() | atom(),
+        required("configuredAudienceModelPolicy") => String.t() | atom()
+      }
+
+  """
+  @type put_configured_audience_model_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_classification_details() :: %{
+        "columnMapping" => list(synthetic_data_column_properties())
+      }
+
+  """
+  @type column_classification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      collaboration_configured_model_algorithm_association_summary() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type collaboration_configured_model_algorithm_association_summary() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      custom_entity_config() :: %{
+        "customDataIdentifiers" => list(String.t() | atom())
+      }
+
+  """
+  @type custom_entity_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trained_model_inference_job_request() :: %{
+        optional("configuredModelAlgorithmAssociationArn") => String.t() | atom(),
+        optional("containerExecutionParameters") => inference_container_execution_parameters(),
+        optional("description") => String.t() | atom(),
+        optional("environment") => map(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("mlModelInferencePayerAccountId") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom(),
+        required("dataSource") => model_inference_data_source(),
+        required("name") => String.t() | atom(),
+        required("outputConfiguration") => inference_output_configuration(),
+        required("resourceConfig") => inference_resource_config(),
+        required("trainedModelArn") => String.t() | atom()
+      }
+
+  """
+  @type start_trained_model_inference_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_collaboration_configured_model_algorithm_association_response() :: %{
+        "collaborationIdentifier" => String.t() | atom(),
+        "configuredModelAlgorithmArn" => String.t() | atom(),
+        "configuredModelAlgorithmAssociationArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "creatorAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "membershipIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "privacyConfiguration" => privacy_configuration(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_collaboration_configured_model_algorithm_association_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_policy_response() :: %{
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "configuredAudienceModelPolicy" => String.t() | atom(),
+        "policyHash" => String.t() | atom()
+      }
+
+  """
+  @type get_configured_audience_model_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audience_destination() :: %{
+        "s3Destination" => s3_config_map()
+      }
+
+  """
+  @type audience_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_trained_models_response() :: %{
+        "collaborationTrainedModels" => list(collaboration_trained_model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_trained_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_collaboration_trained_model_export_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("trainedModelVersionIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_collaboration_trained_model_export_jobs_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_configured_audience_model_response() :: %{
+        "audienceModelArn" => String.t() | atom(),
+        "audienceSizeConfig" => audience_size_config(),
+        "childResourceTagOnCreatePolicy" => list(any()),
+        "configuredAudienceModelArn" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "minMatchingSeedSize" => integer(),
+        "name" => String.t() | atom(),
+        "outputConfig" => configured_audience_model_output_config(),
+        "sharedAudienceMetrics" => list(list(any())()),
+        "status" => list(any()),
+        "tags" => map(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_configured_audience_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_config() :: %{
+        "arguments" => list(String.t() | atom()),
+        "entrypoint" => list(String.t() | atom()),
+        "imageUri" => String.t() | atom(),
+        "metricDefinitions" => list(metric_definition())
+      }
+
+  """
+  @type container_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaName" => [String.t() | atom()],
+        "quotaValue" => [float()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_audience_export_job_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("audienceGenerationJobArn") => String.t() | atom(),
+        required("audienceSize") => audience_size(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type start_audience_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configured_audience_model_request() :: %{
+        optional("audienceSizeConfig") => audience_size_config(),
+        optional("childResourceTagOnCreatePolicy") => list(any()),
+        optional("description") => String.t() | atom(),
+        optional("minMatchingSeedSize") => integer(),
+        optional("tags") => map(),
+        required("audienceModelArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("outputConfig") => configured_audience_model_output_config(),
+        required("sharedAudienceMetrics") => list(list(any())())
+      }
+
+  """
+  @type create_configured_audience_model_request() :: %{(String.t() | atom()) => any()}
 
   @type cancel_trained_model_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_trained_model_inference_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_audience_model_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_configured_audience_model_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_configured_model_algorithm_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_configured_model_algorithm_association_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_ml_input_channel_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_trained_model_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | internal_service_exception()
+          | throttling_exception()
 
   @type create_training_dataset_errors() ::
-          validation_exception() | access_denied_exception() | conflict_exception()
+          conflict_exception() | validation_exception() | access_denied_exception()
 
   @type delete_audience_generation_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_audience_model_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_configured_audience_model_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_configured_audience_model_policy_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type delete_configured_model_algorithm_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_configured_model_algorithm_association_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_ml_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_ml_input_channel_data_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_trained_model_output_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_training_dataset_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_audience_generation_job_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_audience_model_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_collaboration_configured_model_algorithm_association_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_collaboration_ml_input_channel_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_collaboration_trained_model_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_configured_audience_model_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_configured_audience_model_policy_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_configured_model_algorithm_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type get_configured_model_algorithm_association_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_ml_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_ml_input_channel_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_trained_model_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_trained_model_inference_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_training_dataset_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type list_audience_export_jobs_errors() :: validation_exception() | access_denied_exception()
 
@@ -2702,96 +2702,96 @@ defmodule AWS.CleanRoomsML do
   @type list_audience_models_errors() :: validation_exception() | access_denied_exception()
 
   @type list_collaboration_configured_model_algorithm_associations_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_collaboration_ml_input_channels_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_collaboration_trained_model_export_jobs_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_collaboration_trained_model_inference_jobs_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_collaboration_trained_models_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_configured_audience_models_errors() ::
           validation_exception() | access_denied_exception()
 
   @type list_configured_model_algorithm_associations_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_configured_model_algorithms_errors() ::
           validation_exception() | access_denied_exception()
 
   @type list_ml_input_channels_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type list_trained_model_inference_jobs_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_trained_model_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_trained_models_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type list_training_datasets_errors() :: validation_exception() | access_denied_exception()
 
   @type put_configured_audience_model_policy_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type put_ml_configuration_errors() ::
-          throttling_exception() | validation_exception() | access_denied_exception()
+          validation_exception() | access_denied_exception() | throttling_exception()
 
   @type start_audience_export_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type start_audience_generation_job_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_trained_model_export_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_trained_model_inference_job_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception() | access_denied_exception()
 
   @type update_configured_audience_model_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

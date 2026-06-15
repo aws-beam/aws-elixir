@@ -17,209 +17,41 @@ defmodule AWS.PcaConnectorScep do
 
   ## Example:
 
-      connector() :: %{
-        "Arn" => String.t() | atom(),
-        "CertificateAuthorityArn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "Endpoint" => [String.t() | atom()],
-        "MobileDeviceManagement" => list(),
-        "OpenIdConfiguration" => open_id_configuration(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "Type" => list(any()),
-        "UpdatedAt" => [non_neg_integer()]
+      get_challenge_metadata_request() :: %{}
+
+  """
+  @type get_challenge_metadata_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_request() :: %{}
+
+  """
+  @type delete_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type connector() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Tags") => map()
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_response() :: %{
-        "Connectors" => list(connector_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_challenge_response() :: %{
-        "Challenge" => challenge()
-      }
-
-  """
-  @type create_challenge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_challenge_metadata_response() :: %{
-        "ChallengeMetadata" => challenge_metadata()
-      }
-
-  """
-  @type get_challenge_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_challenge_password_request() :: %{}
-
-  """
-  @type get_challenge_password_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_challenge_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ConnectorArn") => String.t() | atom()
-      }
-
-  """
-  @type create_challenge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      challenge_metadata_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "ConnectorArn" => String.t() | atom(),
-        "CreatedAt" => [non_neg_integer()],
-        "UpdatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type challenge_metadata_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "ResourceId" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "QuotaCode" => [String.t() | atom()],
-        "ResourceType" => [String.t() | atom()],
-        "ServiceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_id_configuration() :: %{
-        "Audience" => [String.t() | atom()],
-        "Issuer" => [String.t() | atom()],
-        "Subject" => [String.t() | atom()]
-      }
-
-  """
-  @type open_id_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_challenge_request() :: %{}
-
-  """
-  @type delete_challenge_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_response() :: %{
-        "ConnectorArn" => String.t() | atom()
-      }
-
-  """
-  @type create_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -240,10 +72,61 @@ defmodule AWS.PcaConnectorScep do
 
   ## Example:
 
-      get_connector_request() :: %{}
+      get_challenge_password_response() :: %{
+        "Password" => String.t() | atom()
+      }
 
   """
-  @type get_connector_request() :: %{}
+  @type get_challenge_password_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_challenge_metadata_response() :: %{
+        "Challenges" => list(challenge_metadata_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_challenge_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_challenge_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ConnectorArn") => String.t() | atom()
+      }
+
+  """
+  @type create_challenge_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -260,27 +143,62 @@ defmodule AWS.PcaConnectorScep do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_connector_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("MobileDeviceManagement") => list(),
-        optional("Tags") => map(),
-        optional("VpcEndpointId") => String.t() | atom(),
-        required("CertificateAuthorityArn") => String.t() | atom()
+      tag_resource_request() :: %{
+        required("Tags") => map()
       }
 
   """
-  @type create_connector_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_challenge_metadata_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ConnectorArn") => String.t() | atom()
+      }
+
+  """
+  @type list_challenge_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_response() :: %{
+        "Connector" => connector()
+      }
+
+  """
+  @type get_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "ResourceId" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,77 +224,62 @@ defmodule AWS.PcaConnectorScep do
 
   ## Example:
 
-      validation_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => list(any())
+      untag_resource_request() :: %{
+        required("TagKeys") => list([String.t() | atom()]())
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
+      open_id_configuration() :: %{
+        "Audience" => [String.t() | atom()],
+        "Issuer" => [String.t() | atom()],
+        "Subject" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type open_id_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_connector_response() :: %{
-        "Connector" => connector()
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
       }
 
   """
-  @type get_connector_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_challenge_metadata_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ConnectorArn") => String.t() | atom()
+      create_connector_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("MobileDeviceManagement") => list(),
+        optional("Tags") => map(),
+        optional("VpcEndpointId") => String.t() | atom(),
+        required("CertificateAuthorityArn") => String.t() | atom()
       }
 
   """
-  @type list_challenge_metadata_request() :: %{(String.t() | atom()) => any()}
+  @type create_connector_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
-        "Message" => [String.t() | atom()]
+      create_challenge_response() :: %{
+        "Challenge" => challenge()
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connector_request() :: %{}
-
-  """
-  @type delete_connector_request() :: %{}
+  @type create_challenge_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -396,10 +299,61 @@ defmodule AWS.PcaConnectorScep do
 
   ## Example:
 
-      get_challenge_metadata_request() :: %{}
+      bad_request_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
 
   """
-  @type get_challenge_metadata_request() :: %{}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_challenge_metadata_response() :: %{
+        "ChallengeMetadata" => challenge_metadata()
+      }
+
+  """
+  @type get_challenge_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_request() :: %{}
+
+  """
+  @type get_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_challenge_request() :: %{}
+
+  """
+  @type delete_challenge_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_response() :: %{
+        "ConnectorArn" => String.t() | atom()
+      }
+
+  """
+  @type create_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
@@ -417,114 +371,160 @@ defmodule AWS.PcaConnectorScep do
 
   ## Example:
 
-      list_challenge_metadata_response() :: %{
-        "Challenges" => list(challenge_metadata_summary()),
-        "NextToken" => String.t() | atom()
+      connector() :: %{
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Endpoint" => [String.t() | atom()],
+        "MobileDeviceManagement" => list(),
+        "OpenIdConfiguration" => open_id_configuration(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "Type" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type list_challenge_metadata_response() :: %{(String.t() | atom()) => any()}
+  @type connector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_challenge_password_response() :: %{
-        "Password" => String.t() | atom()
+      challenge_metadata_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "UpdatedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_challenge_password_response() :: %{(String.t() | atom()) => any()}
+  @type challenge_metadata_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "QuotaCode" => [String.t() | atom()],
+        "ResourceType" => [String.t() | atom()],
+        "ServiceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_challenge_password_request() :: %{}
+
+  """
+  @type get_challenge_password_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_response() :: %{
+        "Connectors" => list(connector_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @type create_challenge_errors() ::
-          bad_request_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_connector_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_challenge_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_connector_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_challenge_metadata_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_challenge_password_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_connector_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_challenge_metadata_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_connectors_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{

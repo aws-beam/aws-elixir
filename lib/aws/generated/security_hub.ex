@@ -122,90 +122,16 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      describe_hub_request() :: %{
-        optional("HubArn") => String.t() | atom()
+      aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
+        "Autoprovision" => boolean(),
+        "Driver" => String.t() | atom(),
+        "DriverOpts" => map(),
+        "Labels" => map(),
+        "Scope" => String.t() | atom()
       }
 
   """
-  @type describe_hub_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_gateway_method_settings() :: %{
-        "CacheDataEncrypted" => boolean(),
-        "CacheTtlInSeconds" => integer(),
-        "CachingEnabled" => boolean(),
-        "DataTraceEnabled" => boolean(),
-        "HttpMethod" => String.t() | atom(),
-        "LoggingLevel" => String.t() | atom(),
-        "MetricsEnabled" => boolean(),
-        "RequireAuthorizationForCacheControl" => boolean(),
-        "ResourcePath" => String.t() | atom(),
-        "ThrottlingBurstLimit" => integer(),
-        "ThrottlingRateLimit" => float(),
-        "UnauthorizedCacheControlHeaderStrategy" => String.t() | atom()
-      }
-
-  """
-  @type aws_api_gateway_method_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_from_master_account_request() :: %{}
-
-  """
-  @type disassociate_from_master_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_trends_metrics_result() :: %{
-        "Timestamp" => non_neg_integer(),
-        "TrendsValues" => resources_trends_values()
-      }
-
-  """
-  @type resources_trends_metrics_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_standards_control_request() :: %{
-        optional("ControlStatus") => list(any()),
-        optional("DisabledReason") => String.t() | atom()
-      }
-
-  """
-  @type update_standards_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standards_managed_by() :: %{
-        "Company" => String.t() | atom(),
-        "Product" => String.t() | atom()
-      }
-
-  """
-  @type standards_managed_by() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_cluster_config_zone_awareness_config_details() :: %{
-        "AvailabilityZoneCount" => integer()
-      }
-
-  """
-  @type aws_open_search_service_domain_cluster_config_zone_awareness_config_details() :: %{
+  @type aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -213,555 +139,13 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      get_connector_v2_response() :: %{
-        "ConnectorArn" => String.t() | atom(),
-        "ConnectorId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Health" => health_check(),
-        "KmsKeyArn" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ProviderDetail" => list()
+      aws_elb_app_cookie_stickiness_policy() :: %{
+        "CookieName" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
       }
 
   """
-  @type get_connector_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_security_finding_filters() :: %{
-        "Region" => list(string_filter()),
-        "ResourceTags" => list(map_filter()),
-        "ResourceAwsEc2InstanceSubnetId" => list(string_filter()),
-        "ResourceAwsIamAccessKeyStatus" => list(string_filter()),
-        "ResourceId" => list(string_filter()),
-        "FindingProviderFieldsCriticality" => list(number_filter()),
-        "ResourceAwsEc2InstanceLaunchedAt" => list(date_filter()),
-        "FindingProviderFieldsSeverityLabel" => list(string_filter()),
-        "ResourceAwsS3BucketOwnerId" => list(string_filter()),
-        "ResourceDetailsOther" => list(map_filter()),
-        "NetworkDestinationIpV4" => list(ip_filter()),
-        "CompanyName" => list(string_filter()),
-        "MalwareState" => list(string_filter()),
-        "RecommendationText" => list(string_filter()),
-        "ResourceContainerName" => list(string_filter()),
-        "ResourceAwsEc2InstanceIamInstanceProfileArn" => list(string_filter()),
-        "ResourceAwsIamUserUserName" => list(string_filter()),
-        "SeverityLabel" => list(string_filter()),
-        "Keyword" => list(keyword_filter()),
-        "FindingProviderFieldsRelatedFindingsProductArn" => list(string_filter()),
-        "ResourceContainerLaunchedAt" => list(date_filter()),
-        "MalwareName" => list(string_filter()),
-        "UserDefinedFields" => list(map_filter()),
-        "FindingProviderFieldsRelatedFindingsId" => list(string_filter()),
-        "SeverityNormalized" => list(number_filter()),
-        "RelatedFindingsProductArn" => list(string_filter()),
-        "ResourceApplicationArn" => list(string_filter()),
-        "ResourceAwsEc2InstanceIpV6Addresses" => list(ip_filter()),
-        "ProcessPid" => list(number_filter()),
-        "WorkflowState" => list(string_filter()),
-        "ProductName" => list(string_filter()),
-        "NetworkSourceMac" => list(string_filter()),
-        "Confidence" => list(number_filter()),
-        "CreatedAt" => list(date_filter()),
-        "ProcessName" => list(string_filter()),
-        "ComplianceSecurityControlId" => list(string_filter()),
-        "MalwarePath" => list(string_filter()),
-        "NetworkDestinationDomain" => list(string_filter()),
-        "ResourceRegion" => list(string_filter()),
-        "NetworkDestinationIpV6" => list(ip_filter()),
-        "UpdatedAt" => list(date_filter()),
-        "AwsAccountId" => list(string_filter()),
-        "ResourceAwsEc2InstanceIpV4Addresses" => list(ip_filter()),
-        "FindingProviderFieldsConfidence" => list(number_filter()),
-        "ResourceContainerImageName" => list(string_filter()),
-        "ThreatIntelIndicatorValue" => list(string_filter()),
-        "ProcessLaunchedAt" => list(date_filter()),
-        "RelatedFindingsId" => list(string_filter()),
-        "Id" => list(string_filter()),
-        "ResourceAwsIamAccessKeyPrincipalName" => list(string_filter()),
-        "NetworkSourceIpV4" => list(ip_filter()),
-        "ComplianceStatus" => list(string_filter()),
-        "ThreatIntelIndicatorCategory" => list(string_filter()),
-        "ProductArn" => list(string_filter()),
-        "ThreatIntelIndicatorLastObservedAt" => list(date_filter()),
-        "SourceUrl" => list(string_filter()),
-        "MalwareType" => list(string_filter()),
-        "NetworkSourcePort" => list(number_filter()),
-        "ResourceAwsS3BucketOwnerName" => list(string_filter()),
-        "NetworkSourceIpV6" => list(ip_filter()),
-        "VulnerabilitiesFixAvailable" => list(string_filter()),
-        "AwsAccountName" => list(string_filter()),
-        "ResourceAwsEc2InstanceVpcId" => list(string_filter()),
-        "FirstObservedAt" => list(date_filter()),
-        "NetworkDirection" => list(string_filter()),
-        "FindingProviderFieldsTypes" => list(string_filter()),
-        "GeneratorId" => list(string_filter()),
-        "NoteText" => list(string_filter()),
-        "FindingProviderFieldsSeverityOriginal" => list(string_filter()),
-        "RecordState" => list(string_filter()),
-        "SeverityProduct" => list(number_filter()),
-        "ResourceAwsEc2InstanceKeyName" => list(string_filter()),
-        "Title" => list(string_filter()),
-        "ResourceAwsEc2InstanceType" => list(string_filter()),
-        "ResourceApplicationName" => list(string_filter()),
-        "ComplianceAssociatedStandardsId" => list(string_filter()),
-        "ComplianceSecurityControlParametersName" => list(string_filter()),
-        "Sample" => list(boolean_filter()),
-        "Criticality" => list(number_filter()),
-        "ResourceContainerImageId" => list(string_filter()),
-        "NetworkSourceDomain" => list(string_filter()),
-        "ThreatIntelIndicatorSource" => list(string_filter()),
-        "ThreatIntelIndicatorType" => list(string_filter()),
-        "ResourceAwsIamAccessKeyUserName" => list(string_filter()),
-        "ResourceAwsIamAccessKeyCreatedAt" => list(date_filter()),
-        "LastObservedAt" => list(date_filter()),
-        "NetworkDestinationPort" => list(number_filter()),
-        "ProcessParentPid" => list(number_filter()),
-        "NoteUpdatedBy" => list(string_filter()),
-        "ResourceAwsEc2InstanceImageId" => list(string_filter()),
-        "NetworkProtocol" => list(string_filter()),
-        "Description" => list(string_filter()),
-        "WorkflowStatus" => list(string_filter()),
-        "ThreatIntelIndicatorSourceUrl" => list(string_filter()),
-        "ProcessPath" => list(string_filter()),
-        "VulnerabilitiesExploitAvailable" => list(string_filter()),
-        "ComplianceSecurityControlParametersValue" => list(string_filter()),
-        "ProductFields" => list(map_filter()),
-        "NoteUpdatedAt" => list(date_filter()),
-        "Type" => list(string_filter()),
-        "VerificationState" => list(string_filter()),
-        "ResourceType" => list(string_filter()),
-        "ResourcePartition" => list(string_filter()),
-        "ProcessTerminatedAt" => list(date_filter())
-      }
-
-  """
-  @type aws_security_finding_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_aggregator_response() :: %{
-        "FindingAggregationRegion" => String.t() | atom(),
-        "FindingAggregatorArn" => String.t() | atom(),
-        "RegionLinkingMode" => String.t() | atom(),
-        "Regions" => list(String.t() | atom())
-      }
-
-  """
-  @type get_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
-        "KmsKeyId" => String.t() | atom(),
-        "LogConfiguration" => aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details(),
-        "Logging" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_local_secondary_index() :: %{
-        "IndexArn" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "KeySchema" => list(aws_dynamo_db_table_key_schema()),
-        "Projection" => aws_dynamo_db_table_projection()
-      }
-
-  """
-  @type aws_dynamo_db_table_local_secondary_index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_findings_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type import_findings_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details() :: %{
-        "AvailabilityZoneCount" => integer()
-      }
-
-  """
-  @type aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source() :: %{
-        "RulesSourceList" => rule_group_source_list_details(),
-        "RulesString" => String.t() | atom(),
-        "StatefulRules" => list(rule_group_source_stateful_rules_details()),
-        "StatelessRulesAndCustomActions" => rule_group_source_stateless_rules_and_custom_actions_details()
-      }
-
-  """
-  @type rule_group_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
-        "ClientRootCertificateChain" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_gateway_access_log_settings() :: %{
-        "DestinationArn" => String.t() | atom(),
-        "Format" => String.t() | atom()
-      }
-
-  """
-  @type aws_api_gateway_access_log_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_cluster_node() :: %{
-        "NodeRole" => String.t() | atom(),
-        "PrivateIpAddress" => String.t() | atom(),
-        "PublicIpAddress" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_cluster_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_resize_info() :: %{
-        "AllowCancelResize" => boolean(),
-        "ResizeType" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_resize_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() :: %{
-        "Add" => list(String.t() | atom()),
-        "Drop" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_trends_string_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => string_filter()
-      }
-
-  """
-  @type resources_trends_string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_lambda_function_dead_letter_config() :: %{
-        "TargetArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_lambda_function_dead_letter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_policy_response() :: %{}
-
-  """
-  @type delete_configuration_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      boolean_configuration_options() :: %{
-        "DefaultValue" => boolean()
-      }
-
-  """
-  @type boolean_configuration_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      record() :: %{
-        "JsonPath" => String.t() | atom(),
-        "RecordIndex" => float()
-      }
-
-  """
-  @type record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      organizational_unit_not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type organizational_unit_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_route53_hosted_zone_details() :: %{
-        "HostedZone" => aws_route53_hosted_zone_object_details(),
-        "NameServers" => list(String.t() | atom()),
-        "QueryLoggingConfig" => aws_route53_query_logging_config_details(),
-        "Vpcs" => list(aws_route53_hosted_zone_vpc_details())
-      }
-
-  """
-  @type aws_route53_hosted_zone_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_rules_details() :: %{
-        "Action" => aws_wafv2_rules_action_details(),
-        "Name" => String.t() | atom(),
-        "OverrideAction" => String.t() | atom(),
-        "Priority" => integer(),
-        "VisibilityConfig" => aws_wafv2_visibility_config_details()
-      }
-
-  """
-  @type aws_wafv2_rules_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      integer_list_configuration_options() :: %{
-        "DefaultValue" => list(integer()),
-        "Max" => integer(),
-        "MaxItems" => integer(),
-        "Min" => integer()
-      }
-
-  """
-  @type integer_list_configuration_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_number_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => number_filter()
-      }
-
-  """
-  @type ocsf_number_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_user_details() :: %{
-        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
-        "CreateDate" => String.t() | atom(),
-        "GroupList" => list(String.t() | atom()),
-        "Path" => String.t() | atom(),
-        "PermissionsBoundary" => aws_iam_permissions_boundary(),
-        "UserId" => String.t() | atom(),
-        "UserName" => String.t() | atom(),
-        "UserPolicyList" => list(aws_iam_user_policy())
-      }
-
-  """
-  @type aws_iam_user_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_details() :: %{
-        "ContainerRuntime" => String.t() | atom(),
-        "ImageId" => String.t() | atom(),
-        "ImageName" => String.t() | atom(),
-        "LaunchedAt" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Privileged" => boolean(),
-        "VolumeMounts" => list(volume_mount())
-      }
-
-  """
-  @type container_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_instance_profile_role() :: %{
-        "Arn" => String.t() | atom(),
-        "AssumeRolePolicyDocument" => String.t() | atom(),
-        "CreateDate" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "RoleId" => String.t() | atom(),
-        "RoleName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_instance_profile_role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_security_group_details() :: %{
-        "DbSecurityGroupArn" => String.t() | atom(),
-        "DbSecurityGroupDescription" => String.t() | atom(),
-        "DbSecurityGroupName" => String.t() | atom(),
-        "Ec2SecurityGroups" => list(aws_rds_db_security_group_ec2_security_group()),
-        "IpRanges" => list(aws_rds_db_security_group_ip_range()),
-        "OwnerId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_security_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_standards_controls_response() :: %{
-        "Controls" => list(standards_control()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_standards_controls_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_placement_constraints_details() :: %{
-        "Expression" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_service_placement_constraints_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      range() :: %{
-        "End" => float(),
-        "Start" => float(),
-        "StartColumn" => float()
-      }
-
-  """
-  @type range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_security_group_ip_range() :: %{
-        "CidrIp" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_security_group_ip_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_lambda_layer_version_details() :: %{
-        "CompatibleRuntimes" => list(String.t() | atom()),
-        "CreatedDate" => String.t() | atom(),
-        "Version" => float()
-      }
-
-  """
-  @type aws_lambda_layer_version_details() :: %{(String.t() | atom()) => any()}
+  @type aws_elb_app_cookie_stickiness_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -787,3337 +171,16 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      decline_invitations_response() :: %{
-        "UnprocessedAccounts" => list(result())
-      }
-
-  """
-  @type decline_invitations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_policy_association_summary() :: %{
-        "AssociationStatus" => list(any()),
-        "AssociationStatusMessage" => String.t() | atom(),
-        "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | atom(),
-        "TargetId" => String.t() | atom(),
-        "TargetType" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type configuration_policy_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "Port" => integer()
-      }
-
-  """
-  @type aws_redshift_cluster_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_provisioned_throughput_override() :: %{
-        "ReadCapacityUnits" => integer()
-      }
-
-  """
-  @type aws_dynamo_db_table_provisioned_throughput_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firewall_policy_details() :: %{
-        "StatefulRuleGroupReferences" => list(firewall_policy_stateful_rule_group_references_details()),
-        "StatelessCustomActions" => list(firewall_policy_stateless_custom_actions_details()),
-        "StatelessDefaultActions" => list(String.t() | atom()),
-        "StatelessFragmentDefaultActions" => list(String.t() | atom()),
-        "StatelessRuleGroupReferences" => list(firewall_policy_stateless_rule_group_references_details())
-      }
-
-  """
-  @type firewall_policy_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_access_key_session_context_attributes() :: %{
-        "CreationDate" => String.t() | atom(),
-        "MfaAuthenticated" => boolean()
-      }
-
-  """
-  @type aws_iam_access_key_session_context_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_organization_admin_account_response() :: %{}
-
-  """
-  @type disable_organization_admin_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_default_cache_behavior() :: %{
-        "ViewerProtocolPolicy" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_front_distribution_default_cache_behavior() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elbv2_load_balancer_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_elbv2_load_balancer_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_control() :: %{
-        "Description" => String.t() | atom(),
-        "LastUpdateReason" => String.t() | atom(),
-        "Parameters" => map(),
-        "RemediationUrl" => String.t() | atom(),
-        "SecurityControlArn" => String.t() | atom(),
-        "SecurityControlId" => String.t() | atom(),
-        "SecurityControlStatus" => list(any()),
-        "SeverityRating" => list(any()),
-        "Title" => String.t() | atom(),
-        "UpdateStatus" => list(any())
-      }
-
-  """
-  @type security_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_account_public_access_block_details() :: %{
-        "BlockPublicAcls" => boolean(),
-        "BlockPublicPolicy" => boolean(),
-        "IgnorePublicAcls" => boolean(),
-        "RestrictPublicBuckets" => boolean()
-      }
-
-  """
-  @type aws_s3_account_public_access_block_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_security_hub_response() :: %{}
-
-  """
-  @type disable_security_hub_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      classification_status() :: %{
-        "Code" => String.t() | atom(),
-        "Reason" => String.t() | atom()
-      }
-
-  """
-  @type classification_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vulnerability() :: %{
-        "CodeVulnerabilities" => list(vulnerability_code_vulnerabilities()),
-        "Cvss" => list(cvss()),
-        "EpssScore" => float(),
-        "ExploitAvailable" => list(any()),
-        "FixAvailable" => list(any()),
-        "Id" => String.t() | atom(),
-        "LastKnownExploitAt" => String.t() | atom(),
-        "ReferenceUrls" => list(String.t() | atom()),
-        "RelatedVulnerabilities" => list(String.t() | atom()),
-        "Vendor" => vulnerability_vendor(),
-        "VulnerablePackages" => list(software_package())
-      }
-
-  """
-  @type vulnerability() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elastic_beanstalk_environment_environment_link() :: %{
-        "EnvironmentName" => String.t() | atom(),
-        "LinkName" => String.t() | atom()
-      }
-
-  """
-  @type aws_elastic_beanstalk_environment_environment_link() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecr_repository_details() :: %{
-        "Arn" => String.t() | atom(),
-        "ImageScanningConfiguration" => aws_ecr_repository_image_scanning_configuration_details(),
-        "ImageTagMutability" => String.t() | atom(),
-        "LifecyclePolicy" => aws_ecr_repository_lifecycle_policy_details(),
-        "RepositoryName" => String.t() | atom(),
-        "RepositoryPolicyText" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecr_repository_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_header() :: %{
-        "Destination" => network_path_component_details(),
-        "Protocol" => String.t() | atom(),
-        "Source" => network_path_component_details()
-      }
-
-  """
-  @type network_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insights_request() :: %{
-        optional("InsightArns") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      availability_zone() :: %{
-        "SubnetId" => String.t() | atom(),
-        "ZoneName" => String.t() | atom()
-      }
-
-  """
-  @type availability_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_configuration_request() :: %{}
-
-  """
-  @type describe_organization_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_string_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => string_filter()
-      }
-
-  """
-  @type ocsf_string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
-        "ScanEc2InstanceWithFindings" => aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details(),
-        "ServiceRole" => String.t() | atom()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() :: %{
-        "Prefix" => String.t() | atom(),
-        "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_cluster_config_details() :: %{
-        "DedicatedMasterCount" => integer(),
-        "DedicatedMasterEnabled" => boolean(),
-        "DedicatedMasterType" => String.t() | atom(),
-        "InstanceCount" => integer(),
-        "InstanceType" => String.t() | atom(),
-        "WarmCount" => integer(),
-        "WarmEnabled" => boolean(),
-        "WarmType" => String.t() | atom(),
-        "ZoneAwarenessConfig" => aws_open_search_service_domain_cluster_config_zone_awareness_config_details(),
-        "ZoneAwarenessEnabled" => boolean()
-      }
-
-  """
-  @type aws_open_search_service_domain_cluster_config_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      network_path_component() :: %{
-        "ComponentId" => String.t() | atom(),
-        "ComponentType" => String.t() | atom(),
-        "Egress" => network_header(),
-        "Ingress" => network_header()
-      }
-
-  """
-  @type network_path_component() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_cluster_parameter_group() :: %{
-        "ClusterParameterStatusList" => list(aws_redshift_cluster_cluster_parameter_status()),
-        "ParameterApplyStatus" => String.t() | atom(),
-        "ParameterGroupName" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_cluster_parameter_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_web_acl_rules_list_action_details() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_web_acl_rules_list_action_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      association_state_details() :: %{
-        "State" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type association_state_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details() :: %{
-        "Max" => integer(),
-        "Min" => integer()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_members_response() :: %{
-        "Members" => list(member()),
-        "UnprocessedAccounts" => list(result())
-      }
-
-  """
-  @type get_members_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      waf_action() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type waf_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_reason() :: %{
-        "Description" => String.t() | atom(),
-        "ReasonCode" => String.t() | atom()
-      }
-
-  """
-  @type status_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_local_port_details() :: %{
-        "Port" => integer(),
-        "PortName" => String.t() | atom()
-      }
-
-  """
-  @type action_local_port_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trends_values() :: %{
-        "SeverityTrends" => severity_trends_count()
-      }
-
-  """
-  @type trends_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_client_authentication_details() :: %{
-        "Sasl" => aws_msk_cluster_cluster_info_client_authentication_sasl_details(),
-        "Tls" => aws_msk_cluster_cluster_info_client_authentication_tls_details(),
-        "Unauthenticated" => aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_client_authentication_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      waf_excluded_rule() :: %{
-        "RuleId" => String.t() | atom()
-      }
-
-  """
-  @type waf_excluded_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_mount_point() :: %{
-        "ContainerPath" => String.t() | atom(),
-        "SourceVolume" => String.t() | atom()
-      }
-
-  """
-  @type aws_mount_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateless_rule_match_attributes_destination_ports() :: %{
-        "FromPort" => integer(),
-        "ToPort" => integer()
-      }
-
-  """
-  @type rule_group_source_stateless_rule_match_attributes_destination_ports() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      admin_account() :: %{
-        "AccountId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type admin_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sequence() :: %{
-        "Actors" => list(actor()),
-        "Endpoints" => list(network_endpoint()),
-        "SequenceIndicators" => list(indicator()),
-        "Signals" => list(signal()),
-        "Uid" => String.t() | atom()
-      }
-
-  """
-  @type sequence() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remediation() :: %{
-        "Recommendation" => recommendation()
-      }
-
-  """
-  @type remediation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
-        "Operands" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details()),
-        "Prefix" => String.t() | atom(),
-        "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_organization_scope() :: %{
-        "OrganizationId" => String.t() | atom(),
-        "OrganizationalUnitId" => String.t() | atom()
-      }
-
-  """
-  @type aws_organization_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_certificate_manager_certificate_options() :: %{
-        "CertificateTransparencyLoggingPreference" => String.t() | atom()
-      }
-
-  """
-  @type aws_certificate_manager_certificate_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_details() :: %{
-        "ClientAuthentication" => aws_msk_cluster_cluster_info_client_authentication_details(),
-        "ClusterName" => String.t() | atom(),
-        "CurrentVersion" => String.t() | atom(),
-        "EncryptionInfo" => aws_msk_cluster_cluster_info_encryption_info_details(),
-        "EnhancedMonitoring" => String.t() | atom(),
-        "NumberOfBrokerNodes" => integer()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_import_findings_for_product_response() :: %{}
-
-  """
-  @type disable_import_findings_for_product_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
-        "ReadOnly" => boolean(),
-        "SourceContainer" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      accept_administrator_invitation_request() :: %{
-        required("AdministratorId") => String.t() | atom(),
-        required("InvitationId") => String.t() | atom()
-      }
-
-  """
-  @type accept_administrator_invitation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateful_rules_header_details() :: %{
-        "Destination" => String.t() | atom(),
-        "DestinationPort" => String.t() | atom(),
-        "Direction" => String.t() | atom(),
-        "Protocol" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "SourcePort" => String.t() | atom()
-      }
-
-  """
-  @type rule_group_source_stateful_rules_header_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_standards_control_associations_response() :: %{
-        "UnprocessedAssociationUpdates" => list(unprocessed_standards_control_association_update())
-      }
-
-  """
-  @type batch_update_standards_control_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      classification_result() :: %{
-        "AdditionalOccurrences" => boolean(),
-        "CustomDataIdentifiers" => custom_data_identifiers_result(),
-        "MimeType" => String.t() | atom(),
-        "SensitiveData" => list(sensitive_data_result()),
-        "SizeClassified" => float(),
-        "Status" => classification_status()
-      }
-
-  """
-  @type classification_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_certificate_manager_certificate_extended_key_usage() :: %{
+      aws_ecs_task_definition_container_definitions_ulimits_details() :: %{
+        "HardLimit" => integer(),
         "Name" => String.t() | atom(),
-        "OId" => String.t() | atom()
+        "SoftLimit" => integer()
       }
 
   """
-  @type aws_certificate_manager_certificate_extended_key_usage() :: %{
+  @type aws_ecs_task_definition_container_definitions_ulimits_details() :: %{
           (String.t() | atom()) => any()
         }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
-        "ContainerPath" => String.t() | atom(),
-        "ReadOnly" => boolean(),
-        "SourceVolume" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      ipv6_cidr_block_association() :: %{
-        "AssociationId" => String.t() | atom(),
-        "CidrBlockState" => String.t() | atom(),
-        "Ipv6CidrBlock" => String.t() | atom()
-      }
-
-  """
-  @type ipv6_cidr_block_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      severity_update() :: %{
-        "Label" => list(any()),
-        "Normalized" => integer(),
-        "Product" => float()
-      }
-
-  """
-  @type severity_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_remote_port_details() :: %{
-        "Port" => integer(),
-        "PortName" => String.t() | atom()
-      }
-
-  """
-  @type action_remote_port_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() :: %{
-        "Days" => integer(),
-        "StorageClass" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_rule_group_details() :: %{
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RuleGroupId" => String.t() | atom(),
-        "Rules" => list(aws_waf_regional_rule_group_rules_details())
-      }
-
-  """
-  @type aws_waf_regional_rule_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_kubernetes_details() :: %{
-        "AuditLogs" => aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_kubernetes_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_kinesis_stream_details() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RetentionPeriodHours" => integer(),
-        "ShardCount" => integer(),
-        "StreamEncryption" => aws_kinesis_stream_stream_encryption_details()
-      }
-
-  """
-  @type aws_kinesis_stream_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_volume_host_details() :: %{
-        "SourcePath" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_volume_host_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_launch_configuration_details() :: %{
-        "AssociatePublicIpAddress" => boolean(),
-        "BlockDeviceMappings" => list(aws_auto_scaling_launch_configuration_block_device_mappings_details()),
-        "ClassicLinkVpcId" => String.t() | atom(),
-        "ClassicLinkVpcSecurityGroups" => list(String.t() | atom()),
-        "CreatedTime" => String.t() | atom(),
-        "EbsOptimized" => boolean(),
-        "IamInstanceProfile" => String.t() | atom(),
-        "ImageId" => String.t() | atom(),
-        "InstanceMonitoring" => aws_auto_scaling_launch_configuration_instance_monitoring_details(),
-        "InstanceType" => String.t() | atom(),
-        "KernelId" => String.t() | atom(),
-        "KeyName" => String.t() | atom(),
-        "LaunchConfigurationName" => String.t() | atom(),
-        "MetadataOptions" => aws_auto_scaling_launch_configuration_metadata_options(),
-        "PlacementTenancy" => String.t() | atom(),
-        "RamdiskId" => String.t() | atom(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "SpotPrice" => String.t() | atom(),
-        "UserData" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_launch_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_administrator_account_request() :: %{}
-
-  """
-  @type get_administrator_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      process_details() :: %{
-        "LaunchedAt" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ParentPid" => integer(),
-        "Path" => String.t() | atom(),
-        "Pid" => integer(),
-        "TerminatedAt" => String.t() | atom()
-      }
-
-  """
-  @type process_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      sensitive_data_result() :: %{
-        "Category" => String.t() | atom(),
-        "Detections" => list(sensitive_data_detections()),
-        "TotalCount" => float()
-      }
-
-  """
-  @type sensitive_data_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_security_hub_configuration_response() :: %{}
-
-  """
-  @type update_security_hub_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{
-        "DeviceName" => String.t() | atom(),
-        "Ebs" => aws_ec2_launch_template_data_block_device_mapping_set_ebs_details(),
-        "NoDevice" => String.t() | atom(),
-        "VirtualName" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_formation_stack_drift_information_details() :: %{
-        "StackDriftStatus" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_formation_stack_drift_information_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_connection_action() :: %{
-        "Blocked" => boolean(),
-        "ConnectionDirection" => String.t() | atom(),
-        "LocalPortDetails" => action_local_port_details(),
-        "Protocol" => String.t() | atom(),
-        "RemoteIpDetails" => action_remote_ip_details(),
-        "RemotePortDetails" => action_remote_port_details()
-      }
-
-  """
-  @type network_connection_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{
-        "Hostname" => String.t() | atom(),
-        "HttpRedirectCode" => String.t() | atom(),
-        "Protocol" => String.t() | atom(),
-        "ReplaceKeyPrefixWith" => String.t() | atom(),
-        "ReplaceKeyWith" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_action_target_response() :: %{
-        "ActionTargetArn" => String.t() | atom()
-      }
-
-  """
-  @type create_action_target_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_kinesis_stream_stream_encryption_details() :: %{
-        "EncryptionType" => String.t() | atom(),
-        "KeyId" => String.t() | atom()
-      }
-
-  """
-  @type aws_kinesis_stream_stream_encryption_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_snapshot_details() :: %{
-        "AllocatedStorage" => integer(),
-        "AvailabilityZone" => String.t() | atom(),
-        "DbInstanceIdentifier" => String.t() | atom(),
-        "DbSnapshotIdentifier" => String.t() | atom(),
-        "DbiResourceId" => String.t() | atom(),
-        "Encrypted" => boolean(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "IamDatabaseAuthenticationEnabled" => boolean(),
-        "InstanceCreateTime" => String.t() | atom(),
-        "Iops" => integer(),
-        "KmsKeyId" => String.t() | atom(),
-        "LicenseModel" => String.t() | atom(),
-        "MasterUsername" => String.t() | atom(),
-        "OptionGroupName" => String.t() | atom(),
-        "PercentProgress" => integer(),
-        "Port" => integer(),
-        "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
-        "SnapshotCreateTime" => String.t() | atom(),
-        "SnapshotType" => String.t() | atom(),
-        "SourceDbSnapshotIdentifier" => String.t() | atom(),
-        "SourceRegion" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StorageType" => String.t() | atom(),
-        "TdeCredentialArn" => String.t() | atom(),
-        "Timezone" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_snapshot_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_enable_standards_response() :: %{
-        "StandardsSubscriptions" => list(standards_subscription())
-      }
-
-  """
-  @type batch_enable_standards_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elasticsearch_domain_domain_endpoint_options() :: %{
-        "EnforceHTTPS" => boolean(),
-        "TLSSecurityPolicy" => String.t() | atom()
-      }
-
-  """
-  @type aws_elasticsearch_domain_domain_endpoint_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compliance() :: %{
-        "AssociatedStandards" => list(associated_standard()),
-        "RelatedRequirements" => list(String.t() | atom()),
-        "SecurityControlId" => String.t() | atom(),
-        "SecurityControlParameters" => list(security_control_parameter()),
-        "Status" => list(any()),
-        "StatusReasons" => list(status_reason())
-      }
-
-  """
-  @type compliance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      file_paths() :: %{
-        "FileName" => String.t() | atom(),
-        "FilePath" => String.t() | atom(),
-        "Hash" => String.t() | atom(),
-        "ResourceId" => String.t() | atom()
-      }
-
-  """
-  @type file_paths() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sensitive_data_detections() :: %{
-        "Count" => float(),
-        "Occurrences" => occurrences(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type sensitive_data_detections() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_action_target_request() :: %{}
-
-  """
-  @type delete_action_target_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_details() :: %{
-        "ClusterArn" => String.t() | atom(),
-        "Containers" => list(aws_ecs_container_details()),
-        "CreatedAt" => String.t() | atom(),
-        "Group" => String.t() | atom(),
-        "StartedAt" => String.t() | atom(),
-        "StartedBy" => String.t() | atom(),
-        "TaskDefinitionArn" => String.t() | atom(),
-        "Version" => String.t() | atom(),
-        "Volumes" => list(aws_ecs_task_volume_details())
-      }
-
-  """
-  @type aws_ecs_task_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_in_use_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_instance_associated_role() :: %{
-        "FeatureName" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_instance_associated_role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_policy_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ConfigurationPolicy" => list(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_configuration_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_access_point_vpc_configuration_details() :: %{
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_access_point_vpc_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_attached_managed_policy() :: %{
-        "PolicyArn" => String.t() | atom(),
-        "PolicyName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_attached_managed_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_sqs_queue_details() :: %{
-        "DeadLetterTargetArn" => String.t() | atom(),
-        "KmsDataKeyReusePeriodSeconds" => integer(),
-        "KmsMasterKeyId" => String.t() | atom(),
-        "QueueName" => String.t() | atom()
-      }
-
-  """
-  @type aws_sqs_queue_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_finding_filters() :: %{
-        "ResourceTags" => list(map_filter()),
-        "ResourceId" => list(string_filter()),
-        "ResourceDetailsOther" => list(map_filter()),
-        "CompanyName" => list(string_filter()),
-        "SeverityLabel" => list(string_filter()),
-        "UserDefinedFields" => list(map_filter()),
-        "RelatedFindingsProductArn" => list(string_filter()),
-        "ResourceApplicationArn" => list(string_filter()),
-        "ProductName" => list(string_filter()),
-        "Confidence" => list(number_filter()),
-        "CreatedAt" => list(date_filter()),
-        "ComplianceSecurityControlId" => list(string_filter()),
-        "ResourceRegion" => list(string_filter()),
-        "UpdatedAt" => list(date_filter()),
-        "AwsAccountId" => list(string_filter()),
-        "RelatedFindingsId" => list(string_filter()),
-        "Id" => list(string_filter()),
-        "ComplianceStatus" => list(string_filter()),
-        "ProductArn" => list(string_filter()),
-        "SourceUrl" => list(string_filter()),
-        "AwsAccountName" => list(string_filter()),
-        "FirstObservedAt" => list(date_filter()),
-        "GeneratorId" => list(string_filter()),
-        "NoteText" => list(string_filter()),
-        "RecordState" => list(string_filter()),
-        "Title" => list(string_filter()),
-        "ResourceApplicationName" => list(string_filter()),
-        "ComplianceAssociatedStandardsId" => list(string_filter()),
-        "Criticality" => list(number_filter()),
-        "LastObservedAt" => list(date_filter()),
-        "NoteUpdatedBy" => list(string_filter()),
-        "Description" => list(string_filter()),
-        "WorkflowStatus" => list(string_filter()),
-        "NoteUpdatedAt" => list(date_filter()),
-        "Type" => list(string_filter()),
-        "VerificationState" => list(string_filter()),
-        "ResourceType" => list(string_filter()),
-        "ResourcePartition" => list(string_filter())
-      }
-
-  """
-  @type automation_rules_finding_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_autonomous_system() :: %{
-        "Name" => String.t() | atom(),
-        "Number" => integer()
-      }
-
-  """
-  @type network_autonomous_system() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_interface_private_ip_address_detail() :: %{
-        "PrivateDnsName" => String.t() | atom(),
-        "PrivateIpAddress" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_network_interface_private_ip_address_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_app_sync_graph_ql_api_details() :: %{
-        "AdditionalAuthenticationProviders" => list(aws_app_sync_graph_ql_api_additional_authentication_providers_details()),
-        "ApiId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "AuthenticationType" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
-        "LogConfig" => aws_app_sync_graph_ql_api_log_config_details(),
-        "Name" => String.t() | atom(),
-        "OpenIdConnectConfig" => aws_app_sync_graph_ql_api_open_id_connect_config_details(),
-        "UserPoolConfig" => aws_app_sync_graph_ql_api_user_pool_config_details(),
-        "WafWebAclArn" => String.t() | atom(),
-        "XrayEnabled" => boolean()
-      }
-
-  """
-  @type aws_app_sync_graph_ql_api_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_variables_ip_sets_details() :: %{
-        "Definition" => list(String.t() | atom())
-      }
-
-  """
-  @type rule_group_variables_ip_sets_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_standards_control_associations_request() :: %{
-        required("StandardsControlAssociationUpdates") => list(standards_control_association_update())
-      }
-
-  """
-  @type batch_update_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_pending_cloud_watch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t() | atom()),
-        "LogTypesToEnable" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_rds_pending_cloud_watch_logs_exports() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_configuration_policy_associations_response() :: %{
-        "ConfigurationPolicyAssociations" => list(configuration_policy_association_summary()),
-        "UnprocessedConfigurationPolicyAssociations" => list(unprocessed_configuration_policy_association())
-      }
-
-  """
-  @type batch_get_configuration_policy_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_aggregators_v2_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_aggregators_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_certificate_manager_certificate_domain_validation_option() :: %{
-        "DomainName" => String.t() | atom(),
-        "ResourceRecord" => aws_certificate_manager_certificate_resource_record(),
-        "ValidationDomain" => String.t() | atom(),
-        "ValidationEmails" => list(String.t() | atom()),
-        "ValidationMethod" => String.t() | atom(),
-        "ValidationStatus" => String.t() | atom()
-      }
-
-  """
-  @type aws_certificate_manager_certificate_domain_validation_option() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_ip_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => ip_filter()
-      }
-
-  """
-  @type ocsf_ip_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      organization_configuration() :: %{
-        "ConfigurationType" => list(any()),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type organization_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_web_acl_action_details() :: %{
-        "Allow" => aws_wafv2_action_allow_details(),
-        "Block" => aws_wafv2_action_block_details()
-      }
-
-  """
-  @type aws_wafv2_web_acl_action_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details() :: %{
-        "Predicate" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_group_details() :: %{
-        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
-        "CreateDate" => String.t() | atom(),
-        "GroupId" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "GroupPolicyList" => list(aws_iam_group_policy()),
-        "Path" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_standards_control_response() :: %{}
-
-  """
-  @type update_standards_control_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_findings_summary() :: %{
-        "FindingType" => String.t() | atom(),
-        "ProductName" => String.t() | atom(),
-        "Severities" => resource_severity_breakdown(),
-        "TotalFindings" => integer()
-      }
-
-  """
-  @type resource_findings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_metadata() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IsTerminal" => boolean(),
-        "RuleArn" => String.t() | atom(),
-        "RuleName" => String.t() | atom(),
-        "RuleOrder" => integer(),
-        "RuleStatus" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type automation_rules_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() :: %{
-        "LogGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_instance_endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "HostedZoneId" => String.t() | atom(),
-        "Port" => integer()
-      }
-
-  """
-  @type aws_rds_db_instance_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_event_subscription_details() :: %{
-        "CustSubscriptionId" => String.t() | atom(),
-        "CustomerAwsId" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t() | atom()),
-        "EventSubscriptionArn" => String.t() | atom(),
-        "SnsTopicArn" => String.t() | atom(),
-        "SourceIdsList" => list(String.t() | atom()),
-        "SourceType" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "SubscriptionCreationTime" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_event_subscription_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_subnet_details() :: %{
-        "AssignIpv6AddressOnCreation" => boolean(),
-        "AvailabilityZone" => String.t() | atom(),
-        "AvailabilityZoneId" => String.t() | atom(),
-        "AvailableIpAddressCount" => integer(),
-        "CidrBlock" => String.t() | atom(),
-        "DefaultForAz" => boolean(),
-        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
-        "MapPublicIpOnLaunch" => boolean(),
-        "OwnerId" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "SubnetArn" => String.t() | atom(),
-        "SubnetId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_subnet_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_details() :: %{
-        "DefaultVersionNumber" => float(),
-        "Id" => String.t() | atom(),
-        "LatestVersionNumber" => float(),
-        "LaunchTemplateData" => aws_ec2_launch_template_data_details(),
-        "LaunchTemplateName" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_metadata_options_details() :: %{
-        "HttpEndpoint" => String.t() | atom(),
-        "HttpProtocolIpv6" => String.t() | atom(),
-        "HttpPutResponseHopLimit" => integer(),
-        "HttpTokens" => String.t() | atom(),
-        "InstanceMetadataTags" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_metadata_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_cluster_details() :: %{
-        "Status" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
-        "DatabaseName" => String.t() | atom(),
-        "PreferredMaintenanceWindow" => String.t() | atom(),
-        "IamDatabaseAuthenticationEnabled" => boolean(),
-        "PreferredBackupWindow" => String.t() | atom(),
-        "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t() | atom(),
-        "ReadReplicaIdentifiers" => list(String.t() | atom()),
-        "CopyTagsToSnapshot" => boolean(),
-        "DbClusterIdentifier" => String.t() | atom(),
-        "DbClusterParameterGroup" => String.t() | atom(),
-        "HttpEndpointEnabled" => boolean(),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "ClusterCreateTime" => String.t() | atom(),
-        "Port" => integer(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "CrossAccountClone" => boolean(),
-        "DbClusterOptionGroupMemberships" => list(aws_rds_db_cluster_option_group_membership()),
-        "MasterUsername" => String.t() | atom(),
-        "DbClusterResourceId" => String.t() | atom(),
-        "ReaderEndpoint" => String.t() | atom(),
-        "EnabledCloudWatchLogsExports" => list(String.t() | atom()),
-        "CustomEndpoints" => list(String.t() | atom()),
-        "DeletionProtection" => boolean(),
-        "DomainMemberships" => list(aws_rds_db_domain_membership()),
-        "MultiAz" => boolean(),
-        "EngineMode" => String.t() | atom(),
-        "ActivityStreamStatus" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "AllocatedStorage" => integer(),
-        "HostedZoneId" => String.t() | atom(),
-        "AssociatedRoles" => list(aws_rds_db_cluster_associated_role()),
-        "DbSubnetGroup" => String.t() | atom(),
-        "StorageEncrypted" => boolean(),
-        "Endpoint" => String.t() | atom(),
-        "DbClusterMembers" => list(aws_rds_db_cluster_member())
-      }
-
-  """
-  @type aws_rds_db_cluster_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_standards_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_standards_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_action_block_details() :: %{
-        "CustomResponse" => aws_wafv2_custom_response_details()
-      }
-
-  """
-  @type aws_wafv2_action_block_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invitation() :: %{
-        "AccountId" => String.t() | atom(),
-        "InvitationId" => String.t() | atom(),
-        "InvitedAt" => non_neg_integer(),
-        "MemberStatus" => String.t() | atom()
-      }
-
-  """
-  @type invitation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_aggregator_v2_response() :: %{}
-
-  """
-  @type delete_aggregator_v2_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_from_master_account_response() :: %{}
-
-  """
-  @type disassociate_from_master_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_access_key_details() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "AccountId" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "PrincipalId" => String.t() | atom(),
-        "PrincipalName" => String.t() | atom(),
-        "PrincipalType" => String.t() | atom(),
-        "SessionContext" => aws_iam_access_key_session_context(),
-        "Status" => list(any()),
-        "UserName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_access_key_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_key_schema() :: %{
-        "AttributeName" => String.t() | atom(),
-        "KeyType" => String.t() | atom()
-      }
-
-  """
-  @type aws_dynamo_db_table_key_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      related_finding() :: %{
-        "Id" => String.t() | atom(),
-        "ProductArn" => String.t() | atom()
-      }
-
-  """
-  @type related_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_automation_rules_response() :: %{
-        "ProcessedAutomationRules" => list(String.t() | atom()),
-        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
-      }
-
-  """
-  @type batch_update_automation_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_products_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProductArn") => String.t() | atom()
-      }
-
-  """
-  @type describe_products_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_access_key_session_context() :: %{
-        "Attributes" => aws_iam_access_key_session_context_attributes(),
-        "SessionIssuer" => aws_iam_access_key_session_context_session_issuer()
-      }
-
-  """
-  @type aws_iam_access_key_session_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_network_interface_set_details() :: %{
-        "AssociateCarrierIpAddress" => boolean(),
-        "AssociatePublicIpAddress" => boolean(),
-        "DeleteOnTermination" => boolean(),
-        "Description" => String.t() | atom(),
-        "DeviceIndex" => integer(),
-        "Groups" => list(String.t() | atom()),
-        "InterfaceType" => String.t() | atom(),
-        "Ipv4PrefixCount" => integer(),
-        "Ipv4Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details()),
-        "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details()),
-        "Ipv6PrefixCount" => integer(),
-        "Ipv6Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details()),
-        "NetworkCardIndex" => integer(),
-        "NetworkInterfaceId" => String.t() | atom(),
-        "PrivateIpAddress" => String.t() | atom(),
-        "PrivateIpAddresses" => list(aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details()),
-        "SecondaryPrivateIpAddressCount" => integer(),
-        "SubnetId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_network_interface_set_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_status_info() :: %{
-        "Message" => String.t() | atom(),
-        "Normal" => boolean(),
-        "Status" => String.t() | atom(),
-        "StatusType" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_status_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_recovery_point_details() :: %{
-        "BackupSizeInBytes" => float(),
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultName" => String.t() | atom(),
-        "CalculatedLifecycle" => aws_backup_recovery_point_calculated_lifecycle_details(),
-        "CompletionDate" => String.t() | atom(),
-        "CreatedBy" => aws_backup_recovery_point_created_by_details(),
-        "CreationDate" => String.t() | atom(),
-        "EncryptionKeyArn" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom(),
-        "IsEncrypted" => boolean(),
-        "LastRestoreTime" => String.t() | atom(),
-        "Lifecycle" => aws_backup_recovery_point_lifecycle_details(),
-        "RecoveryPointArn" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "SourceBackupVaultArn" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "StorageClass" => String.t() | atom()
-      }
-
-  """
-  @type aws_backup_recovery_point_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_item() :: %{
-        "CustomOriginConfig" => aws_cloud_front_distribution_origin_custom_origin_config(),
-        "DomainName" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "OriginPath" => String.t() | atom(),
-        "S3OriginConfig" => aws_cloud_front_distribution_origin_s3_origin_config()
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_health_check_details() :: %{
-        "Command" => list(String.t() | atom()),
-        "Interval" => integer(),
-        "Retries" => integer(),
-        "StartPeriod" => integer(),
-        "Timeout" => integer()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_health_check_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_access_log() :: %{
-        "EmitInterval" => integer(),
-        "Enabled" => boolean(),
-        "S3BucketName" => String.t() | atom(),
-        "S3BucketPrefix" => String.t() | atom()
-      }
-
-  """
-  @type aws_elb_load_balancer_access_log() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_standards_control_associations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("SecurityControlId") => String.t() | atom()
-      }
-
-  """
-  @type list_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_acl_association() :: %{
-        "NetworkAclAssociationId" => String.t() | atom(),
-        "NetworkAclId" => String.t() | atom(),
-        "SubnetId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_network_acl_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_aggregators_v2_response() :: %{
-        "AggregatorsV2" => list(aggregator_v2()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_aggregators_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_result_value() :: %{
-        "Count" => integer(),
-        "GroupByAttributeValue" => String.t() | atom()
-      }
-
-  """
-  @type insight_result_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_filters() :: %{
-        "CompositeFilters" => list(resources_composite_filter()),
-        "CompositeOperator" => list(any())
-      }
-
-  """
-  @type resources_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disable_standards_response() :: %{
-        "StandardsSubscriptions" => list(standards_subscription())
-      }
-
-  """
-  @type batch_disable_standards_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommended_policy_v2_response() :: %{
-        "Error" => recommendation_error(),
-        "NextToken" => String.t() | atom(),
-        "RecommendationSteps" => list(list()),
-        "RecommendationType" => list(any()),
-        "ResourceArn" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_recommended_policy_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_user_policy() :: %{
-        "PolicyName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_user_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_security_finding_identifier() :: %{
-        "Id" => String.t() | atom(),
-        "ProductArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_security_finding_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_groups() :: %{
-        "Items" => list(aws_cloud_front_distribution_origin_group())
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_groups() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_cluster_option_group_membership() :: %{
-        "DbClusterOptionGroupName" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_cluster_option_group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_acl_details() :: %{
-        "Associations" => list(aws_ec2_network_acl_association()),
-        "Entries" => list(aws_ec2_network_acl_entry()),
-        "IsDefault" => boolean(),
-        "NetworkAclId" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_network_acl_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_instance_network_interfaces_details() :: %{
-        "NetworkInterfaceId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_instance_network_interfaces_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resources_trends_v2_request() :: %{
-        optional("Filters") => resources_trends_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_resources_trends_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_geo_location() :: %{
-        "City" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "Lat" => float(),
-        "Lon" => float()
-      }
-
-  """
-  @type network_geo_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_endpoint_replication_config_details() :: %{
-        "State" => String.t() | atom()
-      }
-
-  """
-  @type aws_events_endpoint_replication_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_group() :: %{
-        "FailoverCriteria" => aws_cloud_front_distribution_origin_group_failover()
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parameter_definition() :: %{
-        "ConfigurationOptions" => list(),
-        "Description" => String.t() | atom()
-      }
-
-  """
-  @type parameter_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_global_secondary_index() :: %{
-        "Backfilling" => boolean(),
-        "IndexArn" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "IndexSizeBytes" => float(),
-        "IndexStatus" => String.t() | atom(),
-        "ItemCount" => integer(),
-        "KeySchema" => list(aws_dynamo_db_table_key_schema()),
-        "Projection" => aws_dynamo_db_table_projection(),
-        "ProvisionedThroughput" => aws_dynamo_db_table_provisioned_throughput()
-      }
-
-  """
-  @type aws_dynamo_db_table_global_secondary_index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_history_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer(),
-        required("FindingIdentifier") => aws_security_finding_identifier()
-      }
-
-  """
-  @type get_finding_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_eks_cluster_details() :: %{
-        "Arn" => String.t() | atom(),
-        "CertificateAuthorityData" => String.t() | atom(),
-        "ClusterStatus" => String.t() | atom(),
-        "Endpoint" => String.t() | atom(),
-        "Logging" => aws_eks_cluster_logging_details(),
-        "Name" => String.t() | atom(),
-        "ResourcesVpcConfig" => aws_eks_cluster_resources_vpc_config_details(),
-        "RoleArn" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type aws_eks_cluster_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_deferred_maintenance_window() :: %{
-        "DeferMaintenanceEndTime" => String.t() | atom(),
-        "DeferMaintenanceIdentifier" => String.t() | atom(),
-        "DeferMaintenanceStartTime" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_deferred_maintenance_window() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpc_endpoint_service_details() :: %{
-        "AcceptanceRequired" => boolean(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "BaseEndpointDnsNames" => list(String.t() | atom()),
-        "GatewayLoadBalancerArns" => list(String.t() | atom()),
-        "ManagesVpcEndpoints" => boolean(),
-        "NetworkLoadBalancerArns" => list(String.t() | atom()),
-        "PrivateDnsName" => String.t() | atom(),
-        "ServiceId" => String.t() | atom(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceState" => String.t() | atom(),
-        "ServiceType" => list(aws_ec2_vpc_endpoint_service_service_type_details())
-      }
-
-  """
-  @type aws_ec2_vpc_endpoint_service_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_connection_settings() :: %{
-        "IdleTimeout" => integer()
-      }
-
-  """
-  @type aws_elb_load_balancer_connection_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_finding_aggregator_request() :: %{}
-
-  """
-  @type delete_finding_aggregator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_finding_fields_update() :: %{
-        "Confidence" => integer(),
-        "Criticality" => integer(),
-        "Note" => note_update(),
-        "RelatedFindings" => list(related_finding()),
-        "Severity" => severity_update(),
-        "Types" => list(String.t() | atom()),
-        "UserDefinedFields" => map(),
-        "VerificationState" => list(any()),
-        "Workflow" => workflow_update()
-      }
-
-  """
-  @type automation_rules_finding_fields_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_scopes() :: %{
-        "AwsOrganizations" => list(aws_organization_scope())
-      }
-
-  """
-  @type resource_scopes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_notification_configuration_filter() :: %{
-        "S3KeyFilter" => aws_s3_bucket_notification_configuration_s3_key_filter()
-      }
-
-  """
-  @type aws_s3_bucket_notification_configuration_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_deployment_configuration_details() :: %{
-        "DeploymentCircuitBreaker" => aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details(),
-        "MaximumPercent" => integer(),
-        "MinimumHealthyPercent" => integer()
-      }
-
-  """
-  @type aws_ecs_service_deployment_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_enclave_options_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_enclave_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      enable_security_hub_response() :: %{}
-
-  """
-  @type enable_security_hub_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_finding_identifier() :: %{
-        "CloudAccountUid" => String.t() | atom(),
-        "FindingInfoUid" => String.t() | atom(),
-        "MetadataProductUid" => String.t() | atom()
-      }
-
-  """
-  @type ocsf_finding_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stateless_custom_publish_metric_action_dimension() :: %{
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type stateless_custom_publish_metric_action_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_cluster_security_group() :: %{
-        "ClusterSecurityGroupName" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_cluster_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
-        "DirectoryId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      cell() :: %{
-        "CellReference" => String.t() | atom(),
-        "Column" => float(),
-        "ColumnName" => String.t() | atom(),
-        "Row" => float()
-      }
-
-  """
-  @type cell() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details() :: %{
-        "Max" => float(),
-        "Min" => float()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_backup_vault_notifications_details() :: %{
-        "BackupVaultEvents" => list(String.t() | atom()),
-        "SnsTopicArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_backup_backup_vault_notifications_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standards_control_association_id() :: %{
-        "SecurityControlId" => String.t() | atom(),
-        "StandardsArn" => String.t() | atom()
-      }
-
-  """
-  @type standards_control_association_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_logging_configuration() :: %{
-        "DestinationBucketName" => String.t() | atom(),
-        "LogFilePrefix" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_action_targets_response() :: %{
-        "ActionTargets" => list(action_target()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_action_targets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_option_group_membership() :: %{
-        "OptionGroupName" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_option_group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_cluster_configuration_details() :: %{
-        "ExecuteCommandConfiguration" => aws_ecs_cluster_configuration_execute_command_configuration_details()
-      }
-
-  """
-  @type aws_ecs_cluster_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insight_results_response() :: %{
-        "InsightResults" => insight_results()
-      }
-
-  """
-  @type get_insight_results_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_notification_configuration() :: %{
-        "Configurations" => list(aws_s3_bucket_notification_configuration_detail())
-      }
-
-  """
-  @type aws_s3_bucket_notification_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_instance_metadata_options() :: %{
-        "HttpEndpoint" => String.t() | atom(),
-        "HttpProtocolIpv6" => String.t() | atom(),
-        "HttpPutResponseHopLimit" => integer(),
-        "HttpTokens" => String.t() | atom(),
-        "InstanceMetadataTags" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_instance_metadata_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() :: %{
-        "CloudWatchEncryptionEnabled" => boolean(),
-        "CloudWatchLogGroupName" => String.t() | atom(),
-        "S3BucketName" => String.t() | atom(),
-        "S3EncryptionEnabled" => boolean(),
-        "S3KeyPrefix" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firewall_policy_stateless_custom_actions_details() :: %{
-        "ActionDefinition" => stateless_custom_action_definition(),
-        "ActionName" => String.t() | atom()
-      }
-
-  """
-  @type firewall_policy_stateless_custom_actions_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_products_v2_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_products_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_details() :: %{
-        "ClusterInfo" => aws_msk_cluster_cluster_info_details()
-      }
-
-  """
-  @type aws_msk_cluster_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_license_set_details() :: %{
-        "LicenseConfigurationArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_license_set_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_list_details() :: %{
-        "GeneratedRulesType" => String.t() | atom(),
-        "TargetTypes" => list(String.t() | atom()),
-        "Targets" => list(String.t() | atom())
-      }
-
-  """
-  @type rule_group_source_list_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_pending_modified_values() :: %{
-        "AutomatedSnapshotRetentionPeriod" => integer(),
-        "ClusterIdentifier" => String.t() | atom(),
-        "ClusterType" => String.t() | atom(),
-        "ClusterVersion" => String.t() | atom(),
-        "EncryptionType" => String.t() | atom(),
-        "EnhancedVpcRouting" => boolean(),
-        "MaintenanceTrackName" => String.t() | atom(),
-        "MasterUserPassword" => String.t() | atom(),
-        "NodeType" => String.t() | atom(),
-        "NumberOfNodes" => integer(),
-        "PubliclyAccessible" => boolean()
-      }
-
-  """
-  @type aws_redshift_cluster_pending_modified_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_code_build_project_logs_config_details() :: %{
-        "CloudWatchLogs" => aws_code_build_project_logs_config_cloud_watch_logs_details(),
-        "S3Logs" => aws_code_build_project_logs_config_s3_logs_details()
-      }
-
-  """
-  @type aws_code_build_project_logs_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_connection_draining() :: %{
-        "Enabled" => boolean(),
-        "Timeout" => integer()
-      }
-
-  """
-  @type aws_elb_load_balancer_connection_draining() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
-        "Autoprovision" => boolean(),
-        "Driver" => String.t() | atom(),
-        "DriverOpts" => map(),
-        "Labels" => map(),
-        "Scope" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_volumes_docker_volume_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_rule_group_rules_action_details() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_rule_group_rules_action_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_action_target_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_action_target_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_request() :: %{
-        optional("Filters") => aws_security_finding_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortCriteria") => list(sort_criterion())
-      }
-
-  """
-  @type get_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
-        "Primary" => boolean(),
-        "PrivateIpAddress" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_aggregator_v2_request() :: %{
-        optional("LinkedRegions") => list(String.t() | atom()),
-        required("RegionLinkingMode") => String.t() | atom()
-      }
-
-  """
-  @type update_aggregator_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpn_connection_routes_details() :: %{
-        "DestinationCidrBlock" => String.t() | atom(),
-        "State" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpn_connection_routes_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_app_sync_graph_ql_api_log_config_details() :: %{
-        "CloudWatchLogsRoleArn" => String.t() | atom(),
-        "ExcludeVerboseContent" => boolean(),
-        "FieldLogLevel" => String.t() | atom()
-      }
-
-  """
-  @type aws_app_sync_graph_ql_api_log_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_backup_plan_backup_plan_details() :: %{
-        "AdvancedBackupSettings" => list(aws_backup_backup_plan_advanced_backup_settings_details()),
-        "BackupPlanName" => String.t() | atom(),
-        "BackupPlanRule" => list(aws_backup_backup_plan_rule_details())
-      }
-
-  """
-  @type aws_backup_backup_plan_backup_plan_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_rule_predicate_list_details() :: %{
-        "DataId" => String.t() | atom(),
-        "Negated" => boolean(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_rule_predicate_list_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_sns_topic_details() :: %{
-        "ApplicationSuccessFeedbackRoleArn" => String.t() | atom(),
-        "FirehoseFailureFeedbackRoleArn" => String.t() | atom(),
-        "FirehoseSuccessFeedbackRoleArn" => String.t() | atom(),
-        "HttpFailureFeedbackRoleArn" => String.t() | atom(),
-        "HttpSuccessFeedbackRoleArn" => String.t() | atom(),
-        "KmsMasterKeyId" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "SqsFailureFeedbackRoleArn" => String.t() | atom(),
-        "SqsSuccessFeedbackRoleArn" => String.t() | atom(),
-        "Subscription" => list(aws_sns_topic_subscription()),
-        "TopicName" => String.t() | atom()
-      }
-
-  """
-  @type aws_sns_topic_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      country() :: %{
-        "CountryCode" => String.t() | atom(),
-        "CountryName" => String.t() | atom()
-      }
-
-  """
-  @type country() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_standards_controls_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_standards_controls_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_control_definition() :: %{
-        "CurrentRegionAvailability" => list(any()),
-        "CustomizableProperties" => list(list(any())()),
-        "Description" => String.t() | atom(),
-        "ParameterDefinitions" => map(),
-        "RemediationUrl" => String.t() | atom(),
-        "SecurityControlId" => String.t() | atom(),
-        "SeverityRating" => list(any()),
-        "Title" => String.t() | atom()
-      }
-
-  """
-  @type security_control_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_automation_rule_v2_request() :: %{
-        optional("Actions") => list(automation_rules_action_v2()),
-        optional("Criteria") => list(),
-        optional("Description") => String.t() | atom(),
-        optional("RuleName") => String.t() | atom(),
-        optional("RuleOrder") => float(),
-        optional("RuleStatus") => list(any())
-      }
-
-  """
-  @type update_automation_rule_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_remote_ip_details() :: %{
-        "City" => city(),
-        "Country" => country(),
-        "GeoLocation" => geo_location(),
-        "IpAddressV4" => String.t() | atom(),
-        "Organization" => ip_organization_details()
-      }
-
-  """
-  @type action_remote_ip_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_transit_gateway_details() :: %{
-        "AmazonSideAsn" => integer(),
-        "AssociationDefaultRouteTableId" => String.t() | atom(),
-        "AutoAcceptSharedAttachments" => String.t() | atom(),
-        "DefaultRouteTableAssociation" => String.t() | atom(),
-        "DefaultRouteTablePropagation" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "DnsSupport" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MulticastSupport" => String.t() | atom(),
-        "PropagationDefaultRouteTableId" => String.t() | atom(),
-        "TransitGatewayCidrBlocks" => list(String.t() | atom()),
-        "VpnEcmpSupport" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_transit_gateway_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
-        "LaunchTemplateId" => String.t() | atom(),
-        "LaunchTemplateName" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_access_point_details() :: %{
-        "AccessPointArn" => String.t() | atom(),
-        "Alias" => String.t() | atom(),
-        "Bucket" => String.t() | atom(),
-        "BucketAccountId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NetworkOrigin" => String.t() | atom(),
-        "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
-        "VpcConfiguration" => aws_s3_access_point_vpc_configuration_details()
-      }
-
-  """
-  @type aws_s3_access_point_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_vulnerabilities_file_path() :: %{
-        "EndLine" => integer(),
-        "FileName" => String.t() | atom(),
-        "FilePath" => String.t() | atom(),
-        "StartLine" => integer()
-      }
-
-  """
-  @type code_vulnerabilities_file_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_flow_logs_details() :: %{
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_flow_logs_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecr_repository_lifecycle_policy_details() :: %{
-        "LifecyclePolicyText" => String.t() | atom(),
-        "RegistryId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecr_repository_lifecycle_policy_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_map_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => map_filter()
-      }
-
-  """
-  @type ocsf_map_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_web_acl_details() :: %{
-        "Arn" => String.t() | atom(),
-        "Capacity" => float(),
-        "CaptchaConfig" => aws_wafv2_web_acl_captcha_config_details(),
-        "DefaultAction" => aws_wafv2_web_acl_action_details(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ManagedbyFirewallManager" => boolean(),
-        "Name" => String.t() | atom(),
-        "Rules" => list(aws_wafv2_rules_details()),
-        "VisibilityConfig" => aws_wafv2_visibility_config_details()
-      }
-
-  """
-  @type aws_wafv2_web_acl_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_role_details() :: %{
-        "AssumeRolePolicyDocument" => String.t() | atom(),
-        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
-        "CreateDate" => String.t() | atom(),
-        "InstanceProfileList" => list(aws_iam_instance_profile()),
-        "MaxSessionDuration" => integer(),
-        "Path" => String.t() | atom(),
-        "PermissionsBoundary" => aws_iam_permissions_boundary(),
-        "RoleId" => String.t() | atom(),
-        "RoleName" => String.t() | atom(),
-        "RolePolicyList" => list(aws_iam_role_policy())
-      }
-
-  """
-  @type aws_iam_role_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elastic_beanstalk_environment_option_setting() :: %{
-        "Namespace" => String.t() | atom(),
-        "OptionName" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_elastic_beanstalk_environment_option_setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_recovery_point_created_by_details() :: %{
-        "BackupPlanArn" => String.t() | atom(),
-        "BackupPlanId" => String.t() | atom(),
-        "BackupPlanVersion" => String.t() | atom(),
-        "BackupRuleId" => String.t() | atom()
-      }
-
-  """
-  @type aws_backup_recovery_point_created_by_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_connector_v2_response() :: %{
-        "ConnectorArn" => String.t() | atom(),
-        "ConnectorId" => String.t() | atom()
-      }
-
-  """
-  @type register_connector_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_history_update_source() :: %{
-        "Identity" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type finding_history_update_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automation_rule_v2_response() :: %{
-        "Actions" => list(automation_rules_action_v2()),
-        "CreatedAt" => non_neg_integer(),
-        "Criteria" => list(),
-        "Description" => String.t() | atom(),
-        "RuleArn" => String.t() | atom(),
-        "RuleId" => String.t() | atom(),
-        "RuleName" => String.t() | atom(),
-        "RuleOrder" => float(),
-        "RuleStatus" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_automation_rule_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_organization_admin_account_request() :: %{
-        optional("Feature") => list(any()),
-        required("AdminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type disable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_eip_details() :: %{
-        "AllocationId" => String.t() | atom(),
-        "AssociationId" => String.t() | atom(),
-        "Domain" => String.t() | atom(),
-        "InstanceId" => String.t() | atom(),
-        "NetworkBorderGroup" => String.t() | atom(),
-        "NetworkInterfaceId" => String.t() | atom(),
-        "NetworkInterfaceOwnerId" => String.t() | atom(),
-        "PrivateIpAddress" => String.t() | atom(),
-        "PublicIp" => String.t() | atom(),
-        "PublicIpv4Pool" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_eip_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_control_definitions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SecurityControlDefinitions" => list(security_control_definition())
-      }
-
-  """
-  @type list_security_control_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_automation_rules_request() :: %{
-        required("UpdateAutomationRulesRequestItems") => list(update_automation_rules_request_item())
-      }
-
-  """
-  @type batch_update_automation_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details() :: %{
-        "Max" => float(),
-        "Min" => float()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      resources_number_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => number_filter()
-      }
-
-  """
-  @type resources_number_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessed_standards_control_association() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorReason" => String.t() | atom(),
-        "StandardsControlAssociationId" => standards_control_association_id()
-      }
-
-  """
-  @type unprocessed_standards_control_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{
-        "CloudwatchLogGroup" => String.t() | atom(),
-        "CloudwatchLogStream" => String.t() | atom(),
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateless_rule_match_attributes_source_ports() :: %{
-        "FromPort" => integer(),
-        "ToPort" => integer()
-      }
-
-  """
-  @type rule_group_source_stateless_rule_match_attributes_source_ports() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_members_response() :: %{
-        "UnprocessedAccounts" => list(result())
-      }
-
-  """
-  @type delete_members_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_history_update() :: %{
-        "NewValue" => String.t() | atom(),
-        "OldValue" => String.t() | atom(),
-        "UpdatedField" => String.t() | atom()
-      }
-
-  """
-  @type finding_history_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_restore_summary() :: %{
-        "RestoreDateTime" => String.t() | atom(),
-        "RestoreInProgress" => boolean(),
-        "SourceBackupArn" => String.t() | atom(),
-        "SourceTableArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_dynamo_db_table_restore_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      parameter_configuration() :: %{
-        "Value" => list(),
-        "ValueType" => list(any())
-      }
-
-  """
-  @type parameter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invite_members_request() :: %{
-        required("AccountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type invite_members_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_results() :: %{
-        "GroupByAttribute" => String.t() | atom(),
-        "InsightArn" => String.t() | atom(),
-        "ResultValues" => list(insight_result_value())
-      }
-
-  """
-  @type insight_results() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_encryption_info_details() :: %{
-        "EncryptionAtRest" => aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details(),
-        "EncryptionInTransit" => aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_encryption_info_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_connector_v2_request() :: %{}
-
-  """
-  @type get_connector_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_details() :: %{
-        "CapacityProviderStrategy" => list(aws_ecs_service_capacity_provider_strategy_details()),
-        "Cluster" => String.t() | atom(),
-        "DeploymentConfiguration" => aws_ecs_service_deployment_configuration_details(),
-        "DeploymentController" => aws_ecs_service_deployment_controller_details(),
-        "DesiredCount" => integer(),
-        "EnableEcsManagedTags" => boolean(),
-        "EnableExecuteCommand" => boolean(),
-        "HealthCheckGracePeriodSeconds" => integer(),
-        "LaunchType" => String.t() | atom(),
-        "LoadBalancers" => list(aws_ecs_service_load_balancers_details()),
-        "Name" => String.t() | atom(),
-        "NetworkConfiguration" => aws_ecs_service_network_configuration_details(),
-        "PlacementConstraints" => list(aws_ecs_service_placement_constraints_details()),
-        "PlacementStrategies" => list(aws_ecs_service_placement_strategies_details()),
-        "PlatformVersion" => String.t() | atom(),
-        "PropagateTags" => String.t() | atom(),
-        "Role" => String.t() | atom(),
-        "SchedulingStrategy" => String.t() | atom(),
-        "ServiceArn" => String.t() | atom(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceRegistries" => list(aws_ecs_service_service_registries_details()),
-        "TaskDefinition" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_service_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_standards_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Standards" => list(standard())
-      }
-
-  """
-  @type describe_standards_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4135,1125 +198,14 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      ip_organization_details() :: %{
-        "Asn" => integer(),
-        "AsnOrg" => String.t() | atom(),
-        "Isp" => String.t() | atom(),
-        "Org" => String.t() | atom()
-      }
-
-  """
-  @type ip_organization_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
-        "Items" => list(integer()),
-        "Quantity" => integer()
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateless_rule_definition() :: %{
-        "Actions" => list(String.t() | atom()),
-        "MatchAttributes" => rule_group_source_stateless_rule_match_attributes()
-      }
-
-  """
-  @type rule_group_source_stateless_rule_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standards_status_reason() :: %{
-        "StatusReasonCode" => list(any())
-      }
-
-  """
-  @type standards_status_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cors_configuration() :: %{
-        "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t() | atom()),
-        "AllowMethods" => list(String.t() | atom()),
-        "AllowOrigins" => list(String.t() | atom()),
-        "ExposeHeaders" => list(String.t() | atom()),
-        "MaxAge" => integer()
-      }
-
-  """
-  @type aws_cors_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automation_rules_v2_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Rules" => list(automation_rules_metadata_v2())
-      }
-
-  """
-  @type list_automation_rules_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_formation_stack_details() :: %{
-        "Capabilities" => list(String.t() | atom()),
-        "CreationTime" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "DisableRollback" => boolean(),
-        "DriftInformation" => aws_cloud_formation_stack_drift_information_details(),
-        "EnableTerminationProtection" => boolean(),
-        "LastUpdatedTime" => String.t() | atom(),
-        "NotificationArns" => list(String.t() | atom()),
-        "Outputs" => list(aws_cloud_formation_stack_outputs_details()),
-        "RoleArn" => String.t() | atom(),
-        "StackId" => String.t() | atom(),
-        "StackName" => String.t() | atom(),
-        "StackStatus" => String.t() | atom(),
-        "StackStatusReason" => String.t() | atom(),
-        "TimeoutInMinutes" => integer()
-      }
-
-  """
-  @type aws_cloud_formation_stack_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associated_standard() :: %{
-        "StandardsId" => String.t() | atom()
-      }
-
-  """
-  @type associated_standard() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_cluster_snapshot_copy_status() :: %{
-        "DestinationRegion" => String.t() | atom(),
-        "ManualSnapshotRetentionPeriod" => integer(),
-        "RetentionPeriod" => integer(),
-        "SnapshotCopyGrantName" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_cluster_snapshot_copy_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      severity() :: %{
-        "Label" => list(any()),
-        "Normalized" => integer(),
-        "Original" => String.t() | atom(),
-        "Product" => float()
-      }
-
-  """
-  @type severity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_connection() :: %{
-        "Direction" => list(any())
-      }
-
-  """
-  @type network_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_iam_role() :: %{
-        "ApplyStatus" => String.t() | atom(),
-        "IamRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_iam_role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_amazon_mq_broker_users_details() :: %{
-        "PendingChange" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type aws_amazon_mq_broker_users_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trends_metrics_result() :: %{
-        "Timestamp" => non_neg_integer(),
-        "TrendsValues" => trends_values()
-      }
-
-  """
-  @type trends_metrics_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
-        "AbortIncompleteMultipartUpload" => aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details(),
-        "ExpirationDate" => String.t() | atom(),
-        "ExpirationInDays" => integer(),
-        "ExpiredObjectDeleteMarker" => boolean(),
-        "Filter" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details(),
-        "ID" => String.t() | atom(),
-        "NoncurrentVersionExpirationInDays" => integer(),
-        "NoncurrentVersionTransitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details()),
-        "Prefix" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "Transitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details())
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_lambda_function_environment() :: %{
-        "Error" => aws_lambda_function_environment_error(),
-        "Variables" => map()
-      }
-
-  """
-  @type aws_lambda_function_environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_backup_plan_details() :: %{
-        "BackupPlan" => aws_backup_backup_plan_backup_plan_details(),
-        "BackupPlanArn" => String.t() | atom(),
-        "BackupPlanId" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type aws_backup_backup_plan_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_policy_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ConfigurationPolicy" => list(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_configuration_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standard() :: %{
-        "Description" => String.t() | atom(),
-        "EnabledByDefault" => boolean(),
-        "Name" => String.t() | atom(),
-        "StandardsArn" => String.t() | atom(),
-        "StandardsManagedBy" => standards_managed_by()
-      }
-
-  """
-  @type standard() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_hibernation_options_details() :: %{
-        "Configured" => boolean()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_hibernation_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_automation_rules_request() :: %{
-        required("AutomationRulesArns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_automation_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_health_check() :: %{
-        "HealthyThreshold" => integer(),
-        "Interval" => integer(),
-        "Target" => String.t() | atom(),
-        "Timeout" => integer(),
-        "UnhealthyThreshold" => integer()
-      }
-
-  """
-  @type aws_elb_load_balancer_health_check() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_web_acl_details() :: %{
-        "DefaultAction" => String.t() | atom(),
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RulesList" => list(aws_waf_regional_web_acl_rules_list_details()),
-        "WebAclId" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_web_acl_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_standards_control_associations_request() :: %{
-        required("StandardsControlAssociationIds") => list(standards_control_association_id())
-      }
-
-  """
-  @type batch_get_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elasticsearch_domain_vpc_options() :: %{
-        "AvailabilityZones" => list(String.t() | atom()),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "VPCId" => String.t() | atom()
-      }
-
-  """
-  @type aws_elasticsearch_domain_vpc_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_custom_http_header() :: %{
-        "Name" => String.t() | atom(),
+      map_filter() :: %{
+        "Comparison" => list(any()),
+        "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
       }
 
   """
-  @type aws_wafv2_custom_http_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_amazon_mq_broker_logs_details() :: %{
-        "Audit" => boolean(),
-        "AuditLogGroup" => String.t() | atom(),
-        "General" => boolean(),
-        "GeneralLogGroup" => String.t() | atom(),
-        "Pending" => aws_amazon_mq_broker_logs_pending_details()
-      }
-
-  """
-  @type aws_amazon_mq_broker_logs_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      double_configuration_options() :: %{
-        "DefaultValue" => float(),
-        "Max" => float(),
-        "Min" => float()
-      }
-
-  """
-  @type double_configuration_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vulnerability_vendor() :: %{
-        "Name" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "VendorCreatedAt" => String.t() | atom(),
-        "VendorSeverity" => String.t() | atom(),
-        "VendorUpdatedAt" => String.t() | atom()
-      }
-
-  """
-  @type vulnerability_vendor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_eks_cluster_logging_cluster_logging_details() :: %{
-        "Enabled" => boolean(),
-        "Types" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_eks_cluster_logging_cluster_logging_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_v2_response() :: %{
-        "Connectors" => list(connector_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_code_build_project_source() :: %{
-        "GitCloneDepth" => integer(),
-        "InsecureSsl" => boolean(),
-        "Location" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_code_build_project_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_placement_details() :: %{
-        "Affinity" => String.t() | atom(),
-        "AvailabilityZone" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "HostId" => String.t() | atom(),
-        "HostResourceGroupArn" => String.t() | atom(),
-        "PartitionNumber" => integer(),
-        "SpreadDomain" => String.t() | atom(),
-        "Tenancy" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_placement_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateless_rule_match_attributes_sources() :: %{
-        "AddressDefinition" => String.t() | atom()
-      }
-
-  """
-  @type rule_group_source_stateless_rule_match_attributes_sources() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details() :: %{
-        "Max" => integer(),
-        "Min" => integer()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elastic_beanstalk_environment_details() :: %{
-        "ApplicationName" => String.t() | atom(),
-        "Cname" => String.t() | atom(),
-        "DateCreated" => String.t() | atom(),
-        "DateUpdated" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EndpointUrl" => String.t() | atom(),
-        "EnvironmentArn" => String.t() | atom(),
-        "EnvironmentId" => String.t() | atom(),
-        "EnvironmentLinks" => list(aws_elastic_beanstalk_environment_environment_link()),
-        "EnvironmentName" => String.t() | atom(),
-        "OptionSettings" => list(aws_elastic_beanstalk_environment_option_setting()),
-        "PlatformArn" => String.t() | atom(),
-        "SolutionStackName" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "Tier" => aws_elastic_beanstalk_environment_tier(),
-        "VersionLabel" => String.t() | atom()
-      }
-
-  """
-  @type aws_elastic_beanstalk_environment_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateful_rules_details() :: %{
-        "Action" => String.t() | atom(),
-        "Header" => rule_group_source_stateful_rules_header_details(),
-        "RuleOptions" => list(rule_group_source_stateful_rules_options_details())
-      }
-
-  """
-  @type rule_group_source_stateful_rules_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_insight_response() :: %{}
-
-  """
-  @type update_insight_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_enable_standards_request() :: %{
-        required("StandardsSubscriptionRequests") => list(standards_subscription_request())
-      }
-
-  """
-  @type batch_enable_standards_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elasticsearch_domain_log_publishing_options() :: %{
-        "AuditLogs" => aws_elasticsearch_domain_log_publishing_options_log_config(),
-        "IndexSlowLogs" => aws_elasticsearch_domain_log_publishing_options_log_config(),
-        "SearchSlowLogs" => aws_elasticsearch_domain_log_publishing_options_log_config()
-      }
-
-  """
-  @type aws_elasticsearch_domain_log_publishing_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standards_control_association_summary() :: %{
-        "AssociationStatus" => list(any()),
-        "RelatedRequirements" => list(String.t() | atom()),
-        "SecurityControlArn" => String.t() | atom(),
-        "SecurityControlId" => String.t() | atom(),
-        "StandardsArn" => String.t() | atom(),
-        "StandardsControlDescription" => String.t() | atom(),
-        "StandardsControlTitle" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer(),
-        "UpdatedReason" => String.t() | atom()
-      }
-
-  """
-  @type standards_control_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_network_configuration_details() :: %{
-        "AwsVpcConfiguration" => aws_ecs_service_network_configuration_aws_vpc_configuration_details()
-      }
-
-  """
-  @type aws_ecs_service_network_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateful_rules_options_details() :: %{
-        "Keyword" => String.t() | atom(),
-        "Settings" => list(String.t() | atom())
-      }
-
-  """
-  @type rule_group_source_stateful_rules_options_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_logging() :: %{
-        "Bucket" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "IncludeCookies" => boolean(),
-        "Prefix" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_front_distribution_logging() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details() :: %{
-        "DeleteOnTermination" => boolean(),
-        "Encrypted" => boolean(),
-        "Iops" => integer(),
-        "SnapshotId" => String.t() | atom(),
-        "VolumeSize" => integer(),
-        "VolumeType" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_subnet_group() :: %{
-        "DbSubnetGroupArn" => String.t() | atom(),
-        "DbSubnetGroupDescription" => String.t() | atom(),
-        "DbSubnetGroupName" => String.t() | atom(),
-        "SubnetGroupStatus" => String.t() | atom(),
-        "Subnets" => list(aws_rds_db_subnet_group_subnet()),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_subnet_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_classification_details() :: %{
-        "DetailedResultsLocation" => String.t() | atom(),
-        "Result" => classification_result()
-      }
-
-  """
-  @type data_classification_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateless_rules_details() :: %{
-        "Priority" => integer(),
-        "RuleDefinition" => rule_group_source_stateless_rule_definition()
-      }
-
-  """
-  @type rule_group_source_stateless_rules_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
-        "AuthorizationConfig" => aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details(),
-        "FilesystemId" => String.t() | atom(),
-        "RootDirectory" => String.t() | atom(),
-        "TransitEncryption" => String.t() | atom(),
-        "TransitEncryptionPort" => integer()
-      }
-
-  """
-  @type aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_from_administrator_account_response() :: %{}
-
-  """
-  @type disassociate_from_administrator_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_website_configuration_routing_rule_condition() :: %{
-        "HttpErrorCodeReturnedEquals" => String.t() | atom(),
-        "KeyPrefixEquals" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_website_configuration_routing_rule_condition() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      group_by_value() :: %{
-        "Count" => integer(),
-        "FieldValue" => String.t() | atom()
-      }
-
-  """
-  @type group_by_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_hsm_status() :: %{
-        "HsmClientCertificateIdentifier" => String.t() | atom(),
-        "HsmConfigurationIdentifier" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_hsm_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
-        "Count" => integer(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
-        "AssignPublicIp" => String.t() | atom(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "Subnets" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      occurrences() :: %{
-        "Cells" => list(cell()),
-        "LineRanges" => list(range()),
-        "OffsetRanges" => list(range()),
-        "Pages" => list(page()),
-        "Records" => list(record())
-      }
-
-  """
-  @type occurrences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_recommended_policy_v2_response() :: %{}
-
-  """
-  @type generate_recommended_policy_v2_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_rule_details() :: %{
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PredicateList" => list(aws_waf_regional_rule_predicate_list_details()),
-        "RuleId" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_rule_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_security_group_ip_range() :: %{
-        "CidrIp" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_security_group_ip_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_web_acl_details() :: %{
-        "DefaultAction" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Rules" => list(aws_waf_web_acl_rule()),
-        "WebAclId" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_web_acl_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_aggregator_v2_response() :: %{
-        "AggregationRegion" => String.t() | atom(),
-        "AggregatorV2Arn" => String.t() | atom(),
-        "LinkedRegions" => list(String.t() | atom()),
-        "RegionLinkingMode" => String.t() | atom()
-      }
-
-  """
-  @type update_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_code_build_project_artifacts_details() :: %{
-        "ArtifactIdentifier" => String.t() | atom(),
-        "EncryptionDisabled" => boolean(),
-        "Location" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NamespaceType" => String.t() | atom(),
-        "OverrideArtifactName" => boolean(),
-        "Packaging" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_code_build_project_artifacts_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      boolean_filter() :: %{
-        "Value" => boolean()
-      }
-
-  """
-  @type boolean_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_severity_breakdown() :: %{
-        "Critical" => integer(),
-        "Fatal" => integer(),
-        "High" => integer(),
-        "Informational" => integer(),
-        "Low" => integer(),
-        "Medium" => integer(),
-        "Other" => integer(),
-        "Unknown" => integer()
-      }
-
-  """
-  @type resource_severity_breakdown() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_configuration_policy_disassociation_response() :: %{}
-
-  """
-  @type start_configuration_policy_disassociation_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_configuration_response() :: %{
-        "AutoEnable" => boolean(),
-        "AutoEnableStandards" => list(any()),
-        "MemberAccountLimitReached" => boolean(),
-        "OrganizationConfiguration" => organization_configuration()
-      }
-
-  """
-  @type describe_organization_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_cluster_associated_role() :: %{
-        "RoleArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_cluster_associated_role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_backup_plan_rule_copy_actions_details() :: %{
-        "DestinationBackupVaultArn" => String.t() | atom(),
-        "Lifecycle" => aws_backup_backup_plan_lifecycle_details()
-      }
-
-  """
-  @type aws_backup_backup_plan_rule_copy_actions_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() :: %{
-        "LaunchTemplateId" => String.t() | atom(),
-        "LaunchTemplateName" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_gateway_stage_details() :: %{
-        "AccessLogSettings" => aws_api_gateway_access_log_settings(),
-        "CacheClusterEnabled" => boolean(),
-        "CacheClusterSize" => String.t() | atom(),
-        "CacheClusterStatus" => String.t() | atom(),
-        "CanarySettings" => aws_api_gateway_canary_settings(),
-        "ClientCertificateId" => String.t() | atom(),
-        "CreatedDate" => String.t() | atom(),
-        "DeploymentId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "DocumentationVersion" => String.t() | atom(),
-        "LastUpdatedDate" => String.t() | atom(),
-        "MethodSettings" => list(aws_api_gateway_method_settings()),
-        "StageName" => String.t() | atom(),
-        "TracingEnabled" => boolean(),
-        "Variables" => map(),
-        "WebAclArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_api_gateway_stage_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standards_control() :: %{
-        "ControlId" => String.t() | atom(),
-        "ControlStatus" => list(any()),
-        "ControlStatusUpdatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisabledReason" => String.t() | atom(),
-        "RelatedRequirements" => list(String.t() | atom()),
-        "RemediationUrl" => String.t() | atom(),
-        "SeverityRating" => list(any()),
-        "StandardsControlArn" => String.t() | atom(),
-        "Title" => String.t() | atom()
-      }
-
-  """
-  @type standards_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_domain_membership() :: %{
-        "Domain" => String.t() | atom(),
-        "Fqdn" => String.t() | atom(),
-        "IamRoleName" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_domain_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_certificate_manager_certificate_renewal_summary() :: %{
-        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
-        "RenewalStatus" => String.t() | atom(),
-        "RenewalStatusReason" => String.t() | atom(),
-        "UpdatedAt" => String.t() | atom()
-      }
-
-  """
-  @type aws_certificate_manager_certificate_renewal_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details() :: %{
-        "DaysAfterInitiation" => integer()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_security_control_response() :: %{}
-
-  """
-  @type update_security_control_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_replica() :: %{
-        "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_replica_global_secondary_index()),
-        "KmsMasterKeyId" => String.t() | atom(),
-        "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override(),
-        "RegionName" => String.t() | atom(),
-        "ReplicaStatus" => String.t() | atom(),
-        "ReplicaStatusDescription" => String.t() | atom()
-      }
-
-  """
-  @type aws_dynamo_db_table_replica() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_security_hub_v2_response() :: %{
-        "HubV2Arn" => String.t() | atom(),
-        "SubscribedAt" => String.t() | atom()
-      }
-
-  """
-  @type describe_security_hub_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dms_replication_instance_details() :: %{
-        "AllocatedStorage" => integer(),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "AvailabilityZone" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "MultiAZ" => boolean(),
-        "PreferredMaintenanceWindow" => String.t() | atom(),
-        "PubliclyAccessible" => boolean(),
-        "ReplicationInstanceClass" => String.t() | atom(),
-        "ReplicationInstanceIdentifier" => String.t() | atom(),
-        "ReplicationSubnetGroup" => aws_dms_replication_instance_replication_subnet_group_details(),
-        "VpcSecurityGroups" => list(aws_dms_replication_instance_vpc_security_groups_details())
-      }
-
-  """
-  @type aws_dms_replication_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_access_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_access_exception() :: %{(String.t() | atom()) => any()}
+  @type map_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5266,45 +218,6 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_elb_lb_cookie_stickiness_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
-        "Ipv6Prefix" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
-        "Ipv4Prefix" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_step_function_state_machine_logging_configuration_destinations_details() :: %{
-        "CloudWatchLogsLogGroup" => aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details()
-      }
-
-  """
-  @type aws_step_function_state_machine_logging_configuration_destinations_details() :: %{
-          (String.t() | atom()) => any()
-        }
 
   @typedoc """
 
@@ -5329,518 +242,29 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      rule_group_source_stateless_rules_and_custom_actions_details() :: %{
-        "CustomActions" => list(rule_group_source_custom_actions_details()),
-        "StatelessRules" => list(rule_group_source_stateless_rules_details())
-      }
-
-  """
-  @type rule_group_source_stateless_rules_and_custom_actions_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_server_side_encryption_rule() :: %{
-        "ApplyServerSideEncryptionByDefault" => aws_s3_bucket_server_side_encryption_by_default()
-      }
-
-  """
-  @type aws_s3_bucket_server_side_encryption_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_policy_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ServiceEnabled" => boolean(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type configuration_policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_certificate_manager_certificate_details() :: %{
-        "CertificateAuthorityArn" => String.t() | atom(),
-        "CreatedAt" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
-        "ExtendedKeyUsages" => list(aws_certificate_manager_certificate_extended_key_usage()),
-        "FailureReason" => String.t() | atom(),
-        "ImportedAt" => String.t() | atom(),
-        "InUseBy" => list(String.t() | atom()),
-        "IssuedAt" => String.t() | atom(),
-        "Issuer" => String.t() | atom(),
-        "KeyAlgorithm" => String.t() | atom(),
-        "KeyUsages" => list(aws_certificate_manager_certificate_key_usage()),
-        "NotAfter" => String.t() | atom(),
-        "NotBefore" => String.t() | atom(),
-        "Options" => aws_certificate_manager_certificate_options(),
-        "RenewalEligibility" => String.t() | atom(),
-        "RenewalSummary" => aws_certificate_manager_certificate_renewal_summary(),
-        "Serial" => String.t() | atom(),
-        "SignatureAlgorithm" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "Subject" => String.t() | atom(),
-        "SubjectAlternativeNames" => list(String.t() | atom()),
+      aws_ec2_client_vpn_endpoint_authentication_options_details() :: %{
+        "ActiveDirectory" => aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details(),
+        "FederatedAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details(),
+        "MutualAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type aws_certificate_manager_certificate_details() :: %{(String.t() | atom()) => any()}
+  @type aws_ec2_client_vpn_endpoint_authentication_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      get_enabled_standards_response() :: %{
+      get_finding_history_response() :: %{
         "NextToken" => String.t() | atom(),
-        "StandardsSubscriptions" => list(standards_subscription())
+        "Records" => list(finding_history_record())
       }
 
   """
-  @type get_enabled_standards_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_route53_hosted_zone_vpc_details() :: %{
-        "Id" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type aws_route53_hosted_zone_vpc_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_instance_profile() :: %{
-        "Arn" => String.t() | atom(),
-        "CreateDate" => String.t() | atom(),
-        "InstanceProfileId" => String.t() | atom(),
-        "InstanceProfileName" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "Roles" => list(aws_iam_instance_profile_role())
-      }
-
-  """
-  @type aws_iam_instance_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_request_action() :: %{
-        "Blocked" => boolean(),
-        "Domain" => String.t() | atom(),
-        "Protocol" => String.t() | atom()
-      }
-
-  """
-  @type dns_request_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_composite_filter() :: %{
-        "DateFilters" => list(resources_date_filter()),
-        "MapFilters" => list(resources_map_filter()),
-        "NestedCompositeFilters" => list(resources_composite_filter()),
-        "NumberFilters" => list(resources_number_filter()),
-        "Operator" => list(any()),
-        "StringFilters" => list(resources_string_filter())
-      }
-
-  """
-  @type resources_composite_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_controls_configuration() :: %{
-        "DisabledSecurityControlIdentifiers" => list(String.t() | atom()),
-        "EnabledSecurityControlIdentifiers" => list(String.t() | atom()),
-        "SecurityControlCustomParameters" => list(security_control_custom_parameter())
-      }
-
-  """
-  @type security_controls_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details() :: %{
-        "EbsVolumes" => aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_security_hub_configuration_request() :: %{
-        optional("AutoEnableControls") => boolean(),
-        optional("ControlFindingGenerator") => list(any())
-      }
-
-  """
-  @type update_security_hub_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_members_request() :: %{
-        required("AccountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type get_members_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_variables_port_sets_details() :: %{
-        "Definition" => list(String.t() | atom())
-      }
-
-  """
-  @type rule_group_variables_port_sets_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() :: %{
-        "CapacityReservationId" => String.t() | atom(),
-        "CapacityReservationResourceGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_members_request() :: %{
-        required("AccountDetails") => list(account_details())
-      }
-
-  """
-  @type create_members_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
-        "HealthCheck" => String.t() | atom()
-      }
-
-  """
-  @type aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_policies() :: %{
-        "AppCookieStickinessPolicies" => list(aws_elb_app_cookie_stickiness_policy()),
-        "LbCookieStickinessPolicies" => list(aws_elb_lb_cookie_stickiness_policy()),
-        "OtherPolicies" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_elb_load_balancer_policies() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_ticket_v2_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Mode") => list(any()),
-        required("ConnectorId") => String.t() | atom(),
-        required("FindingMetadataUid") => String.t() | atom()
-      }
-
-  """
-  @type create_ticket_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_replica_global_secondary_index() :: %{
-        "IndexName" => String.t() | atom(),
-        "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override()
-      }
-
-  """
-  @type aws_dynamo_db_table_replica_global_secondary_index() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_automation_rule_v2_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RuleStatus") => list(any()),
-        optional("Tags") => map(),
-        required("Actions") => list(automation_rules_action_v2()),
-        required("Criteria") => list(),
-        required("Description") => String.t() | atom(),
-        required("RuleName") => String.t() | atom(),
-        required("RuleOrder") => float()
-      }
-
-  """
-  @type create_automation_rule_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      icmp_type_code() :: %{
-        "Code" => integer(),
-        "Type" => integer()
-      }
-
-  """
-  @type icmp_type_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_recovery_point_lifecycle_details() :: %{
-        "DeleteAfterDays" => float(),
-        "MoveToColdStorageAfterDays" => float()
-      }
-
-  """
-  @type aws_backup_recovery_point_lifecycle_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_market_options_details() :: %{
-        "MarketType" => String.t() | atom(),
-        "SpotOptions" => aws_ec2_launch_template_data_instance_market_options_spot_options_details()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_market_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() :: %{
-        "EncryptionOption" => String.t() | atom(),
-        "KmsKey" => String.t() | atom()
-      }
-
-  """
-  @type aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_interface_attachment() :: %{
-        "AttachTime" => String.t() | atom(),
-        "AttachmentId" => String.t() | atom(),
-        "DeleteOnTermination" => boolean(),
-        "DeviceIndex" => integer(),
-        "InstanceId" => String.t() | atom(),
-        "InstanceOwnerId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_network_interface_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_variables() :: %{
-        "IpSets" => rule_group_variables_ip_sets_details(),
-        "PortSets" => rule_group_variables_port_sets_details()
-      }
-
-  """
-  @type rule_group_variables() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_access_key_session_context_session_issuer() :: %{
-        "AccountId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "PrincipalId" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_access_key_session_context_session_issuer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_members_request() :: %{
-        required("AccountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type disassociate_members_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unused_permissions_recommendation_step() :: %{
-        "ExistingPolicy" => String.t() | atom(),
-        "ExistingPolicyId" => String.t() | atom(),
-        "PolicyUpdatedAt" => non_neg_integer(),
-        "RecommendedAction" => String.t() | atom(),
-        "RecommendedPolicy" => String.t() | atom()
-      }
-
-  """
-  @type unused_permissions_recommendation_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_gateway_v2_route_settings() :: %{
-        "DataTraceEnabled" => boolean(),
-        "DetailedMetricsEnabled" => boolean(),
-        "LoggingLevel" => String.t() | atom(),
-        "ThrottlingBurstLimit" => integer(),
-        "ThrottlingRateLimit" => float()
-      }
-
-  """
-  @type aws_api_gateway_v2_route_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_volume_details() :: %{
-        "Attachments" => list(aws_ec2_volume_attachment()),
-        "CreateTime" => String.t() | atom(),
-        "DeviceName" => String.t() | atom(),
-        "Encrypted" => boolean(),
-        "KmsKeyId" => String.t() | atom(),
-        "Size" => integer(),
-        "SnapshotId" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "VolumeId" => String.t() | atom(),
-        "VolumeScanStatus" => String.t() | atom(),
-        "VolumeType" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_volume_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_response() :: %{
-        "Findings" => list(aws_security_finding()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_network_interface_count_details() :: %{
-        "Max" => integer(),
-        "Min" => integer()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_network_interface_count_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_rule_group_details() :: %{
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RuleGroupId" => String.t() | atom(),
-        "Rules" => list(aws_waf_rule_group_rules_details())
-      }
-
-  """
-  @type aws_waf_rule_group_details() :: %{(String.t() | atom()) => any()}
+  @type get_finding_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5868,184 +292,90 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_cloud_front_distribution_cache_behavior() :: %{
-        "ViewerProtocolPolicy" => String.t() | atom()
+      aws_elb_load_balancer_cross_zone_load_balancing() :: %{
+        "Enabled" => boolean()
       }
 
   """
-  @type aws_cloud_front_distribution_cache_behavior() :: %{(String.t() | atom()) => any()}
+  @type aws_elb_load_balancer_cross_zone_load_balancing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ec2_security_group_details() :: %{
-        "GroupId" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "IpPermissions" => list(aws_ec2_security_group_ip_permission()),
-        "IpPermissionsEgress" => list(aws_ec2_security_group_ip_permission()),
+      aws_ec2_vpc_peering_connection_vpc_info_details() :: %{
+        "CidrBlock" => String.t() | atom(),
+        "CidrBlockSet" => list(vpc_info_cidr_block_set_details()),
+        "Ipv6CidrBlockSet" => list(vpc_info_ipv6_cidr_block_set_details()),
         "OwnerId" => String.t() | atom(),
+        "PeeringOptions" => vpc_info_peering_options_details(),
+        "Region" => String.t() | atom(),
         "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_security_group_details() :: %{(String.t() | atom()) => any()}
+  @type aws_ec2_vpc_peering_connection_vpc_info_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ecs_container_details() :: %{
-        "Image" => String.t() | atom(),
-        "MountPoints" => list(aws_mount_point()),
-        "Name" => String.t() | atom(),
-        "Privileged" => boolean()
+      rule_group_source_list_details() :: %{
+        "GeneratedRulesType" => String.t() | atom(),
+        "TargetTypes" => list(String.t() | atom()),
+        "Targets" => list(String.t() | atom())
       }
 
   """
-  @type aws_ecs_container_details() :: %{(String.t() | atom()) => any()}
+  @type rule_group_source_list_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ecs_service_service_registries_details() :: %{
-        "ContainerName" => String.t() | atom(),
-        "ContainerPort" => integer(),
-        "Port" => integer(),
-        "RegistryArn" => String.t() | atom()
+      aws_backup_backup_plan_rule_copy_actions_details() :: %{
+        "DestinationBackupVaultArn" => String.t() | atom(),
+        "Lifecycle" => aws_backup_backup_plan_lifecycle_details()
       }
 
   """
-  @type aws_ecs_service_service_registries_details() :: %{(String.t() | atom()) => any()}
+  @type aws_backup_backup_plan_rule_copy_actions_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ecs_task_definition_container_definitions_environment_details() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      automation_rules_finding_fields_update_v2() :: %{
+        "Comment" => String.t() | atom(),
+        "SeverityId" => integer(),
+        "StatusId" => integer()
       }
 
   """
-  @type aws_ecs_task_definition_container_definitions_environment_details() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type automation_rules_finding_fields_update_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vulnerability_code_vulnerabilities() :: %{
-        "Cwes" => list(String.t() | atom()),
-        "FilePath" => code_vulnerabilities_file_path(),
-        "SourceArn" => String.t() | atom()
-      }
-
-  """
-  @type vulnerability_code_vulnerabilities() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_action_target_response() :: %{}
-
-  """
-  @type update_action_target_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      organization_not_found_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type organization_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dms_endpoint_details() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "DatabaseName" => String.t() | atom(),
-        "EndpointArn" => String.t() | atom(),
-        "EndpointIdentifier" => String.t() | atom(),
-        "EndpointType" => String.t() | atom(),
-        "EngineName" => String.t() | atom(),
-        "ExternalId" => String.t() | atom(),
-        "ExtraConnectionAttributes" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "Port" => integer(),
-        "ServerName" => String.t() | atom(),
-        "SslMode" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type aws_dms_endpoint_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation() :: %{
-        "Text" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_aggregator() :: %{
-        "FindingAggregatorArn" => String.t() | atom()
-      }
-
-  """
-  @type finding_aggregator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_members_request() :: %{
+      decline_invitations_request() :: %{
         required("AccountIds") => list(String.t() | atom())
       }
 
   """
-  @type delete_members_request() :: %{(String.t() | atom()) => any()}
+  @type decline_invitations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_guard_duty_detector_data_sources_dns_logs_details() :: %{
-        "Status" => String.t() | atom()
+      aws_backup_recovery_point_calculated_lifecycle_details() :: %{
+        "DeleteAt" => String.t() | atom(),
+        "MoveToColdStorageAt" => String.t() | atom()
       }
 
   """
-  @type aws_guard_duty_detector_data_sources_dns_logs_details() :: %{
+  @type aws_backup_recovery_point_calculated_lifecycle_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -6053,330 +383,25 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      invite_members_response() :: %{
-        "UnprocessedAccounts" => list(result())
+      aws_ec2_vpn_connection_options_details() :: %{
+        "StaticRoutesOnly" => boolean(),
+        "TunnelOptions" => list(aws_ec2_vpn_connection_options_tunnel_options_details())
       }
 
   """
-  @type invite_members_response() :: %{(String.t() | atom()) => any()}
+  @type aws_ec2_vpn_connection_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_s3_bucket_notification_configuration_s3_key_filter() :: %{
-        "FilterRules" => list(aws_s3_bucket_notification_configuration_s3_key_filter_rule())
+      aws_ec2_launch_template_data_cpu_options_details() :: %{
+        "CoreCount" => integer(),
+        "ThreadsPerCore" => integer()
       }
 
   """
-  @type aws_s3_bucket_notification_configuration_s3_key_filter() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_vpc_security_group() :: %{
-        "Status" => String.t() | atom(),
-        "VpcSecurityGroupId" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_vpc_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
-        "MinimumInstanceMetadataServiceVersion" => String.t() | atom()
-      }
-
-  """
-  @type aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpn_connection_vgw_telemetry_details() :: %{
-        "AcceptedRouteCount" => integer(),
-        "CertificateArn" => String.t() | atom(),
-        "LastStatusChange" => String.t() | atom(),
-        "OutsideIpAddress" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpn_connection_vgw_telemetry_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_findings_v2_response() :: %{
-        "ProcessedFindings" => list(batch_update_findings_v2_processed_finding()),
-        "UnprocessedFindings" => list(batch_update_findings_v2_unprocessed_finding())
-      }
-
-  """
-  @type batch_update_findings_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_info_cidr_block_set_details() :: %{
-        "CidrBlock" => String.t() | atom()
-      }
-
-  """
-  @type vpc_info_cidr_block_set_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_billing_mode_summary() :: %{
-        "BillingMode" => String.t() | atom(),
-        "LastUpdateToPayPerRequestDateTime" => String.t() | atom()
-      }
-
-  """
-  @type aws_dynamo_db_table_billing_mode_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_metadata_v2() :: %{
-        "Actions" => list(automation_rules_action_type_object_v2()),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "RuleArn" => String.t() | atom(),
-        "RuleId" => String.t() | atom(),
-        "RuleName" => String.t() | atom(),
-        "RuleOrder" => float(),
-        "RuleStatus" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type automation_rules_metadata_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      signal() :: %{
-        "ActorIds" => list(String.t() | atom()),
-        "Count" => integer(),
-        "CreatedAt" => float(),
-        "EndpointIds" => list(String.t() | atom()),
-        "FirstSeenAt" => float(),
-        "Id" => String.t() | atom(),
-        "LastSeenAt" => float(),
-        "Name" => String.t() | atom(),
-        "ProductArn" => String.t() | atom(),
-        "ResourceIds" => list(String.t() | atom()),
-        "Severity" => float(),
-        "SignalIndicators" => list(indicator()),
-        "Title" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "UpdatedAt" => float()
-      }
-
-  """
-  @type signal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_details() :: %{
-        "AccountId" => String.t() | atom(),
-        "Email" => String.t() | atom()
-      }
-
-  """
-  @type account_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details() :: %{
-        "Max" => integer(),
-        "Min" => integer()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_custom_response_details() :: %{
-        "CustomResponseBodyKey" => String.t() | atom(),
-        "ResponseCode" => integer(),
-        "ResponseHeaders" => list(aws_wafv2_custom_http_header())
-      }
-
-  """
-  @type aws_wafv2_custom_response_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
-        "Route" => String.t() | atom()
-      }
-
-  """
-  @type aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_rule_group_rules_details() :: %{
-        "Action" => aws_waf_rule_group_rules_action_details(),
-        "Priority" => integer(),
-        "RuleId" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_rule_group_rules_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() :: %{
-        "Reason" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_s3_origin_config() :: %{
-        "OriginAccessIdentity" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_s3_origin_config() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_findings_v2_request() :: %{
-        optional("Comment") => String.t() | atom(),
-        optional("FindingIdentifiers") => list(ocsf_finding_identifier()),
-        optional("MetadataUids") => list(String.t() | atom()),
-        optional("SeverityId") => integer(),
-        optional("StatusId") => integer()
-      }
-
-  """
-  @type batch_update_findings_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_automation_rules_response() :: %{
-        "Rules" => list(automation_rules_config()),
-        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
-      }
-
-  """
-  @type batch_get_automation_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      load_balancer_state() :: %{
-        "Code" => String.t() | atom(),
-        "Reason" => String.t() | atom()
-      }
-
-  """
-  @type load_balancer_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      string_list_configuration_options() :: %{
-        "DefaultValue" => list(String.t() | atom()),
-        "ExpressionDescription" => String.t() | atom(),
-        "MaxItems" => integer(),
-        "Re2Expression" => String.t() | atom()
-      }
-
-  """
-  @type string_list_configuration_options() :: %{(String.t() | atom()) => any()}
+  @type aws_ec2_launch_template_data_cpu_options_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6395,13 +420,99 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
-        "AttributeName" => String.t() | atom(),
-        "AttributeValues" => list(String.t() | atom())
+      aws_ecs_task_definition_proxy_configuration_details() :: %{
+        "ContainerName" => String.t() | atom(),
+        "ProxyConfigurationProperties" => list(aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details()),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
+  @type aws_ecs_task_definition_proxy_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resources_v2_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Resources" => list(resource_result())
+      }
+
+  """
+  @type get_resources_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_listener_description() :: %{
+        "Listener" => aws_elb_load_balancer_listener(),
+        "PolicyNames" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_elb_load_balancer_listener_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      waf_override_action() :: %{
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type waf_override_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_by_value() :: %{
+        "Count" => integer(),
+        "FieldValue" => String.t() | atom()
+      }
+
+  """
+  @type group_by_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_rule_group_details() :: %{
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom(),
+        "Rules" => list(aws_waf_rule_group_rules_details())
+      }
+
+  """
+  @type aws_waf_rule_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_elastic_gpu_specification_set_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -6409,116 +520,161 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      batch_get_automation_rules_request() :: %{
-        required("AutomationRulesArns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_automation_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      result() :: %{
+      member() :: %{
         "AccountId" => String.t() | atom(),
-        "ProcessingResult" => String.t() | atom()
-      }
-
-  """
-  @type result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connector_v2_request() :: %{}
-
-  """
-  @type delete_connector_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_details() :: %{
-        "CloudTrail" => aws_guard_duty_detector_data_sources_cloud_trail_details(),
-        "DnsLogs" => aws_guard_duty_detector_data_sources_dns_logs_details(),
-        "FlowLogs" => aws_guard_duty_detector_data_sources_flow_logs_details(),
-        "Kubernetes" => aws_guard_duty_detector_data_sources_kubernetes_details(),
-        "MalwareProtection" => aws_guard_duty_detector_data_sources_malware_protection_details(),
-        "S3Logs" => aws_guard_duty_detector_data_sources_s3_logs_details()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type workflow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_insight_response() :: %{
-        "InsightArn" => String.t() | atom()
-      }
-
-  """
-  @type create_insight_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sort_criterion() :: %{
-        "Field" => String.t() | atom(),
-        "SortOrder" => list(any())
-      }
-
-  """
-  @type sort_criterion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_config() :: %{
-        "Actions" => list(automation_rules_action()),
-        "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "Criteria" => automation_rules_finding_filters(),
-        "Description" => String.t() | atom(),
-        "IsTerminal" => boolean(),
-        "RuleArn" => String.t() | atom(),
-        "RuleName" => String.t() | atom(),
-        "RuleOrder" => integer(),
-        "RuleStatus" => list(any()),
+        "AdministratorId" => String.t() | atom(),
+        "Email" => String.t() | atom(),
+        "InvitedAt" => non_neg_integer(),
+        "MasterId" => String.t() | atom(),
+        "MemberStatus" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type automation_rules_config() :: %{(String.t() | atom()) => any()}
+  @type member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_code_build_project_environment_registry_credential() :: %{
-        "Credential" => String.t() | atom(),
-        "CredentialProvider" => String.t() | atom()
+      invitation() :: %{
+        "AccountId" => String.t() | atom(),
+        "InvitationId" => String.t() | atom(),
+        "InvitedAt" => non_neg_integer(),
+        "MemberStatus" => String.t() | atom()
       }
 
   """
-  @type aws_code_build_project_environment_registry_credential() :: %{
+  @type invitation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_range() :: %{
+        "Comparison" => list(any()),
+        "Unit" => list(any()),
+        "Value" => integer()
+      }
+
+  """
+  @type date_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_composite_filter() :: %{
+        "DateFilters" => list(resources_date_filter()),
+        "MapFilters" => list(resources_map_filter()),
+        "NestedCompositeFilters" => list(resources_composite_filter()),
+        "NumberFilters" => list(resources_number_filter()),
+        "Operator" => list(any()),
+        "StringFilters" => list(resources_string_filter())
+      }
+
+  """
+  @type resources_composite_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_rate_based_rule_match_predicate() :: %{
+        "DataId" => String.t() | atom(),
+        "Negated" => boolean(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_rate_based_rule_match_predicate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_endpoint() :: %{
+        "AutonomousSystem" => network_autonomous_system(),
+        "Connection" => network_connection(),
+        "Domain" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Ip" => String.t() | atom(),
+        "Location" => network_geo_location(),
+        "Port" => integer()
+      }
+
+  """
+  @type network_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_domain_endpoint_options_details() :: %{
+        "CustomEndpoint" => String.t() | atom(),
+        "CustomEndpointCertificateArn" => String.t() | atom(),
+        "CustomEndpointEnabled" => boolean(),
+        "EnforceHTTPS" => boolean(),
+        "TLSSecurityPolicy" => String.t() | atom()
+      }
+
+  """
+  @type aws_open_search_service_domain_domain_endpoint_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      service_now_detail() :: %{
+        "AuthStatus" => list(any()),
+        "InstanceName" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type service_now_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_inference_accelerators_details() :: %{
+        "DeviceName" => String.t() | atom(),
+        "DeviceType" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_inference_accelerators_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      association_filters() :: %{
+        "AssociationStatus" => list(any()),
+        "AssociationType" => list(any()),
+        "ConfigurationPolicyId" => String.t() | atom()
+      }
+
+  """
+  @type association_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_master_user_options_details() :: %{
+        "MasterUserArn" => String.t() | atom(),
+        "MasterUserName" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom()
+      }
+
+  """
+  @type aws_open_search_service_domain_master_user_options_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -6545,4018 +701,13 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      keyword_filter() :: %{
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type keyword_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      product() :: %{
-        "ActivationUrl" => String.t() | atom(),
-        "Categories" => list(String.t() | atom()),
-        "CompanyName" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IntegrationTypes" => list(list(any())()),
-        "MarketplaceUrl" => String.t() | atom(),
-        "ProductArn" => String.t() | atom(),
-        "ProductName" => String.t() | atom(),
-        "ProductSubscriptionResourcePolicy" => String.t() | atom()
-      }
-
-  """
-  @type product() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_route53_query_logging_config_details() :: %{
-        "CloudWatchLogsLogGroupArn" => cloud_watch_logs_log_group_arn_config_details()
-      }
-
-  """
-  @type aws_route53_query_logging_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_object_lock_configuration() :: %{
-        "ObjectLockEnabled" => String.t() | atom(),
-        "Rule" => aws_s3_bucket_object_lock_configuration_rule_details()
-      }
-
-  """
-  @type aws_s3_bucket_object_lock_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_route53_hosted_zone_object_details() :: %{
-        "Config" => aws_route53_hosted_zone_config_details(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type aws_route53_hosted_zone_object_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
-        "CapacityReservationPreference" => String.t() | atom(),
-        "CapacityReservationTarget" => aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_cluster_snapshot_details() :: %{
-        "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "ClusterCreateTime" => String.t() | atom(),
-        "DbClusterIdentifier" => String.t() | atom(),
-        "DbClusterSnapshotAttributes" => list(aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute()),
-        "DbClusterSnapshotIdentifier" => String.t() | atom(),
-        "Engine" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "IamDatabaseAuthenticationEnabled" => boolean(),
-        "KmsKeyId" => String.t() | atom(),
-        "LicenseModel" => String.t() | atom(),
-        "MasterUsername" => String.t() | atom(),
-        "PercentProgress" => integer(),
-        "Port" => integer(),
-        "SnapshotCreateTime" => String.t() | atom(),
-        "SnapshotType" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StorageEncrypted" => boolean(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_cluster_snapshot_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      software_package() :: %{
-        "Architecture" => String.t() | atom(),
-        "Epoch" => String.t() | atom(),
-        "FilePath" => String.t() | atom(),
-        "FixedInVersion" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PackageManager" => String.t() | atom(),
-        "Release" => String.t() | atom(),
-        "Remediation" => String.t() | atom(),
-        "SourceLayerArn" => String.t() | atom(),
-        "SourceLayerHash" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type software_package() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_input_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_now_detail() :: %{
-        "AuthStatus" => list(any()),
-        "InstanceName" => String.t() | atom(),
-        "SecretArn" => String.t() | atom()
-      }
-
-  """
-  @type service_now_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      port_range_from_to() :: %{
-        "From" => integer(),
-        "To" => integer()
-      }
-
-  """
-  @type port_range_from_to() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      volume_mount() :: %{
-        "MountPath" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type volume_mount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details() :: %{
-        "Max" => integer(),
-        "Min" => integer()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_restore_status() :: %{
-        "CurrentRestoreRateInMegaBytesPerSecond" => float(),
-        "ElapsedTimeInSeconds" => float(),
-        "EstimatedTimeToCompletionInSeconds" => float(),
-        "ProgressInMegaBytes" => float(),
-        "SnapshotSizeInMegaBytes" => float(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_restore_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_configuration_policy_disassociation_request() :: %{
-        optional("Target") => list(),
-        required("ConfigurationPolicyIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type start_configuration_policy_disassociation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_security_hub_v2_response() :: %{}
-
-  """
-  @type disable_security_hub_v2_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_group_by_rule() :: %{
-        "Filters" => resources_filters(),
-        "GroupByField" => list(any())
-      }
-
-  """
-  @type resource_group_by_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessed_standards_control_association_update() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorReason" => String.t() | atom(),
-        "StandardsControlAssociationUpdate" => standards_control_association_update()
-      }
-
-  """
-  @type unprocessed_standards_control_association_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_finding_aggregator_request() :: %{
-        optional("Regions") => list(String.t() | atom()),
-        required("FindingAggregatorArn") => String.t() | atom(),
-        required("RegionLinkingMode") => String.t() | atom()
-      }
-
-  """
-  @type update_finding_aggregator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_lambda_function_code() :: %{
-        "S3Bucket" => String.t() | atom(),
-        "S3Key" => String.t() | atom(),
-        "S3ObjectVersion" => String.t() | atom(),
-        "ZipFile" => String.t() | atom()
-      }
-
-  """
-  @type aws_lambda_function_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_certificate_manager_certificate_resource_record() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_certificate_manager_certificate_resource_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_ssl_protocols() :: %{
-        "Items" => list(String.t() | atom()),
-        "Quantity" => integer()
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_ssl_protocols() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      date_filter() :: %{
-        "DateRange" => date_range(),
-        "End" => String.t() | atom(),
-        "Start" => String.t() | atom()
-      }
-
-  """
-  @type date_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details() :: %{
-        "InstancesDistribution" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details(),
-        "LaunchTemplate" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details()
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_private_dns_name_options_details() :: %{
-        "EnableResourceNameDnsAAAARecord" => boolean(),
-        "EnableResourceNameDnsARecord" => boolean(),
-        "HostnameType" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_private_dns_name_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_policy_associations_response() :: %{
-        "ConfigurationPolicyAssociationSummaries" => list(configuration_policy_association_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_policy_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
-        "ContainerPath" => String.t() | atom(),
-        "MountOptions" => list(String.t() | atom()),
-        "Size" => integer()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_sage_maker_notebook_instance_details() :: %{
-        "AcceleratorTypes" => list(String.t() | atom()),
-        "AdditionalCodeRepositories" => list(String.t() | atom()),
-        "DefaultCodeRepository" => String.t() | atom(),
-        "DirectInternetAccess" => String.t() | atom(),
-        "FailureReason" => String.t() | atom(),
-        "InstanceMetadataServiceConfiguration" => aws_sage_maker_notebook_instance_metadata_service_configuration_details(),
-        "InstanceType" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "NetworkInterfaceId" => String.t() | atom(),
-        "NotebookInstanceArn" => String.t() | atom(),
-        "NotebookInstanceLifecycleConfigName" => String.t() | atom(),
-        "NotebookInstanceName" => String.t() | atom(),
-        "NotebookInstanceStatus" => String.t() | atom(),
-        "PlatformIdentifier" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "RootAccess" => String.t() | atom(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "SubnetId" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "VolumeSizeInGB" => integer()
-      }
-
-  """
-  @type aws_sage_maker_notebook_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_policy_association_request() :: %{
-        required("Target") => list()
-      }
-
-  """
-  @type get_configuration_policy_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_now_update_configuration() :: %{
-        "SecretArn" => String.t() | atom()
-      }
-
-  """
-  @type service_now_update_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_aggregator_v2_request() :: %{}
-
-  """
-  @type delete_aggregator_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      network_endpoint() :: %{
-        "AutonomousSystem" => network_autonomous_system(),
-        "Connection" => network_connection(),
-        "Domain" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Ip" => String.t() | atom(),
-        "Location" => network_geo_location(),
-        "Port" => integer()
-      }
-
-  """
-  @type network_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_trail_trail_details() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "CloudWatchLogsRoleArn" => String.t() | atom(),
-        "HasCustomEventSelectors" => boolean(),
-        "HomeRegion" => String.t() | atom(),
-        "IncludeGlobalServiceEvents" => boolean(),
-        "IsMultiRegionTrail" => boolean(),
-        "IsOrganizationTrail" => boolean(),
-        "KmsKeyId" => String.t() | atom(),
-        "LogFileValidationEnabled" => boolean(),
-        "Name" => String.t() | atom(),
-        "S3BucketName" => String.t() | atom(),
-        "S3KeyPrefix" => String.t() | atom(),
-        "SnsTopicArn" => String.t() | atom(),
-        "SnsTopicName" => String.t() | atom(),
-        "TrailArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_trail_trail_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
-        "DpdTimeoutSeconds" => integer(),
-        "IkeVersions" => list(String.t() | atom()),
-        "OutsideIpAddress" => String.t() | atom(),
-        "Phase1DhGroupNumbers" => list(integer()),
-        "Phase1EncryptionAlgorithms" => list(String.t() | atom()),
-        "Phase1IntegrityAlgorithms" => list(String.t() | atom()),
-        "Phase1LifetimeSeconds" => integer(),
-        "Phase2DhGroupNumbers" => list(integer()),
-        "Phase2EncryptionAlgorithms" => list(String.t() | atom()),
-        "Phase2IntegrityAlgorithms" => list(String.t() | atom()),
-        "Phase2LifetimeSeconds" => integer(),
-        "PreSharedKey" => String.t() | atom(),
-        "RekeyFuzzPercentage" => integer(),
-        "RekeyMarginTimeSeconds" => integer(),
-        "ReplayWindowSize" => integer(),
-        "TunnelInsideCidr" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
-        "Namespace" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_security_group_prefix_list_id() :: %{
-        "PrefixListId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_security_group_prefix_list_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_details() :: %{
-        "AuthenticationOptions" => list(aws_ec2_client_vpn_endpoint_authentication_options_details()),
-        "ClientCidrBlock" => String.t() | atom(),
-        "ClientConnectOptions" => aws_ec2_client_vpn_endpoint_client_connect_options_details(),
-        "ClientLoginBannerOptions" => aws_ec2_client_vpn_endpoint_client_login_banner_options_details(),
-        "ClientVpnEndpointId" => String.t() | atom(),
-        "ConnectionLogOptions" => aws_ec2_client_vpn_endpoint_connection_log_options_details(),
-        "Description" => String.t() | atom(),
-        "DnsServer" => list(String.t() | atom()),
-        "SecurityGroupIdSet" => list(String.t() | atom()),
-        "SelfServicePortalUrl" => String.t() | atom(),
-        "ServerCertificateArn" => String.t() | atom(),
-        "SessionTimeoutHours" => integer(),
-        "SplitTunnel" => boolean(),
-        "TransportProtocol" => String.t() | atom(),
-        "VpcId" => String.t() | atom(),
-        "VpnPort" => integer()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      jira_cloud_detail() :: %{
-        "AuthStatus" => list(any()),
-        "AuthUrl" => String.t() | atom(),
-        "CloudId" => String.t() | atom(),
-        "Domain" => String.t() | atom(),
-        "ProjectKey" => String.t() | atom()
-      }
-
-  """
-  @type jira_cloud_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_group_failover() :: %{
-        "StatusCodes" => aws_cloud_front_distribution_origin_group_failover_status_codes()
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_group_failover() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_secrets_manager_secret_details() :: %{
-        "Deleted" => boolean(),
-        "Description" => String.t() | atom(),
-        "KmsKeyId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RotationEnabled" => boolean(),
-        "RotationLambdaArn" => String.t() | atom(),
-        "RotationOccurredWithinFrequency" => boolean(),
-        "RotationRules" => aws_secrets_manager_secret_rotation_rules()
-      }
-
-  """
-  @type aws_secrets_manager_secret_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_network_firewall_rule_group_details() :: %{
-        "Capacity" => integer(),
-        "Description" => String.t() | atom(),
-        "RuleGroup" => rule_group_details(),
-        "RuleGroupArn" => String.t() | atom(),
-        "RuleGroupId" => String.t() | atom(),
-        "RuleGroupName" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_network_firewall_rule_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
-        "Capabilities" => aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details(),
-        "Devices" => list(aws_ecs_task_definition_container_definitions_linux_parameters_devices_details()),
-        "InitProcessEnabled" => boolean(),
-        "MaxSwap" => integer(),
-        "SharedMemorySize" => integer(),
-        "Swappiness" => integer(),
-        "Tmpfs" => list(aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details())
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_finding_aggregator_request() :: %{
-        optional("Regions") => list(String.t() | atom()),
-        required("RegionLinkingMode") => String.t() | atom()
-      }
-
-  """
-  @type create_finding_aggregator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_history_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Records" => list(finding_history_record())
-      }
-
-  """
-  @type get_finding_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_automation_rules_request_item() :: %{
-        "Actions" => list(automation_rules_action()),
-        "Criteria" => automation_rules_finding_filters(),
-        "Description" => String.t() | atom(),
-        "IsTerminal" => boolean(),
-        "RuleArn" => String.t() | atom(),
-        "RuleName" => String.t() | atom(),
-        "RuleOrder" => integer(),
-        "RuleStatus" => list(any())
-      }
-
-  """
-  @type update_automation_rules_request_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_object_details() :: %{
-        "ContentType" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "LastModified" => String.t() | atom(),
-        "SSEKMSKeyId" => String.t() | atom(),
-        "ServerSideEncryption" => String.t() | atom(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_object_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elasticsearch_domain_encryption_at_rest_options() :: %{
-        "Enabled" => boolean(),
-        "KmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type aws_elasticsearch_domain_encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{
-        "GroupName" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StreamName" => String.t() | atom()
-      }
-
-  """
-  @type aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      health_check() :: %{
-        "ConnectorStatus" => list(any()),
-        "LastCheckedAt" => non_neg_integer(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type health_check() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_members_response() :: %{}
-
-  """
-  @type disassociate_members_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
-        "LogDriver" => String.t() | atom(),
-        "Options" => map(),
-        "SecretOptions" => list(aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details())
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_error() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type recommendation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_import_findings_for_product_request() :: %{}
-
-  """
-  @type disable_import_findings_for_product_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommended_policy_v2_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_recommended_policy_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_organization_configuration_response() :: %{}
-
-  """
-  @type update_organization_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessed_security_control() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorReason" => String.t() | atom(),
-        "SecurityControlId" => String.t() | atom()
-      }
-
-  """
-  @type unprocessed_security_control() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_listener_description() :: %{
-        "Listener" => aws_elb_load_balancer_listener(),
-        "PolicyNames" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_elb_load_balancer_listener_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action_target() :: %{
-        "ActionTargetArn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type action_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_volume_attachment() :: %{
-        "AttachTime" => String.t() | atom(),
-        "DeleteOnTermination" => boolean(),
-        "InstanceId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_volume_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_findings_request() :: %{
-        optional("Confidence") => integer(),
-        optional("Criticality") => integer(),
-        optional("Note") => note_update(),
-        optional("RelatedFindings") => list(related_finding()),
-        optional("Severity") => severity_update(),
-        optional("Types") => list(String.t() | atom()),
-        optional("UserDefinedFields") => map(),
-        optional("VerificationState") => list(any()),
-        optional("Workflow") => workflow_update(),
-        required("FindingIdentifiers") => list(aws_security_finding_identifier())
-      }
-
-  """
-  @type batch_update_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_findings_v2_unprocessed_finding() :: %{
-        "ErrorCode" => list(any()),
-        "ErrorMessage" => String.t() | atom(),
-        "FindingIdentifier" => ocsf_finding_identifier(),
-        "MetadataUid" => String.t() | atom()
-      }
-
-  """
-  @type batch_update_findings_v2_unprocessed_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generator_details() :: %{
-        "Description" => String.t() | atom(),
-        "Labels" => list(String.t() | atom()),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type generator_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detection() :: %{
-        "Sequence" => sequence()
-      }
-
-  """
-  @type detection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_app_cookie_stickiness_policy() :: %{
-        "CookieName" => String.t() | atom(),
-        "PolicyName" => String.t() | atom()
-      }
-
-  """
-  @type aws_elb_app_cookie_stickiness_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_info_ipv6_cidr_block_set_details() :: %{
-        "Ipv6CidrBlock" => String.t() | atom()
-      }
-
-  """
-  @type vpc_info_ipv6_cidr_block_set_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_automation_rule_request() :: %{
-        optional("IsTerminal") => boolean(),
-        optional("RuleStatus") => list(any()),
-        optional("Tags") => map(),
-        required("Actions") => list(automation_rules_action()),
-        required("Criteria") => automation_rules_finding_filters(),
-        required("Description") => String.t() | atom(),
-        required("RuleName") => String.t() | atom(),
-        required("RuleOrder") => integer()
-      }
-
-  """
-  @type create_automation_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpc_peering_connection_status_details() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpc_peering_connection_status_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_step_function_state_machine_details() :: %{
-        "Label" => String.t() | atom(),
-        "LoggingConfiguration" => aws_step_function_state_machine_logging_configuration_details(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "StateMachineArn" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "TracingConfiguration" => aws_step_function_state_machine_tracing_configuration_details(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_step_function_state_machine_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateless_rule_match_attributes_destinations() :: %{
-        "AddressDefinition" => String.t() | atom()
-      }
-
-  """
-  @type rule_group_source_stateless_rule_match_attributes_destinations() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_insights_response() :: %{
-        "Insights" => list(insight()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_launch_configuration_metadata_options() :: %{
-        "HttpEndpoint" => String.t() | atom(),
-        "HttpPutResponseHopLimit" => integer(),
-        "HttpTokens" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_launch_configuration_metadata_options() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      resources_trends_filters() :: %{
-        "CompositeFilters" => list(resources_trends_composite_filter()),
-        "CompositeOperator" => list(any())
-      }
-
-  """
-  @type resources_trends_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      waf_override_action() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type waf_override_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_gateway_rest_api_details() :: %{
-        "ApiKeySource" => String.t() | atom(),
-        "BinaryMediaTypes" => list(String.t() | atom()),
-        "CreatedDate" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "EndpointConfiguration" => aws_api_gateway_endpoint_configuration(),
-        "Id" => String.t() | atom(),
-        "MinimumCompressionSize" => integer(),
-        "Name" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type aws_api_gateway_rest_api_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_group_policy() :: %{
-        "PolicyName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_group_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_rate_based_rule_match_predicate() :: %{
-        "DataId" => String.t() | atom(),
-        "Negated" => boolean(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_rate_based_rule_match_predicate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      actor_user() :: %{
-        "Account" => user_account(),
-        "CredentialUid" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "Uid" => String.t() | atom()
-      }
-
-  """
-  @type actor_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resources_v2_request() :: %{
-        optional("Filters") => resources_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Scopes") => resource_scopes(),
-        optional("SortCriteria") => list(sort_criterion())
-      }
-
-  """
-  @type get_resources_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_eks_cluster_logging_details() :: %{
-        "ClusterLogging" => list(aws_eks_cluster_logging_cluster_logging_details())
-      }
-
-  """
-  @type aws_eks_cluster_logging_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_rule_group_rules_details() :: %{
-        "Action" => aws_waf_regional_rule_group_rules_action_details(),
-        "Priority" => integer(),
-        "RuleId" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_rule_group_rules_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      standards_control_association_detail() :: %{
-        "AssociationStatus" => list(any()),
-        "RelatedRequirements" => list(String.t() | atom()),
-        "SecurityControlArn" => String.t() | atom(),
-        "SecurityControlId" => String.t() | atom(),
-        "StandardsArn" => String.t() | atom(),
-        "StandardsControlArns" => list(String.t() | atom()),
-        "StandardsControlDescription" => String.t() | atom(),
-        "StandardsControlTitle" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer(),
-        "UpdatedReason" => String.t() | atom()
-      }
-
-  """
-  @type standards_control_association_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_efs_access_point_root_directory_creation_info_details() :: %{
-        "OwnerGid" => String.t() | atom(),
-        "OwnerUid" => String.t() | atom(),
-        "Permissions" => String.t() | atom()
-      }
-
-  """
-  @type aws_efs_access_point_root_directory_creation_info_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      accept_invitation_response() :: %{}
-
-  """
-  @type accept_invitation_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_trends_composite_filter() :: %{
-        "NestedCompositeFilters" => list(resources_trends_composite_filter()),
-        "Operator" => list(any()),
-        "StringFilters" => list(resources_trends_string_filter())
-      }
-
-  """
-  @type resources_trends_composite_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      decline_invitations_request() :: %{
-        required("AccountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type decline_invitations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_code_build_project_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "Subnets" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_code_build_project_vpc_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_cluster_member() :: %{
-        "DbClusterParameterGroupStatus" => String.t() | atom(),
-        "DbInstanceIdentifier" => String.t() | atom(),
-        "IsClusterWriter" => boolean(),
-        "PromotionTier" => integer()
-      }
-
-  """
-  @type aws_rds_db_cluster_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_action_target_request() :: %{
-        required("Description") => String.t() | atom(),
-        required("Id") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_action_target_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_placement_strategies_details() :: %{
-        "Field" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_service_placement_strategies_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_rate_based_rule_details() :: %{
-        "MatchPredicates" => list(aws_waf_rate_based_rule_match_predicate()),
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RateKey" => String.t() | atom(),
-        "RateLimit" => float(),
-        "RuleId" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_rate_based_rule_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_master_account_response() :: %{
-        "Master" => invitation()
-      }
-
-  """
-  @type get_master_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automation_rules_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_automation_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_step_function_state_machine_tracing_configuration_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_step_function_state_machine_tracing_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_gateway_canary_settings() :: %{
-        "DeploymentId" => String.t() | atom(),
-        "PercentTraffic" => float(),
-        "StageVariableOverrides" => map(),
-        "UseStageCache" => boolean()
-      }
-
-  """
-  @type aws_api_gateway_canary_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_web_acl_captcha_config_immunity_time_property_details() :: %{
-        "ImmunityTime" => float()
-      }
-
-  """
-  @type aws_wafv2_web_acl_captcha_config_immunity_time_property_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_enabled_products_for_import_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_enabled_products_for_import_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_products_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Products" => list(product())
-      }
-
-  """
-  @type describe_products_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_web_acl_rule() :: %{
-        "Action" => waf_action(),
-        "ExcludedRules" => list(waf_excluded_rule()),
-        "OverrideAction" => waf_override_action(),
-        "Priority" => integer(),
-        "RuleId" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_web_acl_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cidr_block_association() :: %{
-        "AssociationId" => String.t() | atom(),
-        "CidrBlock" => String.t() | atom(),
-        "CidrBlockState" => String.t() | atom()
-      }
-
-  """
-  @type cidr_block_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpc_peering_connection_vpc_info_details() :: %{
-        "CidrBlock" => String.t() | atom(),
-        "CidrBlockSet" => list(vpc_info_cidr_block_set_details()),
-        "Ipv6CidrBlockSet" => list(vpc_info_ipv6_cidr_block_set_details()),
-        "OwnerId" => String.t() | atom(),
-        "PeeringOptions" => vpc_info_peering_options_details(),
-        "Region" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpc_peering_connection_vpc_info_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_call_action() :: %{
-        "AffectedResources" => map(),
-        "Api" => String.t() | atom(),
-        "CallerType" => String.t() | atom(),
-        "DomainDetails" => aws_api_call_action_domain_details(),
-        "FirstSeen" => String.t() | atom(),
-        "LastSeen" => String.t() | atom(),
-        "RemoteIpDetails" => action_remote_ip_details(),
-        "ServiceName" => String.t() | atom()
-      }
-
-  """
-  @type aws_api_call_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_instance_vpc_security_group() :: %{
-        "Status" => String.t() | atom(),
-        "VpcSecurityGroupId" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_instance_vpc_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_instance_details() :: %{
-        "LatestRestorableTime" => String.t() | atom(),
-        "DBName" => String.t() | atom(),
-        "StatusInfos" => list(aws_rds_db_status_info()),
-        "Engine" => String.t() | atom(),
-        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
-        "PerformanceInsightsKmsKeyId" => String.t() | atom(),
-        "CACertificateIdentifier" => String.t() | atom(),
-        "Timezone" => String.t() | atom(),
-        "PreferredMaintenanceWindow" => String.t() | atom(),
-        "Iops" => integer(),
-        "MonitoringInterval" => integer(),
-        "ReadReplicaDBInstanceIdentifiers" => list(String.t() | atom()),
-        "OptionGroupMemberships" => list(aws_rds_db_option_group_membership()),
-        "PreferredBackupWindow" => String.t() | atom(),
-        "PendingModifiedValues" => aws_rds_db_pending_modified_values(),
-        "PerformanceInsightsEnabled" => boolean(),
-        "PromotionTier" => integer(),
-        "ReadReplicaSourceDBInstanceIdentifier" => String.t() | atom(),
-        "BackupRetentionPeriod" => integer(),
-        "KmsKeyId" => String.t() | atom(),
-        "DbInstanceStatus" => String.t() | atom(),
-        "DbSecurityGroups" => list(String.t() | atom()),
-        "AvailabilityZone" => String.t() | atom(),
-        "CopyTagsToSnapshot" => boolean(),
-        "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
-        "DBInstanceClass" => String.t() | atom(),
-        "ReadReplicaDBClusterIdentifiers" => list(String.t() | atom()),
-        "EnhancedMonitoringResourceArn" => String.t() | atom(),
-        "DbParameterGroups" => list(aws_rds_db_parameter_group()),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "DbiResourceId" => String.t() | atom(),
-        "TdeCredentialArn" => String.t() | atom(),
-        "MasterUsername" => String.t() | atom(),
-        "LicenseModel" => String.t() | atom(),
-        "EnabledCloudWatchLogsExports" => list(String.t() | atom()),
-        "DBInstanceIdentifier" => String.t() | atom(),
-        "DBClusterIdentifier" => String.t() | atom(),
-        "DeletionProtection" => boolean(),
-        "StorageType" => String.t() | atom(),
-        "PerformanceInsightsRetentionPeriod" => integer(),
-        "InstanceCreateTime" => String.t() | atom(),
-        "DomainMemberships" => list(aws_rds_db_domain_membership()),
-        "MultiAz" => boolean(),
-        "DbInstancePort" => integer(),
-        "SecondaryAvailabilityZone" => String.t() | atom(),
-        "PubliclyAccessible" => boolean(),
-        "EngineVersion" => String.t() | atom(),
-        "AllocatedStorage" => integer(),
-        "AssociatedRoles" => list(aws_rds_db_instance_associated_role()),
-        "DbSubnetGroup" => aws_rds_db_subnet_group(),
-        "MaxAllocatedStorage" => integer(),
-        "StorageEncrypted" => boolean(),
-        "Endpoint" => aws_rds_db_instance_endpoint(),
-        "IAMDatabaseAuthenticationEnabled" => boolean(),
-        "CharacterSetName" => String.t() | atom(),
-        "MonitoringRoleArn" => String.t() | atom(),
-        "ListenerEndpoint" => aws_rds_db_instance_endpoint()
-      }
-
-  """
-  @type aws_rds_db_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_security_hub_v2_request() :: %{}
-
-  """
-  @type disable_security_hub_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_security_control_definition_response() :: %{
-        "SecurityControlDefinition" => security_control_definition()
-      }
-
-  """
-  @type get_security_control_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_inference_accelerators_details() :: %{
-        "DeviceName" => String.t() | atom(),
-        "DeviceType" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_inference_accelerators_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_invitations_request() :: %{
-        required("AccountIds") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_invitations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() :: %{
-        "OnDemandAllocationStrategy" => String.t() | atom(),
-        "OnDemandBaseCapacity" => integer(),
-        "OnDemandPercentageAboveBaseCapacity" => integer(),
-        "SpotAllocationStrategy" => String.t() | atom(),
-        "SpotInstancePools" => integer(),
-        "SpotMaxPrice" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_kms_key_details() :: %{
-        "AWSAccountId" => String.t() | atom(),
-        "CreationDate" => float(),
-        "Description" => String.t() | atom(),
-        "KeyId" => String.t() | atom(),
-        "KeyManager" => String.t() | atom(),
-        "KeyRotationStatus" => boolean(),
-        "KeyState" => String.t() | atom(),
-        "Origin" => String.t() | atom()
-      }
-
-  """
-  @type aws_kms_key_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
-        "LaunchTemplateSpecification" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification(),
-        "Overrides" => list(aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details())
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
-        "CertificateAuthorityArnList" => list(String.t() | atom()),
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_findings_response() :: %{}
-
-  """
-  @type update_findings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_details() :: %{
-        "AccessControlList" => String.t() | atom(),
-        "BucketLifecycleConfiguration" => aws_s3_bucket_bucket_lifecycle_configuration_details(),
-        "BucketLoggingConfiguration" => aws_s3_bucket_logging_configuration(),
-        "BucketNotificationConfiguration" => aws_s3_bucket_notification_configuration(),
-        "BucketVersioningConfiguration" => aws_s3_bucket_bucket_versioning_configuration(),
-        "BucketWebsiteConfiguration" => aws_s3_bucket_website_configuration(),
-        "CreatedAt" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ObjectLockConfiguration" => aws_s3_bucket_object_lock_configuration(),
-        "OwnerAccountId" => String.t() | atom(),
-        "OwnerId" => String.t() | atom(),
-        "OwnerName" => String.t() | atom(),
-        "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
-        "ServerSideEncryptionConfiguration" => aws_s3_bucket_server_side_encryption_configuration()
-      }
-
-  """
-  @type aws_s3_bucket_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_action_v2() :: %{
-        "ExternalIntegrationConfiguration" => external_integration_configuration(),
-        "FindingFieldsUpdate" => automation_rules_finding_fields_update_v2(),
-        "Type" => list(any())
-      }
-
-  """
-  @type automation_rules_action_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_network_firewall_firewall_policy_details() :: %{
-        "Description" => String.t() | atom(),
-        "FirewallPolicy" => firewall_policy_details(),
-        "FirewallPolicyArn" => String.t() | atom(),
-        "FirewallPolicyId" => String.t() | atom(),
-        "FirewallPolicyName" => String.t() | atom()
-      }
-
-  """
-  @type aws_network_firewall_firewall_policy_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_by_result() :: %{
-        "GroupByField" => String.t() | atom(),
-        "GroupByValues" => list(group_by_value())
-      }
-
-  """
-  @type group_by_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_eks_cluster_resources_vpc_config_details() :: %{
-        "EndpointPublicAccess" => boolean(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_eks_cluster_resources_vpc_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_enabled_products_for_import_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProductSubscriptions" => list(String.t() | atom())
-      }
-
-  """
-  @type list_enabled_products_for_import_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_map_filter() :: %{
+      resources_number_filter() :: %{
         "FieldName" => list(any()),
-        "Filter" => map_filter()
+        "Filter" => number_filter()
       }
 
   """
-  @type resources_map_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_domain_endpoint_options_details() :: %{
-        "CustomEndpoint" => String.t() | atom(),
-        "CustomEndpointCertificateArn" => String.t() | atom(),
-        "CustomEndpointEnabled" => boolean(),
-        "EnforceHTTPS" => boolean(),
-        "TLSSecurityPolicy" => String.t() | atom()
-      }
-
-  """
-  @type aws_open_search_service_domain_domain_endpoint_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() :: %{
-        "AccessPointId" => String.t() | atom(),
-        "Iam" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      findings_trends_composite_filter() :: %{
-        "NestedCompositeFilters" => list(findings_trends_composite_filter()),
-        "Operator" => list(any()),
-        "StringFilters" => list(findings_trends_string_filter())
-      }
-
-  """
-  @type findings_trends_composite_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_rate_based_rule_match_predicate() :: %{
-        "DataId" => String.t() | atom(),
-        "Negated" => boolean(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_rate_based_rule_match_predicate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_efs_access_point_posix_user_details() :: %{
-        "Gid" => String.t() | atom(),
-        "SecondaryGids" => list(String.t() | atom()),
-        "Uid" => String.t() | atom()
-      }
-
-  """
-  @type aws_efs_access_point_posix_user_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_rule_predicate_list_details() :: %{
-        "DataId" => String.t() | atom(),
-        "Negated" => boolean(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_rule_predicate_list_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      port_range() :: %{
-        "Begin" => integer(),
-        "End" => integer()
-      }
-
-  """
-  @type port_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_policies_response() :: %{
-        "ConfigurationPolicySummaries" => list(configuration_policy_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_amazon_mq_broker_ldap_server_metadata_details() :: %{
-        "Hosts" => list(String.t() | atom()),
-        "RoleBase" => String.t() | atom(),
-        "RoleName" => String.t() | atom(),
-        "RoleSearchMatching" => String.t() | atom(),
-        "RoleSearchSubtree" => boolean(),
-        "ServiceAccountUsername" => String.t() | atom(),
-        "UserBase" => String.t() | atom(),
-        "UserRoleName" => String.t() | atom(),
-        "UserSearchMatching" => String.t() | atom(),
-        "UserSearchSubtree" => boolean()
-      }
-
-  """
-  @type aws_amazon_mq_broker_ldap_server_metadata_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_provider_fields() :: %{
-        "Confidence" => integer(),
-        "Criticality" => integer(),
-        "RelatedFindings" => list(related_finding()),
-        "Severity" => finding_provider_severity(),
-        "Types" => list(String.t() | atom())
-      }
-
-  """
-  @type finding_provider_fields() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_organization_configuration_request() :: %{
-        optional("AutoEnableStandards") => list(any()),
-        optional("OrganizationConfiguration") => organization_configuration(),
-        required("AutoEnable") => boolean()
-      }
-
-  """
-  @type update_organization_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_organization_admin_account_request() :: %{
-        optional("Feature") => list(any()),
-        required("AdminAccountId") => String.t() | atom()
-      }
-
-  """
-  @type enable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dms_replication_instance_replication_subnet_group_details() :: %{
-        "ReplicationSubnetGroupIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type aws_dms_replication_instance_replication_subnet_group_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_sns_topic_subscription() :: %{
-        "Endpoint" => String.t() | atom(),
-        "Protocol" => String.t() | atom()
-      }
-
-  """
-  @type aws_sns_topic_subscription() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_route53_hosted_zone_config_details() :: %{
-        "Comment" => String.t() | atom()
-      }
-
-  """
-  @type aws_route53_hosted_zone_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      external_integration_configuration() :: %{
-        "ConnectorArn" => String.t() | atom()
-      }
-
-  """
-  @type external_integration_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_formation_stack_outputs_details() :: %{
-        "Description" => String.t() | atom(),
-        "OutputKey" => String.t() | atom(),
-        "OutputValue" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_formation_stack_outputs_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      threat_intel_indicator() :: %{
-        "Category" => list(any()),
-        "LastObservedAt" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "SourceUrl" => String.t() | atom(),
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type threat_intel_indicator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_findings_response() :: %{
-        "ProcessedFindings" => list(aws_security_finding_identifier()),
-        "UnprocessedFindings" => list(batch_update_findings_unprocessed_finding())
-      }
-
-  """
-  @type batch_update_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      geo_location() :: %{
-        "Lat" => float(),
-        "Lon" => float()
-      }
-
-  """
-  @type geo_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_statistics_v2_request() :: %{
-        optional("MaxStatisticResults") => integer(),
-        optional("Scopes") => finding_scopes(),
-        optional("SortOrder") => list(any()),
-        required("GroupByRules") => list(group_by_rule())
-      }
-
-  """
-  @type get_finding_statistics_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action() :: %{
-        "ActionType" => String.t() | atom(),
-        "AwsApiCallAction" => aws_api_call_action(),
-        "DnsRequestAction" => dns_request_action(),
-        "NetworkConnectionAction" => network_connection_action(),
-        "PortProbeAction" => port_probe_action()
-      }
-
-  """
-  @type action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_log_publishing_option() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_open_search_service_domain_log_publishing_option() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      resources_trends_values() :: %{
-        "ResourcesCount" => resources_count()
-      }
-
-  """
-  @type resources_trends_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
-        "AuthenticationType" => String.t() | atom(),
-        "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
-        "OpenIdConnectConfig" => aws_app_sync_graph_ql_api_open_id_connect_config_details(),
-        "UserPoolConfig" => aws_app_sync_graph_ql_api_user_pool_config_details()
-      }
-
-  """
-  @type aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_v2_request() :: %{
-        optional("ConnectorStatus") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ProviderName") => list(any())
-      }
-
-  """
-  @type list_connectors_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_data_identifiers_detections() :: %{
-        "Arn" => String.t() | atom(),
-        "Count" => float(),
-        "Name" => String.t() | atom(),
-        "Occurrences" => occurrences()
-      }
-
-  """
-  @type custom_data_identifiers_detections() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_finding_aggregator_response() :: %{
-        "FindingAggregationRegion" => String.t() | atom(),
-        "FindingAggregatorArn" => String.t() | atom(),
-        "RegionLinkingMode" => String.t() | atom(),
-        "Regions" => list(String.t() | atom())
-      }
-
-  """
-  @type create_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_details() :: %{
-        "DataSources" => aws_guard_duty_detector_data_sources_details(),
-        "Features" => list(aws_guard_duty_detector_features_details()),
-        "FindingPublishingFrequency" => String.t() | atom(),
-        "ServiceRole" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_guard_duty_detector_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_trends_v2_request() :: %{
-        optional("Filters") => findings_trends_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("EndTime") => non_neg_integer(),
-        required("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_findings_trends_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elasticsearch_domain_service_software_options() :: %{
-        "AutomatedUpdateDate" => String.t() | atom(),
-        "Cancellable" => boolean(),
-        "CurrentVersion" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "NewVersion" => String.t() | atom(),
-        "UpdateAvailable" => boolean(),
-        "UpdateStatus" => String.t() | atom()
-      }
-
-  """
-  @type aws_elasticsearch_domain_service_software_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firewall_policy_stateful_rule_group_references_details() :: %{
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type firewall_policy_stateful_rule_group_references_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_permissions_boundary() :: %{
-        "PermissionsBoundaryArn" => String.t() | atom(),
-        "PermissionsBoundaryType" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_permissions_boundary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_backup_vault_details() :: %{
-        "AccessPolicy" => String.t() | atom(),
-        "BackupVaultArn" => String.t() | atom(),
-        "BackupVaultName" => String.t() | atom(),
-        "EncryptionKeyArn" => String.t() | atom(),
-        "Notifications" => aws_backup_backup_vault_notifications_details()
-      }
-
-  """
-  @type aws_backup_backup_vault_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      findings_trends_string_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => string_filter()
-      }
-
-  """
-  @type findings_trends_string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() :: %{
-        "SamlProviderArn" => String.t() | atom(),
-        "SelfServiceSamlProviderArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      propagating_vgw_set_details() :: %{
-        "GatewayId" => String.t() | atom()
-      }
-
-  """
-  @type propagating_vgw_set_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_invitations_response() :: %{
-        "UnprocessedAccounts" => list(result())
-      }
-
-  """
-  @type delete_invitations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_import_findings_response() :: %{
-        "FailedCount" => integer(),
-        "FailedFindings" => list(import_findings_error()),
-        "SuccessCount" => integer()
-      }
-
-  """
-  @type batch_import_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      port_probe_action() :: %{
-        "Blocked" => boolean(),
-        "PortProbeDetails" => list(port_probe_detail())
-      }
-
-  """
-  @type port_probe_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_rules_action_count_details() :: %{
-        "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
-      }
-
-  """
-  @type aws_wafv2_rules_action_count_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_xray_encryption_config_details() :: %{
-        "KeyId" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_xray_encryption_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_admin_accounts_request() :: %{
-        optional("Feature") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_organization_admin_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_date_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => date_filter()
-      }
-
-  """
-  @type ocsf_date_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_attributes() :: %{
-        "AccessLog" => aws_elb_load_balancer_access_log(),
-        "AdditionalAttributes" => list(aws_elb_load_balancer_additional_attribute()),
-        "ConnectionDraining" => aws_elb_load_balancer_connection_draining(),
-        "ConnectionSettings" => aws_elb_load_balancer_connection_settings(),
-        "CrossZoneLoadBalancing" => aws_elb_load_balancer_cross_zone_load_balancing()
-      }
-
-  """
-  @type aws_elb_load_balancer_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      standards_control_association_update() :: %{
-        "AssociationStatus" => list(any()),
-        "SecurityControlId" => String.t() | atom(),
-        "StandardsArn" => String.t() | atom(),
-        "UpdatedReason" => String.t() | atom()
-      }
-
-  """
-  @type standards_control_association_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_details() :: %{
-        "RuleVariables" => rule_group_variables(),
-        "RulesSource" => rule_group_source()
-      }
-
-  """
-  @type rule_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_policy_request() :: %{
-        optional("ConfigurationPolicy") => list(),
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("UpdatedReason") => String.t() | atom()
-      }
-
-  """
-  @type update_configuration_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_details() :: %{
-        "AvailabilityZones" => list(String.t() | atom()),
-        "BackendServerDescriptions" => list(aws_elb_load_balancer_backend_server_description()),
-        "CanonicalHostedZoneName" => String.t() | atom(),
-        "CanonicalHostedZoneNameID" => String.t() | atom(),
-        "CreatedTime" => String.t() | atom(),
-        "DnsName" => String.t() | atom(),
-        "HealthCheck" => aws_elb_load_balancer_health_check(),
-        "Instances" => list(aws_elb_load_balancer_instance()),
-        "ListenerDescriptions" => list(aws_elb_load_balancer_listener_description()),
-        "LoadBalancerAttributes" => aws_elb_load_balancer_attributes(),
-        "LoadBalancerName" => String.t() | atom(),
-        "Policies" => aws_elb_load_balancer_policies(),
-        "Scheme" => String.t() | atom(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "SourceSecurityGroup" => aws_elb_load_balancer_source_security_group(),
-        "Subnets" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_elb_load_balancer_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      threat() :: %{
-        "FilePaths" => list(file_paths()),
-        "ItemCount" => integer(),
-        "Name" => String.t() | atom(),
-        "Severity" => String.t() | atom()
-      }
-
-  """
-  @type threat() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ssm_patch_compliance_details() :: %{
-        "Patch" => aws_ssm_patch()
-      }
-
-  """
-  @type aws_ssm_patch_compliance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_hub_response() :: %{
-        "AutoEnableControls" => boolean(),
-        "ControlFindingGenerator" => list(any()),
-        "HubArn" => String.t() | atom(),
-        "SubscribedAt" => String.t() | atom()
-      }
-
-  """
-  @type describe_hub_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_deployment_controller_details() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_service_deployment_controller_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_instance_details() :: %{
-        "IamInstanceProfileArn" => String.t() | atom(),
-        "ImageId" => String.t() | atom(),
-        "IpV4Addresses" => list(String.t() | atom()),
-        "IpV6Addresses" => list(String.t() | atom()),
-        "KeyName" => String.t() | atom(),
-        "LaunchedAt" => String.t() | atom(),
-        "MetadataOptions" => aws_ec2_instance_metadata_options(),
-        "Monitoring" => aws_ec2_instance_monitoring_details(),
-        "NetworkInterfaces" => list(aws_ec2_instance_network_interfaces_details()),
-        "SubnetId" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "VirtualizationType" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_instance_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_security_group_user_id_group_pair() :: %{
-        "GroupId" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "PeeringStatus" => String.t() | atom(),
-        "UserId" => String.t() | atom(),
-        "VpcId" => String.t() | atom(),
-        "VpcPeeringConnectionId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_security_group_user_id_group_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_import_findings_request() :: %{
-        required("Findings") => list(aws_security_finding())
-      }
-
-  """
-  @type batch_import_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_projection() :: %{
-        "NonKeyAttributes" => list(String.t() | atom()),
-        "ProjectionType" => String.t() | atom()
-      }
-
-  """
-  @type aws_dynamo_db_table_projection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_automation_rule_v2_request() :: %{}
-
-  """
-  @type delete_automation_rule_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_vpc_options_details() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_open_search_service_domain_vpc_options_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      composite_filter() :: %{
-        "BooleanFilters" => list(ocsf_boolean_filter()),
-        "DateFilters" => list(ocsf_date_filter()),
-        "IpFilters" => list(ocsf_ip_filter()),
-        "MapFilters" => list(ocsf_map_filter()),
-        "NestedCompositeFilters" => list(composite_filter()),
-        "NumberFilters" => list(ocsf_number_filter()),
-        "Operator" => list(any()),
-        "StringFilters" => list(ocsf_string_filter())
-      }
-
-  """
-  @type composite_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_insight_response() :: %{
-        "InsightArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_insight_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_invitations_count_request() :: %{}
-
-  """
-  @type get_invitations_count_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resources_v2_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Resources" => list(resource_result())
-      }
-
-  """
-  @type get_resources_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_rules_action_details() :: %{
-        "Allow" => aws_wafv2_action_allow_details(),
-        "Block" => aws_wafv2_action_block_details(),
-        "Captcha" => aws_wafv2_rules_action_captcha_details(),
-        "Count" => aws_wafv2_rules_action_count_details()
-      }
-
-  """
-  @type aws_wafv2_rules_action_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_security_controls_response() :: %{
-        "SecurityControls" => list(security_control()),
-        "UnprocessedIds" => list(unprocessed_security_control())
-      }
-
-  """
-  @type batch_get_security_controls_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_volumes_details() :: %{
-        "DockerVolumeConfiguration" => aws_ecs_task_definition_volumes_docker_volume_configuration_details(),
-        "EfsVolumeConfiguration" => aws_ecs_task_definition_volumes_efs_volume_configuration_details(),
-        "Host" => aws_ecs_task_definition_volumes_host_details(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_volumes_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_app_sync_graph_ql_api_user_pool_config_details() :: %{
-        "AppIdClientRegex" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom(),
-        "DefaultAction" => String.t() | atom(),
-        "UserPoolId" => String.t() | atom()
-      }
-
-  """
-  @type aws_app_sync_graph_ql_api_user_pool_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_backup_plan_lifecycle_details() :: %{
-        "DeleteAfterDays" => float(),
-        "MoveToColdStorageAfterDays" => float()
-      }
-
-  """
-  @type aws_backup_backup_plan_lifecycle_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      severity_trends_count() :: %{
-        "Critical" => float(),
-        "Fatal" => float(),
-        "High" => float(),
-        "Informational" => float(),
-        "Low" => float(),
-        "Medium" => float(),
-        "Other" => float(),
-        "Unknown" => float()
-      }
-
-  """
-  @type severity_trends_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_processor_feature() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_processor_feature() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_details() :: %{
-        "Command" => list(String.t() | atom()),
-        "MemoryReservation" => integer(),
-        "StartTimeout" => integer(),
-        "LinuxParameters" => aws_ecs_task_definition_container_definitions_linux_parameters_details(),
-        "PortMappings" => list(aws_ecs_task_definition_container_definitions_port_mappings_details()),
-        "Hostname" => String.t() | atom(),
-        "Privileged" => boolean(),
-        "WorkingDirectory" => String.t() | atom(),
-        "Image" => String.t() | atom(),
-        "EnvironmentFiles" => list(aws_ecs_task_definition_container_definitions_environment_files_details()),
-        "Ulimits" => list(aws_ecs_task_definition_container_definitions_ulimits_details()),
-        "StopTimeout" => integer(),
-        "ExtraHosts" => list(aws_ecs_task_definition_container_definitions_extra_hosts_details()),
-        "LogConfiguration" => aws_ecs_task_definition_container_definitions_log_configuration_details(),
-        "Secrets" => list(aws_ecs_task_definition_container_definitions_secrets_details()),
-        "DockerSecurityOptions" => list(String.t() | atom()),
-        "SystemControls" => list(aws_ecs_task_definition_container_definitions_system_controls_details()),
-        "HealthCheck" => aws_ecs_task_definition_container_definitions_health_check_details(),
-        "DnsServers" => list(String.t() | atom()),
-        "PseudoTerminal" => boolean(),
-        "RepositoryCredentials" => aws_ecs_task_definition_container_definitions_repository_credentials_details(),
-        "DockerLabels" => map(),
-        "DisableNetworking" => boolean(),
-        "User" => String.t() | atom(),
-        "Environment" => list(aws_ecs_task_definition_container_definitions_environment_details()),
-        "FirelensConfiguration" => aws_ecs_task_definition_container_definitions_firelens_configuration_details(),
-        "MountPoints" => list(aws_ecs_task_definition_container_definitions_mount_points_details()),
-        "VolumesFrom" => list(aws_ecs_task_definition_container_definitions_volumes_from_details()),
-        "DependsOn" => list(aws_ecs_task_definition_container_definitions_depends_on_details()),
-        "DnsSearchDomains" => list(String.t() | atom()),
-        "Interactive" => boolean(),
-        "Links" => list(String.t() | atom()),
-        "ResourceRequirements" => list(aws_ecs_task_definition_container_definitions_resource_requirements_details()),
-        "Essential" => boolean(),
-        "Name" => String.t() | atom(),
-        "ReadonlyRootFilesystem" => boolean(),
-        "EntryPoint" => list(String.t() | atom()),
-        "Cpu" => integer(),
-        "Memory" => integer()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_node_to_node_encryption_options_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_open_search_service_domain_node_to_node_encryption_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      city() :: %{
-        "CityName" => String.t() | atom()
-      }
-
-  """
-  @type city() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_invitation_request() :: %{
-        required("InvitationId") => String.t() | atom(),
-        required("MasterId") => String.t() | atom()
-      }
-
-  """
-  @type accept_invitation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      association_filters() :: %{
-        "AssociationStatus" => list(any()),
-        "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | atom()
-      }
-
-  """
-  @type association_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
-        "BlockDurationMinutes" => integer(),
-        "InstanceInterruptionBehavior" => String.t() | atom(),
-        "MaxPrice" => String.t() | atom(),
-        "SpotInstanceType" => String.t() | atom(),
-        "ValidUntil" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_details() :: %{
-        "AcceleratorCount" => aws_ec2_launch_template_data_instance_requirements_accelerator_count_details(),
-        "AcceleratorManufacturers" => list(String.t() | atom()),
-        "AcceleratorNames" => list(String.t() | atom()),
-        "AcceleratorTotalMemoryMiB" => aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details(),
-        "AcceleratorTypes" => list(String.t() | atom()),
-        "BareMetal" => String.t() | atom(),
-        "BaselineEbsBandwidthMbps" => aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details(),
-        "BurstablePerformance" => String.t() | atom(),
-        "CpuManufacturers" => list(String.t() | atom()),
-        "ExcludedInstanceTypes" => list(String.t() | atom()),
-        "InstanceGenerations" => list(String.t() | atom()),
-        "LocalStorage" => String.t() | atom(),
-        "LocalStorageTypes" => list(String.t() | atom()),
-        "MemoryGiBPerVCpu" => aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details(),
-        "MemoryMiB" => aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details(),
-        "NetworkInterfaceCount" => aws_ec2_launch_template_data_instance_requirements_network_interface_count_details(),
-        "OnDemandMaxPricePercentageOverLowestPrice" => integer(),
-        "RequireHibernateSupport" => boolean(),
-        "SpotMaxPricePercentageOverLowestPrice" => integer(),
-        "TotalLocalStorageGB" => aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details(),
-        "VCpuCount" => aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OnlyAssociated") => boolean()
-      }
-
-  """
-  @type list_members_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_response() :: %{
-        "Members" => list(member()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_members_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_finding_fields_update_v2() :: %{
-        "Comment" => String.t() | atom(),
-        "SeverityId" => integer(),
-        "StatusId" => integer()
-      }
-
-  """
-  @type automation_rules_finding_fields_update_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_security_group_ip_permission() :: %{
-        "FromPort" => integer(),
-        "IpProtocol" => String.t() | atom(),
-        "IpRanges" => list(aws_ec2_security_group_ip_range()),
-        "Ipv6Ranges" => list(aws_ec2_security_group_ipv6_range()),
-        "PrefixListIds" => list(aws_ec2_security_group_prefix_list_id()),
-        "ToPort" => integer(),
-        "UserIdGroupPairs" => list(aws_ec2_security_group_user_id_group_pair())
-      }
-
-  """
-  @type aws_ec2_security_group_ip_permission() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_step_function_state_machine_logging_configuration_details() :: %{
-        "Destinations" => list(aws_step_function_state_machine_logging_configuration_destinations_details()),
-        "IncludeExecutionData" => boolean(),
-        "Level" => String.t() | atom()
-      }
-
-  """
-  @type aws_step_function_state_machine_logging_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpn_connection_details() :: %{
-        "Category" => String.t() | atom(),
-        "CustomerGatewayConfiguration" => String.t() | atom(),
-        "CustomerGatewayId" => String.t() | atom(),
-        "Options" => aws_ec2_vpn_connection_options_details(),
-        "Routes" => list(aws_ec2_vpn_connection_routes_details()),
-        "State" => String.t() | atom(),
-        "TransitGatewayId" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "VgwTelemetry" => list(aws_ec2_vpn_connection_vgw_telemetry_details()),
-        "VpnConnectionId" => String.t() | atom(),
-        "VpnGatewayId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpn_connection_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resources_statistics_v2_response() :: %{
-        "GroupByResults" => list(group_by_result())
-      }
-
-  """
-  @type get_resources_statistics_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      firewall_policy_stateless_rule_group_references_details() :: %{
-        "Priority" => integer(),
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type firewall_policy_stateless_rule_group_references_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_boolean_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => boolean_filter()
-      }
-
-  """
-  @type ocsf_boolean_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details() :: %{
-        "Enable" => boolean(),
-        "Rollback" => boolean()
-      }
-
-  """
-  @type aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_enabled_standards_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StandardsSubscriptionArns") => list(String.t() | atom())
-      }
-
-  """
-  @type get_enabled_standards_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_history_record() :: %{
-        "FindingCreated" => boolean(),
-        "FindingIdentifier" => aws_security_finding_identifier(),
-        "NextToken" => String.t() | atom(),
-        "UpdateSource" => finding_history_update_source(),
-        "UpdateTime" => non_neg_integer(),
-        "Updates" => list(finding_history_update())
-      }
-
-  """
-  @type finding_history_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{
-        "Base" => integer(),
-        "CapacityProvider" => String.t() | atom(),
-        "Weight" => integer()
-      }
-
-  """
-  @type aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      jira_cloud_provider_configuration() :: %{
-        "ProjectKey" => String.t() | atom()
-      }
-
-  """
-  @type jira_cloud_provider_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_rule_group_rules_action_details() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_rule_group_rules_action_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_code_build_project_details() :: %{
-        "Artifacts" => list(aws_code_build_project_artifacts_details()),
-        "EncryptionKey" => String.t() | atom(),
-        "Environment" => aws_code_build_project_environment(),
-        "LogsConfig" => aws_code_build_project_logs_config_details(),
-        "Name" => String.t() | atom(),
-        "SecondaryArtifacts" => list(aws_code_build_project_artifacts_details()),
-        "ServiceRole" => String.t() | atom(),
-        "Source" => aws_code_build_project_source(),
-        "VpcConfig" => aws_code_build_project_vpc_config()
-      }
-
-  """
-  @type aws_code_build_project_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_date_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => date_filter()
-      }
-
-  """
-  @type resources_date_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_launch_configuration_instance_monitoring_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_auto_scaling_launch_configuration_instance_monitoring_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      standards_subscription_request() :: %{
-        "StandardsArn" => String.t() | atom(),
-        "StandardsInput" => map()
-      }
-
-  """
-  @type standards_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elasticsearch_domain_details() :: %{
-        "AccessPolicies" => String.t() | atom(),
-        "DomainEndpointOptions" => aws_elasticsearch_domain_domain_endpoint_options(),
-        "DomainId" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "ElasticsearchClusterConfig" => aws_elasticsearch_domain_elasticsearch_cluster_config_details(),
-        "ElasticsearchVersion" => String.t() | atom(),
-        "EncryptionAtRestOptions" => aws_elasticsearch_domain_encryption_at_rest_options(),
-        "Endpoint" => String.t() | atom(),
-        "Endpoints" => map(),
-        "LogPublishingOptions" => aws_elasticsearch_domain_log_publishing_options(),
-        "NodeToNodeEncryptionOptions" => aws_elasticsearch_domain_node_to_node_encryption_options(),
-        "ServiceSoftwareOptions" => aws_elasticsearch_domain_service_software_options(),
-        "VPCOptions" => aws_elasticsearch_domain_vpc_options()
-      }
-
-  """
-  @type aws_elasticsearch_domain_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_monitoring_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_monitoring_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpc_endpoint_service_service_type_details() :: %{
-        "ServiceType" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpc_endpoint_service_service_type_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_interface_security_group() :: %{
-        "GroupId" => String.t() | atom(),
-        "GroupName" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_network_interface_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_secrets_manager_secret_rotation_rules() :: %{
-        "AutomaticallyAfterDays" => integer()
-      }
-
-  """
-  @type aws_secrets_manager_secret_rotation_rules() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_authentication_options_details() :: %{
-        "ActiveDirectory" => aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details(),
-        "FederatedAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details(),
-        "MutualAuthentication" => aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_authentication_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_server_side_encryption_by_default() :: %{
-        "KMSMasterKeyID" => String.t() | atom(),
-        "SSEAlgorithm" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_server_side_encryption_by_default() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_products_v2_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProductsV2" => list(product_v2())
-      }
-
-  """
-  @type describe_products_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_rule_group_details() :: %{
-        "Arn" => String.t() | atom(),
-        "Capacity" => float(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Rules" => list(aws_wafv2_rules_details()),
-        "Scope" => String.t() | atom(),
-        "VisibilityConfig" => aws_wafv2_visibility_config_details()
-      }
-
-  """
-  @type aws_wafv2_rule_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_scopes() :: %{
-        "AwsOrganizations" => list(aws_organization_scope())
-      }
-
-  """
-  @type finding_scopes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_summary() :: %{
-        "ConnectorArn" => String.t() | atom(),
-        "ConnectorId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ProviderSummary" => provider_summary()
-      }
-
-  """
-  @type connector_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_configuration_policy_association_response() :: %{
-        "AssociationStatus" => list(any()),
-        "AssociationStatusMessage" => String.t() | atom(),
-        "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | atom(),
-        "TargetId" => String.t() | atom(),
-        "TargetType" => list(any()),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type start_configuration_policy_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stateless_custom_publish_metric_action() :: %{
-        "Dimensions" => list(stateless_custom_publish_metric_action_dimension())
-      }
-
-  """
-  @type stateless_custom_publish_metric_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origins() :: %{
-        "Items" => list(aws_cloud_front_distribution_origin_item())
-      }
-
-  """
-  @type aws_cloud_front_distribution_origins() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_finding_aggregators_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_finding_aggregators_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network() :: %{
-        "DestinationDomain" => String.t() | atom(),
-        "DestinationIpV4" => String.t() | atom(),
-        "DestinationIpV6" => String.t() | atom(),
-        "DestinationPort" => integer(),
-        "Direction" => list(any()),
-        "OpenPortRange" => port_range(),
-        "Protocol" => String.t() | atom(),
-        "SourceDomain" => String.t() | atom(),
-        "SourceIpV4" => String.t() | atom(),
-        "SourceIpV6" => String.t() | atom(),
-        "SourceMac" => String.t() | atom(),
-        "SourcePort" => integer()
-      }
-
-  """
-  @type network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_stream_specification() :: %{
-        "StreamEnabled" => boolean(),
-        "StreamViewType" => String.t() | atom()
-      }
-
-  """
-  @type aws_dynamo_db_table_stream_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_subnet_group_subnet() :: %{
-        "SubnetAvailabilityZone" => aws_rds_db_subnet_group_subnet_availability_zone(),
-        "SubnetIdentifier" => String.t() | atom(),
-        "SubnetStatus" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_subnet_group_subnet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_notification_configuration_detail() :: %{
-        "Destination" => String.t() | atom(),
-        "Events" => list(String.t() | atom()),
-        "Filter" => aws_s3_bucket_notification_configuration_filter(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_notification_configuration_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_security_hub_v2_request() :: %{}
-
-  """
-  @type describe_security_hub_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automation_rules_v2_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_automation_rules_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_master_account_request() :: %{}
-
-  """
-  @type get_master_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_gateway_endpoint_configuration() :: %{
-        "Types" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_api_gateway_endpoint_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecr_repository_image_scanning_configuration_details() :: %{
-        "ScanOnPush" => boolean()
-      }
-
-  """
-  @type aws_ecr_repository_image_scanning_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_insight_request() :: %{}
-
-  """
-  @type delete_insight_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_vpc_peering_connection_details() :: %{
-        "AccepterVpcInfo" => aws_ec2_vpc_peering_connection_vpc_info_details(),
-        "ExpirationTime" => String.t() | atom(),
-        "RequesterVpcInfo" => aws_ec2_vpc_peering_connection_vpc_info_details(),
-        "Status" => aws_ec2_vpc_peering_connection_status_details(),
-        "VpcPeeringConnectionId" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_vpc_peering_connection_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_role_policy() :: %{
-        "PolicyName" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_role_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_iam_instance_profile_details() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_iam_instance_profile_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_service_software_options_details() :: %{
-        "AutomatedUpdateDate" => String.t() | atom(),
-        "Cancellable" => boolean(),
-        "CurrentVersion" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "NewVersion" => String.t() | atom(),
-        "OptionalDeployment" => boolean(),
-        "UpdateAvailable" => boolean(),
-        "UpdateStatus" => String.t() | atom()
-      }
-
-  """
-  @type aws_open_search_service_domain_service_software_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_master_user_options_details() :: %{
-        "MasterUserArn" => String.t() | atom(),
-        "MasterUserName" => String.t() | atom(),
-        "MasterUserPassword" => String.t() | atom()
-      }
-
-  """
-  @type aws_open_search_service_domain_master_user_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_code_build_project_logs_config_s3_logs_details() :: %{
-        "EncryptionDisabled" => boolean(),
-        "Location" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_code_build_project_logs_config_s3_logs_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_rules_action() :: %{
-        "FindingFieldsUpdate" => automation_rules_finding_fields_update(),
-        "Type" => list(any())
-      }
-
-  """
-  @type automation_rules_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_network_firewall_firewall_details() :: %{
-        "DeleteProtection" => boolean(),
-        "Description" => String.t() | atom(),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallId" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "FirewallPolicyArn" => String.t() | atom(),
-        "FirewallPolicyChangeProtection" => boolean(),
-        "SubnetChangeProtection" => boolean(),
-        "SubnetMappings" => list(aws_network_firewall_firewall_subnet_mappings_details()),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type aws_network_firewall_firewall_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_ulimits_details() :: %{
-        "HardLimit" => integer(),
-        "Name" => String.t() | atom(),
-        "SoftLimit" => integer()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_ulimits_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_findings_request() :: %{
-        optional("Note") => note_update(),
-        optional("RecordState") => list(any()),
-        required("Filters") => aws_security_finding_filters()
-      }
-
-  """
-  @type update_findings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_standards_control_associations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "StandardsControlAssociationSummaries" => list(standards_control_association_summary())
-      }
-
-  """
-  @type list_standards_control_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_group_source_stateless_rule_match_attributes() :: %{
-        "DestinationPorts" => list(rule_group_source_stateless_rule_match_attributes_destination_ports()),
-        "Destinations" => list(rule_group_source_stateless_rule_match_attributes_destinations()),
-        "Protocols" => list(integer()),
-        "SourcePorts" => list(rule_group_source_stateless_rule_match_attributes_source_ports()),
-        "Sources" => list(rule_group_source_stateless_rule_match_attributes_sources()),
-        "TcpFlags" => list(rule_group_source_stateless_rule_match_attributes_tcp_flags())
-      }
-
-  """
-  @type rule_group_source_stateless_rule_match_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ssm_compliance_summary() :: %{
-        "ComplianceType" => String.t() | atom(),
-        "CompliantCriticalCount" => integer(),
-        "CompliantHighCount" => integer(),
-        "CompliantInformationalCount" => integer(),
-        "CompliantLowCount" => integer(),
-        "CompliantMediumCount" => integer(),
-        "CompliantUnspecifiedCount" => integer(),
-        "ExecutionType" => String.t() | atom(),
-        "NonCompliantCriticalCount" => integer(),
-        "NonCompliantHighCount" => integer(),
-        "NonCompliantInformationalCount" => integer(),
-        "NonCompliantLowCount" => integer(),
-        "NonCompliantMediumCount" => integer(),
-        "NonCompliantUnspecifiedCount" => integer(),
-        "OverallSeverity" => String.t() | atom(),
-        "PatchBaselineId" => String.t() | atom(),
-        "PatchGroup" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_ssm_compliance_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{
-        "Name" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_certificate_manager_certificate_key_usage() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type aws_certificate_manager_certificate_key_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_security_control_request() :: %{
-        optional("LastUpdateReason") => String.t() | atom(),
-        required("Parameters") => map(),
-        required("SecurityControlId") => String.t() | atom()
-      }
-
-  """
-  @type update_security_control_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_security_group_ec2_security_group() :: %{
-        "Ec2SecurityGroupId" => String.t() | atom(),
-        "Ec2SecurityGroupName" => String.t() | atom(),
-        "Ec2SecurityGroupOwnerId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_security_group_ec2_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_policy_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ConfigurationPolicy" => list(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_configuration_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_details() :: %{
-        "DBName" => String.t() | atom(),
-        "AutomatedSnapshotRetentionPeriod" => integer(),
-        "VpcSecurityGroups" => list(aws_redshift_cluster_vpc_security_group()),
-        "Encrypted" => boolean(),
-        "PendingActions" => list(String.t() | atom()),
-        "EnhancedVpcRouting" => boolean(),
-        "PreferredMaintenanceWindow" => String.t() | atom(),
-        "ClusterAvailabilityStatus" => String.t() | atom(),
-        "ClusterRevisionNumber" => String.t() | atom(),
-        "RestoreStatus" => aws_redshift_cluster_restore_status(),
-        "PendingModifiedValues" => aws_redshift_cluster_pending_modified_values(),
-        "KmsKeyId" => String.t() | atom(),
-        "VpcId" => String.t() | atom(),
-        "ClusterSecurityGroups" => list(aws_redshift_cluster_cluster_security_group()),
-        "AvailabilityZone" => String.t() | atom(),
-        "ManualSnapshotRetentionPeriod" => integer(),
-        "SnapshotScheduleState" => String.t() | atom(),
-        "ExpectedNextSnapshotScheduleTimeStatus" => String.t() | atom(),
-        "ResizeInfo" => aws_redshift_cluster_resize_info(),
-        "ClusterCreateTime" => String.t() | atom(),
-        "AllowVersionUpgrade" => boolean(),
-        "ClusterSnapshotCopyStatus" => aws_redshift_cluster_cluster_snapshot_copy_status(),
-        "NodeType" => String.t() | atom(),
-        "HsmStatus" => aws_redshift_cluster_hsm_status(),
-        "MaintenanceTrackName" => String.t() | atom(),
-        "ClusterSubnetGroupName" => String.t() | atom(),
-        "ClusterNodes" => list(aws_redshift_cluster_cluster_node()),
-        "ClusterStatus" => String.t() | atom(),
-        "MasterUsername" => String.t() | atom(),
-        "ClusterVersion" => String.t() | atom(),
-        "ClusterIdentifier" => String.t() | atom(),
-        "ClusterPublicKey" => String.t() | atom(),
-        "NumberOfNodes" => integer(),
-        "IamRoles" => list(aws_redshift_cluster_iam_role()),
-        "NextMaintenanceWindowStartTime" => String.t() | atom(),
-        "PubliclyAccessible" => boolean(),
-        "ElasticResizeNumberOfNodeOptions" => String.t() | atom(),
-        "Endpoint" => aws_redshift_cluster_endpoint(),
-        "SnapshotScheduleIdentifier" => String.t() | atom(),
-        "ElasticIpStatus" => aws_redshift_cluster_elastic_ip_status(),
-        "DeferredMaintenanceWindows" => list(aws_redshift_cluster_deferred_maintenance_window()),
-        "ClusterParameterGroups" => list(aws_redshift_cluster_cluster_parameter_group()),
-        "ExpectedNextSnapshotScheduleTime" => String.t() | atom(),
-        "LoggingStatus" => aws_redshift_cluster_logging_status()
-      }
-
-  """
-  @type aws_redshift_cluster_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_action_target_response() :: %{
-        "ActionTargetArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_action_target_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_server_side_encryption_configuration() :: %{
-        "Rules" => list(aws_s3_bucket_server_side_encryption_rule())
-      }
-
-  """
-  @type aws_s3_bucket_server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_invitations_count_response() :: %{
-        "InvitationsCount" => integer()
-      }
-
-  """
-  @type get_invitations_count_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_v2_request() :: %{
-        optional("Filters") => ocsf_finding_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Scopes") => finding_scopes(),
-        optional("SortCriteria") => list(sort_criterion())
-      }
-
-  """
-  @type get_findings_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_connector_v2_request() :: %{
-        required("AuthCode") => String.t() | atom(),
-        required("AuthState") => String.t() | atom()
-      }
-
-  """
-  @type register_connector_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_action_allow_details() :: %{
-        "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
-      }
-
-  """
-  @type aws_wafv2_action_allow_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_athena_work_group_configuration_details() :: %{
-        "ResultConfiguration" => aws_athena_work_group_configuration_result_configuration_details()
-      }
-
-  """
-  @type aws_athena_work_group_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_visibility_config_details() :: %{
-        "CloudWatchMetricsEnabled" => boolean(),
-        "MetricName" => String.t() | atom(),
-        "SampledRequestsEnabled" => boolean()
-      }
-
-  """
-  @type aws_wafv2_visibility_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_eventbus_details() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type aws_events_eventbus_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_by_rule() :: %{
-        "Filters" => ocsf_finding_filters(),
-        "GroupByField" => list(any())
-      }
-
-  """
-  @type group_by_rule() :: %{(String.t() | atom()) => any()}
+  @type resources_number_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10569,728 +720,6 @@ defmodule AWS.SecurityHub do
 
   """
   @type aws_lambda_function_layer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_v2_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Provider") => list()
-      }
-
-  """
-  @type update_connector_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_count() :: %{
-        "AllResources" => float()
-      }
-
-  """
-  @type resources_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_invitations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_invitations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_cache_behaviors() :: %{
-        "Items" => list(aws_cloud_front_distribution_cache_behavior())
-      }
-
-  """
-  @type aws_cloud_front_distribution_cache_behaviors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_configuration_policy_association_request() :: %{
-        required("ConfigurationPolicyIdentifier") => String.t() | atom(),
-        required("Target") => list()
-      }
-
-  """
-  @type start_configuration_policy_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_control_parameter() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => list(String.t() | atom())
-      }
-
-  """
-  @type security_control_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
-        "ContainerPort" => integer(),
-        "HostPort" => integer(),
-        "Protocol" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_web_acl_rules_list_override_action_details() :: %{
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_web_acl_rules_list_override_action_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_endpoint_event_buses_details() :: %{
-        "EventBusArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_events_endpoint_event_buses_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
-        "DeviceName" => String.t() | atom(),
-        "Ebs" => aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details(),
-        "NoDevice" => boolean(),
-        "VirtualName" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_interface_ip_v6_address_detail() :: %{
-        "IpV6Address" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_network_interface_ip_v6_address_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_instance() :: %{
-        "InstanceId" => String.t() | atom()
-      }
-
-  """
-  @type aws_elb_load_balancer_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enum_configuration_options() :: %{
-        "AllowedValues" => list(String.t() | atom()),
-        "DefaultValue" => String.t() | atom()
-      }
-
-  """
-  @type enum_configuration_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
-        "Date" => String.t() | atom(),
-        "Days" => integer(),
-        "StorageClass" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      custom_data_identifiers_result() :: %{
-        "Detections" => list(custom_data_identifiers_detections()),
-        "TotalCount" => float()
-      }
-
-  """
-  @type custom_data_identifiers_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_amazon_mq_broker_encryption_options_details() :: %{
-        "KmsKeyId" => String.t() | atom(),
-        "UseAwsOwnedKey" => boolean()
-      }
-
-  """
-  @type aws_amazon_mq_broker_encryption_options_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
-        "DataVolumeKMSKeyId" => String.t() | atom()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_elastic_ip_status() :: %{
-        "ElasticIp" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_elastic_ip_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_findings_v2_processed_finding() :: %{
-        "FindingIdentifier" => ocsf_finding_identifier(),
-        "MetadataUid" => String.t() | atom()
-      }
-
-  """
-  @type batch_update_findings_v2_processed_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_statistics_v2_response() :: %{
-        "GroupByResults" => list(group_by_result())
-      }
-
-  """
-  @type get_finding_statistics_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_set_details() :: %{
-        "CarrierGatewayId" => String.t() | atom(),
-        "CoreNetworkArn" => String.t() | atom(),
-        "DestinationCidrBlock" => String.t() | atom(),
-        "DestinationIpv6CidrBlock" => String.t() | atom(),
-        "DestinationPrefixListId" => String.t() | atom(),
-        "EgressOnlyInternetGatewayId" => String.t() | atom(),
-        "GatewayId" => String.t() | atom(),
-        "InstanceId" => String.t() | atom(),
-        "InstanceOwnerId" => String.t() | atom(),
-        "LocalGatewayId" => String.t() | atom(),
-        "NatGatewayId" => String.t() | atom(),
-        "NetworkInterfaceId" => String.t() | atom(),
-        "Origin" => String.t() | atom(),
-        "State" => String.t() | atom(),
-        "TransitGatewayId" => String.t() | atom(),
-        "VpcPeeringConnectionId" => String.t() | atom()
-      }
-
-  """
-  @type route_set_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      actor() :: %{
-        "Id" => String.t() | atom(),
-        "Session" => actor_session(),
-        "User" => actor_user()
-      }
-
-  """
-  @type actor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_v2_response() :: %{
-        "Findings" => list(any()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_findings_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_athena_work_group_configuration_result_configuration_details() :: %{
-        "EncryptionConfiguration" => aws_athena_work_group_configuration_result_configuration_encryption_configuration_details()
-      }
-
-  """
-  @type aws_athena_work_group_configuration_result_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_findings_trends_v2_response() :: %{
-        "Granularity" => list(any()),
-        "NextToken" => String.t() | atom(),
-        "TrendsMetrics" => list(trends_metrics_result())
-      }
-
-  """
-  @type get_findings_trends_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_v2_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("KmsKeyArn") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("Provider") => list()
-      }
-
-  """
-  @type create_connector_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member() :: %{
-        "AccountId" => String.t() | atom(),
-        "AdministratorId" => String.t() | atom(),
-        "Email" => String.t() | atom(),
-        "InvitedAt" => non_neg_integer(),
-        "MasterId" => String.t() | atom(),
-        "MemberStatus" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_website_configuration_routing_rule() :: %{
-        "Condition" => aws_s3_bucket_website_configuration_routing_rule_condition(),
-        "Redirect" => aws_s3_bucket_website_configuration_routing_rule_redirect()
-      }
-
-  """
-  @type aws_s3_bucket_website_configuration_routing_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dms_replication_task_details() :: %{
-        "CdcStartPosition" => String.t() | atom(),
-        "CdcStartTime" => String.t() | atom(),
-        "CdcStopPosition" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MigrationType" => String.t() | atom(),
-        "ReplicationInstanceArn" => String.t() | atom(),
-        "ReplicationTaskIdentifier" => String.t() | atom(),
-        "ReplicationTaskSettings" => String.t() | atom(),
-        "ResourceIdentifier" => String.t() | atom(),
-        "SourceEndpointArn" => String.t() | atom(),
-        "TableMappings" => String.t() | atom(),
-        "TargetEndpointArn" => String.t() | atom(),
-        "TaskData" => String.t() | atom()
-      }
-
-  """
-  @type aws_dms_replication_task_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      string_filter() :: %{
-        "Comparison" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_finding_aggregators_response() :: %{
-        "FindingAggregators" => list(finding_aggregator()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_finding_aggregators_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      limit_exceeded_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_policy_details() :: %{
-        "AttachmentCount" => integer(),
-        "CreateDate" => String.t() | atom(),
-        "DefaultVersionId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IsAttachable" => boolean(),
-        "Path" => String.t() | atom(),
-        "PermissionsBoundaryUsageCount" => integer(),
-        "PolicyId" => String.t() | atom(),
-        "PolicyName" => String.t() | atom(),
-        "PolicyVersionList" => list(aws_iam_policy_version()),
-        "UpdateDate" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_policy_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_security_controls_request() :: %{
-        required("SecurityControlIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_security_controls_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_organization_admin_account_response() :: %{
-        "AdminAccountId" => String.t() | atom(),
-        "Feature" => list(any())
-      }
-
-  """
-  @type enable_organization_admin_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessed_automation_rule() :: %{
-        "ErrorCode" => integer(),
-        "ErrorMessage" => String.t() | atom(),
-        "RuleArn" => String.t() | atom()
-      }
-
-  """
-  @type unprocessed_automation_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_automation_rule_response() :: %{
-        "RuleArn" => String.t() | atom()
-      }
-
-  """
-  @type create_automation_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_volume_details() :: %{
-        "Host" => aws_ecs_task_volume_host_details(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_volume_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_cluster_parameter_status() :: %{
-        "ParameterApplyErrorDescription" => String.t() | atom(),
-        "ParameterApplyStatus" => String.t() | atom(),
-        "ParameterName" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_cluster_parameter_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_sse_description() :: %{
-        "InaccessibleEncryptionDateTime" => String.t() | atom(),
-        "KmsMasterKeyArn" => String.t() | atom(),
-        "SseType" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_dynamo_db_table_sse_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_automation_rule_v2_response() :: %{}
-
-  """
-  @type delete_automation_rule_v2_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_policy_association() :: %{
-        "Target" => list()
-      }
-
-  """
-  @type configuration_policy_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      adjustment() :: %{
-        "Metric" => String.t() | atom(),
-        "Reason" => String.t() | atom()
-      }
-
-  """
-  @type adjustment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logs_log_group_arn_config_details() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "HostedZoneId" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_logs_log_group_arn_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_amazon_mq_broker_logs_pending_details() :: %{
-        "Audit" => boolean(),
-        "General" => boolean()
-      }
-
-  """
-  @type aws_amazon_mq_broker_logs_pending_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      note_update() :: %{
-        "Text" => String.t() | atom(),
-        "UpdatedBy" => String.t() | atom()
-      }
-
-  """
-  @type note_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_efs_access_point_root_directory_details() :: %{
-        "CreationInfo" => aws_efs_access_point_root_directory_creation_info_details(),
-        "Path" => String.t() | atom()
-      }
-
-  """
-  @type aws_efs_access_point_root_directory_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_info_peering_options_details() :: %{
-        "AllowDnsResolutionFromRemoteVpc" => boolean(),
-        "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
-        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
-      }
-
-  """
-  @type vpc_info_peering_options_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ocsf_finding_filters() :: %{
-        "CompositeFilters" => list(composite_filter()),
-        "CompositeOperator" => list(any())
-      }
-
-  """
-  @type ocsf_finding_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_instance_requirements_accelerator_count_details() :: %{
-        "Max" => integer(),
-        "Min" => integer()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_instance_requirements_accelerator_count_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_maintenance_options_details() :: %{
-        "AutoRecovery" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_maintenance_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_update() :: %{
-        "Status" => list(any())
-      }
-
-  """
-  @type workflow_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_action_targets_request() :: %{
-        optional("ActionTargetArns") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_action_targets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_acl_entry() :: %{
-        "CidrBlock" => String.t() | atom(),
-        "Egress" => boolean(),
-        "IcmpTypeCode" => icmp_type_code(),
-        "Ipv6CidrBlock" => String.t() | atom(),
-        "PortRange" => port_range_from_to(),
-        "Protocol" => String.t() | atom(),
-        "RuleAction" => String.t() | atom(),
-        "RuleNumber" => integer()
-      }
-
-  """
-  @type aws_ec2_network_acl_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11336,651 +765,20 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      service_now_provider_configuration() :: %{
-        "InstanceName" => String.t() | atom(),
-        "SecretArn" => String.t() | atom()
-      }
-
-  """
-  @type service_now_provider_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      association_set_details() :: %{
-        "AssociationState" => association_state_details(),
-        "GatewayId" => String.t() | atom(),
-        "Main" => boolean(),
-        "RouteTableAssociationId" => String.t() | atom(),
-        "RouteTableId" => String.t() | atom(),
-        "SubnetId" => String.t() | atom()
-      }
-
-  """
-  @type association_set_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_versioning_configuration() :: %{
-        "IsMfaDeleteEnabled" => boolean(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_bucket_versioning_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_front_distribution_origin_custom_origin_config() :: %{
-        "HttpPort" => integer(),
-        "HttpsPort" => integer(),
-        "OriginKeepaliveTimeout" => integer(),
-        "OriginProtocolPolicy" => String.t() | atom(),
-        "OriginReadTimeout" => integer(),
-        "OriginSslProtocols" => aws_cloud_front_distribution_origin_ssl_protocols()
-      }
-
-  """
-  @type aws_cloud_front_distribution_origin_custom_origin_config() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_details() :: %{
-        "AccessPolicies" => String.t() | atom(),
-        "AdvancedSecurityOptions" => aws_open_search_service_domain_advanced_security_options_details(),
-        "Arn" => String.t() | atom(),
-        "ClusterConfig" => aws_open_search_service_domain_cluster_config_details(),
-        "DomainEndpoint" => String.t() | atom(),
-        "DomainEndpointOptions" => aws_open_search_service_domain_domain_endpoint_options_details(),
-        "DomainEndpoints" => map(),
-        "DomainName" => String.t() | atom(),
-        "EncryptionAtRestOptions" => aws_open_search_service_domain_encryption_at_rest_options_details(),
-        "EngineVersion" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LogPublishingOptions" => aws_open_search_service_domain_log_publishing_options_details(),
-        "NodeToNodeEncryptionOptions" => aws_open_search_service_domain_node_to_node_encryption_options_details(),
-        "ServiceSoftwareOptions" => aws_open_search_service_domain_service_software_options_details(),
-        "VpcOptions" => aws_open_search_service_domain_vpc_options_details()
-      }
-
-  """
-  @type aws_open_search_service_domain_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_credit_specification_details() :: %{
-        "CpuCredits" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_credit_specification_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_client_authentication_sasl_details() :: %{
-        "Iam" => aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details(),
-        "Scram" => aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_client_authentication_sasl_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_resources_statistics_v2_request() :: %{
-        optional("MaxStatisticResults") => integer(),
-        optional("Scopes") => resource_scopes(),
-        optional("SortOrder") => list(any()),
-        required("GroupByRules") => list(resource_group_by_rule())
-      }
-
-  """
-  @type get_resources_statistics_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_cloud_watch_alarm_dimensions_details() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_cloud_watch_alarm_dimensions_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      patch_summary() :: %{
-        "FailedCount" => integer(),
-        "Id" => String.t() | atom(),
-        "InstalledCount" => integer(),
-        "InstalledOtherCount" => integer(),
-        "InstalledPendingReboot" => integer(),
-        "InstalledRejectedCount" => integer(),
-        "MissingCount" => integer(),
-        "Operation" => String.t() | atom(),
-        "OperationEndTime" => String.t() | atom(),
-        "OperationStartTime" => String.t() | atom(),
-        "RebootOption" => String.t() | atom()
-      }
-
-  """
-  @type patch_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_cluster_cluster_settings_details() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_cluster_cluster_settings_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
-        "ContainerPath" => String.t() | atom(),
-        "HostPath" => String.t() | atom(),
-        "Permissions" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_security_group_ipv6_range() :: %{
-        "CidrIpv6" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_security_group_ipv6_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
-        "Hostname" => String.t() | atom(),
-        "IpAddress" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_automation_rule_v2_response() :: %{}
-
-  """
-  @type update_automation_rule_v2_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_network_firewall_firewall_subnet_mappings_details() :: %{
-        "SubnetId" => String.t() | atom()
-      }
-
-  """
-  @type aws_network_firewall_firewall_subnet_mappings_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_object_lock_configuration_rule_details() :: %{
-        "DefaultRetention" => aws_s3_bucket_object_lock_configuration_rule_default_retention_details()
-      }
-
-  """
-  @type aws_s3_bucket_object_lock_configuration_rule_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      generate_recommended_policy_v2_request() :: %{}
-
-  """
-  @type generate_recommended_policy_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_aggregator_v2_request() :: %{}
-
-  """
-  @type get_aggregator_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_aggregator_v2_response() :: %{
-        "AggregationRegion" => String.t() | atom(),
-        "AggregatorV2Arn" => String.t() | atom(),
-        "LinkedRegions" => list(String.t() | atom()),
-        "RegionLinkingMode" => String.t() | atom()
-      }
-
-  """
-  @type create_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_finding_aggregator_response() :: %{}
-
-  """
-  @type delete_finding_aggregator_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_findings_unprocessed_finding() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "FindingIdentifier" => aws_security_finding_identifier()
-      }
-
-  """
-  @type batch_update_findings_unprocessed_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_policy_associations_request() :: %{
-        optional("Filters") => association_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configuration_policy_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_import_findings_for_product_response() :: %{
-        "ProductSubscriptionArn" => String.t() | atom()
-      }
-
-  """
-  @type enable_import_findings_for_product_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_log_publishing_options_details() :: %{
-        "AuditLogs" => aws_open_search_service_domain_log_publishing_option(),
-        "IndexSlowLogs" => aws_open_search_service_domain_log_publishing_option(),
-        "SearchSlowLogs" => aws_open_search_service_domain_log_publishing_option()
-      }
-
-  """
-  @type aws_open_search_service_domain_log_publishing_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_control_definitions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StandardsArn") => String.t() | atom()
-      }
-
-  """
-  @type list_security_control_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_result() :: %{
-        "AccountId" => String.t() | atom(),
-        "FindingsSummary" => list(resource_findings_summary()),
-        "Region" => String.t() | atom(),
-        "ResourceCategory" => list(any()),
-        "ResourceConfig" => any(),
-        "ResourceCreationTimeDt" => String.t() | atom(),
-        "ResourceDetailCaptureTimeDt" => String.t() | atom(),
-        "ResourceGuid" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceName" => String.t() | atom(),
-        "ResourceTags" => list(resource_tag()),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_web_acl_rules_list_details() :: %{
-        "Action" => aws_waf_regional_web_acl_rules_list_action_details(),
-        "OverrideAction" => aws_waf_regional_web_acl_rules_list_override_action_details(),
-        "Priority" => integer(),
-        "RuleId" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_regional_web_acl_rules_list_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resources_string_filter() :: %{
-        "FieldName" => list(any()),
-        "Filter" => string_filter()
-      }
-
-  """
-  @type resources_string_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{
-        "Rules" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_details())
-      }
-
-  """
-  @type aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      malware() :: %{
-        "Name" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "State" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type malware() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_cross_zone_load_balancing() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type aws_elb_load_balancer_cross_zone_load_balancing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_web_acl_captcha_config_details() :: %{
-        "ImmunityTimeProperty" => aws_wafv2_web_acl_captcha_config_immunity_time_property_details()
-      }
-
-  """
-  @type aws_wafv2_web_acl_captcha_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_advanced_security_options_details() :: %{
-        "Enabled" => boolean(),
-        "InternalUserDatabaseEnabled" => boolean(),
-        "MasterUserOptions" => aws_open_search_service_domain_master_user_options_details()
-      }
-
-  """
-  @type aws_open_search_service_domain_advanced_security_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
-        "ClientBroker" => String.t() | atom(),
-        "InCluster" => boolean()
-      }
-
-  """
-  @type aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_athena_work_group_details() :: %{
-        "Configuration" => aws_athena_work_group_configuration_details(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "State" => String.t() | atom()
-      }
-
-  """
-  @type aws_athena_work_group_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss() :: %{
-        "Adjustments" => list(adjustment()),
-        "BaseScore" => float(),
-        "BaseVector" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type cvss() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
-        "Enabled" => boolean(),
-        "KmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_security_finding() :: %{
-        "Region" => String.t() | atom(),
-        "GeneratorDetails" => generator_details(),
+      product() :: %{
+        "ActivationUrl" => String.t() | atom(),
+        "Categories" => list(String.t() | atom()),
         "CompanyName" => String.t() | atom(),
-        "Types" => list(String.t() | atom()),
-        "Compliance" => compliance(),
-        "Vulnerabilities" => list(vulnerability()),
-        "UserDefinedFields" => map(),
-        "Network" => network(),
-        "ProcessedAt" => String.t() | atom(),
-        "Malware" => list(malware()),
-        "Severity" => severity(),
-        "NetworkPath" => list(network_path_component()),
-        "WorkflowState" => list(any()),
-        "ProductName" => String.t() | atom(),
-        "Confidence" => integer(),
-        "CreatedAt" => String.t() | atom(),
-        "Remediation" => remediation(),
-        "ThreatIntelIndicators" => list(threat_intel_indicator()),
-        "UpdatedAt" => String.t() | atom(),
-        "AwsAccountId" => String.t() | atom(),
-        "Resources" => list(resource()),
-        "Id" => String.t() | atom(),
-        "Detection" => detection(),
-        "ProductArn" => String.t() | atom(),
-        "SchemaVersion" => String.t() | atom(),
-        "SourceUrl" => String.t() | atom(),
-        "FindingProviderFields" => finding_provider_fields(),
-        "AwsAccountName" => String.t() | atom(),
-        "FirstObservedAt" => String.t() | atom(),
-        "Workflow" => workflow(),
-        "GeneratorId" => String.t() | atom(),
-        "Note" => note(),
-        "RecordState" => list(any()),
-        "Title" => String.t() | atom(),
-        "Threats" => list(threat()),
-        "Sample" => boolean(),
-        "Criticality" => integer(),
-        "LastObservedAt" => String.t() | atom(),
-        "Action" => action(),
-        "PatchSummary" => patch_summary(),
         "Description" => String.t() | atom(),
-        "RelatedFindings" => list(related_finding()),
-        "ProductFields" => map(),
-        "VerificationState" => list(any()),
-        "Process" => process_details()
+        "IntegrationTypes" => list(list(any())()),
+        "MarketplaceUrl" => String.t() | atom(),
+        "ProductArn" => String.t() | atom(),
+        "ProductName" => String.t() | atom(),
+        "ProductSubscriptionResourcePolicy" => String.t() | atom()
       }
 
   """
-  @type aws_security_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_endpoint_routing_config_failover_config_details() :: %{
-        "Primary" => aws_events_endpoint_routing_config_failover_config_primary_details(),
-        "Secondary" => aws_events_endpoint_routing_config_failover_config_secondary_details()
-      }
-
-  """
-  @type aws_events_endpoint_routing_config_failover_config_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_instance_monitoring_details() :: %{
-        "State" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_instance_monitoring_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_finding_aggregator_request() :: %{}
-
-  """
-  @type get_finding_aggregator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_lambda_function_tracing_config() :: %{
-        "Mode" => String.t() | atom()
-      }
-
-  """
-  @type aws_lambda_function_tracing_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_security_hub_v2_response() :: %{
-        "HubV2Arn" => String.t() | atom()
-      }
-
-  """
-  @type enable_security_hub_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_details() :: %{
-        "AvailabilityZones" => list(aws_auto_scaling_auto_scaling_group_availability_zones_list_details()),
-        "CapacityRebalance" => boolean(),
-        "CreatedTime" => String.t() | atom(),
-        "HealthCheckGracePeriod" => integer(),
-        "HealthCheckType" => String.t() | atom(),
-        "LaunchConfigurationName" => String.t() | atom(),
-        "LaunchTemplate" => aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification(),
-        "LoadBalancerNames" => list(String.t() | atom()),
-        "MixedInstancesPolicy" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details()
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_details() :: %{(String.t() | atom()) => any()}
+  @type product() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11998,14 +796,59 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{
-        "AuthorizerResultTtlInSeconds" => integer(),
-        "AuthorizerUri" => String.t() | atom(),
-        "IdentityValidationExpression" => String.t() | atom()
+      aws_network_firewall_firewall_details() :: %{
+        "DeleteProtection" => boolean(),
+        "Description" => String.t() | atom(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallId" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "FirewallPolicyArn" => String.t() | atom(),
+        "FirewallPolicyChangeProtection" => boolean(),
+        "SubnetChangeProtection" => boolean(),
+        "SubnetMappings" => list(aws_network_firewall_firewall_subnet_mappings_details()),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{
+  @type aws_network_firewall_firewall_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_policy_association_request() :: %{
+        required("ConfigurationPolicyIdentifier") => String.t() | atom(),
+        required("Target") => list()
+      }
+
+  """
+  @type start_configuration_policy_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_request() :: %{
+        optional("Filters") => aws_security_finding_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortCriteria") => list(sort_criterion())
+      }
+
+  """
+  @type get_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_log_publishing_options_log_config() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_elasticsearch_domain_log_publishing_options_log_config() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -12013,704 +856,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      actor_session() :: %{
-        "CreatedTime" => float(),
-        "Issuer" => String.t() | atom(),
-        "MfaStatus" => list(any()),
-        "Uid" => String.t() | atom()
-      }
-
-  """
-  @type actor_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_iam_policy_version() :: %{
-        "CreateDate" => String.t() | atom(),
-        "IsDefaultVersion" => boolean(),
-        "VersionId" => String.t() | atom()
-      }
-
-  """
-  @type aws_iam_policy_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_backup_backup_plan_advanced_backup_settings_details() :: %{
-        "BackupOptions" => map(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type aws_backup_backup_plan_advanced_backup_settings_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() :: %{
-        "InstanceType" => String.t() | atom(),
-        "WeightedCapacity" => String.t() | atom()
-      }
-
-  """
-  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_aggregator_v2_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("LinkedRegions") => list(String.t() | atom()),
-        optional("Tags") => map(),
-        required("RegionLinkingMode") => String.t() | atom()
-      }
-
-  """
-  @type create_aggregator_v2_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
-        "Days" => integer(),
-        "Mode" => String.t() | atom(),
-        "Years" => integer()
-      }
-
-  """
-  @type aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_s3_bucket_website_configuration_redirect_to() :: %{
-        "Hostname" => String.t() | atom(),
-        "Protocol" => String.t() | atom()
-      }
-
-  """
-  @type aws_s3_bucket_website_configuration_redirect_to() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_api_call_action_domain_details() :: %{
-        "Domain" => String.t() | atom()
-      }
-
-  """
-  @type aws_api_call_action_domain_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_import_findings_for_product_request() :: %{
-        required("ProductArn") => String.t() | atom()
-      }
-
-  """
-  @type enable_import_findings_for_product_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      date_range() :: %{
-        "Comparison" => list(any()),
-        "Unit" => list(any()),
-        "Value" => integer()
-      }
-
-  """
-  @type date_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_details() :: %{
-        "AwsEc2ClientVpnEndpoint" => aws_ec2_client_vpn_endpoint_details(),
-        "AwsNetworkFirewallRuleGroup" => aws_network_firewall_rule_group_details(),
-        "AwsEventSchemasRegistry" => aws_event_schemas_registry_details(),
-        "AwsElasticBeanstalkEnvironment" => aws_elastic_beanstalk_environment_details(),
-        "AwsEc2LaunchTemplate" => aws_ec2_launch_template_details(),
-        "AwsCloudTrailTrail" => aws_cloud_trail_trail_details(),
-        "AwsDmsEndpoint" => aws_dms_endpoint_details(),
-        "AwsEc2RouteTable" => aws_ec2_route_table_details(),
-        "AwsIamUser" => aws_iam_user_details(),
-        "AwsNetworkFirewallFirewall" => aws_network_firewall_firewall_details(),
-        "AwsWafRegionalRule" => aws_waf_regional_rule_details(),
-        "CodeRepository" => code_repository_details(),
-        "AwsIamRole" => aws_iam_role_details(),
-        "AwsApiGatewayV2Api" => aws_api_gateway_v2_api_details(),
-        "AwsRdsEventSubscription" => aws_rds_event_subscription_details(),
-        "AwsStepFunctionStateMachine" => aws_step_function_state_machine_details(),
-        "AwsBackupBackupVault" => aws_backup_backup_vault_details(),
-        "AwsElasticsearchDomain" => aws_elasticsearch_domain_details(),
-        "AwsRdsDbCluster" => aws_rds_db_cluster_details(),
-        "AwsGuardDutyDetector" => aws_guard_duty_detector_details(),
-        "AwsCertificateManagerCertificate" => aws_certificate_manager_certificate_details(),
-        "Container" => container_details(),
-        "AwsAthenaWorkGroup" => aws_athena_work_group_details(),
-        "AwsEventsEndpoint" => aws_events_endpoint_details(),
-        "AwsEcsContainer" => aws_ecs_container_details(),
-        "AwsBackupBackupPlan" => aws_backup_backup_plan_details(),
-        "AwsWafWebAcl" => aws_waf_web_acl_details(),
-        "AwsOpenSearchServiceDomain" => aws_open_search_service_domain_details(),
-        "AwsEcsService" => aws_ecs_service_details(),
-        "AwsEc2NetworkInterface" => aws_ec2_network_interface_details(),
-        "AwsWafRuleGroup" => aws_waf_rule_group_details(),
-        "AwsEc2Instance" => aws_ec2_instance_details(),
-        "AwsRdsDbSecurityGroup" => aws_rds_db_security_group_details(),
-        "AwsEc2VpcEndpointService" => aws_ec2_vpc_endpoint_service_details(),
-        "AwsCodeBuildProject" => aws_code_build_project_details(),
-        "AwsEc2Eip" => aws_ec2_eip_details(),
-        "AwsWafRateBasedRule" => aws_waf_rate_based_rule_details(),
-        "Other" => map(),
-        "AwsEc2TransitGateway" => aws_ec2_transit_gateway_details(),
-        "AwsEcsTask" => aws_ecs_task_details(),
-        "AwsSqsQueue" => aws_sqs_queue_details(),
-        "AwsCloudWatchAlarm" => aws_cloud_watch_alarm_details(),
-        "AwsEcrContainerImage" => aws_ecr_container_image_details(),
-        "AwsSecretsManagerSecret" => aws_secrets_manager_secret_details(),
-        "AwsSsmPatchCompliance" => aws_ssm_patch_compliance_details(),
-        "AwsXrayEncryptionConfig" => aws_xray_encryption_config_details(),
-        "AwsS3AccessPoint" => aws_s3_access_point_details(),
-        "AwsEfsAccessPoint" => aws_efs_access_point_details(),
-        "AwsDmsReplicationTask" => aws_dms_replication_task_details(),
-        "AwsS3Object" => aws_s3_object_details(),
-        "AwsSageMakerNotebookInstance" => aws_sage_maker_notebook_instance_details(),
-        "AwsWafRegionalRateBasedRule" => aws_waf_regional_rate_based_rule_details(),
-        "AwsWafv2WebAcl" => aws_wafv2_web_acl_details(),
-        "AwsRdsDbSnapshot" => aws_rds_db_snapshot_details(),
-        "AwsEcrRepository" => aws_ecr_repository_details(),
-        "AwsKinesisStream" => aws_kinesis_stream_details(),
-        "AwsIamPolicy" => aws_iam_policy_details(),
-        "AwsEc2Volume" => aws_ec2_volume_details(),
-        "AwsEksCluster" => aws_eks_cluster_details(),
-        "AwsS3AccountPublicAccessBlock" => aws_s3_account_public_access_block_details(),
-        "AwsEventsEventbus" => aws_events_eventbus_details(),
-        "AwsNetworkFirewallFirewallPolicy" => aws_network_firewall_firewall_policy_details(),
-        "AwsAppSyncGraphQlApi" => aws_app_sync_graph_ql_api_details(),
-        "AwsLambdaFunction" => aws_lambda_function_details(),
-        "AwsWafRegionalWebAcl" => aws_waf_regional_web_acl_details(),
-        "AwsEc2SecurityGroup" => aws_ec2_security_group_details(),
-        "AwsCloudFormationStack" => aws_cloud_formation_stack_details(),
-        "AwsRoute53HostedZone" => aws_route53_hosted_zone_details(),
-        "AwsS3Bucket" => aws_s3_bucket_details(),
-        "AwsEcsCluster" => aws_ecs_cluster_details(),
-        "AwsRdsDbClusterSnapshot" => aws_rds_db_cluster_snapshot_details(),
-        "AwsEcsTaskDefinition" => aws_ecs_task_definition_details(),
-        "AwsIamGroup" => aws_iam_group_details(),
-        "AwsAutoScalingLaunchConfiguration" => aws_auto_scaling_launch_configuration_details(),
-        "AwsEc2VpcPeeringConnection" => aws_ec2_vpc_peering_connection_details(),
-        "AwsBackupRecoveryPoint" => aws_backup_recovery_point_details(),
-        "AwsAutoScalingAutoScalingGroup" => aws_auto_scaling_auto_scaling_group_details(),
-        "AwsCloudFrontDistribution" => aws_cloud_front_distribution_details(),
-        "AwsWafRegionalRuleGroup" => aws_waf_regional_rule_group_details(),
-        "AwsEc2Vpc" => aws_ec2_vpc_details(),
-        "AwsLambdaLayerVersion" => aws_lambda_layer_version_details(),
-        "AwsApiGatewayV2Stage" => aws_api_gateway_v2_stage_details(),
-        "AwsApiGatewayStage" => aws_api_gateway_stage_details(),
-        "AwsRdsDbInstance" => aws_rds_db_instance_details(),
-        "AwsSnsTopic" => aws_sns_topic_details(),
-        "AwsWafRule" => aws_waf_rule_details(),
-        "AwsDmsReplicationInstance" => aws_dms_replication_instance_details(),
-        "AwsEc2Subnet" => aws_ec2_subnet_details(),
-        "AwsRedshiftCluster" => aws_redshift_cluster_details(),
-        "AwsAmazonMqBroker" => aws_amazon_mq_broker_details(),
-        "AwsMskCluster" => aws_msk_cluster_details(),
-        "AwsEc2VpnConnection" => aws_ec2_vpn_connection_details(),
-        "AwsIamAccessKey" => aws_iam_access_key_details(),
-        "AwsEc2NetworkAcl" => aws_ec2_network_acl_details(),
-        "AwsDynamoDbTable" => aws_dynamo_db_table_details(),
-        "AwsElbv2LoadBalancer" => aws_elbv2_load_balancer_details(),
-        "AwsElbLoadBalancer" => aws_elb_load_balancer_details(),
-        "AwsKmsKey" => aws_kms_key_details(),
-        "AwsApiGatewayRestApi" => aws_api_gateway_rest_api_details(),
-        "AwsWafv2RuleGroup" => aws_wafv2_rule_group_details()
-      }
-
-  """
-  @type resource_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_insight_request() :: %{
-        required("Filters") => aws_security_finding_filters(),
-        required("GroupByAttribute") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_insight_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_proxy_configuration_details() :: %{
-        "ContainerName" => String.t() | atom(),
-        "ProxyConfigurationProperties" => list(aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details()),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_proxy_configuration_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight() :: %{
-        "Filters" => aws_security_finding_filters(),
-        "GroupByAttribute" => String.t() | atom(),
-        "InsightArn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type insight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_path_component_details() :: %{
-        "Address" => list(String.t() | atom()),
-        "PortRanges" => list(port_range())
-      }
-
-  """
-  @type network_path_component_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_placement_constraints_details() :: %{
-        "Expression" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_placement_constraints_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_policy_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ConfigurationPolicy") => list(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_configuration_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_backend_server_description() :: %{
-        "InstancePort" => integer(),
-        "PolicyNames" => list(String.t() | atom())
-      }
-
-  """
-  @type aws_elb_load_balancer_backend_server_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_cluster_details() :: %{
-        "ActiveServicesCount" => integer(),
-        "CapacityProviders" => list(String.t() | atom()),
-        "ClusterArn" => String.t() | atom(),
-        "ClusterName" => String.t() | atom(),
-        "ClusterSettings" => list(aws_ecs_cluster_cluster_settings_details()),
-        "Configuration" => aws_ecs_cluster_configuration_details(),
-        "DefaultCapacityProviderStrategy" => list(aws_ecs_cluster_default_capacity_provider_strategy_details()),
-        "RegisteredContainerInstancesCount" => integer(),
-        "RunningTasksCount" => integer(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_cluster_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_administrator_invitation_response() :: %{}
-
-  """
-  @type accept_administrator_invitation_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_details() :: %{
-        "ContainerDefinitions" => list(aws_ecs_task_definition_container_definitions_details()),
-        "Cpu" => String.t() | atom(),
-        "ExecutionRoleArn" => String.t() | atom(),
-        "Family" => String.t() | atom(),
-        "InferenceAccelerators" => list(aws_ecs_task_definition_inference_accelerators_details()),
-        "IpcMode" => String.t() | atom(),
-        "Memory" => String.t() | atom(),
-        "NetworkMode" => String.t() | atom(),
-        "PidMode" => String.t() | atom(),
-        "PlacementConstraints" => list(aws_ecs_task_definition_placement_constraints_details()),
-        "ProxyConfiguration" => aws_ecs_task_definition_proxy_configuration_details(),
-        "RequiresCompatibilities" => list(String.t() | atom()),
-        "Status" => String.t() | atom(),
-        "TaskRoleArn" => String.t() | atom(),
-        "Volumes" => list(aws_ecs_task_definition_volumes_details())
-      }
-
-  """
-  @type aws_ecs_task_definition_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stateless_custom_action_definition() :: %{
-        "PublishMetricAction" => stateless_custom_publish_metric_action()
-      }
-
-  """
-  @type stateless_custom_action_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_features_details() :: %{
+      create_configuration_policy_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ConfigurationPolicy" => list(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "Status" => String.t() | atom()
+        "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type aws_guard_duty_detector_features_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_insight_results_request() :: %{}
-
-  """
-  @type get_insight_results_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_endpoint_routing_config_details() :: %{
-        "FailoverConfig" => aws_events_endpoint_routing_config_failover_config_details()
-      }
-
-  """
-  @type aws_events_endpoint_routing_config_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_hub_policy() :: %{
-        "EnabledStandardIdentifiers" => list(String.t() | atom()),
-        "SecurityControlsConfiguration" => security_controls_configuration(),
-        "ServiceEnabled" => boolean()
-      }
-
-  """
-  @type security_hub_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_repository_details() :: %{
-        "CodeSecurityIntegrationArn" => String.t() | atom(),
-        "ProjectName" => String.t() | atom(),
-        "ProviderType" => String.t() | atom()
-      }
-
-  """
-  @type code_repository_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_security_hub_request() :: %{
-        optional("ControlFindingGenerator") => list(any()),
-        optional("EnableDefaultStandards") => boolean(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type enable_security_hub_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_elb_load_balancer_additional_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type aws_elb_load_balancer_additional_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_dynamo_db_table_provisioned_throughput() :: %{
-        "LastDecreaseDateTime" => String.t() | atom(),
-        "LastIncreaseDateTime" => String.t() | atom(),
-        "NumberOfDecreasesToday" => integer(),
-        "ReadCapacityUnits" => integer(),
-        "WriteCapacityUnits" => integer()
-      }
-
-  """
-  @type aws_dynamo_db_table_provisioned_throughput() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_secrets_details() :: %{
-        "Name" => String.t() | atom(),
-        "ValueFrom" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_secrets_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_subnet_group_subnet_availability_zone() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_subnet_group_subnet_availability_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automation_rule_v2_request() :: %{}
-
-  """
-  @type get_automation_rule_v2_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_policy_request() :: %{}
-
-  """
-  @type delete_configuration_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecr_container_image_details() :: %{
-        "Architecture" => String.t() | atom(),
-        "ImageDigest" => String.t() | atom(),
-        "ImagePublishedAt" => String.t() | atom(),
-        "ImageTags" => list(String.t() | atom()),
-        "RegistryId" => String.t() | atom(),
-        "RepositoryName" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecr_container_image_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_network_interface_details() :: %{
-        "Attachment" => aws_ec2_network_interface_attachment(),
-        "IpV6Addresses" => list(aws_ec2_network_interface_ip_v6_address_detail()),
-        "NetworkInterfaceId" => String.t() | atom(),
-        "PrivateIpAddresses" => list(aws_ec2_network_interface_private_ip_address_detail()),
-        "PublicDnsName" => String.t() | atom(),
-        "PublicIp" => String.t() | atom(),
-        "SecurityGroups" => list(aws_ec2_network_interface_security_group()),
-        "SourceDestCheck" => boolean()
-      }
-
-  """
-  @type aws_ec2_network_interface_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      findings_trends_filters() :: %{
-        "CompositeFilters" => list(findings_trends_composite_filter()),
-        "CompositeOperator" => list(any())
-      }
-
-  """
-  @type findings_trends_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_redshift_cluster_logging_status() :: %{
-        "BucketName" => String.t() | atom(),
-        "LastFailureMessage" => String.t() | atom(),
-        "LastFailureTime" => String.t() | atom(),
-        "LastSuccessfulDeliveryTime" => String.t() | atom(),
-        "LoggingEnabled" => boolean(),
-        "S3KeyPrefix" => String.t() | atom()
-      }
-
-  """
-  @type aws_redshift_cluster_logging_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() :: %{
-        "Name" => String.t() | atom(),
-        "ValueFrom" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() ::
-          %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_control_custom_parameter() :: %{
-        "Parameters" => map(),
-        "SecurityControlId" => String.t() | atom()
-      }
-
-  """
-  @type security_control_custom_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{
-        "DayOfWeek" => String.t() | atom(),
-        "TimeOfDay" => String.t() | atom(),
-        "TimeZone" => String.t() | atom()
-      }
-
-  """
-  @type aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_service_capacity_provider_strategy_details() :: %{
-        "Base" => integer(),
-        "CapacityProvider" => String.t() | atom(),
-        "Weight" => integer()
-      }
-
-  """
-  @type aws_ecs_service_capacity_provider_strategy_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_wafv2_custom_request_handling_details() :: %{
-        "InsertHeaders" => list(aws_wafv2_custom_http_header())
-      }
-
-  """
-  @type aws_wafv2_custom_request_handling_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_guard_duty_detector_data_sources_s3_logs_details() :: %{
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type aws_guard_duty_detector_data_sources_s3_logs_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_rule_details() :: %{
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "PredicateList" => list(aws_waf_rule_predicate_list_details()),
-        "RuleId" => String.t() | atom()
-      }
-
-  """
-  @type aws_waf_rule_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_automation_rule_v2_response() :: %{
-        "RuleArn" => String.t() | atom(),
-        "RuleId" => String.t() | atom()
-      }
-
-  """
-  @type create_automation_rule_v2_response() :: %{(String.t() | atom()) => any()}
+  @type create_configuration_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12729,150 +886,195 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      product_v2() :: %{
-        "ActivationUrl" => String.t() | atom(),
-        "Categories" => list(String.t() | atom()),
-        "CompanyName" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "IntegrationV2Types" => list(list(any())()),
-        "MarketplaceProductId" => String.t() | atom(),
-        "MarketplaceUrl" => String.t() | atom(),
-        "ProductV2Name" => String.t() | atom()
-      }
-
-  """
-  @type product_v2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_v2_response() :: %{}
-
-  """
-  @type update_connector_v2_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_disable_standards_request() :: %{
-        required("StandardsSubscriptionArns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_disable_standards_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      port_probe_detail() :: %{
-        "LocalIpDetails" => action_local_ip_details(),
-        "LocalPortDetails" => action_local_port_details(),
-        "RemoteIpDetails" => action_remote_ip_details()
-      }
-
-  """
-  @type port_probe_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_policy_request() :: %{}
-
-  """
-  @type get_configuration_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_waf_regional_rate_based_rule_details() :: %{
-        "MatchPredicates" => list(aws_waf_regional_rate_based_rule_match_predicate()),
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RateKey" => String.t() | atom(),
-        "RateLimit" => float(),
+      create_automation_rule_v2_response() :: %{
+        "RuleArn" => String.t() | atom(),
         "RuleId" => String.t() | atom()
       }
 
   """
-  @type aws_waf_regional_rate_based_rule_details() :: %{(String.t() | atom()) => any()}
+  @type create_automation_rule_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_s3_bucket_website_configuration() :: %{
-        "ErrorDocument" => String.t() | atom(),
-        "IndexDocumentSuffix" => String.t() | atom(),
-        "RedirectAllRequestsTo" => aws_s3_bucket_website_configuration_redirect_to(),
-        "RoutingRules" => list(aws_s3_bucket_website_configuration_routing_rule())
+      security_control_definition() :: %{
+        "CurrentRegionAvailability" => list(any()),
+        "CustomizableProperties" => list(list(any())()),
+        "Description" => String.t() | atom(),
+        "ParameterDefinitions" => map(),
+        "RemediationUrl" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
+        "SeverityRating" => list(any()),
+        "Title" => String.t() | atom()
       }
 
   """
-  @type aws_s3_bucket_website_configuration() :: %{(String.t() | atom()) => any()}
+  @type security_control_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ec2_vpc_details() :: %{
-        "CidrBlockAssociationSet" => list(cidr_block_association()),
-        "DhcpOptionsId" => String.t() | atom(),
-        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
-        "State" => String.t() | atom()
+      automation_rules_metadata_v2() :: %{
+        "Actions" => list(automation_rules_action_type_object_v2()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "RuleArn" => String.t() | atom(),
+        "RuleId" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "RuleOrder" => float(),
+        "RuleStatus" => list(any()),
+        "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type aws_ec2_vpc_details() :: %{(String.t() | atom()) => any()}
+  @type automation_rules_metadata_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      enum_list_configuration_options() :: %{
-        "AllowedValues" => list(String.t() | atom()),
-        "DefaultValue" => list(String.t() | atom()),
-        "MaxItems" => integer()
+      aws_cors_configuration() :: %{
+        "AllowCredentials" => boolean(),
+        "AllowHeaders" => list(String.t() | atom()),
+        "AllowMethods" => list(String.t() | atom()),
+        "AllowOrigins" => list(String.t() | atom()),
+        "ExposeHeaders" => list(String.t() | atom()),
+        "MaxAge" => integer()
       }
 
   """
-  @type enum_list_configuration_options() :: %{(String.t() | atom()) => any()}
+  @type aws_cors_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_from_administrator_account_request() :: %{}
-
-  """
-  @type disassociate_from_administrator_account_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregator_v2() :: %{
-        "AggregatorV2Arn" => String.t() | atom()
+      batch_get_security_controls_response() :: %{
+        "SecurityControls" => list(security_control()),
+        "UnprocessedIds" => list(unprocessed_security_control())
       }
 
   """
-  @type aggregator_v2() :: %{(String.t() | atom()) => any()}
+  @type batch_get_security_controls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
-        "Condition" => String.t() | atom(),
-        "ContainerName" => String.t() | atom()
+      aws_efs_access_point_root_directory_details() :: %{
+        "CreationInfo" => aws_efs_access_point_root_directory_creation_info_details(),
+        "Path" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
+  @type aws_efs_access_point_root_directory_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dms_endpoint_details() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "EndpointArn" => String.t() | atom(),
+        "EndpointIdentifier" => String.t() | atom(),
+        "EndpointType" => String.t() | atom(),
+        "EngineName" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
+        "ExtraConnectionAttributes" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Port" => integer(),
+        "ServerName" => String.t() | atom(),
+        "SslMode" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type aws_dms_endpoint_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_stream_specification() :: %{
+        "StreamEnabled" => boolean(),
+        "StreamViewType" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_stream_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_amazon_mq_broker_logs_pending_details() :: %{
+        "Audit" => boolean(),
+        "General" => boolean()
+      }
+
+  """
+  @type aws_amazon_mq_broker_logs_pending_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_security_hub_response() :: %{}
+
+  """
+  @type disable_security_hub_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_number_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => number_filter()
+      }
+
+  """
+  @type ocsf_number_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => string_filter()
+      }
+
+  """
+  @type resources_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elbv2_load_balancer_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_elbv2_load_balancer_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_client_authentication_details() :: %{
+        "Sasl" => aws_msk_cluster_cluster_info_client_authentication_sasl_details(),
+        "Tls" => aws_msk_cluster_cluster_info_client_authentication_tls_details(),
+        "Unauthenticated" => aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_client_authentication_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -12880,50 +1082,51 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      provider_summary() :: %{
-        "ConnectorStatus" => list(any()),
-        "ProviderName" => list(any())
-      }
+      accept_administrator_invitation_response() :: %{}
 
   """
-  @type provider_summary() :: %{(String.t() | atom()) => any()}
+  @type accept_administrator_invitation_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      aws_dynamo_db_table_attribute_definition() :: %{
-        "AttributeName" => String.t() | atom(),
-        "AttributeType" => String.t() | atom()
+      start_configuration_policy_association_response() :: %{
+        "AssociationStatus" => list(any()),
+        "AssociationStatusMessage" => String.t() | atom(),
+        "AssociationType" => list(any()),
+        "ConfigurationPolicyId" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
+        "TargetType" => list(any()),
+        "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type aws_dynamo_db_table_attribute_definition() :: %{(String.t() | atom()) => any()}
+  @type start_configuration_policy_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_group_source_custom_actions_details() :: %{
+      firewall_policy_stateless_custom_actions_details() :: %{
         "ActionDefinition" => stateless_custom_action_definition(),
         "ActionName" => String.t() | atom()
       }
 
   """
-  @type rule_group_source_custom_actions_details() :: %{(String.t() | atom()) => any()}
+  @type firewall_policy_stateless_custom_actions_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_code_build_project_environment_environment_variables_details() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom(),
+      aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{
+        "Name" => list(any()),
         "Value" => String.t() | atom()
       }
 
   """
-  @type aws_code_build_project_environment_environment_variables_details() :: %{
+  @type aws_s3_bucket_notification_configuration_s3_key_filter_rule() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -12931,141 +1134,18 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      standards_subscription() :: %{
-        "StandardsArn" => String.t() | atom(),
-        "StandardsControlsUpdatable" => list(any()),
-        "StandardsInput" => map(),
-        "StandardsStatus" => list(any()),
-        "StandardsStatusReason" => standards_status_reason(),
-        "StandardsSubscriptionArn" => String.t() | atom()
-      }
-
-  """
-  @type standards_subscription() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
-        "CredentialsParameter" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_aggregator_v2_response() :: %{
-        "AggregationRegion" => String.t() | atom(),
-        "AggregatorV2Arn" => String.t() | atom(),
-        "LinkedRegions" => list(String.t() | atom()),
-        "RegionLinkingMode" => String.t() | atom()
-      }
-
-  """
-  @type get_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_lambda_function_details() :: %{
-        "Architectures" => list(String.t() | atom()),
-        "Code" => aws_lambda_function_code(),
-        "CodeSha256" => String.t() | atom(),
-        "DeadLetterConfig" => aws_lambda_function_dead_letter_config(),
-        "Environment" => aws_lambda_function_environment(),
-        "FunctionName" => String.t() | atom(),
-        "Handler" => String.t() | atom(),
-        "KmsKeyArn" => String.t() | atom(),
-        "LastModified" => String.t() | atom(),
-        "Layers" => list(aws_lambda_function_layer()),
-        "MasterArn" => String.t() | atom(),
-        "MemorySize" => integer(),
-        "PackageType" => String.t() | atom(),
-        "RevisionId" => String.t() | atom(),
-        "Role" => String.t() | atom(),
-        "Runtime" => String.t() | atom(),
-        "Timeout" => integer(),
-        "TracingConfig" => aws_lambda_function_tracing_config(),
-        "Version" => String.t() | atom(),
-        "VpcConfig" => aws_lambda_function_vpc_config()
-      }
-
-  """
-  @type aws_lambda_function_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ecs_task_definition_volumes_host_details() :: %{
-        "SourcePath" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_task_definition_volumes_host_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_events_endpoint_details() :: %{
+      get_configuration_policy_response() :: %{
         "Arn" => String.t() | atom(),
+        "ConfigurationPolicy" => list(),
+        "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
-        "EndpointId" => String.t() | atom(),
-        "EndpointUrl" => String.t() | atom(),
-        "EventBuses" => list(aws_events_endpoint_event_buses_details()),
+        "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "ReplicationConfig" => aws_events_endpoint_replication_config_details(),
-        "RoleArn" => String.t() | atom(),
-        "RoutingConfig" => aws_events_endpoint_routing_config_details(),
-        "State" => String.t() | atom(),
-        "StateReason" => String.t() | atom()
+        "UpdatedAt" => non_neg_integer()
       }
 
   """
-  @type aws_events_endpoint_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      jira_cloud_update_configuration() :: %{
-        "ProjectKey" => String.t() | atom()
-      }
-
-  """
-  @type jira_cloud_update_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
-        "Ipv6Address" => String.t() | atom()
-      }
-
-  """
-  @type aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_administrator_account_response() :: %{
-        "Administrator" => invitation()
-      }
-
-  """
-  @type get_administrator_account_response() :: %{(String.t() | atom()) => any()}
+  @type get_configuration_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13087,104 +1167,6 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      batch_get_configuration_policy_associations_request() :: %{
-        required("ConfigurationPolicyAssociationIdentifiers") => list(configuration_policy_association())
-      }
-
-  """
-  @type batch_get_configuration_policy_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_standards_control_associations_response() :: %{
-        "StandardsControlAssociationDetails" => list(standards_control_association_detail()),
-        "UnprocessedAssociations" => list(unprocessed_standards_control_association())
-      }
-
-  """
-  @type batch_get_standards_control_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_provider_severity() :: %{
-        "Label" => list(any()),
-        "Original" => String.t() | atom()
-      }
-
-  """
-  @type finding_provider_severity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_automation_rules_response() :: %{
-        "ProcessedAutomationRules" => list(String.t() | atom()),
-        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
-      }
-
-  """
-  @type batch_delete_automation_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_rds_db_parameter_group() :: %{
-        "DbParameterGroupName" => String.t() | atom(),
-        "ParameterApplyStatus" => String.t() | atom()
-      }
-
-  """
-  @type aws_rds_db_parameter_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{
-        "Enabled" => boolean(),
-        "LambdaFunctionArn" => String.t() | atom(),
-        "Status" => aws_ec2_client_vpn_endpoint_client_connect_options_status_details()
-      }
-
-  """
-  @type aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_security_control_definition_request() :: %{
-        required("SecurityControlId") => String.t() | atom()
-      }
-
-  """
-  @type get_security_control_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      note() :: %{
-        "Text" => String.t() | atom(),
-        "UpdatedAt" => String.t() | atom(),
-        "UpdatedBy" => String.t() | atom()
-      }
-
-  """
-  @type note() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       delete_connector_v2_response() :: %{}
 
   """
@@ -13194,38 +1176,437 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      list_configuration_policies_request() :: %{
+      delete_aggregator_v2_response() :: %{}
+
+  """
+  @type delete_aggregator_v2_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
+        "CapacityReservationPreference" => String.t() | atom(),
+        "CapacityReservationTarget" => aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_capacity_reservation_specification_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{
+        "AuthorizerResultTtlInSeconds" => integer(),
+        "AuthorizerUri" => String.t() | atom(),
+        "IdentityValidationExpression" => String.t() | atom()
+      }
+
+  """
+  @type aws_app_sync_graph_ql_api_lambda_authorizer_config_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_server_side_encryption_configuration() :: %{
+        "Rules" => list(aws_s3_bucket_server_side_encryption_rule())
+      }
+
+  """
+  @type aws_s3_bucket_server_side_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_certificate_manager_certificate_domain_validation_option() :: %{
+        "DomainName" => String.t() | atom(),
+        "ResourceRecord" => aws_certificate_manager_certificate_resource_record(),
+        "ValidationDomain" => String.t() | atom(),
+        "ValidationEmails" => list(String.t() | atom()),
+        "ValidationMethod" => String.t() | atom(),
+        "ValidationStatus" => String.t() | atom()
+      }
+
+  """
+  @type aws_certificate_manager_certificate_domain_validation_option() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_iam_role() :: %{
+        "ApplyStatus" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_iam_role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_call_action() :: %{
+        "AffectedResources" => map(),
+        "Api" => String.t() | atom(),
+        "CallerType" => String.t() | atom(),
+        "DomainDetails" => aws_api_call_action_domain_details(),
+        "FirstSeen" => String.t() | atom(),
+        "LastSeen" => String.t() | atom(),
+        "RemoteIpDetails" => action_remote_ip_details(),
+        "ServiceName" => String.t() | atom()
+      }
+
+  """
+  @type aws_api_call_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      classification_result() :: %{
+        "AdditionalOccurrences" => boolean(),
+        "CustomDataIdentifiers" => custom_data_identifiers_result(),
+        "MimeType" => String.t() | atom(),
+        "SensitiveData" => list(sensitive_data_result()),
+        "SizeClassified" => float(),
+        "Status" => classification_status()
+      }
+
+  """
+  @type classification_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_v2_response() :: %{
+        "AuthUrl" => String.t() | atom(),
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom(),
+        "ConnectorStatus" => list(any())
+      }
+
+  """
+  @type create_connector_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_finding_aggregator_response() :: %{}
+
+  """
+  @type delete_finding_aggregator_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
+        "LaunchTemplateSpecification" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification(),
+        "Overrides" => list(aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details())
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_automation_rule_v2_response() :: %{
+        "Actions" => list(automation_rules_action_v2()),
+        "CreatedAt" => non_neg_integer(),
+        "Criteria" => list(),
+        "Description" => String.t() | atom(),
+        "RuleArn" => String.t() | atom(),
+        "RuleId" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "RuleOrder" => float(),
+        "RuleStatus" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_automation_rule_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_insight_request() :: %{}
+
+  """
+  @type delete_insight_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() :: %{
+        "Prefix" => String.t() | atom(),
+        "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_security_finding_identifier() :: %{
+        "Id" => String.t() | atom(),
+        "ProductArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_security_finding_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_global_secondary_index() :: %{
+        "Backfilling" => boolean(),
+        "IndexArn" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "IndexSizeBytes" => float(),
+        "IndexStatus" => String.t() | atom(),
+        "ItemCount" => integer(),
+        "KeySchema" => list(aws_dynamo_db_table_key_schema()),
+        "Projection" => aws_dynamo_db_table_projection(),
+        "ProvisionedThroughput" => aws_dynamo_db_table_provisioned_throughput()
+      }
+
+  """
+  @type aws_dynamo_db_table_global_secondary_index() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_aggregator_v2_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("LinkedRegions") => list(String.t() | atom()),
+        optional("Tags") => map(),
+        required("RegionLinkingMode") => String.t() | atom()
+      }
+
+  """
+  @type create_aggregator_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elastic_beanstalk_environment_option_setting() :: %{
+        "Namespace" => String.t() | atom(),
+        "OptionName" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_elastic_beanstalk_environment_option_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_subscription() :: %{
+        "StandardsArn" => String.t() | atom(),
+        "StandardsControlsUpdatable" => list(any()),
+        "StandardsInput" => map(),
+        "StandardsStatus" => list(any()),
+        "StandardsStatusReason" => standards_status_reason(),
+        "StandardsSubscriptionArn" => String.t() | atom()
+      }
+
+  """
+  @type standards_subscription() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      geo_location() :: %{
+        "Lat" => float(),
+        "Lon" => float()
+      }
+
+  """
+  @type geo_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_finding_aggregator_request() :: %{}
+
+  """
+  @type delete_finding_aggregator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_enclave_options_details() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_enclave_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_products_v2_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_configuration_policies_request() :: %{(String.t() | atom()) => any()}
+  @type describe_products_v2_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_conflict_exception() :: %{
+      aws_dynamo_db_table_replica() :: %{
+        "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_replica_global_secondary_index()),
+        "KmsMasterKeyId" => String.t() | atom(),
+        "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override(),
+        "RegionName" => String.t() | atom(),
+        "ReplicaStatus" => String.t() | atom(),
+        "ReplicaStatusDescription" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_replica() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_organization_configuration_request() :: %{
+        optional("AutoEnableStandards") => list(any()),
+        optional("OrganizationConfiguration") => organization_configuration(),
+        required("AutoEnable") => boolean()
+      }
+
+  """
+  @type update_organization_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_elasticsearch_domain_node_to_node_encryption_options() :: %{
-        "Enabled" => boolean()
+      update_finding_aggregator_response() :: %{
+        "FindingAggregationRegion" => String.t() | atom(),
+        "FindingAggregatorArn" => String.t() | atom(),
+        "RegionLinkingMode" => String.t() | atom(),
+        "Regions" => list(String.t() | atom())
       }
 
   """
-  @type aws_elasticsearch_domain_node_to_node_encryption_options() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type update_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_cluster_option_group_membership() :: %{
+        "DbClusterOptionGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_cluster_option_group_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      load_balancer_state() :: %{
+        "Code" => String.t() | atom(),
+        "Reason" => String.t() | atom()
+      }
+
+  """
+  @type load_balancer_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_administrator_account_request() :: %{}
+
+  """
+  @type disassociate_from_administrator_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_findings_response() :: %{}
+
+  """
+  @type update_findings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_aggregator_v2_response() :: %{
+        "AggregationRegion" => String.t() | atom(),
+        "AggregatorV2Arn" => String.t() | atom(),
+        "LinkedRegions" => list(String.t() | atom()),
+        "RegionLinkingMode" => String.t() | atom()
+      }
+
+  """
+  @type update_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_status_reason() :: %{
+        "StatusReasonCode" => list(any())
+      }
+
+  """
+  @type standards_status_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13261,6 +1642,670 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      aws_step_function_state_machine_tracing_configuration_details() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_step_function_state_machine_tracing_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_invitations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_invitations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_access_log() :: %{
+        "EmitInterval" => integer(),
+        "Enabled" => boolean(),
+        "S3BucketName" => String.t() | atom(),
+        "S3BucketPrefix" => String.t() | atom()
+      }
+
+  """
+  @type aws_elb_load_balancer_access_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_hub_policy() :: %{
+        "EnabledStandardIdentifiers" => list(String.t() | atom()),
+        "SecurityControlsConfiguration" => security_controls_configuration(),
+        "ServiceEnabled" => boolean()
+      }
+
+  """
+  @type security_hub_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stateless_custom_publish_metric_action_dimension() :: %{
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type stateless_custom_publish_metric_action_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
+        "Ipv6Prefix" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_certificate_manager_certificate_resource_record() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_certificate_manager_certificate_resource_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_hub_response() :: %{
+        "AutoEnableControls" => boolean(),
+        "ControlFindingGenerator" => list(any()),
+        "HubArn" => String.t() | atom(),
+        "SubscribedAt" => String.t() | atom()
+      }
+
+  """
+  @type describe_hub_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight() :: %{
+        "Filters" => aws_security_finding_filters(),
+        "GroupByAttribute" => String.t() | atom(),
+        "InsightArn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
+        "DirectoryId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rule_match_attributes_source_ports() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+
+  """
+  @type rule_group_source_stateless_rule_match_attributes_source_ports() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automation_rule_v2_response() :: %{}
+
+  """
+  @type delete_automation_rule_v2_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_interface_private_ip_address_detail() :: %{
+        "PrivateDnsName" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_network_interface_private_ip_address_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_access_point_vpc_configuration_details() :: %{
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_access_point_vpc_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_user_details() :: %{
+        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
+        "CreateDate" => String.t() | atom(),
+        "GroupList" => list(String.t() | atom()),
+        "Path" => String.t() | atom(),
+        "PermissionsBoundary" => aws_iam_permissions_boundary(),
+        "UserId" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
+        "UserPolicyList" => list(aws_iam_user_policy())
+      }
+
+  """
+  @type aws_iam_user_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecr_repository_lifecycle_policy_details() :: %{
+        "LifecyclePolicyText" => String.t() | atom(),
+        "RegistryId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecr_repository_lifecycle_policy_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_notification_configuration() :: %{
+        "Configurations" => list(aws_s3_bucket_notification_configuration_detail())
+      }
+
+  """
+  @type aws_s3_bucket_notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sensitive_data_detections() :: %{
+        "Count" => float(),
+        "Occurrences" => occurrences(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type sensitive_data_detections() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_import_findings_for_product_response() :: %{}
+
+  """
+  @type disable_import_findings_for_product_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_standards_control_associations_response() :: %{
+        "StandardsControlAssociationDetails" => list(standards_control_association_detail()),
+        "UnprocessedAssociations" => list(unprocessed_standards_control_association())
+      }
+
+  """
+  @type batch_get_standards_control_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_billing_mode_summary() :: %{
+        "BillingMode" => String.t() | atom(),
+        "LastUpdateToPayPerRequestDateTime" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_billing_mode_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dms_replication_instance_details() :: %{
+        "AllocatedStorage" => integer(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "AvailabilityZone" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "MultiAZ" => boolean(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "PubliclyAccessible" => boolean(),
+        "ReplicationInstanceClass" => String.t() | atom(),
+        "ReplicationInstanceIdentifier" => String.t() | atom(),
+        "ReplicationSubnetGroup" => aws_dms_replication_instance_replication_subnet_group_details(),
+        "VpcSecurityGroups" => list(aws_dms_replication_instance_vpc_security_groups_details())
+      }
+
+  """
+  @type aws_dms_replication_instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_group_failover() :: %{
+        "StatusCodes" => aws_cloud_front_distribution_origin_group_failover_status_codes()
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_group_failover() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_route53_hosted_zone_vpc_details() :: %{
+        "Id" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type aws_route53_hosted_zone_vpc_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_network_firewall_rule_group_details() :: %{
+        "Capacity" => integer(),
+        "Description" => String.t() | atom(),
+        "RuleGroup" => rule_group_details(),
+        "RuleGroupArn" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom(),
+        "RuleGroupName" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_network_firewall_rule_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_encryption_info_details() :: %{
+        "EncryptionAtRest" => aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details(),
+        "EncryptionInTransit" => aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_encryption_info_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_action_targets_request() :: %{
+        optional("ActionTargetArns") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_action_targets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
+        "Options" => map(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_deferred_maintenance_window() :: %{
+        "DeferMaintenanceEndTime" => String.t() | atom(),
+        "DeferMaintenanceIdentifier" => String.t() | atom(),
+        "DeferMaintenanceStartTime" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_deferred_maintenance_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_network_interface_count_details() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_network_interface_count_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_notification_configuration_filter() :: %{
+        "S3KeyFilter" => aws_s3_bucket_notification_configuration_s3_key_filter()
+      }
+
+  """
+  @type aws_s3_bucket_notification_configuration_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_volume_details() :: %{
+        "Host" => aws_ecs_task_volume_host_details(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_volume_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_policy_associations_response() :: %{
+        "ConfigurationPolicyAssociationSummaries" => list(configuration_policy_association_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_policy_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rule_match_attributes() :: %{
+        "DestinationPorts" => list(rule_group_source_stateless_rule_match_attributes_destination_ports()),
+        "Destinations" => list(rule_group_source_stateless_rule_match_attributes_destinations()),
+        "Protocols" => list(integer()),
+        "SourcePorts" => list(rule_group_source_stateless_rule_match_attributes_source_ports()),
+        "Sources" => list(rule_group_source_stateless_rule_match_attributes_sources()),
+        "TcpFlags" => list(rule_group_source_stateless_rule_match_attributes_tcp_flags())
+      }
+
+  """
+  @type rule_group_source_stateless_rule_match_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_object_lock_configuration() :: %{
+        "ObjectLockEnabled" => String.t() | atom(),
+        "Rule" => aws_s3_bucket_object_lock_configuration_rule_details()
+      }
+
+  """
+  @type aws_s3_bucket_object_lock_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_placement_strategies_details() :: %{
+        "Field" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_service_placement_strategies_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_admin_accounts_request() :: %{
+        optional("Feature") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_organization_admin_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_backup_vault_details() :: %{
+        "AccessPolicy" => String.t() | atom(),
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "Notifications" => aws_backup_backup_vault_notifications_details()
+      }
+
+  """
+  @type aws_backup_backup_vault_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      availability_zone() :: %{
+        "SubnetId" => String.t() | atom(),
+        "ZoneName" => String.t() | atom()
+      }
+
+  """
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_action_target_response() :: %{
+        "ActionTargetArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_action_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_rule_details() :: %{
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PredicateList" => list(aws_waf_rule_predicate_list_details()),
+        "RuleId" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_rule_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_object_lock_configuration_rule_details() :: %{
+        "DefaultRetention" => aws_s3_bucket_object_lock_configuration_rule_default_retention_details()
+      }
+
+  """
+  @type aws_s3_bucket_object_lock_configuration_rule_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_web_acl_rules_list_details() :: %{
+        "Action" => aws_waf_regional_web_acl_rules_list_action_details(),
+        "OverrideAction" => aws_waf_regional_web_acl_rules_list_override_action_details(),
+        "Priority" => integer(),
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_web_acl_rules_list_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_launch_configuration_details() :: %{
+        "AssociatePublicIpAddress" => boolean(),
+        "BlockDeviceMappings" => list(aws_auto_scaling_launch_configuration_block_device_mappings_details()),
+        "ClassicLinkVpcId" => String.t() | atom(),
+        "ClassicLinkVpcSecurityGroups" => list(String.t() | atom()),
+        "CreatedTime" => String.t() | atom(),
+        "EbsOptimized" => boolean(),
+        "IamInstanceProfile" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "InstanceMonitoring" => aws_auto_scaling_launch_configuration_instance_monitoring_details(),
+        "InstanceType" => String.t() | atom(),
+        "KernelId" => String.t() | atom(),
+        "KeyName" => String.t() | atom(),
+        "LaunchConfigurationName" => String.t() | atom(),
+        "MetadataOptions" => aws_auto_scaling_launch_configuration_metadata_options(),
+        "PlacementTenancy" => String.t() | atom(),
+        "RamdiskId" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SpotPrice" => String.t() | atom(),
+        "UserData" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_launch_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_formation_stack_drift_information_details() :: %{
+        "StackDriftStatus" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_formation_stack_drift_information_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_result_value() :: %{
+        "Count" => integer(),
+        "GroupByAttributeValue" => String.t() | atom()
+      }
+
+  """
+  @type insight_result_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_security_hub_v2_response() :: %{
+        "HubV2Arn" => String.t() | atom()
+      }
+
+  """
+  @type enable_security_hub_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_local_secondary_index() :: %{
+        "IndexArn" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "KeySchema" => list(aws_dynamo_db_table_key_schema()),
+        "Projection" => aws_dynamo_db_table_projection()
+      }
+
+  """
+  @type aws_dynamo_db_table_local_secondary_index() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_aggregator_response() :: %{
+        "FindingAggregationRegion" => String.t() | atom(),
+        "FindingAggregatorArn" => String.t() | atom(),
+        "RegionLinkingMode" => String.t() | atom(),
+        "Regions" => list(String.t() | atom())
+      }
+
+  """
+  @type get_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       page() :: %{
         "LineRange" => range(),
         "OffsetRange" => range(),
@@ -13274,13 +2319,43 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_elasticsearch_domain_log_publishing_options_log_config() :: %{
-        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
-        "Enabled" => boolean()
+      aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() :: %{
+        "LogGroupArn" => String.t() | atom()
       }
 
   """
-  @type aws_elasticsearch_domain_log_publishing_options_log_config() :: %{
+  @type aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_eks_cluster_details() :: %{
+        "Arn" => String.t() | atom(),
+        "CertificateAuthorityData" => String.t() | atom(),
+        "ClusterStatus" => String.t() | atom(),
+        "Endpoint" => String.t() | atom(),
+        "Logging" => aws_eks_cluster_logging_details(),
+        "Name" => String.t() | atom(),
+        "ResourcesVpcConfig" => aws_eks_cluster_resources_vpc_config_details(),
+        "RoleArn" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type aws_eks_cluster_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
+        "ClientRootCertificateChain" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_authentication_options_mutual_authentication_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -13288,24 +2363,2205 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      create_members_response() :: %{
-        "UnprocessedAccounts" => list(result())
+      aws_app_sync_graph_ql_api_log_config_details() :: %{
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
+        "ExcludeVerboseContent" => boolean(),
+        "FieldLogLevel" => String.t() | atom()
       }
 
   """
-  @type create_members_response() :: %{(String.t() | atom()) => any()}
+  @type aws_app_sync_graph_ql_api_log_config_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_automation_rules_response() :: %{
-        "AutomationRulesMetadata" => list(automation_rules_metadata()),
+      describe_standards_controls_response() :: %{
+        "Controls" => list(standards_control()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_automation_rules_response() :: %{(String.t() | atom()) => any()}
+  @type describe_standards_controls_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_statistics_v2_request() :: %{
+        optional("MaxStatisticResults") => integer(),
+        optional("Scopes") => finding_scopes(),
+        optional("SortOrder") => list(any()),
+        required("GroupByRules") => list(group_by_rule())
+      }
+
+  """
+  @type get_finding_statistics_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_policy_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ConfigurationPolicy" => list(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_configuration_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_route53_hosted_zone_config_details() :: %{
+        "Comment" => String.t() | atom()
+      }
+
+  """
+  @type aws_route53_hosted_zone_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_custom_response_details() :: %{
+        "CustomResponseBodyKey" => String.t() | atom(),
+        "ResponseCode" => integer(),
+        "ResponseHeaders" => list(aws_wafv2_custom_http_header())
+      }
+
+  """
+  @type aws_wafv2_custom_response_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateful_rules_header_details() :: %{
+        "Destination" => String.t() | atom(),
+        "DestinationPort" => String.t() | atom(),
+        "Direction" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "SourcePort" => String.t() | atom()
+      }
+
+  """
+  @type rule_group_source_stateful_rules_header_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_now_provider_configuration() :: %{
+        "InstanceName" => String.t() | atom(),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type service_now_provider_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_invitation_response() :: %{}
+
+  """
+  @type accept_invitation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_aggregator_v2_response() :: %{
+        "AggregationRegion" => String.t() | atom(),
+        "AggregatorV2Arn" => String.t() | atom(),
+        "LinkedRegions" => list(String.t() | atom()),
+        "RegionLinkingMode" => String.t() | atom()
+      }
+
+  """
+  @type get_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_variables() :: %{
+        "IpSets" => rule_group_variables_ip_sets_details(),
+        "PortSets" => rule_group_variables_port_sets_details()
+      }
+
+  """
+  @type rule_group_variables() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_organization_admin_account_request() :: %{
+        optional("Feature") => list(any()),
+        required("AdminAccountId") => String.t() | atom()
+      }
+
+  """
+  @type disable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_organization_admin_account_request() :: %{
+        optional("Feature") => list(any()),
+        required("AdminAccountId") => String.t() | atom()
+      }
+
+  """
+  @type enable_organization_admin_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_cache_behaviors() :: %{
+        "Items" => list(aws_cloud_front_distribution_cache_behavior())
+      }
+
+  """
+  @type aws_cloud_front_distribution_cache_behaviors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_filter() :: %{
+        "Cidr" => String.t() | atom()
+      }
+
+  """
+  @type ip_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      keyword_filter() :: %{
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type keyword_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_action_type_object_v2() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type automation_rules_action_type_object_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_control_association_update() :: %{
+        "AssociationStatus" => list(any()),
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
+        "UpdatedReason" => String.t() | atom()
+      }
+
+  """
+  @type standards_control_association_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_sns_topic_details() :: %{
+        "ApplicationSuccessFeedbackRoleArn" => String.t() | atom(),
+        "FirehoseFailureFeedbackRoleArn" => String.t() | atom(),
+        "FirehoseSuccessFeedbackRoleArn" => String.t() | atom(),
+        "HttpFailureFeedbackRoleArn" => String.t() | atom(),
+        "HttpSuccessFeedbackRoleArn" => String.t() | atom(),
+        "KmsMasterKeyId" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "SqsFailureFeedbackRoleArn" => String.t() | atom(),
+        "SqsSuccessFeedbackRoleArn" => String.t() | atom(),
+        "Subscription" => list(aws_sns_topic_subscription()),
+        "TopicName" => String.t() | atom()
+      }
+
+  """
+  @type aws_sns_topic_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_account_public_access_block_details() :: %{
+        "BlockPublicAcls" => boolean(),
+        "BlockPublicPolicy" => boolean(),
+        "IgnorePublicAcls" => boolean(),
+        "RestrictPublicBuckets" => boolean()
+      }
+
+  """
+  @type aws_s3_account_public_access_block_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_details() :: %{
+        "AcceleratorCount" => aws_ec2_launch_template_data_instance_requirements_accelerator_count_details(),
+        "AcceleratorManufacturers" => list(String.t() | atom()),
+        "AcceleratorNames" => list(String.t() | atom()),
+        "AcceleratorTotalMemoryMiB" => aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details(),
+        "AcceleratorTypes" => list(String.t() | atom()),
+        "BareMetal" => String.t() | atom(),
+        "BaselineEbsBandwidthMbps" => aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details(),
+        "BurstablePerformance" => String.t() | atom(),
+        "CpuManufacturers" => list(String.t() | atom()),
+        "ExcludedInstanceTypes" => list(String.t() | atom()),
+        "InstanceGenerations" => list(String.t() | atom()),
+        "LocalStorage" => String.t() | atom(),
+        "LocalStorageTypes" => list(String.t() | atom()),
+        "MemoryGiBPerVCpu" => aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details(),
+        "MemoryMiB" => aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details(),
+        "NetworkInterfaceCount" => aws_ec2_launch_template_data_instance_requirements_network_interface_count_details(),
+        "OnDemandMaxPricePercentageOverLowestPrice" => integer(),
+        "RequireHibernateSupport" => boolean(),
+        "SpotMaxPricePercentageOverLowestPrice" => integer(),
+        "TotalLocalStorageGB" => aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details(),
+        "VCpuCount" => aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      classification_status() :: %{
+        "Code" => String.t() | atom(),
+        "Reason" => String.t() | atom()
+      }
+
+  """
+  @type classification_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_findings_response() :: %{
+        "ProcessedFindings" => list(aws_security_finding_identifier()),
+        "UnprocessedFindings" => list(batch_update_findings_unprocessed_finding())
+      }
+
+  """
+  @type batch_update_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_v2_response() :: %{
+        "Findings" => list(any()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_findings_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_logging_status() :: %{
+        "BucketName" => String.t() | atom(),
+        "LastFailureMessage" => String.t() | atom(),
+        "LastFailureTime" => String.t() | atom(),
+        "LastSuccessfulDeliveryTime" => String.t() | atom(),
+        "LoggingEnabled" => boolean(),
+        "S3KeyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_logging_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_security_hub_configuration_response() :: %{}
+
+  """
+  @type update_security_hub_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_status_info() :: %{
+        "Message" => String.t() | atom(),
+        "Normal" => boolean(),
+        "Status" => String.t() | atom(),
+        "StatusType" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_status_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_security_controls_request() :: %{
+        required("SecurityControlIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_security_controls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_rule_predicate_list_details() :: %{
+        "DataId" => String.t() | atom(),
+        "Negated" => boolean(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_rule_predicate_list_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_rule_group_details() :: %{
+        "Arn" => String.t() | atom(),
+        "Capacity" => float(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Rules" => list(aws_wafv2_rules_details()),
+        "Scope" => String.t() | atom(),
+        "VisibilityConfig" => aws_wafv2_visibility_config_details()
+      }
+
+  """
+  @type aws_wafv2_rule_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_policies_response() :: %{
+        "ConfigurationPolicySummaries" => list(configuration_policy_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_policy_request() :: %{
+        optional("ConfigurationPolicy") => list(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("UpdatedReason") => String.t() | atom()
+      }
+
+  """
+  @type update_configuration_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      severity() :: %{
+        "Label" => list(any()),
+        "Normalized" => integer(),
+        "Original" => String.t() | atom(),
+        "Product" => float()
+      }
+
+  """
+  @type severity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_hsm_status() :: %{
+        "HsmClientCertificateIdentifier" => String.t() | atom(),
+        "HsmConfigurationIdentifier" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_hsm_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_details() :: %{
+        "AccountId" => String.t() | atom(),
+        "Email" => String.t() | atom()
+      }
+
+  """
+  @type account_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_repository_details() :: %{
+        "CodeSecurityIntegrationArn" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
+        "ProviderType" => String.t() | atom()
+      }
+
+  """
+  @type code_repository_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_eks_cluster_logging_details() :: %{
+        "ClusterLogging" => list(aws_eks_cluster_logging_cluster_logging_details())
+      }
+
+  """
+  @type aws_eks_cluster_logging_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_web_acl_captcha_config_immunity_time_property_details() :: %{
+        "ImmunityTime" => float()
+      }
+
+  """
+  @type aws_wafv2_web_acl_captcha_config_immunity_time_property_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sensitive_data_result() :: %{
+        "Category" => String.t() | atom(),
+        "Detections" => list(sensitive_data_detections()),
+        "TotalCount" => float()
+      }
+
+  """
+  @type sensitive_data_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpc_details() :: %{
+        "CidrBlockAssociationSet" => list(cidr_block_association()),
+        "DhcpOptionsId" => String.t() | atom(),
+        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpc_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compliance() :: %{
+        "AssociatedStandards" => list(associated_standard()),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "SecurityControlId" => String.t() | atom(),
+        "SecurityControlParameters" => list(security_control_parameter()),
+        "Status" => list(any()),
+        "StatusReasons" => list(status_reason())
+      }
+
+  """
+  @type compliance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessed_security_control() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorReason" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom()
+      }
+
+  """
+  @type unprocessed_security_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_path_component() :: %{
+        "ComponentId" => String.t() | atom(),
+        "ComponentType" => String.t() | atom(),
+        "Egress" => network_header(),
+        "Ingress" => network_header()
+      }
+
+  """
+  @type network_path_component() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_gateway_rest_api_details() :: %{
+        "ApiKeySource" => String.t() | atom(),
+        "BinaryMediaTypes" => list(String.t() | atom()),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EndpointConfiguration" => aws_api_gateway_endpoint_configuration(),
+        "Id" => String.t() | atom(),
+        "MinimumCompressionSize" => integer(),
+        "Name" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type aws_api_gateway_rest_api_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_policy_disassociation_response() :: %{}
+
+  """
+  @type start_configuration_policy_disassociation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{
+        "Hostname" => String.t() | atom(),
+        "HttpRedirectCode" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "ReplaceKeyPrefixWith" => String.t() | atom(),
+        "ReplaceKeyWith" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_website_configuration_routing_rule_redirect() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      group_by_rule() :: %{
+        "Filters" => ocsf_finding_filters(),
+        "GroupByField" => list(any())
+      }
+
+  """
+  @type group_by_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_interface_attachment() :: %{
+        "AttachTime" => String.t() | atom(),
+        "AttachmentId" => String.t() | atom(),
+        "DeleteOnTermination" => boolean(),
+        "DeviceIndex" => integer(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceOwnerId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_network_interface_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organization_configuration() :: %{
+        "ConfigurationType" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type organization_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_kinesis_stream_stream_encryption_details() :: %{
+        "EncryptionType" => String.t() | atom(),
+        "KeyId" => String.t() | atom()
+      }
+
+  """
+  @type aws_kinesis_stream_stream_encryption_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_provisioned_throughput() :: %{
+        "LastDecreaseDateTime" => String.t() | atom(),
+        "LastIncreaseDateTime" => String.t() | atom(),
+        "NumberOfDecreasesToday" => integer(),
+        "ReadCapacityUnits" => integer(),
+        "WriteCapacityUnits" => integer()
+      }
+
+  """
+  @type aws_dynamo_db_table_provisioned_throughput() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_members_response() :: %{
+        "Members" => list(member()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_members_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_amazon_mq_broker_encryption_options_details() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "UseAwsOwnedKey" => boolean()
+      }
+
+  """
+  @type aws_amazon_mq_broker_encryption_options_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_subscription_request() :: %{
+        "StandardsArn" => String.t() | atom(),
+        "StandardsInput" => map()
+      }
+
+  """
+  @type standards_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_group_by_rule() :: %{
+        "Filters" => resources_filters(),
+        "GroupByField" => list(any())
+      }
+
+  """
+  @type resource_group_by_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      file_paths() :: %{
+        "FileName" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
+        "Hash" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
+      }
+
+  """
+  @type file_paths() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_capacity_provider_strategy_details() :: %{
+        "Base" => integer(),
+        "CapacityProvider" => String.t() | atom(),
+        "Weight" => integer()
+      }
+
+  """
+  @type aws_ecs_service_capacity_provider_strategy_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sequence() :: %{
+        "Actors" => list(actor()),
+        "Endpoints" => list(network_endpoint()),
+        "SequenceIndicators" => list(indicator()),
+        "Signals" => list(signal()),
+        "Uid" => String.t() | atom()
+      }
+
+  """
+  @type sequence() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_trail_trail_details() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
+        "HasCustomEventSelectors" => boolean(),
+        "HomeRegion" => String.t() | atom(),
+        "IncludeGlobalServiceEvents" => boolean(),
+        "IsMultiRegionTrail" => boolean(),
+        "IsOrganizationTrail" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "LogFileValidationEnabled" => boolean(),
+        "Name" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "SnsTopicName" => String.t() | atom(),
+        "TrailArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_trail_trail_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_automation_rules_response() :: %{
+        "ProcessedAutomationRules" => list(String.t() | atom()),
+        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
+      }
+
+  """
+  @type batch_delete_automation_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_now_update_configuration() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type service_now_update_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_logging_configuration() :: %{
+        "DestinationBucketName" => String.t() | atom(),
+        "LogFilePrefix" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_invitations_response() :: %{
+        "Invitations" => list(invitation()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_invitations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      waf_excluded_rule() :: %{
+        "RuleId" => String.t() | atom()
+      }
+
+  """
+  @type waf_excluded_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_aggregators_v2_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_aggregators_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_metadata_options_details() :: %{
+        "HttpEndpoint" => String.t() | atom(),
+        "HttpProtocolIpv6" => String.t() | atom(),
+        "HttpPutResponseHopLimit" => integer(),
+        "HttpTokens" => String.t() | atom(),
+        "InstanceMetadataTags" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_metadata_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      related_finding() :: %{
+        "Id" => String.t() | atom(),
+        "ProductArn" => String.t() | atom()
+      }
+
+  """
+  @type related_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
+        "ContainerPath" => String.t() | atom(),
+        "HostPath" => String.t() | atom(),
+        "Permissions" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elastic_beanstalk_environment_environment_link() :: %{
+        "EnvironmentName" => String.t() | atom(),
+        "LinkName" => String.t() | atom()
+      }
+
+  """
+  @type aws_elastic_beanstalk_environment_environment_link() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malware() :: %{
+        "Name" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type malware() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_server_side_encryption_rule() :: %{
+        "ApplyServerSideEncryptionByDefault" => aws_s3_bucket_server_side_encryption_by_default()
+      }
+
+  """
+  @type aws_s3_bucket_server_side_encryption_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      occurrences() :: %{
+        "Cells" => list(cell()),
+        "LineRanges" => list(range()),
+        "OffsetRanges" => list(range()),
+        "Pages" => list(page()),
+        "Records" => list(record())
+      }
+
+  """
+  @type occurrences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      findings_trends_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => string_filter()
+      }
+
+  """
+  @type findings_trends_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_web_acl_details() :: %{
+        "DefaultAction" => String.t() | atom(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RulesList" => list(aws_waf_regional_web_acl_rules_list_details()),
+        "WebAclId" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_web_acl_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generator_details() :: %{
+        "Description" => String.t() | atom(),
+        "Labels" => list(String.t() | atom()),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type generator_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_environment_files_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      cidr_block_association() :: %{
+        "AssociationId" => String.t() | atom(),
+        "CidrBlock" => String.t() | atom(),
+        "CidrBlockState" => String.t() | atom()
+      }
+
+  """
+  @type cidr_block_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_instance() :: %{
+        "InstanceId" => String.t() | atom()
+      }
+
+  """
+  @type aws_elb_load_balancer_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_call_action_domain_details() :: %{
+        "Domain" => String.t() | atom()
+      }
+
+  """
+  @type aws_api_call_action_domain_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_details() :: %{
+        "AccessPolicies" => String.t() | atom(),
+        "AdvancedSecurityOptions" => aws_open_search_service_domain_advanced_security_options_details(),
+        "Arn" => String.t() | atom(),
+        "ClusterConfig" => aws_open_search_service_domain_cluster_config_details(),
+        "DomainEndpoint" => String.t() | atom(),
+        "DomainEndpointOptions" => aws_open_search_service_domain_domain_endpoint_options_details(),
+        "DomainEndpoints" => map(),
+        "DomainName" => String.t() | atom(),
+        "EncryptionAtRestOptions" => aws_open_search_service_domain_encryption_at_rest_options_details(),
+        "EngineVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LogPublishingOptions" => aws_open_search_service_domain_log_publishing_options_details(),
+        "NodeToNodeEncryptionOptions" => aws_open_search_service_domain_node_to_node_encryption_options_details(),
+        "ServiceSoftwareOptions" => aws_open_search_service_domain_service_software_options_details(),
+        "VpcOptions" => aws_open_search_service_domain_vpc_options_details()
+      }
+
+  """
+  @type aws_open_search_service_domain_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      note_update() :: %{
+        "Text" => String.t() | atom(),
+        "UpdatedBy" => String.t() | atom()
+      }
+
+  """
+  @type note_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_group() :: %{
+        "FailoverCriteria" => aws_cloud_front_distribution_origin_group_failover()
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_security_control_request() :: %{
+        optional("LastUpdateReason") => String.t() | atom(),
+        required("Parameters") => map(),
+        required("SecurityControlId") => String.t() | atom()
+      }
+
+  """
+  @type update_security_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_efs_access_point_root_directory_creation_info_details() :: %{
+        "OwnerGid" => String.t() | atom(),
+        "OwnerUid" => String.t() | atom(),
+        "Permissions" => String.t() | atom()
+      }
+
+  """
+  @type aws_efs_access_point_root_directory_creation_info_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      dns_request_action() :: %{
+        "Blocked" => boolean(),
+        "Domain" => String.t() | atom(),
+        "Protocol" => String.t() | atom()
+      }
+
+  """
+  @type dns_request_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_action() :: %{
+        "FindingFieldsUpdate" => automation_rules_finding_fields_update(),
+        "Type" => list(any())
+      }
+
+  """
+  @type automation_rules_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_standards_control_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "StandardsControlAssociationSummaries" => list(standards_control_association_summary())
+      }
+
+  """
+  @type list_standards_control_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateful_rules_options_details() :: %{
+        "Keyword" => String.t() | atom(),
+        "Settings" => list(String.t() | atom())
+      }
+
+  """
+  @type rule_group_source_stateful_rules_options_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_function_environment_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type aws_lambda_function_environment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_restore_summary() :: %{
+        "RestoreDateTime" => String.t() | atom(),
+        "RestoreInProgress" => boolean(),
+        "SourceBackupArn" => String.t() | atom(),
+        "SourceTableArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_restore_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details() :: %{
+        "AvailabilityZoneCount" => integer()
+      }
+
+  """
+  @type aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_automation_rules_response() :: %{
+        "Rules" => list(automation_rules_config()),
+        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
+      }
+
+  """
+  @type batch_get_automation_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
+        "AttributeName" => String.t() | atom(),
+        "AttributeValues" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_website_configuration_routing_rule() :: %{
+        "Condition" => aws_s3_bucket_website_configuration_routing_rule_condition(),
+        "Redirect" => aws_s3_bucket_website_configuration_routing_rule_redirect()
+      }
+
+  """
+  @type aws_s3_bucket_website_configuration_routing_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_hibernation_options_details() :: %{
+        "Configured" => boolean()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_hibernation_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_organization_admin_account_response() :: %{}
+
+  """
+  @type disable_organization_admin_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details() :: %{
+        "Enable" => boolean(),
+        "Rollback" => boolean()
+      }
+
+  """
+  @type aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_cache_behavior() :: %{
+        "ViewerProtocolPolicy" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_front_distribution_cache_behavior() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
+        "Ipv6Address" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_additional_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_elb_load_balancer_additional_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_network_interface_set_details() :: %{
+        "AssociateCarrierIpAddress" => boolean(),
+        "AssociatePublicIpAddress" => boolean(),
+        "DeleteOnTermination" => boolean(),
+        "Description" => String.t() | atom(),
+        "DeviceIndex" => integer(),
+        "Groups" => list(String.t() | atom()),
+        "InterfaceType" => String.t() | atom(),
+        "Ipv4PrefixCount" => integer(),
+        "Ipv4Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details()),
+        "Ipv6AddressCount" => integer(),
+        "Ipv6Addresses" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details()),
+        "Ipv6PrefixCount" => integer(),
+        "Ipv6Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details()),
+        "NetworkCardIndex" => integer(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom(),
+        "PrivateIpAddresses" => list(aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details()),
+        "SecondaryPrivateIpAddressCount" => integer(),
+        "SubnetId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_network_interface_set_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
+        "DpdTimeoutSeconds" => integer(),
+        "IkeVersions" => list(String.t() | atom()),
+        "OutsideIpAddress" => String.t() | atom(),
+        "Phase1DhGroupNumbers" => list(integer()),
+        "Phase1EncryptionAlgorithms" => list(String.t() | atom()),
+        "Phase1IntegrityAlgorithms" => list(String.t() | atom()),
+        "Phase1LifetimeSeconds" => integer(),
+        "Phase2DhGroupNumbers" => list(integer()),
+        "Phase2EncryptionAlgorithms" => list(String.t() | atom()),
+        "Phase2IntegrityAlgorithms" => list(String.t() | atom()),
+        "Phase2LifetimeSeconds" => integer(),
+        "PreSharedKey" => String.t() | atom(),
+        "RekeyFuzzPercentage" => integer(),
+        "RekeyMarginTimeSeconds" => integer(),
+        "ReplayWindowSize" => integer(),
+        "TunnelInsideCidr" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_import_findings_response() :: %{
+        "FailedCount" => integer(),
+        "FailedFindings" => list(import_findings_error()),
+        "SuccessCount" => integer()
+      }
+
+  """
+  @type batch_import_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_security_hub_response() :: %{}
+
+  """
+  @type enable_security_hub_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_permissions_boundary() :: %{
+        "PermissionsBoundaryArn" => String.t() | atom(),
+        "PermissionsBoundaryType" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_permissions_boundary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_import_findings_for_product_request() :: %{}
+
+  """
+  @type disable_import_findings_for_product_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_sqs_queue_details() :: %{
+        "DeadLetterTargetArn" => String.t() | atom(),
+        "KmsDataKeyReusePeriodSeconds" => integer(),
+        "KmsMasterKeyId" => String.t() | atom(),
+        "QueueName" => String.t() | atom()
+      }
+
+  """
+  @type aws_sqs_queue_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() :: %{
+        "AccessPointId" => String.t() | atom(),
+        "Iam" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_role_policy() :: %{
+        "PolicyName" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_role_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_license_set_details() :: %{
+        "LicenseConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_license_set_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_log_group_arn_config_details() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_logs_log_group_arn_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_policy_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ConfigurationPolicy") => list(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_configuration_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_findings_v2_processed_finding() :: %{
+        "FindingIdentifier" => ocsf_finding_identifier(),
+        "MetadataUid" => String.t() | atom()
+      }
+
+  """
+  @type batch_update_findings_v2_processed_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
+        "BlockDurationMinutes" => integer(),
+        "InstanceInterruptionBehavior" => String.t() | atom(),
+        "MaxPrice" => String.t() | atom(),
+        "SpotInstanceType" => String.t() | atom(),
+        "ValidUntil" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_market_options_spot_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      country() :: %{
+        "CountryCode" => String.t() | atom(),
+        "CountryName" => String.t() | atom()
+      }
+
+  """
+  @type country() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{
+        "CloudwatchLogGroup" => String.t() | atom(),
+        "CloudwatchLogStream" => String.t() | atom(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_connection_log_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
+        "ContainerPort" => integer(),
+        "HostPort" => integer(),
+        "Protocol" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_port_mappings_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_user_policy() :: %{
+        "PolicyName" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_user_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_load_balancers_details() :: %{
+        "ContainerName" => String.t() | atom(),
+        "ContainerPort" => integer(),
+        "LoadBalancerName" => String.t() | atom(),
+        "TargetGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_service_load_balancers_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_provider_fields() :: %{
+        "Confidence" => integer(),
+        "Criticality" => integer(),
+        "RelatedFindings" => list(related_finding()),
+        "Severity" => finding_provider_severity(),
+        "Types" => list(String.t() | atom())
+      }
+
+  """
+  @type finding_provider_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_connector_v2_request() :: %{
+        required("AuthCode") => String.t() | atom(),
+        required("AuthState") => String.t() | atom()
+      }
+
+  """
+  @type register_connector_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_gateway_stage_details() :: %{
+        "AccessLogSettings" => aws_api_gateway_access_log_settings(),
+        "CacheClusterEnabled" => boolean(),
+        "CacheClusterSize" => String.t() | atom(),
+        "CacheClusterStatus" => String.t() | atom(),
+        "CanarySettings" => aws_api_gateway_canary_settings(),
+        "ClientCertificateId" => String.t() | atom(),
+        "CreatedDate" => String.t() | atom(),
+        "DeploymentId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DocumentationVersion" => String.t() | atom(),
+        "LastUpdatedDate" => String.t() | atom(),
+        "MethodSettings" => list(aws_api_gateway_method_settings()),
+        "StageName" => String.t() | atom(),
+        "TracingEnabled" => boolean(),
+        "Variables" => map(),
+        "WebAclArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_api_gateway_stage_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_access_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_access_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_placement_constraints_details() :: %{
+        "Expression" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_placement_constraints_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_instance_profile() :: %{
+        "Arn" => String.t() | atom(),
+        "CreateDate" => String.t() | atom(),
+        "InstanceProfileId" => String.t() | atom(),
+        "InstanceProfileName" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Roles" => list(aws_iam_instance_profile_role())
+      }
+
+  """
+  @type aws_iam_instance_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_volumes_host_details() :: %{
+        "SourcePath" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_volumes_host_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_flow_logs_details() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_flow_logs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{
+        "Rules" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_details())
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_insight_response() :: %{}
+
+  """
+  @type update_insight_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details() :: %{
+        "EbsVolumes" => aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_amazon_mq_broker_users_details() :: %{
+        "PendingChange" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type aws_amazon_mq_broker_users_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_managed_by() :: %{
+        "Company" => String.t() | atom(),
+        "Product" => String.t() | atom()
+      }
+
+  """
+  @type standards_managed_by() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automation_rules_request_item() :: %{
+        "Actions" => list(automation_rules_action()),
+        "Criteria" => automation_rules_finding_filters(),
+        "Description" => String.t() | atom(),
+        "IsTerminal" => boolean(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "RuleOrder" => integer(),
+        "RuleStatus" => list(any())
+      }
+
+  """
+  @type update_automation_rules_request_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_replica_global_secondary_index() :: %{
+        "IndexName" => String.t() | atom(),
+        "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override()
+      }
+
+  """
+  @type aws_dynamo_db_table_replica_global_secondary_index() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_control() :: %{
+        "Description" => String.t() | atom(),
+        "LastUpdateReason" => String.t() | atom(),
+        "Parameters" => map(),
+        "RemediationUrl" => String.t() | atom(),
+        "SecurityControlArn" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
+        "SecurityControlStatus" => list(any()),
+        "SeverityRating" => list(any()),
+        "Title" => String.t() | atom(),
+        "UpdateStatus" => list(any())
+      }
+
+  """
+  @type security_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_details() :: %{
+        "ContainerDefinitions" => list(aws_ecs_task_definition_container_definitions_details()),
+        "Cpu" => String.t() | atom(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "Family" => String.t() | atom(),
+        "InferenceAccelerators" => list(aws_ecs_task_definition_inference_accelerators_details()),
+        "IpcMode" => String.t() | atom(),
+        "Memory" => String.t() | atom(),
+        "NetworkMode" => String.t() | atom(),
+        "PidMode" => String.t() | atom(),
+        "PlacementConstraints" => list(aws_ecs_task_definition_placement_constraints_details()),
+        "ProxyConfiguration" => aws_ecs_task_definition_proxy_configuration_details(),
+        "RequiresCompatibilities" => list(String.t() | atom()),
+        "Status" => String.t() | atom(),
+        "TaskRoleArn" => String.t() | atom(),
+        "Volumes" => list(aws_ecs_task_definition_volumes_details())
+      }
+
+  """
+  @type aws_ecs_task_definition_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resources_statistics_v2_request() :: %{
+        optional("MaxStatisticResults") => integer(),
+        optional("Scopes") => resource_scopes(),
+        optional("SortOrder") => list(any()),
+        required("GroupByRules") => list(resource_group_by_rule())
+      }
+
+  """
+  @type get_resources_statistics_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detection() :: %{
+        "Sequence" => sequence()
+      }
+
+  """
+  @type detection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateful_rules_details() :: %{
+        "Action" => String.t() | atom(),
+        "Header" => rule_group_source_stateful_rules_header_details(),
+        "RuleOptions" => list(rule_group_source_stateful_rules_options_details())
+      }
+
+  """
+  @type rule_group_source_stateful_rules_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_filter() :: %{
+        "DateRange" => date_range(),
+        "End" => String.t() | atom(),
+        "Start" => String.t() | atom()
+      }
+
+  """
+  @type date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_date_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => date_filter()
+      }
+
+  """
+  @type resources_date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automation_rule_v2_request() :: %{}
+
+  """
+  @type delete_automation_rule_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_boolean_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => boolean_filter()
+      }
+
+  """
+  @type ocsf_boolean_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_viewer_certificate() :: %{
+        "AcmCertificateArn" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "CertificateSource" => String.t() | atom(),
+        "CloudFrontDefaultCertificate" => boolean(),
+        "IamCertificateId" => String.t() | atom(),
+        "MinimumProtocolVersion" => String.t() | atom(),
+        "SslSupportMethod" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_front_distribution_viewer_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_organization_configuration_response() :: %{}
+
+  """
+  @type update_organization_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_administrator_account_request() :: %{}
+
+  """
+  @type get_administrator_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_v2_request() :: %{
+        optional("Filters") => ocsf_finding_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Scopes") => finding_scopes(),
+        optional("SortCriteria") => list(sort_criterion())
+      }
+
+  """
+  @type get_findings_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_action_target_response() :: %{}
+
+  """
+  @type update_action_target_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_security_control_response() :: %{}
+
+  """
+  @type update_security_control_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insight_results_response() :: %{
+        "InsightResults" => insight_results()
+      }
+
+  """
+  @type get_insight_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_network_firewall_firewall_subnet_mappings_details() :: %{
+        "SubnetId" => String.t() | atom()
+      }
+
+  """
+  @type aws_network_firewall_firewall_subnet_mappings_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_groups() :: %{
+        "Items" => list(aws_cloud_front_distribution_origin_group())
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_groups() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      range() :: %{
+        "End" => float(),
+        "Start" => float(),
+        "StartColumn" => float()
+      }
+
+  """
+  @type range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_availability_zones_list_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_sage_maker_notebook_instance_details() :: %{
+        "AcceleratorTypes" => list(String.t() | atom()),
+        "AdditionalCodeRepositories" => list(String.t() | atom()),
+        "DefaultCodeRepository" => String.t() | atom(),
+        "DirectInternetAccess" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "InstanceMetadataServiceConfiguration" => aws_sage_maker_notebook_instance_metadata_service_configuration_details(),
+        "InstanceType" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "NotebookInstanceArn" => String.t() | atom(),
+        "NotebookInstanceLifecycleConfigName" => String.t() | atom(),
+        "NotebookInstanceName" => String.t() | atom(),
+        "NotebookInstanceStatus" => String.t() | atom(),
+        "PlatformIdentifier" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "RootAccess" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "VolumeSizeInGB" => integer()
+      }
+
+  """
+  @type aws_sage_maker_notebook_instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_standards_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_standards_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_members_response() :: %{}
+
+  """
+  @type disassociate_members_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rule_definition() :: %{
+        "Actions" => list(String.t() | atom()),
+        "MatchAttributes" => rule_group_source_stateless_rule_match_attributes()
+      }
+
+  """
+  @type rule_group_source_stateless_rule_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13327,44 +4583,795 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      get_configuration_policy_association_response() :: %{
-        "AssociationStatus" => list(any()),
-        "AssociationStatusMessage" => String.t() | atom(),
-        "AssociationType" => list(any()),
-        "ConfigurationPolicyId" => String.t() | atom(),
-        "TargetId" => String.t() | atom(),
-        "TargetType" => list(any()),
-        "UpdatedAt" => non_neg_integer()
+      aws_organization_scope() :: %{
+        "OrganizationId" => String.t() | atom(),
+        "OrganizationalUnitId" => String.t() | atom()
       }
 
   """
-  @type get_configuration_policy_association_response() :: %{(String.t() | atom()) => any()}
+  @type aws_organization_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ec2_launch_template_data_cpu_options_details() :: %{
-        "CoreCount" => integer(),
-        "ThreadsPerCore" => integer()
+      aws_ecs_service_deployment_controller_details() :: %{
+        "Type" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_launch_template_data_cpu_options_details() :: %{(String.t() | atom()) => any()}
+  @type aws_ecs_service_deployment_controller_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
-        "Flags" => list(String.t() | atom()),
-        "Masks" => list(String.t() | atom())
+      aws_backup_backup_vault_notifications_details() :: %{
+        "BackupVaultEvents" => list(String.t() | atom()),
+        "SnsTopicArn" => String.t() | atom()
       }
 
   """
-  @type rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
+  @type aws_backup_backup_vault_notifications_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_cluster_parameter_group() :: %{
+        "ClusterParameterStatusList" => list(aws_redshift_cluster_cluster_parameter_status()),
+        "ParameterApplyStatus" => String.t() | atom(),
+        "ParameterGroupName" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_cluster_parameter_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_findings_v2_request() :: %{
+        optional("Comment") => String.t() | atom(),
+        optional("FindingIdentifiers") => list(ocsf_finding_identifier()),
+        optional("MetadataUids") => list(String.t() | atom()),
+        optional("SeverityId") => integer(),
+        optional("StatusId") => integer()
+      }
+
+  """
+  @type batch_update_findings_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_gateway_endpoint_configuration() :: %{
+        "Types" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_api_gateway_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source() :: %{
+        "RulesSourceList" => rule_group_source_list_details(),
+        "RulesString" => String.t() | atom(),
+        "StatefulRules" => list(rule_group_source_stateful_rules_details()),
+        "StatelessRulesAndCustomActions" => rule_group_source_stateless_rules_and_custom_actions_details()
+      }
+
+  """
+  @type rule_group_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_controls_configuration() :: %{
+        "DisabledSecurityControlIdentifiers" => list(String.t() | atom()),
+        "EnabledSecurityControlIdentifiers" => list(String.t() | atom()),
+        "SecurityControlCustomParameters" => list(security_control_custom_parameter())
+      }
+
+  """
+  @type security_controls_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_security_hub_configuration_request() :: %{
+        optional("AutoEnableControls") => boolean(),
+        optional("ControlFindingGenerator") => list(any())
+      }
+
+  """
+  @type update_security_hub_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_secrets_details() :: %{
+        "Name" => String.t() | atom(),
+        "ValueFrom" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_secrets_details() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_route53_query_logging_config_details() :: %{
+        "CloudWatchLogsLogGroupArn" => cloud_watch_logs_log_group_arn_config_details()
+      }
+
+  """
+  @type aws_route53_query_logging_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_advanced_security_options_details() :: %{
+        "Enabled" => boolean(),
+        "InternalUserDatabaseEnabled" => boolean(),
+        "MasterUserOptions" => aws_open_search_service_domain_master_user_options_details()
+      }
+
+  """
+  @type aws_open_search_service_domain_advanced_security_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_certificate_manager_certificate_options() :: %{
+        "CertificateTransparencyLoggingPreference" => String.t() | atom()
+      }
+
+  """
+  @type aws_certificate_manager_certificate_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_amazon_mq_broker_details() :: %{
+        "AuthenticationStrategy" => String.t() | atom(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "BrokerArn" => String.t() | atom(),
+        "BrokerId" => String.t() | atom(),
+        "BrokerName" => String.t() | atom(),
+        "DeploymentMode" => String.t() | atom(),
+        "EncryptionOptions" => aws_amazon_mq_broker_encryption_options_details(),
+        "EngineType" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "HostInstanceType" => String.t() | atom(),
+        "LdapServerMetadata" => aws_amazon_mq_broker_ldap_server_metadata_details(),
+        "Logs" => aws_amazon_mq_broker_logs_details(),
+        "MaintenanceWindowStartTime" => aws_amazon_mq_broker_maintenance_window_start_time_details(),
+        "PubliclyAccessible" => boolean(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "StorageType" => String.t() | atom(),
+        "SubnetIds" => list(String.t() | atom()),
+        "Users" => list(aws_amazon_mq_broker_users_details())
+      }
+
+  """
+  @type aws_amazon_mq_broker_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_rules_action_count_details() :: %{
+        "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
+      }
+
+  """
+  @type aws_wafv2_rules_action_count_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpn_connection_routes_details() :: %{
+        "DestinationCidrBlock" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpn_connection_routes_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_policy_associations_request() :: %{
+        optional("Filters") => association_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_policy_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
+        "Ipv4Prefix" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_ssl_protocols() :: %{
+        "Items" => list(String.t() | atom()),
+        "Quantity" => integer()
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_ssl_protocols() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_web_acl_details() :: %{
+        "DefaultAction" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Rules" => list(aws_waf_web_acl_rule()),
+        "WebAclId" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_web_acl_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_master_account_response() :: %{
+        "Master" => invitation()
+      }
+
+  """
+  @type get_master_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_standards_control_associations_request() :: %{
+        required("StandardsControlAssociationUpdates") => list(standards_control_association_update())
+      }
+
+  """
+  @type batch_update_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() :: %{
+        "Name" => String.t() | atom(),
+        "ValueFrom" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_remote_ip_details() :: %{
+        "City" => city(),
+        "Country" => country(),
+        "GeoLocation" => geo_location(),
+        "IpAddressV4" => String.t() | atom(),
+        "Organization" => ip_organization_details()
+      }
+
+  """
+  @type action_remote_ip_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_security_hub_request() :: %{
+        optional("ControlFindingGenerator") => list(any()),
+        optional("EnableDefaultStandards") => boolean(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type enable_security_hub_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firewall_policy_stateless_rule_group_references_details() :: %{
+        "Priority" => integer(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type firewall_policy_stateless_rule_group_references_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_members_request() :: %{
+        required("AccountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type get_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_cluster_config_details() :: %{
+        "DedicatedMasterCount" => integer(),
+        "DedicatedMasterEnabled" => boolean(),
+        "DedicatedMasterType" => String.t() | atom(),
+        "InstanceCount" => integer(),
+        "InstanceType" => String.t() | atom(),
+        "WarmCount" => integer(),
+        "WarmEnabled" => boolean(),
+        "WarmType" => String.t() | atom(),
+        "ZoneAwarenessConfig" => aws_open_search_service_domain_cluster_config_zone_awareness_config_details(),
+        "ZoneAwarenessEnabled" => boolean()
+      }
+
+  """
+  @type aws_open_search_service_domain_cluster_config_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_configuration_policy_disassociation_request() :: %{
+        optional("Target") => list(),
+        required("ConfigurationPolicyIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type start_configuration_policy_disassociation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organizational_unit_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type organizational_unit_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_v2_request() :: %{}
+
+  """
+  @type delete_connector_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_vpc_security_group() :: %{
+        "Status" => String.t() | atom(),
+        "VpcSecurityGroupId" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_vpc_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_accelerator_count_details() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_accelerator_count_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_cluster_snapshot_details() :: %{
+        "AllocatedStorage" => integer(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "ClusterCreateTime" => String.t() | atom(),
+        "DbClusterIdentifier" => String.t() | atom(),
+        "DbClusterSnapshotAttributes" => list(aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute()),
+        "DbClusterSnapshotIdentifier" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "IamDatabaseAuthenticationEnabled" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "PercentProgress" => integer(),
+        "Port" => integer(),
+        "SnapshotCreateTime" => String.t() | atom(),
+        "SnapshotType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StorageEncrypted" => boolean(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_cluster_snapshot_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_autonomous_system() :: %{
+        "Name" => String.t() | atom(),
+        "Number" => integer()
+      }
+
+  """
+  @type network_autonomous_system() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_configuration_policy_associations_response() :: %{
+        "ConfigurationPolicyAssociations" => list(configuration_policy_association_summary()),
+        "UnprocessedConfigurationPolicyAssociations" => list(unprocessed_configuration_policy_association())
+      }
+
+  """
+  @type batch_get_configuration_policy_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() :: %{
+        "CloudWatchEncryptionEnabled" => boolean(),
+        "CloudWatchLogGroupName" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom(),
+        "S3EncryptionEnabled" => boolean(),
+        "S3KeyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_pending_cloud_watch_logs_exports() :: %{
+        "LogTypesToDisable" => list(String.t() | atom()),
+        "LogTypesToEnable" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_rds_pending_cloud_watch_logs_exports() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_trends_values() :: %{
+        "ResourcesCount" => resources_count()
+      }
+
+  """
+  @type resources_trends_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_gateway_v2_route_settings() :: %{
+        "DataTraceEnabled" => boolean(),
+        "DetailedMetricsEnabled" => boolean(),
+        "LoggingLevel" => String.t() | atom(),
+        "ThrottlingBurstLimit" => integer(),
+        "ThrottlingRateLimit" => float()
+      }
+
+  """
+  @type aws_api_gateway_v2_route_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sort_criterion() :: %{
+        "Field" => String.t() | atom(),
+        "SortOrder" => list(any())
+      }
+
+  """
+  @type sort_criterion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_certificate_manager_certificate_key_usage() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type aws_certificate_manager_certificate_key_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_policy_details() :: %{
+        "AttachmentCount" => integer(),
+        "CreateDate" => String.t() | atom(),
+        "DefaultVersionId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsAttachable" => boolean(),
+        "Path" => String.t() | atom(),
+        "PermissionsBoundaryUsageCount" => integer(),
+        "PolicyId" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "PolicyVersionList" => list(aws_iam_policy_version()),
+        "UpdateDate" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_policy_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
+        "CredentialsParameter" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_repository_credentials_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_security_group_ip_range() :: %{
+        "CidrIp" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_security_group_ip_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_events_endpoint_replication_config_details() :: %{
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type aws_events_endpoint_replication_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecr_repository_details() :: %{
+        "Arn" => String.t() | atom(),
+        "ImageScanningConfiguration" => aws_ecr_repository_image_scanning_configuration_details(),
+        "ImageTagMutability" => String.t() | atom(),
+        "LifecyclePolicy" => aws_ecr_repository_lifecycle_policy_details(),
+        "RepositoryName" => String.t() | atom(),
+        "RepositoryPolicyText" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecr_repository_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_v2_request() :: %{
+        optional("ConnectorStatus") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProviderName") => list(any())
+      }
+
+  """
+  @type list_connectors_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_v2_request() :: %{}
+
+  """
+  @type get_connector_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_security_group_user_id_group_pair() :: %{
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "PeeringStatus" => String.t() | atom(),
+        "UserId" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
+        "VpcPeeringConnectionId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_security_group_user_id_group_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_resize_info() :: %{
+        "AllowCancelResize" => boolean(),
+        "ResizeType" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_resize_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_standards_controls_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_standards_controls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_details() :: %{
+        "AvailabilityZones" => list(aws_auto_scaling_auto_scaling_group_availability_zones_list_details()),
+        "CapacityRebalance" => boolean(),
+        "CreatedTime" => String.t() | atom(),
+        "HealthCheckGracePeriod" => integer(),
+        "HealthCheckType" => String.t() | atom(),
+        "LaunchConfigurationName" => String.t() | atom(),
+        "LaunchTemplate" => aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification(),
+        "LoadBalancerNames" => list(String.t() | atom()),
+        "MixedInstancesPolicy" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details()
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_administrator_account_response() :: %{
+        "Administrator" => invitation()
+      }
+
+  """
+  @type get_administrator_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insights_request() :: %{
+        optional("InsightArns") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_ip_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => ip_filter()
+      }
+
+  """
+  @type ocsf_ip_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_aggregator_request() :: %{}
+
+  """
+  @type get_finding_aggregator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_organization_details() :: %{
+        "Asn" => integer(),
+        "AsnOrg" => String.t() | atom(),
+        "Isp" => String.t() | atom(),
+        "Org" => String.t() | atom()
+      }
+
+  """
+  @type ip_organization_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13383,13 +5390,1540 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_ec2_vpn_connection_options_details() :: %{
-        "StaticRoutesOnly" => boolean(),
-        "TunnelOptions" => list(aws_ec2_vpn_connection_options_tunnel_options_details())
+      resource_severity_breakdown() :: %{
+        "Critical" => integer(),
+        "Fatal" => integer(),
+        "High" => integer(),
+        "Informational" => integer(),
+        "Low" => integer(),
+        "Medium" => integer(),
+        "Other" => integer(),
+        "Unknown" => integer()
       }
 
   """
-  @type aws_ec2_vpn_connection_options_details() :: %{(String.t() | atom()) => any()}
+  @type resource_severity_breakdown() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_connection() :: %{
+        "Direction" => list(any())
+      }
+
+  """
+  @type network_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invite_members_response() :: %{
+        "UnprocessedAccounts" => list(result())
+      }
+
+  """
+  @type invite_members_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_standards_control_response() :: %{}
+
+  """
+  @type update_standards_control_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      port_range_from_to() :: %{
+        "From" => integer(),
+        "To" => integer()
+      }
+
+  """
+  @type port_range_from_to() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_aggregator_v2_response() :: %{
+        "AggregationRegion" => String.t() | atom(),
+        "AggregatorV2Arn" => String.t() | atom(),
+        "LinkedRegions" => list(String.t() | atom()),
+        "RegionLinkingMode" => String.t() | atom()
+      }
+
+  """
+  @type create_aggregator_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
+        "AuthenticationType" => String.t() | atom(),
+        "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
+        "OpenIdConnectConfig" => aws_app_sync_graph_ql_api_open_id_connect_config_details(),
+        "UserPoolConfig" => aws_app_sync_graph_ql_api_user_pool_config_details()
+      }
+
+  """
+  @type aws_app_sync_graph_ql_api_additional_authentication_providers_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_automation_rules_v2_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Rules" => list(automation_rules_metadata_v2())
+      }
+
+  """
+  @type list_automation_rules_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firewall_policy_details() :: %{
+        "StatefulRuleGroupReferences" => list(firewall_policy_stateful_rule_group_references_details()),
+        "StatelessCustomActions" => list(firewall_policy_stateless_custom_actions_details()),
+        "StatelessDefaultActions" => list(String.t() | atom()),
+        "StatelessFragmentDefaultActions" => list(String.t() | atom()),
+        "StatelessRuleGroupReferences" => list(firewall_policy_stateless_rule_group_references_details())
+      }
+
+  """
+  @type firewall_policy_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_aggregators_v2_response() :: %{
+        "AggregatorsV2" => list(aggregator_v2()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_aggregators_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details() :: %{
+        "DaysAfterInitiation" => integer()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_network_configuration_details() :: %{
+        "AwsVpcConfiguration" => aws_ecs_service_network_configuration_aws_vpc_configuration_details()
+      }
+
+  """
+  @type aws_ecs_service_network_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_connection_action() :: %{
+        "Blocked" => boolean(),
+        "ConnectionDirection" => String.t() | atom(),
+        "LocalPortDetails" => action_local_port_details(),
+        "Protocol" => String.t() | atom(),
+        "RemoteIpDetails" => action_remote_ip_details(),
+        "RemotePortDetails" => action_remote_port_details()
+      }
+
+  """
+  @type network_connection_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_details() :: %{
+        "LogConfiguration" => aws_ecs_task_definition_container_definitions_log_configuration_details(),
+        "Links" => list(String.t() | atom()),
+        "Cpu" => integer(),
+        "RepositoryCredentials" => aws_ecs_task_definition_container_definitions_repository_credentials_details(),
+        "Hostname" => String.t() | atom(),
+        "DisableNetworking" => boolean(),
+        "LinuxParameters" => aws_ecs_task_definition_container_definitions_linux_parameters_details(),
+        "DnsServers" => list(String.t() | atom()),
+        "FirelensConfiguration" => aws_ecs_task_definition_container_definitions_firelens_configuration_details(),
+        "PseudoTerminal" => boolean(),
+        "MemoryReservation" => integer(),
+        "WorkingDirectory" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "HealthCheck" => aws_ecs_task_definition_container_definitions_health_check_details(),
+        "Image" => String.t() | atom(),
+        "User" => String.t() | atom(),
+        "ExtraHosts" => list(aws_ecs_task_definition_container_definitions_extra_hosts_details()),
+        "Command" => list(String.t() | atom()),
+        "DockerSecurityOptions" => list(String.t() | atom()),
+        "Environment" => list(aws_ecs_task_definition_container_definitions_environment_details()),
+        "ResourceRequirements" => list(aws_ecs_task_definition_container_definitions_resource_requirements_details()),
+        "DockerLabels" => map(),
+        "Interactive" => boolean(),
+        "VolumesFrom" => list(aws_ecs_task_definition_container_definitions_volumes_from_details()),
+        "EntryPoint" => list(String.t() | atom()),
+        "Essential" => boolean(),
+        "SystemControls" => list(aws_ecs_task_definition_container_definitions_system_controls_details()),
+        "ReadonlyRootFilesystem" => boolean(),
+        "MountPoints" => list(aws_ecs_task_definition_container_definitions_mount_points_details()),
+        "DependsOn" => list(aws_ecs_task_definition_container_definitions_depends_on_details()),
+        "DnsSearchDomains" => list(String.t() | atom()),
+        "Privileged" => boolean(),
+        "StopTimeout" => integer(),
+        "StartTimeout" => integer(),
+        "PortMappings" => list(aws_ecs_task_definition_container_definitions_port_mappings_details()),
+        "Ulimits" => list(aws_ecs_task_definition_container_definitions_ulimits_details()),
+        "Memory" => integer(),
+        "Secrets" => list(aws_ecs_task_definition_container_definitions_secrets_details()),
+        "EnvironmentFiles" => list(aws_ecs_task_definition_container_definitions_environment_files_details())
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_security_group_ip_permission() :: %{
+        "FromPort" => integer(),
+        "IpProtocol" => String.t() | atom(),
+        "IpRanges" => list(aws_ec2_security_group_ip_range()),
+        "Ipv6Ranges" => list(aws_ec2_security_group_ipv6_range()),
+        "PrefixListIds" => list(aws_ec2_security_group_prefix_list_id()),
+        "ToPort" => integer(),
+        "UserIdGroupPairs" => list(aws_ec2_security_group_user_id_group_pair())
+      }
+
+  """
+  @type aws_ec2_security_group_ip_permission() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_function_dead_letter_config() :: %{
+        "TargetArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_lambda_function_dead_letter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_v2_response() :: %{
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Health" => health_check(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ProviderDetail" => list()
+      }
+
+  """
+  @type get_connector_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_source() :: %{
+        "GitCloneDepth" => integer(),
+        "InsecureSsl" => boolean(),
+        "Location" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_code_build_project_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_s3_origin_config() :: %{
+        "OriginAccessIdentity" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_s3_origin_config() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
+        "ClientBroker" => String.t() | atom(),
+        "InCluster" => boolean()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_cluster_cluster_settings_details() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_cluster_cluster_settings_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_rule_details() :: %{
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PredicateList" => list(aws_waf_regional_rule_predicate_list_details()),
+        "RuleId" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_rule_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_provisioned_throughput_override() :: %{
+        "ReadCapacityUnits" => integer()
+      }
+
+  """
+  @type aws_dynamo_db_table_provisioned_throughput_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_details() :: %{
+        "AccessPolicies" => String.t() | atom(),
+        "DomainEndpointOptions" => aws_elasticsearch_domain_domain_endpoint_options(),
+        "DomainId" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "ElasticsearchClusterConfig" => aws_elasticsearch_domain_elasticsearch_cluster_config_details(),
+        "ElasticsearchVersion" => String.t() | atom(),
+        "EncryptionAtRestOptions" => aws_elasticsearch_domain_encryption_at_rest_options(),
+        "Endpoint" => String.t() | atom(),
+        "Endpoints" => map(),
+        "LogPublishingOptions" => aws_elasticsearch_domain_log_publishing_options(),
+        "NodeToNodeEncryptionOptions" => aws_elasticsearch_domain_node_to_node_encryption_options(),
+        "ServiceSoftwareOptions" => aws_elasticsearch_domain_service_software_options(),
+        "VPCOptions" => aws_elasticsearch_domain_vpc_options()
+      }
+
+  """
+  @type aws_elasticsearch_domain_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_local_ip_details() :: %{
+        "IpAddressV4" => String.t() | atom()
+      }
+
+  """
+  @type action_local_ip_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_administrator_invitation_request() :: %{
+        required("AdministratorId") => String.t() | atom(),
+        required("InvitationId") => String.t() | atom()
+      }
+
+  """
+  @type accept_administrator_invitation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_health_check_details() :: %{
+        "Command" => list(String.t() | atom()),
+        "Interval" => integer(),
+        "Retries" => integer(),
+        "StartPeriod" => integer(),
+        "Timeout" => integer()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_health_check_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      status_reason() :: %{
+        "Description" => String.t() | atom(),
+        "ReasonCode" => String.t() | atom()
+      }
+
+  """
+  @type status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_instance_profile_role() :: %{
+        "Arn" => String.t() | atom(),
+        "AssumeRolePolicyDocument" => String.t() | atom(),
+        "CreateDate" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "RoleId" => String.t() | atom(),
+        "RoleName" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_instance_profile_role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_v2_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("Provider") => list()
+      }
+
+  """
+  @type create_connector_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_step_function_state_machine_logging_configuration_destinations_details() :: %{
+        "CloudWatchLogsLogGroup" => aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details()
+      }
+
+  """
+  @type aws_step_function_state_machine_logging_configuration_destinations_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommended_policy_v2_response() :: %{
+        "Error" => recommendation_error(),
+        "NextToken" => String.t() | atom(),
+        "RecommendationSteps" => list(list()),
+        "RecommendationType" => list(any()),
+        "ResourceArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_recommended_policy_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_rate_based_rule_details() :: %{
+        "MatchPredicates" => list(aws_waf_rate_based_rule_match_predicate()),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RateKey" => String.t() | atom(),
+        "RateLimit" => float(),
+        "RuleId" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_rate_based_rule_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_result() :: %{
+        "AccountId" => String.t() | atom(),
+        "FindingsSummary" => list(resource_findings_summary()),
+        "Region" => String.t() | atom(),
+        "ResourceCategory" => list(any()),
+        "ResourceConfig" => any(),
+        "ResourceCreationTimeDt" => String.t() | atom(),
+        "ResourceDetailCaptureTimeDt" => String.t() | atom(),
+        "ResourceGuid" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceTags" => list(resource_tag()),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enum_list_configuration_options() :: %{
+        "AllowedValues" => list(String.t() | atom()),
+        "DefaultValue" => list(String.t() | atom()),
+        "MaxItems" => integer()
+      }
+
+  """
+  @type enum_list_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trends_metrics_result() :: %{
+        "Timestamp" => non_neg_integer(),
+        "TrendsValues" => trends_values()
+      }
+
+  """
+  @type trends_metrics_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_products_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProductArn") => String.t() | atom()
+      }
+
+  """
+  @type describe_products_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_standards_control_associations_request() :: %{
+        required("StandardsControlAssociationIds") => list(standards_control_association_id())
+      }
+
+  """
+  @type batch_get_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_security_group_details() :: %{
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "IpPermissions" => list(aws_ec2_security_group_ip_permission()),
+        "IpPermissionsEgress" => list(aws_ec2_security_group_ip_permission()),
+        "OwnerId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_security_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_security_hub_v2_request() :: %{}
+
+  """
+  @type disable_security_hub_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_recovery_point_details() :: %{
+        "BackupSizeInBytes" => float(),
+        "BackupVaultArn" => String.t() | atom(),
+        "BackupVaultName" => String.t() | atom(),
+        "CalculatedLifecycle" => aws_backup_recovery_point_calculated_lifecycle_details(),
+        "CompletionDate" => String.t() | atom(),
+        "CreatedBy" => aws_backup_recovery_point_created_by_details(),
+        "CreationDate" => String.t() | atom(),
+        "EncryptionKeyArn" => String.t() | atom(),
+        "IamRoleArn" => String.t() | atom(),
+        "IsEncrypted" => boolean(),
+        "LastRestoreTime" => String.t() | atom(),
+        "Lifecycle" => aws_backup_recovery_point_lifecycle_details(),
+        "RecoveryPointArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SourceBackupVaultArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "StorageClass" => String.t() | atom()
+      }
+
+  """
+  @type aws_backup_recovery_point_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_app_sync_graph_ql_api_user_pool_config_details() :: %{
+        "AppIdClientRegex" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "DefaultAction" => String.t() | atom(),
+        "UserPoolId" => String.t() | atom()
+      }
+
+  """
+  @type aws_app_sync_graph_ql_api_user_pool_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_node_to_node_encryption_options_details() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_open_search_service_domain_node_to_node_encryption_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_details() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
+        "BackendServerDescriptions" => list(aws_elb_load_balancer_backend_server_description()),
+        "CanonicalHostedZoneName" => String.t() | atom(),
+        "CanonicalHostedZoneNameID" => String.t() | atom(),
+        "CreatedTime" => String.t() | atom(),
+        "DnsName" => String.t() | atom(),
+        "HealthCheck" => aws_elb_load_balancer_health_check(),
+        "Instances" => list(aws_elb_load_balancer_instance()),
+        "ListenerDescriptions" => list(aws_elb_load_balancer_listener_description()),
+        "LoadBalancerAttributes" => aws_elb_load_balancer_attributes(),
+        "LoadBalancerName" => String.t() | atom(),
+        "Policies" => aws_elb_load_balancer_policies(),
+        "Scheme" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "SourceSecurityGroup" => aws_elb_load_balancer_source_security_group(),
+        "Subnets" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_elb_load_balancer_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_rate_based_rule_details() :: %{
+        "MatchPredicates" => list(aws_waf_regional_rate_based_rule_match_predicate()),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RateKey" => String.t() | atom(),
+        "RateLimit" => float(),
+        "RuleId" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_rate_based_rule_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
+        "Namespace" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_system_controls_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpc_peering_connection_details() :: %{
+        "AccepterVpcInfo" => aws_ec2_vpc_peering_connection_vpc_info_details(),
+        "ExpirationTime" => String.t() | atom(),
+        "RequesterVpcInfo" => aws_ec2_vpc_peering_connection_vpc_info_details(),
+        "Status" => aws_ec2_vpc_peering_connection_status_details(),
+        "VpcPeeringConnectionId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpc_peering_connection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_statistics_v2_response() :: %{
+        "GroupByResults" => list(group_by_result())
+      }
+
+  """
+  @type get_finding_statistics_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rule_match_attributes_destination_ports() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+
+  """
+  @type rule_group_source_stateless_rule_match_attributes_destination_ports() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_members_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OnlyAssociated") => boolean()
+      }
+
+  """
+  @type list_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automation_rule_response() :: %{
+        "RuleArn" => String.t() | atom()
+      }
+
+  """
+  @type create_automation_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_geo_location() :: %{
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "Lat" => float(),
+        "Lon" => float()
+      }
+
+  """
+  @type network_geo_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_definition() :: %{
+        "ConfigurationOptions" => list(),
+        "Description" => String.t() | atom()
+      }
+
+  """
+  @type parameter_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      securityhub_record() :: %{
+        "JsonPath" => String.t() | atom(),
+        "RecordIndex" => float()
+      }
+
+  """
+  @type securityhub_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{
+        "DeviceName" => String.t() | atom(),
+        "Ebs" => aws_ec2_launch_template_data_block_device_mapping_set_ebs_details(),
+        "NoDevice" => String.t() | atom(),
+        "VirtualName" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_block_device_mapping_set_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_rule_group_rules_action_details() :: %{
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_rule_group_rules_action_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network() :: %{
+        "DestinationDomain" => String.t() | atom(),
+        "DestinationIpV4" => String.t() | atom(),
+        "DestinationIpV6" => String.t() | atom(),
+        "DestinationPort" => integer(),
+        "Direction" => list(any()),
+        "OpenPortRange" => port_range(),
+        "Protocol" => String.t() | atom(),
+        "SourceDomain" => String.t() | atom(),
+        "SourceIpV4" => String.t() | atom(),
+        "SourceIpV6" => String.t() | atom(),
+        "SourceMac" => String.t() | atom(),
+        "SourcePort" => integer()
+      }
+
+  """
+  @type network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_master_account_response() :: %{}
+
+  """
+  @type disassociate_from_master_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_finding_aggregators_response() :: %{
+        "FindingAggregators" => list(finding_aggregator()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_finding_aggregators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
+        "Count" => integer(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_elastic_inference_accelerator_set_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_eks_cluster_logging_cluster_logging_details() :: %{
+        "Enabled" => boolean(),
+        "Types" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_eks_cluster_logging_cluster_logging_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_response() :: %{
+        "Findings" => list(aws_security_finding()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_item() :: %{
+        "CustomOriginConfig" => aws_cloud_front_distribution_origin_custom_origin_config(),
+        "DomainName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "OriginPath" => String.t() | atom(),
+        "S3OriginConfig" => aws_cloud_front_distribution_origin_s3_origin_config()
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_custom_request_handling_details() :: %{
+        "InsertHeaders" => list(aws_wafv2_custom_http_header())
+      }
+
+  """
+  @type aws_wafv2_custom_request_handling_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_web_acl_captcha_config_details() :: %{
+        "ImmunityTimeProperty" => aws_wafv2_web_acl_captcha_config_immunity_time_property_details()
+      }
+
+  """
+  @type aws_wafv2_web_acl_captcha_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
+        "DataVolumeKMSKeyId" => String.t() | atom()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_versioning_configuration() :: %{
+        "IsMfaDeleteEnabled" => boolean(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_versioning_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details() :: %{
+        "InstancesDistribution" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details(),
+        "LaunchTemplate" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details()
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() :: %{
+        "Reason" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_ebs_volumes_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_cloud_provider_configuration() :: %{
+        "ProjectKey" => String.t() | atom()
+      }
+
+  """
+  @type jira_cloud_provider_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trends_values() :: %{
+        "SeverityTrends" => severity_trends_count()
+      }
+
+  """
+  @type trends_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_projection() :: %{
+        "NonKeyAttributes" => list(String.t() | atom()),
+        "ProjectionType" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_projection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_web_acl_rules_list_action_details() :: %{
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_web_acl_rules_list_action_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_container_details() :: %{
+        "Image" => String.t() | atom(),
+        "MountPoints" => list(aws_mount_point()),
+        "Name" => String.t() | atom(),
+        "Privileged" => boolean()
+      }
+
+  """
+  @type aws_ecs_container_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_security_hub_v2_response() :: %{
+        "HubV2Arn" => String.t() | atom(),
+        "SubscribedAt" => String.t() | atom()
+      }
+
+  """
+  @type describe_security_hub_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_private_dns_name_options_details() :: %{
+        "EnableResourceNameDnsAAAARecord" => boolean(),
+        "EnableResourceNameDnsARecord" => boolean(),
+        "HostnameType" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_private_dns_name_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_details() :: %{
+        "ClusterInfo" => aws_msk_cluster_cluster_info_details()
+      }
+
+  """
+  @type aws_msk_cluster_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpc_peering_connection_status_details() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpc_peering_connection_status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_gateway_access_log_settings() :: %{
+        "DestinationArn" => String.t() | atom(),
+        "Format" => String.t() | atom()
+      }
+
+  """
+  @type aws_api_gateway_access_log_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      association_set_details() :: %{
+        "AssociationState" => association_state_details(),
+        "GatewayId" => String.t() | atom(),
+        "Main" => boolean(),
+        "RouteTableAssociationId" => String.t() | atom(),
+        "RouteTableId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+
+  """
+  @type association_set_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_subnet_details() :: %{
+        "AssignIpv6AddressOnCreation" => boolean(),
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "AvailableIpAddressCount" => integer(),
+        "CidrBlock" => String.t() | atom(),
+        "DefaultForAz" => boolean(),
+        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
+        "MapPublicIpOnLaunch" => boolean(),
+        "OwnerId" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "SubnetArn" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_subnet_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_v2_response() :: %{
+        "Connectors" => list(connector_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss() :: %{
+        "Adjustments" => list(adjustment()),
+        "BaseScore" => float(),
+        "BaseVector" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type cvss() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_list_configuration_options() :: %{
+        "DefaultValue" => list(String.t() | atom()),
+        "ExpressionDescription" => String.t() | atom(),
+        "MaxItems" => integer(),
+        "Re2Expression" => String.t() | atom()
+      }
+
+  """
+  @type string_list_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_security_hub_v2_request() :: %{}
+
+  """
+  @type describe_security_hub_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_rate_based_rule_match_predicate() :: %{
+        "DataId" => String.t() | atom(),
+        "Negated" => boolean(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_rate_based_rule_match_predicate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_security_hub_v2_request() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type enable_security_hub_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      double_configuration_options() :: %{
+        "DefaultValue" => float(),
+        "Max" => float(),
+        "Min" => float()
+      }
+
+  """
+  @type double_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_environment_environment_variables_details() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_code_build_project_environment_environment_variables_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_visibility_config_details() :: %{
+        "CloudWatchMetricsEnabled" => boolean(),
+        "MetricName" => String.t() | atom(),
+        "SampledRequestsEnabled" => boolean()
+      }
+
+  """
+  @type aws_wafv2_visibility_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_security_control_definition_request() :: %{
+        required("SecurityControlId") => String.t() | atom()
+      }
+
+  """
+  @type get_security_control_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_scopes() :: %{
+        "AwsOrganizations" => list(aws_organization_scope())
+      }
+
+  """
+  @type resource_scopes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_cloud_detail() :: %{
+        "AuthStatus" => list(any()),
+        "AuthUrl" => String.t() | atom(),
+        "CloudId" => String.t() | atom(),
+        "Domain" => String.t() | atom(),
+        "ProjectKey" => String.t() | atom()
+      }
+
+  """
+  @type jira_cloud_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_control_custom_parameter() :: %{
+        "Parameters" => map(),
+        "SecurityControlId" => String.t() | atom()
+      }
+
+  """
+  @type security_control_custom_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type workflow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_findings_request() :: %{
+        optional("Note") => note_update(),
+        optional("RecordState") => list(any()),
+        required("Filters") => aws_security_finding_filters()
+      }
+
+  """
+  @type update_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_client_authentication_sasl_details() :: %{
+        "Iam" => aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details(),
+        "Scram" => aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_client_authentication_sasl_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      organization_not_found_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type organization_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_findings_trends_v2_request() :: %{
+        optional("Filters") => findings_trends_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_findings_trends_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_access_key_session_context_attributes() :: %{
+        "CreationDate" => String.t() | atom(),
+        "MfaAuthenticated" => boolean()
+      }
+
+  """
+  @type aws_iam_access_key_session_context_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_invitations_count_response() :: %{
+        "InvitationsCount" => integer()
+      }
+
+  """
+  @type get_invitations_count_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
+        "AuthorizationConfig" => aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details(),
+        "FilesystemId" => String.t() | atom(),
+        "RootDirectory" => String.t() | atom(),
+        "TransitEncryption" => String.t() | atom(),
+        "TransitEncryptionPort" => integer()
+      }
+
+  """
+  @type aws_ecs_task_definition_volumes_efs_volume_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_cloud_trail_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      remediation() :: %{
+        "Recommendation" => recommendation()
+      }
+
+  """
+  @type remediation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => string_filter()
+      }
+
+  """
+  @type ocsf_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_action_target_request() :: %{
+        required("Description") => String.t() | atom(),
+        required("Id") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_action_target_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13410,37 +6944,80 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      automation_rules_action_type_object_v2() :: %{
-        "Type" => list(any())
+      list_enabled_products_for_import_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type automation_rules_action_type_object_v2() :: %{(String.t() | atom()) => any()}
+  @type list_enabled_products_for_import_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      integer_configuration_options() :: %{
-        "DefaultValue" => integer(),
-        "Max" => integer(),
-        "Min" => integer()
+      aws_ec2_transit_gateway_details() :: %{
+        "AmazonSideAsn" => integer(),
+        "AssociationDefaultRouteTableId" => String.t() | atom(),
+        "AutoAcceptSharedAttachments" => String.t() | atom(),
+        "DefaultRouteTableAssociation" => String.t() | atom(),
+        "DefaultRouteTablePropagation" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DnsSupport" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MulticastSupport" => String.t() | atom(),
+        "PropagationDefaultRouteTableId" => String.t() | atom(),
+        "TransitGatewayCidrBlocks" => list(String.t() | atom()),
+        "VpnEcmpSupport" => String.t() | atom()
       }
 
   """
-  @type integer_configuration_options() :: %{(String.t() | atom()) => any()}
+  @type aws_ec2_transit_gateway_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_backup_recovery_point_calculated_lifecycle_details() :: %{
-        "DeleteAt" => String.t() | atom(),
-        "MoveToColdStorageAt" => String.t() | atom()
+      aws_ssm_patch_compliance_details() :: %{
+        "Patch" => aws_ssm_patch()
       }
 
   """
-  @type aws_backup_recovery_point_calculated_lifecycle_details() :: %{
+  @type aws_ssm_patch_compliance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vulnerability_code_vulnerabilities() :: %{
+        "Cwes" => list(String.t() | atom()),
+        "FilePath" => code_vulnerabilities_file_path(),
+        "SourceArn" => String.t() | atom()
+      }
+
+  """
+  @type vulnerability_code_vulnerabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
+        "AbortIncompleteMultipartUpload" => aws_s3_bucket_bucket_lifecycle_configuration_rules_abort_incomplete_multipart_upload_details(),
+        "ExpirationDate" => String.t() | atom(),
+        "ExpirationInDays" => integer(),
+        "ExpiredObjectDeleteMarker" => boolean(),
+        "Filter" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details(),
+        "ID" => String.t() | atom(),
+        "NoncurrentVersionExpirationInDays" => integer(),
+        "NoncurrentVersionTransitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details()),
+        "Prefix" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Transitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details())
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -13448,35 +7025,558 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      string_configuration_options() :: %{
-        "DefaultValue" => String.t() | atom(),
-        "ExpressionDescription" => String.t() | atom(),
-        "Re2Expression" => String.t() | atom()
+      port_probe_detail() :: %{
+        "LocalIpDetails" => action_local_ip_details(),
+        "LocalPortDetails" => action_local_port_details(),
+        "RemoteIpDetails" => action_remote_ip_details()
       }
 
   """
-  @type string_configuration_options() :: %{(String.t() | atom()) => any()}
+  @type port_probe_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_elbv2_load_balancer_details() :: %{
-        "AvailabilityZones" => list(availability_zone()),
-        "CanonicalHostedZoneId" => String.t() | atom(),
-        "CreatedTime" => String.t() | atom(),
-        "DNSName" => String.t() | atom(),
-        "IpAddressType" => String.t() | atom(),
-        "LoadBalancerAttributes" => list(aws_elbv2_load_balancer_attribute()),
-        "Scheme" => String.t() | atom(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "State" => load_balancer_state(),
+      resource_in_use_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_cluster_snapshot_copy_status() :: %{
+        "DestinationRegion" => String.t() | atom(),
+        "ManualSnapshotRetentionPeriod" => integer(),
+        "RetentionPeriod" => integer(),
+        "SnapshotCopyGrantName" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_cluster_snapshot_copy_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automation_rule_v2_response() :: %{}
+
+  """
+  @type update_automation_rule_v2_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_master_account_request() :: %{}
+
+  """
+  @type disassociate_from_master_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_rule_group_details() :: %{
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom(),
+        "Rules" => list(aws_waf_regional_rule_group_rules_details())
+      }
+
+  """
+  @type aws_waf_regional_rule_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_rule_group_rules_details() :: %{
+        "Action" => aws_waf_rule_group_rules_action_details(),
+        "Priority" => integer(),
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_rule_group_rules_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{
+        "GroupName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StreamName" => String.t() | atom()
+      }
+
+  """
+  @type aws_code_build_project_logs_config_cloud_watch_logs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_configuration_policy_associations_request() :: %{
+        required("ConfigurationPolicyAssociationIdentifiers") => list(configuration_policy_association())
+      }
+
+  """
+  @type batch_get_configuration_policy_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecr_repository_image_scanning_configuration_details() :: %{
+        "ScanOnPush" => boolean()
+      }
+
+  """
+  @type aws_ecr_repository_image_scanning_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_access_point_details() :: %{
+        "AccessPointArn" => String.t() | atom(),
+        "Alias" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "BucketAccountId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NetworkOrigin" => String.t() | atom(),
+        "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
+        "VpcConfiguration" => aws_s3_access_point_vpc_configuration_details()
+      }
+
+  """
+  @type aws_s3_access_point_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_instance_associated_role() :: %{
+        "FeatureName" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_instance_associated_role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_client_authentication_sasl_iam_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_policy_version() :: %{
+        "CreateDate" => String.t() | atom(),
+        "IsDefaultVersion" => boolean(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_policy_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_vpc_options() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VPCId" => String.t() | atom()
+      }
+
+  """
+  @type aws_elasticsearch_domain_vpc_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_history_record() :: %{
+        "FindingCreated" => boolean(),
+        "FindingIdentifier" => aws_security_finding_identifier(),
+        "NextToken" => String.t() | atom(),
+        "UpdateSource" => finding_history_update_source(),
+        "UpdateTime" => non_neg_integer(),
+        "Updates" => list(finding_history_update())
+      }
+
+  """
+  @type finding_history_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      adjustment() :: %{
+        "Metric" => String.t() | atom(),
+        "Reason" => String.t() | atom()
+      }
+
+  """
+  @type adjustment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_master_account_request() :: %{}
+
+  """
+  @type get_master_account_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_filters() :: %{
+        "CompositeFilters" => list(resources_composite_filter()),
+        "CompositeOperator" => list(any())
+      }
+
+  """
+  @type resources_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_members_response() :: %{
+        "Members" => list(member()),
+        "UnprocessedAccounts" => list(result())
+      }
+
+  """
+  @type get_members_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_function_code() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom(),
+        "ZipFile" => String.t() | atom()
+      }
+
+  """
+  @type aws_lambda_function_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() :: %{
+        "InstanceType" => String.t() | atom(),
+        "WeightedCapacity" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_access_key_session_context_session_issuer() :: %{
+        "AccountId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
         "Type" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_access_key_session_context_session_issuer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      note() :: %{
+        "Text" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom(),
+        "UpdatedBy" => String.t() | atom()
+      }
+
+  """
+  @type note() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_attribute_definition() :: %{
+        "AttributeName" => String.t() | atom(),
+        "AttributeType" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_attribute_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_security_group_ipv6_range() :: %{
+        "CidrIpv6" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_security_group_ipv6_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_automation_rules_request() :: %{
+        required("UpdateAutomationRulesRequestItems") => list(update_automation_rules_request_item())
+      }
+
+  """
+  @type batch_update_automation_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_security_group_details() :: %{
+        "DbSecurityGroupArn" => String.t() | atom(),
+        "DbSecurityGroupDescription" => String.t() | atom(),
+        "DbSecurityGroupName" => String.t() | atom(),
+        "Ec2SecurityGroups" => list(aws_rds_db_security_group_ec2_security_group()),
+        "IpRanges" => list(aws_rds_db_security_group_ip_range()),
+        "OwnerId" => String.t() | atom(),
         "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_elbv2_load_balancer_details() :: %{(String.t() | atom()) => any()}
+  @type aws_rds_db_security_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      severity_update() :: %{
+        "Label" => list(any()),
+        "Normalized" => integer(),
+        "Product" => float()
+      }
+
+  """
+  @type severity_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      threat_intel_indicator() :: %{
+        "Category" => list(any()),
+        "LastObservedAt" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "SourceUrl" => String.t() | atom(),
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type threat_intel_indicator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_domain_endpoint_options() :: %{
+        "EnforceHTTPS" => boolean(),
+        "TLSSecurityPolicy" => String.t() | atom()
+      }
+
+  """
+  @type aws_elasticsearch_domain_domain_endpoint_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_finding_aggregator_request() :: %{
+        optional("Regions") => list(String.t() | atom()),
+        required("RegionLinkingMode") => String.t() | atom()
+      }
+
+  """
+  @type create_finding_aggregator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpc_endpoint_service_service_type_details() :: %{
+        "ServiceType" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpc_endpoint_service_service_type_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
+        "Route" => String.t() | atom()
+      }
+
+  """
+  @type aws_events_endpoint_routing_config_failover_config_secondary_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_standards_control_associations_response() :: %{
+        "UnprocessedAssociationUpdates" => list(unprocessed_standards_control_association_update())
+      }
+
+  """
+  @type batch_update_standards_control_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details() :: %{
+        "Max" => float(),
+        "Min" => float()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_athena_work_group_details() :: %{
+        "Configuration" => aws_athena_work_group_configuration_details(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type aws_athena_work_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_trends_filters() :: %{
+        "CompositeFilters" => list(resources_trends_composite_filter()),
+        "CompositeOperator" => list(any())
+      }
+
+  """
+  @type resources_trends_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      parameter_configuration() :: %{
+        "Value" => list(),
+        "ValueType" => list(any())
+      }
+
+  """
+  @type parameter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_web_acl_rules_list_override_action_details() :: %{
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_web_acl_rules_list_override_action_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
+        "LogDriver" => String.t() | atom(),
+        "Options" => map(),
+        "SecretOptions" => list(aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details())
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_standards_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StandardsSubscriptionArns") => list(String.t() | atom())
+      }
+
+  """
+  @type get_enabled_standards_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13493,41 +7593,930 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_ec2_route_table_details() :: %{
-        "AssociationSet" => list(association_set_details()),
-        "OwnerId" => String.t() | atom(),
-        "PropagatingVgwSet" => list(propagating_vgw_set_details()),
-        "RouteSet" => list(route_set_details()),
-        "RouteTableId" => String.t() | atom(),
+      aws_ec2_instance_network_interfaces_details() :: %{
+        "NetworkInterfaceId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_instance_network_interfaces_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_variables_port_sets_details() :: %{
+        "Definition" => list(String.t() | atom())
+      }
+
+  """
+  @type rule_group_variables_port_sets_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_cluster_node() :: %{
+        "NodeRole" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom(),
+        "PublicIpAddress" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_cluster_node() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_rules_details() :: %{
+        "Action" => aws_wafv2_rules_action_details(),
+        "Name" => String.t() | atom(),
+        "OverrideAction" => String.t() | atom(),
+        "Priority" => integer(),
+        "VisibilityConfig" => aws_wafv2_visibility_config_details()
+      }
+
+  """
+  @type aws_wafv2_rules_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_certificate_manager_certificate_renewal_summary() :: %{
+        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
+        "RenewalStatus" => String.t() | atom(),
+        "RenewalStatusReason" => String.t() | atom(),
+        "UpdatedAt" => String.t() | atom()
+      }
+
+  """
+  @type aws_certificate_manager_certificate_renewal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{
+        "Base" => integer(),
+        "CapacityProvider" => String.t() | atom(),
+        "Weight" => integer()
+      }
+
+  """
+  @type aws_ecs_cluster_default_capacity_provider_strategy_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() :: %{
+        "OnDemandAllocationStrategy" => String.t() | atom(),
+        "OnDemandBaseCapacity" => integer(),
+        "OnDemandPercentageAboveBaseCapacity" => integer(),
+        "SpotAllocationStrategy" => String.t() | atom(),
+        "SpotInstancePools" => integer(),
+        "SpotMaxPrice" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_summary() :: %{
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ProviderSummary" => provider_summary()
+      }
+
+  """
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_function_tracing_config() :: %{
+        "Mode" => String.t() | atom()
+      }
+
+  """
+  @type aws_lambda_function_tracing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_control_association_detail() :: %{
+        "AssociationStatus" => list(any()),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "SecurityControlArn" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
+        "StandardsControlArns" => list(String.t() | atom()),
+        "StandardsControlDescription" => String.t() | atom(),
+        "StandardsControlTitle" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedReason" => String.t() | atom()
+      }
+
+  """
+  @type standards_control_association_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_details() :: %{
+        "ClientAuthentication" => aws_msk_cluster_cluster_info_client_authentication_details(),
+        "ClusterName" => String.t() | atom(),
+        "CurrentVersion" => String.t() | atom(),
+        "EncryptionInfo" => aws_msk_cluster_cluster_info_encryption_info_details(),
+        "EnhancedMonitoring" => String.t() | atom(),
+        "NumberOfBrokerNodes" => integer()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_details() :: %{
+        "Artifacts" => list(aws_code_build_project_artifacts_details()),
+        "EncryptionKey" => String.t() | atom(),
+        "Environment" => aws_code_build_project_environment(),
+        "LogsConfig" => aws_code_build_project_logs_config_details(),
+        "Name" => String.t() | atom(),
+        "SecondaryArtifacts" => list(aws_code_build_project_artifacts_details()),
+        "ServiceRole" => String.t() | atom(),
+        "Source" => aws_code_build_project_source(),
+        "VpcConfig" => aws_code_build_project_vpc_config()
+      }
+
+  """
+  @type aws_code_build_project_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_kubernetes_details() :: %{
+        "AuditLogs" => aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_kubernetes_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_custom_http_header() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_wafv2_custom_http_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_secrets_manager_secret_details() :: %{
+        "Deleted" => boolean(),
+        "Description" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RotationEnabled" => boolean(),
+        "RotationLambdaArn" => String.t() | atom(),
+        "RotationOccurredWithinFrequency" => boolean(),
+        "RotationRules" => aws_secrets_manager_secret_rotation_rules()
+      }
+
+  """
+  @type aws_secrets_manager_secret_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details() :: %{
+        "DeleteOnTermination" => boolean(),
+        "Encrypted" => boolean(),
+        "Iops" => integer(),
+        "SnapshotId" => String.t() | atom(),
+        "VolumeSize" => integer(),
+        "VolumeType" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessed_automation_rule() :: %{
+        "ErrorCode" => integer(),
+        "ErrorMessage" => String.t() | atom(),
+        "RuleArn" => String.t() | atom()
+      }
+
+  """
+  @type unprocessed_automation_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      firewall_policy_stateful_rule_group_references_details() :: %{
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type firewall_policy_stateful_rule_group_references_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommended_policy_v2_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_recommended_policy_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_athena_work_group_configuration_details() :: %{
+        "ResultConfiguration" => aws_athena_work_group_configuration_result_configuration_details()
+      }
+
+  """
+  @type aws_athena_work_group_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ipv6_cidr_block_association() :: %{
+        "AssociationId" => String.t() | atom(),
+        "CidrBlockState" => String.t() | atom(),
+        "Ipv6CidrBlock" => String.t() | atom()
+      }
+
+  """
+  @type ipv6_cidr_block_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_conflict_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_control() :: %{
+        "ControlId" => String.t() | atom(),
+        "ControlStatus" => list(any()),
+        "ControlStatusUpdatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisabledReason" => String.t() | atom(),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "RemediationUrl" => String.t() | atom(),
+        "SeverityRating" => list(any()),
+        "StandardsControlArn" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type standards_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessed_standards_control_association_update() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorReason" => String.t() | atom(),
+        "StandardsControlAssociationUpdate" => standards_control_association_update()
+      }
+
+  """
+  @type unprocessed_standards_control_association_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_history_update_source() :: %{
+        "Identity" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type finding_history_update_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      actor() :: %{
+        "Id" => String.t() | atom(),
+        "Session" => actor_session(),
+        "User" => actor_user()
+      }
+
+  """
+  @type actor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_security_finding_filters() :: %{
+        "ThreatIntelIndicatorType" => list(string_filter()),
+        "NoteUpdatedBy" => list(string_filter()),
+        "RecordState" => list(string_filter()),
+        "ResourceApplicationArn" => list(string_filter()),
+        "Region" => list(string_filter()),
+        "ProcessName" => list(string_filter()),
+        "GeneratorId" => list(string_filter()),
+        "ProcessTerminatedAt" => list(date_filter()),
+        "ResourceContainerImageName" => list(string_filter()),
+        "ThreatIntelIndicatorLastObservedAt" => list(date_filter()),
+        "WorkflowState" => list(string_filter()),
+        "NetworkDestinationIpV6" => list(ip_filter()),
+        "FindingProviderFieldsRelatedFindingsProductArn" => list(string_filter()),
+        "Id" => list(string_filter()),
+        "ResourceId" => list(string_filter()),
+        "VulnerabilitiesExploitAvailable" => list(string_filter()),
+        "ProductArn" => list(string_filter()),
+        "AwsAccountName" => list(string_filter()),
+        "ResourceContainerLaunchedAt" => list(date_filter()),
+        "FindingProviderFieldsSeverityOriginal" => list(string_filter()),
+        "ResourceType" => list(string_filter()),
+        "ResourceAwsEc2InstanceIpV6Addresses" => list(ip_filter()),
+        "ResourceApplicationName" => list(string_filter()),
+        "ResourceTags" => list(map_filter()),
+        "RecommendationText" => list(string_filter()),
+        "Keyword" => list(keyword_filter()),
+        "ComplianceStatus" => list(string_filter()),
+        "ResourceAwsIamAccessKeyUserName" => list(string_filter()),
+        "ProcessPath" => list(string_filter()),
+        "MalwareName" => list(string_filter()),
+        "FindingProviderFieldsCriticality" => list(number_filter()),
+        "FindingProviderFieldsRelatedFindingsId" => list(string_filter()),
+        "ComplianceSecurityControlParametersName" => list(string_filter()),
+        "SeverityNormalized" => list(number_filter()),
+        "ResourceAwsIamAccessKeyPrincipalName" => list(string_filter()),
+        "ResourceAwsS3BucketOwnerId" => list(string_filter()),
+        "NetworkSourceIpV6" => list(ip_filter()),
+        "ResourceAwsEc2InstanceType" => list(string_filter()),
+        "Title" => list(string_filter()),
+        "NetworkSourceDomain" => list(string_filter()),
+        "CreatedAt" => list(date_filter()),
+        "ResourceAwsEc2InstanceLaunchedAt" => list(date_filter()),
+        "NetworkSourcePort" => list(number_filter()),
+        "UpdatedAt" => list(date_filter()),
+        "ProcessPid" => list(number_filter()),
+        "UserDefinedFields" => list(map_filter()),
+        "MalwareState" => list(string_filter()),
+        "NetworkDestinationPort" => list(number_filter()),
+        "Type" => list(string_filter()),
+        "RelatedFindingsProductArn" => list(string_filter()),
+        "NoteText" => list(string_filter()),
+        "FindingProviderFieldsTypes" => list(string_filter()),
+        "ResourceAwsIamAccessKeyStatus" => list(string_filter()),
+        "ResourceAwsEc2InstanceIpV4Addresses" => list(ip_filter()),
+        "FirstObservedAt" => list(date_filter()),
+        "ProductName" => list(string_filter()),
+        "Confidence" => list(number_filter()),
+        "ResourceAwsIamUserUserName" => list(string_filter()),
+        "FindingProviderFieldsConfidence" => list(number_filter()),
+        "AwsAccountId" => list(string_filter()),
+        "NetworkSourceMac" => list(string_filter()),
+        "ThreatIntelIndicatorSource" => list(string_filter()),
+        "ResourceContainerImageId" => list(string_filter()),
+        "NetworkSourceIpV4" => list(ip_filter()),
+        "ResourceDetailsOther" => list(map_filter()),
+        "Criticality" => list(number_filter()),
+        "MalwarePath" => list(string_filter()),
+        "ComplianceSecurityControlId" => list(string_filter()),
+        "Description" => list(string_filter()),
+        "MalwareType" => list(string_filter()),
+        "FindingProviderFieldsSeverityLabel" => list(string_filter()),
+        "SeverityProduct" => list(number_filter()),
+        "ProcessLaunchedAt" => list(date_filter()),
+        "ThreatIntelIndicatorSourceUrl" => list(string_filter()),
+        "ResourcePartition" => list(string_filter()),
+        "NetworkProtocol" => list(string_filter()),
+        "ComplianceAssociatedStandardsId" => list(string_filter()),
+        "ResourceAwsEc2InstanceImageId" => list(string_filter()),
+        "ThreatIntelIndicatorCategory" => list(string_filter()),
+        "ResourceContainerName" => list(string_filter()),
+        "ComplianceSecurityControlParametersValue" => list(string_filter()),
+        "VerificationState" => list(string_filter()),
+        "NetworkDestinationIpV4" => list(ip_filter()),
+        "WorkflowStatus" => list(string_filter()),
+        "SeverityLabel" => list(string_filter()),
+        "NoteUpdatedAt" => list(date_filter()),
+        "NetworkDestinationDomain" => list(string_filter()),
+        "ProductFields" => list(map_filter()),
+        "CompanyName" => list(string_filter()),
+        "ProcessParentPid" => list(number_filter()),
+        "ResourceRegion" => list(string_filter()),
+        "ResourceAwsEc2InstanceIamInstanceProfileArn" => list(string_filter()),
+        "ResourceAwsEc2InstanceKeyName" => list(string_filter()),
+        "ThreatIntelIndicatorValue" => list(string_filter()),
+        "VulnerabilitiesFixAvailable" => list(string_filter()),
+        "LastObservedAt" => list(date_filter()),
+        "RelatedFindingsId" => list(string_filter()),
+        "ResourceAwsEc2InstanceVpcId" => list(string_filter()),
+        "Sample" => list(boolean_filter()),
+        "ResourceAwsS3BucketOwnerName" => list(string_filter()),
+        "ResourceAwsEc2InstanceSubnetId" => list(string_filter()),
+        "ResourceAwsIamAccessKeyCreatedAt" => list(date_filter()),
+        "NetworkDirection" => list(string_filter()),
+        "SourceUrl" => list(string_filter())
+      }
+
+  """
+  @type aws_security_finding_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_config() :: %{
+        "Actions" => list(automation_rules_action()),
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Criteria" => automation_rules_finding_filters(),
+        "Description" => String.t() | atom(),
+        "IsTerminal" => boolean(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "RuleOrder" => integer(),
+        "RuleStatus" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type automation_rules_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_iam_instance_profile_details() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_iam_instance_profile_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_action_block_details() :: %{
+        "CustomResponse" => aws_wafv2_custom_response_details()
+      }
+
+  """
+  @type aws_wafv2_action_block_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
+        "Condition" => String.t() | atom(),
+        "ContainerName" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_depends_on_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      process_details() :: %{
+        "LaunchedAt" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ParentPid" => integer(),
+        "Path" => String.t() | atom(),
+        "Pid" => integer(),
+        "TerminatedAt" => String.t() | atom()
+      }
+
+  """
+  @type process_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_launch_configuration_metadata_options() :: %{
+        "HttpEndpoint" => String.t() | atom(),
+        "HttpPutResponseHopLimit" => integer(),
+        "HttpTokens" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_launch_configuration_metadata_options() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rule_match_attributes_destinations() :: %{
+        "AddressDefinition" => String.t() | atom()
+      }
+
+  """
+  @type rule_group_source_stateless_rule_match_attributes_destinations() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_logging() :: %{
+        "Bucket" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "IncludeCookies" => boolean(),
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_front_distribution_logging() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resources_v2_request() :: %{
+        optional("Filters") => resources_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Scopes") => resource_scopes(),
+        optional("SortCriteria") => list(sort_criterion())
+      }
+
+  """
+  @type get_resources_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_finding_filters() :: %{
+        "NoteUpdatedBy" => list(string_filter()),
+        "RecordState" => list(string_filter()),
+        "ResourceApplicationArn" => list(string_filter()),
+        "GeneratorId" => list(string_filter()),
+        "Id" => list(string_filter()),
+        "ResourceId" => list(string_filter()),
+        "ProductArn" => list(string_filter()),
+        "AwsAccountName" => list(string_filter()),
+        "ResourceType" => list(string_filter()),
+        "ResourceApplicationName" => list(string_filter()),
+        "ResourceTags" => list(map_filter()),
+        "ComplianceStatus" => list(string_filter()),
+        "Title" => list(string_filter()),
+        "CreatedAt" => list(date_filter()),
+        "UpdatedAt" => list(date_filter()),
+        "UserDefinedFields" => list(map_filter()),
+        "Type" => list(string_filter()),
+        "RelatedFindingsProductArn" => list(string_filter()),
+        "NoteText" => list(string_filter()),
+        "FirstObservedAt" => list(date_filter()),
+        "ProductName" => list(string_filter()),
+        "Confidence" => list(number_filter()),
+        "AwsAccountId" => list(string_filter()),
+        "ResourceDetailsOther" => list(map_filter()),
+        "Criticality" => list(number_filter()),
+        "ComplianceSecurityControlId" => list(string_filter()),
+        "Description" => list(string_filter()),
+        "ResourcePartition" => list(string_filter()),
+        "ComplianceAssociatedStandardsId" => list(string_filter()),
+        "VerificationState" => list(string_filter()),
+        "WorkflowStatus" => list(string_filter()),
+        "SeverityLabel" => list(string_filter()),
+        "NoteUpdatedAt" => list(date_filter()),
+        "CompanyName" => list(string_filter()),
+        "ResourceRegion" => list(string_filter()),
+        "LastObservedAt" => list(date_filter()),
+        "RelatedFindingsId" => list(string_filter()),
+        "SourceUrl" => list(string_filter())
+      }
+
+  """
+  @type automation_rules_finding_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dms_replication_task_details() :: %{
+        "CdcStartPosition" => String.t() | atom(),
+        "CdcStartTime" => String.t() | atom(),
+        "CdcStopPosition" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MigrationType" => String.t() | atom(),
+        "ReplicationInstanceArn" => String.t() | atom(),
+        "ReplicationTaskIdentifier" => String.t() | atom(),
+        "ReplicationTaskSettings" => String.t() | atom(),
+        "ResourceIdentifier" => String.t() | atom(),
+        "SourceEndpointArn" => String.t() | atom(),
+        "TableMappings" => String.t() | atom(),
+        "TargetEndpointArn" => String.t() | atom(),
+        "TaskData" => String.t() | atom()
+      }
+
+  """
+  @type aws_dms_replication_task_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_function_details() :: %{
+        "Architectures" => list(String.t() | atom()),
+        "Code" => aws_lambda_function_code(),
+        "CodeSha256" => String.t() | atom(),
+        "DeadLetterConfig" => aws_lambda_function_dead_letter_config(),
+        "Environment" => aws_lambda_function_environment(),
+        "FunctionName" => String.t() | atom(),
+        "Handler" => String.t() | atom(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LastModified" => String.t() | atom(),
+        "Layers" => list(aws_lambda_function_layer()),
+        "MasterArn" => String.t() | atom(),
+        "MemorySize" => integer(),
+        "PackageType" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "Runtime" => String.t() | atom(),
+        "Timeout" => integer(),
+        "TracingConfig" => aws_lambda_function_tracing_config(),
+        "Version" => String.t() | atom(),
+        "VpcConfig" => aws_lambda_function_vpc_config()
+      }
+
+  """
+  @type aws_lambda_function_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_instance_metadata_options() :: %{
+        "HttpEndpoint" => String.t() | atom(),
+        "HttpProtocolIpv6" => String.t() | atom(),
+        "HttpPutResponseHopLimit" => integer(),
+        "HttpTokens" => String.t() | atom(),
+        "InstanceMetadataTags" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_instance_metadata_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
+        "MinimumInstanceMetadataServiceVersion" => String.t() | atom()
+      }
+
+  """
+  @type aws_sage_maker_notebook_instance_metadata_service_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      stateless_custom_action_definition() :: %{
+        "PublishMetricAction" => stateless_custom_publish_metric_action()
+      }
+
+  """
+  @type stateless_custom_action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standards_control_association_summary() :: %{
+        "AssociationStatus" => list(any()),
+        "RelatedRequirements" => list(String.t() | atom()),
+        "SecurityControlArn" => String.t() | atom(),
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
+        "StandardsControlDescription" => String.t() | atom(),
+        "StandardsControlTitle" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedReason" => String.t() | atom()
+      }
+
+  """
+  @type standards_control_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_members_request() :: %{
+        required("AccountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_findings_unprocessed_finding() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "FindingIdentifier" => aws_security_finding_identifier()
+      }
+
+  """
+  @type batch_update_findings_unprocessed_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_website_configuration_routing_rule_condition() :: %{
+        "HttpErrorCodeReturnedEquals" => String.t() | atom(),
+        "KeyPrefixEquals" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_website_configuration_routing_rule_condition() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_instance_details() :: %{
+        "IamInstanceProfileArn" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "IpV4Addresses" => list(String.t() | atom()),
+        "IpV6Addresses" => list(String.t() | atom()),
+        "KeyName" => String.t() | atom(),
+        "LaunchedAt" => String.t() | atom(),
+        "MetadataOptions" => aws_ec2_instance_metadata_options(),
+        "Monitoring" => aws_ec2_instance_monitoring_details(),
+        "NetworkInterfaces" => list(aws_ec2_instance_network_interfaces_details()),
+        "SubnetId" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "VirtualizationType" => String.t() | atom(),
         "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_route_table_details() :: %{(String.t() | atom()) => any()}
+  @type aws_ec2_instance_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ip_filter() :: %{
-        "Cidr" => String.t() | atom()
+      associated_standard() :: %{
+        "StandardsId" => String.t() | atom()
       }
 
   """
-  @type ip_filter() :: %{(String.t() | atom()) => any()}
+  @type associated_standard() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_dms_replication_instance_vpc_security_groups_details() :: %{
-        "VpcSecurityGroupId" => String.t() | atom()
+      aws_network_firewall_firewall_policy_details() :: %{
+        "Description" => String.t() | atom(),
+        "FirewallPolicy" => firewall_policy_details(),
+        "FirewallPolicyArn" => String.t() | atom(),
+        "FirewallPolicyId" => String.t() | atom(),
+        "FirewallPolicyName" => String.t() | atom()
       }
 
   """
-  @type aws_dms_replication_instance_vpc_security_groups_details() :: %{
+  @type aws_network_firewall_firewall_policy_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "LogConfiguration" => aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details(),
+        "Logging" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_cluster_configuration_execute_command_configuration_details() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      severity_trends_count() :: %{
+        "Critical" => float(),
+        "Fatal" => float(),
+        "High" => float(),
+        "Informational" => float(),
+        "Low" => float(),
+        "Medium" => float(),
+        "Other" => float(),
+        "Unknown" => float()
+      }
+
+  """
+  @type severity_trends_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_server_side_encryption_by_default() :: %{
+        "KMSMasterKeyID" => String.t() | atom(),
+        "SSEAlgorithm" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_server_side_encryption_by_default() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13565,80 +8554,681 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      create_connector_v2_response() :: %{
-        "AuthUrl" => String.t() | atom(),
-        "ConnectorArn" => String.t() | atom(),
-        "ConnectorId" => String.t() | atom(),
-        "ConnectorStatus" => list(any())
+      aws_guard_duty_detector_data_sources_details() :: %{
+        "CloudTrail" => aws_guard_duty_detector_data_sources_cloud_trail_details(),
+        "DnsLogs" => aws_guard_duty_detector_data_sources_dns_logs_details(),
+        "FlowLogs" => aws_guard_duty_detector_data_sources_flow_logs_details(),
+        "Kubernetes" => aws_guard_duty_detector_data_sources_kubernetes_details(),
+        "MalwareProtection" => aws_guard_duty_detector_data_sources_malware_protection_details(),
+        "S3Logs" => aws_guard_duty_detector_data_sources_s3_logs_details()
       }
 
   """
-  @type create_connector_v2_response() :: %{(String.t() | atom()) => any()}
+  @type aws_guard_duty_detector_data_sources_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      number_filter() :: %{
-        "Eq" => float(),
-        "Gt" => float(),
-        "Gte" => float(),
-        "Lt" => float(),
-        "Lte" => float()
+      aws_rds_db_parameter_group() :: %{
+        "DbParameterGroupName" => String.t() | atom(),
+        "ParameterApplyStatus" => String.t() | atom()
       }
 
   """
-  @type number_filter() :: %{(String.t() | atom()) => any()}
+  @type aws_rds_db_parameter_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_lambda_function_environment_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      aws_events_endpoint_event_buses_details() :: %{
+        "EventBusArn" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_function_environment_error() :: %{(String.t() | atom()) => any()}
+  @type aws_events_endpoint_event_buses_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_wafv2_rules_action_captcha_details() :: %{
+      rule_group_source_custom_actions_details() :: %{
+        "ActionDefinition" => stateless_custom_action_definition(),
+        "ActionName" => String.t() | atom()
+      }
+
+  """
+  @type rule_group_source_custom_actions_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_sse_description() :: %{
+        "InaccessibleEncryptionDateTime" => String.t() | atom(),
+        "KmsMasterKeyArn" => String.t() | atom(),
+        "SseType" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_sse_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elastic_beanstalk_environment_tier() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type aws_elastic_beanstalk_environment_tier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_invitations_count_request() :: %{}
+
+  """
+  @type get_invitations_count_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_secrets_manager_secret_rotation_rules() :: %{
+        "AutomaticallyAfterDays" => integer()
+      }
+
+  """
+  @type aws_secrets_manager_secret_rotation_rules() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ssm_compliance_summary() :: %{
+        "ComplianceType" => String.t() | atom(),
+        "CompliantCriticalCount" => integer(),
+        "CompliantHighCount" => integer(),
+        "CompliantInformationalCount" => integer(),
+        "CompliantLowCount" => integer(),
+        "CompliantMediumCount" => integer(),
+        "CompliantUnspecifiedCount" => integer(),
+        "ExecutionType" => String.t() | atom(),
+        "NonCompliantCriticalCount" => integer(),
+        "NonCompliantHighCount" => integer(),
+        "NonCompliantInformationalCount" => integer(),
+        "NonCompliantLowCount" => integer(),
+        "NonCompliantMediumCount" => integer(),
+        "NonCompliantUnspecifiedCount" => integer(),
+        "OverallSeverity" => String.t() | atom(),
+        "PatchBaselineId" => String.t() | atom(),
+        "PatchGroup" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_ssm_compliance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_provider_severity() :: %{
+        "Label" => list(any()),
+        "Original" => String.t() | atom()
+      }
+
+  """
+  @type finding_provider_severity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
+        "BannerText" => String.t() | atom(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_logs_config_details() :: %{
+        "CloudWatchLogs" => aws_code_build_project_logs_config_cloud_watch_logs_details(),
+        "S3Logs" => aws_code_build_project_logs_config_s3_logs_details()
+      }
+
+  """
+  @type aws_code_build_project_logs_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_remote_port_details() :: %{
+        "Port" => integer(),
+        "PortName" => String.t() | atom()
+      }
+
+  """
+  @type action_remote_port_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_certificate_manager_certificate_details() :: %{
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
+        "ExtendedKeyUsages" => list(aws_certificate_manager_certificate_extended_key_usage()),
+        "FailureReason" => String.t() | atom(),
+        "ImportedAt" => String.t() | atom(),
+        "InUseBy" => list(String.t() | atom()),
+        "IssuedAt" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "KeyAlgorithm" => String.t() | atom(),
+        "KeyUsages" => list(aws_certificate_manager_certificate_key_usage()),
+        "NotAfter" => String.t() | atom(),
+        "NotBefore" => String.t() | atom(),
+        "Options" => aws_certificate_manager_certificate_options(),
+        "RenewalEligibility" => String.t() | atom(),
+        "RenewalSummary" => aws_certificate_manager_certificate_renewal_summary(),
+        "Serial" => String.t() | atom(),
+        "SignatureAlgorithm" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "SubjectAlternativeNames" => list(String.t() | atom()),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_certificate_manager_certificate_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_gateway_canary_settings() :: %{
+        "DeploymentId" => String.t() | atom(),
+        "PercentTraffic" => float(),
+        "StageVariableOverrides" => map(),
+        "UseStageCache" => boolean()
+      }
+
+  """
+  @type aws_api_gateway_canary_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_variables_ip_sets_details() :: %{
+        "Definition" => list(String.t() | atom())
+      }
+
+  """
+  @type rule_group_variables_ip_sets_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_dns_logs_details() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_dns_logs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() :: %{
+        "SamlProviderArn" => String.t() | atom(),
+        "SelfServiceSamlProviderArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_authentication_options_federated_authentication_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_rule_group_rules_action_details() :: %{
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_rule_group_rules_action_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disable_standards_response() :: %{
+        "StandardsSubscriptions" => list(standards_subscription())
+      }
+
+  """
+  @type batch_disable_standards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      port_probe_action() :: %{
+        "Blocked" => boolean(),
+        "PortProbeDetails" => list(port_probe_detail())
+      }
+
+  """
+  @type port_probe_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_by_result() :: %{
+        "GroupByField" => String.t() | atom(),
+        "GroupByValues" => list(group_by_value())
+      }
+
+  """
+  @type group_by_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_code_build_project_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_web_acl_rule() :: %{
+        "Action" => waf_action(),
+        "ExcludedRules" => list(waf_excluded_rule()),
+        "OverrideAction" => waf_override_action(),
+        "Priority" => integer(),
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_web_acl_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_action_allow_details() :: %{
         "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
       }
 
   """
-  @type aws_wafv2_rules_action_captcha_details() :: %{(String.t() | atom()) => any()}
+  @type aws_wafv2_action_allow_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      action_local_ip_details() :: %{
-        "IpAddressV4" => String.t() | atom()
+      aws_ecs_task_volume_host_details() :: %{
+        "SourcePath" => String.t() | atom()
       }
 
   """
-  @type action_local_ip_details() :: %{(String.t() | atom()) => any()}
+  @type aws_ecs_task_volume_host_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_efs_access_point_details() :: %{
-        "AccessPointId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "ClientToken" => String.t() | atom(),
-        "FileSystemId" => String.t() | atom(),
-        "PosixUser" => aws_efs_access_point_posix_user_details(),
-        "RootDirectory" => aws_efs_access_point_root_directory_details()
+      aws_rds_db_subnet_group_subnet_availability_zone() :: %{
+        "Name" => String.t() | atom()
       }
 
   """
-  @type aws_efs_access_point_details() :: %{(String.t() | atom()) => any()}
+  @type aws_rds_db_subnet_group_subnet_availability_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_encryption_at_rest_options() :: %{
+        "Enabled" => boolean(),
+        "KmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type aws_elasticsearch_domain_encryption_at_rest_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_cluster_details() :: %{
+        "ActiveServicesCount" => integer(),
+        "CapacityProviders" => list(String.t() | atom()),
+        "ClusterArn" => String.t() | atom(),
+        "ClusterName" => String.t() | atom(),
+        "ClusterSettings" => list(aws_ecs_cluster_cluster_settings_details()),
+        "Configuration" => aws_ecs_cluster_configuration_details(),
+        "DefaultCapacityProviderStrategy" => list(aws_ecs_cluster_default_capacity_provider_strategy_details()),
+        "RegisteredContainerInstancesCount" => integer(),
+        "RunningTasksCount" => integer(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_cluster_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_results() :: %{
+        "GroupByAttribute" => String.t() | atom(),
+        "InsightArn" => String.t() | atom(),
+        "ResultValues" => list(insight_result_value())
+      }
+
+  """
+  @type insight_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_web_acl_action_details() :: %{
+        "Allow" => aws_wafv2_action_allow_details(),
+        "Block" => aws_wafv2_action_block_details()
+      }
+
+  """
+  @type aws_wafv2_web_acl_action_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_enable_standards_request() :: %{
+        required("StandardsSubscriptionRequests") => list(standards_subscription_request())
+      }
+
+  """
+  @type batch_enable_standards_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_interface_ip_v6_address_detail() :: %{
+        "IpV6Address" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_network_interface_ip_v6_address_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automation_rule_request() :: %{
+        optional("IsTerminal") => boolean(),
+        optional("RuleStatus") => list(any()),
+        optional("Tags") => map(),
+        required("Actions") => list(automation_rules_action()),
+        required("Criteria") => automation_rules_finding_filters(),
+        required("Description") => String.t() | atom(),
+        required("RuleName") => String.t() | atom(),
+        required("RuleOrder") => integer()
+      }
+
+  """
+  @type create_automation_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_resource_requirements_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_configuration_response() :: %{
+        "AutoEnable" => boolean(),
+        "AutoEnableStandards" => list(any()),
+        "MemberAccountLimitReached" => boolean(),
+        "OrganizationConfiguration" => organization_configuration()
+      }
+
+  """
+  @type describe_organization_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_finding_filters() :: %{
+        "CompositeFilters" => list(composite_filter()),
+        "CompositeOperator" => list(any())
+      }
+
+  """
+  @type ocsf_finding_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_info_peering_options_details() :: %{
+        "AllowDnsResolutionFromRemoteVpc" => boolean(),
+        "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
+        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
+      }
+
+  """
+  @type vpc_info_peering_options_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_policy_request() :: %{}
+
+  """
+  @type delete_configuration_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_features_details() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_features_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_security_group_prefix_list_id() :: %{
+        "PrefixListId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_security_group_prefix_list_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_members_response() :: %{
+        "UnprocessedAccounts" => list(result())
+      }
+
+  """
+  @type create_members_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      action_target() :: %{
+        "ActionTargetArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type action_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_access_key_details() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "AccountId" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "PrincipalName" => String.t() | atom(),
+        "PrincipalType" => String.t() | atom(),
+        "SessionContext" => aws_iam_access_key_session_context(),
+        "Status" => list(any()),
+        "UserName" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_access_key_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_connector_v2_response() :: %{
+        "ConnectorArn" => String.t() | atom(),
+        "ConnectorId" => String.t() | atom()
+      }
+
+  """
+  @type register_connector_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
+        "Capabilities" => aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details(),
+        "Devices" => list(aws_ecs_task_definition_container_definitions_linux_parameters_devices_details()),
+        "InitProcessEnabled" => boolean(),
+        "MaxSwap" => integer(),
+        "SharedMemorySize" => integer(),
+        "Swappiness" => integer(),
+        "Tmpfs" => list(aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details())
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_access_key_session_context() :: %{
+        "Attributes" => aws_iam_access_key_session_context_attributes(),
+        "SessionIssuer" => aws_iam_access_key_session_context_session_issuer()
+      }
+
+  """
+  @type aws_iam_access_key_session_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_details() :: %{
+        "CapacityProviderStrategy" => list(aws_ecs_service_capacity_provider_strategy_details()),
+        "Cluster" => String.t() | atom(),
+        "DeploymentConfiguration" => aws_ecs_service_deployment_configuration_details(),
+        "DeploymentController" => aws_ecs_service_deployment_controller_details(),
+        "DesiredCount" => integer(),
+        "EnableEcsManagedTags" => boolean(),
+        "EnableExecuteCommand" => boolean(),
+        "HealthCheckGracePeriodSeconds" => integer(),
+        "LaunchType" => String.t() | atom(),
+        "LoadBalancers" => list(aws_ecs_service_load_balancers_details()),
+        "Name" => String.t() | atom(),
+        "NetworkConfiguration" => aws_ecs_service_network_configuration_details(),
+        "PlacementConstraints" => list(aws_ecs_service_placement_constraints_details()),
+        "PlacementStrategies" => list(aws_ecs_service_placement_strategies_details()),
+        "PlatformVersion" => String.t() | atom(),
+        "PropagateTags" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "SchedulingStrategy" => String.t() | atom(),
+        "ServiceArn" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceRegistries" => list(aws_ecs_service_service_registries_details()),
+        "TaskDefinition" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_service_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_sns_topic_subscription() :: %{
+        "Endpoint" => String.t() | atom(),
+        "Protocol" => String.t() | atom()
+      }
+
+  """
+  @type aws_sns_topic_subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13669,44 +9259,2390 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_elastic_beanstalk_environment_tier() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "Version" => String.t() | atom()
+      batch_update_findings_request() :: %{
+        optional("Confidence") => integer(),
+        optional("Criticality") => integer(),
+        optional("Note") => note_update(),
+        optional("RelatedFindings") => list(related_finding()),
+        optional("Severity") => severity_update(),
+        optional("Types") => list(String.t() | atom()),
+        optional("UserDefinedFields") => map(),
+        optional("VerificationState") => list(any()),
+        optional("Workflow") => workflow_update(),
+        required("FindingIdentifiers") => list(aws_security_finding_identifier())
       }
 
   """
-  @type aws_elastic_beanstalk_environment_tier() :: %{(String.t() | atom()) => any()}
+  @type batch_update_findings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_lambda_function_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
+      admin_account() :: %{
+        "AccountId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type admin_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_map_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => map_filter()
+      }
+
+  """
+  @type resources_map_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_info_ipv6_cidr_block_set_details() :: %{
+        "Ipv6CidrBlock" => String.t() | atom()
+      }
+
+  """
+  @type vpc_info_ipv6_cidr_block_set_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_action_targets_response() :: %{
+        "ActionTargets" => list(action_target()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_action_targets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enabled_products_for_import_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProductSubscriptions" => list(String.t() | atom())
+      }
+
+  """
+  @type list_enabled_products_for_import_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_rule_group_rules_details() :: %{
+        "Action" => aws_waf_regional_rule_group_rules_action_details(),
+        "Priority" => integer(),
+        "RuleId" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_rule_group_rules_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_policy_association() :: %{
+        "Target" => list()
+      }
+
+  """
+  @type configuration_policy_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
+        "ContainerPath" => String.t() | atom(),
+        "MountOptions" => list(String.t() | atom()),
+        "Size" => integer()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      association_state_details() :: %{
+        "State" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type association_state_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_security_group_ip_range() :: %{
+        "CidrIp" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_security_group_ip_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resources_statistics_v2_response() :: %{
+        "GroupByResults" => list(group_by_result())
+      }
+
+  """
+  @type get_resources_statistics_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_subnet_group() :: %{
+        "DbSubnetGroupArn" => String.t() | atom(),
+        "DbSubnetGroupDescription" => String.t() | atom(),
+        "DbSubnetGroupName" => String.t() | atom(),
+        "SubnetGroupStatus" => String.t() | atom(),
+        "Subnets" => list(aws_rds_db_subnet_group_subnet()),
         "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_lambda_function_vpc_config() :: %{(String.t() | atom()) => any()}
+  @type aws_rds_db_subnet_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_cloud_front_distribution_viewer_certificate() :: %{
-        "AcmCertificateArn" => String.t() | atom(),
-        "Certificate" => String.t() | atom(),
-        "CertificateSource" => String.t() | atom(),
-        "CloudFrontDefaultCertificate" => boolean(),
-        "IamCertificateId" => String.t() | atom(),
-        "MinimumProtocolVersion" => String.t() | atom(),
-        "SslSupportMethod" => String.t() | atom()
+      aws_certificate_manager_certificate_extended_key_usage() :: %{
+        "Name" => String.t() | atom(),
+        "OId" => String.t() | atom()
       }
 
   """
-  @type aws_cloud_front_distribution_viewer_certificate() :: %{(String.t() | atom()) => any()}
+  @type aws_certificate_manager_certificate_extended_key_usage() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessed_configuration_policy_association() :: %{
+        "ConfigurationPolicyAssociationIdentifiers" => configuration_policy_association(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorReason" => String.t() | atom()
+      }
+
+  """
+  @type unprocessed_configuration_policy_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_finding_history_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        required("FindingIdentifier") => aws_security_finding_identifier()
+      }
+
+  """
+  @type get_finding_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_security_group_ec2_security_group() :: %{
+        "Ec2SecurityGroupId" => String.t() | atom(),
+        "Ec2SecurityGroupName" => String.t() | atom(),
+        "Ec2SecurityGroupOwnerId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_security_group_ec2_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resources_trends_v2_response() :: %{
+        "Granularity" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "TrendsMetrics" => list(resources_trends_metrics_result())
+      }
+
+  """
+  @type get_resources_trends_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() :: %{
+        "EncryptionOption" => String.t() | atom(),
+        "KmsKey" => String.t() | atom()
+      }
+
+  """
+  @type aws_athena_work_group_configuration_result_configuration_encryption_configuration_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_interface_details() :: %{
+        "Attachment" => aws_ec2_network_interface_attachment(),
+        "IpV6Addresses" => list(aws_ec2_network_interface_ip_v6_address_detail()),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "PrivateIpAddresses" => list(aws_ec2_network_interface_private_ip_address_detail()),
+        "PublicDnsName" => String.t() | atom(),
+        "PublicIp" => String.t() | atom(),
+        "SecurityGroups" => list(aws_ec2_network_interface_security_group()),
+        "SourceDestCheck" => boolean()
+      }
+
+  """
+  @type aws_ec2_network_interface_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_web_acl_details() :: %{
+        "Arn" => String.t() | atom(),
+        "Capacity" => float(),
+        "CaptchaConfig" => aws_wafv2_web_acl_captcha_config_details(),
+        "DefaultAction" => aws_wafv2_web_acl_action_details(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ManagedbyFirewallManager" => boolean(),
+        "Name" => String.t() | atom(),
+        "Rules" => list(aws_wafv2_rules_details()),
+        "VisibilityConfig" => aws_wafv2_visibility_config_details()
+      }
+
+  """
+  @type aws_wafv2_web_acl_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      boolean_filter() :: %{
+        "Value" => boolean()
+      }
+
+  """
+  @type boolean_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_finding_aggregator_request() :: %{
+        optional("Regions") => list(String.t() | atom()),
+        required("FindingAggregatorArn") => String.t() | atom(),
+        required("RegionLinkingMode") => String.t() | atom()
+      }
+
+  """
+  @type update_finding_aggregator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elastic_beanstalk_environment_details() :: %{
+        "ApplicationName" => String.t() | atom(),
+        "Cname" => String.t() | atom(),
+        "DateCreated" => String.t() | atom(),
+        "DateUpdated" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EndpointUrl" => String.t() | atom(),
+        "EnvironmentArn" => String.t() | atom(),
+        "EnvironmentId" => String.t() | atom(),
+        "EnvironmentLinks" => list(aws_elastic_beanstalk_environment_environment_link()),
+        "EnvironmentName" => String.t() | atom(),
+        "OptionSettings" => list(aws_elastic_beanstalk_environment_option_setting()),
+        "PlatformArn" => String.t() | atom(),
+        "SolutionStackName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Tier" => aws_elastic_beanstalk_environment_tier(),
+        "VersionLabel" => String.t() | atom()
+      }
+
+  """
+  @type aws_elastic_beanstalk_environment_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_instance_endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom(),
+        "Port" => integer()
+      }
+
+  """
+  @type aws_rds_db_instance_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_aggregator_v2_request() :: %{}
+
+  """
+  @type get_aggregator_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
+        "ContainerPath" => String.t() | atom(),
+        "ReadOnly" => boolean(),
+        "SourceVolume" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_mount_points_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_launch_configuration_instance_monitoring_details() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_auto_scaling_launch_configuration_instance_monitoring_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_volumes_details() :: %{
+        "DockerVolumeConfiguration" => aws_ecs_task_definition_volumes_docker_volume_configuration_details(),
+        "EfsVolumeConfiguration" => aws_ecs_task_definition_volumes_efs_volume_configuration_details(),
+        "Host" => aws_ecs_task_definition_volumes_host_details(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_volumes_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_acl_entry() :: %{
+        "CidrBlock" => String.t() | atom(),
+        "Egress" => boolean(),
+        "IcmpTypeCode" => icmp_type_code(),
+        "Ipv6CidrBlock" => String.t() | atom(),
+        "PortRange" => port_range_from_to(),
+        "Protocol" => String.t() | atom(),
+        "RuleAction" => String.t() | atom(),
+        "RuleNumber" => integer()
+      }
+
+  """
+  @type aws_ec2_network_acl_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_eks_cluster_resources_vpc_config_details() :: %{
+        "EndpointPublicAccess" => boolean(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_eks_cluster_resources_vpc_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_enabled_standards_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "StandardsSubscriptions" => list(standards_subscription())
+      }
+
+  """
+  @type get_enabled_standards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_finding_aggregators_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_finding_aggregators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      findings_trends_filters() :: %{
+        "CompositeFilters" => list(findings_trends_composite_filter()),
+        "CompositeOperator" => list(any())
+      }
+
+  """
+  @type findings_trends_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_block_device_mapping_set_ebs_details() :: %{
+        "DeleteOnTermination" => boolean(),
+        "Encrypted" => boolean(),
+        "Iops" => integer(),
+        "KmsKeyId" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom(),
+        "Throughput" => integer(),
+        "VolumeSize" => integer(),
+        "VolumeType" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_block_device_mapping_set_ebs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_watch_alarm_dimensions_details() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_watch_alarm_dimensions_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      composite_filter() :: %{
+        "BooleanFilters" => list(ocsf_boolean_filter()),
+        "DateFilters" => list(ocsf_date_filter()),
+        "IpFilters" => list(ocsf_ip_filter()),
+        "MapFilters" => list(ocsf_map_filter()),
+        "NestedCompositeFilters" => list(composite_filter()),
+        "NumberFilters" => list(ocsf_number_filter()),
+        "Operator" => list(any()),
+        "StringFilters" => list(ocsf_string_filter())
+      }
+
+  """
+  @type composite_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_attributes() :: %{
+        "AccessLog" => aws_elb_load_balancer_access_log(),
+        "AdditionalAttributes" => list(aws_elb_load_balancer_additional_attribute()),
+        "ConnectionDraining" => aws_elb_load_balancer_connection_draining(),
+        "ConnectionSettings" => aws_elb_load_balancer_connection_settings(),
+        "CrossZoneLoadBalancing" => aws_elb_load_balancer_cross_zone_load_balancing()
+      }
+
+  """
+  @type aws_elb_load_balancer_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
+        "CertificateAuthorityArnList" => list(String.t() | atom()),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_route53_hosted_zone_object_details() :: %{
+        "Config" => aws_route53_hosted_zone_config_details(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type aws_route53_hosted_zone_object_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_backup_plan_advanced_backup_settings_details() :: %{
+        "BackupOptions" => map(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type aws_backup_backup_plan_advanced_backup_settings_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_eip_details() :: %{
+        "AllocationId" => String.t() | atom(),
+        "AssociationId" => String.t() | atom(),
+        "Domain" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "NetworkBorderGroup" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "NetworkInterfaceOwnerId" => String.t() | atom(),
+        "PrivateIpAddress" => String.t() | atom(),
+        "PublicIp" => String.t() | atom(),
+        "PublicIpv4Pool" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_eip_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_ticket_v2_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Mode") => list(any()),
+        required("ConnectorId") => String.t() | atom(),
+        required("FindingMetadataUid") => String.t() | atom()
+      }
+
+  """
+  @type create_ticket_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_service_registries_details() :: %{
+        "ContainerName" => String.t() | atom(),
+        "ContainerPort" => integer(),
+        "Port" => integer(),
+        "RegistryArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_service_service_registries_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_details() :: %{
+        "ContainerRuntime" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "ImageName" => String.t() | atom(),
+        "LaunchedAt" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Privileged" => boolean(),
+        "VolumeMounts" => list(volume_mount())
+      }
+
+  """
+  @type container_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_automation_rules_response() :: %{
+        "ProcessedAutomationRules" => list(String.t() | atom()),
+        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
+      }
+
+  """
+  @type batch_update_automation_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_path_component_details() :: %{
+        "Address" => list(String.t() | atom()),
+        "PortRanges" => list(port_range())
+      }
+
+  """
+  @type network_path_component_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_xray_encryption_config_details() :: %{
+        "KeyId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_xray_encryption_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_instance_details() :: %{
+        "ReadReplicaSourceDBInstanceIdentifier" => String.t() | atom(),
+        "CharacterSetName" => String.t() | atom(),
+        "BackupRetentionPeriod" => integer(),
+        "Endpoint" => aws_rds_db_instance_endpoint(),
+        "DBInstanceIdentifier" => String.t() | atom(),
+        "StorageType" => String.t() | atom(),
+        "CACertificateIdentifier" => String.t() | atom(),
+        "PerformanceInsightsKmsKeyId" => String.t() | atom(),
+        "DBClusterIdentifier" => String.t() | atom(),
+        "DBInstanceClass" => String.t() | atom(),
+        "CopyTagsToSnapshot" => boolean(),
+        "MasterUsername" => String.t() | atom(),
+        "MonitoringRoleArn" => String.t() | atom(),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "AssociatedRoles" => list(aws_rds_db_instance_associated_role()),
+        "OptionGroupMemberships" => list(aws_rds_db_option_group_membership()),
+        "PubliclyAccessible" => boolean(),
+        "DomainMemberships" => list(aws_rds_db_domain_membership()),
+        "LatestRestorableTime" => String.t() | atom(),
+        "ReadReplicaDBInstanceIdentifiers" => list(String.t() | atom()),
+        "DbInstanceStatus" => String.t() | atom(),
+        "InstanceCreateTime" => String.t() | atom(),
+        "EnabledCloudWatchLogsExports" => list(String.t() | atom()),
+        "ListenerEndpoint" => aws_rds_db_instance_endpoint(),
+        "Timezone" => String.t() | atom(),
+        "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
+        "MultiAz" => boolean(),
+        "StorageEncrypted" => boolean(),
+        "DbParameterGroups" => list(aws_rds_db_parameter_group()),
+        "StatusInfos" => list(aws_rds_db_status_info()),
+        "KmsKeyId" => String.t() | atom(),
+        "DeletionProtection" => boolean(),
+        "DbSecurityGroups" => list(String.t() | atom()),
+        "AvailabilityZone" => String.t() | atom(),
+        "PendingModifiedValues" => aws_rds_db_pending_modified_values(),
+        "LicenseModel" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
+        "EnhancedMonitoringResourceArn" => String.t() | atom(),
+        "IAMDatabaseAuthenticationEnabled" => boolean(),
+        "PerformanceInsightsRetentionPeriod" => integer(),
+        "MonitoringInterval" => integer(),
+        "AllocatedStorage" => integer(),
+        "EngineVersion" => String.t() | atom(),
+        "MaxAllocatedStorage" => integer(),
+        "SecondaryAvailabilityZone" => String.t() | atom(),
+        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
+        "DbInstancePort" => integer(),
+        "Engine" => String.t() | atom(),
+        "PerformanceInsightsEnabled" => boolean(),
+        "DbSubnetGroup" => aws_rds_db_subnet_group(),
+        "PreferredBackupWindow" => String.t() | atom(),
+        "Iops" => integer(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "PromotionTier" => integer(),
+        "ReadReplicaDBClusterIdentifiers" => list(String.t() | atom()),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "DBName" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_recovery_point_lifecycle_details() :: %{
+        "DeleteAfterDays" => float(),
+        "MoveToColdStorageAfterDays" => float()
+      }
+
+  """
+  @type aws_backup_recovery_point_lifecycle_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automation_rule_v2_request() :: %{}
+
+  """
+  @type get_automation_rule_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_policy_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ServiceEnabled" => boolean(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type configuration_policy_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_members_request() :: %{
+        required("AccountDetails") => list(account_details())
+      }
+
+  """
+  @type create_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_automation_rules_request() :: %{
+        required("AutomationRulesArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_automation_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{
+        "DayOfWeek" => String.t() | atom(),
+        "TimeOfDay" => String.t() | atom(),
+        "TimeZone" => String.t() | atom()
+      }
+
+  """
+  @type aws_amazon_mq_broker_maintenance_window_start_time_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_action_target_response() :: %{
+        "ActionTargetArn" => String.t() | atom()
+      }
+
+  """
+  @type create_action_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_connection_settings() :: %{
+        "IdleTimeout" => integer()
+      }
+
+  """
+  @type aws_elb_load_balancer_connection_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_instance_vpc_security_group() :: %{
+        "Status" => String.t() | atom(),
+        "VpcSecurityGroupId" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_instance_vpc_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_finding_identifier() :: %{
+        "CloudAccountUid" => String.t() | atom(),
+        "FindingInfoUid" => String.t() | atom(),
+        "MetadataProductUid" => String.t() | atom()
+      }
+
+  """
+  @type ocsf_finding_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_role_details() :: %{
+        "AssumeRolePolicyDocument" => String.t() | atom(),
+        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
+        "CreateDate" => String.t() | atom(),
+        "InstanceProfileList" => list(aws_iam_instance_profile()),
+        "MaxSessionDuration" => integer(),
+        "Path" => String.t() | atom(),
+        "PermissionsBoundary" => aws_iam_permissions_boundary(),
+        "RoleId" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
+        "RolePolicyList" => list(aws_iam_role_policy())
+      }
+
+  """
+  @type aws_iam_role_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_backup_plan_details() :: %{
+        "BackupPlan" => aws_backup_backup_plan_backup_plan_details(),
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type aws_backup_backup_plan_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_backup_plan_backup_plan_details() :: %{
+        "AdvancedBackupSettings" => list(aws_backup_backup_plan_advanced_backup_settings_details()),
+        "BackupPlanName" => String.t() | atom(),
+        "BackupPlanRule" => list(aws_backup_backup_plan_rule_details())
+      }
+
+  """
+  @type aws_backup_backup_plan_backup_plan_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_input_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_domain_membership() :: %{
+        "Domain" => String.t() | atom(),
+        "Fqdn" => String.t() | atom(),
+        "IamRoleName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_domain_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
+        "Date" => String.t() | atom(),
+        "Days" => integer(),
+        "StorageClass" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_volume_details() :: %{
+        "Attachments" => list(aws_ec2_volume_attachment()),
+        "CreateTime" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "Encrypted" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "Size" => integer(),
+        "SnapshotId" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "VolumeId" => String.t() | atom(),
+        "VolumeScanStatus" => String.t() | atom(),
+        "VolumeType" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_volume_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_attached_managed_policy() :: %{
+        "PolicyArn" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_attached_managed_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_acl_association() :: %{
+        "NetworkAclAssociationId" => String.t() | atom(),
+        "NetworkAclId" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_network_acl_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      city() :: %{
+        "CityName" => String.t() | atom()
+      }
+
+  """
+  @type city() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_findings_v2_response() :: %{
+        "ProcessedFindings" => list(batch_update_findings_v2_processed_finding()),
+        "UnprocessedFindings" => list(batch_update_findings_v2_unprocessed_finding())
+      }
+
+  """
+  @type batch_update_findings_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_events_endpoint_details() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
+        "EndpointUrl" => String.t() | atom(),
+        "EventBuses" => list(aws_events_endpoint_event_buses_details()),
+        "Name" => String.t() | atom(),
+        "ReplicationConfig" => aws_events_endpoint_replication_config_details(),
+        "RoleArn" => String.t() | atom(),
+        "RoutingConfig" => aws_events_endpoint_routing_config_details(),
+        "State" => String.t() | atom(),
+        "StateReason" => String.t() | atom()
+      }
+
+  """
+  @type aws_events_endpoint_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_disable_standards_request() :: %{
+        required("StandardsSubscriptionArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_disable_standards_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_environment_registry_credential() :: %{
+        "Credential" => String.t() | atom(),
+        "CredentialProvider" => String.t() | atom()
+      }
+
+  """
+  @type aws_code_build_project_environment_registry_credential() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_logs_config_s3_logs_details() :: %{
+        "EncryptionDisabled" => boolean(),
+        "Location" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_code_build_project_logs_config_s3_logs_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automation_rule_v2_request() :: %{
+        optional("Actions") => list(automation_rules_action_v2()),
+        optional("Criteria") => list(),
+        optional("Description") => String.t() | atom(),
+        optional("RuleName") => String.t() | atom(),
+        optional("RuleOrder") => float(),
+        optional("RuleStatus") => list(any())
+      }
+
+  """
+  @type update_automation_rule_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_standards_control_request() :: %{
+        optional("ControlStatus") => list(any()),
+        optional("DisabledReason") => String.t() | atom()
+      }
+
+  """
+  @type update_standards_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() :: %{
+        "LaunchTemplateId" => String.t() | atom(),
+        "LaunchTemplateName" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_kms_key_details() :: %{
+        "AWSAccountId" => String.t() | atom(),
+        "CreationDate" => float(),
+        "Description" => String.t() | atom(),
+        "KeyId" => String.t() | atom(),
+        "KeyManager" => String.t() | atom(),
+        "KeyRotationStatus" => boolean(),
+        "KeyState" => String.t() | atom(),
+        "Origin" => String.t() | atom()
+      }
+
+  """
+  @type aws_kms_key_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integer_configuration_options() :: %{
+        "DefaultValue" => integer(),
+        "Max" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type integer_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vulnerability() :: %{
+        "CodeVulnerabilities" => list(vulnerability_code_vulnerabilities()),
+        "Cvss" => list(cvss()),
+        "EpssScore" => float(),
+        "ExploitAvailable" => list(any()),
+        "FixAvailable" => list(any()),
+        "Id" => String.t() | atom(),
+        "LastKnownExploitAt" => String.t() | atom(),
+        "ReferenceUrls" => list(String.t() | atom()),
+        "RelatedVulnerabilities" => list(String.t() | atom()),
+        "Vendor" => vulnerability_vendor(),
+        "VulnerablePackages" => list(software_package())
+      }
+
+  """
+  @type vulnerability() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_group_policy() :: %{
+        "PolicyName" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_group_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_cluster_associated_role() :: %{
+        "RoleArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_cluster_associated_role() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details() :: %{
+        "Max" => float(),
+        "Min" => float()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_total_local_storage_g_b_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_log_publishing_options() :: %{
+        "AuditLogs" => aws_elasticsearch_domain_log_publishing_options_log_config(),
+        "IndexSlowLogs" => aws_elasticsearch_domain_log_publishing_options_log_config(),
+        "SearchSlowLogs" => aws_elasticsearch_domain_log_publishing_options_log_config()
+      }
+
+  """
+  @type aws_elasticsearch_domain_log_publishing_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_invitation_request() :: %{
+        required("InvitationId") => String.t() | atom(),
+        required("MasterId") => String.t() | atom()
+      }
+
+  """
+  @type accept_invitation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_configuration_options() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "ExpressionDescription" => String.t() | atom(),
+        "Re2Expression" => String.t() | atom()
+      }
+
+  """
+  @type string_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_v2_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Provider") => list()
+      }
+
+  """
+  @type update_connector_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_header() :: %{
+        "Destination" => network_path_component_details(),
+        "Protocol" => String.t() | atom(),
+        "Source" => network_path_component_details()
+      }
+
+  """
+  @type network_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() :: %{
+        "Add" => list(String.t() | atom()),
+        "Drop" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_v_cpu_count_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_market_options_details() :: %{
+        "MarketType" => String.t() | atom(),
+        "SpotOptions" => aws_ec2_launch_template_data_instance_market_options_spot_options_details()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_market_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_members_response() :: %{
+        "UnprocessedAccounts" => list(result())
+      }
+
+  """
+  @type delete_members_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_processor_feature() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_processor_feature() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
+        "HealthCheck" => String.t() | atom()
+      }
+
+  """
+  @type aws_events_endpoint_routing_config_failover_config_primary_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      resources_trends_metrics_result() :: %{
+        "Timestamp" => non_neg_integer(),
+        "TrendsValues" => resources_trends_values()
+      }
+
+  """
+  @type resources_trends_metrics_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
+        "ScanEc2InstanceWithFindings" => aws_guard_duty_detector_data_sources_malware_protection_scan_ec2_instance_with_findings_details(),
+        "ServiceRole" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_malware_protection_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      threat() :: %{
+        "FilePaths" => list(file_paths()),
+        "ItemCount" => integer(),
+        "Name" => String.t() | atom(),
+        "Severity" => String.t() | atom()
+      }
+
+  """
+  @type threat() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_cluster_configuration_details() :: %{
+        "ExecuteCommandConfiguration" => aws_ecs_cluster_configuration_execute_command_configuration_details()
+      }
+
+  """
+  @type aws_ecs_cluster_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
+        "Days" => integer(),
+        "Mode" => String.t() | atom(),
+        "Years" => integer()
+      }
+
+  """
+  @type aws_s3_bucket_object_lock_configuration_rule_default_retention_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_automation_rules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_automation_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_action_v2() :: %{
+        "ExternalIntegrationConfiguration" => external_integration_configuration(),
+        "FindingFieldsUpdate" => automation_rules_finding_fields_update_v2(),
+        "Type" => list(any())
+      }
+
+  """
+  @type automation_rules_action_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invite_members_request() :: %{
+        required("AccountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type invite_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "Port" => integer()
+      }
+
+  """
+  @type aws_redshift_cluster_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_findings_summary() :: %{
+        "FindingType" => String.t() | atom(),
+        "ProductName" => String.t() | atom(),
+        "Severities" => resource_severity_breakdown(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type resource_findings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_vpc_options_details() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_open_search_service_domain_vpc_options_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_metadata() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IsTerminal" => boolean(),
+        "RuleArn" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "RuleOrder" => integer(),
+        "RuleStatus" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type automation_rules_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_configuration_request() :: %{}
+
+  """
+  @type describe_organization_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_import_findings_for_product_response() :: %{
+        "ProductSubscriptionArn" => String.t() | atom()
+      }
+
+  """
+  @type enable_import_findings_for_product_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
+        "AssignPublicIp" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Subnets" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecr_container_image_details() :: %{
+        "Architecture" => String.t() | atom(),
+        "ImageDigest" => String.t() | atom(),
+        "ImagePublishedAt" => String.t() | atom(),
+        "ImageTags" => list(String.t() | atom()),
+        "RegistryId" => String.t() | atom(),
+        "RepositoryName" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecr_container_image_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_security_hub_v2_response() :: %{}
+
+  """
+  @type disable_security_hub_v2_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_mount_point() :: %{
+        "ContainerPath" => String.t() | atom(),
+        "SourceVolume" => String.t() | atom()
+      }
+
+  """
+  @type aws_mount_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_iam_group_details() :: %{
+        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
+        "CreateDate" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "GroupPolicyList" => list(aws_iam_group_policy()),
+        "Path" => String.t() | atom()
+      }
+
+  """
+  @type aws_iam_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_from_administrator_account_response() :: %{}
+
+  """
+  @type disassociate_from_administrator_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      external_integration_configuration() :: %{
+        "ConnectorArn" => String.t() | atom()
+      }
+
+  """
+  @type external_integration_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_log_publishing_options_details() :: %{
+        "AuditLogs" => aws_open_search_service_domain_log_publishing_option(),
+        "IndexSlowLogs" => aws_open_search_service_domain_log_publishing_option(),
+        "SearchSlowLogs" => aws_open_search_service_domain_log_publishing_option()
+      }
+
+  """
+  @type aws_open_search_service_domain_log_publishing_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_insight_response() :: %{
+        "InsightArn" => String.t() | atom()
+      }
+
+  """
+  @type create_insight_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jira_cloud_update_configuration() :: %{
+        "ProjectKey" => String.t() | atom()
+      }
+
+  """
+  @type jira_cloud_update_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_option_group_membership() :: %{
+        "OptionGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_option_group_membership() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      number_filter() :: %{
+        "Eq" => float(),
+        "Gt" => float(),
+        "Gte" => float(),
+        "Lt" => float(),
+        "Lte" => float()
+      }
+
+  """
+  @type number_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_policy_association_request() :: %{
+        required("Target") => list()
+      }
+
+  """
+  @type get_configuration_policy_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_info_cidr_block_set_details() :: %{
+        "CidrBlock" => String.t() | atom()
+      }
+
+  """
+  @type vpc_info_cidr_block_set_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_monitoring_details() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_monitoring_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregator_v2() :: %{
+        "AggregatorV2Arn" => String.t() | atom()
+      }
+
+  """
+  @type aggregator_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_rules_action_captcha_details() :: %{
+        "CustomRequestHandling" => aws_wafv2_custom_request_handling_details()
+      }
+
+  """
+  @type aws_wafv2_rules_action_captcha_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
+        "Primary" => boolean(),
+        "PrivateIpAddress" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "Text" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_v2_response() :: %{}
+
+  """
+  @type update_connector_v2_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_amazon_mq_broker_ldap_server_metadata_details() :: %{
+        "Hosts" => list(String.t() | atom()),
+        "RoleBase" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
+        "RoleSearchMatching" => String.t() | atom(),
+        "RoleSearchSubtree" => boolean(),
+        "ServiceAccountUsername" => String.t() | atom(),
+        "UserBase" => String.t() | atom(),
+        "UserRoleName" => String.t() | atom(),
+        "UserSearchMatching" => String.t() | atom(),
+        "UserSearchSubtree" => boolean()
+      }
+
+  """
+  @type aws_amazon_mq_broker_ldap_server_metadata_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_cluster_member() :: %{
+        "DbClusterParameterGroupStatus" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
+        "IsClusterWriter" => boolean(),
+        "PromotionTier" => integer()
+      }
+
+  """
+  @type aws_rds_db_cluster_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automation_rules_v2_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_automation_rules_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automation_rules_response() :: %{
+        "AutomationRulesMetadata" => list(automation_rules_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_automation_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_aggregator() :: %{
+        "FindingAggregatorArn" => String.t() | atom()
+      }
+
+  """
+  @type finding_aggregator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rules_details() :: %{
+        "Priority" => integer(),
+        "RuleDefinition" => rule_group_source_stateless_rule_definition()
+      }
+
+  """
+  @type rule_group_source_stateless_rules_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
+        "LaunchTemplateId" => String.t() | atom(),
+        "LaunchTemplateName" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_placement_details() :: %{
+        "Affinity" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "HostId" => String.t() | atom(),
+        "HostResourceGroupArn" => String.t() | atom(),
+        "PartitionNumber" => integer(),
+        "SpreadDomain" => String.t() | atom(),
+        "Tenancy" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_placement_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpn_connection_vgw_telemetry_details() :: %{
+        "AcceptedRouteCount" => integer(),
+        "CertificateArn" => String.t() | atom(),
+        "LastStatusChange" => String.t() | atom(),
+        "OutsideIpAddress" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpn_connection_vgw_telemetry_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_action_target_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_action_target_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_log_publishing_option() :: %{
+        "CloudWatchLogsLogGroupArn" => String.t() | atom(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_open_search_service_domain_log_publishing_option() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_app_sync_graph_ql_api_details() :: %{
+        "AdditionalAuthenticationProviders" => list(aws_app_sync_graph_ql_api_additional_authentication_providers_details()),
+        "ApiId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AuthenticationType" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LambdaAuthorizerConfig" => aws_app_sync_graph_ql_api_lambda_authorizer_config_details(),
+        "LogConfig" => aws_app_sync_graph_ql_api_log_config_details(),
+        "Name" => String.t() | atom(),
+        "OpenIdConnectConfig" => aws_app_sync_graph_ql_api_open_id_connect_config_details(),
+        "UserPoolConfig" => aws_app_sync_graph_ql_api_user_pool_config_details(),
+        "WafWebAclArn" => String.t() | atom(),
+        "XrayEnabled" => boolean()
+      }
+
+  """
+  @type aws_app_sync_graph_ql_api_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details() :: %{
+        "Predicate" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      route_set_details() :: %{
+        "CarrierGatewayId" => String.t() | atom(),
+        "CoreNetworkArn" => String.t() | atom(),
+        "DestinationCidrBlock" => String.t() | atom(),
+        "DestinationIpv6CidrBlock" => String.t() | atom(),
+        "DestinationPrefixListId" => String.t() | atom(),
+        "EgressOnlyInternetGatewayId" => String.t() | atom(),
+        "GatewayId" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceOwnerId" => String.t() | atom(),
+        "LocalGatewayId" => String.t() | atom(),
+        "NatGatewayId" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom(),
+        "Origin" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom(),
+        "VpcPeeringConnectionId" => String.t() | atom()
+      }
+
+  """
+  @type route_set_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_findings_v2_unprocessed_finding() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorMessage" => String.t() | atom(),
+        "FindingIdentifier" => ocsf_finding_identifier(),
+        "MetadataUid" => String.t() | atom()
+      }
+
+  """
+  @type batch_update_findings_v2_unprocessed_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_date_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => date_filter()
+      }
+
+  """
+  @type ocsf_date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_custom_origin_config() :: %{
+        "HttpPort" => integer(),
+        "HttpsPort" => integer(),
+        "OriginKeepaliveTimeout" => integer(),
+        "OriginProtocolPolicy" => String.t() | atom(),
+        "OriginReadTimeout" => integer(),
+        "OriginSslProtocols" => aws_cloud_front_distribution_origin_ssl_protocols()
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_custom_origin_config() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      vulnerability_vendor() :: %{
+        "Name" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "VendorCreatedAt" => String.t() | atom(),
+        "VendorSeverity" => String.t() | atom(),
+        "VendorUpdatedAt" => String.t() | atom()
+      }
+
+  """
+  @type vulnerability_vendor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dms_replication_instance_replication_subnet_group_details() :: %{
+        "ReplicationSubnetGroupIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type aws_dms_replication_instance_replication_subnet_group_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_subnet_group_subnet() :: %{
+        "SubnetAvailabilityZone" => aws_rds_db_subnet_group_subnet_availability_zone(),
+        "SubnetIdentifier" => String.t() | atom(),
+        "SubnetStatus" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_db_subnet_group_subnet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_client_connect_options_status_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_policy_association_response() :: %{
+        "AssociationStatus" => list(any()),
+        "AssociationStatusMessage" => String.t() | atom(),
+        "AssociationType" => list(any()),
+        "ConfigurationPolicyId" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
+        "TargetType" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_configuration_policy_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_security_hub_request() :: %{}
+
+  """
+  @type disable_security_hub_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_details() :: %{
+        "AccessControlList" => String.t() | atom(),
+        "BucketLifecycleConfiguration" => aws_s3_bucket_bucket_lifecycle_configuration_details(),
+        "BucketLoggingConfiguration" => aws_s3_bucket_logging_configuration(),
+        "BucketNotificationConfiguration" => aws_s3_bucket_notification_configuration(),
+        "BucketVersioningConfiguration" => aws_s3_bucket_bucket_versioning_configuration(),
+        "BucketWebsiteConfiguration" => aws_s3_bucket_website_configuration(),
+        "CreatedAt" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ObjectLockConfiguration" => aws_s3_bucket_object_lock_configuration(),
+        "OwnerAccountId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "OwnerName" => String.t() | atom(),
+        "PublicAccessBlockConfiguration" => aws_s3_account_public_access_block_details(),
+        "ServerSideEncryptionConfiguration" => aws_s3_bucket_server_side_encryption_configuration()
+      }
+
+  """
+  @type aws_s3_bucket_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_details() :: %{
+        "RuleVariables" => rule_group_variables(),
+        "RulesSource" => rule_group_source()
+      }
+
+  """
+  @type rule_group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_security_control_definition_response() :: %{
+        "SecurityControlDefinition" => security_control_definition()
+      }
+
+  """
+  @type get_security_control_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type recommendation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_update() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type workflow_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_insight_request() :: %{
+        required("Filters") => aws_security_finding_filters(),
+        required("GroupByAttribute") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_insight_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_default_cache_behavior() :: %{
+        "ViewerProtocolPolicy" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_front_distribution_default_cache_behavior() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      boolean_configuration_options() :: %{
+        "DefaultValue" => boolean()
+      }
+
+  """
+  @type boolean_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_policy_request() :: %{}
+
+  """
+  @type get_configuration_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
+        "Items" => list(integer()),
+        "Quantity" => integer()
+      }
+
+  """
+  @type aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      cell() :: %{
+        "CellReference" => String.t() | atom(),
+        "Column" => float(),
+        "ColumnName" => String.t() | atom(),
+        "Row" => float()
+      }
+
+  """
+  @type cell() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_standards_control_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("SecurityControlId") => String.t() | atom()
+      }
+
+  """
+  @type list_standards_control_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dms_replication_instance_vpc_security_groups_details() :: %{
+        "VpcSecurityGroupId" => String.t() | atom()
+      }
+
+  """
+  @type aws_dms_replication_instance_vpc_security_groups_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      security_control_parameter() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => list(String.t() | atom())
+      }
+
+  """
+  @type security_control_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_credit_specification_details() :: %{
+        "CpuCredits" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_credit_specification_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      standards_control_association_id() :: %{
+        "SecurityControlId" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom()
+      }
+
+  """
+  @type standards_control_association_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_front_distribution_origins() :: %{
+        "Items" => list(aws_cloud_front_distribution_origin_item())
+      }
+
+  """
+  @type aws_cloud_front_distribution_origins() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_insight_response() :: %{
+        "InsightArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_insight_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpc_endpoint_service_details() :: %{
+        "AcceptanceRequired" => boolean(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "BaseEndpointDnsNames" => list(String.t() | atom()),
+        "GatewayLoadBalancerArns" => list(String.t() | atom()),
+        "ManagesVpcEndpoints" => boolean(),
+        "NetworkLoadBalancerArns" => list(String.t() | atom()),
+        "PrivateDnsName" => String.t() | atom(),
+        "ServiceId" => String.t() | atom(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceState" => String.t() | atom(),
+        "ServiceType" => list(aws_ec2_vpc_endpoint_service_service_type_details())
+      }
+
+  """
+  @type aws_ec2_vpc_endpoint_service_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13735,76 +11671,419 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      enable_security_hub_v2_request() :: %{
-        optional("Tags") => map()
+      aws_redshift_cluster_pending_modified_values() :: %{
+        "AutomatedSnapshotRetentionPeriod" => integer(),
+        "ClusterIdentifier" => String.t() | atom(),
+        "ClusterType" => String.t() | atom(),
+        "ClusterVersion" => String.t() | atom(),
+        "EncryptionType" => String.t() | atom(),
+        "EnhancedVpcRouting" => boolean(),
+        "MaintenanceTrackName" => String.t() | atom(),
+        "MasterUserPassword" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
+        "NumberOfNodes" => integer(),
+        "PubliclyAccessible" => boolean()
       }
 
   """
-  @type enable_security_hub_v2_request() :: %{(String.t() | atom()) => any()}
+  @type aws_redshift_cluster_pending_modified_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_amazon_mq_broker_details() :: %{
-        "AuthenticationStrategy" => String.t() | atom(),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "BrokerArn" => String.t() | atom(),
-        "BrokerId" => String.t() | atom(),
-        "BrokerName" => String.t() | atom(),
-        "DeploymentMode" => String.t() | atom(),
-        "EncryptionOptions" => aws_amazon_mq_broker_encryption_options_details(),
-        "EngineType" => String.t() | atom(),
-        "EngineVersion" => String.t() | atom(),
-        "HostInstanceType" => String.t() | atom(),
-        "LdapServerMetadata" => aws_amazon_mq_broker_ldap_server_metadata_details(),
-        "Logs" => aws_amazon_mq_broker_logs_details(),
-        "MaintenanceWindowStartTime" => aws_amazon_mq_broker_maintenance_window_start_time_details(),
-        "PubliclyAccessible" => boolean(),
-        "SecurityGroups" => list(String.t() | atom()),
-        "StorageType" => String.t() | atom(),
-        "SubnetIds" => list(String.t() | atom()),
-        "Users" => list(aws_amazon_mq_broker_users_details())
+      code_vulnerabilities_file_path() :: %{
+        "EndLine" => integer(),
+        "FileName" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
+        "StartLine" => integer()
       }
 
   """
-  @type aws_amazon_mq_broker_details() :: %{(String.t() | atom()) => any()}
+  @type code_vulnerabilities_file_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_finding_aggregator_response() :: %{
-        "FindingAggregationRegion" => String.t() | atom(),
-        "FindingAggregatorArn" => String.t() | atom(),
-        "RegionLinkingMode" => String.t() | atom(),
-        "Regions" => list(String.t() | atom())
+      list_security_control_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StandardsArn") => String.t() | atom()
       }
 
   """
-  @type update_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
+  @type list_security_control_definitions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      map_filter() :: %{
+      action() :: %{
+        "ActionType" => String.t() | atom(),
+        "AwsApiCallAction" => aws_api_call_action(),
+        "DnsRequestAction" => dns_request_action(),
+        "NetworkConnectionAction" => network_connection_action(),
+        "PortProbeAction" => port_probe_action()
+      }
+
+  """
+  @type action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rule_match_attributes_sources() :: %{
+        "AddressDefinition" => String.t() | atom()
+      }
+
+  """
+  @type rule_group_source_stateless_rule_match_attributes_sources() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_aggregator_v2_request() :: %{
+        optional("LinkedRegions") => list(String.t() | atom()),
+        required("RegionLinkingMode") => String.t() | atom()
+      }
+
+  """
+  @type update_aggregator_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_elastic_ip_status() :: %{
+        "ElasticIp" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_elastic_ip_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_cluster_parameter_status() :: %{
+        "ParameterApplyErrorDescription" => String.t() | atom(),
+        "ParameterApplyStatus" => String.t() | atom(),
+        "ParameterName" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_cluster_parameter_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_events_eventbus_details() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type aws_events_eventbus_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_products_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Products" => list(product())
+      }
+
+  """
+  @type describe_products_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_backend_server_description() :: %{
+        "InstancePort" => integer(),
+        "PolicyNames" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_elb_load_balancer_backend_server_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_node_to_node_encryption_options() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_elasticsearch_domain_node_to_node_encryption_options() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_events_endpoint_routing_config_details() :: %{
+        "FailoverConfig" => aws_events_endpoint_routing_config_failover_config_details()
+      }
+
+  """
+  @type aws_events_endpoint_routing_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_trends_composite_filter() :: %{
+        "NestedCompositeFilters" => list(resources_trends_composite_filter()),
+        "Operator" => list(any()),
+        "StringFilters" => list(resources_trends_string_filter())
+      }
+
+  """
+  @type resources_trends_composite_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      findings_trends_composite_filter() :: %{
+        "NestedCompositeFilters" => list(findings_trends_composite_filter()),
+        "Operator" => list(any()),
+        "StringFilters" => list(findings_trends_string_filter())
+      }
+
+  """
+  @type findings_trends_composite_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_standards_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Standards" => list(standard())
+      }
+
+  """
+  @type describe_standards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      string_filter() :: %{
         "Comparison" => list(any()),
-        "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
       }
 
   """
-  @type map_filter() :: %{(String.t() | atom()) => any()}
+  @type string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disable_security_hub_request() :: %{}
+      waf_action() :: %{
+        "Type" => String.t() | atom()
+      }
 
   """
-  @type disable_security_hub_request() :: %{}
+  @type waf_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_deployment_configuration_details() :: %{
+        "DeploymentCircuitBreaker" => aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details(),
+        "MaximumPercent" => integer(),
+        "MinimumHealthyPercent" => integer()
+      }
+
+  """
+  @type aws_ecs_service_deployment_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_notification_configuration_s3_key_filter() :: %{
+        "FilterRules" => list(aws_s3_bucket_notification_configuration_s3_key_filter_rule())
+      }
+
+  """
+  @type aws_s3_bucket_notification_configuration_s3_key_filter() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      indicator() :: %{
+        "Key" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type indicator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_classification_details() :: %{
+        "DetailedResultsLocation" => String.t() | atom(),
+        "Result" => classification_result()
+      }
+
+  """
+  @type data_classification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_function_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_lambda_function_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_data_identifiers_detections() :: %{
+        "Arn" => String.t() | atom(),
+        "Count" => float(),
+        "Name" => String.t() | atom(),
+        "Occurrences" => occurrences()
+      }
+
+  """
+  @type custom_data_identifiers_detections() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_instance_monitoring_details() :: %{
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_instance_monitoring_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_data_identifiers_result() :: %{
+        "Detections" => list(custom_data_identifiers_detections()),
+        "TotalCount" => float()
+      }
+
+  """
+  @type custom_data_identifiers_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_code_build_project_artifacts_details() :: %{
+        "ArtifactIdentifier" => String.t() | atom(),
+        "EncryptionDisabled" => boolean(),
+        "Location" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NamespaceType" => String.t() | atom(),
+        "OverrideArtifactName" => boolean(),
+        "Packaging" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_code_build_project_artifacts_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_organization_admin_account_response() :: %{
+        "AdminAccountId" => String.t() | atom(),
+        "Feature" => list(any())
+      }
+
+  """
+  @type enable_organization_admin_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_efs_access_point_posix_user_details() :: %{
+        "Gid" => String.t() | atom(),
+        "SecondaryGids" => list(String.t() | atom()),
+        "Uid" => String.t() | atom()
+      }
+
+  """
+  @type aws_efs_access_point_posix_user_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{
+        "Enabled" => boolean(),
+        "LambdaFunctionArn" => String.t() | atom(),
+        "Status" => aws_ec2_client_vpn_endpoint_client_connect_options_status_details()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_client_connect_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      generate_recommended_policy_v2_response() :: %{}
+
+  """
+  @type generate_recommended_policy_v2_response() :: %{}
 
   @typedoc """
 
@@ -13822,54 +12101,583 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_ecs_service_load_balancers_details() :: %{
-        "ContainerName" => String.t() | atom(),
-        "ContainerPort" => integer(),
-        "LoadBalancerName" => String.t() | atom(),
-        "TargetGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type aws_ecs_service_load_balancers_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessed_configuration_policy_association() :: %{
-        "ConfigurationPolicyAssociationIdentifiers" => configuration_policy_association(),
+      import_findings_error() :: %{
         "ErrorCode" => String.t() | atom(),
-        "ErrorReason" => String.t() | atom()
+        "ErrorMessage" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type unprocessed_configuration_policy_association() :: %{(String.t() | atom()) => any()}
+  @type import_findings_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_invitations_response() :: %{
-        "Invitations" => list(invitation()),
-        "NextToken" => String.t() | atom()
+      get_findings_trends_v2_response() :: %{
+        "Granularity" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "TrendsMetrics" => list(trends_metrics_result())
       }
 
   """
-  @type list_invitations_response() :: %{(String.t() | atom()) => any()}
+  @type get_findings_trends_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
-        "Options" => map(),
+      aws_redshift_cluster_restore_status() :: %{
+        "CurrentRestoreRateInMegaBytesPerSecond" => float(),
+        "ElapsedTimeInSeconds" => float(),
+        "EstimatedTimeToCompletionInSeconds" => float(),
+        "ProgressInMegaBytes" => float(),
+        "SnapshotSizeInMegaBytes" => float(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_restore_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stateless_custom_publish_metric_action() :: %{
+        "Dimensions" => list(stateless_custom_publish_metric_action_dimension())
+      }
+
+  """
+  @type stateless_custom_publish_metric_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_connection_draining() :: %{
+        "Enabled" => boolean(),
+        "Timeout" => integer()
+      }
+
+  """
+  @type aws_elb_load_balancer_connection_draining() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_recovery_point_created_by_details() :: %{
+        "BackupPlanArn" => String.t() | atom(),
+        "BackupPlanId" => String.t() | atom(),
+        "BackupPlanVersion" => String.t() | atom(),
+        "BackupRuleId" => String.t() | atom()
+      }
+
+  """
+  @type aws_backup_recovery_point_created_by_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_event_subscription_details() :: %{
+        "CustSubscriptionId" => String.t() | atom(),
+        "CustomerAwsId" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "EventCategoriesList" => list(String.t() | atom()),
+        "EventSubscriptionArn" => String.t() | atom(),
+        "SnsTopicArn" => String.t() | atom(),
+        "SourceIdsList" => list(String.t() | atom()),
+        "SourceType" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubscriptionCreationTime" => String.t() | atom()
+      }
+
+  """
+  @type aws_rds_event_subscription_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_rules_finding_fields_update() :: %{
+        "Confidence" => integer(),
+        "Criticality" => integer(),
+        "Note" => note_update(),
+        "RelatedFindings" => list(related_finding()),
+        "Severity" => severity_update(),
+        "Types" => list(String.t() | atom()),
+        "UserDefinedFields" => map(),
+        "VerificationState" => list(any()),
+        "Workflow" => workflow_update()
+      }
+
+  """
+  @type automation_rules_finding_fields_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product_v2() :: %{
+        "ActivationUrl" => String.t() | atom(),
+        "Categories" => list(String.t() | atom()),
+        "CompanyName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "IntegrationV2Types" => list(list(any())()),
+        "MarketplaceProductId" => String.t() | atom(),
+        "MarketplaceUrl" => String.t() | atom(),
+        "ProductV2Name" => String.t() | atom()
+      }
+
+  """
+  @type product_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_enable_standards_response() :: %{
+        "StandardsSubscriptions" => list(standards_subscription())
+      }
+
+  """
+  @type batch_enable_standards_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_object_details() :: %{
+        "ContentType" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => String.t() | atom(),
+        "SSEKMSKeyId" => String.t() | atom(),
+        "ServerSideEncryption" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_object_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result() :: %{
+        "AccountId" => String.t() | atom(),
+        "ProcessingResult" => String.t() | atom()
+      }
+
+  """
+  @type result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_amazon_mq_broker_logs_details() :: %{
+        "Audit" => boolean(),
+        "AuditLogGroup" => String.t() | atom(),
+        "General" => boolean(),
+        "GeneralLogGroup" => String.t() | atom(),
+        "Pending" => aws_amazon_mq_broker_logs_pending_details()
+      }
+
+  """
+  @type aws_amazon_mq_broker_logs_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elbv2_load_balancer_details() :: %{
+        "AvailabilityZones" => list(availability_zone()),
+        "CanonicalHostedZoneId" => String.t() | atom(),
+        "CreatedTime" => String.t() | atom(),
+        "DNSName" => String.t() | atom(),
+        "IpAddressType" => String.t() | atom(),
+        "LoadBalancerAttributes" => list(aws_elbv2_load_balancer_attribute()),
+        "Scheme" => String.t() | atom(),
+        "SecurityGroups" => list(String.t() | atom()),
+        "State" => load_balancer_state(),
+        "Type" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_elbv2_load_balancer_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_history_update() :: %{
+        "NewValue" => String.t() | atom(),
+        "OldValue" => String.t() | atom(),
+        "UpdatedField" => String.t() | atom()
+      }
+
+  """
+  @type finding_history_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_health_check() :: %{
+        "HealthyThreshold" => integer(),
+        "Interval" => integer(),
+        "Target" => String.t() | atom(),
+        "Timeout" => integer(),
+        "UnhealthyThreshold" => integer()
+      }
+
+  """
+  @type aws_elb_load_balancer_health_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() :: %{
+        "CapacityReservationId" => String.t() | atom(),
+        "CapacityReservationResourceGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_step_function_state_machine_logging_configuration_details() :: %{
+        "Destinations" => list(aws_step_function_state_machine_logging_configuration_destinations_details()),
+        "IncludeExecutionData" => boolean(),
+        "Level" => String.t() | atom()
+      }
+
+  """
+  @type aws_step_function_state_machine_logging_configuration_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      software_package() :: %{
+        "Architecture" => String.t() | atom(),
+        "Epoch" => String.t() | atom(),
+        "FilePath" => String.t() | atom(),
+        "FixedInVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "PackageManager" => String.t() | atom(),
+        "Release" => String.t() | atom(),
+        "Remediation" => String.t() | atom(),
+        "SourceLayerArn" => String.t() | atom(),
+        "SourceLayerHash" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type software_package() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      actor_session() :: %{
+        "CreatedTime" => float(),
+        "Issuer" => String.t() | atom(),
+        "MfaStatus" => list(any()),
+        "Uid" => String.t() | atom()
+      }
+
+  """
+  @type actor_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_finding_aggregator_response() :: %{
+        "FindingAggregationRegion" => String.t() | atom(),
+        "FindingAggregatorArn" => String.t() | atom(),
+        "RegionLinkingMode" => String.t() | atom(),
+        "Regions" => list(String.t() | atom())
+      }
+
+  """
+  @type create_finding_aggregator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
+        "Operands" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details()),
+        "Prefix" => String.t() | atom(),
+        "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type aws_ecs_task_definition_container_definitions_firelens_configuration_details() :: %{
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
+        "Hostname" => String.t() | atom(),
+        "IpAddress" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_extra_hosts_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_kinesis_stream_details() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RetentionPeriodHours" => integer(),
+        "ShardCount" => integer(),
+        "StreamEncryption" => aws_kinesis_stream_stream_encryption_details()
+      }
+
+  """
+  @type aws_kinesis_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_details() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "Containers" => list(aws_ecs_container_details()),
+        "CreatedAt" => String.t() | atom(),
+        "Group" => String.t() | atom(),
+        "StartedAt" => String.t() | atom(),
+        "StartedBy" => String.t() | atom(),
+        "TaskDefinitionArn" => String.t() | atom(),
+        "Version" => String.t() | atom(),
+        "Volumes" => list(aws_ecs_task_volume_details())
+      }
+
+  """
+  @type aws_ecs_task_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_interface_security_group() :: %{
+        "GroupId" => String.t() | atom(),
+        "GroupName" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_network_interface_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_maintenance_options_details() :: %{
+        "AutoRecovery" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_maintenance_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      action_local_port_details() :: %{
+        "Port" => integer(),
+        "PortName" => String.t() | atom()
+      }
+
+  """
+  @type action_local_port_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      actor_user() :: %{
+        "Account" => user_account(),
+        "CredentialUid" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Uid" => String.t() | atom()
+      }
+
+  """
+  @type actor_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unused_permissions_recommendation_step() :: %{
+        "ExistingPolicy" => String.t() | atom(),
+        "ExistingPolicyId" => String.t() | atom(),
+        "PolicyUpdatedAt" => non_neg_integer(),
+        "RecommendedAction" => String.t() | atom(),
+        "RecommendedPolicy" => String.t() | atom()
+      }
+
+  """
+  @type unused_permissions_recommendation_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_data_sources_s3_logs_details() :: %{
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_data_sources_s3_logs_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_backup_backup_plan_lifecycle_details() :: %{
+        "DeleteAfterDays" => float(),
+        "MoveToColdStorageAfterDays" => float()
+      }
+
+  """
+  @type aws_backup_backup_plan_lifecycle_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_details() :: %{
+        "AwsWafRegionalWebAcl" => aws_waf_regional_web_acl_details(),
+        "AwsAmazonMqBroker" => aws_amazon_mq_broker_details(),
+        "AwsApiGatewayV2Api" => aws_api_gateway_v2_api_details(),
+        "AwsNetworkFirewallRuleGroup" => aws_network_firewall_rule_group_details(),
+        "AwsEc2Vpc" => aws_ec2_vpc_details(),
+        "AwsRdsEventSubscription" => aws_rds_event_subscription_details(),
+        "AwsIamUser" => aws_iam_user_details(),
+        "AwsDmsEndpoint" => aws_dms_endpoint_details(),
+        "AwsCloudWatchAlarm" => aws_cloud_watch_alarm_details(),
+        "AwsWafRegionalRule" => aws_waf_regional_rule_details(),
+        "AwsKmsKey" => aws_kms_key_details(),
+        "AwsWafv2WebAcl" => aws_wafv2_web_acl_details(),
+        "AwsNetworkFirewallFirewall" => aws_network_firewall_firewall_details(),
+        "AwsBackupRecoveryPoint" => aws_backup_recovery_point_details(),
+        "AwsLambdaFunction" => aws_lambda_function_details(),
+        "AwsRoute53HostedZone" => aws_route53_hosted_zone_details(),
+        "AwsEcsTaskDefinition" => aws_ecs_task_definition_details(),
+        "AwsElasticsearchDomain" => aws_elasticsearch_domain_details(),
+        "AwsEc2VpcEndpointService" => aws_ec2_vpc_endpoint_service_details(),
+        "AwsCertificateManagerCertificate" => aws_certificate_manager_certificate_details(),
+        "AwsEc2Eip" => aws_ec2_eip_details(),
+        "AwsKinesisStream" => aws_kinesis_stream_details(),
+        "AwsEventsEventbus" => aws_events_eventbus_details(),
+        "AwsEcrRepository" => aws_ecr_repository_details(),
+        "AwsAutoScalingLaunchConfiguration" => aws_auto_scaling_launch_configuration_details(),
+        "AwsEcsService" => aws_ecs_service_details(),
+        "AwsSnsTopic" => aws_sns_topic_details(),
+        "AwsEventSchemasRegistry" => aws_event_schemas_registry_details(),
+        "AwsElbLoadBalancer" => aws_elb_load_balancer_details(),
+        "AwsEc2Instance" => aws_ec2_instance_details(),
+        "AwsS3Bucket" => aws_s3_bucket_details(),
+        "AwsSsmPatchCompliance" => aws_ssm_patch_compliance_details(),
+        "AwsEcsCluster" => aws_ecs_cluster_details(),
+        "AwsEc2NetworkAcl" => aws_ec2_network_acl_details(),
+        "AwsEksCluster" => aws_eks_cluster_details(),
+        "AwsRdsDbSecurityGroup" => aws_rds_db_security_group_details(),
+        "AwsApiGatewayStage" => aws_api_gateway_stage_details(),
+        "AwsCloudTrailTrail" => aws_cloud_trail_trail_details(),
+        "AwsIamRole" => aws_iam_role_details(),
+        "AwsSecretsManagerSecret" => aws_secrets_manager_secret_details(),
+        "AwsIamPolicy" => aws_iam_policy_details(),
+        "AwsWafRuleGroup" => aws_waf_rule_group_details(),
+        "AwsEc2VpnConnection" => aws_ec2_vpn_connection_details(),
+        "AwsRdsDbCluster" => aws_rds_db_cluster_details(),
+        "AwsAthenaWorkGroup" => aws_athena_work_group_details(),
+        "AwsStepFunctionStateMachine" => aws_step_function_state_machine_details(),
+        "AwsLambdaLayerVersion" => aws_lambda_layer_version_details(),
+        "AwsEc2SecurityGroup" => aws_ec2_security_group_details(),
+        "AwsEfsAccessPoint" => aws_efs_access_point_details(),
+        "AwsEc2NetworkInterface" => aws_ec2_network_interface_details(),
+        "AwsDmsReplicationTask" => aws_dms_replication_task_details(),
+        "AwsEc2VpcPeeringConnection" => aws_ec2_vpc_peering_connection_details(),
+        "AwsAutoScalingAutoScalingGroup" => aws_auto_scaling_auto_scaling_group_details(),
+        "AwsS3AccessPoint" => aws_s3_access_point_details(),
+        "AwsEc2LaunchTemplate" => aws_ec2_launch_template_details(),
+        "AwsWafWebAcl" => aws_waf_web_acl_details(),
+        "AwsMskCluster" => aws_msk_cluster_details(),
+        "AwsWafv2RuleGroup" => aws_wafv2_rule_group_details(),
+        "AwsSqsQueue" => aws_sqs_queue_details(),
+        "AwsEcrContainerImage" => aws_ecr_container_image_details(),
+        "AwsGuardDutyDetector" => aws_guard_duty_detector_details(),
+        "AwsApiGatewayV2Stage" => aws_api_gateway_v2_stage_details(),
+        "AwsCodeBuildProject" => aws_code_build_project_details(),
+        "AwsEc2Subnet" => aws_ec2_subnet_details(),
+        "AwsRdsDbClusterSnapshot" => aws_rds_db_cluster_snapshot_details(),
+        "AwsBackupBackupPlan" => aws_backup_backup_plan_details(),
+        "AwsDmsReplicationInstance" => aws_dms_replication_instance_details(),
+        "AwsEc2TransitGateway" => aws_ec2_transit_gateway_details(),
+        "AwsBackupBackupVault" => aws_backup_backup_vault_details(),
+        "AwsWafRateBasedRule" => aws_waf_rate_based_rule_details(),
+        "AwsIamGroup" => aws_iam_group_details(),
+        "AwsSageMakerNotebookInstance" => aws_sage_maker_notebook_instance_details(),
+        "AwsDynamoDbTable" => aws_dynamo_db_table_details(),
+        "AwsElasticBeanstalkEnvironment" => aws_elastic_beanstalk_environment_details(),
+        "AwsEc2ClientVpnEndpoint" => aws_ec2_client_vpn_endpoint_details(),
+        "Container" => container_details(),
+        "AwsCloudFrontDistribution" => aws_cloud_front_distribution_details(),
+        "AwsCloudFormationStack" => aws_cloud_formation_stack_details(),
+        "AwsRedshiftCluster" => aws_redshift_cluster_details(),
+        "AwsXrayEncryptionConfig" => aws_xray_encryption_config_details(),
+        "AwsRdsDbSnapshot" => aws_rds_db_snapshot_details(),
+        "AwsApiGatewayRestApi" => aws_api_gateway_rest_api_details(),
+        "AwsEcsContainer" => aws_ecs_container_details(),
+        "AwsS3Object" => aws_s3_object_details(),
+        "AwsElbv2LoadBalancer" => aws_elbv2_load_balancer_details(),
+        "AwsRdsDbInstance" => aws_rds_db_instance_details(),
+        "CodeRepository" => code_repository_details(),
+        "Other" => map(),
+        "AwsOpenSearchServiceDomain" => aws_open_search_service_domain_details(),
+        "AwsEventsEndpoint" => aws_events_endpoint_details(),
+        "AwsAppSyncGraphQlApi" => aws_app_sync_graph_ql_api_details(),
+        "AwsIamAccessKey" => aws_iam_access_key_details(),
+        "AwsWafRegionalRateBasedRule" => aws_waf_regional_rate_based_rule_details(),
+        "AwsWafRule" => aws_waf_rule_details(),
+        "AwsEcsTask" => aws_ecs_task_details(),
+        "AwsS3AccountPublicAccessBlock" => aws_s3_account_public_access_block_details(),
+        "AwsNetworkFirewallFirewallPolicy" => aws_network_firewall_firewall_policy_details(),
+        "AwsWafRegionalRuleGroup" => aws_waf_regional_rule_group_details(),
+        "AwsEc2RouteTable" => aws_ec2_route_table_details(),
+        "AwsEc2Volume" => aws_ec2_volume_details()
+      }
+
+  """
+  @type resource_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13895,27 +12703,78 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      indicator() :: %{
-        "Key" => String.t() | atom(),
+      signal() :: %{
+        "ActorIds" => list(String.t() | atom()),
+        "Count" => integer(),
+        "CreatedAt" => float(),
+        "EndpointIds" => list(String.t() | atom()),
+        "FirstSeenAt" => float(),
+        "Id" => String.t() | atom(),
+        "LastSeenAt" => float(),
+        "Name" => String.t() | atom(),
+        "ProductArn" => String.t() | atom(),
+        "ResourceIds" => list(String.t() | atom()),
+        "Severity" => float(),
+        "SignalIndicators" => list(indicator()),
         "Title" => String.t() | atom(),
         "Type" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
+        "UpdatedAt" => float()
       }
 
   """
-  @type indicator() :: %{(String.t() | atom()) => any()}
+  @type signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
-        "BannerText" => String.t() | atom(),
+      aws_events_endpoint_routing_config_failover_config_details() :: %{
+        "Primary" => aws_events_endpoint_routing_config_failover_config_primary_details(),
+        "Secondary" => aws_events_endpoint_routing_config_failover_config_secondary_details()
+      }
+
+  """
+  @type aws_events_endpoint_routing_config_failover_config_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_environment_details() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_environment_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_layer_version_details() :: %{
+        "CompatibleRuntimes" => list(String.t() | atom()),
+        "CreatedDate" => String.t() | atom(),
+        "Version" => float()
+      }
+
+  """
+  @type aws_lambda_layer_version_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details() :: %{
         "Enabled" => boolean()
       }
 
   """
-  @type aws_ec2_client_vpn_endpoint_client_login_banner_options_details() :: %{
+  @type aws_msk_cluster_cluster_info_client_authentication_sasl_scram_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -13923,19 +12782,1056 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      aws_ec2_launch_template_data_block_device_mapping_set_ebs_details() :: %{
-        "DeleteOnTermination" => boolean(),
+      aws_ec2_client_vpn_endpoint_details() :: %{
+        "AuthenticationOptions" => list(aws_ec2_client_vpn_endpoint_authentication_options_details()),
+        "ClientCidrBlock" => String.t() | atom(),
+        "ClientConnectOptions" => aws_ec2_client_vpn_endpoint_client_connect_options_details(),
+        "ClientLoginBannerOptions" => aws_ec2_client_vpn_endpoint_client_login_banner_options_details(),
+        "ClientVpnEndpointId" => String.t() | atom(),
+        "ConnectionLogOptions" => aws_ec2_client_vpn_endpoint_connection_log_options_details(),
+        "Description" => String.t() | atom(),
+        "DnsServer" => list(String.t() | atom()),
+        "SecurityGroupIdSet" => list(String.t() | atom()),
+        "SelfServicePortalUrl" => String.t() | atom(),
+        "ServerCertificateArn" => String.t() | atom(),
+        "SessionTimeoutHours" => integer(),
+        "SplitTunnel" => boolean(),
+        "TransportProtocol" => String.t() | atom(),
+        "VpcId" => String.t() | atom(),
+        "VpnPort" => integer()
+      }
+
+  """
+  @type aws_ec2_client_vpn_endpoint_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elasticsearch_domain_service_software_options() :: %{
+        "AutomatedUpdateDate" => String.t() | atom(),
+        "Cancellable" => boolean(),
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
+        "UpdateAvailable" => boolean(),
+        "UpdateStatus" => String.t() | atom()
+      }
+
+  """
+  @type aws_elasticsearch_domain_service_software_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integer_list_configuration_options() :: %{
+        "DefaultValue" => list(integer()),
+        "Max" => integer(),
+        "MaxItems" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type integer_list_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_count() :: %{
+        "AllResources" => float()
+      }
+
+  """
+  @type resources_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
+        "DeviceName" => String.t() | atom(),
+        "Ebs" => aws_auto_scaling_launch_configuration_block_device_mappings_ebs_details(),
+        "NoDevice" => boolean(),
+        "VirtualName" => String.t() | atom()
+      }
+
+  """
+  @type aws_auto_scaling_launch_configuration_block_device_mappings_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      enable_import_findings_for_product_request() :: %{
+        required("ProductArn") => String.t() | atom()
+      }
+
+  """
+  @type enable_import_findings_for_product_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      propagating_vgw_set_details() :: %{
+        "GatewayId" => String.t() | atom()
+      }
+
+  """
+  @type propagating_vgw_set_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
+        "Enabled" => boolean(),
+        "KmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type aws_open_search_service_domain_encryption_at_rest_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_cluster_security_group() :: %{
+        "ClusterSecurityGroupName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_cluster_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_cluster_details() :: %{
+        "BackupRetentionPeriod" => integer(),
+        "Endpoint" => String.t() | atom(),
+        "IamDatabaseAuthenticationEnabled" => boolean(),
+        "ClusterCreateTime" => String.t() | atom(),
+        "CustomEndpoints" => list(String.t() | atom()),
+        "CopyTagsToSnapshot" => boolean(),
+        "MasterUsername" => String.t() | atom(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "AssociatedRoles" => list(aws_rds_db_cluster_associated_role()),
+        "DomainMemberships" => list(aws_rds_db_domain_membership()),
+        "DbClusterParameterGroup" => String.t() | atom(),
+        "DbClusterIdentifier" => String.t() | atom(),
+        "ActivityStreamStatus" => String.t() | atom(),
+        "ReaderEndpoint" => String.t() | atom(),
+        "CrossAccountClone" => boolean(),
+        "HostedZoneId" => String.t() | atom(),
+        "EnabledCloudWatchLogsExports" => list(String.t() | atom()),
+        "ReadReplicaIdentifiers" => list(String.t() | atom()),
+        "MultiAz" => boolean(),
+        "Status" => String.t() | atom(),
+        "StorageEncrypted" => boolean(),
+        "DbClusterResourceId" => String.t() | atom(),
+        "KmsKeyId" => String.t() | atom(),
+        "EngineMode" => String.t() | atom(),
+        "DeletionProtection" => boolean(),
+        "DbClusterMembers" => list(aws_rds_db_cluster_member()),
+        "AllocatedStorage" => integer(),
+        "EngineVersion" => String.t() | atom(),
+        "DbClusterOptionGroupMemberships" => list(aws_rds_db_cluster_option_group_membership()),
+        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
+        "HttpEndpointEnabled" => boolean(),
+        "Engine" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "DbSubnetGroup" => String.t() | atom(),
+        "PreferredBackupWindow" => String.t() | atom(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "Port" => integer()
+      }
+
+  """
+  @type aws_rds_db_cluster_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check() :: %{
+        "ConnectorStatus" => list(any()),
+        "LastCheckedAt" => non_neg_integer(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type health_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_automation_rules_request() :: %{
+        required("AutomationRulesArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_automation_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_redshift_cluster_details() :: %{
+        "ClusterSnapshotCopyStatus" => aws_redshift_cluster_cluster_snapshot_copy_status(),
+        "ClusterNodes" => list(aws_redshift_cluster_cluster_node()),
+        "ElasticResizeNumberOfNodeOptions" => String.t() | atom(),
+        "ClusterRevisionNumber" => String.t() | atom(),
+        "NodeType" => String.t() | atom(),
+        "ClusterStatus" => String.t() | atom(),
+        "Endpoint" => aws_redshift_cluster_endpoint(),
+        "LoggingStatus" => aws_redshift_cluster_logging_status(),
+        "ExpectedNextSnapshotScheduleTimeStatus" => String.t() | atom(),
+        "ClusterAvailabilityStatus" => String.t() | atom(),
+        "ClusterCreateTime" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "ClusterIdentifier" => String.t() | atom(),
+        "PubliclyAccessible" => boolean(),
+        "ManualSnapshotRetentionPeriod" => integer(),
+        "ElasticIpStatus" => aws_redshift_cluster_elastic_ip_status(),
+        "MaintenanceTrackName" => String.t() | atom(),
+        "ClusterPublicKey" => String.t() | atom(),
+        "EnhancedVpcRouting" => boolean(),
+        "SnapshotScheduleIdentifier" => String.t() | atom(),
+        "SnapshotScheduleState" => String.t() | atom(),
+        "IamRoles" => list(aws_redshift_cluster_iam_role()),
+        "RestoreStatus" => aws_redshift_cluster_restore_status(),
+        "VpcId" => String.t() | atom(),
+        "NumberOfNodes" => integer(),
         "Encrypted" => boolean(),
+        "KmsKeyId" => String.t() | atom(),
+        "ClusterSubnetGroupName" => String.t() | atom(),
+        "ClusterParameterGroups" => list(aws_redshift_cluster_cluster_parameter_group()),
+        "DeferredMaintenanceWindows" => list(aws_redshift_cluster_deferred_maintenance_window()),
+        "AvailabilityZone" => String.t() | atom(),
+        "PendingModifiedValues" => aws_redshift_cluster_pending_modified_values(),
+        "ClusterVersion" => String.t() | atom(),
+        "ResizeInfo" => aws_redshift_cluster_resize_info(),
+        "HsmStatus" => aws_redshift_cluster_hsm_status(),
+        "PendingActions" => list(String.t() | atom()),
+        "AutomatedSnapshotRetentionPeriod" => integer(),
+        "ClusterSecurityGroups" => list(aws_redshift_cluster_cluster_security_group()),
+        "VpcSecurityGroups" => list(aws_redshift_cluster_vpc_security_group()),
+        "ExpectedNextSnapshotScheduleTime" => String.t() | atom(),
+        "AllowVersionUpgrade" => boolean(),
+        "PreferredMaintenanceWindow" => String.t() | atom(),
+        "NextMaintenanceWindowStartTime" => String.t() | atom(),
+        "DBName" => String.t() | atom()
+      }
+
+  """
+  @type aws_redshift_cluster_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_notification_configuration_detail() :: %{
+        "Destination" => String.t() | atom(),
+        "Events" => list(String.t() | atom()),
+        "Filter" => aws_s3_bucket_notification_configuration_filter(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_notification_configuration_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_guard_duty_detector_details() :: %{
+        "DataSources" => aws_guard_duty_detector_data_sources_details(),
+        "Features" => list(aws_guard_duty_detector_features_details()),
+        "FindingPublishingFrequency" => String.t() | atom(),
+        "ServiceRole" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_guard_duty_detector_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_recommended_policy_v2_request() :: %{}
+
+  """
+  @type generate_recommended_policy_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_hub_request() :: %{
+        optional("HubArn") => String.t() | atom()
+      }
+
+  """
+  @type describe_hub_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resources_trends_v2_request() :: %{
+        optional("Filters") => resources_trends_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("EndTime") => non_neg_integer(),
+        required("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_resources_trends_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_elb_load_balancer_policies() :: %{
+        "AppCookieStickinessPolicies" => list(aws_elb_app_cookie_stickiness_policy()),
+        "LbCookieStickinessPolicies" => list(aws_elb_lb_cookie_stickiness_policy()),
+        "OtherPolicies" => list(String.t() | atom())
+      }
+
+  """
+  @type aws_elb_load_balancer_policies() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_scopes() :: %{
+        "AwsOrganizations" => list(aws_organization_scope())
+      }
+
+  """
+  @type finding_scopes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insights_response() :: %{
+        "Insights" => list(insight()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_volume_attachment() :: %{
+        "AttachTime" => String.t() | atom(),
+        "DeleteOnTermination" => boolean(),
+        "InstanceId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_volume_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      volume_mount() :: %{
+        "MountPath" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type volume_mount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_policy_association_summary() :: %{
+        "AssociationStatus" => list(any()),
+        "AssociationStatusMessage" => String.t() | atom(),
+        "AssociationType" => list(any()),
+        "ConfigurationPolicyId" => String.t() | atom(),
+        "TargetId" => String.t() | atom(),
+        "TargetType" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type configuration_policy_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provider_summary() :: %{
+        "ConnectorStatus" => list(any()),
+        "ProviderName" => list(any())
+      }
+
+  """
+  @type provider_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_cluster_config_zone_awareness_config_details() :: %{
+        "AvailabilityZoneCount" => integer()
+      }
+
+  """
+  @type aws_open_search_service_domain_cluster_config_zone_awareness_config_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_waf_regional_rule_predicate_list_details() :: %{
+        "DataId" => String.t() | atom(),
+        "Negated" => boolean(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_waf_regional_rule_predicate_list_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automation_rule_v2_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("RuleStatus") => list(any()),
+        optional("Tags") => map(),
+        required("Actions") => list(automation_rules_action_v2()),
+        required("Criteria") => list(),
+        required("Description") => String.t() | atom(),
+        required("RuleName") => String.t() | atom(),
+        required("RuleOrder") => float()
+      }
+
+  """
+  @type create_automation_rule_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details() :: %{
+        "Max" => integer(),
+        "Min" => integer()
+      }
+
+  """
+  @type aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      describe_products_v2_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProductsV2" => list(product_v2())
+      }
+
+  """
+  @type describe_products_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
+        "Flags" => list(String.t() | atom()),
+        "Masks" => list(String.t() | atom())
+      }
+
+  """
+  @type rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_dynamo_db_table_key_schema() :: %{
+        "AttributeName" => String.t() | atom(),
+        "KeyType" => String.t() | atom()
+      }
+
+  """
+  @type aws_dynamo_db_table_key_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_service_placement_constraints_details() :: %{
+        "Expression" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_service_placement_constraints_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_security_finding() :: %{
+        "Remediation" => remediation(),
+        "Note" => note(),
+        "RecordState" => list(any()),
+        "Region" => String.t() | atom(),
+        "Network" => network(),
+        "GeneratorId" => String.t() | atom(),
+        "Threats" => list(threat()),
+        "WorkflowState" => list(any()),
+        "Id" => String.t() | atom(),
+        "Severity" => severity(),
+        "ProductArn" => String.t() | atom(),
+        "AwsAccountName" => String.t() | atom(),
+        "SchemaVersion" => String.t() | atom(),
+        "Vulnerabilities" => list(vulnerability()),
+        "Resources" => list(resource()),
+        "Title" => String.t() | atom(),
+        "CreatedAt" => String.t() | atom(),
+        "FindingProviderFields" => finding_provider_fields(),
+        "UpdatedAt" => String.t() | atom(),
+        "UserDefinedFields" => map(),
+        "RelatedFindings" => list(related_finding()),
+        "FirstObservedAt" => String.t() | atom(),
+        "ProductName" => String.t() | atom(),
+        "Confidence" => integer(),
+        "Workflow" => workflow(),
+        "AwsAccountId" => String.t() | atom(),
+        "Criticality" => integer(),
+        "Description" => String.t() | atom(),
+        "GeneratorDetails" => generator_details(),
+        "ProcessedAt" => String.t() | atom(),
+        "Types" => list(String.t() | atom()),
+        "Compliance" => compliance(),
+        "Detection" => detection(),
+        "Process" => process_details(),
+        "VerificationState" => list(any()),
+        "NetworkPath" => list(network_path_component()),
+        "ThreatIntelIndicators" => list(threat_intel_indicator()),
+        "ProductFields" => map(),
+        "CompanyName" => String.t() | atom(),
+        "LastObservedAt" => String.t() | atom(),
+        "Action" => action(),
+        "Sample" => boolean(),
+        "Malware" => list(malware()),
+        "PatchSummary" => patch_summary(),
+        "SourceUrl" => String.t() | atom()
+      }
+
+  """
+  @type aws_security_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_insight_results_request() :: %{}
+
+  """
+  @type get_insight_results_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_website_configuration_redirect_to() :: %{
+        "Hostname" => String.t() | atom(),
+        "Protocol" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_website_configuration_redirect_to() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ocsf_map_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => map_filter()
+      }
+
+  """
+  @type ocsf_map_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_group_source_stateless_rules_and_custom_actions_details() :: %{
+        "CustomActions" => list(rule_group_source_custom_actions_details()),
+        "StatelessRules" => list(rule_group_source_stateless_rules_details())
+      }
+
+  """
+  @type rule_group_source_stateless_rules_and_custom_actions_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      enum_configuration_options() :: %{
+        "AllowedValues" => list(String.t() | atom()),
+        "DefaultValue" => String.t() | atom()
+      }
+
+  """
+  @type enum_configuration_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_efs_access_point_details() :: %{
+        "AccessPointId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "ClientToken" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "PosixUser" => aws_efs_access_point_posix_user_details(),
+        "RootDirectory" => aws_efs_access_point_root_directory_details()
+      }
+
+  """
+  @type aws_efs_access_point_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessed_standards_control_association() :: %{
+        "ErrorCode" => list(any()),
+        "ErrorReason" => String.t() | atom(),
+        "StandardsControlAssociationId" => standards_control_association_id()
+      }
+
+  """
+  @type unprocessed_standards_control_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      patch_summary() :: %{
+        "FailedCount" => integer(),
+        "Id" => String.t() | atom(),
+        "InstalledCount" => integer(),
+        "InstalledOtherCount" => integer(),
+        "InstalledPendingReboot" => integer(),
+        "InstalledRejectedCount" => integer(),
+        "MissingCount" => integer(),
+        "Operation" => String.t() | atom(),
+        "OperationEndTime" => String.t() | atom(),
+        "OperationStartTime" => String.t() | atom(),
+        "RebootOption" => String.t() | atom()
+      }
+
+  """
+  @type patch_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
+        "ReadOnly" => boolean(),
+        "SourceContainer" => String.t() | atom()
+      }
+
+  """
+  @type aws_ecs_task_definition_container_definitions_volumes_from_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_invitations_request() :: %{
+        required("AccountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_invitations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      icmp_type_code() :: %{
+        "Code" => integer(),
+        "Type" => integer()
+      }
+
+  """
+  @type icmp_type_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_network_acl_details() :: %{
+        "Associations" => list(aws_ec2_network_acl_association()),
+        "Entries" => list(aws_ec2_network_acl_entry()),
+        "IsDefault" => boolean(),
+        "NetworkAclId" => String.t() | atom(),
+        "OwnerId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_network_acl_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_control_definitions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SecurityControlDefinitions" => list(security_control_definition())
+      }
+
+  """
+  @type list_security_control_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_open_search_service_domain_service_software_options_details() :: %{
+        "AutomatedUpdateDate" => String.t() | atom(),
+        "Cancellable" => boolean(),
+        "CurrentVersion" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "NewVersion" => String.t() | atom(),
+        "OptionalDeployment" => boolean(),
+        "UpdateAvailable" => boolean(),
+        "UpdateStatus" => String.t() | atom()
+      }
+
+  """
+  @type aws_open_search_service_domain_service_software_options_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      aws_route53_hosted_zone_details() :: %{
+        "HostedZone" => aws_route53_hosted_zone_object_details(),
+        "NameServers" => list(String.t() | atom()),
+        "QueryLoggingConfig" => aws_route53_query_logging_config_details(),
+        "Vpcs" => list(aws_route53_hosted_zone_vpc_details())
+      }
+
+  """
+  @type aws_route53_hosted_zone_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_formation_stack_details() :: %{
+        "Capabilities" => list(String.t() | atom()),
+        "CreationTime" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DisableRollback" => boolean(),
+        "DriftInformation" => aws_cloud_formation_stack_drift_information_details(),
+        "EnableTerminationProtection" => boolean(),
+        "LastUpdatedTime" => String.t() | atom(),
+        "NotificationArns" => list(String.t() | atom()),
+        "Outputs" => list(aws_cloud_formation_stack_outputs_details()),
+        "RoleArn" => String.t() | atom(),
+        "StackId" => String.t() | atom(),
+        "StackName" => String.t() | atom(),
+        "StackStatus" => String.t() | atom(),
+        "StackStatusReason" => String.t() | atom(),
+        "TimeoutInMinutes" => integer()
+      }
+
+  """
+  @type aws_cloud_formation_stack_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_api_gateway_method_settings() :: %{
+        "CacheDataEncrypted" => boolean(),
+        "CacheTtlInSeconds" => integer(),
+        "CachingEnabled" => boolean(),
+        "DataTraceEnabled" => boolean(),
+        "HttpMethod" => String.t() | atom(),
+        "LoggingLevel" => String.t() | atom(),
+        "MetricsEnabled" => boolean(),
+        "RequireAuthorizationForCacheControl" => boolean(),
+        "ResourcePath" => String.t() | atom(),
+        "ThrottlingBurstLimit" => integer(),
+        "ThrottlingRateLimit" => float(),
+        "UnauthorizedCacheControlHeaderStrategy" => String.t() | atom()
+      }
+
+  """
+  @type aws_api_gateway_method_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      port_range() :: %{
+        "Begin" => integer(),
+        "End" => integer()
+      }
+
+  """
+  @type port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_aggregator_v2_request() :: %{}
+
+  """
+  @type delete_aggregator_v2_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_step_function_state_machine_details() :: %{
+        "Label" => String.t() | atom(),
+        "LoggingConfiguration" => aws_step_function_state_machine_logging_configuration_details(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "StateMachineArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "TracingConfiguration" => aws_step_function_state_machine_tracing_configuration_details(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type aws_step_function_state_machine_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_route_table_details() :: %{
+        "AssociationSet" => list(association_set_details()),
+        "OwnerId" => String.t() | atom(),
+        "PropagatingVgwSet" => list(propagating_vgw_set_details()),
+        "RouteSet" => list(route_set_details()),
+        "RouteTableId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_route_table_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resources_trends_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => string_filter()
+      }
+
+  """
+  @type resources_trends_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_lambda_function_environment() :: %{
+        "Error" => aws_lambda_function_environment_error(),
+        "Variables" => map()
+      }
+
+  """
+  @type aws_lambda_function_environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_cloud_formation_stack_outputs_details() :: %{
+        "Description" => String.t() | atom(),
+        "OutputKey" => String.t() | atom(),
+        "OutputValue" => String.t() | atom()
+      }
+
+  """
+  @type aws_cloud_formation_stack_outputs_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_invitations_response() :: %{
+        "UnprocessedAccounts" => list(result())
+      }
+
+  """
+  @type delete_invitations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_members_request() :: %{
+        required("AccountIds") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_rds_db_snapshot_details() :: %{
+        "AllocatedStorage" => integer(),
+        "AvailabilityZone" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
+        "DbSnapshotIdentifier" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
+        "Encrypted" => boolean(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom(),
+        "IamDatabaseAuthenticationEnabled" => boolean(),
+        "InstanceCreateTime" => String.t() | atom(),
         "Iops" => integer(),
         "KmsKeyId" => String.t() | atom(),
-        "SnapshotId" => String.t() | atom(),
-        "Throughput" => integer(),
-        "VolumeSize" => integer(),
-        "VolumeType" => String.t() | atom()
+        "LicenseModel" => String.t() | atom(),
+        "MasterUsername" => String.t() | atom(),
+        "OptionGroupName" => String.t() | atom(),
+        "PercentProgress" => integer(),
+        "Port" => integer(),
+        "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
+        "SnapshotCreateTime" => String.t() | atom(),
+        "SnapshotType" => String.t() | atom(),
+        "SourceDbSnapshotIdentifier" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StorageType" => String.t() | atom(),
+        "TdeCredentialArn" => String.t() | atom(),
+        "Timezone" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
       }
 
   """
-  @type aws_ec2_launch_template_data_block_device_mapping_set_ebs_details() :: %{
+  @type aws_rds_db_snapshot_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard() :: %{
+        "Description" => String.t() | atom(),
+        "EnabledByDefault" => boolean(),
+        "Name" => String.t() | atom(),
+        "StandardsArn" => String.t() | atom(),
+        "StandardsManagedBy" => standards_managed_by()
+      }
+
+  """
+  @type standard() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_athena_work_group_configuration_result_configuration_details() :: %{
+        "EncryptionConfiguration" => aws_athena_work_group_configuration_result_configuration_encryption_configuration_details()
+      }
+
+  """
+  @type aws_athena_work_group_configuration_result_configuration_details() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -13943,783 +13839,887 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
-      get_resources_trends_v2_response() :: %{
-        "Granularity" => list(any()),
-        "NextToken" => String.t() | atom(),
-        "TrendsMetrics" => list(resources_trends_metrics_result())
+      aws_ec2_launch_template_details() :: %{
+        "DefaultVersionNumber" => float(),
+        "Id" => String.t() | atom(),
+        "LatestVersionNumber" => float(),
+        "LaunchTemplateData" => aws_ec2_launch_template_data_details(),
+        "LaunchTemplateName" => String.t() | atom()
       }
 
   """
-  @type get_resources_trends_v2_response() :: %{(String.t() | atom()) => any()}
+  @type aws_ec2_launch_template_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      decline_invitations_response() :: %{
+        "UnprocessedAccounts" => list(result())
+      }
+
+  """
+  @type decline_invitations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_policy_response() :: %{}
+
+  """
+  @type delete_configuration_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_website_configuration() :: %{
+        "ErrorDocument" => String.t() | atom(),
+        "IndexDocumentSuffix" => String.t() | atom(),
+        "RedirectAllRequestsTo" => aws_s3_bucket_website_configuration_redirect_to(),
+        "RoutingRules" => list(aws_s3_bucket_website_configuration_routing_rule())
+      }
+
+  """
+  @type aws_s3_bucket_website_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_action_target_request() :: %{}
+
+  """
+  @type delete_action_target_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_wafv2_rules_action_details() :: %{
+        "Allow" => aws_wafv2_action_allow_details(),
+        "Block" => aws_wafv2_action_block_details(),
+        "Captcha" => aws_wafv2_rules_action_captcha_details(),
+        "Count" => aws_wafv2_rules_action_count_details()
+      }
+
+  """
+  @type aws_wafv2_rules_action_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() :: %{
+        "Days" => integer(),
+        "StorageClass" => String.t() | atom()
+      }
+
+  """
+  @type aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details() ::
+          %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_import_findings_request() :: %{
+        required("Findings") => list(aws_security_finding())
+      }
+
+  """
+  @type batch_import_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_ec2_vpn_connection_details() :: %{
+        "Category" => String.t() | atom(),
+        "CustomerGatewayConfiguration" => String.t() | atom(),
+        "CustomerGatewayId" => String.t() | atom(),
+        "Options" => aws_ec2_vpn_connection_options_details(),
+        "Routes" => list(aws_ec2_vpn_connection_routes_details()),
+        "State" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "VgwTelemetry" => list(aws_ec2_vpn_connection_vgw_telemetry_details()),
+        "VpnConnectionId" => String.t() | atom(),
+        "VpnGatewayId" => String.t() | atom()
+      }
+
+  """
+  @type aws_ec2_vpn_connection_details() :: %{(String.t() | atom()) => any()}
 
   @type accept_administrator_invitation_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type accept_invitation_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type batch_delete_automation_rules_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type batch_disable_standards_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type batch_enable_standards_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type batch_get_automation_rules_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type batch_get_configuration_policy_associations_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type batch_get_security_controls_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type batch_get_standards_control_associations_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type batch_import_findings_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type batch_update_automation_rules_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type batch_update_findings_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type batch_update_findings_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_update_standards_control_associations_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type create_action_target_errors() ::
-          resource_conflict_exception()
-          | limit_exceeded_exception()
+          invalid_input_exception()
+          | resource_conflict_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type create_aggregator_v2_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_automation_rule_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type create_automation_rule_v2_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_configuration_policy_errors() ::
-          resource_conflict_exception()
+          invalid_input_exception()
+          | resource_conflict_exception()
+          | internal_exception()
+          | invalid_access_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_exception()
-          | invalid_input_exception()
-          | invalid_access_exception()
 
   @type create_connector_v2_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_finding_aggregator_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type create_insight_errors() ::
-          resource_conflict_exception()
-          | limit_exceeded_exception()
+          invalid_input_exception()
+          | resource_conflict_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type create_members_errors() ::
-          resource_conflict_exception()
+          invalid_input_exception()
+          | resource_conflict_exception()
+          | internal_exception()
+          | invalid_access_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_exception()
-          | invalid_input_exception()
-          | invalid_access_exception()
 
   @type create_ticket_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type decline_invitations_errors() ::
-          internal_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
 
   @type delete_action_target_errors() ::
-          internal_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
 
   @type delete_aggregator_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_automation_rule_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_configuration_policy_errors() ::
-          resource_conflict_exception()
+          invalid_input_exception()
+          | resource_conflict_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | invalid_access_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_exception()
-          | invalid_input_exception()
-          | resource_not_found_exception()
-          | invalid_access_exception()
 
   @type delete_connector_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_finding_aggregator_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type delete_insight_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type delete_invitations_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type delete_members_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type describe_action_targets_errors() ::
-          internal_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
 
   @type describe_hub_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type describe_organization_configuration_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type describe_products_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type describe_products_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_security_hub_v2_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type describe_standards_errors() ::
-          internal_exception() | invalid_input_exception() | invalid_access_exception()
+          invalid_input_exception() | internal_exception() | invalid_access_exception()
 
   @type describe_standards_controls_errors() ::
-          internal_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
 
   @type disable_import_findings_for_product_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type disable_organization_admin_account_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type disable_security_hub_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
-          | internal_exception()
+          internal_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type disable_security_hub_v2_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type disassociate_from_administrator_account_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type disassociate_from_master_account_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type disassociate_members_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type enable_import_findings_for_product_errors() ::
-          resource_conflict_exception()
-          | limit_exceeded_exception()
+          invalid_input_exception()
+          | resource_conflict_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type enable_organization_admin_account_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type enable_security_hub_errors() ::
           resource_conflict_exception()
+          | internal_exception()
+          | invalid_access_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
-          | internal_exception()
-          | invalid_access_exception()
 
   @type enable_security_hub_v2_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type generate_recommended_policy_v2_errors() ::
-          throttling_exception()
+          invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | invalid_input_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_administrator_account_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_aggregator_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_automation_rule_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_configuration_policy_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type get_configuration_policy_association_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type get_connector_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_enabled_standards_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_finding_aggregator_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type get_finding_history_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_finding_statistics_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | organization_not_found_exception()
+          | internal_server_exception()
+          | organizational_unit_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | organization_not_found_exception()
-          | conflict_exception()
-          | organizational_unit_not_found_exception()
+          | throttling_exception()
 
   @type get_findings_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_findings_trends_v2_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_findings_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | organization_not_found_exception()
+          | internal_server_exception()
+          | organizational_unit_not_found_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | organization_not_found_exception()
-          | conflict_exception()
-          | organizational_unit_not_found_exception()
+          | throttling_exception()
 
   @type get_insight_results_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_insights_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_invitations_count_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_master_account_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_members_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type get_recommended_policy_v2_errors() ::
-          throttling_exception()
+          invalid_input_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | invalid_input_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resources_statistics_v2_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | organization_not_found_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
           | organizational_unit_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_resources_trends_v2_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_resources_v2_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | organization_not_found_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
           | organizational_unit_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_security_control_definition_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type invite_members_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type list_aggregators_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_automation_rules_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type list_automation_rules_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_configuration_policies_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type list_configuration_policy_associations_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type list_connectors_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_enabled_products_for_import_errors() ::
-          limit_exceeded_exception() | internal_exception() | invalid_access_exception()
+          internal_exception() | invalid_access_exception() | limit_exceeded_exception()
 
   @type list_finding_aggregators_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type list_invitations_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type list_members_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type list_organization_admin_accounts_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type list_security_control_definitions_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type list_standards_control_associations_errors() ::
-          limit_exceeded_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_exception() | invalid_input_exception() | resource_not_found_exception()
+          invalid_input_exception() | internal_exception() | resource_not_found_exception()
 
   @type register_connector_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_configuration_policy_association_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type start_configuration_policy_disassociation_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          internal_exception() | invalid_input_exception() | resource_not_found_exception()
+          invalid_input_exception() | internal_exception() | resource_not_found_exception()
 
   @type untag_resource_errors() ::
-          internal_exception() | invalid_input_exception() | resource_not_found_exception()
+          invalid_input_exception() | internal_exception() | resource_not_found_exception()
 
   @type update_action_target_errors() ::
-          internal_exception()
-          | invalid_input_exception()
+          invalid_input_exception()
+          | internal_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
 
   @type update_aggregator_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_automation_rule_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_configuration_policy_errors() ::
-          resource_conflict_exception()
-          | limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
+          | resource_conflict_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type update_connector_v2_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_finding_aggregator_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
-
-  @type update_findings_errors() ::
-          limit_exceeded_exception()
-          | internal_exception()
-          | invalid_input_exception()
-          | resource_not_found_exception()
-          | invalid_access_exception()
-
-  @type update_insight_errors() ::
-          limit_exceeded_exception()
-          | internal_exception()
-          | invalid_input_exception()
-          | resource_not_found_exception()
-          | invalid_access_exception()
-
-  @type update_organization_configuration_errors() ::
-          resource_conflict_exception()
           | limit_exceeded_exception()
           | access_denied_exception()
+
+  @type update_findings_errors() ::
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+
+  @type update_insight_errors() ::
+          invalid_input_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | invalid_access_exception()
+          | limit_exceeded_exception()
+
+  @type update_organization_configuration_errors() ::
+          invalid_input_exception()
+          | resource_conflict_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type update_security_control_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
+          | resource_in_use_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
-          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type update_security_hub_configuration_errors() ::
-          limit_exceeded_exception()
-          | access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type update_standards_control_errors() ::
-          access_denied_exception()
+          invalid_input_exception()
           | internal_exception()
-          | invalid_input_exception()
           | resource_not_found_exception()
           | invalid_access_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
